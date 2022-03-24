@@ -1,0 +1,25 @@
+name: ci
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Document Version'
+        required: true
+        default: '0.3.0'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands
+        uses: appleboy/ssh-action@master
+        with:
+            host: ${{ secrets.DOCSSERVER1 }}
+            username: ${{ secrets.SERVERUSER }}
+            password: ${{ secrets.SERVERPASSWORD }}
+            port: ${{ secrets.SERVERPORT }}
+            script: cd /data
+                    && rm -rf matrixorigin.io
+                    && git clone --recursive git@github.com:matrixorigin/matrixorigin.io.cn.git
+                    && cd matrixorigin.io.cn/scripts
+                    && ./upgrade.sh ${{ github.event.inputs.version }} ${{ secrets.DOCKERHUBPASSWORD }}
