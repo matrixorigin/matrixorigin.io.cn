@@ -1,0 +1,113 @@
+site_name: MatrixOne中文文档
+repo_name: matrixorigin/matrixone
+repo_url: https://github.com/matrixorigin/matrixone
+theme:
+  name: material
+  logo: assets/logo.png
+  icon:
+    admonition:
+      note: fontawesome/solid/sticky-note
+      info: fontawesome/solid/info-circle
+  features:
+    - navigation.instant  
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+  palette:
+    scheme: mo
+  font:
+    text: Ubuntu
+edit_uri: edit/main/docs/cn/
+extra_css:
+  - stylesheets/extra.css
+extra:
+  homepage: https://www.matrixorigin.cn
+  version:
+    provider: mike
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+nav:
+  - MatrixOne:
+    - Home: README.md
+    - Overview: 
+      - MatrixOne简介: MatrixOne/Overview/matrixone-introduction.md
+      - MatrixOne架构: MatrixOne/Overview/matrixone-architecture.md
+      - MatrixCube技术设计: 
+        - MatrixCube简介: MatrixOne/Overview/matrixcube/matrixcube-introduction.md
+        - 自平衡与调度: MatrixOne/Overview/matrixcube/matrixcube-auto-rebalance-scheduling.md
+        - 数据分片拆分: MatrixOne/Overview/matrixcube/matrixcube-shard-splitting.md
+        - 代理与路由: MatrixOne/Overview/matrixcube/matrixcube-proxy-routing.md
+      - MySQL兼容性: MatrixOne/Overview/mysql-compatibility.md
+      - 性能测试报告:
+        - SSB测试报告: MatrixOne/Overview/SSB Test Performance.md
+        - NYC纽约出租车测试报告: MatrixOne/Overview/NYC Test Performance.md
+      - 最新动态: MatrixOne/Overview/whats-new.md
+    - 快速上手: 
+      - 安装单机版MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
+      - 安装分布式版本MatrixOne: MatrixOne/Get-Started/install-distributed-matrixone.md
+      - 连接MatrixOne实例: MatrixOne/Get-Started/connect-to-matrixone-server.md
+      - 测试指引:
+        - SSB测试指引: MatrixOne/Get-Started/Tutorial/SSB-test-with-matrixone.md
+        - NYC纽约出租车测试指引: MatrixOne/Get-Started/Tutorial/NYC-test-with-matrixone.md
+      - Playground在线体验: MatrixOne/Get-Started/Playground.md
+    - 功能参考目录:
+      - SQL目录: 
+        - DDL:
+          - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-database.md
+          - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-table.md
+          - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-database.md
+          - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-table.md
+          - CREATE INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-index.md
+          - DROP INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-index.md
+          - PRIMARY KEY: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/primary-key.md
+        - DML:
+          - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/insert.md
+          - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md
+          - SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/select.md
+          - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/show-databases.md
+          - SHOW TABLES: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/show-tables.md
+          - USE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/use.md
+          - LIKE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/like.md
+          - IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/in.md
+          - CAST: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/cast.md
+          - INNER JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/inner-join.md
+        - 聚合函数:
+          - AVG: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/avg.md
+          - COUNT: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/count.md
+          - MAX: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/max.md
+          - MIN: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/min.md
+          - SUM: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/sum.md
+        - 数据类型: MatrixOne/Reference/SQL-Reference/data-types.md
+      - 系统函数:
+        - LENGTH(): MatrixOne/Reference/Customer-Functions/length.md
+        - FLOOR(): MatrixOne/Reference/Customer-Functions/floor.md
+        - ROUND(): MatrixOne/Reference/Customer-Functions/round.md
+        - YEAR(): MatrixOne/Reference/Customer-Functions/year.md
+      - 系统配置: 
+        - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
+        - 分布式配置: MatrixOne/Reference/System-Parameters/distributed-settings.md
+    - 常见问答:
+      - 通用问答: MatrixOne/FAQs/general-faqs.md
+    - 版本纪要:
+      - v0.1.0: MatrixOne/Release-Notes/v0.1.0.md
+      - v0.2.0: MatrixOne/Release-Notes/v0.2.0.md
+      - v0.3.0: MatrixOne/Release-Notes/v0.3.0.md
+    - 名词释义表: MatrixOne/glossary.md
+    - 贡献指南: 
+      - 快速贡献: MatrixOne/Contribution-Guide/make-your-first-contribution.md
+      - 贡献指南: 
+        - 有哪些贡献类型: MatrixOne/Contribution-Guide/How-to-Contribute/types-of-contributions.md
+        - 贡献准备: MatrixOne/Contribution-Guide/How-to-Contribute/preparation.md
+        - 报告Issue: MatrixOne/Contribution-Guide/How-to-Contribute/report-an-issue.md
+        - 贡献代码: MatrixOne/Contribution-Guide/How-to-Contribute/contribute-code.md
+        - 审核修改: MatrixOne/Contribution-Guide/How-to-Contribute/review-a-pull-request.md
+        - 文档贡献: MatrixOne/Contribution-Guide/How-to-Contribute/contribute-documentation.md
+        - 提出设计草案: MatrixOne/Contribution-Guide/How-to-Contribute/make-a-design.md
+      - 代码规范: 
+        - 编码规范: MatrixOne/Contribution-Guide/Code-Style/code-of-conduct.md
+        - 注释规范: MatrixOne/Contribution-Guide/Code-Style/code-comment-style.md
+        - 提交规范: MatrixOne/Contribution-Guide/Code-Style/commit-pr-style.md
+  - 快速体验:
+    - Playground: https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1
