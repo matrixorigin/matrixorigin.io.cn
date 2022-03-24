@@ -1,0 +1,3 @@
+[submodule "submodules/matrixone"]
+	path = submodules/matrixone
+	url = git@github.com:matrixorigin/matrixone.git
