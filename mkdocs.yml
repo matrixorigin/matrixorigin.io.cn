@@ -24,6 +24,13 @@ extra:
   homepage: https://www.matrixorigin.cn
   version:
     provider: mike
+  alternate:
+    - name: English
+      link: https://docs.matrixorigin.io
+      lang: en
+    - name: 中文简体
+      link: https://docs.matrixorigin.io/cn/
+      lang: cn
 markdown_extensions:
   - admonition
   - pymdownx.details
