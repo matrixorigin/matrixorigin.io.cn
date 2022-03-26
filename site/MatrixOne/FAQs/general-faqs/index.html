@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#general-faqs" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -310,7 +310,7 @@
   
     <li class="md-nav__item">
       <a href="../../.." class="md-nav__link">
-        Home
+        主页
       </a>
     </li>
   
@@ -332,14 +332,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_2">
-          Overview
+          项目介绍
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Overview" data-md-level="2">
+      <nav class="md-nav" aria-label="项目介绍" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_2">
           <span class="md-nav__icon md-icon"></span>
-          Overview
+          项目介绍
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1383,8 +1383,6 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           通用问答
@@ -1401,8 +1399,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1411,8 +1407,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#product-faqs" class="md-nav__link">
-    Product FAQs
+  <a href="#_1" class="md-nav__link">
+    产品问题
   </a>
   
 </li>
@@ -1860,8 +1856,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1870,8 +1864,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#product-faqs" class="md-nav__link">
-    Product FAQs
+  <a href="#_1" class="md-nav__link">
+    产品问题
   </a>
   
 </li>
@@ -1908,82 +1902,86 @@
 
 
 
-<h1 id="general-faqs"><strong>General FAQs</strong></h1>
-<h2 id="product-faqs"><strong>Product FAQs</strong></h2>
+  <h1>通用问答</h1>
+
+<p><strong>通用问答</strong></p>
+<h2 id="_1"><strong>产品问题</strong></h2>
 <ul>
-<li><font size=4><strong>What is MatrixOne?</strong></font>
-  MatrixOne is a future-oriented hyperconverged cloud &amp; edge native DBMS that supports transactional, analytical, and streaming workload with a simplified and distributed database engine, across multiple datacenters, clouds, edges and other heterogenous infrastructures.
-  For information about MatrixOne, you can see <a href="../../Overview/matrixone-introduction/">MatrixOne Introduction</a>.
-<br></li>
-<li><font size=4><strong>What could I do with MatrxOne</strong></font>
-  MatrixOne provides users with HTAP services to support hybrid workloads: transactional, analytical, streaming, time-series, machine learning, etc. The all-in-one architecture of MO will significantly simplify database management and maintenance, single database can serve multiple data applications.<br />
-<br></li>
-<li><font size=4><strong>Is MatrixOne based on MySQL?</strong></font>
-  Despite compatible with part of MySQL syntax and semantics, MatrixOne is developed independently and in the future there will be more different semantics from MySQL because of we intend to develop MO as a hyperconverged database.<br />
-  About the compatibility with MySQL, you can see <a href="../../Overview/mysql-compatibility/">MySQL-Compatibility</a>.
-<br></li>
-<li>
-<p><font size=4><strong>What's the relationship between MatrixOne and MatrixCube?</strong></font>
-  MatrixOne is the main schema of our database, including query parser layer, compute layer, and storage layer, and thus it could achieve the functionality of standalone databases. Further, with MatrixCube, we can demploy a disturbted cluster by several servers. In a nutshell, MatrixCube is the module providing distributed system.<br />
-  For information about MatrixCube, you can see <a href="../../Overview/matrixcube/matrixcube-introduction/">MatrixCube Introduction</a>.
-<br></p>
-</li>
-<li>
-<p><font size=4><strong>Why MO is so fast?</strong></font>
-  MatrixOne achieves accelerated queries using patented vectorized execution as well as optimal computation push down strategies through factorization techniques.<br />
-  Additionally, in a distributed system, the query capability will increase by the number of nodes increases.
-<br></p>
-</li>
-<li>
-<p><font size=4><strong>Which language can I use to work with MO?</strong></font>
-  Currntly, the primary programming language used for our codes is <strong>Golang</strong>
-<br></p>
-</li>
-<li>
-<p><font size=4><strong>What platforms does MO support?</strong></font>
-  MatrixOne supports Linux and MacOS currently and in the future it will surpport more systems.
-<br></p>
-</li>
-<li>
-<p><font size=4><strong>Which engines does MO support?</strong></font>
-  Currently, there are two storage engines in MatrixOne including <strong>AOE</strong> engine and <strong>Key-Value</strong> engine. The former one is a column-storage engine represents "Append Only Engine", surpport OLAP capability:, and the later one can store <code>Catalog</code>(a component that holds the overall metadata of the database).<br />
-  In the future we will promote <strong>AOE</strong> to upgrade to an HTAP engine providing complete ACID and strong OLAP capability.
-<br></p>
-</li>
-<li>
-<p><font size=4><strong>Which MO variables are compatible with MySQL?</strong></font>
-  You can see <a href="../../Reference/SQL-Reference/data-types/">data tpyes in MatrixOne</a> to learn more about the data types we surpport.
-<br></p>
-</li>
+<li><font size=4><strong>MatrixOne究竟是什么?</strong></font></li>
 </ul>
+<p>MatrixOne是一款面向未来的超融合异构云原生数据库，通过超融合数据引擎支持事务/分析/流处理等混合工作负载，通过异构云原生架构支持跨机房协同/多地协同/云边协同。简化开发运维，消简数据碎片，打破数据的系统、位置和创新边界。<br />
+  想了解更多关于MatrixOne的信息，您可以浏览<a href="../../Overview/matrixone-introduction/">MatrixOne简介</a>。
+<br></p>
+<ul>
+<li><font size=4><strong>MatrxOne可以用来做什么</strong></font></li>
+</ul>
+<p>MatrixOne为用户提供了极致的HTAP服务，可以支持事物、分析、流处理与机器学习等混合工作负载。MO的一体化架构大大简化了数据库的运维，单个数据库便可以服务多个数据应用。
+<br></p>
+<ul>
+<li><font size=4><strong>MatrixOne是基于MySQL开发的吗?</strong></font></li>
+</ul>
+<p>尽管MatrixOne兼容MySQL的部分语法与语义，但是MatrixOne仍然独立设计，并且在未来将会产生更多与MySQL不同的语义，以便我们将之打造为一款更强大的超融合数据库。
+  关于与MySQL的兼容性，您可参见<a href="../../Overview/mysql-compatibility/">MySQL兼容性</a>。
+<br></p>
+<ul>
+<li><font size=4><strong>MatrixOne与MatrixCube有什么关系?</strong></font></li>
+</ul>
+<p>MatrixOne是我们数据库的主体部分，其包括了查询解析层、计算层、存储层，因此它可以实现单机数据库的基本功能。而在MatrixCube的加持下，我们可以通过多个服务器部署分布式集群，实现分布式数据库的功能。简而言之，MatrixCube是实现分布式系统的核心模块。<br />
+  若想了解更多关于MatrixCube的信息，您可参见<a href="../../Overview/matrixcube/matrixcube-introduction/">MatrixCube简介</a>。
+<br></p>
+<ul>
+<li><font size=4><strong>为什么MatrixOne如此高效?</strong></font></li>
+</ul>
+<p>MatrixOne主要利用了向量化执行与因子化计算技术，来实现更高效的查询。<br />
+  此外，在分布式体系中，查询性能也会随着集群中节点数目增多而提高。
+<br></p>
+<ul>
+<li><font size=4><strong>MatrixOne使用什么编程语言?</strong></font></li>
+</ul>
+<p>目前，我们主要使用<strong>Golang</strong>作为最主要的编程语言。
+<br></p>
+<ul>
+<li><font size=4><strong>MatrixOne可以在什么系统上部署?</strong></font></li>
+</ul>
+<p>目前，MatrixOne支持Linux与MacOS系统，未来将具有更广泛的适用性。
+<br></p>
+<ul>
+<li><font size=4><strong>MatrixOne提供了哪些引擎?</strong></font></li>
+</ul>
+<p>目前，MatrixOne包含两种存储引擎，分别是<strong>AOE</strong>引擎以及<strong>Key-Value</strong>引擎。前者是一个列存引擎，意味着"Append Only Engine"，提供了OLAP能力；后者存储了<code>Catalog</code>（包含了数据库中的各种元数据）。<br />
+  在未来，我们将进一步提升<strong>AOE</strong>引擎，将之升级为一个支持完整ACID规则并提供强大OLAP能力的HTAP引擎。
+<br></p>
+<ul>
+<li><font size=4><strong>MatrixOne中有哪些与MySQL兼容的变量?</strong></font></li>
+</ul>
+<p>您可以查看<a href="../../Reference/SQL-Reference/data-types/">MatrixOne中的数据类型</a>来了解目前的情况。
+<br></p>
 <h2 id="deployment-faqs"><strong>Deployment FAQs</strong></h2>
 <ul>
-<li><font size=4>Are there any hardware requirements for the server using MO?</font>
-???????
-<br></li>
+<li><font size=4><strong>MatrixOne对服务器的的配置要求如何？</strong></font></li>
 </ul>
+<p><br></p>
 <h2 id="sql-faqs"><strong>SQL FAQs</strong></h2>
 <ul>
+<li><font size=4><strong>MatrixOne中的函数和关键字是否区分大小写？</strong></font></li>
+</ul>
+<p><br></p>
+<ul>
+<li><font size=4><strong>MatrixOne是否支持<code>JOIN?</code>，支持程度如何？</strong></font></li>
+</ul>
+<p>目前，在多表场景下，我们支持在有<code>GROUP BY</code>与<code>ORDER BY</code>参与的语句中使用<code>INNER JOIN</code>。并且，在<code>INNER JOIN</code>不支持表的别名。
+<br></p>
+<ul>
 <li>
-<p><font size=4><strong>Whether functions and other keywords are case sensitive？</strong></font>
-???????
+<p><font size=4><strong>一个事务中最大的语句数是多少?</strong></font>
 <br></p>
 </li>
 <li>
-<p><font size=4><strong>Does MatrixOne support</strong> <code>JOIN?</code></font>
-  Only <code>INNER JOIN</code> with <code>GROUP BY</code> and <code>ORDER BY</code> is supported in multi table scenarios. And, table alias is not supported in <code>INNER JOIN</code>.
-<br></p>
-</li>
-<li>
-<p><font size=4><strong>What is the maximum number of statements in a transaction?</strong></font>
-<br></p>
-</li>
-<li>
-<p><font size=4><strong>How do I export data from MO to a file?</strong></font>
-  You can use <code>SELECT INTO OUTFILE</code> command to export data from MO to a <strong>csv</strong> file (only to the server host, not to the remote client).
-  For this command, you can see <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/select/">SELECT Reference</a>.  </p>
+<p><font size=4><strong>如何将数据从MatrixOne导出到文件?</strong></font></p>
 </li>
 </ul>
+<p>你可以使用<code>SELECT INTO OUTFILE</code>命令来将数据导出为<strong>csv</strong>文件（只能导出到服务器主机，无法到远程客户端）。<br />
+  对于该命令，您可查阅<a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/select/">SELECT参考指南</a>来了解具体用法。  </p>
 
               
             </article>

@@ -310,7 +310,7 @@
   
     <li class="md-nav__item">
       <a href="../../../.." class="md-nav__link">
-        Home
+        主页
       </a>
     </li>
   
@@ -332,14 +332,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_2">
-          Overview
+          项目介绍
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Overview" data-md-level="2">
+      <nav class="md-nav" aria-label="项目介绍" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_2">
           <span class="md-nav__icon md-icon"></span>
-          Overview
+          项目介绍
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1797,7 +1797,7 @@
       
         <li class="md-nav__item">
   <a href="#pull-request" class="md-nav__link">
-    Pull Request 规范
+    Pull Request规范
   </a>
   
 </li>
@@ -1955,7 +1955,7 @@
       
         <li class="md-nav__item">
   <a href="#pull-request" class="md-nav__link">
-    Pull Request 规范
+    Pull Request规范
   </a>
   
 </li>
@@ -1978,24 +1978,24 @@
 
 
 
-<h1 id="pr">提交信息&amp;PR 规范</h1>
+<h1 id="pr"><strong>提交信息&amp;PR规范</strong></h1>
 <p>本文档描述了应用于MatrixOrigin的所有存储库的提交消息(commit mesage)和PR(pull request)的样式规范。当你提交代码时，务必遵循这种规范，保证提交的质量。</p>
-<h2 id="commit-message">一条好的commit message有多重要？</h2>
+<h2 id="commit-message"><strong>一条好的commit message有多重要？</strong></h2>
 <ul>
-<li>加速审查流程<ul>
-<li>帮助审查者更好地理解PR内容</li>
+<li>加速审阅流程<ul>
+<li>帮助审阅者更好地理解PR内容</li>
 <li>可以忽略不重要的信息</li>
 </ul>
 </li>
 <li>有助于撰写发布公告</li>
 <li>帮助其他人了解前因后果</li>
 </ul>
-<h2 id="commit-message_1">什么是好的commit message？</h2>
+<h2 id="commit-message_1"><strong>什么是好的commit message？</strong></h2>
 <p>我们认为有以下要素：</p>
 <ol>
 <li>
 <p><strong>What is your change? (必要)</strong></p>
-<p>它可能修复了一个特定的bug，添加一个feature，提高了性能、可靠性或稳定性，或者只是为了安全性而进行的更改。</p>
+<p>它可能修复了一个特定的bug，添加了一个feature，提高了性能、可靠性或稳定性，或者只是保障安全性而进行的更改。</p>
 </li>
 <li>
 <p><strong>Why this change was made? (必要)</strong></p>
@@ -2003,13 +2003,12 @@
 </li>
 <li>
 <p><strong>What effect does the commit have? (可选)</strong></p>
-<p>In addition to the obvious effects, this may include benchmarks, side effects, etc. For short and obvious patches, this part can be omitted.
-除了必然的影响之外，这可能还包括基准测试、不良影响等。对于简要的补丁，这部分可以省略。</p>
+<p>除了必然会产生的影响之外，可能还包括基准测试性能变化、对安全性的影响等。对于简要的改动，这部分可以省略。</p>
 </li>
 </ol>
-<h2 id="commit-message_2">如何写好一条commit message？</h2>
-<p>要写出一条commit message，我们建议您遵循规定的格式，培养良好的习惯并使用规范的语言。</p>
-<h3 id="_1">规定的格式</h3>
+<h2 id="commit-message_2"><strong>如何写好一条commit message</strong>？</h2>
+<p>要写出一条优质的commit message，我们建议您遵循规定的格式，培养良好的习惯并使用规范的语言。</p>
+<h3 id="_1"><strong>规定的格式</strong></h3>
 <p>请在提交时遵循以下格式：</p>
 <div class="highlight"><pre><span></span><code>&lt;subsystem&gt;: &lt;what changed&gt;
 &lt;BLANK LINE&gt;
@@ -2026,11 +2025,11 @@
 <li>不要在最后添加句号。</li>
 </ul>
 </li>
-<li>第二行清留白</li>
+<li>第二行请留白</li>
 <li>第三行“why”部分，如果没有特定的原因，您可以使用以下表述，如"Improve performance", "Improve test coverage."</li>
 <li>其他行不超过80个字符。</li>
 </ul>
-<h3 id="_2">良好的习惯</h3>
+<h3 id="_2"><strong>良好的习惯</strong></h3>
 <ul>
 <li>进行总结</li>
 <li>清楚地描述该方案的逻辑，避免<code>misc fixes</code>等表达</li>
@@ -2039,7 +2038,7 @@
 <li>注意代码的证明和测试</li>
 <li>交代前因后果</li>
 </ul>
-<h3 id="_3">规范的语言</h3>
+<h3 id="_3"><strong>规范的语言</strong></h3>
 <ul>
 <li>在第一行使用祈使句</li>
 <li>使用简单的动词 (如"add" not "added")</li>
@@ -2049,7 +2048,7 @@
 <li>不要使用过长的复合词</li>
 <li>非必要不缩写</li>
 </ul>
-<h2 id="pull-request">Pull Request 规范</h2>
+<h2 id="pull-request"><strong>Pull Request规范</strong></h2>
 <p>关于Pull Request中的描述，请参考下面的Pull Request模板，涵盖必要信息：</p>
 <div class="highlight"><pre><span></span><code>**What type of PR is this?**
 

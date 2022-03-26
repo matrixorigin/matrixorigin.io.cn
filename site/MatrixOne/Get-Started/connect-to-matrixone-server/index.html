@@ -310,7 +310,7 @@
   
     <li class="md-nav__item">
       <a href="../../.." class="md-nav__link">
-        Home
+        主页
       </a>
     </li>
   
@@ -332,14 +332,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_2">
-          Overview
+          项目介绍
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Overview" data-md-level="2">
+      <nav class="md-nav" aria-label="项目介绍" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_2">
           <span class="md-nav__icon md-icon"></span>
-          Overview
+          项目介绍
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -667,7 +667,7 @@
       
         <li class="md-nav__item">
   <a href="#2-matrixone" class="md-nav__link">
-    2. 连接至MatrixOne服务器
+    2. 连接MatrixOne服务
   </a>
   
 </li>
@@ -1885,7 +1885,7 @@
       
         <li class="md-nav__item">
   <a href="#2-matrixone" class="md-nav__link">
-    2. 连接至MatrixOne服务器
+    2. 连接MatrixOne服务
   </a>
   
 </li>
@@ -1908,18 +1908,20 @@
 
 
 
-<h1 id="matrixone"><strong>连接MatrixOne服务器</strong></h1>
+<h1 id="matrixone"><strong>连接MatrixOne服务</strong></h1>
 <h2 id="_1"><strong>准备工作</strong></h2>
-<p>请确保你已经安装了<a href="install-standalone-matrixone.zh.md">单机版MatrixOne</a>.</p>
+<p>请确保你已经完成了单机版MatrixOne或者分布式MatrixOne集群的安装部署。</p>
+<p><a href="install-standalone-matrixone.zh.md">安装单机版MatrixOne</a></p>
+<p><a href="../install-distributed-matrixone/">部署分布式MatrixOne集群</a></p>
 <h2 id="1-mysql"><strong>1. 安装MySQL客户端</strong></h2>
-<p>MatrixOne支持MySQL连接协议，因此您可以使用各种语言通过MySQL客户端程序进行连接。
-目前，MatrixOne只兼容Oracle MySQL客户端，因此一些特性可能无法在MariaDB、Percona客户端下正常工作。</p>
-<h2 id="2-matrixone"><strong>2. 连接至MatrixOne服务器</strong></h2>
-<p>你可以使用MySQL命令行客户端来连接到MatrixOne服务器。
+<p>MatrixOne支持MySQL连接协议，因此您可以使用各种语言通过MySQL客户机程序进行连接。</p>
+<p>目前，MatrixOne只兼容Oracle MySQL客户端，因此一些特性可能无法在MariaDB、Percona客户端下正常工作。</p>
+<h2 id="2-matrixone"><strong>2. 连接MatrixOne服务</strong></h2>
+<p>你可以使用MySQL命令行客户端来连接MatrixOne服务。
 <div class="highlight"><pre><span></span><code>$ mysql -h IP -P PORT -uUsername -p
 </code></pre></div>
 连接符的格式与MySQL格式相同，您需要提供用户名和密码。</p>
-<p>此处以内侧帐号作为示例：</p>
+<p>此处以内置帐号作为示例：</p>
 <ul>
 <li>user: dump</li>
 <li>password: 111</li>

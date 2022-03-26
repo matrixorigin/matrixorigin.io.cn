@@ -310,7 +310,7 @@
   
     <li class="md-nav__item">
       <a href="../../.." class="md-nav__link">
-        Home
+        主页
       </a>
     </li>
   
@@ -332,14 +332,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_2">
-          Overview
+          项目介绍
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Overview" data-md-level="2">
+      <nav class="md-nav" aria-label="项目介绍" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_2">
           <span class="md-nav__icon md-icon"></span>
-          Overview
+          项目介绍
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -654,34 +654,7 @@
         
           <li class="md-nav__item">
   <a href="#4-matrixone" class="md-nav__link">
-    4. 启动MatrixOne服务器
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    直接下载二进制包
-  </a>
-  
-    <nav class="md-nav" aria-label="直接下载二进制包">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1.下载二进制包并解压缩
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2matrixone" class="md-nav__link">
-    2.启动MatrixOne服务器
+    4. 启动MatrixOne服务
   </a>
   
 </li>
@@ -1974,34 +1947,7 @@
         
           <li class="md-nav__item">
   <a href="#4-matrixone" class="md-nav__link">
-    4. 启动MatrixOne服务器
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    直接下载二进制包
-  </a>
-  
-    <nav class="md-nav" aria-label="直接下载二进制包">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1.下载二进制包并解压缩
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2matrixone" class="md-nav__link">
-    2.启动MatrixOne服务器
+    4. 启动MatrixOne服务
   </a>
   
 </li>
@@ -2057,7 +2003,7 @@
 
 
 <h1 id="matrixone"><strong>安装单机版MatrixOne</strong></h1>
-<p>MatrixOne 目前支持Linux和MacOS系统，你可以直接从<a href="#使用源代码搭建">源代码</a>搭建单机版本的MatrixOne，也可以使用<a href="#使用docker">docker</a>。</p>
+<p>作为一款开源数据库，MatrixOne目前支持主流的Linux和MacOS系统。你可以直接从<a href="#使用源代码搭建">源代码</a>搭建单机版本的MatrixOne，也可以使用<a href="#使用docker">docker</a>安装部署。</p>
 <h2 id="_1"><strong>使用源代码搭建</strong></h2>
 <h4 id="1-go">1. 安装部署Go语言环境</h4>
 <p>Go语言至少需要升级到1.17+版本。</p>
@@ -2070,17 +2016,8 @@ $ cd matrixone
 <div class="highlight"><pre><span></span><code>$ make config
 $ make build
 </code></pre></div>
-<h4 id="4-matrixone">4. 启动MatrixOne服务器</h4>
+<h4 id="4-matrixone">4. 启动MatrixOne服务</h4>
 <div class="highlight"><pre><span></span><code>$ ./mo-server system_vars_config.toml
-</code></pre></div>
-<h2 id="_2"><strong>直接下载二进制包</strong></h2>
-<p>从0.3.0版本开始，你可以直接下载MatrixOne的二进制包，在x86_64的Linux环境中直接运行MatrixOne</p>
-<h4 id="1">1.下载二进制包并解压缩</h4>
-<div class="highlight"><pre><span></span><code>$ wget https://github.com/matrixorigin/matrixone/releases/download/v0.3.0/mo-server-v0.3.0-linux-amd64.zip
-$ unzip mo-server-v0.3.0-linux-amd64.zip
-</code></pre></div>
-<h4 id="2matrixone">2.启动MatrixOne服务器</h4>
-<div class="highlight"><pre><span></span><code>$./mo-server system_vars_config.toml
 </code></pre></div>
 <h2 id="docker"><strong>使用docker</strong></h2>
 <h4 id="1-docker">1. 安装docker</h4>
