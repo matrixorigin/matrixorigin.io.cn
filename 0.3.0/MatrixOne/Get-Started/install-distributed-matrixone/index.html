@@ -310,7 +310,7 @@
   
     <li class="md-nav__item">
       <a href="../../.." class="md-nav__link">
-        Home
+        主页
       </a>
     </li>
   
@@ -332,14 +332,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_2">
-          Overview
+          项目介绍
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Overview" data-md-level="2">
+      <nav class="md-nav" aria-label="项目介绍" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_2">
           <span class="md-nav__icon md-icon"></span>
-          Overview
+          项目介绍
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -639,43 +639,50 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    两类节点
+    软硬件环境要求
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    部署
+    两类节点
   </a>
   
-    <nav class="md-nav" aria-label="部署">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    部署流程
+  </a>
+  
+    <nav class="md-nav" aria-label="部署流程">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    步骤一:
+  <a href="#1" class="md-nav__link">
+    步骤1
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    步骤2:
+    步骤2
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    步骤3:
+    步骤3
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
-    步骤4:
+    步骤4
   </a>
   
 </li>
@@ -1905,43 +1912,50 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    两类节点
+    软硬件环境要求
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    部署
+    两类节点
   </a>
   
-    <nav class="md-nav" aria-label="部署">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    部署流程
+  </a>
+  
+    <nav class="md-nav" aria-label="部署流程">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    步骤一:
+  <a href="#1" class="md-nav__link">
+    步骤1
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    步骤2:
+    步骤2
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    步骤3:
+    步骤3
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
-    步骤4:
+    步骤4
   </a>
   
 </li>
@@ -1976,29 +1990,32 @@
 
 
 
-<h1 id="matrixone"><strong>部署分布式MatrixOne</strong></h1>
-<p>MatrixOne支持分布式部署，需要至少三个节点来完成分布式设置。</p>
-<h3 id="_1">两类节点</h3>
-<p>MatrixOne集群中有两种类型的节点(store):调度节点(prophet stores)和纯存储节点(pure storage stores)。集群中前三个节点为调度节点，其他的都是纯存储节点。</p>
-<p>例如，如果集群中有三个节点，那么所有节点都是调度节点。 如果集群中有5个节点，其中3个是调度节点，2个是纯存储节点。</p>
-<h3 id="_2">部署</h3>
-<p>此处使用五个节点来演示部署教程：</p>
-<h4 id="_3"><em>步骤一</em>:</h4>
-<p>准备3台服务器作为调度节点（推荐规格:x86 CPU，16核，64GB内存，CentOS 7+操作系统）。
-每个节点必须安装单机版本的MatrixOne。安装步骤与<a href="../install-standalone-matrixone/">单机版安装教程</a>一致。</p>
-<h4 id="2"><em>步骤2</em>:</h4>
-<p>创建store1，称之为<code>Prophet Genesis Store</code>（创世调度节点）</p>
-<p><strong>1.</strong> 设置创始调度节点的<code>id</code>
+<h1 id="matrixone"><strong>部署分布式MatrixOne集群</strong></h1>
+<p>MatrixOne支持分布式部署，需要至少三个节点来完成分布式配置。</p>
+<h2 id="_1"><strong>软硬件环境要求</strong></h2>
+<p>服务器建议配置：x86 CPU，16核，64GB内存。</p>
+<p>操作系统版本要求：CentOS 7.x版本。</p>
+<h2 id="_2"><strong>两类节点</strong></h2>
+<p>MatrixOne集群中有两种类型的节点(store)：调度节点(prophet stores)和纯存储节点(pure storage stores)。集群中前三个节点为调度节点，其他的都是纯存储节点。</p>
+<p>例如，如果集群中有三个节点，那么所有节点都是调度节点。 如果集群中有5个节点，那么其中3个是调度节点，2个是纯存储节点。</p>
+<h2 id="_3"><strong>部署流程</strong></h2>
+<p>此处使用五个节点来演示部署教程。</p>
+<h3 id="1"><strong>步骤1</strong></h3>
+<p>准备3台服务器作为调度节点。
+每个节点必须安装单机版本的MatrixOne。安装步骤与<a href="install-standalone-matrixone.zh.md">单机版安装教程</a>一致。</p>
+<h3 id="2"><strong>步骤2</strong></h3>
+<p>创建store1，称之为<code>Prophet Genesis Store</code>（种子调度节点）</p>
+<p><strong>1.</strong> 设置种子调度节点的<code>id</code>
 <div class="highlight"><pre><span></span><code>nodeID = 1
 </code></pre></div>
-<strong>2.</strong> 设置<code>addr-raft</code> 与 <code>addr-client</code>参数，分别用于接受集群中的Raft组与<code>Shard Proxy</code>的信息：</p>
+<strong>2.</strong> 设置<code>addr-raft</code> 与 <code>addr-client</code>参数，分别用于接收集群中的Raft组与<code>Shard Proxy</code>的信息：</p>
 <div class="highlight"><pre><span></span><code>addr-raft = &quot;your_ip_address:10000&quot;
 addr-client = &quot;your_ip_address:20000&quot;
 </code></pre></div>
 <p><strong>3.</strong> 设置<code>Shard</code>的容量限制，超过这个容量<code>Shard</code>将会自动分裂：
 <div class="highlight"><pre><span></span><code>shard-capacity-bytes = &quot;96MB&quot;
 </code></pre></div></p>
-<p><strong>4.</strong> 设置<code>rpc-addr</code>来接受集群中的心跳信息：
+<p><strong>4.</strong> 设置<code>rpc-addr</code>来接收集群中的心跳信息：
 <div class="highlight"><pre><span></span><code>rpc-addr = &quot;your_ip_address:30000&quot;
 </code></pre></div></p>
 <p><strong>5.</strong> 设置<code>join</code>， <code>client-urls</code>和<code>peer-urls</code>参数，组成一个内嵌的<code>Etcd-server</code>集群。当<code>Prophet Genesis Store</code>为首个节点时，<code>join</code>参数可以为空：</p>
@@ -2006,30 +2023,30 @@ addr-client = &quot;your_ip_address:20000&quot;
 client-urls = &quot;your_ip_address:40000&quot;
 peer-urls = &quot;your_ip_address:50000&quot;
 </code></pre></div>
-<strong>6.</strong> 将<code>prophet-node</code>设置为<code>TRUE</code>，调度节点将存储集群的元数据信息：
-<div class="highlight"><pre><span></span><code>prophet-node = true
+<strong>6.</strong> 将<code>storage-node</code>设置为<code>TRUE</code>，调度节点将存储集群的元数据信息：
+<div class="highlight"><pre><span></span><code>storage-node = true
 </code></pre></div>
-<strong>7.</strong> 设置<code>max-replicas</code>参数来指定每个<code>Shard</code>需要多少个副本，只能是<code>2*N+1</code>：
+<strong>7.</strong> 设置<code>max-replicas</code>参数来指定每个<code>Shard</code>需要多少个副本。注意该参数取值只能是<code>2*N+1</code>：
 <div class="highlight"><pre><span></span><code>max-replicas = 3
 </code></pre></div></p>
-<h4 id="3"><em>步骤3</em>:</h4>
-<p>将store2与store3设置为调度节点，并重复步骤1与步骤2；唯一的区别在于需要设置独特的<code>nodeID</code>与<code>join</code>地址：</p>
+<h3 id="3"><strong>步骤3</strong></h3>
+<p>将store2与store3设置为调度节点，并重复步骤1与步骤2。唯一的区别在于需要设置独特的<code>nodeID</code>与<code>join</code>地址：</p>
 <div class="highlight"><pre><span></span><code>nodeID = 2 or 3; 
 join = &quot;ip_address_of_store1&quot;
 </code></pre></div>
-<h4 id="4"><em>步骤4</em>:</h4>
+<h3 id="4"><strong>步骤4</strong></h3>
 <p>设置其他两个节点为纯存储节点（pure storage store），并重复步骤1与步骤2。有三个额外的参数需要指定：</p>
 <ul>
 <li>Set a unique number for nodeID. 按照nodeID设置相应的number</li>
-<li>将<code>prophet-node</code>设置为TRUE`  </li>
+<li>将<code>storage-node</code>设置为TRUE`  </li>
 <li>使用三个调度节点的三个<code>client-urls</code>参数来当作<code>external-etcd</code>参数：
 <div class="highlight"><pre><span></span><code>nodeID = 4/5;
-prophet-node = false;
-prophet-node = [&quot;ip_address_of_prophet_store1&quot;,&quot;ip_address_of_prophet_store2&quot;,&quot;ip_address_of_prophet_store3&quot;]
+storage-node = false;
+storage-node = [&quot;ip_address_of_prophet_store1&quot;,&quot;ip_address_of_prophet_store2&quot;,&quot;ip_address_of_prophet_store3&quot;]
 </code></pre></div></li>
 </ul>
-<h3 id="_4">相关信息</h3>
-<p>若想了解更多关于分布式架构的配置参数的信息，可以查阅<a href="../../Reference/System-Parameters/distributed-settings/">distributed settings</a>. </p>
+<h2 id="_4"><strong>相关信息</strong></h2>
+<p>本节介绍了分布式MatrixOne集群的安装部署流程。若想了解更多关于分布式架构配置参数的信息，可以查阅<a href="../Reference/System-Parameters/distributed-settings.zh.md">分布式配置参数手册</a>. </p>
 
               
             </article>
