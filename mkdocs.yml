@@ -37,8 +37,8 @@ markdown_extensions:
   - pymdownx.superfences
 nav:
   - MatrixOne:
-    - Home: README.md
-    - Overview: 
+    - 主页: README.md
+    - 项目介绍: 
       - MatrixOne简介: MatrixOne/Overview/matrixone-introduction.md
       - MatrixOne架构: MatrixOne/Overview/matrixone-architecture.md
       - MatrixCube技术设计: 
