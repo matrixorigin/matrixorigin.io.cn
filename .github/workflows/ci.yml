@@ -54,3 +54,18 @@ jobs:
           tags: |
             matrixorigin/matrixorigin.io.cn:${{ github.event.inputs.version }}
             matrixorigin/matrixorigin.io.cn:latest            
+
+      - name: Trigger cd
+        uses: convictional/trigger-workflow-and-wait@v1.6.0
+        with:
+          owner: matrixorigin
+          repo: deploy_workflow
+          github_token: ${{ secrets.ACTIONTOKEN }}
+          workflow_file_name: deploy.yml
+          ref: main
+          wait_interval: 30
+          client_payload: '{}'
+          propagate_failure: true
+          trigger_workflow: true
+          wait_workflow: true
+          last_workflow_interval: 1
