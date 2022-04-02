@@ -41,6 +41,8 @@ nav:
     - 项目介绍: 
       - MatrixOne简介: MatrixOne/Overview/matrixone-introduction.md
       - MatrixOne架构: MatrixOne/Overview/matrixone-architecture.md
+      - MatrixOne技术设计:
+        - MatrixOne模块概览: MatrixOne/Overview/MatrixOne-Tech-Design/matrixone-techdesign.md
       - MatrixCube技术设计: 
         - MatrixCube简介: MatrixOne/Overview/matrixcube/matrixcube-introduction.md
         - 自平衡与调度: MatrixOne/Overview/matrixcube/matrixcube-auto-rebalance-scheduling.md
