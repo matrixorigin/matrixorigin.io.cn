@@ -382,12 +382,59 @@
       
       
         <label class="md-nav__link" for="__nav_1_2_3">
+          MatrixOne技术设计
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MatrixOne技术设计" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          MatrixOne技术设计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/MatrixOne-Tech-Design/matrixone-techdesign/" class="md-nav__link">
+        MatrixOne模块概览
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_4" type="checkbox" id="__nav_1_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_4">
           MatrixCube技术设计
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="MatrixCube技术设计" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_2_3">
+        <label class="md-nav__title" for="__nav_1_2_4">
           <span class="md-nav__icon md-icon"></span>
           MatrixCube技术设计
         </label>
@@ -479,18 +526,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_5" type="checkbox" id="__nav_1_2_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_6" type="checkbox" id="__nav_1_2_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_2_5">
+        <label class="md-nav__link" for="__nav_1_2_6">
           性能测试报告
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="性能测试报告" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_2_5">
+        <label class="md-nav__title" for="__nav_1_2_6">
           <span class="md-nav__icon md-icon"></span>
           性能测试报告
         </label>
@@ -1868,6 +1915,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    常见问题
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1894,7 +1948,7 @@
 </blockquote>
 <h2 id="matrixcamp2022">MatrixCamp2022活动</h2>
 <p>MatrixCamp是一个由MatrixOne社区举办的开发者活动，欢迎对数据库技术感兴趣的开发者们来参与这次为期2周的开发挑战任务。
-MatrixOne社区一共准备了4个类别的55个任务，有不同的难度级别和功能类型，开发者可以挑选自己感兴趣的进行挑战。参与挑战仅需要一些基础的Golang语言编程经验就够了，另外我们也有详尽的开发指南的耐心的mentor给大家进行服务。</p>
+MatrixOne社区一共准备了4个类别的56个任务，有不同的难度级别和功能类型，开发者可以挑选自己感兴趣的进行挑战。参与挑战仅需要一些基础的Golang语言编程经验就够了，另外我们也有详尽的开发指南的耐心的mentor给大家进行服务。</p>
 <p>这次的任务大家将要挑战的是MatrixOne的系统函数和聚合函数，对于刚入门数据库的同学来讲是相对基础但是又不乏挑战的任务。</p>
 <ul>
 <li>
@@ -1912,7 +1966,7 @@ MatrixOne社区一共准备了4个类别的55个任务，有不同的难度级�
 <blockquote>
 <p>请注意：1个开发者可以选择多个挑战任务，但是1个任务只能由1个开发者完成</p>
 </blockquote>
-<p>来看下我们的任务列表吧：</p>
+<p>来看下我们的任务列表吧，其中已经被assign的任务请查看<a href="https://github.com/matrixorigin/matrixone/issues/1997">英文版活动说明</a>：</p>
 <h3 id="1-">1. 基础任务-数学类系统函数</h3>
 <ul>
 <li>[ ] https://github.com/matrixorigin/matrixone/issues/1966 Mathematical Built-in function sin() <strong>[容易]</strong></li>
@@ -1922,19 +1976,32 @@ MatrixOne社区一共准备了4个类别的55个任务，有不同的难度级�
 <li>[ ] https://github.com/matrixorigin/matrixone/issues/1970 Mathematical Built-in function asin() <strong>[容易]</strong></li>
 <li>[ ] https://github.com/matrixorigin/matrixone/issues/1971 Mathematical Built-in function acos() <strong>[容易]</strong></li>
 <li>[ ] https://github.com/matrixorigin/matrixone/issues/1973 Mathematical Built-in function atan() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2094 Mathematical Built-in function sinh() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2095 Mathematical Built-in function cosh() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2096 Mathematical Built-in function crc32() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2097 Mathematical Built-in function sqrt() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2098 Mathematical Built-in function cbrt() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2099 Mathematical Built-in function rand() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2100 Mathematical Built-in function degrees() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2101 Mathematical Built-in function radians() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2102 Mathematical Built-in function sign() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2103 Mathematical Built-in function hypot() <strong>[中等]</strong></li>
 </ul>
 <h3 id="2-">2. 基础任务-日期时间类系统函数</h3>
 <ul>
 <li>[ ]  https://github.com/matrixorigin/matrixone/issues/1974 Datetime Built-in function date() <strong>[容易]</strong></li>
-<li>[ ]  https://github.com/matrixorigin/matrixone/issues/1975 Datetime Built-in function utc_time() <strong>[容易]</strong></li>
 <li>[ ]  https://github.com/matrixorigin/matrixone/issues/1976 Datetime Built-in function utc_timestamp() <strong>[容易]</strong></li>
 <li>[ ]  https://github.com/matrixorigin/matrixone/issues/1977 Datetime Built-in function datediff() <strong>[中等]</strong></li>
 <li>[ ]  https://github.com/matrixorigin/matrixone/issues/1978 Datetime Built-in function dayofmonth() <strong>[中等]</strong></li>
 <li>[ ]  https://github.com/matrixorigin/matrixone/issues/1979 Datetime Built-in function dayofweek() <strong>[中等]</strong></li>
 <li>[ ]  https://github.com/matrixorigin/matrixone/issues/1980 Datetime Built-in function dayofyear() <strong>[中等]</strong></li>
-<li>[ ]  https://github.com/matrixorigin/matrixone/issues/1981 Datetime Built-in function hour() <strong>[中等]</strong></li>
-<li>[ ]  https://github.com/matrixorigin/matrixone/issues/1982 Datetime Built-in function minute() <strong>[中等]</strong></li>
-<li>[ ]  https://github.com/matrixorigin/matrixone/issues/1983 Datetime Built-in function second() <strong>[中等]</strong></li>
+<li>[ ]  https://github.com/matrixorigin/matrixone/issues/2049 Datetime Built-in function month() <strong>[中等]</strong></li>
+<li>[ ]  https://github.com/matrixorigin/matrixone/issues/2046 Datetime Built-in function weekday() <strong>[中等]</strong></li>
+<li>[ ]  https://github.com/matrixorigin/matrixone/issues/2047 Datetime Built-in function yearweek() <strong>[中等]</strong></li>
+<li>[ ]  https://github.com/matrixorigin/matrixone/issues/2048 Datetime Built-in function week() <strong>[中等]</strong></li>
+<li>[ ]  https://github.com/matrixorigin/matrixone/issues/1830 Datetime Built-in function now() <strong>[中等]</strong></li>
+<li>[ ]  https://github.com/matrixorigin/matrixone/issues/2104 Datetime Built-in function quarter() <strong>[中等]</strong></li>
+<li>[ ]  https://github.com/matrixorigin/matrixone/issues/2105 Datetime Built-in function timestamp() <strong>[中等]</strong></li>
 </ul>
 <h3 id="3-">3. 基础任务-字符串类系统函数</h3>
 <ul>
@@ -1946,6 +2013,19 @@ MatrixOne社区一共准备了4个类别的55个任务，有不同的难度级�
 <li>[ ] https://github.com/matrixorigin/matrixone/issues/1989 String function reverse() <strong>[中等]</strong></li>
 <li>[ ] https://github.com/matrixorigin/matrixone/issues/1990 String function space() <strong>[中等]</strong></li>
 <li>[ ] https://github.com/matrixorigin/matrixone/issues/1991 String function replace() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2106 String function ascii() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2107 String function bit_length() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2108 String function empty() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2109 String function notEmpty() <strong>[容易]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2110 String function bin() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2111 String function concat() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2112 String function hex() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2113 String function insert() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2114 String function locate() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2115 String function oct() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2116 String function lengthUTF8() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2117 String function startsWith() <strong>[中等]</strong></li>
+<li>[ ] https://github.com/matrixorigin/matrixone/issues/2118 String function endsWith() <strong>[中等]</strong></li>
 </ul>
 <h3 id="4-">4. 挑战任务-聚合函数</h3>
 <ul>
@@ -1971,6 +2051,47 @@ MatrixOne社区一共准备了4个类别的55个任务，有不同的难度级�
 <li>提交PR完成后，在你的PR下面按以下格式评论：
 评论格式: "I have finished Issue #" + PR link id</li>
 </ol>
+<h2 id="_3">常见问题</h2>
+<p><strong>Q: 必须先领任务才能开始么，可以直接提PR吗？</strong>
+A:  是的，参与开发者都需要在issue下面评论认领后再开始任务，不建议直接提PR。这样是为了避免多名开发者针对同一问题重复劳动。</p>
+<p><strong>Q: 为什么<code>select abs(-1);</code>和<code>select d, abs(-1) from t;</code>这样的语句会出问题？</strong>
+A: 目前MatrixOne还不支持无表及常数参数的SQL语句，因此<code>select abs(-1);</code>和<code>select abs(-1) from table1;</code>这样的语句均会出错。正确的SQL语句是需要创建一张表，导入一些数据，然后再将列名作为参数运行built-in函数。如以下例子：
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
+</code></pre></div>
+<strong>Q: 我提交的PR在自动测试阶段失败了，这个是什么原因？</strong>
+A：MatrixOne会在PR提交之后自动进行一系列CI及BVT测试，开发者在提交之后可以看到测试的进展及日志，如果是与函数功能相关的测试没有通过，请修改code后重新提交。如果是其他与函数无关的测试问题，可以在PR中进行评论，社区将会查询问题所在，不会影响本次函数任务的判定结果。目前MatrixOne的CI测试有一定的不稳定程度，因此可能有一些与函数无关的CI测试会fail。</p>
+<p><strong>Q: MatrixOne服务启动之后的日志信息有点太多了，怎么能关掉?</strong>
+A: 目前MatrixOne的默认日志级别是<code>DEBUG</code>级，所以信息是会比较多的。控制这个日志级别的是系统配置文件<code>system_vars_config.toml</code>，可以在调试的时候将该文件的<code>cubeLogLevel</code>与<code>level</code>两个参数设置成<code>ERROR</code>级别，这样打印的信息会少很多。
+<div class="highlight"><pre><span></span><code>cubeLogLevel = &quot;error&quot;
+level = &quot;error&quot;
+</code></pre></div></p>
+<p><strong>Q: 如果我对认领的函数实现有一些疑问，我应该向谁询问?</strong>
+A：如果是针对MatrixOne本身的测试和行为发现bug，欢迎向MatrixOne社区提出issue，我们有相应的模版帮助说明如何写issue，社区会对issue进行处理。如果是针对函数本身的实现有问题，可以直接在认领的issue下面评论你的想法和疑问，MatrixOne社区的mentor会及时回复。</p>
+<p><strong>Q: 我启动了MatrixOne服务，并且用MySQL进行连接，但是好像没有获得正确的结果，如何才知道是否成功连接?</strong>
+A: 如果你的MySQL客户端连接MatrixOne后打印如下信息，就说明已经成功连接： 
+<div class="highlight"><pre><span></span><code>Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1002
+Server version: 0.3.0 MatrixOne
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement. 
+</code></pre></div></p>
+<p><strong>Q: Mentor要求我对提交的代码格式进行缩进，这个如何做？</strong>
+A：可以通过Golang语言自带的gofmt工具在命令行中进行操作，或者在一些常见的IDE如VS Code和GoLand中也均有相应的设置。</p>
+<p><strong>Q: 如何理解MatrixOne的Vector数据结构？</strong>
+A：Vector是MatrixOne中表示一列数据的结构，是MatrixOne最重要的数据结构体之一。它其中的不同变量含义：
+<div class="highlight"><pre><span></span><code>// Vector.Or: 表示这个Vector是否是从磁盘读取的原始Vector
+// Link: 这个Vector拥有的软链接个数
+// Data: 内存中保存的原始数据
+// Typ: Vector的类型
+// Col: 内存中经过序列化编码的数据，它与Vector.Data共享内存位置，但是会被转换到某个专门的类型，比如int32
+// Nsp: 存储一列中所有NULL的位图
+</code></pre></div></p>
 
               
             </article>
