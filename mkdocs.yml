@@ -96,7 +96,6 @@ nav:
         - YEAR(): MatrixOne/Reference/Customer-Functions/year.md
         - MONTH(): MatrixOne/Reference/Customer-Functions/month.md
         - WEEKDAY(): MatrixOne/Reference/Customer-Functions/weekday.md
-        - UTC_TIMESTAMP(): MatrixOne/Reference/Customer-Functions/utc_timestamp.md
         - SIN(): MatrixOne/Reference/Customer-Functions/sin.md
         - COS(): MatrixOne/Reference/Customer-Functions/cos.md
         - TAN(): MatrixOne/Reference/Customer-Functions/tan.md
