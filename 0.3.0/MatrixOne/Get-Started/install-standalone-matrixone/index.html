@@ -712,6 +712,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    下载二进制包
+  </a>
+  
+    <nav class="md-nav" aria-label="下载二进制包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 下载二进制包并解压
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-matrixone_1" class="md-nav__link">
+    2. 启动MatrixOne服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docker" class="md-nav__link">
     使用docker
   </a>
@@ -1419,6 +1446,160 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/month/" class="md-nav__link">
+        MONTH()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/weekday/" class="md-nav__link">
+        WEEKDAY()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/utc_timestamp/" class="md-nav__link">
+        UTC_TIMESTAMP()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/sin/" class="md-nav__link">
+        SIN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/cos/" class="md-nav__link">
+        COS()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/tan/" class="md-nav__link">
+        TAN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/cot/" class="md-nav__link">
+        COT()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/atan/" class="md-nav__link">
+        ATAN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/ltrim/" class="md-nav__link">
+        LTRIM()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/rtrim/" class="md-nav__link">
+        RTRIM()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Customer-Functions/lpad/" class="md-nav__link">
+        LPAD()
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2005,6 +2186,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    下载二进制包
+  </a>
+  
+    <nav class="md-nav" aria-label="下载二进制包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 下载二进制包并解压
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-matrixone_1" class="md-nav__link">
+    2. 启动MatrixOne服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docker" class="md-nav__link">
     使用docker
   </a>
@@ -2065,6 +2273,15 @@ $ make build
 </code></pre></div>
 <h4 id="4-matrixone">4. 启动MatrixOne服务</h4>
 <div class="highlight"><pre><span></span><code>$ ./mo-server system_vars_config.toml
+</code></pre></div>
+<h2 id="_2"><strong>下载二进制包</strong></h2>
+<p>从0.3.0版本开始，您可以直接下载二进制包，然后在X86_64 Linux环境中运行MatrixOne。  </p>
+<h4 id="1">1. 下载二进制包并解压</h4>
+<div class="highlight"><pre><span></span><code>$ wget https://github.com/matrixorigin/matrixone/releases/download/v0.3.0/mo-server-v0.3.0-linux-amd64.zip
+$ unzip mo-server-v0.3.0-linux-amd64.zip
+</code></pre></div>
+<h4 id="2-matrixone_1">2. 启动MatrixOne服务</h4>
+<div class="highlight"><pre><span></span><code>$./mo-server system_vars_config.toml
 </code></pre></div>
 <h2 id="docker"><strong>使用docker</strong></h2>
 <h4 id="1-docker">1. 安装docker</h4>

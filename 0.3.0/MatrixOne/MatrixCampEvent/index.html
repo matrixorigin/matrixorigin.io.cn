@@ -1311,6 +1311,160 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/month/" class="md-nav__link">
+        MONTH()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/weekday/" class="md-nav__link">
+        WEEKDAY()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/utc_timestamp/" class="md-nav__link">
+        UTC_TIMESTAMP()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/sin/" class="md-nav__link">
+        SIN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/cos/" class="md-nav__link">
+        COS()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/tan/" class="md-nav__link">
+        TAN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/cot/" class="md-nav__link">
+        COT()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/atan/" class="md-nav__link">
+        ATAN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/ltrim/" class="md-nav__link">
+        LTRIM()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/rtrim/" class="md-nav__link">
+        RTRIM()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/Customer-Functions/lpad/" class="md-nav__link">
+        LPAD()
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2057,8 +2211,19 @@ A:  是的，参与开发者都需要在issue下面评论认领后再开始任�
 <p><strong>Q: 为什么<code>select abs(-1);</code>和<code>select d, abs(-1) from t;</code>这样的语句会出问题？</strong>
 A: 目前MatrixOne还不支持无表及常数参数的SQL语句，因此<code>select abs(-1);</code>和<code>select abs(-1) from table1;</code>这样的语句均会出错。正确的SQL语句是需要创建一张表，导入一些数据，然后再将列名作为参数运行built-in函数。如以下例子：
 <div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
-</code></pre></div>
-<strong>Q: 我提交的PR在自动测试阶段失败了，这个是什么原因？</strong>
+</code></pre></div></p>
+<p><strong>Q: 为什么每次PR完成之后，我的仓库总是会比MatrixOne领先？</strong>
+A: MatrixOne对所有pr的合并都要求是squash and merge，因此pr合并后跟主干会不一致。这里推荐采用的git流程，可以保持本地git，远端git仓库与MatrixOne仓库保持一致的方法：
+<div class="highlight"><pre><span></span><code>1. 首先Fork MatrixOne的仓库。
+2. clone自己的仓库到本地: git clone https://github.com/YOUR_NAME/matrixone.git
+3. 将MatrixOne主仓库添加为remote仓库: git remote add upstream https://github.com/matrixorigin/matrixone.git
+4. 在本地修改代码，合并冲突，etc.
+5. push到一个新的分支: git push origin main:NEW_BRANCH
+6. 到自己仓库的NEW_BRANCH分支提PR，等待合并
+7. PR合并之后，覆盖本地提交历史: git pull --force upstream main:main
+8. 再次提交到自己的远端仓库：git push --force origin main:main
+</code></pre></div></p>
+<p><strong>Q: 我提交的PR在自动测试阶段失败了，这个是什么原因？</strong>
 A：MatrixOne会在PR提交之后自动进行一系列CI及BVT测试，开发者在提交之后可以看到测试的进展及日志，如果是与函数功能相关的测试没有通过，请修改code后重新提交。如果是其他与函数无关的测试问题，可以在PR中进行评论，社区将会查询问题所在，不会影响本次函数任务的判定结果。目前MatrixOne的CI测试有一定的不稳定程度，因此可能有一些与函数无关的CI测试会fail。</p>
 <p><strong>Q: MatrixOne服务启动之后的日志信息有点太多了，怎么能关掉?</strong>
 A: 目前MatrixOne的默认日志级别是<code>DEBUG</code>级，所以信息是会比较多的。控制这个日志级别的是系统配置文件<code>system_vars_config.toml</code>，可以在调试的时候将该文件的<code>cubeLogLevel</code>与<code>level</code>两个参数设置成<code>ERROR</code>级别，这样打印的信息会少很多。
@@ -2081,6 +2246,10 @@ owners.
 
 Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement. 
 </code></pre></div></p>
+<p>Q: 我的MatrixOne服务启动了，但是我的MySQL客户端始终连接不上，这个应该怎么解决？
+A: 这个可能由各种原因导致，首先请关注错误的日志信息来定位问题，目前在MatrixOne中有两种常见错误：
+1. 端口冲突：有的时候因为端口被其他程序占用会有冲突，比如50000端口经常被占用。可以通过一下<code>lsof -i:50000</code>命令来查找是哪个进程在占用这个端口。从这个命令中可以获得这个进程的PID，再通过<code>kill -9 PIDNAME</code>关闭这个进程。
+2. 存储不兼容：有的时候如果你从新的代码库拉取了最新的代码，但是存储数据是之前版本导入的数据，你可能也会面临连接失败问题。你可以尝试先将MatrixOne目录下的<code>Store</code>目录清空并重启MatrixOne服务。</p>
 <p><strong>Q: Mentor要求我对提交的代码格式进行缩进，这个如何做？</strong>
 A：可以通过Golang语言自带的gofmt工具在命令行中进行操作，或者在一些常见的IDE如VS Code和GoLand中也均有相应的设置。</p>
 <p><strong>Q: 如何理解MatrixOne的Vector数据结构？</strong>
