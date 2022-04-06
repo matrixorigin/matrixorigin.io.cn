@@ -1401,6 +1401,160 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/month/" class="md-nav__link">
+        MONTH()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/weekday/" class="md-nav__link">
+        WEEKDAY()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/utc_timestamp/" class="md-nav__link">
+        UTC_TIMESTAMP()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/sin/" class="md-nav__link">
+        SIN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/cos/" class="md-nav__link">
+        COS()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/tan/" class="md-nav__link">
+        TAN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/cot/" class="md-nav__link">
+        COT()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/atan/" class="md-nav__link">
+        ATAN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/ltrim/" class="md-nav__link">
+        LTRIM()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/rtrim/" class="md-nav__link">
+        RTRIM()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Customer-Functions/lpad/" class="md-nav__link">
+        LPAD()
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2056,16 +2210,22 @@ MatrixOne的当前架构，跟以上NewSQL数据库的区别在于，它是可�
 </ul>
 <h3 id="matrixone_3"><strong>MatrixOne的代码结构</strong></h3>
 <p>接下来我们整体介绍MatrixOne的代码仓库结构，以便各位开发者对感兴趣的部分进行深入研究或者参与贡献。    </p>
-<p>MatrixOne的内核代码都在<code>matrixone/pkg/</code> 这个文件夹下面。与上述架构图中对应的模块代码库位置：
-* SQL Frontend：frontend/
-* SQL Parser：sql/parser
-* MPP SQL Execution：sql/
-    * 向量化：vectorize/
-* Catalog：catalog/
-* MatrixCube：<a href="https://github.com/matrixorigin/matrixcube">MatrixCube</a>目前是个单独的仓库
-* Storage Engine：vm/engine，这里vm的意思是虚拟机，这里借用了SQLite的概念，类似整个MatrixOne的runtime，整个存算逻辑包装在vm中，提供对物理资源的抽象，方便进行资源管理。
-    * AOE：vm/engine/aoe
-    * TPE：vm/engine/tpe</p>
+<p>MatrixOne的内核代码都在<code>matrixone/pkg/</code> 这个文件夹下面。与上述架构图中对应的模块代码库位置：</p>
+<ul>
+<li>SQL Frontend：frontend/</li>
+<li>SQL Parser：sql/parser</li>
+<li>MPP SQL Execution：sql/<ul>
+<li>向量化：vectorize/</li>
+</ul>
+</li>
+<li>Catalog：catalog/</li>
+<li>MatrixCube：<a href="https://github.com/matrixorigin/matrixcube">MatrixCube</a>目前是个单独的仓库</li>
+<li>Storage Engine：vm/engine，这里vm的意思是虚拟机，这里借用了SQLite的概念，类似整个MatrixOne的runtime，整个存算逻辑包装在vm中，提供对物理资源的抽象，方便进行资源管理。<ul>
+<li>AOE：vm/engine/aoe</li>
+<li>TPE：vm/engine/tpe</li>
+</ul>
+</li>
+</ul>
 <h2 id="_1"><strong>更多信息</strong></h2>
 <p>如果你对以上某个模块感兴趣并想要尝试上手开发，请参照<a href="../../../Contribution-Guide/How-to-Contribute/preparation/">贡献指南</a>。  </p>
 
