@@ -38,16 +38,16 @@ markdown_extensions:
 nav:
   - MatrixOne:
     - 主页: README.md
-    - 项目介绍: 
+    - 关于MatrixOne: 
       - MatrixOne简介: MatrixOne/Overview/matrixone-introduction.md
-      - MatrixOne架构: MatrixOne/Overview/matrixone-architecture.md
-      - MatrixOne技术设计:
-        - MatrixOne模块概览: MatrixOne/Overview/MatrixOne-Tech-Design/matrixone-techdesign.md
-      - MatrixCube技术设计: 
-        - MatrixCube简介: MatrixOne/Overview/matrixcube/matrixcube-introduction.md
-        - 自平衡与调度: MatrixOne/Overview/matrixcube/matrixcube-auto-rebalance-scheduling.md
-        - 数据分片拆分: MatrixOne/Overview/matrixcube/matrixcube-shard-splitting.md
-        - 代理与路由: MatrixOne/Overview/matrixcube/matrixcube-proxy-routing.md
+      - MatrixOne技术架构: 
+        - 架构概述: MatrixOne/Overview/matrixone-architecture.md
+        - 模块概览: MatrixOne/Overview/MatrixOne-Tech-Design/matrixone-techdesign.md
+        - 集群管理层设计: 
+         - MatrixCube简介: MatrixOne/Overview/matrixcube/matrixcube-introduction.md
+         - 自平衡与调度: MatrixOne/Overview/matrixcube/matrixcube-auto-rebalance-scheduling.md
+         - 数据分片拆分: MatrixOne/Overview/matrixcube/matrixcube-shard-splitting.md
+         - 代理与路由: MatrixOne/Overview/matrixcube/matrixcube-proxy-routing.md
       - MySQL兼容性: MatrixOne/Overview/mysql-compatibility.md
       - 性能测试报告:
         - SSB测试报告: MatrixOne/Overview/SSB Test Performance.md
@@ -55,13 +55,13 @@ nav:
       - 最新动态: MatrixOne/Overview/whats-new.md
     - 快速上手: 
       - 安装单机版MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
-      - 安装分布式版本MatrixOne: MatrixOne/Get-Started/install-distributed-matrixone.md
-      - 连接MatrixOne实例: MatrixOne/Get-Started/connect-to-matrixone-server.md
-      - 测试指引:
-        - SSB测试指引: MatrixOne/Get-Started/Tutorial/SSB-test-with-matrixone.md
-        - NYC纽约出租车测试指引: MatrixOne/Get-Started/Tutorial/NYC-test-with-matrixone.md
+      - 部署分布式MatrixOne集群: MatrixOne/Get-Started/install-distributed-matrixone.md
+      - 连接MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
+      - 实践教程:
+        - 完成SSB测试: MatrixOne/Get-Started/Tutorial/SSB-test-with-matrixone.md
+        - 完成NYC纽约出租车测试: MatrixOne/Get-Started/Tutorial/NYC-test-with-matrixone.md
       - Playground在线体验: MatrixOne/Get-Started/Playground.md
-    - 功能参考目录:
+    - 参考手册:
       - SQL目录: 
         - DDL:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-database.md
@@ -107,14 +107,14 @@ nav:
       - 系统配置: 
         - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 分布式配置: MatrixOne/Reference/System-Parameters/distributed-settings.md
-    - 常见问答:
+    - 常见问题解答:
       - 通用问答: MatrixOne/FAQs/general-faqs.md
-    - 版本纪要:
+    - 版本发布纪要:
       - v0.1.0: MatrixOne/Release-Notes/v0.1.0.md
       - v0.2.0: MatrixOne/Release-Notes/v0.2.0.md
       - v0.3.0: MatrixOne/Release-Notes/v0.3.0.md
-    - 名词释义表: MatrixOne/glossary.md
-    - 贡献指南: 
+    - 名词术语表: MatrixOne/glossary.md
+    - 社区贡献指南: 
       - 快速贡献: MatrixOne/Contribution-Guide/make-your-first-contribution.md
       - 贡献指南: 
         - 有哪些贡献类型: MatrixOne/Contribution-Guide/How-to-Contribute/types-of-contributions.md
@@ -128,5 +128,5 @@ nav:
         - 编码规范: MatrixOne/Contribution-Guide/Code-Style/code-of-conduct.md
         - 注释规范: MatrixOne/Contribution-Guide/Code-Style/code-comment-style.md
         - 提交规范: MatrixOne/Contribution-Guide/Code-Style/commit-pr-style.md
-  - 快速体验:
+  - 在线快速体验:
     - Playground: https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1
