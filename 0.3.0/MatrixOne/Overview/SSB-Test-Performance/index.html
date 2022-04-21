@@ -13,7 +13,7 @@
     
     
       
-        <title>SSB测试报告 - MatrixOne中文文档</title>
+        <title>**SSB测试性能报告** - MatrixOne中文文档</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SSB测试报告
+              **SSB测试性能报告**
             
           </span>
         </div>
@@ -193,15 +193,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link">
         MatrixOne
       </a>
     </li>
@@ -263,14 +261,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
       
       
       
@@ -305,14 +301,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
       
       
       
@@ -511,14 +505,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_4" type="checkbox" id="__nav_1_2_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_4" type="checkbox" id="__nav_1_2_4" >
       
       
       
@@ -539,87 +531,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          SSB测试报告
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../SSB Test Performance.md" class="md-nav__link">
         SSB测试报告
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    概述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    单机单表
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    单机多表
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    集群多表
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    限制
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    相关信息
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -631,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../NYC%20Test%20Performance/" class="md-nav__link">
+      <a href="../NYC Test Performance.md" class="md-nav__link">
         NYC纽约出租车测试报告
       </a>
     </li>
@@ -2116,16 +2032,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Overview/SSB Test Performance.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Overview/SSB-Test-Performance.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="ssb"><strong>SSB测试性能</strong></h1>
+<h1 id="ssb"><strong>SSB测试性能报告</strong></h1>
 <h2 id="_1"><strong>概述</strong></h2>
 <p>在此，我们给出了使用MatrixOne在不同的硬件和查询条件下进行SSB测试的性能结果。<br />
-可参见<a href="../../Get-Started/Tutorial/SSB-test-with-matrixone/">SSB测试</a>来复现整个测试结果，如果未能实现类似结果，可能需要检查硬件、负载或或测试流程是否存在问题，可以在GitHub上提出<a href="https://github.com/matrixorigin/matrixone/issues/new/choose">issue</a>来报告具体问题。<br />
+可参见<a href="../../Get-Started/Tutorial/SSB-test-with-matrixone/">完成SSB测试</a>来复现整个测试结果，如果未能实现类似结果，可能需要检查硬件、负载或或测试流程是否存在问题，可以在GitHub上提出<a href="https://github.com/matrixorigin/matrixone/issues/new/choose">issue</a>来报告具体问题。<br />
 在v0.2.0中，MatrixOne在单表、多表查询方面均有优异的表现，我们将MatrixOne的性能测试结果与其他数据库产品进行了比较。通过柱状图，可以看出MatrixOne在查询处理时间上有明显的优势。</p>
 <p>推荐测试使用的服务器规格型号：x86 CPU，16核，64GB内存，CentOS 7+操作系统。</p>
 <p>!!! note  <font size=4>说明</font>
@@ -2299,9 +2215,11 @@ AMD EPYC™ Rome CPU 2.6GHz/3.3GHz，16核，32GiB内存。</p>
 <li>暂不支持表分区，因此不使用<code>PARTITION</code>相关命令</li>
 </ul>
 <h2 id="_6"><strong>相关信息</strong></h2>
-<p>本节内容展示了使用MatrixOne进行SSB测试的结果。若想获取更多相关信息，请见：<br />
-<em> <a href="../../Get-Started/Tutorial/NYC-test-with-matrixone/">完成NYC测试</a><br />
-</em> <a href="../NYC%20Test%20Performance/">NYC测试结果</a></p>
+<p>本节内容展示了使用MatrixOne进行SSB测试的结果。若想获取更多相关信息，请见：  </p>
+<ul>
+<li><a href="../../Get-Started/Tutorial/NYC-test-with-matrixone/">完成NYC测试</a>  </li>
+<li><a href="../NYC-Test-Performance/">NYC测试结果</a></li>
+</ul>
 
               
             </article>
@@ -2311,41 +2229,6 @@ AMD EPYC™ Rome CPU 2.6GHz/3.3GHz，16核，32GiB内存。</p>
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../mysql-compatibility/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MySQL兼容性" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              MySQL兼容性
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../NYC%20Test%20Performance/" class="md-footer__link md-footer__link--next" aria-label="Next: NYC纽约出租车测试报告" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              NYC纽约出租车测试报告
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
