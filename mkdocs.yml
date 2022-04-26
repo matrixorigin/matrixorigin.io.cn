@@ -88,22 +88,32 @@ nav:
           - MAX: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/max.md
           - MIN: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/min.md
           - SUM: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/sum.md
+          - BIT_AND: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_and.md
+          - BIT_OR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_or.md
+          - BIT_XOR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_xor.md
+          - STDDEV_POP: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/stddev_pop.md
+          - VAR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/var.md
         - 数据类型: MatrixOne/Reference/SQL-Reference/data-types.md
       - 系统函数:
-        - LENGTH(): MatrixOne/Reference/Customer-Functions/length.md
-        - FLOOR(): MatrixOne/Reference/Customer-Functions/floor.md
-        - ROUND(): MatrixOne/Reference/Customer-Functions/round.md
-        - YEAR(): MatrixOne/Reference/Customer-Functions/year.md
-        - MONTH(): MatrixOne/Reference/Customer-Functions/month.md
-        - WEEKDAY(): MatrixOne/Reference/Customer-Functions/weekday.md
-        - SIN(): MatrixOne/Reference/Customer-Functions/sin.md
-        - COS(): MatrixOne/Reference/Customer-Functions/cos.md
-        - TAN(): MatrixOne/Reference/Customer-Functions/tan.md
-        - COT(): MatrixOne/Reference/Customer-Functions/cot.md
-        - ATAN(): MatrixOne/Reference/Customer-Functions/atan.md
-        - LTRIM(): MatrixOne/Reference/Customer-Functions/ltrim.md
-        - RTRIM(): MatrixOne/Reference/Customer-Functions/rtrim.md
-        - LPAD(): MatrixOne/Reference/Customer-Functions/lpad.md
+        - 数学类: 
+          - SIN(): MatrixOne/Reference/Builtin-Functions/Mathematical/sin.md
+          - COS(): MatrixOne/Reference/Builtin-Functions/Mathematical/cos.md
+          - TAN(): MatrixOne/Reference/Builtin-Functions/Mathematical/tan.md
+          - COT(): MatrixOne/Reference/Builtin-Functions/Mathematical/cot.md
+          - ATAN(): MatrixOne/Reference/Builtin-Functions/Mathematical/atan.md
+          - ACOS(): MatrixOne/Reference/Builtin-Functions/Mathematical/acos.md
+          - FLOOR(): MatrixOne/Reference/Builtin-Functions/Mathematical/floor.md
+          - ROUND(): MatrixOne/Reference/Builtin-Functions/Mathematical/round.md
+        - 日期时间类: 
+          - YEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/year.md
+          - MONTH(): MatrixOne/Reference/Builtin-Functions/Datetime/month.md
+          - WEEKDAY(): MatrixOne/Reference/Builtin-Functions/Datetime/weekday.md
+        - 字符串类: 
+          - LENGTH(): MatrixOne/Reference/Builtin-Functions/String/length.md
+          - LTRIM(): MatrixOne/Reference/Builtin-Functions/String/ltrim.md
+          - RTRIM(): MatrixOne/Reference/Builtin-Functions/String/rtrim.md
+          - LPAD(): MatrixOne/Reference/Builtin-Functions/String/lpad.md
+          - SUBSTRING(): MatrixOne/Reference/Builtin-Functions/String/substring.md
       - 系统配置: 
         - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 分布式配置: MatrixOne/Reference/System-Parameters/distributed-settings.md
