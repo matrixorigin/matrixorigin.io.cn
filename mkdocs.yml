@@ -96,24 +96,40 @@ nav:
         - 数据类型: MatrixOne/Reference/SQL-Reference/data-types.md
       - 系统函数:
         - 数学类: 
+          - ABS(): MatrixOne/Reference/Builtin-Functions/Mathematical/abs.md
           - SIN(): MatrixOne/Reference/Builtin-Functions/Mathematical/sin.md
           - COS(): MatrixOne/Reference/Builtin-Functions/Mathematical/cos.md
           - TAN(): MatrixOne/Reference/Builtin-Functions/Mathematical/tan.md
           - COT(): MatrixOne/Reference/Builtin-Functions/Mathematical/cot.md
-          - ATAN(): MatrixOne/Reference/Builtin-Functions/Mathematical/atan.md
           - ACOS(): MatrixOne/Reference/Builtin-Functions/Mathematical/acos.md
+          - ATAN(): MatrixOne/Reference/Builtin-Functions/Mathematical/atan.md
+          - SINH(): MatrixOne/Reference/Builtin-Functions/Mathematical/sinh.md
           - FLOOR(): MatrixOne/Reference/Builtin-Functions/Mathematical/floor.md
           - ROUND(): MatrixOne/Reference/Builtin-Functions/Mathematical/round.md
+          - CEIL(): MatrixOne/Reference/Builtin-Functions/Mathematical/ceil.md
+          - POWER(): MatrixOne/Reference/Builtin-Functions/Mathematical/power.md
+          - PI(): MatrixOne/Reference/Builtin-Functions/Mathematical/pi.md
+          - LOG(): MatrixOne/Reference/Builtin-Functions/Mathematical/log.md
+          - LN(): MatrixOne/Reference/Builtin-Functions/Mathematical/ln.md
+          - EXP(): MatrixOne/Reference/Builtin-Functions/Mathematical/exp.md
         - 日期时间类: 
           - YEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/year.md
           - MONTH(): MatrixOne/Reference/Builtin-Functions/Datetime/month.md
+          - DATE(): MatrixOne/Reference/Builtin-Functions/Datetime/date.md
           - WEEKDAY(): MatrixOne/Reference/Builtin-Functions/Datetime/weekday.md
+          - DAYOFYEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/dayofyear.md
         - 字符串类: 
+          - EMPTY(): MatrixOne/Reference/Builtin-Functions/String/empty.md
           - LENGTH(): MatrixOne/Reference/Builtin-Functions/String/length.md
+          - LENGTHUTF8(): MatrixOne/Reference/Builtin-Functions/String/lengthutf8.md
           - LTRIM(): MatrixOne/Reference/Builtin-Functions/String/ltrim.md
           - RTRIM(): MatrixOne/Reference/Builtin-Functions/String/rtrim.md
           - LPAD(): MatrixOne/Reference/Builtin-Functions/String/lpad.md
+          - RPAD(): MatrixOne/Reference/Builtin-Functions/String/rpad.md
+          - STARTSWITH(): MatrixOne/Reference/Builtin-Functions/String/startswith.md
+          - ENDSWITH(): MatrixOne/Reference/Builtin-Functions/String/endswith.md
           - SUBSTRING(): MatrixOne/Reference/Builtin-Functions/String/substring.md
+          - REVERSE(): MatrixOne/Reference/Builtin-Functions/String/reverse.md
       - 系统配置: 
         - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 分布式配置: MatrixOne/Reference/System-Parameters/distributed-settings.md
