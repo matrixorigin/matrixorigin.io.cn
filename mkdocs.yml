@@ -121,7 +121,7 @@ nav:
         - 字符串类: 
           - EMPTY(): MatrixOne/Reference/Builtin-Functions/String/empty.md
           - LENGTH(): MatrixOne/Reference/Builtin-Functions/String/length.md
-          - LENGTHUTF8(): MatrixOne/Reference/Builtin-Functions/String/lengthutf8.md
+          - LENGTHUTF8(): MatrixOne/Reference/Builtin-Functions/String/lengthUTF8.md
           - LTRIM(): MatrixOne/Reference/Builtin-Functions/String/ltrim.md
           - RTRIM(): MatrixOne/Reference/Builtin-Functions/String/rtrim.md
           - LPAD(): MatrixOne/Reference/Builtin-Functions/String/lpad.md
@@ -129,6 +129,7 @@ nav:
           - STARTSWITH(): MatrixOne/Reference/Builtin-Functions/String/startswith.md
           - ENDSWITH(): MatrixOne/Reference/Builtin-Functions/String/endswith.md
           - SUBSTRING(): MatrixOne/Reference/Builtin-Functions/String/substring.md
+          - SPACE(): MatrixOne/Reference/Builtin-Functions/String/space.md
           - REVERSE(): MatrixOne/Reference/Builtin-Functions/String/reverse.md
       - 系统配置: 
         - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
