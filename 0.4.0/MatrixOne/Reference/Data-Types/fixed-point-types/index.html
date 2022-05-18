@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>架构概述 - MatrixOne中文文档</title>
+        <title>精确数值类型-Decimal类型 - MatrixOne中文文档</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c382b1dc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -35,9 +35,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#matrixone" class="md-skip">
+        <a href="#-decimal" class="md-skip">
           Skip to content
         </a>
       
@@ -85,7 +85,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://www.matrixorigin.cn" title="MatrixOne中文文档" class="md-header__button md-logo" aria-label="MatrixOne中文文档" data-md-component="logo">
       
-  <img src="../../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              架构概述
+              精确数值类型-Decimal类型
             
           </span>
         </div>
@@ -193,15 +193,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../../.." class="md-tabs__link">
         MatrixOne
       </a>
     </li>
@@ -237,7 +235,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://www.matrixorigin.cn" title="MatrixOne中文文档" class="md-nav__button md-logo" aria-label="MatrixOne中文文档" data-md-component="logo">
       
-  <img src="../../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     MatrixOne中文文档
@@ -263,14 +261,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
       
       
       
@@ -293,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         主页
       </a>
     </li>
@@ -305,14 +301,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
       
       
       
@@ -335,7 +329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../matrixone-introduction/" class="md-nav__link">
+      <a href="../../../Overview/matrixone-introduction/" class="md-nav__link">
         MatrixOne简介
       </a>
     </li>
@@ -347,14 +341,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2" type="checkbox" id="__nav_1_2_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2" type="checkbox" id="__nav_1_2_2" >
       
       
       
@@ -375,94 +367,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          架构概述
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../Overview/matrixone-architecture/" class="md-nav__link">
         架构概述
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    整体架构
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#query-parser-layer" class="md-nav__link">
-    查询解析层(Query Parser Layer)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#computation-layer" class="md-nav__link">
-    计算层(Computation Layer)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matrixcube" class="md-nav__link">
-    集群管理层(MatrixCube)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#replicated-storage-layer" class="md-nav__link">
-    存储引擎层(Replicated Storage Layer)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage-provision-layer" class="md-nav__link">
-    存储介质层(Storage Provision Layer)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    相关信息
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -474,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MatrixOne-Tech-Design/matrixone-techdesign/" class="md-nav__link">
+      <a href="../../../Overview/MatrixOne-Tech-Design/matrixone-techdesign/" class="md-nav__link">
         模块概览
       </a>
     </li>
@@ -514,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../matrixcube/matrixcube-introduction/" class="md-nav__link">
+      <a href="../../../Overview/matrixcube/matrixcube-introduction/" class="md-nav__link">
         MatrixCube简介
       </a>
     </li>
@@ -528,7 +437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../matrixcube/matrixcube-auto-rebalance-scheduling/" class="md-nav__link">
+      <a href="../../../Overview/matrixcube/matrixcube-auto-rebalance-scheduling/" class="md-nav__link">
         自平衡与调度
       </a>
     </li>
@@ -542,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../matrixcube/matrixcube-shard-splitting/" class="md-nav__link">
+      <a href="../../../Overview/matrixcube/matrixcube-shard-splitting/" class="md-nav__link">
         数据分片拆分
       </a>
     </li>
@@ -556,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../matrixcube/matrixcube-proxy-routing/" class="md-nav__link">
+      <a href="../../../Overview/matrixcube/matrixcube-proxy-routing/" class="md-nav__link">
         代理与路由
       </a>
     </li>
@@ -584,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mysql-compatibility/" class="md-nav__link">
+      <a href="../../../Overview/mysql-compatibility/" class="md-nav__link">
         MySQL兼容性
       </a>
     </li>
@@ -624,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SSB-Test-Performance/" class="md-nav__link">
+      <a href="../../../Overview/SSB-Test-Performance/" class="md-nav__link">
         SSB测试报告
       </a>
     </li>
@@ -638,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../NYC-Test-Performance/" class="md-nav__link">
+      <a href="../../../Overview/NYC-Test-Performance/" class="md-nav__link">
         NYC纽约出租车测试报告
       </a>
     </li>
@@ -659,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../whats-new/" class="md-nav__link">
+      <a href="../../../Overview/whats-new/" class="md-nav__link">
         最新动态
       </a>
     </li>
@@ -706,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
+      <a href="../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
         安装单机版MatrixOne
       </a>
     </li>
@@ -720,7 +629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Get-Started/install-distributed-matrixone/" class="md-nav__link">
+      <a href="../../../Get-Started/install-distributed-matrixone/" class="md-nav__link">
         部署分布式MatrixOne集群
       </a>
     </li>
@@ -734,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
+      <a href="../../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
         连接MatrixOne
       </a>
     </li>
@@ -774,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Get-Started/Tutorial/SSB-test-with-matrixone/" class="md-nav__link">
+      <a href="../../../Get-Started/Tutorial/SSB-test-with-matrixone/" class="md-nav__link">
         完成SSB测试
       </a>
     </li>
@@ -788,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Get-Started/Tutorial/NYC-test-with-matrixone/" class="md-nav__link">
+      <a href="../../../Get-Started/Tutorial/NYC-test-with-matrixone/" class="md-nav__link">
         完成NYC纽约出租车测试
       </a>
     </li>
@@ -809,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Get-Started/Playground/" class="md-nav__link">
+      <a href="../../../Get-Started/Playground/" class="md-nav__link">
         Playground在线体验
       </a>
     </li>
@@ -908,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-database/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Statements/create-database/" class="md-nav__link">
         CREATE DATABASE
       </a>
     </li>
@@ -922,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-table/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Statements/create-table/" class="md-nav__link">
         CREATE TABLE
       </a>
     </li>
@@ -936,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/drop-database/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Statements/drop-database/" class="md-nav__link">
         DROP DATABASE
       </a>
     </li>
@@ -950,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/drop-table/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Statements/drop-table/" class="md-nav__link">
         DROP TABLE
       </a>
     </li>
@@ -964,7 +873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-index/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Statements/create-index/" class="md-nav__link">
         CREATE INDEX
       </a>
     </li>
@@ -978,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/drop-index/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Statements/drop-index/" class="md-nav__link">
         DROP INDEX
       </a>
     </li>
@@ -992,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/primary-key/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Statements/primary-key/" class="md-nav__link">
         PRIMARY KEY
       </a>
     </li>
@@ -1039,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/insert/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Statements/insert/" class="md-nav__link">
         INSERT
       </a>
     </li>
@@ -1053,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Statements/load-data/" class="md-nav__link">
         LOAD DATA
       </a>
     </li>
@@ -1067,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/select/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Statements/select/" class="md-nav__link">
         SELECT
       </a>
     </li>
@@ -1081,7 +990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/show-databases/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Statements/show-databases/" class="md-nav__link">
         SHOW DATABASES
       </a>
     </li>
@@ -1095,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/show-tables/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Statements/show-tables/" class="md-nav__link">
         SHOW TABLES
       </a>
     </li>
@@ -1109,7 +1018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/use/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Statements/use/" class="md-nav__link">
         USE
       </a>
     </li>
@@ -1123,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/like/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Statements/like/" class="md-nav__link">
         LIKE
       </a>
     </li>
@@ -1137,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/in/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Statements/in/" class="md-nav__link">
         IN
       </a>
     </li>
@@ -1151,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/cast/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Statements/cast/" class="md-nav__link">
         CAST
       </a>
     </li>
@@ -1165,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/inner-join/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Statements/inner-join/" class="md-nav__link">
         INNER JOIN
       </a>
     </li>
@@ -1212,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Aggregate-Functions/avg/" class="md-nav__link">
+      <a href="../../SQL-Reference/Aggregate-Functions/avg/" class="md-nav__link">
         AVG
       </a>
     </li>
@@ -1226,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Aggregate-Functions/count/" class="md-nav__link">
+      <a href="../../SQL-Reference/Aggregate-Functions/count/" class="md-nav__link">
         COUNT
       </a>
     </li>
@@ -1240,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Aggregate-Functions/max/" class="md-nav__link">
+      <a href="../../SQL-Reference/Aggregate-Functions/max/" class="md-nav__link">
         MAX
       </a>
     </li>
@@ -1254,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Aggregate-Functions/min/" class="md-nav__link">
+      <a href="../../SQL-Reference/Aggregate-Functions/min/" class="md-nav__link">
         MIN
       </a>
     </li>
@@ -1268,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Aggregate-Functions/sum/" class="md-nav__link">
+      <a href="../../SQL-Reference/Aggregate-Functions/sum/" class="md-nav__link">
         SUM
       </a>
     </li>
@@ -1282,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Aggregate-Functions/bit_and/" class="md-nav__link">
+      <a href="../../SQL-Reference/Aggregate-Functions/bit_and/" class="md-nav__link">
         BIT_AND
       </a>
     </li>
@@ -1296,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Aggregate-Functions/bit_or/" class="md-nav__link">
+      <a href="../../SQL-Reference/Aggregate-Functions/bit_or/" class="md-nav__link">
         BIT_OR
       </a>
     </li>
@@ -1310,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Aggregate-Functions/bit_xor/" class="md-nav__link">
+      <a href="../../SQL-Reference/Aggregate-Functions/bit_xor/" class="md-nav__link">
         BIT_XOR
       </a>
     </li>
@@ -1324,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Aggregate-Functions/stddev_pop/" class="md-nav__link">
+      <a href="../../SQL-Reference/Aggregate-Functions/stddev_pop/" class="md-nav__link">
         STDDEV_POP
       </a>
     </li>
@@ -1338,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Aggregate-Functions/var/" class="md-nav__link">
+      <a href="../../SQL-Reference/Aggregate-Functions/var/" class="md-nav__link">
         VAR
       </a>
     </li>
@@ -1385,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Types/data-types.md" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Types/data-types.md" class="md-nav__link">
         数据类型概览
       </a>
     </li>
@@ -1399,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Types/fixed-point-types.md" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Types/fixed-point-types.md" class="md-nav__link">
         精确数值类型-DECIMAL
       </a>
     </li>
@@ -1479,7 +1388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/abs/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/abs/" class="md-nav__link">
         ABS()
       </a>
     </li>
@@ -1493,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/sin/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/sin/" class="md-nav__link">
         SIN()
       </a>
     </li>
@@ -1507,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/cos/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/cos/" class="md-nav__link">
         COS()
       </a>
     </li>
@@ -1521,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/tan/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/tan/" class="md-nav__link">
         TAN()
       </a>
     </li>
@@ -1535,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/cot/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/cot/" class="md-nav__link">
         COT()
       </a>
     </li>
@@ -1549,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/acos/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/acos/" class="md-nav__link">
         ACOS()
       </a>
     </li>
@@ -1563,7 +1472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/atan/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/atan/" class="md-nav__link">
         ATAN()
       </a>
     </li>
@@ -1577,7 +1486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/sinh/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/sinh/" class="md-nav__link">
         SINH()
       </a>
     </li>
@@ -1591,7 +1500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/floor/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/floor/" class="md-nav__link">
         FLOOR()
       </a>
     </li>
@@ -1605,7 +1514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/round/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/round/" class="md-nav__link">
         ROUND()
       </a>
     </li>
@@ -1619,7 +1528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/ceil/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/ceil/" class="md-nav__link">
         CEIL()
       </a>
     </li>
@@ -1633,7 +1542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/power/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/power/" class="md-nav__link">
         POWER()
       </a>
     </li>
@@ -1647,7 +1556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/pi/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/pi/" class="md-nav__link">
         PI()
       </a>
     </li>
@@ -1661,7 +1570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/log/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/log/" class="md-nav__link">
         LOG()
       </a>
     </li>
@@ -1675,7 +1584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/ln/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/ln/" class="md-nav__link">
         LN()
       </a>
     </li>
@@ -1689,7 +1598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Mathematical/exp/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Mathematical/exp/" class="md-nav__link">
         EXP()
       </a>
     </li>
@@ -1736,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Datetime/year/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Datetime/year/" class="md-nav__link">
         YEAR()
       </a>
     </li>
@@ -1750,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Datetime/month/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Datetime/month/" class="md-nav__link">
         MONTH()
       </a>
     </li>
@@ -1764,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Datetime/date/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Datetime/date/" class="md-nav__link">
         DATE()
       </a>
     </li>
@@ -1778,7 +1687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Datetime/weekday/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Datetime/weekday/" class="md-nav__link">
         WEEKDAY()
       </a>
     </li>
@@ -1792,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Datetime/dayofyear/" class="md-nav__link">
+      <a href="../../Builtin-Functions/Datetime/dayofyear/" class="md-nav__link">
         DAYOFYEAR()
       </a>
     </li>
@@ -1839,7 +1748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/empty/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/empty/" class="md-nav__link">
         EMPTY()
       </a>
     </li>
@@ -1853,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/length/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/length/" class="md-nav__link">
         LENGTH()
       </a>
     </li>
@@ -1867,7 +1776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/lengthUTF8/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/lengthUTF8/" class="md-nav__link">
         LENGTHUTF8()
       </a>
     </li>
@@ -1881,7 +1790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/ltrim/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/ltrim/" class="md-nav__link">
         LTRIM()
       </a>
     </li>
@@ -1895,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/rtrim/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/rtrim/" class="md-nav__link">
         RTRIM()
       </a>
     </li>
@@ -1909,7 +1818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/lpad/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/lpad/" class="md-nav__link">
         LPAD()
       </a>
     </li>
@@ -1923,7 +1832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/rpad/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/rpad/" class="md-nav__link">
         RPAD()
       </a>
     </li>
@@ -1937,7 +1846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/startswith/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/startswith/" class="md-nav__link">
         STARTSWITH()
       </a>
     </li>
@@ -1951,7 +1860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/endswith/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/endswith/" class="md-nav__link">
         ENDSWITH()
       </a>
     </li>
@@ -1965,7 +1874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/substring/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/substring/" class="md-nav__link">
         SUBSTRING()
       </a>
     </li>
@@ -1979,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/space/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/space/" class="md-nav__link">
         SPACE()
       </a>
     </li>
@@ -1993,7 +1902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/reverse/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/reverse/" class="md-nav__link">
         REVERSE()
       </a>
     </li>
@@ -2047,7 +1956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/System-Parameters/configuration-settings/" class="md-nav__link">
+      <a href="../../System-Parameters/configuration-settings/" class="md-nav__link">
         通用配置
       </a>
     </li>
@@ -2061,7 +1970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/System-Parameters/distributed-settings/" class="md-nav__link">
+      <a href="../../System-Parameters/distributed-settings/" class="md-nav__link">
         分布式配置
       </a>
     </li>
@@ -2115,7 +2024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../FAQs/general-faqs/" class="md-nav__link">
+      <a href="../../../FAQs/general-faqs/" class="md-nav__link">
         通用问答
       </a>
     </li>
@@ -2162,7 +2071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Release-Notes/v0.1.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.1.0/" class="md-nav__link">
         v0.1.0
       </a>
     </li>
@@ -2176,7 +2085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Release-Notes/v0.2.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.2.0/" class="md-nav__link">
         v0.2.0
       </a>
     </li>
@@ -2190,7 +2099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Release-Notes/v0.3.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.3.0/" class="md-nav__link">
         v0.3.0
       </a>
     </li>
@@ -2204,7 +2113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Release-Notes/v0.4.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.4.0/" class="md-nav__link">
         v0.4.0
       </a>
     </li>
@@ -2225,7 +2134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../glossary/" class="md-nav__link">
+      <a href="../../../glossary/" class="md-nav__link">
         名词术语表
       </a>
     </li>
@@ -2265,7 +2174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/make-your-first-contribution/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/make-your-first-contribution/" class="md-nav__link">
         快速贡献
       </a>
     </li>
@@ -2305,7 +2214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/How-to-Contribute/types-of-contributions/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/types-of-contributions/" class="md-nav__link">
         有哪些贡献类型
       </a>
     </li>
@@ -2319,7 +2228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/How-to-Contribute/preparation/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/preparation/" class="md-nav__link">
         贡献准备
       </a>
     </li>
@@ -2333,7 +2242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/How-to-Contribute/report-an-issue/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/report-an-issue/" class="md-nav__link">
         报告Issue
       </a>
     </li>
@@ -2347,7 +2256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/How-to-Contribute/contribute-code/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/contribute-code/" class="md-nav__link">
         贡献代码
       </a>
     </li>
@@ -2361,7 +2270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/How-to-Contribute/review-a-pull-request/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/review-a-pull-request/" class="md-nav__link">
         审核修改
       </a>
     </li>
@@ -2375,7 +2284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/How-to-Contribute/contribute-documentation/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/contribute-documentation/" class="md-nav__link">
         文档贡献
       </a>
     </li>
@@ -2389,7 +2298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/How-to-Contribute/make-a-design/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/make-a-design/" class="md-nav__link">
         提出设计草案
       </a>
     </li>
@@ -2436,7 +2345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/Code-Style/code-of-conduct/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/Code-Style/code-of-conduct/" class="md-nav__link">
         编码规范
       </a>
     </li>
@@ -2450,7 +2359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/Code-Style/code-comment-style/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/Code-Style/code-comment-style/" class="md-nav__link">
         注释规范
       </a>
     </li>
@@ -2464,7 +2373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Contribution-Guide/Code-Style/commit-pr-style/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/Code-Style/commit-pr-style/" class="md-nav__link">
         提交规范
       </a>
     </li>
@@ -2566,50 +2475,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    整体架构
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#query-parser-layer" class="md-nav__link">
-    查询解析层(Query Parser Layer)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#computation-layer" class="md-nav__link">
-    计算层(Computation Layer)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matrixcube" class="md-nav__link">
-    集群管理层(MatrixCube)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#replicated-storage-layer" class="md-nav__link">
-    存储引擎层(Replicated Storage Layer)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage-provision-layer" class="md-nav__link">
-    存储介质层(Storage Provision Layer)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    相关信息
+  <a href="#decimal" class="md-nav__link">
+    Decimal数据类型特点
   </a>
   
 </li>
@@ -2626,51 +2493,46 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Overview/matrixone-architecture.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Reference/Data-Types/fixed-point-types.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="matrixone"><strong>MatrixOne架构概述</strong></h1>
-<h2 id="_1"><strong>整体架构</strong></h2>
-<p>MatrixOne作为一个从零开始打造的全新数据库，其整体架构由多个模块组成。对应架构图如下图所示：
-<img alt="MatrixOne Architecture" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/overall-architecture.png?raw=true" /></p>
-<h2 id="query-parser-layer"><strong>查询解析层(Query Parser Layer)</strong></h2>
-<ul>
-<li><strong>解析器(Parser):</strong> 将SQL、流处理或Python语言解析为抽象语法树，以便进一步处理。</li>
-<li><strong>计划器(Planner):</strong> 通过一系列基于规则、基于成本的优化算法找到最佳的执行计划，并将抽象语法树转换为计划树。</li>
-<li><strong>IR生成器(IR Generator):</strong> 将Python代码转变为LLVM IR的中间码。</li>
-</ul>
-<h2 id="computation-layer"><strong>计算层(Computation Layer)</strong></h2>
-<ul>
-<li><strong>即时编译(JIT Compilation):</strong> 在运行时使用LLVM将SQL计划树或IR代码转换为本地程序。</li>
-<li><strong>向量化执行(Vectorized Execution):</strong> MatrixOne利用SIMD指令构造向量化执行通道。</li>
-<li><strong>缓存(Cache):</strong> 用于查询的数据、索引和元数据的多版本的缓存。  </li>
-</ul>
-<h2 id="matrixcube"><strong>集群管理层(MatrixCube)</strong></h2>
-<p>MatrixCube是构建分布式系统的基础库，它保证数据库集群的高可靠性、强一致性和可扩展性。它用于保证分布式、有状态的应用程序构建，使开发人员只需要关注单节点的业务逻辑实现即可。MatrixCube目前基于<code>multi-raft</code>搭建来提供强一致能力，之后将迁移到<code>Paxos</code>，用于更好服务跨数据中心的应用场景。</p>
-<ul>
-<li><strong>调度器(Prophet):</strong> MatrixCube中用于管理、调度MatrixOne集群的工具。</li>
-<li><strong>事务管理器(Transaction Manager):</strong> MatrixOne支持快照隔离级别(snapshot isolation)的分布式事务。</li>
-<li><strong>复制状态机(Replicated State Machine):</strong> MatrixOne使用基于<code>raft</code>的共识协议和超逻辑时钟来实现集群的强一致性。</li>
-</ul>
-<h2 id="replicated-storage-layer"><strong>存储引擎层(Replicated Storage Layer)</strong></h2>
-<ul>
-<li><strong>行存(Row Storage):</strong> 存储交易类负载数据、元数据和Catalog。</li>
-<li><strong>列存(Column Storage):</strong> 存储分析负载类数据与物化视图。</li>
-</ul>
-<h2 id="storage-provision-layer"><strong>存储介质层(Storage Provision Layer)</strong></h2>
-<p>MatrixOne作为无需绑定底层基础设施的数据库，可以支持共享存储S3/HDFS，或本地磁盘、私有数据中心、混合云，甚至智能设备等存储介质的数据存储。</p>
-<h2 id="_2"><strong>相关信息</strong></h2>
-<p>本节介绍了MatrixOne的整体架构概览。若您想了解更详细的模块技术设计问题，可阅读：
-<a href="../MatrixOne-Tech-Design/matrixone-techdesign/">MatrixOne模块概览</a>  </p>
-<p>其他信息可参见：  </p>
-<ul>
-<li><a href="../../Get-Started/install-standalone-matrixone/">安装MatrixOne</a></li>
-<li><a href="../mysql-compatibility/">MySQL兼容性</a></li>
-<li><a href="../whats-new/">最新发布信息</a></li>
-</ul>
+<h1 id="-decimal">精确数值类型-Decimal类型</h1>
+<p>Decimal数据类型用来存储精确的数值。精确数值类型在需要用到非常准确的数值精度的场景下使用，比如银行账户数字，或者严谨的科学计算等。
+在Decimal的列名声明中，整数和小数部分一般都会进行声明。比如以下例子：</p>
+<div class="highlight"><pre><span></span><code><span class="n">salary</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<p>在这个案例中，5是整数位，2是小数位。整数精度表示整数值部分存储的有效位数，小数精度表示小数部分存储的有效位数。
+标准SQL要求DECIMAL(5,2)需要存储5位数字，2位小数，因此如果以该形式表示的工资列数字取值范围应该在-999.99到999.99之间。
+在MatrixOne的语法中，DECIMAL(M)与DECIMAL(M,0)是相同的。如果直接只声明DECIMAL的话，语法也将解析成DECIMAL(M,0)的形式，M的默认值为10。
+如果小数精度为0的话，DECIMAL相当于纯整数，不含任何小数。
+MatrixOne中DECIMAL类型的最大位数为38位。另外DECIMAL中指定的整数或小数位数在实际列被赋值的时候超出指定范围，实际数值将会被自动转换成相应精度。</p>
+<h2 id="decimal">Decimal数据类型特点</h2>
+<p>该部分内容主要介绍Decimal数据类型的一些特点，尤其是在位数精度和存储形式上的。</p>
+<p>DECIMAL列的声明语法是DECIMAL(M, D). M是整数的位数，取值范围是1到38，D是小数位数，取值范围是1到38，但是不能大于M。
+如果不指定D，默认为0。如果不指定M，默认为10。</p>
+<p>DECIMAL列的数值以二进制的形式进行存储，在MatrixOne内部，只有decimal64和decimal128这两种表示形式。在0-18位精度内，一个Decimal数值占用8个字节的存储空间，在19-38位精度内，一个Decimal数值占用16个字节的存储空间。</p>
+<table>
+<thead>
+<tr>
+<th>位数</th>
+<th>字节数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-18</td>
+<td>8个字节</td>
+</tr>
+<tr>
+<td>19-38</td>
+<td>16个字节</td>
+</tr>
+</tbody>
+</table>
+<p>对于详细的Decimal类型实现方法，可以参考Decimal的<a href="https://github.com/matrixorigin/matrixone/issues/1867">设计文档</a>。</p>
 
               
             </article>
@@ -2680,41 +2542,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../matrixone-introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MatrixOne简介" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              MatrixOne简介
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../MatrixOne-Tech-Design/matrixone-techdesign/" class="md-footer__link md-footer__link--next" aria-label="Next: 模块概览" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              模块概览
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2736,10 +2563,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
     
   </body>
