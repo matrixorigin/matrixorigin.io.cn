@@ -9,7 +9,7 @@ theme:
       note: fontawesome/solid/sticky-note
       info: fontawesome/solid/info-circle
   features:
-    - navigation.instant  
+    - navigation.instant
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
@@ -38,12 +38,12 @@ markdown_extensions:
 nav:
   - MatrixOne:
     - 主页: README.md
-    - 关于MatrixOne: 
+    - 关于MatrixOne:
       - MatrixOne简介: MatrixOne/Overview/matrixone-introduction.md
-      - MatrixOne技术架构: 
+      - MatrixOne技术架构:
         - 架构概述: MatrixOne/Overview/matrixone-architecture.md
         - 模块概览: MatrixOne/Overview/MatrixOne-Tech-Design/matrixone-techdesign.md
-        - 集群管理层设计: 
+        - 集群管理层设计:
           - MatrixCube简介: MatrixOne/Overview/matrixcube/matrixcube-introduction.md
           - 自平衡与调度: MatrixOne/Overview/matrixcube/matrixcube-auto-rebalance-scheduling.md
           - 数据分片拆分: MatrixOne/Overview/matrixcube/matrixcube-shard-splitting.md
@@ -53,7 +53,7 @@ nav:
         - SSB测试报告: MatrixOne/Overview/SSB-Test-Performance.md
         - NYC纽约出租车测试报告: MatrixOne/Overview/NYC-Test-Performance.md
       - 最新动态: MatrixOne/Overview/whats-new.md
-    - 快速上手: 
+    - 快速上手:
       - 安装单机版MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
       - 部署分布式MatrixOne集群: MatrixOne/Get-Started/install-distributed-matrixone.md
       - 连接MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
@@ -62,7 +62,7 @@ nav:
         - 完成NYC纽约出租车测试: MatrixOne/Get-Started/Tutorial/NYC-test-with-matrixone.md
       - Playground在线体验: MatrixOne/Get-Started/Playground.md
     - 参考手册:
-      - SQL目录: 
+      - SQL目录:
         - DDL:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-database.md
           - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-table.md
@@ -81,7 +81,13 @@ nav:
           - LIKE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/like.md
           - IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/in.md
           - CAST: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/cast.md
-          - INNER JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/inner-join.md
+          - JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join.md
+            - INNER JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/inner-join.md
+            - LEFT JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/left-join.md
+            - RIGHT JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/right-join.md
+            - FULL JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/full-join.md
+            - OUTER JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/outer-join.md
+            - NATURAL JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/natural-join.md
         - 聚合函数:
           - AVG: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/avg.md
           - COUNT: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/count.md
@@ -97,7 +103,7 @@ nav:
         - 数据类型概览: MatrixOne/Reference/Data-Types/data-types.md
         - 精确数值类型-DECIMAL: MatrixOne/Reference/Data-Types/fixed-point-types.md
       - 系统函数:
-        - 数学类: 
+        - 数学类:
           - ABS(): MatrixOne/Reference/Builtin-Functions/Mathematical/abs.md
           - SIN(): MatrixOne/Reference/Builtin-Functions/Mathematical/sin.md
           - COS(): MatrixOne/Reference/Builtin-Functions/Mathematical/cos.md
@@ -114,13 +120,24 @@ nav:
           - LOG(): MatrixOne/Reference/Builtin-Functions/Mathematical/log.md
           - LN(): MatrixOne/Reference/Builtin-Functions/Mathematical/ln.md
           - EXP(): MatrixOne/Reference/Builtin-Functions/Mathematical/exp.md
-        - 日期时间类: 
+        - 日期时间类:
           - YEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/year.md
           - MONTH(): MatrixOne/Reference/Builtin-Functions/Datetime/month.md
           - DATE(): MatrixOne/Reference/Builtin-Functions/Datetime/date.md
           - WEEKDAY(): MatrixOne/Reference/Builtin-Functions/Datetime/weekday.md
           - DAYOFYEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/dayofyear.md
-        - 字符串类: 
+          - EXTRACT(): MatrixOne/Reference/Builtin-Functions/Datetime/extract.md
+          - DATE_ADD(): MatrixOne/Reference/Builtin-Functions/Datetime/date-add.md
+          - DATE_SUB(): MatrixOne/Reference/Builtin-Functions/Datetime/date-sub.md
+          - TO_DATE(): MatrixOne/Reference/Builtin-Functions/Datetime/to-date.md
+          - UNIX_TIMESTAMP: MatrixOne/Reference/Builtin-Functions/Datetime/unix-timestamp.md
+          - FROM_UNIXTIME: MatrixOne/Reference/Builtin-Functions/Datetime/from-unixtime.md
+          - UTC_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/utc-timestamp.md
+        - 字符串类:
+          - BIN(): MatrixOne/Reference/Builtin-Functions/String/bin.md
+          - CONCAT_WS(): MatrixOne/Reference/Builtin-Functions/String/concat_ws.md
+          - FIND_IN_SET(): MatrixOne/Reference/Builtin-Functions/String/find_in_set.md
+          - OCT(): MatrixOne/Reference/Builtin-Functions/String/oct.md
           - EMPTY(): MatrixOne/Reference/Builtin-Functions/String/empty.md
           - LENGTH(): MatrixOne/Reference/Builtin-Functions/String/length.md
           - LENGTHUTF8(): MatrixOne/Reference/Builtin-Functions/String/lengthUTF8.md
@@ -133,7 +150,7 @@ nav:
           - SUBSTRING(): MatrixOne/Reference/Builtin-Functions/String/substring.md
           - SPACE(): MatrixOne/Reference/Builtin-Functions/String/space.md
           - REVERSE(): MatrixOne/Reference/Builtin-Functions/String/reverse.md
-      - 系统配置: 
+      - 系统配置:
         - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 分布式配置: MatrixOne/Reference/System-Parameters/distributed-settings.md
     - 常见问题解答:
@@ -144,9 +161,9 @@ nav:
       - v0.3.0: MatrixOne/Release-Notes/v0.3.0.md
       - v0.4.0: MatrixOne/Release-Notes/v0.4.0.md
     - 名词术语表: MatrixOne/glossary.md
-    - 社区贡献指南: 
+    - 社区贡献指南:
       - 快速贡献: MatrixOne/Contribution-Guide/make-your-first-contribution.md
-      - 贡献指南: 
+      - 贡献指南:
         - 有哪些贡献类型: MatrixOne/Contribution-Guide/How-to-Contribute/types-of-contributions.md
         - 贡献准备: MatrixOne/Contribution-Guide/How-to-Contribute/preparation.md
         - 报告Issue: MatrixOne/Contribution-Guide/How-to-Contribute/report-an-issue.md
@@ -154,7 +171,7 @@ nav:
         - 审核修改: MatrixOne/Contribution-Guide/How-to-Contribute/review-a-pull-request.md
         - 文档贡献: MatrixOne/Contribution-Guide/How-to-Contribute/contribute-documentation.md
         - 提出设计草案: MatrixOne/Contribution-Guide/How-to-Contribute/make-a-design.md
-      - 代码规范: 
+      - 代码规范:
         - 编码规范: MatrixOne/Contribution-Guide/Code-Style/code-of-conduct.md
         - 注释规范: MatrixOne/Contribution-Guide/Code-Style/code-comment-style.md
         - 提交规范: MatrixOne/Contribution-Guide/Code-Style/commit-pr-style.md
