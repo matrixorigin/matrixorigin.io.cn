@@ -73,6 +73,9 @@ nav:
           - PRIMARY KEY: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/primary-key.md
         - DML:
           - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/insert.md
+          - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/insert-into-select.md
+          - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/update.md
+          - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/delete.md
           - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md
           - SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/select.md
           - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/show-databases.md
