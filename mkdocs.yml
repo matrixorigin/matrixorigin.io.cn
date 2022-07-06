@@ -84,6 +84,9 @@ nav:
           - LIKE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/like.md
           - IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/in.md
           - CAST: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/cast.md
+          - INTERVAL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/interval.md
+          - With CTE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/with-cte.md
+          - CASE...WHEN...: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/case.md
           - SUBQUERY:
             - SUBQUERY 概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subquery.md
             - FROM SUBQUERY: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery.md
@@ -98,6 +101,52 @@ nav:
             - FULL JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/full-join.md
             - OUTER JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/outer-join.md
             - NATURAL JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/natural-join.md
+          - OPERATORS:
+            - 运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators.md
+            - 运算符的优先级: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/operators-precedence.md
+            - 算数运算符:
+              - 算数运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/arithmetic-operators-overview.md
+              - \%,MOD: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/mod.md
+              - \*: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/multiplication.md
+              - +: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/addition.md
+              - -: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/minus.md
+              - -: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/unary-minus.md
+              - /: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/division.md
+              - DIV: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/div.md
+            - 赋值运算符:
+              - 赋值运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/assignment-operators/assignment-operators-overview.md
+              - =: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/assignment-operators/equal.md
+            - 强制转换函数和运算符:
+              - 强制转换函数和运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/cast-functions-and-operators-overview.md
+              - CAST: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/cast.md
+              - CONVERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/convert.md
+            - 比较函数和运算符:
+              - 比较函数和运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview.md
+              - \>: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than.md
+              - \>=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than-or-equal.md
+              - <: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than.md
+              - <>,!=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-equal.md
+              - <=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than-or-equal.md
+              - =: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/assign-equal.md
+              - BETWEEN ... AND ...: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/between.md
+              - IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/in.md
+              - IS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is.md
+              - IS NOT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not.md
+              - IS NOT NULL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not-null.md
+              - IS NULL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-null.md
+              - LIKE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/like.md
+              - NOT BETWEEN ... AND ...: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-between.md
+              - NOT LIKE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-like.md
+            - 控制流函数:
+              - 控制流函数概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/flow-control-functions-overview.md
+              - CASE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/case.md
+              - IF: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/function_if.md
+            - 逻辑运算符:
+              - 逻辑运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/logical-operators-overview.md
+              - AND,&&: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/and.md
+              - NOT,!: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/not.md
+              - OR: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/or.md
+              - XOR: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/xor.md
         - 聚合函数:
           - AVG: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/avg.md
           - COUNT: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/count.md
@@ -144,7 +193,6 @@ nav:
           - FROM_UNIXTIME: MatrixOne/Reference/Builtin-Functions/Datetime/from-unixtime.md
           - UTC_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/utc-timestamp.md
         - 字符串类:
-          - BIN(): MatrixOne/Reference/Builtin-Functions/String/bin.md
           - CONCAT_WS(): MatrixOne/Reference/Builtin-Functions/String/concat_ws.md
           - FIND_IN_SET(): MatrixOne/Reference/Builtin-Functions/String/find_in_set.md
           - OCT(): MatrixOne/Reference/Builtin-Functions/String/oct.md
