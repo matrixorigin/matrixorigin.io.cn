@@ -40,14 +40,14 @@ nav:
     - 主页: README.md
     - 关于MatrixOne:
       - MatrixOne简介: MatrixOne/Overview/matrixone-introduction.md
-      - MatrixOne技术架构:
-        - 架构概述: MatrixOne/Overview/matrixone-architecture.md
+      - MatrixOne技术架构: MatrixOne/Overview/matrixone-architecture.md
+      - MatrixOne技术概述:
         - 模块概览: MatrixOne/Overview/MatrixOne-Tech-Design/matrixone-techdesign.md
-        - 集群管理层设计:
-          - MatrixCube简介: MatrixOne/Overview/matrixcube/matrixcube-introduction.md
-          - 自平衡与调度: MatrixOne/Overview/matrixcube/matrixcube-auto-rebalance-scheduling.md
-          - 数据分片拆分: MatrixOne/Overview/matrixcube/matrixcube-shard-splitting.md
-          - 代理与路由: MatrixOne/Overview/matrixcube/matrixcube-proxy-routing.md
+      - 集群管理层设计:
+        - MatrixCube简介: MatrixOne/Overview/matrixcube/matrixcube-introduction.md
+        - 自平衡与调度: MatrixOne/Overview/matrixcube/matrixcube-auto-rebalance-scheduling.md
+        - 数据分片拆分: MatrixOne/Overview/matrixcube/matrixcube-shard-splitting.md
+        - 代理与路由: MatrixOne/Overview/matrixcube/matrixcube-proxy-routing.md
       - MySQL兼容性: MatrixOne/Overview/mysql-compatibility.md
       - 性能测试报告:
         - SSB测试报告: MatrixOne/Overview/SSB-Test-Performance.md
@@ -153,6 +153,7 @@ nav:
           - MAX: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/max.md
           - MIN: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/min.md
           - SUM: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/sum.md
+          - ANY_VALUE: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/any-value.md
           - BIT_AND: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_and.md
           - BIT_OR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_or.md
           - BIT_XOR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_xor.md
