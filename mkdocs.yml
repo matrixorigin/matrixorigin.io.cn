@@ -81,9 +81,6 @@ nav:
           - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/show-databases.md
           - SHOW TABLES: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/show-tables.md
           - USE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/use.md
-          - LIKE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/like.md
-          - IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/in.md
-          - CAST: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/cast.md
           - INTERVAL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/interval.md
           - With CTE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/with-cte.md
           - CASE...WHEN...: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/case.md
@@ -103,11 +100,11 @@ nav:
             - NATURAL JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/natural-join.md
           - OPERATORS:
             - 运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators.md
-            - 运算符的优先级: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/operators-precedence.md
+            - 运算符的优先级: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/operator-precedence.md
             - 算数运算符:
               - 算数运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/arithmetic-operators-overview.md
-              - \%,MOD: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/mod.md
-              - \*: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/multiplication.md
+              - %,MOD: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/mod.md
+              - *: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/multiplication.md
               - +: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/addition.md
               - -: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/minus.md
               - -: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/unary-minus.md
@@ -122,8 +119,8 @@ nav:
               - CONVERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/convert.md
             - 比较函数和运算符:
               - 比较函数和运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview.md
-              - \>: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than.md
-              - \>=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than-or-equal.md
+              - >: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than.md
+              - >=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than-or-equal.md
               - <: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than.md
               - <>,!=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-equal.md
               - <=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than-or-equal.md
@@ -194,8 +191,8 @@ nav:
           - FROM_UNIXTIME: MatrixOne/Reference/Builtin-Functions/Datetime/from-unixtime.md
           - UTC_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/utc-timestamp.md
         - 字符串类:
-          - CONCAT_WS(): MatrixOne/Reference/Builtin-Functions/String/concat_ws.md
-          - FIND_IN_SET(): MatrixOne/Reference/Builtin-Functions/String/find_in_set.md
+          - CONCAT_WS(): MatrixOne/Reference/Builtin-Functions/String/concat-ws.md
+          - FIND_IN_SET(): MatrixOne/Reference/Builtin-Functions/String/find-in-set.md
           - OCT(): MatrixOne/Reference/Builtin-Functions/String/oct.md
           - EMPTY(): MatrixOne/Reference/Builtin-Functions/String/empty.md
           - LENGTH(): MatrixOne/Reference/Builtin-Functions/String/length.md
