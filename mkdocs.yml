@@ -104,8 +104,8 @@ nav:
             - 运算符的优先级: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/operator-precedence.md
             - 算数运算符:
               - 算数运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/arithmetic-operators-overview.md
-              - %,MOD: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/mod.md
-              - *: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/multiplication.md
+              - /%,MOD: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/mod.md
+              - /*: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/multiplication.md
               - +: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/addition.md
               - -: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/minus.md
               - -: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/unary-minus.md
