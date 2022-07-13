@@ -60,6 +60,7 @@ nav:
       - 实践教程:
         - 完成SSB测试: MatrixOne/Get-Started/Tutorial/SSB-test-with-matrixone.md
         - 完成NYC纽约出租车测试: MatrixOne/Get-Started/Tutorial/NYC-test-with-matrixone.md
+        - 完成TPCH测试: MatrixOne/Get-Started/Tutorial/TPCH-test-with-matrixone.md
       - Playground在线体验: MatrixOne/Get-Started/Playground.md
     - 参考手册:
       - SQL目录:
@@ -156,6 +157,8 @@ nav:
           - BIT_XOR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_xor.md
           - STDDEV_POP: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/stddev_pop.md
           - VAR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/var.md
+        - 事务:
+          - 事务概述: MatrixOne/Reference/SQL-Reference/Transactions/transaction-overview.md
       - 数据类型:
         - 数据类型概览: MatrixOne/Reference/Data-Types/data-types.md
         - 精确数值类型-DECIMAL: MatrixOne/Reference/Data-Types/fixed-point-types.md
