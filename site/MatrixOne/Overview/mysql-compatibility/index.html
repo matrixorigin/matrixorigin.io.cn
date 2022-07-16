@@ -386,67 +386,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_4" type="checkbox" id="__nav_1_2_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_2_4">
-          性能测试报告
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="性能测试报告" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_2_4">
-          <span class="md-nav__icon md-icon"></span>
-          性能测试报告
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SSB-Test-Performance/" class="md-nav__link">
-        SSB测试报告
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../NYC-Test-Performance/" class="md-nav__link">
-        NYC纽约出租车测试报告
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../whats-new/" class="md-nav__link">
         最新动态
@@ -551,20 +490,6 @@
     <li class="md-nav__item">
       <a href="../../Get-Started/Tutorial/SSB-test-with-matrixone/" class="md-nav__link">
         完成SSB测试
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Get-Started/Tutorial/NYC-test-with-matrixone/" class="md-nav__link">
-        完成NYC纽约出租车测试
       </a>
     </li>
   
@@ -741,34 +666,6 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Definition-Statements/drop-table/" class="md-nav__link">
         DROP TABLE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-index/" class="md-nav__link">
-        CREATE INDEX
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/drop-index/" class="md-nav__link">
-        DROP INDEX
       </a>
     </li>
   
@@ -3726,7 +3623,7 @@
 <tr>
 <td>DDL</td>
 <td>CREATE DATABASE</td>
-<td>以中文作为表名会导致显示错误</td>
+<td>不支持中文命名的表名</td>
 </tr>
 <tr>
 <td></td>
@@ -3736,12 +3633,12 @@
 <tr>
 <td></td>
 <td></td>
-<td><code>ENCRYPTION</code>目前可以使用但无效</td>
+<td>CHARSET, COLLATE, ENCRYPTION 目前可以使用但无法生效</td>
 </tr>
 <tr>
 <td></td>
 <td>CREATE TABLE</td>
-<td>不单独支持临时表</td>
+<td>不支持临时表</td>
 </tr>
 <tr>
 <td></td>
@@ -3751,7 +3648,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>不支持<code>Create table as</code> 语句</td>
+<td>不支持 <code>Create table .. as</code> 语句</td>
 </tr>
 <tr>
 <td></td>
@@ -3761,22 +3658,22 @@
 <tr>
 <td></td>
 <td></td>
-<td>支持<code>DEFAULT</code></td>
+<td>暂不支持复合主键</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>对于聚簇表，在DDL语句末尾应该加上("bucket"="n")</td>
+<td>暂不支持 <code>KEY(column)</code> 语法</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>不支持<code>KEY(column)</code>语法</td>
+<td>暂不支持 <code>AUTO_INCREMENT</code></td>
 </tr>
 <tr>
 <td></td>
 <td>CREATE other projects</td>
-<td>暂不支持</td>
+<td>不支持 <code>CREATE/DROP INDEX</code></td>
 </tr>
 <tr>
 <td></td>
@@ -3786,122 +3683,92 @@
 <tr>
 <td></td>
 <td>DROP DATABASE</td>
-<td>同MySQL</td>
+<td>同 MySQL.</td>
 </tr>
 <tr>
 <td></td>
 <td>DROP TABLE</td>
-<td>同MySQL</td>
-</tr>
-<tr>
-<td></td>
-<td>Drop Other objects</td>
-<td>只支持<code>DROP INDEX</code></td>
+<td>同 MySQL.</td>
 </tr>
 <tr>
 <td>DML</td>
 <td>INSERT</td>
-<td>现不支持<code>LOW_PRIORITY</code>，<code>DELAYED</code>，<code>HIGH_PRIORITY</code></td>
+<td>暂不支持 <code>LOW_PRIORITY</code>，<code>DELAYED</code>，<code>HIGH_PRIORITY</code></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>不支持使用<code>select</code>来插入</td>
+<td>暂不支持使用 <code>INSERT INTO VALUES</code> 函数或表达式</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>批处理<code>Insert</code>不超过5000行</td>
+<td>支持批量插入，最多支持160,000行</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>暂不支持<code>ON DUPLICATE KEY UPDATE</code></td>
+<td>暂不支持 <code>ON DUPLICATE KEY UPDATE</code></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>不支持<code>DELAYED</code></td>
+<td>暂不支持 <code>DELAYED</code></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>不支持<code>HAVING</code>语句</td>
+<td>不分支持拉丁文命名</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>支持部分拉丁语</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>当前模式与MySQL的<code>only_full_group_by</code>相同</td>
-</tr>
-<tr>
-<td></td>
-<td>DELETE</td>
-<td>暂不支持</td>
-</tr>
-<tr>
-<td></td>
-<td>UPDATE</td>
-<td>暂不支持</td>
+<td>当前的 SQL 模式同 MySQL 中的 <code>only_full_group_by</code>模式</td>
 </tr>
 <tr>
 <td></td>
 <td>SELECT</td>
-<td>在多表查询时，只支持带有<code>GROUP BY</code>与<code>ORDER BY</code>语句的<code>INNER JOIN</code>的命令</td>
+<td>在 <code>GROUP BY</code> 中不支持表别名</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td><code>INNER JOIN</code>中不支持表的别名</td>
+<td>部分支持 <code>Distinct</code></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>不支持子查询</td>
+<td>暂不支持 <code>SELECT...FOR UPDATE</code> 从句</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>部分支持<code>Distinct</code></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>不支持<code>For</code>语句</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>部分支持<code>INTO OUTFILE</code></td>
+<td>部分支持 <code>INTO OUTFILE</code></td>
 </tr>
 <tr>
 <td></td>
 <td>LOAD DATA</td>
-<td>只能导入csv文件</td>
+<td>只能导入 csv 文件</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>包括符<code>enclosed</code>应该为<code>""</code></td>
+<td>包括符 enclosed 应该为""</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>字段分隔符<code>FILEDS TERMINATED BY</code>应该为 <code>,</code> 或 <code>|</code></td>
+<td>字段分隔符 <code>FILEDS TERMINATED BY</code> 应该为 "," 或 "</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>行分隔符<code>LINES TERMINATED BY</code>应该为<code>\n</code></td>
+<td>行分隔符 <code>LINES TERMINATED BY</code> 应该为 "\n"</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>不支持<code>SET</code></td>
+<td>暂不支持 <code>SET</code></td>
 </tr>
 <tr>
 <td></td>
@@ -3914,34 +3781,44 @@
 <td>只有mo-server上的文件才支持相对路径</td>
 </tr>
 <tr>
+<td></td>
+<td>JOIN</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
+<td>SUBQUERY</td>
+<td>暂不支持 <code>Non-scalar</code> 子查询</td>
+</tr>
+<tr>
 <td>数据库管理语句</td>
 <td>SHOW</td>
-<td>只支持显示数据库与数据表</td>
+<td>仅支持 <code>show tables</code> 与 <code>show databases</code></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>支持<code>SHOW CREATE TABLE</code> 和<code>SHOW CREATE DATABASE</code> ｜</td>
+<td>支持 <code>CREATE TABLE</code> 与 <code>CREATE DATABASE</code></td>
 </tr>
 <tr>
 <td></td>
-<td></td>
-<td>部分支持<code>WHERE</code>语句</td>
-</tr>
-<tr>
-<td></td>
-<td>其他语法</td>
+<td>Other statements</td>
 <td>暂不支持</td>
 </tr>
 <tr>
 <td>工具类语句</td>
 <td>USE</td>
-<td><code>Use database</code>同MySQL</td>
+<td><code>Use database</code> 同 MySQL</td>
 </tr>
 <tr>
 <td></td>
 <td>Explain</td>
-<td>分析的结果与MySQL有所不同</td>
+<td>分析的结果与 MySQL 有所不同</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>暂不支持 <code>Explain Analyze</code></td>
 </tr>
 <tr>
 <td></td>
@@ -3950,28 +3827,43 @@
 </tr>
 <tr>
 <td>数据类型</td>
+<td>Boolean</td>
+<td>与 MySQL 的布尔值类型 int 不同，MatrixOne 的布尔值是一个新的类型，它的值只能是 true 或 false。</td>
+</tr>
+<tr>
+<td></td>
 <td>Int/Bigint/Smallint/Tinyint</td>
-<td>同MySQL</td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
 <td>char/varchar</td>
-<td>同MySQL</td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
 <td>Float/double</td>
-<td>与MySQL的精度有所不同，将在未来版本调整</td>
+<td>T与MySQL的精度有所不同</td>
+</tr>
+<tr>
+<td></td>
+<td>DECIMAL</td>
+<td>最大精度为38位.</td>
 </tr>
 <tr>
 <td></td>
 <td>Date</td>
-<td>只支持<code>YYYY-MM-DD'</code>与<code>YYYYMMDD</code>形式</td>
+<td>只支持 <code>YYYY-MM-DD</code> 与 <code>YYYYMMDD</code> 形式</td>
 </tr>
 <tr>
 <td></td>
 <td>Datetime</td>
-<td>只支持<code>YYYY-MM-DD HH:MM:SS</code> 与 <code>YYYYMMDD HH:MM:SS</code>形式</td>
+<td>只支持 <code>YYYY-MM-DD hh:mi:ssssss</code> 与 <code>YYYYMMDD hh:mi:ssssss</code> 形式</td>
+</tr>
+<tr>
+<td></td>
+<td>Timestamp</td>
+<td>同 MySQL，MatrixOne 暂还不支持 <code>timezone</code>，Timestamp 的值不会随着时区的变化而变化。</td>
 </tr>
 <tr>
 <td></td>
@@ -3981,17 +3873,17 @@
 <tr>
 <td>运算符</td>
 <td>"+","-","*","/"</td>
-<td>同MySQL</td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
 <td>DIV, %, MOD</td>
-<td>暂不支持</td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
 <td>LIKE</td>
-<td>部分支持</td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
@@ -4001,7 +3893,7 @@
 <tr>
 <td></td>
 <td>NOT, AND, &amp;&amp;,OR, "||"</td>
-<td>同MySQL</td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
@@ -4010,13 +3902,18 @@
 </tr>
 <tr>
 <td></td>
-<td>MAX, MIN, COUNT, AVG</td>
-<td>同MySQL</td>
+<td>CAST</td>
+<td>支持不同转换规则。</td>
+</tr>
+<tr>
+<td>Functions</td>
+<td>MAX, MIN, COUNT, AVG, SUM</td>
+<td>同 MySQL. 暂不支持 <code>Distinct</code></td>
 </tr>
 <tr>
 <td></td>
-<td>CAST</td>
-<td>部分支持</td>
+<td>any_value</td>
+<td><code>Any_value</code> 是 MatrixOne 中的一个聚合函数。不能在 <code>GROUP</code> 或过滤条件中使用。</td>
 </tr>
 </tbody>
 </table>
@@ -4049,13 +3946,13 @@
       
       
         
-        <a href="../SSB-Test-Performance/" class="md-footer__link md-footer__link--next" aria-label="Next: SSB测试报告" rel="next">
+        <a href="../whats-new/" class="md-footer__link md-footer__link--next" aria-label="Next: 最新动态" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              SSB测试报告
+              最新动态
             </div>
           </div>
           <div class="md-footer__button md-icon">

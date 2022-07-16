@@ -374,67 +374,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_4" type="checkbox" id="__nav_1_2_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_2_4">
-          性能测试报告
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="性能测试报告" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_2_4">
-          <span class="md-nav__icon md-icon"></span>
-          性能测试报告
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Overview/SSB-Test-Performance/" class="md-nav__link">
-        SSB测试报告
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Overview/NYC-Test-Performance/" class="md-nav__link">
-        NYC纽约出租车测试报告
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../../../Overview/whats-new/" class="md-nav__link">
         最新动态
@@ -539,20 +478,6 @@
     <li class="md-nav__item">
       <a href="../../../../Get-Started/Tutorial/SSB-test-with-matrixone/" class="md-nav__link">
         完成SSB测试
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Get-Started/Tutorial/NYC-test-with-matrixone/" class="md-nav__link">
-        完成NYC纽约出租车测试
       </a>
     </li>
   
@@ -733,34 +658,6 @@
     <li class="md-nav__item">
       <a href="../../Data-Definition-Statements/drop-table/" class="md-nav__link">
         DROP TABLE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Data-Definition-Statements/create-index/" class="md-nav__link">
-        CREATE INDEX
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Data-Definition-Statements/drop-index/" class="md-nav__link">
-        DROP INDEX
       </a>
     </li>
   
@@ -4032,41 +3929,41 @@ COMMIT;
 <table>
 <thead>
 <tr>
-<th align="left">隔离级别</th>
-<th align="left">脏写(Dirty Write)</th>
-<th align="left">脏读(Dirty Read)</th>
-<th align="left">不可重复读(Fuzzy Read)</th>
-<th align="left">幻读(Phantom)</th>
+<th style="text-align: left;">隔离级别</th>
+<th style="text-align: left;">脏写(Dirty Write)</th>
+<th style="text-align: left;">脏读(Dirty Read)</th>
+<th style="text-align: left;">不可重复读(Fuzzy Read)</th>
+<th style="text-align: left;">幻读(Phantom)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">READ UNCOMMITTED</td>
-<td align="left">Not Possible</td>
-<td align="left">Possible</td>
-<td align="left">Possible</td>
-<td align="left">Possible</td>
+<td style="text-align: left;">READ UNCOMMITTED</td>
+<td style="text-align: left;">Not Possible</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">Possible</td>
 </tr>
 <tr>
-<td align="left">READ COMMITTED</td>
-<td align="left">Not Possible</td>
-<td align="left">Not possible</td>
-<td align="left">Possible</td>
-<td align="left">Possible</td>
+<td style="text-align: left;">READ COMMITTED</td>
+<td style="text-align: left;">Not Possible</td>
+<td style="text-align: left;">Not possible</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">Possible</td>
 </tr>
 <tr>
-<td align="left">REPEATABLE READ</td>
-<td align="left">Not Possible</td>
-<td align="left">Not possible</td>
-<td align="left">Not possible</td>
-<td align="left">Possible</td>
+<td style="text-align: left;">REPEATABLE READ</td>
+<td style="text-align: left;">Not Possible</td>
+<td style="text-align: left;">Not possible</td>
+<td style="text-align: left;">Not possible</td>
+<td style="text-align: left;">Possible</td>
 </tr>
 <tr>
-<td align="left">SERIALIZABLE</td>
-<td align="left">Not Possible</td>
-<td align="left">Not possible</td>
-<td align="left">Not possible</td>
-<td align="left">Not possible</td>
+<td style="text-align: left;">SERIALIZABLE</td>
+<td style="text-align: left;">Not Possible</td>
+<td style="text-align: left;">Not possible</td>
+<td style="text-align: left;">Not possible</td>
+<td style="text-align: left;">Not possible</td>
 </tr>
 </tbody>
 </table>
@@ -4111,30 +4008,30 @@ COMMIT;
 <table>
 <thead>
 <tr>
-<th align="left">Column name</th>
-<th align="left">Original value</th>
-<th align="left">Current value</th>
-<th align="left">Value in database</th>
+<th style="text-align: left;">Column name</th>
+<th style="text-align: left;">Original value</th>
+<th style="text-align: left;">Current value</th>
+<th style="text-align: left;">Value in database</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">CustID</td>
-<td align="left">101</td>
-<td align="left">101</td>
-<td align="left">101</td>
+<td style="text-align: left;">CustID</td>
+<td style="text-align: left;">101</td>
+<td style="text-align: left;">101</td>
+<td style="text-align: left;">101</td>
 </tr>
 <tr>
-<td align="left">LastName</td>
-<td align="left">Smith</td>
-<td align="left">Smith</td>
-<td align="left">Smith</td>
+<td style="text-align: left;">LastName</td>
+<td style="text-align: left;">Smith</td>
+<td style="text-align: left;">Smith</td>
+<td style="text-align: left;">Smith</td>
 </tr>
 <tr>
-<td align="left">FirstName</td>
-<td align="left">Bob</td>
-<td align="left">Bob</td>
-<td align="left">Bob</td>
+<td style="text-align: left;">FirstName</td>
+<td style="text-align: left;">Bob</td>
+<td style="text-align: left;">Bob</td>
+<td style="text-align: left;">Bob</td>
 </tr>
 </tbody>
 </table>
@@ -4143,30 +4040,30 @@ COMMIT;
 <table>
 <thead>
 <tr>
-<th align="left">Column name</th>
-<th align="left">Original value</th>
-<th align="left">Current value</th>
-<th align="left">Value in database</th>
+<th style="text-align: left;">Column name</th>
+<th style="text-align: left;">Original value</th>
+<th style="text-align: left;">Current value</th>
+<th style="text-align: left;">Value in database</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">CustID</td>
-<td align="left">101</td>
-<td align="left">101</td>
-<td align="left">101</td>
+<td style="text-align: left;">CustID</td>
+<td style="text-align: left;">101</td>
+<td style="text-align: left;">101</td>
+<td style="text-align: left;">101</td>
 </tr>
 <tr>
-<td align="left">LastName</td>
-<td align="left">Smith</td>
-<td align="left">Smith</td>
-<td align="left">Smith</td>
+<td style="text-align: left;">LastName</td>
+<td style="text-align: left;">Smith</td>
+<td style="text-align: left;">Smith</td>
+<td style="text-align: left;">Smith</td>
 </tr>
 <tr>
-<td align="left">FirstName</td>
-<td align="left">Bob</td>
-<td align="left">Robert</td>
-<td align="left">Bob</td>
+<td style="text-align: left;">FirstName</td>
+<td style="text-align: left;">Bob</td>
+<td style="text-align: left;">Robert</td>
+<td style="text-align: left;">Bob</td>
 </tr>
 </tbody>
 </table>
@@ -4175,30 +4072,30 @@ COMMIT;
 <table>
 <thead>
 <tr>
-<th align="left">Column name</th>
-<th align="left">Original value</th>
-<th align="left">Current value</th>
-<th align="left">Value in database</th>
+<th style="text-align: left;">Column name</th>
+<th style="text-align: left;">Original value</th>
+<th style="text-align: left;">Current value</th>
+<th style="text-align: left;">Value in database</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">CustID</td>
-<td align="left">101</td>
-<td align="left">101</td>
-<td align="left">101</td>
+<td style="text-align: left;">CustID</td>
+<td style="text-align: left;">101</td>
+<td style="text-align: left;">101</td>
+<td style="text-align: left;">101</td>
 </tr>
 <tr>
-<td align="left">LastName</td>
-<td align="left">Smith</td>
-<td align="left">Smith</td>
-<td align="left">Smith</td>
+<td style="text-align: left;">LastName</td>
+<td style="text-align: left;">Smith</td>
+<td style="text-align: left;">Smith</td>
+<td style="text-align: left;">Smith</td>
 </tr>
 <tr>
-<td align="left">FirstName</td>
-<td align="left">Bob</td>
-<td align="left">James</td>
-<td align="left">Robert</td>
+<td style="text-align: left;">FirstName</td>
+<td style="text-align: left;">Bob</td>
+<td style="text-align: left;">James</td>
+<td style="text-align: left;">Robert</td>
 </tr>
 </tbody>
 </table>
