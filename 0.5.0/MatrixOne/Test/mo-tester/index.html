@@ -374,67 +374,6 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_4" type="checkbox" id="__nav_1_2_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_2_4">
-          性能测试报告
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="性能测试报告" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_2_4">
-          <span class="md-nav__icon md-icon"></span>
-          性能测试报告
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Overview/SSB-Test-Performance/" class="md-nav__link">
-        SSB测试报告
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Overview/NYC-Test-Performance/" class="md-nav__link">
-        NYC纽约出租车测试报告
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../Overview/whats-new/" class="md-nav__link">
         最新动态
@@ -539,20 +478,6 @@
     <li class="md-nav__item">
       <a href="../../Get-Started/Tutorial/SSB-test-with-matrixone/" class="md-nav__link">
         完成SSB测试
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Get-Started/Tutorial/NYC-test-with-matrixone/" class="md-nav__link">
-        完成NYC纽约出租车测试
       </a>
     </li>
   
@@ -729,34 +654,6 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Definition-Statements/drop-table/" class="md-nav__link">
         DROP TABLE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-index/" class="md-nav__link">
-        CREATE INDEX
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/drop-index/" class="md-nav__link">
-        DROP INDEX
       </a>
     </li>
   
@@ -3728,8 +3625,6 @@
 <p><em>Report</em>: 运行结束后，本地目录自动生成 <code>mo-tester/report</code>。</p>
 </li>
 </ul>
-<p>The Cases and Results are 1-1 correspondence, and they are actually <code>git submodules</code> from MatrixOne repository. Adding new cases and results should be in MatrixOne repo: <a href="https://github.com/matrixorigin/matrixone/tree/main/test">https://github.com/matrixorigin/matrixone/tree/main/test</a></p>
-<p>MO-Tester includes testing cases in the following table.</p>
 <p>测试用例和测试结果一一对应。如需添加新的测试用例和测试结果请进入右侧所示 MatrixOne 仓库路径中进行添加：<a href="https://github.com/matrixorigin/matrixone/tree/main/test">https://github.com/matrixorigin/matrixone/tree/main/test</a></p>
 <p>MO-Tester 测试用例如下表所示：</p>
 <table>
@@ -3835,8 +3730,6 @@ user:
 <div class="highlight"><pre><span></span><code>&gt; ./run.sh
 </code></pre></div>
 <p>如果你想调整测试范围，你可以修改 <code>run.yml</code> 文件中的 <code>path</code> 参数。或者，在执行 <code>run.sh</code> 命令时，你也可以指定一些参数，参数如下：</p>
-<!--请确认这段描述是否正确-->
-
 <div class="highlight"><pre><span></span><code>-p  set the path of test cases needed to be executed by mo-tester, the default value is configured by the `path` in `run.yaml`
 -m  set the method that mo-tester will run with, the default value is configured by the `method` in `run.yaml`
 -t  set the type of the format that mo-tester executes the SQL command in, the default value is configured by the `type` in `run.yaml`
@@ -3855,8 +3748,6 @@ Examples:
 bash run.sh -p case -m run -t script -r 100 -i select,subquery -e substring -g
 </code></pre></div>
 <p>如果你想测试新的 SQL 用例并自动生成 SQL 结果，你只需要将 <code>run</code> 中的 <code>method</code> 参数 <code>yml</code> 修改为 <code>genrs</code>。运行 <code>run.sh</code> 后，在<code>result/</code> 路径下将直接记录测试结果及其原始文件名。</p>
-<!--记录的是新的SQL用例的测试结果和新用例的文件名吗？-->
-
 <p>注意：每次运行 <code>run.sh</code> 都会覆盖 <code>error.txt</code>、<code>report.txt</code> 和 <code>success.txt</code> 报告文件。</p>
 <h2 id="4">4. 查看测试报告</h2>
 <p>测试完成后，MO-Tester 生成 <code>error.txt</code>，<code>report.txt</code> 和  <code>success.txt</code> 报告文件。</p>
