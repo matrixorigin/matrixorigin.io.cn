@@ -829,6 +829,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    限制
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3245,8 +3252,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.1.0/" class="md-nav__link">
-        v0.1.0
+      <a href="../../../../Release-Notes/v0.5.0.md" class="md-nav__link">
+        v0.5.0
       </a>
     </li>
   
@@ -3259,8 +3266,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.2.0/" class="md-nav__link">
-        v0.2.0
+      <a href="../../../../Release-Notes/v0.4.0/" class="md-nav__link">
+        v0.4.0
       </a>
     </li>
   
@@ -3287,8 +3294,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.4.0/" class="md-nav__link">
-        v0.4.0
+      <a href="../../../../Release-Notes/v0.2.0/" class="md-nav__link">
+        v0.2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v0.1.0/" class="md-nav__link">
+        v0.1.0
       </a>
     </li>
   
@@ -3669,6 +3690,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    限制
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3692,12 +3720,8 @@
 <p><code>LOAD DATA</code>语句以超快的速度从一个文本文件中读取数据然后存储到表中。</p>
 <h2 id="_2"><strong>语法结构</strong></h2>
 <div class="highlight"><pre><span></span><code>&gt; LOAD DATA
-    [LOW_PRIORITY | CONCURRENT] [LOCAL]
     INFILE &#39;file_name&#39;
-    [REPLACE | IGNORE]
     INTO TABLE tbl_name
-    [PARTITION (partition_name [, partition_name] ...)]
-    [CHARACTER SET charset_name]
     [{FIELDS | COLUMNS}
         [TERMINATED BY &#39;string&#39;]
         [[OPTIONALLY] ENCLOSED BY &#39;char&#39;]
@@ -3707,11 +3731,6 @@
         [STARTING BY &#39;string&#39;]
         [TERMINATED BY &#39;string&#39;]
     ]
-    [IGNORE number {LINES | ROWS}]
-    [(col_name_or_user_var
-        [, col_name_or_user_var] ...)]
-    [SET col_name={expr | DEFAULT}
-        [, col_name={expr | DEFAULT}] ...]
 </code></pre></div>
 <ul>
 <li><code>TERMINATED BY</code>，<code>ENCLOSED BY</code>等分隔符的意义与<code>SELECT INTO</code>一致。</li>
@@ -3723,6 +3742,8 @@
 </a></p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"> </span><span class="n">INFILE</span><span class="w"> </span><span class="s1">&#39;/ssb-dbgen-path/lineorder_flat.tbl &#39;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">lineorder_flat</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
+<h2 id="_4"><strong>限制</strong></h2>
+<p>当前仅支持 <code>csv</code> 格式的文件。</p>
 
               
             </article>
