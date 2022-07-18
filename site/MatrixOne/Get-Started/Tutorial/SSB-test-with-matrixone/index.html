@@ -3284,8 +3284,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Release-Notes/v0.1.0/" class="md-nav__link">
-        v0.1.0
+      <a href="../../../Release-Notes/v0.5.0.md" class="md-nav__link">
+        v0.5.0
       </a>
     </li>
   
@@ -3298,8 +3298,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Release-Notes/v0.2.0/" class="md-nav__link">
-        v0.2.0
+      <a href="../../../Release-Notes/v0.4.0/" class="md-nav__link">
+        v0.4.0
       </a>
     </li>
   
@@ -3326,8 +3326,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Release-Notes/v0.4.0/" class="md-nav__link">
-        v0.4.0
+      <a href="../../../Release-Notes/v0.2.0/" class="md-nav__link">
+        v0.2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v0.1.0/" class="md-nav__link">
+        v0.1.0
       </a>
     </li>
   
@@ -3768,7 +3782,7 @@
 
 
 <h1 id="ssb"><strong>完成SSB测试</strong></h1>
-<p>SSB星型模式基准测试是OLAP数据库性能测试的常用场景，通过本篇教程，您可以了解到如何在MatrixOne中实现SSB测试。</p>
+<p>SSB 星型模式基准测试是 OLAP 数据库性能测试的常用场景，通过本篇教程，您可以了解到如何在 MatrixOne 中实现 SSB 测试。</p>
 <h2 id="_1"><strong>准备工作</strong></h2>
 <p>确保你已经安装了<a href="../../install-standalone-matrixone/">单机版MatrixOne</a>并<a href="../../connect-to-matrixone-server/">连接到MatrixOne服务</a>.</p>
 <h2 id="1-dbgen"><strong>1. 编译dbgen</strong></h2>
@@ -3783,6 +3797,9 @@ $ ./dbgen -s 1 -T l
 $ ./dbgen -s 1 -T p
 $ ./dbgen -s 1 -T s
 $ ./dbgen -s 1 -T d
+</code></pre></div>
+<p>我们还准备了 1GB 的数据集供你下载。你可以在下面链接中直接获取数据文件：</p>
+<div class="highlight"><pre><span></span><code>https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/lineorder_flat.tar.bz2
 </code></pre></div>
 <h2 id="3-matrixone"><strong>3. 在MatrixOne中建表</strong></h2>
 <div class="highlight"><pre><span></span><code>create database if not exists ssb;
@@ -3908,9 +3925,6 @@ CREATE TABLE lineorder_flat(
 );
 </code></pre></div>
 <h2 id="4"><strong>4. 导入数据</strong></h2>
-<p>将<code>system_vars_config.toml</code>参数增大，例如10GB，然后重新启动MatrixOne服务。</p>
-<div class="highlight"><pre><span></span><code>max-entry-bytes = &quot;10GB&quot;
-</code></pre></div>
 <p>使用如下命令将数据导入相关表：</p>
 <div class="highlight"><pre><span></span><code>load data infile &#39;/ssb-dbgen-path/supplier.tbl&#39; into table supplier FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
 
