@@ -3,7 +3,7 @@ repo_name: matrixorigin/matrixone
 repo_url: https://github.com/matrixorigin/matrixone
 theme:
   name: material
-  logo: assets/logo.png
+  logo: assets/new-logo.png
   icon:
     admonition:
       note: fontawesome/solid/sticky-note
