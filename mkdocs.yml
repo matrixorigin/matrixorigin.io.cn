@@ -70,11 +70,10 @@ nav:
           - USE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/use.md
           - INTERVAL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/interval.md
           - With CTE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/with-cte.md
-          - CASE...WHEN...: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/case.md
           - SUBQUERY:
             - SUBQUERY 概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subquery.md
             - FROM SUBQUERY: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery.md
-            - SUBQUERY with ANY: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any.md
+            - SUBQUERY with ANY or SOME: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md
             - SUBQUERY with EXISTS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists.md
             - SUBQUERY with IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in.md
           - JOIN:
