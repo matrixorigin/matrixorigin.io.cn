@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.8">
     
     
       
@@ -3252,8 +3252,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../FAQs/general-faqs/" class="md-nav__link">
-        通用问答
+      <a href="../../../../FAQs/product-faqs/" class="md-nav__link">
+        产品常见问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../FAQs/deployment-faqs/" class="md-nav__link">
+        部署常见问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../FAQs/sql-faqs/" class="md-nav__link">
+        SQL 常见问题
       </a>
     </li>
   
@@ -3943,41 +3971,41 @@ COMMIT;
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">隔离级别</th>
-<th style="text-align: left;">脏写(Dirty Write)</th>
-<th style="text-align: left;">脏读(Dirty Read)</th>
-<th style="text-align: left;">不可重复读(Fuzzy Read)</th>
-<th style="text-align: left;">幻读(Phantom)</th>
+<th align="left">隔离级别</th>
+<th align="left">脏写(Dirty Write)</th>
+<th align="left">脏读(Dirty Read)</th>
+<th align="left">不可重复读(Fuzzy Read)</th>
+<th align="left">幻读(Phantom)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">READ UNCOMMITTED</td>
-<td style="text-align: left;">Not Possible</td>
-<td style="text-align: left;">Possible</td>
-<td style="text-align: left;">Possible</td>
-<td style="text-align: left;">Possible</td>
+<td align="left">READ UNCOMMITTED</td>
+<td align="left">Not Possible</td>
+<td align="left">Possible</td>
+<td align="left">Possible</td>
+<td align="left">Possible</td>
 </tr>
 <tr>
-<td style="text-align: left;">READ COMMITTED</td>
-<td style="text-align: left;">Not Possible</td>
-<td style="text-align: left;">Not possible</td>
-<td style="text-align: left;">Possible</td>
-<td style="text-align: left;">Possible</td>
+<td align="left">READ COMMITTED</td>
+<td align="left">Not Possible</td>
+<td align="left">Not possible</td>
+<td align="left">Possible</td>
+<td align="left">Possible</td>
 </tr>
 <tr>
-<td style="text-align: left;">REPEATABLE READ</td>
-<td style="text-align: left;">Not Possible</td>
-<td style="text-align: left;">Not possible</td>
-<td style="text-align: left;">Not possible</td>
-<td style="text-align: left;">Possible</td>
+<td align="left">REPEATABLE READ</td>
+<td align="left">Not Possible</td>
+<td align="left">Not possible</td>
+<td align="left">Not possible</td>
+<td align="left">Possible</td>
 </tr>
 <tr>
-<td style="text-align: left;">SERIALIZABLE</td>
-<td style="text-align: left;">Not Possible</td>
-<td style="text-align: left;">Not possible</td>
-<td style="text-align: left;">Not possible</td>
-<td style="text-align: left;">Not possible</td>
+<td align="left">SERIALIZABLE</td>
+<td align="left">Not Possible</td>
+<td align="left">Not possible</td>
+<td align="left">Not possible</td>
+<td align="left">Not possible</td>
 </tr>
 </tbody>
 </table>
@@ -4022,30 +4050,30 @@ COMMIT;
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Column name</th>
-<th style="text-align: left;">Original value</th>
-<th style="text-align: left;">Current value</th>
-<th style="text-align: left;">Value in database</th>
+<th align="left">Column name</th>
+<th align="left">Original value</th>
+<th align="left">Current value</th>
+<th align="left">Value in database</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">CustID</td>
-<td style="text-align: left;">101</td>
-<td style="text-align: left;">101</td>
-<td style="text-align: left;">101</td>
+<td align="left">CustID</td>
+<td align="left">101</td>
+<td align="left">101</td>
+<td align="left">101</td>
 </tr>
 <tr>
-<td style="text-align: left;">LastName</td>
-<td style="text-align: left;">Smith</td>
-<td style="text-align: left;">Smith</td>
-<td style="text-align: left;">Smith</td>
+<td align="left">LastName</td>
+<td align="left">Smith</td>
+<td align="left">Smith</td>
+<td align="left">Smith</td>
 </tr>
 <tr>
-<td style="text-align: left;">FirstName</td>
-<td style="text-align: left;">Bob</td>
-<td style="text-align: left;">Bob</td>
-<td style="text-align: left;">Bob</td>
+<td align="left">FirstName</td>
+<td align="left">Bob</td>
+<td align="left">Bob</td>
+<td align="left">Bob</td>
 </tr>
 </tbody>
 </table>
@@ -4054,30 +4082,30 @@ COMMIT;
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Column name</th>
-<th style="text-align: left;">Original value</th>
-<th style="text-align: left;">Current value</th>
-<th style="text-align: left;">Value in database</th>
+<th align="left">Column name</th>
+<th align="left">Original value</th>
+<th align="left">Current value</th>
+<th align="left">Value in database</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">CustID</td>
-<td style="text-align: left;">101</td>
-<td style="text-align: left;">101</td>
-<td style="text-align: left;">101</td>
+<td align="left">CustID</td>
+<td align="left">101</td>
+<td align="left">101</td>
+<td align="left">101</td>
 </tr>
 <tr>
-<td style="text-align: left;">LastName</td>
-<td style="text-align: left;">Smith</td>
-<td style="text-align: left;">Smith</td>
-<td style="text-align: left;">Smith</td>
+<td align="left">LastName</td>
+<td align="left">Smith</td>
+<td align="left">Smith</td>
+<td align="left">Smith</td>
 </tr>
 <tr>
-<td style="text-align: left;">FirstName</td>
-<td style="text-align: left;">Bob</td>
-<td style="text-align: left;">Robert</td>
-<td style="text-align: left;">Bob</td>
+<td align="left">FirstName</td>
+<td align="left">Bob</td>
+<td align="left">Robert</td>
+<td align="left">Bob</td>
 </tr>
 </tbody>
 </table>
@@ -4086,30 +4114,30 @@ COMMIT;
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Column name</th>
-<th style="text-align: left;">Original value</th>
-<th style="text-align: left;">Current value</th>
-<th style="text-align: left;">Value in database</th>
+<th align="left">Column name</th>
+<th align="left">Original value</th>
+<th align="left">Current value</th>
+<th align="left">Value in database</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">CustID</td>
-<td style="text-align: left;">101</td>
-<td style="text-align: left;">101</td>
-<td style="text-align: left;">101</td>
+<td align="left">CustID</td>
+<td align="left">101</td>
+<td align="left">101</td>
+<td align="left">101</td>
 </tr>
 <tr>
-<td style="text-align: left;">LastName</td>
-<td style="text-align: left;">Smith</td>
-<td style="text-align: left;">Smith</td>
-<td style="text-align: left;">Smith</td>
+<td align="left">LastName</td>
+<td align="left">Smith</td>
+<td align="left">Smith</td>
+<td align="left">Smith</td>
 </tr>
 <tr>
-<td style="text-align: left;">FirstName</td>
-<td style="text-align: left;">Bob</td>
-<td style="text-align: left;">James</td>
-<td style="text-align: left;">Robert</td>
+<td align="left">FirstName</td>
+<td align="left">Bob</td>
+<td align="left">James</td>
+<td align="left">Robert</td>
 </tr>
 </tbody>
 </table>

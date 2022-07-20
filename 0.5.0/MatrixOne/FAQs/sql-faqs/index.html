@@ -9,11 +9,11 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.8">
     
     
       
-        <title>通用问答 - MatrixOne中文文档</title>
+        <title>SQL 常见问题 - MatrixOne中文文档</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#sql" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              通用问答
+              SQL 常见问题
             
           </span>
         </div>
@@ -3137,6 +3137,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../product-faqs/" class="md-nav__link">
+        产品常见问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment-faqs/" class="md-nav__link">
+        部署常见问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -3148,54 +3176,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          通用问答
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        通用问答
+        SQL 常见问题
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    产品常见问题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    部署常见问题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sql" class="md-nav__link">
-    SQL常见问题
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -3652,35 +3635,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    产品常见问题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    部署常见问题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sql" class="md-nav__link">
-    SQL常见问题
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3691,75 +3645,46 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/FAQs/general-faqs.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/FAQs/sql-faqs.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="_1"><strong>通用问题解答</strong></h1>
-<h2 id="_2"><strong>产品常见问题</strong></h2>
+<h1 id="sql"><strong>SQL 常见问题</strong></h1>
 <ul>
-<li><font size=4><strong>MatrixOne是什么?</strong></font></li>
+<li><strong>MatrixOne中的函数和关键字是否区分大小写？</strong></li>
 </ul>
-<p>MatrixOne是一款面向未来的超融合异构云原生数据库，通过超融合数据引擎支持事务/分析/流处理等混合工作负载，通过异构云原生架构支持跨机房协同/多地协同/云边协同。MatrixOne希望简化数据系统开发和运维的成本，消减复杂系统间的数据碎片，打破数据融合的各种边界。<br />
-  想了解更多关于MatrixOne的信息，您可以浏览<a href="../../Overview/matrixone-introduction/">MatrixOne简介</a>。
-<br></p>
+<p>不区分大小写。</p>
 <ul>
-<li><font size=4><strong>MatrxOne支持哪些应用？</strong></font></li>
+<li><strong>如何将数据从 MatrixOne 导出到文件?</strong></li>
 </ul>
-<p>MatrixOne为用户提供了极致的HTAP服务，MatrixOne可以被应用在企业数据中台，大数据分析等场景中。
-<br></p>
+<p>你可以使用 <code>SELECT INTO OUTFILE</code> 命令来将数据导出为 <strong>csv</strong> 文件（只能导出到服务器主机，无法到远程客户端）。<br />
+关于该命令的更多信息，参见<a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/select/">SELECT参考指南</a>。</p>
 <ul>
-<li><font size=4><strong>MatrixOne是基于MySQL或者其他数据库开发的吗?</strong></font></li>
+<li><strong>MatrixOne 事务大小的限制是什么？</strong></li>
 </ul>
-<p>MatrixOne是一个从零打造的全新数据库。MatrixOne兼容MySQL的部分语法与语义，并且在未来将会产生更多与MySQL不同的语义，以便我们将之打造为一款更强大的超融合数据库。
-  关于与MySQL的兼容性，您可参见<a href="../../Overview/mysql-compatibility/">MySQL兼容性</a>。
-<br></p>
+<p>事务大小受限于硬件环境的内存大小。</p>
 <ul>
-<li><font size=4><strong>MatrixOne与MatrixCube有什么关系?</strong></font></li>
+<li><strong>MatrixOne支持什么类型的字符集？</strong></li>
 </ul>
-<p>MatrixOne是我们数据库的主体部分，其包括了查询解析层、计算层、存储层，因此它可以实现数据库的基本功能。MatrixCube是我们的分布式框架，它目前是一个独立的仓库，他可以与MatrixOne结合起来形成一个分布式数据库，也可以与其他的存储引擎适配使其具有分布式扩展能力。<br />
-  若想了解更多关于MatrixCube的信息，您可参见<a href="../Overview/matrixcube/matrixcube-introduction.md">MatrixCube简介</a>。
-<br></p>
+<p>MatrixOne 默认支持 UTF-8 字符集，且目前只支持 UTF-8。</p>
 <ul>
-<li><font size=4><strong>为什么MatrixOne的SQL引擎如此高效?</strong></font></li>
+<li><strong>MatrixOne中的 <code>sql_mode</code> 是什么？</strong></li>
 </ul>
-<p>MatrixOne的SQL引擎主要利用了向量化执行与因子化计算技术，来实现更高效的查询。<br />
-<br></p>
+<p>MatrixOne 默认的 <code>sql_mode</code> 是 MySQL 中的 <code>only_full_group_by</code> 。目前 MatrixOne 不支持修改 <code>sql_mode</code>。</p>
 <ul>
-<li><font size=4><strong>MatrixOne使用什么编程语言开发的?</strong></font></li>
+<li><strong>我如何批量将数据加载到 MatrixOne？</strong></li>
 </ul>
-<p>目前，我们主要使用<strong>Golang</strong>作为最主要的编程语言。
-<br></p>
+<p>MatrixOne提供了两种批量加载数据的方法：
+  - 在 shell 中使用 <code>source filename</code> 命令，你可以加载包含所有 DDL 的 SQL 文件并插入数据语句。
+  - 使用 <code>load data infile...into table...</code> 命令，你可以加载一个现有的 <em>.csv</em> 文件到 MatrixOne。</p>
 <ul>
-<li><font size=4><strong>MatrixOne可以在什么操作系统上部署?</strong></font></li>
+<li><strong>我怎么知道我的查询是如何执行的？</strong></li>
 </ul>
-<p>目前，MatrixOne支持Linux与MacOS系统。
-<br></p>
-<ul>
-<li><font size=4><strong>可以参与贡献MatrixOne项目吗?</strong></font></li>
-</ul>
-<p>MatrixOne是一个完全在Github上进行的开源项目，欢迎所有开发者的贡献。可以参考我们的<a href="../../Contribution-Guide/make-your-first-contribution/">贡献指南</a>
-<br></p>
-<h2 id="_3"><strong>部署常见问题</strong></h2>
-<ul>
-<li><font size=4><strong>MatrixOne对部署硬件的配置要求如何？</strong></font></li>
-</ul>
-<p>单机推荐配置：4核 X86架构的CPU，32GB内存，CentOS 7.0及以上操作系统</p>
-<p>分布式推荐配置: 3台 * 16核 X86架构的CPU，63GB内存， CentOS 7.0及以上操作系统
-<br></p>
-<h2 id="sql"><strong>SQL常见问题</strong></h2>
-<ul>
-<li><font size=4><strong>MatrixOne中的函数和关键字是否区分大小写？</strong></font></li>
-</ul>
-<p>不区分大小写。
-<br></p>
-<ul>
-<li><font size=4><strong>如何将数据从MatrixOne导出到文件?</strong></font></li>
-</ul>
-<p>你可以使用<code>SELECT INTO OUTFILE</code>命令来将数据导出为<strong>csv</strong>文件（只能导出到服务器主机，无法到远程客户端）。<br />
-  对于该命令，您可查阅<a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/select/">SELECT参考指南</a>来了解具体用法。  </p>
+<p>要查看 MatrixOne 对给定查询的执行情况，可以使用<a href="https://docs.matrixorigin.io/0.5.0/MatrixOne/Reference/SQL-Reference/Explain/explain/"><code>EXPLAIN</code></a>语句，它将打印出查询计划。</p>
+<div class="highlight"><pre><span></span><code>EXPLAIN SELECT col1 FROM tbl1;
+</code></pre></div>
 
               
             </article>
@@ -3773,7 +3698,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../Test/mo-tester/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MO-Tester" rel="prev">
+        <a href="../deployment-faqs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 部署常见问题" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -3782,7 +3707,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              MO-Tester
+              部署常见问题
             </div>
           </div>
         </a>
