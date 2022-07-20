@@ -204,7 +204,9 @@ nav:
     - 测试:
       - MO-Tester: MatrixOne/Test/mo-tester.md
     - 常见问题解答:
-      - 通用问答: MatrixOne/FAQs/general-faqs.md
+      - 产品常见问题: MatrixOne/FAQs/product-faqs.md
+      - 部署常见问题: MatrixOne/FAQs/deployment-faqs.md
+      - SQL 常见问题: MatrixOne/FAQs/sql-faqs.md
     - 版本发布纪要:
       - v0.5.0: MatrixOne/Release-Notes/v0.5.0.md
       - v0.4.0: MatrixOne/Release-Notes/v0.4.0.md
