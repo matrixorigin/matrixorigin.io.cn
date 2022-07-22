@@ -71,11 +71,13 @@ nav:
           - INTERVAL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/interval.md
           - With CTE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/with-cte.md
           - SUBQUERY:
-            - SUBQUERY 概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subquery.md
-            - FROM SUBQUERY: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery.md
-            - SUBQUERY with ANY or SOME: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md
-            - SUBQUERY with EXISTS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists.md
-            - SUBQUERY with IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in.md
+            - 子查询概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subquery.md
+            - 派生表: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables.md
+            - 子查询与比较操作符的使用: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries.md
+            - 子查询与 ANY 或 SOME 操作符的使用: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md
+            - 子查询与 ALL 操作符的使用: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all.md
+            - 子查询与 EXISTS 操作符的使用: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists.md
+            - 子查询与 IN 操作符的使用: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in.md
           - JOIN:
             - JOIN 概览: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join.md
             - INNER JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/inner-join.md
