@@ -66,10 +66,10 @@ mkdocs serve
 
 例如子模块在 `submodules` 下的 `matrixone` 中，进入这个路径，并做出修改, 例如增加一个文件：
 
-···
+```
 cd submodules/matrixone
 echo "test sub modify" > test.md
-···
+```
 
 然后在子模块中正常进行提交。
 
