@@ -994,7 +994,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subquery/" class="md-nav__link">
-        SUBQUERY 概述
+        子查询概述
       </a>
     </li>
   
@@ -1007,8 +1007,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery/" class="md-nav__link">
-        FROM SUBQUERY
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables/" class="md-nav__link">
+        派生表
       </a>
     </li>
   
@@ -1021,8 +1021,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md" class="md-nav__link">
-        SUBQUERY with ANY or SOME
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries/" class="md-nav__link">
+        子查询与比较操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some/" class="md-nav__link">
+        子查询与 ANY 或 SOME 操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all/" class="md-nav__link">
+        子查询与 ALL 操作符的使用
       </a>
     </li>
   
@@ -1036,7 +1064,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists/" class="md-nav__link">
-        SUBQUERY with EXISTS
+        子查询与 EXISTS 操作符的使用
       </a>
     </li>
   
@@ -1050,7 +1078,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in/" class="md-nav__link">
-        SUBQUERY with IN
+        子查询与 IN 操作符的使用
       </a>
     </li>
   
@@ -3800,17 +3828,17 @@
 <h2 id="_1"><strong>准备工作</strong></h2>
 <p>确保你已经安装了<a href="../../install-standalone-matrixone/">单机版MatrixOne</a>并<a href="../../connect-to-matrixone-server/">连接到MatrixOne服务</a>.</p>
 <h2 id="1-dbgen"><strong>1. 编译dbgen</strong></h2>
-<div class="highlight"><pre><span></span><code>$ git clone git@github.com:vadimtk/ssb-dbgen.git
-$ cd ssb-dbgen
-$ make
+<div class="highlight"><pre><span></span><code>git clone git@github.com:vadimtk/ssb-dbgen.git
+cd ssb-dbgen
+make
 </code></pre></div>
 <h2 id="2"><strong>2. 生成数据</strong></h2>
 <p>当使用<code>-s 1</code>时<code>dbgen</code>命令会生产近600万行数据(670MB)，当使用<code>-s 10</code>时会生产近6000万行数据，会耗费大量时间。</p>
-<div class="highlight"><pre><span></span><code>$ ./dbgen -s 1 -T c
-$ ./dbgen -s 1 -T l
-$ ./dbgen -s 1 -T p
-$ ./dbgen -s 1 -T s
-$ ./dbgen -s 1 -T d
+<div class="highlight"><pre><span></span><code>./dbgen -s 1 -T c
+./dbgen -s 1 -T l
+./dbgen -s 1 -T p
+./dbgen -s 1 -T s
+./dbgen -s 1 -T d
 </code></pre></div>
 <p>我们还准备了 1GB 的数据集供你下载。你可以在下面链接中直接获取数据文件：</p>
 <div class="highlight"><pre><span></span><code>https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/lineorder_flat.tar.bz2

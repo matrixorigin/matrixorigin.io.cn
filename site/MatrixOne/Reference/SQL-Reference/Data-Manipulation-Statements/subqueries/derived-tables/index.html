@@ -13,7 +13,7 @@
     
     
       
-        <title>**Subqueries with ANY** - MatrixOne中文文档</title>
+        <title>派生表 - MatrixOne中文文档</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#subqueries-with-any" class="md-skip">
+        <a href="#derived-tables" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              **Subqueries with ANY**
+              派生表
             
           </span>
         </div>
@@ -193,13 +193,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../.." class="md-tabs__link">
+      <a href="../../../../../.." class="md-tabs__link md-tabs__link--active">
         MatrixOne
       </a>
     </li>
@@ -261,12 +263,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -526,12 +530,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
       
       
       
@@ -552,12 +558,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" checked>
       
       
       
@@ -681,12 +689,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1_2" type="checkbox" id="__nav_1_4_1_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1_2" type="checkbox" id="__nav_1_4_1_2" checked>
       
       
       
@@ -861,12 +871,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1_2_12" type="checkbox" id="__nav_1_4_1_2_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1_2_12" type="checkbox" id="__nav_1_4_1_2_12" checked>
       
       
       
@@ -890,7 +902,90 @@
   
     <li class="md-nav__item">
       <a href="../../subquery/" class="md-nav__link">
-        SUBQUERY 概述
+        子查询概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          派生表
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        派生表
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    语法描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    语法结构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    示例
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparisons-using-subqueries/" class="md-nav__link">
+        子查询与比较操作符的使用
       </a>
     </li>
   
@@ -903,8 +998,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../from-subquery/" class="md-nav__link">
-        FROM SUBQUERY
+      <a href="../subquery-with-any-some/" class="md-nav__link">
+        子查询与 ANY 或 SOME 操作符的使用
       </a>
     </li>
   
@@ -917,8 +1012,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../subquery-with-any-some.md" class="md-nav__link">
-        SUBQUERY with ANY or SOME
+      <a href="../subquery-with-all/" class="md-nav__link">
+        子查询与 ALL 操作符的使用
       </a>
     </li>
   
@@ -932,7 +1027,7 @@
   
     <li class="md-nav__item">
       <a href="../subquery-with-exists/" class="md-nav__link">
-        SUBQUERY with EXISTS
+        子查询与 EXISTS 操作符的使用
       </a>
     </li>
   
@@ -946,7 +1041,7 @@
   
     <li class="md-nav__item">
       <a href="../subquery-with-in/" class="md-nav__link">
-        SUBQUERY with IN
+        子查询与 IN 操作符的使用
       </a>
     </li>
   
@@ -3644,64 +3739,82 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="subqueries-with-any"><strong>Subqueries with ANY</strong></h1>
+<h1 id="derived-tables"><strong>Derived Tables</strong></h1>
 <h2 id="_1"><strong>语法描述</strong></h2>
-<p>由于列子查询返回的结果集是多行一列，因此不能直接使用（=，&gt;，&lt;，&gt;=，&lt;=，&lt;&gt;）这些比较操作符。在列子查询中可以使用 <code>ANY</code>、<code>SOME</code>操作符与比较操作符联合使用：</p>
-<ul>
-<li><code>ANY</code>：与比较操作符联合使用，表示与子查询返回的任何值比较为 <code>TRUE</code>，则返回结果为 <code>true</code>。</li>
-<li><code>SOME</code>：<code>ANY</code> 的别名，与 <code>ANY</code> 意义相同，但较少使用。</li>
-</ul>
+<p>当 <code>SELECT</code> 语句的 <code>FROM</code> 从句中使用独立子查询时，我们也经常将其称为派生表，因为实际上外部查询将子查询的结果当作了一个数据源。</p>
 <h2 id="_2"><strong>语法结构</strong></h2>
-<div class="highlight"><pre><span></span><code>&gt; SELECT column_name(s) FROM table_name WHERE column_name ANY (subquery);
+<p>每个 FROM 子查询的表都必须要有一个名字，因此[AS]操作符是必须的。子查询的SELECT列表中每个列也必须要有一个唯一的名字。</p>
+<div class="highlight"><pre><span></span><code>&gt; SELECT ... FROM (subquery) [AS] name ...
 </code></pre></div>
 <h2 id="_3"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">),(</span><span class="mi">7</span><span class="p">),(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">any</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t2</span><span class="p">);</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tb1</span><span class="w"> </span><span class="p">(</span><span class="n">c1</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="n">c3</span><span class="w"> </span><span class="nb">FLOAT</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">tb1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">tb1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">tb1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tb1</span><span class="p">;</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+--------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">c1</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">c2</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">c3</span><span class="w">     </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+--------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">1</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">3</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+--------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
 
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">some</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t2</span><span class="p">);</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
-
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">some</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t2</span><span class="p">);</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">7</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
-
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">any</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t2</span><span class="p">);</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">7</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">sc1</span><span class="p">,</span><span class="w"> </span><span class="n">sc2</span><span class="p">,</span><span class="w"> </span><span class="n">sc3</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sc1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sc2</span><span class="p">,</span><span class="w"> </span><span class="n">c3</span><span class="o">*</span><span class="mi">3</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sc3</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tb1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">sc1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+--------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">sc1</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">sc2</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">sc3</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+--------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">3</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="mi">9</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+--------+</span>
+<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><strong>Subquery with Join</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">libname1</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="p">(</span><span class="n">isbn2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">60</span><span class="p">));</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="p">(</span><span class="n">isbn3</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="n">libname3</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;001&#39;</span><span class="p">,</span><span class="s1">&#39;Daffy&#39;</span><span class="p">,</span><span class="s1">&#39;Aducklife&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;002&#39;</span><span class="p">,</span><span class="s1">&#39;Bugs&#39;</span><span class="p">,</span><span class="s1">&#39;Arabbitlife&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;003&#39;</span><span class="p">,</span><span class="s1">&#39;Cowboy&#39;</span><span class="p">,</span><span class="s1">&#39;Lifeontherange&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;000&#39;</span><span class="p">,</span><span class="s1">&#39;Anonymous&#39;</span><span class="p">,</span><span class="s1">&#39;Wannabuythisbook?&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;004&#39;</span><span class="p">,</span><span class="s1">&#39;BestSeller&#39;</span><span class="p">,</span><span class="s1">&#39;OneHeckuvabook&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;005&#39;</span><span class="p">,</span><span class="s1">&#39;EveryoneBuys&#39;</span><span class="p">,</span><span class="s1">&#39;Thisverybook&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;006&#39;</span><span class="p">,</span><span class="s1">&#39;SanFran&#39;</span><span class="p">,</span><span class="s1">&#39;Itisasanfranlifestyle&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;007&#39;</span><span class="p">,</span><span class="s1">&#39;BerkAuthor&#39;</span><span class="p">,</span><span class="s1">&#39;Cool.Berkley.the.book&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;000&#39;</span><span class="p">,</span><span class="s1">&#39;NewYorkPublicLibra&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;001&#39;</span><span class="p">,</span><span class="s1">&#39;NewYorkPublicLibra&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;002&#39;</span><span class="p">,</span><span class="s1">&#39;NewYorkPublicLibra&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;003&#39;</span><span class="p">,</span><span class="s1">&#39;NewYorkPublicLibra&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;004&#39;</span><span class="p">,</span><span class="s1">&#39;NewYorkPublicLibra&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;005&#39;</span><span class="p">,</span><span class="s1">&#39;NewYorkPublicLibra&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;006&#39;</span><span class="p">,</span><span class="s1">&#39;SanFransiscoPublic&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;007&#39;</span><span class="p">,</span><span class="s1">&#39;BerkeleyPublic1&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;007&#39;</span><span class="p">,</span><span class="s1">&#39;BerkeleyPublic2&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;001&#39;</span><span class="p">,</span><span class="s1">&#39;NYC Lib&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;NewYorkPublicLibra&#39;</span><span class="p">,</span><span class="s1">&#39;NewYork&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;SanFransiscoPublic&#39;</span><span class="p">,</span><span class="s1">&#39;SanFran&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;BerkeleyPublic1&#39;</span><span class="p">,</span><span class="s1">&#39;Berkeley&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;BerkeleyPublic2&#39;</span><span class="p">,</span><span class="s1">&#39;Berkeley&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;NYCLib&#39;</span><span class="p">,</span><span class="s1">&#39;NewYork&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">city</span><span class="p">,</span><span class="n">libname1</span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="n">libname1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">libname1</span><span class="o">=</span><span class="n">libname3</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">isbn3</span><span class="o">=</span><span class="n">isbn2</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">city</span><span class="p">,</span><span class="n">libname1</span><span class="p">)</span><span class="w"> </span><span class="n">sub</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="o">+</span><span class="c1">----------+--------------------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">city</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">libname1</span><span class="w">           </span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">----------+--------------------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">NewYork</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">NewYorkPublicLibra</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">SanFran</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">SanFransiscoPublic</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">Berkeley</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BerkeleyPublic1</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">Berkeley</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BerkeleyPublic2</span><span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">----------+--------------------+------+</span>
+<span class="mi">4</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 
               
@@ -3712,6 +3825,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../subquery/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 子查询概述" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              子查询概述
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../comparisons-using-subqueries/" class="md-footer__link md-footer__link--next" aria-label="Next: 子查询与比较操作符的使用" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              子查询与比较操作符的使用
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

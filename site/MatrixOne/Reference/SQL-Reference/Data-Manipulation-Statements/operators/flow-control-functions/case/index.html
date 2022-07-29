@@ -900,7 +900,7 @@
   
     <li class="md-nav__item">
       <a href="../../../subquery/" class="md-nav__link">
-        SUBQUERY 概述
+        子查询概述
       </a>
     </li>
   
@@ -913,8 +913,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../subqueries/from-subquery/" class="md-nav__link">
-        FROM SUBQUERY
+      <a href="../../../subqueries/derived-tables/" class="md-nav__link">
+        派生表
       </a>
     </li>
   
@@ -927,8 +927,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../subqueries/subquery-with-any-some.md" class="md-nav__link">
-        SUBQUERY with ANY or SOME
+      <a href="../../../subqueries/comparisons-using-subqueries/" class="md-nav__link">
+        子查询与比较操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../subqueries/subquery-with-any-some/" class="md-nav__link">
+        子查询与 ANY 或 SOME 操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../subqueries/subquery-with-all/" class="md-nav__link">
+        子查询与 ALL 操作符的使用
       </a>
     </li>
   
@@ -942,7 +970,7 @@
   
     <li class="md-nav__item">
       <a href="../../../subqueries/subquery-with-exists/" class="md-nav__link">
-        SUBQUERY with EXISTS
+        子查询与 EXISTS 操作符的使用
       </a>
     </li>
   
@@ -956,7 +984,7 @@
   
     <li class="md-nav__item">
       <a href="../../../subqueries/subquery-with-in/" class="md-nav__link">
-        SUBQUERY with IN
+        子查询与 IN 操作符的使用
       </a>
     </li>
   
@@ -3721,7 +3749,7 @@
 
 <h1 id="case"><strong>CASE</strong></h1>
 <h2 id="_1"><strong>语法说明</strong></h2>
-<p><code>CASE WHEN</code> 语句用于计算条件列表并返回多个可能结果表达式之一。</p>
+<p><code>CASE WHEN</code> 语句用于计算条件列表并返回多个可能结果表达式之一，<code>CASE WHEN</code> 可以比较等于、范围的条件。遇到第一个满足条件的即返回，不再往下比较，如果没有满足的条件则返回 <code>else</code> 里的结果，如果没有 <code>else</code> 则返回 <code>NULL</code>。</p>
 <p>CASE有两种格式，两种格式都支持可选的 <code>ELSE</code> 参数。：</p>
 <ul>
 <li>一个简单的 <code>CASE</code> 函数将一个表达式与一组简单表达式进行比较以确定结果。</li>

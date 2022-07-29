@@ -13,7 +13,7 @@
     
     
       
-        <title>FROM SUBQUERY - MatrixOne中文文档</title>
+        <title>子查询与 ALL 操作符的使用 - MatrixOne中文文档</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#from-beta" class="md-skip">
+        <a href="#subqueries-with-all" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FROM SUBQUERY
+              子查询与 ALL 操作符的使用
             
           </span>
         </div>
@@ -902,7 +902,49 @@
   
     <li class="md-nav__item">
       <a href="../../subquery/" class="md-nav__link">
-        SUBQUERY 概述
+        子查询概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../derived-tables/" class="md-nav__link">
+        派生表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparisons-using-subqueries/" class="md-nav__link">
+        子查询与比较操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subquery-with-any-some/" class="md-nav__link">
+        子查询与 ANY 或 SOME 操作符的使用
       </a>
     </li>
   
@@ -925,12 +967,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          FROM SUBQUERY
+          子查询与 ALL 操作符的使用
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        FROM SUBQUERY
+        子查询与 ALL 操作符的使用
       </a>
       
         
@@ -984,22 +1026,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../subquery-with-any-some.md" class="md-nav__link">
-        SUBQUERY with ANY or SOME
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../subquery-with-exists/" class="md-nav__link">
-        SUBQUERY with EXISTS
+        子查询与 EXISTS 操作符的使用
       </a>
     </li>
   
@@ -1013,7 +1041,7 @@
   
     <li class="md-nav__item">
       <a href="../subquery-with-in/" class="md-nav__link">
-        SUBQUERY with IN
+        子查询与 IN 操作符的使用
       </a>
     </li>
   
@@ -3711,42 +3739,80 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="from-beta">FROM子查询 (beta)</h1>
+<h1 id="subqueries-with-all"><strong>Subqueries with ALL</strong></h1>
 <h2 id="_1"><strong>语法描述</strong></h2>
-<p>当 <code>SELECT</code> 语句的 <code>FROM</code> 子句中使用独立子查询时，我们也经常将其称为派生表，因为实际上外部查询将子查询的结果当作了一个数据源。</p>
+<p>The word <code>ALL</code>, which must follow a comparison operator, means “return <code>TRUE</code> if the comparison is <code>TRUE</code> for <code>ALL</code> of the values in the column that the subquery returns.”:</p>
+<p>关键词 <code>ALL</code> 必须跟在比较操作符后面，指如果子查询返回的列中值的 <code>ALL</code> 的比较是 <code>TRUE</code>，则返回 <code>TRUE</code>。</p>
+<div class="highlight"><pre><span></span><code>operand comparison_operator ALL (subquery)
+</code></pre></div>
+<p>示例如下：</p>
+<div class="highlight"><pre><span></span><code>SELECT s1 FROM t1 WHERE s1 &gt; ALL (SELECT s1 FROM t2);
+</code></pre></div>
+<p>如上述示例中，假设表 t1 中有一行包含(10)，表 t2 包含(-5,0，+5)，则表达式为 <code>TRUE</code>，因为10大于 t2 中的所有三个值。如果表 t2 包含(12,6,NULL，-100)，则表达式为 <code>FALSE</code>，因为在表 t2 中有一个大于10的值12。如果表 t2 包含(0,NULL,1)，则表达式为 <code>NULL</code>。</p>
+<ul>
+<li>如果表 t2 为空，则表达式为 <code>TRUE</code>。例如，当下表 t2 为空时，表达式是 <code>TRUE</code>：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>SELECT * FROM t1 WHERE 1 &gt; ALL (SELECT s1 FROM t2);
+</code></pre></div>
+<ul>
+<li>下面示例中，当表 t2 为空时，这个表达式是 <code>NULL</code>：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>SELECT * FROM t1 WHERE 1 &gt; (SELECT s1 FROM t2);
+</code></pre></div>
+<p>或：</p>
+<div class="highlight"><pre><span></span><code>SELECT * FROM t1 WHERE 1 &gt; ALL (SELECT MAX(s1) FROM t2);
+</code></pre></div>
+<p><strong>说明</strong>：在书写子查询语法时，要注意考虑到含有 <code>NULL</code> 值的表和空表的情况。</p>
 <h2 id="_2"><strong>语法结构</strong></h2>
-<p>每个FROM子查询的表都必须要有一个名字，因此[AS]操作符是必须的。子查询的SELECT列表中每个列也必须要有一个唯一的名字。</p>
-<div class="highlight"><pre><span></span><code>&gt; SELECT ... FROM (subquery) [AS] name ...
+<div class="highlight"><pre><span></span><code>&gt; SELECT column_name(s) FROM table_name {WHERE | HAVING} [not] expression comparison_operator ALL (subquery)
 </code></pre></div>
 <h2 id="_3"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tb1</span><span class="w"> </span><span class="p">(</span><span class="n">c1</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="n">c3</span><span class="w"> </span><span class="nb">FLOAT</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">tb1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">tb1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">tb1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tb1</span><span class="p">;</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+------+--------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">c1</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">c2</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">c3</span><span class="w">     </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+------+--------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">1</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">3</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+------+--------+</span>
-<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t5</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t6</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t5</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="k">null</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">),(</span><span class="mi">7</span><span class="p">),(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t6</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">),(</span><span class="k">null</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t2</span><span class="p">);</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+</span>
+<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
 
-<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">sc1</span><span class="p">,</span><span class="w"> </span><span class="n">sc2</span><span class="p">,</span><span class="w"> </span><span class="n">sc3</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sc1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sc2</span><span class="p">,</span><span class="w"> </span><span class="n">c3</span><span class="o">*</span><span class="mi">3</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sc3</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tb1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">sc1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+------+--------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">sc1</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">sc2</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">sc3</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+------+--------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">3</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="mi">9</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">------+------+--------+</span>
-<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t5</span><span class="p">);</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">8</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">8</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">9</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+
+<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t2</span><span class="p">);</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">    </span><span class="mi">7</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 
               
@@ -3761,7 +3827,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../subquery/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SUBQUERY 概述" rel="prev">
+        <a href="../subquery-with-any-some/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 子查询与 ANY 或 SOME 操作符的使用" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -3770,20 +3836,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              SUBQUERY 概述
+              子查询与 ANY 或 SOME 操作符的使用
             </div>
           </div>
         </a>
       
       
         
-        <a href="../subquery-with-exists/" class="md-footer__link md-footer__link--next" aria-label="Next: SUBQUERY with EXISTS" rel="next">
+        <a href="../subquery-with-exists/" class="md-footer__link md-footer__link--next" aria-label="Next: 子查询与 EXISTS 操作符的使用" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              SUBQUERY with EXISTS
+              子查询与 EXISTS 操作符的使用
             </div>
           </div>
           <div class="md-footer__button md-icon">

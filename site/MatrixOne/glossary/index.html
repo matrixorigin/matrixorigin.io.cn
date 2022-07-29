@@ -894,7 +894,7 @@
   
     <li class="md-nav__item">
       <a href="../Reference/SQL-Reference/Data-Manipulation-Statements/subquery/" class="md-nav__link">
-        SUBQUERY 概述
+        子查询概述
       </a>
     </li>
   
@@ -907,8 +907,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery/" class="md-nav__link">
-        FROM SUBQUERY
+      <a href="../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables/" class="md-nav__link">
+        派生表
       </a>
     </li>
   
@@ -921,8 +921,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md" class="md-nav__link">
-        SUBQUERY with ANY or SOME
+      <a href="../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries/" class="md-nav__link">
+        子查询与比较操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some/" class="md-nav__link">
+        子查询与 ANY 或 SOME 操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all/" class="md-nav__link">
+        子查询与 ALL 操作符的使用
       </a>
     </li>
   
@@ -936,7 +964,7 @@
   
     <li class="md-nav__item">
       <a href="../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists/" class="md-nav__link">
-        SUBQUERY with EXISTS
+        子查询与 EXISTS 操作符的使用
       </a>
     </li>
   
@@ -950,7 +978,7 @@
   
     <li class="md-nav__item">
       <a href="../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in/" class="md-nav__link">
-        SUBQUERY with IN
+        子查询与 IN 操作符的使用
       </a>
     </li>
   
@@ -3728,7 +3756,7 @@
 </tr>
 <tr>
 <td>Data Storage</td>
-<td>DataStorage接口实现了分布式存储服务，必须在使用MatrixCube之前就预先定义。并且，DataStorage的实现依赖于存储引擎的具体特性</td>
+<td>DataStorage接口实现了分布式存储服务<!--，必须在使用MatrixCube之前就预先定义-->。并且，DataStorage的实现依赖于存储引擎的具体特性</td>
 </tr>
 <tr>
 <td>E</td>
@@ -3775,16 +3803,12 @@
 <td></td>
 </tr>
 <tr>
-<td>MatrixCube</td>
-<td>MatrixCube是一个构建分布式系统的框架，保证了集群的可用性、一致性以及可扩展性。MatrixCube的设计目标是让开发人员只需要关注一个节点上的业务逻辑但却能够轻松实现各种强一致的分布式存储服务。</td>
-</tr>
-<tr>
 <td>P</td>
 <td></td>
 </tr>
 <tr>
 <td>Prophet</td>
-<td>Prophet是MatrixCube中的调度模块，执行Auto-Rebalance操作来维持集群中各个节点的存储量、读写负载均衡。集群中最初的三个节点将作为Prophet节点。</td>
+<td>Prophet是<!--MatrixCube中的-->调度模块，执行Auto-Rebalance操作来维持集群中各个节点的存储量、读写负载均衡。集群中最初的三个节点将作为Prophet节点。</td>
 </tr>
 <tr>
 <td>Pure Storage</td>
@@ -3808,15 +3832,15 @@
 </tr>
 <tr>
 <td>Store</td>
-<td>MatrixCube分布式系统包括一定数量的主机，数据正是存放在这些机器中，而我们把集群中的每台主机称之为Store。</td>
+<td><!--MatrixCube-->分布式系统包括一定数量的主机，数据正是存放在这些机器中，而我们把集群中的每台主机称之为Store。</td>
 </tr>
 <tr>
 <td>Shard</td>
-<td>数据库中的数据按逻辑组织成表，而数据又可以按照不同的分区进行存储，如此可以得到更好的扩展性。因此，数据在MatrixCube集群中分片存储，每个数据分片我们称之为一个Shard，而一个Store中可以管理多个Shard；当Shard的存储容量超过限制时，会进行分裂(Split)。</td>
+<td>数据库中的数据按逻辑组织成表，而数据又可以按照不同的分区进行存储，如此可以得到更好的扩展性。因此，数据在<!--MatrixCube-->集群中分片存储，每个数据分片我们称之为一个Shard，而一个Store中可以管理多个Shard；当Shard的存储容量超过限制时，会进行分裂(Split)。</td>
 </tr>
 <tr>
 <td>Shard Splitting</td>
-<td>当一个Shard超过了规定的存储容量限制时，MatrixCube将会把该Shard分裂（Split）为两个存储量相当的Shard。</td>
+<td>当一个Shard超过了规定的存储容量限制时，<!--MatrixCube-->集群将会把该Shard分裂（Split）为两个存储量相当的Shard。</td>
 </tr>
 <tr>
 <td>Shard Proxy</td>
