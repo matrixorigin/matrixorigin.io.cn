@@ -981,7 +981,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subquery/" class="md-nav__link">
-        SUBQUERY 概述
+        子查询概述
       </a>
     </li>
   
@@ -994,8 +994,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery/" class="md-nav__link">
-        FROM SUBQUERY
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables/" class="md-nav__link">
+        派生表
       </a>
     </li>
   
@@ -1008,8 +1008,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md" class="md-nav__link">
-        SUBQUERY with ANY or SOME
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries/" class="md-nav__link">
+        子查询与比较操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some/" class="md-nav__link">
+        子查询与 ANY 或 SOME 操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all/" class="md-nav__link">
+        子查询与 ALL 操作符的使用
       </a>
     </li>
   
@@ -1023,7 +1051,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists/" class="md-nav__link">
-        SUBQUERY with EXISTS
+        子查询与 EXISTS 操作符的使用
       </a>
     </li>
   
@@ -1037,7 +1065,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in/" class="md-nav__link">
-        SUBQUERY with IN
+        子查询与 IN 操作符的使用
       </a>
     </li>
   
@@ -3777,13 +3805,13 @@
 <h2 id="1-dbgen"><strong>1. 编译dbgen</strong></h2>
 <p>默认情况下，tpch dbgen 实用程序是用来生成测试数据集表格的工具，它根据比例因子 Scale Factor（SF)的大小确定数据集的大小，并生成一组平面文件（Flat File)，这些文件适合加载到 tpch 模式中。</p>
 <p>当使用 <code>-s 1</code> 时 <code>dbgen</code> 命令会产生 1GB 的完整数据集，当使用<code>-s 10</code>时会产生大约 10GB 的数据集，以此类推。</p>
-<div class="highlight"><pre><span></span><code>$ git clone https://github.com/electrum/tpch-dbgen.git
-$ cd ssb-dbgen
-$ make
+<div class="highlight"><pre><span></span><code>git clone https://github.com/electrum/tpch-dbgen.git
+cd ssb-dbgen
+make
 </code></pre></div>
 <h2 id="2"><strong>2. 生成数据</strong></h2>
 <p>运行 <code>dbgen</code>，获得适当的数据库大小因子(在示例中为 1GB)。</p>
-<div class="highlight"><pre><span></span><code>$ ./dbgen -s 1
+<div class="highlight"><pre><span></span><code>./dbgen -s 1
 </code></pre></div>
 <p>生成完整数据集可能需要一段时间。完成后，您可以看到结果文件。</p>
 <div class="highlight"><pre><span></span><code>total 2150000

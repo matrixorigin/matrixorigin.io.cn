@@ -894,7 +894,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subquery/" class="md-nav__link">
-        SUBQUERY 概述
+        子查询概述
       </a>
     </li>
   
@@ -907,8 +907,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery/" class="md-nav__link">
-        FROM SUBQUERY
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables/" class="md-nav__link">
+        派生表
       </a>
     </li>
   
@@ -921,8 +921,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md" class="md-nav__link">
-        SUBQUERY with ANY or SOME
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries/" class="md-nav__link">
+        子查询与比较操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some/" class="md-nav__link">
+        子查询与 ANY 或 SOME 操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all/" class="md-nav__link">
+        子查询与 ALL 操作符的使用
       </a>
     </li>
   
@@ -936,7 +964,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists/" class="md-nav__link">
-        SUBQUERY with EXISTS
+        子查询与 EXISTS 操作符的使用
       </a>
     </li>
   
@@ -950,7 +978,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in/" class="md-nav__link">
-        SUBQUERY with IN
+        子查询与 IN 操作符的使用
       </a>
     </li>
   
@@ -3788,7 +3816,7 @@
 <h2 id="matrixone"><strong>了解MatrixOne</strong></h2>
 <h3 id="_2">特点与框架</h3>
 <p>在<a href="../../../Overview/matrixone-introduction/">MatrixOne简介</a>中您可以了解到MO的超融合、云边协同特性以及其所创造的优异表现与独特价值。
-此外，在<a href="../../../Overview/matrixone-architecture/">MatrixOne框架</a>中您可以详细地了解MO的整体架构，以及存储层、计算层、负责分布式管理的MatrixCube的具体组成情况。
+此外，在<a href="../../../Overview/matrixone-architecture/">MatrixOne框架</a>中您可以详细地了解 MatrixOne 的整体架构，以及存储层、日志层等具体组成情况。
 同时，你也可以查阅<a href="../../../Glossary/glossary/">MatrixOne术语表</a>来了解一些复杂的词汇。
 在技术层面，<a href="../../../Reference/SQL-Reference/Data-Definition-Statements/create-database/">SQL参考指南</a> 为您提供了详细的SQL语言的参考，其中对语法和示例都有详细解释；同样，<a href="../../../Reference/Builtin-Functions/Datetime/year/">自定义函数</a>提供了MO中自定义函数的相关解释。</p>
 <h3 id="_3">建设情况</h3>
@@ -3831,7 +3859,7 @@
 </tr>
 </tbody>
 </table>
-<p>对于不同的技术模块，<code>/pkg</code>喜爱的代码结构如下表所示。详情请参照<a href="../../Overview/MatrixOne-Tech-Design/matrixone-techdesign.md">MatrixOne技术架构</a>。</p>
+<p>对于不同的技术模块，<code>/pkg</code>喜爱的代码结构如下表所示。</p>
 <table>
 <thead>
 <tr>
@@ -3859,10 +3887,6 @@
 <tr>
 <td><strong>catalog/</strong></td>
 <td>存储元数据的Catalog</td>
-</tr>
-<tr>
-<td><strong>github.com/matrixorigin/matrixcube</strong></td>
-<td>MatrixCube</td>
 </tr>
 <tr>
 <td><strong>vm/engine</strong></td>

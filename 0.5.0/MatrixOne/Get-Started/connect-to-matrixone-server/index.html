@@ -951,7 +951,7 @@
   
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subquery/" class="md-nav__link">
-        SUBQUERY 概述
+        子查询概述
       </a>
     </li>
   
@@ -964,8 +964,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery/" class="md-nav__link">
-        FROM SUBQUERY
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables/" class="md-nav__link">
+        派生表
       </a>
     </li>
   
@@ -978,8 +978,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md" class="md-nav__link">
-        SUBQUERY with ANY or SOME
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries/" class="md-nav__link">
+        子查询与比较操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some/" class="md-nav__link">
+        子查询与 ANY 或 SOME 操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all/" class="md-nav__link">
+        子查询与 ALL 操作符的使用
       </a>
     </li>
   
@@ -993,7 +1021,7 @@
   
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists/" class="md-nav__link">
-        SUBQUERY with EXISTS
+        子查询与 EXISTS 操作符的使用
       </a>
     </li>
   
@@ -1007,7 +1035,7 @@
   
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in/" class="md-nav__link">
-        SUBQUERY with IN
+        子查询与 IN 操作符的使用
       </a>
     </li>
   
@@ -3721,7 +3749,7 @@
 <p>目前，MatrixOne只兼容Oracle MySQL客户端，因此一些特性可能无法在MariaDB、Percona客户端下正常工作。</p>
 <h2 id="2-matrixone"><strong>2. 连接MatrixOne服务</strong></h2>
 <p>你可以使用MySQL命令行客户端来连接MatrixOne服务。</p>
-<div class="highlight"><pre><span></span><code>$ mysql -h IP -P PORT -uUsername -p
+<div class="highlight"><pre><span></span><code>mysql -h IP -P PORT -uUsername -p
 </code></pre></div>
 <p>连接符的格式与MySQL格式相同，您需要提供用户名和密码。</p>
 <p>此处以内置帐号作为示例：</p>
@@ -3729,7 +3757,7 @@
 <li>user: dump</li>
 <li>password: 111</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ mysql -h 127.0.0.1 -P 6001 -udump -p
+<div class="highlight"><pre><span></span><code>mysql -h 127.0.0.1 -P 6001 -udump -p
 Enter password:
 </code></pre></div>
 <p>目前，MatrixOne只支持TCP监听。</p>

@@ -894,7 +894,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subquery/" class="md-nav__link">
-        SUBQUERY 概述
+        子查询概述
       </a>
     </li>
   
@@ -907,8 +907,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery/" class="md-nav__link">
-        FROM SUBQUERY
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables/" class="md-nav__link">
+        派生表
       </a>
     </li>
   
@@ -921,8 +921,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md" class="md-nav__link">
-        SUBQUERY with ANY or SOME
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries/" class="md-nav__link">
+        子查询与比较操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some/" class="md-nav__link">
+        子查询与 ANY 或 SOME 操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all/" class="md-nav__link">
+        子查询与 ALL 操作符的使用
       </a>
     </li>
   
@@ -936,7 +964,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists/" class="md-nav__link">
-        SUBQUERY with EXISTS
+        子查询与 EXISTS 操作符的使用
       </a>
     </li>
   
@@ -950,7 +978,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in/" class="md-nav__link">
-        SUBQUERY with IN
+        子查询与 IN 操作符的使用
       </a>
     </li>
   
@@ -3810,10 +3838,10 @@
 <p><strong>1.</strong> 在GitHub上<a href="https://github.com/matrixorigin/matrixone/issues/new/choose">提出issue</a>，简单介绍您发现的问题。并且在issue下面评论认领该问题。</p>
 <p><strong>2.</strong> Fork <a href="https://github.com/matrixorigin/matrixorigin.io">matrixorigin.io</a> 和 <a href="https://github.com/matrixorigin/matrixone">matrixone</a> 仓库.</p>
 <p><strong>3.</strong> 克隆<a href="https://github.com/matrixorigin/matrixorigin.io">matrixorigin.io</a>仓库，使用<code>--repository</code>来引用<code>matrixone</code>中的内容。</p>
-<div class="highlight"><pre><span></span><code>$ git clone --recursive git@github.com:yourusername/matrixorigin.io.git
+<div class="highlight"><pre><span></span><code>git clone --recursive git@github.com:yourusername/matrixorigin.io.git
 </code></pre></div>
 <p>克隆<a href="https://github.com/matrixorigin/matrixorigin.io">matrixone</a>仓库。</p>
-<div class="highlight"><pre><span></span><code>$ git clone git@github.com:yourusername/matrixone.git
+<div class="highlight"><pre><span></span><code>git clone git@github.com:yourusername/matrixone.git
 </code></pre></div>
 <p><strong>4.</strong> 在您的本地matrixone文件夹中将<code>matrixone</code>仓库添加为远程仓库。</p>
 <div class="highlight"><pre><span></span><code>git remote add upstream https://github.com/matrixorigin/matrixone.git
@@ -3822,7 +3850,7 @@
 <div class="highlight"><pre><span></span><code>git remote add upstream https://github.com/matrixorigin/matrixorigin.io.git
 </code></pre></div>
 <p><strong>5.</strong> 本地的matrixorigin.io文件夹中将包含文档所需要的全部文件，因此您可以运行 <code>mkdocs serve</code> 命令, 然后在<code>http://localhost:8000</code>网址中预览文档，检查整个项目文件是否可以正常运行，并且后续也可以检查您所做的修改是否正确。</p>
-<div class="highlight"><pre><span></span><code>$ mkdocs serve
+<div class="highlight"><pre><span></span><code>mkdocs serve
 </code></pre></div>
 <p><strong>6.</strong> 进行文档的修改和完善，如果您想对项目的设置进行改动，或者添加新的page来更新sitemap，或更新 CI&amp;CD 工作流代码，您也可以通过<code>http://localhost:8000</code>来查看您的修改是否有效。<br />
 如果您对文档内容（.md文件）进行了修改，则需要同步地在<code>matrixone</code>仓库中进行改动，否则仅仅更新<code>matrixorigin.io</code>仓库中的<code>docs</code>子模块是无用的。</p>
