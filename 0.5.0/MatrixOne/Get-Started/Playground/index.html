@@ -1810,7 +1810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/case-when.md" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/case-when/" class="md-nav__link">
         CASE WHEN
       </a>
     </li>
@@ -2905,7 +2905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/lengthUTF8/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/lengthUTF8.md" class="md-nav__link">
         LENGTHUTF8()
       </a>
     </li>
@@ -3752,24 +3752,19 @@
 
 
 <h1 id="playground"><strong>Playground</strong></h1>
-<p><a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&amp;step=1">MatrixOne Playground</a>提供了一个交互式工作台，可以让您直接通过浏览器来运行MatrixOne的SQL语句等功能，快速体验MatrixOne的最新能力。</p>
+<p><a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&amp;step=1">MatrixOne Playground</a>提供了一个交互式工作台，可以让您直接通过浏览器来运行 MatrixOne 的 SQL 语句等功能，快速体验 MatrixOne 的最新能力。</p>
 <ul>
-<li>你可以参考<a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-database/">SQL参考指南</a>来熟悉相关SQL语句</li>
-<li>你可以查看<a href="../Tutorial/SSB-test-with-matrixone/">实践教程</a>来学习如何使用MatrixOne来进行SSB、NYC测试等最佳实践。</li>
+<li>你可以参考<a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-database/">SQL参考指南</a>来熟悉相关 SQL 语句。</li>
+<li>你可以查看<a href="../Tutorial/SSB-test-with-matrixone/">实践教程</a>来学习如何使用 MatrixOne 来进行 SSB、TPCH测试等最佳实践。</li>
 </ul>
 <h2 id="_1"><strong>限制</strong></h2>
-<p>MatixOrigin Playground只能在<strong>只读</strong>模式下进行操作，因此相关DDL命令和部分改变数据的DML命令不可用，具体限制如下：</p>
+<p>MatixOrigin Playground 只能在<strong>只读</strong>模式下进行操作，因此相关 DDL 命令和部分改变数据的 DML 命令不可用，具体限制如下：</p>
 <ul>
 <li>
-<p><strong>DDL</strong> 命令不可用:<br />
-<code>create/drop table</code> , <code>truncate</code> , <code>update</code> , <code>set</code> ,<code>use</code>  </p>
+<p><strong>DDL</strong> 命令不可用有：<code>truncate</code> ，<code>set</code></p>
 </li>
 <li>
-<p>以下展示的<strong>DML</strong> 命令不可用：<br />
-<code>insert</code> , <code>replace</code> , <code>delete</code>,<code>select into</code>  </p>
-</li>
-<li>
-<p><code>commit</code> 不可用</p>
+<p><strong>DML</strong> 命令不可用有：<code>replace</code></p>
 </li>
 <li>
 <p><code>call</code> 不可用</p>
@@ -3779,28 +3774,30 @@
 </li>
 </ul>
 <h2 id="_2"><strong>示例</strong></h2>
-<p>在Playground中，你可以使用工作台左侧提供的互动实践教程来快速启动对MatrixOne的体验操作。现在平台支持的互动实践教程如下:</p>
+<p>在 Playground 中，你可以使用工作台左侧提供的互动实践教程来快速启动对 MatrixOne 的体验操作。现在平台支持的互动实践教程如下:</p>
 <ul>
-<li><a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&amp;step=1"><strong>用MatrixOne完成SSB测试</strong></a> </li>
+<li><a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&amp;step=1"><strong>用 MatrixOne 完成 SSB 测试</strong></a></li>
 </ul>
-<p>此处，我们以<strong>SSB测试实践</strong> 为例来展示Playground的大致流程。</p>
+<p>此处，我们以 <strong>SSB测试实践</strong> 为例来展示 Playground 的大致流程。</p>
 <h3 id="_3"><strong>数据准备</strong></h3>
-<p>为了更好地体验MatrixOne特性和性能，本教程中的测试查询将在不使用过滤语句的情况下运行。<br />
-在开始之前测试数据集就已经预先加载到数据库<code>ssb</code>中。可以列出数据库中你可以进行查询的表：</p>
-<div class="highlight"><pre><span></span><code>SHOW TABLES；
+<p>为了更好地体验 MatrixOne 特性和性能，本教程中的测试查询将在不使用过滤语句的情况下运行。<br />
+在开始之前测试数据集就已经预先加载到数据库 <code>ssb</code> 中。可以列出数据库中你可以进行查询的表：</p>
+<div class="highlight"><pre><span></span><code>SHOW TABLES;
 </code></pre></div>
-<p>!!! note  <font size=4>Tips</font>
-    <font size=3>点击命令语句可以直接复制该语句，然后点击右侧的<strong>Run</strong>按键来运行 </font><br />
-    <font size=3>查询结构显示于右下侧</font><br />
-    <font size=3>点击<strong>Continue</strong>按键来进行下一步</font>  </p>
+<div class="admonition note">
+<p class="admonition-title"><font size=4>Tips</font></p>
+<p><font size=3>点击命令语句可以直接复制该语句，然后点击右侧的<strong>Run</strong>按键来运行。</font><br />
+<font size=3>查询结构显示于右下侧。</font><br />
+<font size=3>点击<strong>Continue</strong>按键来进行下一步。</font>  </p>
+</div>
 <h3 id="_4"><strong>运行查询语句</strong></h3>
-<p>现在，您可以使用我们提供的SQL命令来查询数据。 
+<p>现在，您可以使用我们提供的 SQL 命令来查询数据。
 例如：</p>
 <ul>
 <li><strong>运行 Q1.1</strong></li>
 </ul>
 <div class="highlight"><pre><span></span><code>select sum(lo_revenue) as revenue
-from lineorder join dates on lo_orderdate = d_datekey；
+from lineorder join dates on lo_orderdate = d_datekey;
 </code></pre></div>
 <p>此外，你可以在查询中使用<code>join</code>连接：</p>
 <ul>
@@ -3808,7 +3805,7 @@ from lineorder join dates on lo_orderdate = d_datekey；
 </ul>
 <div class="highlight"><pre><span></span><code>select sum(lo_revenue) as revenue
 from lineorder
-join dates on lo_orderdate = d_datekey；
+join dates on lo_orderdate = d_datekey;
 </code></pre></div>
 <p>也可以使用<code>group by</code> 与<code>order by</code> 命令：</p>
 <ul>
@@ -3824,10 +3821,9 @@ order by d_year, p_brand;
 </code></pre></div>
 <p><strong>Playground</strong>提供了更多查询命令，您可以自行测试。</p>
 <h2 id="_5"><strong>相关信息</strong></h2>
-<p>本页面介绍了Playground的特性、限制和示例。有关使用MatrixOne时所需的其他更多信息，可参阅以下内容：</p>
+<p>本页面介绍了 Playground 的特性、限制和示例。有关使用 MatrixOne 时所需的其他更多信息，可参阅以下内容：</p>
 <ul>
 <li><a href="../install-standalone-matrixone/">安装单机版MatrixOne</a></li>
-<li><a href="install-distributed-matrixone.md">部署分布式MatrixOne集群</a></li>
 <li><a href="../../Overview/whats-new/">产品最新发布</a></li>
 </ul>
 
