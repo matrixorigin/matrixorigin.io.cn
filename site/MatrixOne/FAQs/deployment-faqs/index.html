@@ -3843,6 +3843,65 @@
 <li>对于 Linux 系统，请参考详细的<a href="https://www.linuxtechi.com/set-ulimit-file-descriptors-limit-linux-servers/">指南</a>，将 <em>ulimit</em> 设置为100000。</li>
 </ul>
 <p>设置完成后，将不会出现 <code>too many open files</code> 错误。</p>
+<ul>
+<li><strong>我的 PC 是 M1 芯片，当我进行 SSB 测试时，发现无法编译成功 ssb-dbgen</strong></li>
+</ul>
+<p>硬件配置为 M1 芯片的 PC 在编译 <code>ssb-dbgen</code> 之前，还需要进行如下配置：</p>
+<ol>
+<li>
+<p>下载并安装 <a href="https://gcc.gnu.org/install/">GCC11</a>。</p>
+</li>
+<li>
+<p>输入命令，确认 gcc-11 是否成功：</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>gcc-11 -v
+</code></pre></div>
+<p>如下结果，表示成功：</p>
+<div class="highlight"><pre><span></span><code>Using built-in specs.
+COLLECT_GCC=gcc-11
+COLLECT_LTO_WRAPPER=/opt/homebrew/Cellar/gcc@11/11.3.0/bin/../libexec/gcc/aarch64-apple-darwin21/11/lto-wrapper
+Target: aarch64-apple-darwin21
+Configured with: ../configure --prefix=/opt/homebrew/opt/gcc@11 --libdir=/opt/homebrew/opt/gcc@11/lib/gcc/11 --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran --program-suffix=-11 --with-gmp=/opt/homebrew/opt/gmp --with-mpfr=/opt/homebrew/opt/mpfr --with-mpc=/opt/homebrew/opt/libmpc --with-isl=/opt/homebrew/opt/isl --with-zstd=/opt/homebrew/opt/zstd --with-pkgversion=&#39;Homebrew GCC 11.3.0&#39; --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --build=aarch64-apple-darwin21 --with-system-zlib --with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Homebrew GCC 11.3.0)
+</code></pre></div>
+<ol>
+<li>
+<p>手动修改 <em>ssb-dbgen</em> 目录下的 <em>bm_utils.c</em> 配置文件：</p>
+</li>
+<li>
+<p>将第41行的 <code>#include &lt;malloc.h&gt;</code> 修改为 <code>#include &lt;sys/malloc.h&gt;</code></p>
+</li>
+<li>
+<p>将第398行的 <code>open(fullpath, ((*mode == 'r')?O_RDONLY:O_WRONLY)|O_CREAT|O_LARGEFILE,0644);</code> 修改为 <code>open(fullpath, ((*mode == 'r')?O_RDONLY:O_WRONLY)|O_CREAT,0644);</code></p>
+</li>
+<li>
+<p>手动修改 <em>ssb-dbgen</em> 目录下的 <em>varsub.c</em> 配置文件：</p>
+</li>
+<li>
+<p>将第5行的 <code>#include &lt;malloc.h&gt;</code> 修改为 <code>#include &lt;sys/malloc.h&gt;</code></p>
+</li>
+</ol>
+<p>5.</p>
+<ol>
+<li>
+<p>手动修改 <em>ssb-dbgen</em> 目录下的 <em>makefile</em> 配置文件：</p>
+</li>
+<li>
+<p>将第5行的 <code>CC      = gcc</code> 修改为 <code>CC      = gcc-11</code></p>
+</li>
+<li>
+<p>再次进入 <em>ssb-dbgen</em> 目录，进行编译：</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>cd ssb-dbgen
+make
+</code></pre></div>
+<ol>
+<li>查看 <em>ssb-dbgen</em> 目录，生成 <em>dbgen</em> 可执行文件，表示编译成功。</li>
+</ol>
 
               
             </article>
