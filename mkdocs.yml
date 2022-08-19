@@ -46,6 +46,7 @@ nav:
     - 快速上手:
       - 安装单机版MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
       - 连接MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
+      - 升级单机版MatrixOne: MatrixOne/Get-Started/update-standalone-matrixone.md
       - 实践教程:
         - 完成SSB测试: MatrixOne/Get-Started/Tutorial/SSB-test-with-matrixone.md
         - 完成TPCH测试: MatrixOne/Get-Started/Tutorial/TPCH-test-with-matrixone.md
@@ -207,6 +208,7 @@ nav:
       - 部署常见问题: MatrixOne/FAQs/deployment-faqs.md
       - SQL 常见问题: MatrixOne/FAQs/sql-faqs.md
     - 版本发布纪要:
+      - v0.5.1: MatrixOne/Release-Notes/v0.5.1.md
       - v0.5.0: MatrixOne/Release-Notes/v0.5.0.md
       - v0.4.0: MatrixOne/Release-Notes/v0.4.0.md
       - v0.3.0: MatrixOne/Release-Notes/v0.3.0.md
