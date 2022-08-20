@@ -582,8 +582,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-matrixone_1" class="md-nav__link">
-    3. 连接 MatrixOne 服务
+  <a href="#3_1" class="md-nav__link">
+    3. 挂载数据（选做）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-matrixone_1" class="md-nav__link">
+    4. 连接 MatrixOne 服务
   </a>
   
 </li>
@@ -628,22 +635,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../update-standalone-matrixone/" class="md-nav__link">
+        升级单机版MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3_3" type="checkbox" id="__nav_1_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3_4" type="checkbox" id="__nav_1_3_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_3_3">
+        <label class="md-nav__link" for="__nav_1_3_4">
           实践教程
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="实践教程" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_3_3">
+        <label class="md-nav__title" for="__nav_1_3_4">
           <span class="md-nav__icon md-icon"></span>
           实践教程
         </label>
@@ -3377,6 +3398,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v0.5.1/" class="md-nav__link">
+        v0.5.1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.5.0/" class="md-nav__link">
         v0.5.0
       </a>
@@ -3919,8 +3954,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-matrixone_1" class="md-nav__link">
-    3. 连接 MatrixOne 服务
+  <a href="#3_1" class="md-nav__link">
+    3. 挂载数据（选做）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-matrixone_1" class="md-nav__link">
+    4. 连接 MatrixOne 服务
   </a>
   
 </li>
@@ -3965,7 +4007,7 @@
 <p>推荐硬件规格：x86 CPU；4核；32GB 内存，支持 CentOS 7+ 操作系统。</p>
 <h2 id="1"><h2><a name="code_source">方法 1：使用源代码搭建</a></h2></h2>
 <h4 id="1-go">1. 安装部署 Go 语言环境</h4>
-<p>Go 语言需要升级到 1.18 版本。</p>
+<p>Go 语言需要升级到 1.19 版本。</p>
 <h4 id="2-matrixone">2. 获取 MatrixOne 源码</h4>
 <p>根据您的需要，选择您所获取的代码永远保持最新，还是获得稳定版本的代码。</p>
 <h5 id="1-matrixone">选项 1：获取 MatrixOne(预览版本) 代码</h5>
@@ -4030,11 +4072,16 @@ unzip mo-server-v0.5.0-darwin-x86_64.zip
 <div class="highlight"><pre><span></span><code>docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/matrixone:0.5.0
 </code></pre></div>
 <p>运行 Docker Hub 时需要输入用户名和密码，获取用户名和密码可以参考下一步骤 - 连接 MatrixOne 服务</p>
-<h4 id="3-matrixone_1">3. 连接 MatrixOne 服务</h4>
+<h4 id="3_1">3. 挂载数据（选做）</h4>
+<p>如果你需要自定义配置文件或者数据目录，可以直接挂载存放在本地磁盘的自定义配置文件：</p>
+<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ${path_name}/system_vars_config.toml:/system_vars_config.toml:ro -v ${path_name}/store:/store:rw --name matrixone matrixorigin/matrixone:0.5.1
+</code></pre></div>
+<h4 id="4-matrixone_1">4. 连接 MatrixOne 服务</h4>
 <p>当你完成安装 MatrixOne，你可以参考下面的章节，连接到 MatrixOne 服务器。</p>
 <p>参见<a href="../connect-to-matrixone-server/">连接 MatrixOne 服务</a>。</p>
 <h2 id="_1">参考文档</h2>
-<p>常见的安装和部署问题，参见<a href="../../FAQs/deployment-faqs/">安装和部署常见问题</a>。</p>
+<p>升级版本，参见<a href="../update-standalone-matrixone/">升级单机版 MatrixOne</a>。
+常见的安装和部署问题，参见<a href="../../FAQs/deployment-faqs/">安装和部署常见问题</a>。</p>
 
               
             </article>
