@@ -73,8 +73,10 @@ nav:
           - With CTE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/with-cte.md
           - SUBQUERY:
             - SUBQUERY 概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subquery.md
-            - FROM SUBQUERY: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/from-subquery.md
+            - Derived Tables: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables.md
+            - 子查询与比较操作符的使用: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries.md
             - SUBQUERY with ANY or SOME: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md
+            - SUBQUERY with ALL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all.md
             - SUBQUERY with EXISTS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists.md
             - SUBQUERY with IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in.md
           - JOIN:
@@ -147,6 +149,7 @@ nav:
           - 事务概述: MatrixOne/Reference/SQL-Reference/Transactions/transaction-overview.md
         - Explain:
           - EXPLAIN: MatrixOne/Reference/SQL-Reference/Explain/explain.md
+          - EXPLAIN 输出结构: MatrixOne/Reference/SQL-Reference/Explain/explain-workflow.md
       - 数据类型:
         - 数据类型概览: MatrixOne/Reference/Data-Types/data-types.md
         - 数据类型转换: MatrixOne/Reference/Data-Types/data-type-conversion.md
@@ -203,6 +206,8 @@ nav:
       - MatrixOne Catalog: MatrixOne/Reference/System-tables.md
     - 测试:
       - MO-Tester: MatrixOne/Test/mo-tester.md
+    - 开发:
+      - 开发 Python 应用程序: MatrixOne/Develop/develop-python-application.md
     - 常见问题解答:
       - 产品常见问题: MatrixOne/FAQs/product-faqs.md
       - 部署常见问题: MatrixOne/FAQs/deployment-faqs.md
@@ -225,6 +230,9 @@ nav:
         - 审核修改: MatrixOne/Contribution-Guide/How-to-Contribute/review-a-pull-request.md
         - 文档贡献: MatrixOne/Contribution-Guide/How-to-Contribute/contribute-documentation.md
         - 提出设计草案: MatrixOne/Contribution-Guide/How-to-Contribute/make-a-design.md
+      - 教程指导:
+        - 开发系统函数: MatrixOne/Contribution-Guide/Tutorial/develop_builtin_functions.md
+        - 开发聚合函数: MatrixOne/Contribution-Guide/Tutorial/develop_aggregate_functions.md
       - 代码规范:
         - 编码规范: MatrixOne/Contribution-Guide/Code-Style/code-of-conduct.md
         - 注释规范: MatrixOne/Contribution-Guide/Code-Style/code-comment-style.md
