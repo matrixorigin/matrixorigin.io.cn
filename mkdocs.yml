@@ -149,6 +149,7 @@ nav:
           - 事务概述: MatrixOne/Reference/SQL-Reference/Transactions/transaction-overview.md
         - Explain:
           - EXPLAIN: MatrixOne/Reference/SQL-Reference/Explain/explain.md
+          - EXPLAIN 输出结构: MatrixOne/Reference/SQL-Reference/Explain/explain-workflow.md
       - 数据类型:
         - 数据类型概览: MatrixOne/Reference/Data-Types/data-types.md
         - 数据类型转换: MatrixOne/Reference/Data-Types/data-type-conversion.md
