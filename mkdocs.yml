@@ -47,10 +47,12 @@ nav:
       - 安装单机版MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
       - 连接MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
       - 升级单机版MatrixOne: MatrixOne/Get-Started/update-standalone-matrixone.md
-      - 实践教程:
-        - 完成SSB测试: MatrixOne/Get-Started/Tutorial/SSB-test-with-matrixone.md
-        - 完成TPCH测试: MatrixOne/Get-Started/Tutorial/TPCH-test-with-matrixone.md
       - Playground在线体验: MatrixOne/Get-Started/Playground.md
+    - 实践教程:
+      - 完成SSB测试: MatrixOne/Tutorial/SSB-test-with-matrixone.md
+      - 完成TPCH测试: MatrixOne/Tutorial/TPCH-test-with-matrixone.md
+      - 开发 Python 应用程序: MatrixOne/Tutorial/develop-python-application.md
+      - JDBC 连接 MatrixOne: MatrixOne/Tutorial/develop-java-connect-mo.md
     - 参考手册:
       - SQL目录:
         - DDL:
@@ -191,7 +193,7 @@ nav:
           - OCT(): MatrixOne/Reference/Builtin-Functions/String/oct.md
           - EMPTY(): MatrixOne/Reference/Builtin-Functions/String/empty.md
           - LENGTH(): MatrixOne/Reference/Builtin-Functions/String/length.md
-          - CHAR_LENGTH(): MatrixOne/Reference/Builtin-Functions/String/char-length.md
+          - LENGTHUTF8(): MatrixOne/Reference/Builtin-Functions/String/lengthUTF8.md
           - LTRIM(): MatrixOne/Reference/Builtin-Functions/String/ltrim.md
           - RTRIM(): MatrixOne/Reference/Builtin-Functions/String/rtrim.md
           - LPAD(): MatrixOne/Reference/Builtin-Functions/String/lpad.md
@@ -206,8 +208,13 @@ nav:
       - MatrixOne Catalog: MatrixOne/Reference/System-tables.md
     - 测试:
       - MO-Tester: MatrixOne/Test/mo-tester.md
-    - 开发:
-      - 开发 Python 应用程序: MatrixOne/Develop/develop-python-application.md
+    - 开发指南:
+      - 连接 MatrixOne:
+        - 通过客户端连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/client-connect-to-matrixone.md
+        - 通过编程语言连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/programming-connect-to-matrixone.md
+      - 导入数据:
+        - 使用命令行导入: MatrixOne/Develop/import-data/use-source-import-data.md
+        - 使用 Docker 导入: MatrixOne/Develop/import-data/use-docker-import-data.md
     - 常见问题解答:
       - 产品常见问题: MatrixOne/FAQs/product-faqs.md
       - 部署常见问题: MatrixOne/FAQs/deployment-faqs.md
@@ -230,7 +237,7 @@ nav:
         - 审核修改: MatrixOne/Contribution-Guide/How-to-Contribute/review-a-pull-request.md
         - 文档贡献: MatrixOne/Contribution-Guide/How-to-Contribute/contribute-documentation.md
         - 提出设计草案: MatrixOne/Contribution-Guide/How-to-Contribute/make-a-design.md
-      - 教程指导:
+      - 社区贡献教程:
         - 开发系统函数: MatrixOne/Contribution-Guide/Tutorial/develop_builtin_functions.md
         - 开发聚合函数: MatrixOne/Contribution-Guide/Tutorial/develop_aggregate_functions.md
       - 代码规范:
