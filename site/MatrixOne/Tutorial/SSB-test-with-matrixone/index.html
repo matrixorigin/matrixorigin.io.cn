@@ -3488,6 +3488,67 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          导出数据
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="导出数据" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          导出数据
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/general-method-export-data.md" class="md-nav__link">
+        通用方式导出数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/use-docker-export-data.md" class="md-nav__link">
+        Docker 启动 MatrixOne 时导出数据
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -4244,15 +4305,15 @@
 <h1 id="ssb"><strong>完成SSB测试</strong></h1>
 <p>SSB 星型模式基准测试是 OLAP 数据库性能测试的常用场景，通过本篇教程，您可以了解到如何在 MatrixOne 中实现 SSB 测试。</p>
 <h2 id="_1"><strong>准备工作</strong></h2>
-<p>确保你已经安装了<a href="../install-standalone-matrixone.md">单机版MatrixOne</a>并<a href="../connect-to-matrixone-server.md">连接到MatrixOne服务</a>.</p>
+<p>确保你已经安装了<a href="../../Get-Started/install-standalone-matrixone/">单机版MatrixOne</a>并<a href="../../Get-Started/connect-to-matrixone-server/">连接到MatrixOne服务</a>.</p>
 <h2 id="1-dbgen"><strong>1. 编译dbgen</strong></h2>
-<div class="highlight"><pre><span></span><code>git clone git@github.com:vadimtk/ssb-dbgen.git
+<div class="highlight"><pre><span></span><code>git clone https://github.com/vadimtk/ssb-dbgen.git
 cd ssb-dbgen
 make
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>如果你的硬件配置为 M1 芯片，编译 dbgen 仍需进行其他配置，参见<a href="../../FAQs/deployment-faqs.md">部署常见问题</a>。</p>
+<p>如果你的硬件配置为 M1 芯片，编译 dbgen 仍需进行其他配置，参见<a href="../../FAQs/deployment-faqs/">部署常见问题</a>。</p>
 </div>
 <h2 id="2"><strong>2. 生成数据</strong></h2>
 <h3 id="_2">选项一：自行生成数据集</h3>

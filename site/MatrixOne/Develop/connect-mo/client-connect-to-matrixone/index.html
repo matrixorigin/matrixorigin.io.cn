@@ -3291,6 +3291,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dbeaver-matrixone" class="md-nav__link">
+    通过 DBeaver 连接 MatrixOne 服务
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3369,6 +3376,67 @@
     <li class="md-nav__item">
       <a href="../../import-data/use-docker-import-data/" class="md-nav__link">
         使用 Docker 导入
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          导出数据
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="导出数据" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          导出数据
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../import-data/general-method-export-data.md" class="md-nav__link">
+        通用方式导出数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../import-data/use-docker-export-data.md" class="md-nav__link">
+        Docker 启动 MatrixOne 时导出数据
       </a>
     </li>
   
@@ -4009,6 +4077,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dbeaver-matrixone" class="md-nav__link">
+    通过 DBeaver 连接 MatrixOne 服务
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4032,6 +4107,7 @@
 <ul>
 <li>MySQL Client</li>
 <li>Navicat</li>
+<li>DBeaver</li>
 </ul>
 <h2 id="_1">前期准备</h2>
 <p>已完成<a href="../../../Get-Started/install-standalone-matrixone/">安装并启动 MatrixOne</a>。</p>
@@ -4087,6 +4163,43 @@ Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the cu
 </li>
 <li>
 <p>双击左侧数据库目录中的 <strong>MatrixOne</strong>，图标点亮，连接成功。</p>
+</li>
+</ol>
+<h2 id="dbeaver-matrixone">通过 DBeaver 连接 MatrixOne 服务</h2>
+<ol>
+<li>
+<p>下载安装 <a href="https://dbeaver.io/download/">DBeaver</a>。</p>
+</li>
+<li>
+<p>安装 DBeaver 完成后，打开 DBeaver，点击左上角<strong>新建数据库连接</strong>，在弹窗中选择 <strong>MySQL</strong>，点击<strong>下一步</strong>，在 <strong>连接设置</strong>窗口的<strong>主要</strong>区中填写如下参数：</p>
+<ul>
+<li><strong>服务器地址</strong>: 127.0.0.1</li>
+<li><strong>端口</strong>: 6001</li>
+<li><strong>数据库</strong>: MatrixOne</li>
+<li><strong>用户名</strong>: dump</li>
+<li><strong>密码</strong>: 111</li>
+<li><strong>将密码保存在本地</strong>：勾选</li>
+</ul>
+</li>
+<li>
+<p>点击 <strong>完成</strong> 保存设置。</p>
+</li>
+<li>
+<p>鼠标右左侧数据库导航目录中的 <strong>MatrixOne</strong>，选择 <strong>编辑连接</strong>，在<strong>连接设置</strong>窗口的<strong>驱动属性</strong>区中修改如下参数，修改完成后点击<strong>完成</strong>，保存参数：</p>
+<ul>
+<li>characterSetResults: "utf8"</li>
+<li>continueBatchOnError: "false"</li>
+<li>useServerPrepStmts: "true"</li>
+<li>alwaysSendSetIsolation: "false"</li>
+<li>useLocalSessionState: "true"</li>
+<li>zeroDateTimeBehavior: "CONVERT_TO_NULL"</li>
+<li>failoverReadOnly: "false"</li>
+<li>serverTimezone: "Asia/Shanghai"</li>
+<li>socketTimeout: 30000</li>
+</ul>
+</li>
+<li>
+<p>鼠标右左侧数据库导航目录中的 <strong>MatrixOne</strong>，选择<strong>连接</strong>，图标点亮，连接成功。</p>
 </li>
 </ol>
 
