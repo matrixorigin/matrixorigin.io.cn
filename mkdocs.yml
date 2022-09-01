@@ -215,6 +215,9 @@ nav:
       - 导入数据:
         - 使用命令行导入: MatrixOne/Develop/import-data/use-source-import-data.md
         - 使用 Docker 导入: MatrixOne/Develop/import-data/use-docker-import-data.md
+      - 导出数据:
+        - 通用方式导出数据: MatrixOne/Develop/import-data/general-method-export-data.md
+        - Docker 启动 MatrixOne 时导出数据: MatrixOne/Develop/import-data/use-docker-export-data.md
     - 常见问题解答:
       - 产品常见问题: MatrixOne/FAQs/product-faqs.md
       - 部署常见问题: MatrixOne/FAQs/deployment-faqs.md
