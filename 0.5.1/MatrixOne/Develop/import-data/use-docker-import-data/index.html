@@ -3382,6 +3382,67 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          导出数据
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="导出数据" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          导出数据
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general-method-export-data.md" class="md-nav__link">
+        通用方式导出数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-docker-export-data.md" class="md-nav__link">
+        Docker 启动 MatrixOne 时导出数据
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -4049,29 +4110,27 @@
 </li>
 <li>
 <p>下载数据集文件，并将数据存放在目录 <em>~/tmp/docker_loaddata_demo/</em> 下：</p>
-</li>
-</ul>
 <div class="highlight"><pre><span></span><code>cd ~/tmp/docker_loaddata_demo/
 wget https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/lineorder_flat.tar.bz2
 </code></pre></div>
-<ol>
-<li>解压数据集：</li>
-</ol>
+</li>
+<li>
+<p>解压数据集：</p>
 <div class="highlight"><pre><span></span><code>tar -jxvf lineorder_flat.tar.bz2
 </code></pre></div>
-<ol>
-<li>使用 Docker 启动 MatrixOne，启动时将存放了数据文件的目录 <em>~/tmp/docker_loaddata_demo/</em> 挂载到容器的某个目录下，这里容器目录以 <em>/ssb-dbgen-path</em> 为例：</li>
-</ol>
+</li>
+<li>
+<p>使用 Docker 启动 MatrixOne，启动时将存放了数据文件的目录 <em>~/tmp/docker_loaddata_demo/</em> 挂载到容器的某个目录下，这里容器目录以 <em>/ssb-dbgen-path</em> 为例：</p>
 <div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.5.1
 </code></pre></div>
-<ol>
-<li>连接 MatrixOne 服务：</li>
-</ol>
+</li>
+<li>
+<p>连接 MatrixOne 服务：</p>
 <div class="highlight"><pre><span></span><code>mysql -h 127.0.0.1 -P 6001 -udump -p111
 </code></pre></div>
-<ol>
-<li>创建测试数据库和 <em>lineorder_flat</em> 表，并导入数据集：</li>
-</ol>
+</li>
+<li>
+<p>创建测试数据库和 <em>lineorder_flat</em> 表，并导入数据集：</p>
 <div class="highlight"><pre><span></span><code>create database if not exists ssb;
 use ssb;
 drop table if exists lineorder_flat;
@@ -4117,9 +4176,11 @@ CREATE TABLE lineorder_flat(
 );
 load data infile &#39;/ssb-dbgen-path/lineorder_flat.tbl&#39; into table lineorder_flat FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
 </code></pre></div>
-<ol>
-<li>导入成功后可执行 SQL 语句检查导入数据量：</li>
-</ol>
+</li>
+<li>
+<p>导入成功后可执行 SQL 语句检查导入数据量：</p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code>select count(*) from lineorder_flat;
 /*
     执行结果如下：
