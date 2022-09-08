@@ -240,9 +240,6 @@ nav:
         - 审核修改: MatrixOne/Contribution-Guide/How-to-Contribute/review-a-pull-request.md
         - 文档贡献: MatrixOne/Contribution-Guide/How-to-Contribute/contribute-documentation.md
         - 提出设计草案: MatrixOne/Contribution-Guide/How-to-Contribute/make-a-design.md
-      - 社区贡献教程:
-        - 开发系统函数: MatrixOne/Contribution-Guide/Tutorial/develop_builtin_functions.md
-        - 开发聚合函数: MatrixOne/Contribution-Guide/Tutorial/develop_aggregate_functions.md
       - 代码规范:
         - 编码规范: MatrixOne/Contribution-Guide/Code-Style/code-of-conduct.md
         - 注释规范: MatrixOne/Contribution-Guide/Code-Style/code-comment-style.md
