@@ -193,7 +193,7 @@ nav:
           - OCT(): MatrixOne/Reference/Builtin-Functions/String/oct.md
           - EMPTY(): MatrixOne/Reference/Builtin-Functions/String/empty.md
           - LENGTH(): MatrixOne/Reference/Builtin-Functions/String/length.md
-          - LENGTHUTF8(): MatrixOne/Reference/Builtin-Functions/String/lengthUTF8.md
+          - LENGTHUTF8(): MatrixOne/Reference/Builtin-Functions/String/char-length.md
           - LTRIM(): MatrixOne/Reference/Builtin-Functions/String/ltrim.md
           - RTRIM(): MatrixOne/Reference/Builtin-Functions/String/rtrim.md
           - LPAD(): MatrixOne/Reference/Builtin-Functions/String/lpad.md
