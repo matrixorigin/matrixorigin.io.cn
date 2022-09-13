@@ -482,7 +482,7 @@
         
           <li class="md-nav__item">
   <a href="#1matrixone" class="md-nav__link">
-    选项 1：MatrixOne(预览版本) 代码搭建
+    选项 1：MatrixOne(开发版本) 代码搭建
   </a>
   
 </li>
@@ -3084,7 +3084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/lengthUTF8.md" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/char-length/" class="md-nav__link">
         LENGTHUTF8()
       </a>
     </li>
@@ -4126,7 +4126,7 @@
         
           <li class="md-nav__item">
   <a href="#1matrixone" class="md-nav__link">
-    选项 1：MatrixOne(预览版本) 代码搭建
+    选项 1：MatrixOne(开发版本) 代码搭建
   </a>
   
 </li>
@@ -4268,11 +4268,11 @@
 <p>Go 语言需要升级到 1.19 版本。</p>
 <h3 id="2-matrixone">2. 获取 MatrixOne 源码完成搭建</h3>
 <p>根据您的需要，选择您所获取的代码永远保持最新，还是获得稳定版本的代码。</p>
-<h4 id="1matrixone">选项 1：MatrixOne(预览版本) 代码搭建</h4>
+<h4 id="1matrixone">选项 1：MatrixOne(开发版本) 代码搭建</h4>
 <p><strong>main</strong> 分支是默认分支，主分支上的代码总是最新的，但不够稳定。</p>
 <ol>
 <li>
-<p>获取 MatrixOne(预览版本) 代码方法如下：</p>
+<p>获取 MatrixOne(开发版本，即 Pre0.6 版本) 代码方法如下：</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/matrixorigin/matrixone.git
 <span class="nb">cd</span> matrixone
 </code></pre></div>
@@ -4286,7 +4286,7 @@
 <p>启动 MatrixOne 服务：</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>注意，MatrixOne(预览版本) 的启动配置文件与 MatrixOne(稳定版本) 的启动配置文件不同，MatrixOne(预览版本) 的启动配置文件代码如下：</p>
+<p>注意，MatrixOne(开发版本) 的启动配置文件与 MatrixOne(稳定版本) 的启动配置文件不同，MatrixOne(开发版本) 的启动配置文件代码如下：</p>
 </div>
 <div class="highlight"><pre><span></span><code>./mo-service -cfg ./etc/cn-standalone-test.toml
 </code></pre></div>
@@ -4311,7 +4311,7 @@ make build
 <p>启动 MatrixOne 服务：</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>注意，MatrixOne(稳定版本) 的启动配置文件与 MatrixOne(预览版本) 的启动配置文件不同，MatrixOne(稳定版本) 的启动配置文件代码如下：</p>
+<p>注意，MatrixOne(稳定版本) 的启动配置文件与 MatrixOne(开发版本) 的启动配置文件不同，MatrixOne(稳定版本) 的启动配置文件代码如下：</p>
 </div>
 <div class="highlight"><pre><span></span><code>./mo-server system_vars_config.toml
 </code></pre></div>
@@ -4347,17 +4347,22 @@ unzip mo-server-v0.5.1-darwin-x86_64.zip
 <div class="highlight"><pre><span></span><code>docker --version
 </code></pre></div>
 <h3 id="2_1">2. 创建并运行容器</h3>
-<p>使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择最新的镜像，或稳定版本的镜像。</p>
+<p>使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像。</p>
 <ul>
-<li>最新版本的镜像：</li>
-</ul>
-<div class="highlight"><pre><span></span><code>docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/matrixone:latest
-</code></pre></div>
-<ul>
-<li>0.5.1 稳定版本的镜像</li>
+<li>稳定版本的镜像（0.5.1）</li>
 </ul>
 <div class="highlight"><pre><span></span><code>docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/matrixone:0.5.1
 </code></pre></div>
+<ul>
+<li>开发版本的镜像（Pre0.6)</li>
+</ul>
+<p>获取最新开发版本的镜像，参见<a href="https://hub.docker.com/r/matrixorigin/matrixone/tags">Docker Hub</a>，找到最新Tag，拉取镜像。拉取镜像代码示例如下：</p>
+<div class="highlight"><pre><span></span><code>docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/matrixone:nightly-commitnumber
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>如上面代码所示，<em>nightly</em> 为标识的 Tag 版本每天都进行更新，请注意获取最新的镜像。</p>
+</div>
 <p>运行 Docker Hub 时需要输入用户名和密码，获取用户名和密码可以参考下一步骤 - 连接 MatrixOne 服务</p>
 <h3 id="3">3. 挂载数据（选做）</h3>
 <p>如果你需要自定义配置文件或者数据目录，可以直接挂载存放在本地磁盘的自定义配置文件：</p>
