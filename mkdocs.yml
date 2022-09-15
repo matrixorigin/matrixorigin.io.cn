@@ -45,7 +45,6 @@ nav:
     - 快速上手:
       - 安装单机版 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
       - 连接MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
-      - SQL 基础操作: https://docs.pingcap.com/tidb/stable/basic-sql-operations
       - Playground 在线体验: MatrixOne/Get-Started/Playground.md
     - 开发指南:
       - 连接 MatrixOne:
