@@ -45,6 +45,7 @@ nav:
     - 快速上手:
       - 安装单机版 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
       - 连接MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
+      - SQL 基础操作: https://docs.pingcap.com/tidb/stable/basic-sql-operations
       - Playground 在线体验: MatrixOne/Get-Started/Playground.md
     - 开发指南:
       - 连接 MatrixOne:
@@ -52,16 +53,16 @@ nav:
         - Java 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/java-connect-to-matrixone.md
         - Python 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
       - 导入数据:
-        - 使用命令行导入: MatrixOne/Develop/import-data/use-source-import-data.md
-        - 使用 Docker 导入: MatrixOne/Develop/import-data/use-docker-import-data.md
+        - 导入数据: MatrixOne/Develop/import-data/import-data.md
       - 导出数据:
-        - 通用方式导出数据: MatrixOne/Develop/export-data/general-method-export-data.md
-        - Docker 启动 MatrixOne 时导出数据: MatrixOne/Develop/export-data/use-docker-export-data.md
+        - 导出数据: MatrixOne/Develop/export-data/export-data.md
       - 应用开发示例:
-        - JDBC 连接 MatrixOne 示例: MatrixOne/Tutorial/develop-java-connect-mo.md
+        - 构建一个简单的 Java CRUD 演示: MatrixOne/Tutorial/develop-java-crud-demo.md
         - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
     - 系统维护:
-      - 升级单机版 MatrixOne: MatrixOne/Get-Started/upgrade-standalone-matrixone.md
+      - 升级单机版 MatrixOne: MatrixOne/Maintain/upgrade-standalone-matrixone.md
+    - 数据迁移:
+      - 将数据从 MySQL 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-mysql-to-matrixone.md
     - 测试:
       - 系统测试:
         - 完成SSB测试: MatrixOne/Tutorial/SSB-test-with-matrixone.md
