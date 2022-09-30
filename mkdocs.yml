@@ -56,7 +56,7 @@ nav:
       - 导出数据:
         - 导出数据: MatrixOne/Develop/export-data/export-data.md
       - 应用开发示例:
-        - 构建一个简单的 CRUD 演示: MatrixOne/Tutorial/develop-java-crud-demo.md
+        - Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
         - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
     - 系统维护:
       - 升级单机版 MatrixOne: MatrixOne/Maintain/upgrade-standalone-matrixone.md
