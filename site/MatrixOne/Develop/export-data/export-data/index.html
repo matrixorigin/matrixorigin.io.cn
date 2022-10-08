@@ -9,11 +9,11 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.2.8">
     
     
       
-        <title>Docker 启动 MatrixOne 时导出数据 - MatrixOne中文文档</title>
+        <title>导出数据 - MatrixOne中文文档</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-matrixone" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker 启动 MatrixOne 时导出数据
+              导出数据
             
           </span>
         </div>
@@ -193,13 +193,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
         MatrixOne
       </a>
     </li>
@@ -261,12 +263,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -451,12 +455,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
       
       
       
@@ -580,22 +586,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../import-data/use-source-import-data/" class="md-nav__link">
-        使用命令行导入
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../import-data/use-docker-import-data/" class="md-nav__link">
-        使用 Docker 导入
+      <a href="../../import-data/import-data/" class="md-nav__link">
+        导入数据
       </a>
     </li>
   
@@ -613,12 +605,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3" type="checkbox" id="__nav_1_4_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3" type="checkbox" id="__nav_1_4_3" checked>
       
       
       
@@ -639,25 +633,65 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../general-method-export-data/" class="md-nav__link">
-        通用方式导出数据
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          导出数据
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        导出数据
       </a>
-    </li>
-  
+      
+        
 
-            
-          
-            
-              
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <li class="md-nav__item">
-      <a href="../use-docker-export-data/" class="md-nav__link">
-        Docker 启动 MatrixOne 时导出数据
-      </a>
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    开始前准备
+  </a>
+  
+    <nav class="md-nav" aria-label="开始前准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    步骤
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -702,8 +736,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tutorial/develop-java-connect-mo/" class="md-nav__link">
-        JDBC 连接 MatrixOne 示例
+      <a href="../../../Tutorial/develop-java-crud-demo.md" class="md-nav__link">
+        Java CRUD 示例
       </a>
     </li>
   
@@ -770,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Get-Started/upgrade-standalone-matrixone/" class="md-nav__link">
+      <a href="../../../Maintain/upgrade-standalone-matrixone/" class="md-nav__link">
         升级单机版 MatrixOne
       </a>
     </li>
@@ -800,12 +834,59 @@
       
       
         <label class="md-nav__link" for="__nav_1_6">
+          数据迁移
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据迁移" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          数据迁移
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Migrate/migrate-from-mysql-to-matrixone/" class="md-nav__link">
+        将数据从 MySQL 迁移至 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
           测试
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="测试" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_6">
+        <label class="md-nav__title" for="__nav_1_7">
           <span class="md-nav__icon md-icon"></span>
           测试
         </label>
@@ -820,18 +901,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_1" type="checkbox" id="__nav_1_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_6_1">
+        <label class="md-nav__link" for="__nav_1_7_1">
           系统测试
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="系统测试" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_6_1">
+        <label class="md-nav__title" for="__nav_1_7_1">
           <span class="md-nav__icon md-icon"></span>
           系统测试
         </label>
@@ -881,18 +962,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_2" type="checkbox" id="__nav_1_6_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_6_2">
+        <label class="md-nav__link" for="__nav_1_7_2">
           测试工具
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="测试工具" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_6_2">
+        <label class="md-nav__title" for="__nav_1_7_2">
           <span class="md-nav__icon md-icon"></span>
           测试工具
         </label>
@@ -935,18 +1016,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7">
+        <label class="md-nav__link" for="__nav_1_8">
           参考手册
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="参考手册" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_7">
+        <label class="md-nav__title" for="__nav_1_8">
           <span class="md-nav__icon md-icon"></span>
           参考手册
         </label>
@@ -961,18 +1042,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1" type="checkbox" id="__nav_1_8_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1">
+        <label class="md-nav__link" for="__nav_1_8_1">
           SQL目录
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="SQL目录" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_7_1">
+        <label class="md-nav__title" for="__nav_1_8_1">
           <span class="md-nav__icon md-icon"></span>
           SQL目录
         </label>
@@ -987,18 +1068,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_1" type="checkbox" id="__nav_1_7_1_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_1" type="checkbox" id="__nav_1_8_1_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_1">
+        <label class="md-nav__link" for="__nav_1_8_1_1">
           DDL
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="DDL" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_7_1_1">
+        <label class="md-nav__title" for="__nav_1_8_1_1">
           <span class="md-nav__icon md-icon"></span>
           DDL
         </label>
@@ -1090,18 +1171,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_2" type="checkbox" id="__nav_1_7_1_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_2" type="checkbox" id="__nav_1_8_1_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_2">
+        <label class="md-nav__link" for="__nav_1_8_1_2">
           DML
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="DML" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_7_1_2">
+        <label class="md-nav__title" for="__nav_1_8_1_2">
           <span class="md-nav__icon md-icon"></span>
           DML
         </label>
@@ -1270,18 +1351,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_2_12" type="checkbox" id="__nav_1_7_1_2_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_2_12" type="checkbox" id="__nav_1_8_1_2_12" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_2_12">
+        <label class="md-nav__link" for="__nav_1_8_1_2_12">
           SUBQUERY
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="SUBQUERY" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_7_1_2_12">
+        <label class="md-nav__title" for="__nav_1_8_1_2_12">
           <span class="md-nav__icon md-icon"></span>
           SUBQUERY
         </label>
@@ -1401,18 +1482,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_2_13" type="checkbox" id="__nav_1_7_1_2_13" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_2_13" type="checkbox" id="__nav_1_8_1_2_13" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_2_13">
+        <label class="md-nav__link" for="__nav_1_8_1_2_13">
           JOIN
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="JOIN" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_7_1_2_13">
+        <label class="md-nav__title" for="__nav_1_8_1_2_13">
           <span class="md-nav__icon md-icon"></span>
           JOIN
         </label>
@@ -1532,18 +1613,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_2_14" type="checkbox" id="__nav_1_7_1_2_14" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_2_14" type="checkbox" id="__nav_1_8_1_2_14" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_2_14">
+        <label class="md-nav__link" for="__nav_1_8_1_2_14">
           OPERATORS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="OPERATORS" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_7_1_2_14">
+        <label class="md-nav__title" for="__nav_1_8_1_2_14">
           <span class="md-nav__icon md-icon"></span>
           OPERATORS
         </label>
@@ -1586,18 +1667,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_2_14_3" type="checkbox" id="__nav_1_7_1_2_14_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_2_14_3" type="checkbox" id="__nav_1_8_1_2_14_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_2_14_3">
+        <label class="md-nav__link" for="__nav_1_8_1_2_14_3">
           算数运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="算数运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_7_1_2_14_3">
+        <label class="md-nav__title" for="__nav_1_8_1_2_14_3">
           <span class="md-nav__icon md-icon"></span>
           算数运算符
         </label>
@@ -1731,18 +1812,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_2_14_4" type="checkbox" id="__nav_1_7_1_2_14_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_2_14_4" type="checkbox" id="__nav_1_8_1_2_14_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_2_14_4">
+        <label class="md-nav__link" for="__nav_1_8_1_2_14_4">
           赋值运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="赋值运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_7_1_2_14_4">
+        <label class="md-nav__title" for="__nav_1_8_1_2_14_4">
           <span class="md-nav__icon md-icon"></span>
           赋值运算符
         </label>
@@ -1792,18 +1873,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_2_14_5" type="checkbox" id="__nav_1_7_1_2_14_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_2_14_5" type="checkbox" id="__nav_1_8_1_2_14_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_2_14_5">
+        <label class="md-nav__link" for="__nav_1_8_1_2_14_5">
           强制转换函数和运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="强制转换函数和运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_7_1_2_14_5">
+        <label class="md-nav__title" for="__nav_1_8_1_2_14_5">
           <span class="md-nav__icon md-icon"></span>
           强制转换函数和运算符
         </label>
@@ -1867,18 +1948,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_2_14_6" type="checkbox" id="__nav_1_7_1_2_14_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_2_14_6" type="checkbox" id="__nav_1_8_1_2_14_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_2_14_6">
+        <label class="md-nav__link" for="__nav_1_8_1_2_14_6">
           比较函数和运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="比较函数和运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_7_1_2_14_6">
+        <label class="md-nav__title" for="__nav_1_8_1_2_14_6">
           <span class="md-nav__icon md-icon"></span>
           比较函数和运算符
         </label>
@@ -2124,18 +2205,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_2_14_7" type="checkbox" id="__nav_1_7_1_2_14_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_2_14_7" type="checkbox" id="__nav_1_8_1_2_14_7" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_2_14_7">
+        <label class="md-nav__link" for="__nav_1_8_1_2_14_7">
           控制流函数
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="控制流函数" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_7_1_2_14_7">
+        <label class="md-nav__title" for="__nav_1_8_1_2_14_7">
           <span class="md-nav__icon md-icon"></span>
           控制流函数
         </label>
@@ -2199,18 +2280,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_2_14_8" type="checkbox" id="__nav_1_7_1_2_14_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_2_14_8" type="checkbox" id="__nav_1_8_1_2_14_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_2_14_8">
+        <label class="md-nav__link" for="__nav_1_8_1_2_14_8">
           逻辑运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="逻辑运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_7_1_2_14_8">
+        <label class="md-nav__title" for="__nav_1_8_1_2_14_8">
           <span class="md-nav__icon md-icon"></span>
           逻辑运算符
         </label>
@@ -2316,18 +2397,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_3" type="checkbox" id="__nav_1_7_1_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_3" type="checkbox" id="__nav_1_8_1_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_3">
+        <label class="md-nav__link" for="__nav_1_8_1_3">
           聚合函数
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="聚合函数" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_7_1_3">
+        <label class="md-nav__title" for="__nav_1_8_1_3">
           <span class="md-nav__icon md-icon"></span>
           聚合函数
         </label>
@@ -2503,18 +2584,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_4" type="checkbox" id="__nav_1_7_1_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_4" type="checkbox" id="__nav_1_8_1_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_4">
+        <label class="md-nav__link" for="__nav_1_8_1_4">
           事务
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="事务" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_7_1_4">
+        <label class="md-nav__title" for="__nav_1_8_1_4">
           <span class="md-nav__icon md-icon"></span>
           事务
         </label>
@@ -2550,18 +2631,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1_5" type="checkbox" id="__nav_1_7_1_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_5" type="checkbox" id="__nav_1_8_1_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1_5">
+        <label class="md-nav__link" for="__nav_1_8_1_5">
           Explain
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Explain" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_7_1_5">
+        <label class="md-nav__title" for="__nav_1_8_1_5">
           <span class="md-nav__icon md-icon"></span>
           Explain
         </label>
@@ -2618,18 +2699,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_2" type="checkbox" id="__nav_1_8_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_2">
+        <label class="md-nav__link" for="__nav_1_8_2">
           数据类型
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="数据类型" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_7_2">
+        <label class="md-nav__title" for="__nav_1_8_2">
           <span class="md-nav__icon md-icon"></span>
           数据类型
         </label>
@@ -2693,18 +2774,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_3" type="checkbox" id="__nav_1_8_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_3">
+        <label class="md-nav__link" for="__nav_1_8_3">
           系统函数
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="系统函数" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_7_3">
+        <label class="md-nav__title" for="__nav_1_8_3">
           <span class="md-nav__icon md-icon"></span>
           系统函数
         </label>
@@ -2719,18 +2800,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3_1" type="checkbox" id="__nav_1_7_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_3_1" type="checkbox" id="__nav_1_8_3_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_3_1">
+        <label class="md-nav__link" for="__nav_1_8_3_1">
           数学类
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="数学类" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_7_3_1">
+        <label class="md-nav__title" for="__nav_1_8_3_1">
           <span class="md-nav__icon md-icon"></span>
           数学类
         </label>
@@ -2976,18 +3057,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3_2" type="checkbox" id="__nav_1_7_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_3_2" type="checkbox" id="__nav_1_8_3_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_3_2">
+        <label class="md-nav__link" for="__nav_1_8_3_2">
           日期时间类
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="日期时间类" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_7_3_2">
+        <label class="md-nav__title" for="__nav_1_8_3_2">
           <span class="md-nav__icon md-icon"></span>
           日期时间类
         </label>
@@ -3177,18 +3258,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3_3" type="checkbox" id="__nav_1_7_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_3_3" type="checkbox" id="__nav_1_8_3_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_3_3">
+        <label class="md-nav__link" for="__nav_1_8_3_3">
           字符串类
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="字符串类" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_7_3_3">
+        <label class="md-nav__title" for="__nav_1_8_3_3">
           <span class="md-nav__icon md-icon"></span>
           字符串类
         </label>
@@ -3427,18 +3508,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_4" type="checkbox" id="__nav_1_7_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_4" type="checkbox" id="__nav_1_8_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_4">
+        <label class="md-nav__link" for="__nav_1_8_4">
           系统配置
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="系统配置" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_7_4">
+        <label class="md-nav__title" for="__nav_1_8_4">
           <span class="md-nav__icon md-icon"></span>
           系统配置
         </label>
@@ -3509,18 +3590,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9" type="checkbox" id="__nav_1_9" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_8">
+        <label class="md-nav__link" for="__nav_1_9">
           常见问题解答
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="常见问题解答" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_8">
+        <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
           常见问题解答
         </label>
@@ -3584,18 +3665,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9" type="checkbox" id="__nav_1_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_9">
+        <label class="md-nav__link" for="__nav_1_10">
           版本发布纪要
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="版本发布纪要" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_9">
+        <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
           版本发布纪要
         </label>
@@ -3729,18 +3810,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12" type="checkbox" id="__nav_1_12" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11">
+        <label class="md-nav__link" for="__nav_1_12">
           社区贡献指南
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="社区贡献指南" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_11">
+        <label class="md-nav__title" for="__nav_1_12">
           <span class="md-nav__icon md-icon"></span>
           社区贡献指南
         </label>
@@ -3769,18 +3850,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_2" type="checkbox" id="__nav_1_11_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_2" type="checkbox" id="__nav_1_12_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_2">
+        <label class="md-nav__link" for="__nav_1_12_2">
           贡献指南
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="贡献指南" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_11_2">
+        <label class="md-nav__title" for="__nav_1_12_2">
           <span class="md-nav__icon md-icon"></span>
           贡献指南
         </label>
@@ -3900,18 +3981,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_3" type="checkbox" id="__nav_1_11_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_3" type="checkbox" id="__nav_1_12_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_3">
+        <label class="md-nav__link" for="__nav_1_12_3">
           代码规范
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="代码规范" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_11_3">
+        <label class="md-nav__title" for="__nav_1_12_3">
           <span class="md-nav__icon md-icon"></span>
           代码规范
         </label>
@@ -3982,18 +4063,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12" type="checkbox" id="__nav_1_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_13" type="checkbox" id="__nav_1_13" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_12">
+        <label class="md-nav__link" for="__nav_1_13">
           在线快速体验
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="在线快速体验" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_12">
+        <label class="md-nav__title" for="__nav_1_13">
           <span class="md-nav__icon md-icon"></span>
           在线快速体验
         </label>
@@ -4053,29 +4134,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     开始前准备
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    方式一：直接导出数据表到本地
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    方式二：挂载目录
-  </a>
-  
-    <nav class="md-nav" aria-label="方式二：挂载目录">
+    <nav class="md-nav" aria-label="开始前准备">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     步骤
   </a>
   
@@ -4098,40 +4165,31 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Develop/export-data/0.6-use-docker-export-data.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Develop/export-data/export-data.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="docker-matrixone">Docker 启动 MatrixOne 时导出数据</h1>
-<p>本篇文档将指导你 Docker 启动 MatrixOne 时如何完成数据导出。</p>
+<h1 id="_1">导出数据</h1>
+<p>本篇文档将指导你使用 MatrixOne 如何完成数据导出。</p>
 <p>MatrixOne 支持导出数据保存为 <em>.txt</em> 及 <em>.csv</em> 类型。</p>
-<h2 id="_1">开始前准备</h2>
+<h2 id="_2">开始前准备</h2>
 <ul>
-<li>已安装 Docker。</li>
+<li>已通过<a href="../../Get-Started/install-standalone-matrixone/#1">源代码</a>或<a href="../../Get-Started/install-standalone-matrixone/#2">二进制包</a>完成安装 MatrixOne</li>
+<li>已完成<a href="../../../Get-Started/connect-to-matrixone-server/">连接 MatrixOne 服务</a></li>
 </ul>
+<p>如果你使用 Docker 安装启动 MatrixOne，确保你已将数据文件目录挂载到容器目录下，示例如下：</p>
+<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ~/tmp/docker_export_demo/store:/store:rw --name matrixone matrixorigin/matrixone:0.5.1
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>MatrixOne 暂时不支持整库 dump 导出，仅支持使用 <code>SELECT...INTO OUTFILE</code> 语句导出表数据。</p>
 </div>
-<h2 id="_2">方式一：直接导出数据表到本地</h2>
-<p>使用 <a href="../../../Get-Started/install-standalone-matrixone/">Docker 运行 MatrixOne</a>，若仅需导出数据表，方式与 <a href="use-source-export-data.md">通用方式导出数据</a>一致。</p>
-<h2 id="_3">方式二：挂载目录</h2>
-<h3 id="_4">步骤</h3>
+<h3 id="_3">步骤</h3>
 <ol>
 <li>
-<p>使用 Docker 启动 MatrixOne，启动时将存放了数据文件的目录 <em>~/tmp/docker_export_demo/</em> 挂载到容器的某个目录下，这里容器目录以 <em>/store</em> 为例：</p>
-<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ~/tmp/docker_export_demo/store:/store:rw --name matrixone matrixorigin/matrixone:0.5.1
-</code></pre></div>
-</li>
-<li>
-<p>连接 MatrixOne 服务：</p>
-<div class="highlight"><pre><span></span><code>mysql -h 127.0.0.1 -P 6001 -udump -p111
-</code></pre></div>
-</li>
-<li>
-<p>准备数据：</p>
+<p>在 MatrixOne 中新建一个数据表：</p>
 <div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">aaa</span><span class="p">;</span><span class="w"></span>
 <span class="n">use</span><span class="w"> </span><span class="n">aaa</span><span class="p">;</span><span class="w"></span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="o">`</span><span class="n">user_name</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="o">`</span><span class="n">sex</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span><span class="w"></span>
@@ -4147,13 +4205,20 @@
 </code></pre></div>
 </li>
 <li>
-<p>导出表数据到 <em>~/tmp/docker_export_demo/store/export_datatable.txt</em></p>
+<p>导出表数据：</p>
+<ul>
+<li>如果你是通过源码或二进制包安装 MatrixOne，导出数据到 <em>~/tmp/export_demo/export_datatable.txt</em></li>
+</ul>
+<div class="highlight"><pre><span></span><code>select * from user into outfile &#39;~/tmp/export_demo/export_datatable.txt&#39;
+</code></pre></div>
+<ul>
+<li>如果你是通过 Docker 安装启动 MatrixOne，导出数据到 <em>~/tmp/docker_export_demo/store/export_datatable.txt</em></li>
+</ul>
 <div class="highlight"><pre><span></span><code>select * from user into outfile &#39;store/export_datatable.txt&#39;;
 </code></pre></div>
 </li>
 <li>
-<p>到你本地 <em>~/tmp/docker_export_demo/store/</em> 下查看导出情况。</p>
-<p>导出成功，打开本地目录 <em>~/tmp/docker_export_demo/store/</em>，可见新建了一个 <em>export_datatable.txt</em> 文件，打开文件，展示结果如下：导出成功结果如下：</p>
+<p>到你本地 <em>export_datatable.txt</em> 文件下查看导出情况：</p>
 <div class="highlight"><pre><span></span><code>id,user_name,sex
 1,&quot;weder&quot;,&quot;man&quot;
 2,&quot;tom&quot;,&quot;man&quot;
@@ -4170,6 +4235,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../import-data/import-data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 导入数据" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              导入数据
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../Tutorial/develop-python-application/" class="md-footer__link md-footer__link--next" aria-label="Next: 股票分析 Python 应用" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              股票分析 Python 应用
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
