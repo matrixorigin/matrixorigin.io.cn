@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.2.8">
     
     
       
-        <title>CREATE DATABASE - MatrixOne中文文档</title>
+        <title>Java CRUD 示例 - MatrixOne中文文档</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.644de097.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.644de097.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -35,9 +35,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-database" class="md-skip">
+        <a href="#java-crud" class="md-skip">
           Skip to content
         </a>
       
@@ -85,7 +85,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://www.matrixorigin.cn" title="MatrixOne中文文档" class="md-header__button md-logo" aria-label="MatrixOne中文文档" data-md-component="logo">
       
-  <img src="../../../../../assets/new-logo.png" alt="logo">
+  <img src="../../../assets/new-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CREATE DATABASE
+              Java CRUD 示例
             
           </span>
         </div>
@@ -201,7 +201,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link md-tabs__link--active">
         MatrixOne
       </a>
     </li>
@@ -237,7 +237,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://www.matrixorigin.cn" title="MatrixOne中文文档" class="md-nav__button md-logo" aria-label="MatrixOne中文文档" data-md-component="logo">
       
-  <img src="../../../../../assets/new-logo.png" alt="logo">
+  <img src="../../../assets/new-logo.png" alt="logo">
 
     </a>
     MatrixOne中文文档
@@ -293,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         主页
       </a>
     </li>
@@ -333,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/matrixone-introduction/" class="md-nav__link">
+      <a href="../../Overview/matrixone-introduction/" class="md-nav__link">
         MatrixOne 简介
       </a>
     </li>
@@ -347,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/matrixone-architecture/" class="md-nav__link">
+      <a href="../../Overview/matrixone-architecture/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/whats-new/" class="md-nav__link">
+      <a href="../../Overview/whats-new/" class="md-nav__link">
         最新动态
       </a>
     </li>
@@ -408,7 +408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
+      <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
         安装单机版 MatrixOne
       </a>
     </li>
@@ -422,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
+      <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
         连接MatrixOne
       </a>
     </li>
@@ -436,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/Playground/" class="md-nav__link">
+      <a href="../../Get-Started/Playground/" class="md-nav__link">
         Playground 在线体验
       </a>
     </li>
@@ -455,12 +455,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
       
       
       
@@ -509,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/connect-mo/client-connect-to-matrixone/" class="md-nav__link">
+      <a href="../../Develop/connect-mo/client-connect-to-matrixone/" class="md-nav__link">
         通过客户端连接 MatrixOne 服务
       </a>
     </li>
@@ -523,7 +525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/connect-mo/java-connect-to-matrixone/" class="md-nav__link">
+      <a href="../../Develop/connect-mo/java-connect-to-matrixone/" class="md-nav__link">
         Java 连接 MatrixOne 服务
       </a>
     </li>
@@ -537,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/connect-mo/python-connect-to-matrixone/" class="md-nav__link">
+      <a href="../../Develop/connect-mo/python-connect-to-matrixone/" class="md-nav__link">
         Python 连接 MatrixOne 服务
       </a>
     </li>
@@ -584,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/import-data/" class="md-nav__link">
+      <a href="../../Develop/import-data/import-data/" class="md-nav__link">
         导入数据
       </a>
     </li>
@@ -631,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/export-data/export-data/" class="md-nav__link">
+      <a href="../../Develop/export-data/export-data/" class="md-nav__link">
         导出数据
       </a>
     </li>
@@ -650,12 +652,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_4" type="checkbox" id="__nav_1_4_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_4" type="checkbox" id="__nav_1_4_4" checked>
       
       
       
@@ -676,11 +680,100 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../Tutorial/develop-java-crud-demo/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Java CRUD 示例
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Java CRUD 示例
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    配置环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    初始化一个新的 Java 项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java-matrixone" class="md-nav__link">
+    编写 Java 代码连接 MatrixOne
+  </a>
+  
+    <nav class="md-nav" aria-label="编写 Java 代码连接 MatrixOne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    升级数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    SELECT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -692,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/develop-python-application/" class="md-nav__link">
+      <a href="../develop-python-application/" class="md-nav__link">
         股票分析 Python 应用
       </a>
     </li>
@@ -746,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Maintain/upgrade-standalone-matrixone/" class="md-nav__link">
+      <a href="../../Maintain/upgrade-standalone-matrixone/" class="md-nav__link">
         升级单机版 MatrixOne
       </a>
     </li>
@@ -793,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Migrate/migrate-from-mysql-to-matrixone/" class="md-nav__link">
+      <a href="../../Migrate/migrate-from-mysql-to-matrixone/" class="md-nav__link">
         将数据从 MySQL 迁移至 MatrixOne
       </a>
     </li>
@@ -866,7 +959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/SSB-test-with-matrixone/" class="md-nav__link">
+      <a href="../SSB-test-with-matrixone/" class="md-nav__link">
         完成SSB测试
       </a>
     </li>
@@ -880,7 +973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/TPCH-test-with-matrixone/" class="md-nav__link">
+      <a href="../TPCH-test-with-matrixone/" class="md-nav__link">
         完成TPCH测试
       </a>
     </li>
@@ -927,7 +1020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Test/mo-tester/" class="md-nav__link">
+      <a href="../../Test/mo-tester/" class="md-nav__link">
         MO-Tester
       </a>
     </li>
@@ -953,14 +1046,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
       
       
       
@@ -981,14 +1072,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1" type="checkbox" id="__nav_1_8_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1" type="checkbox" id="__nav_1_8_1" >
       
       
       
@@ -1009,14 +1098,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_1" type="checkbox" id="__nav_1_8_1_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_1" type="checkbox" id="__nav_1_8_1_1" >
       
       
       
@@ -1037,86 +1124,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          CREATE DATABASE
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-database/" class="md-nav__link">
         CREATE DATABASE
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    语法说明
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    语法结构
-  </a>
-  
-    <nav class="md-nav" aria-label="语法结构">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    语法图
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    示例
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    限制
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1128,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-table/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-table/" class="md-nav__link">
         CREATE TABLE
       </a>
     </li>
@@ -1142,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drop-database/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/drop-database/" class="md-nav__link">
         DROP DATABASE
       </a>
     </li>
@@ -1156,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drop-table/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/drop-table/" class="md-nav__link">
         DROP TABLE
       </a>
     </li>
@@ -1170,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../primary-key/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/primary-key/" class="md-nav__link">
         PRIMARY KEY
       </a>
     </li>
@@ -1217,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/insert/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/insert/" class="md-nav__link">
         INSERT
       </a>
     </li>
@@ -1231,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/insert-into-select/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/insert-into-select/" class="md-nav__link">
         INSERT INTO SELECT
       </a>
     </li>
@@ -1245,7 +1257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/update/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/update/" class="md-nav__link">
         UPDATE
       </a>
     </li>
@@ -1259,7 +1271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/delete/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/delete/" class="md-nav__link">
         DELETE
       </a>
     </li>
@@ -1273,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/load-data/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data/" class="md-nav__link">
         LOAD DATA
       </a>
     </li>
@@ -1287,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/select/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/select/" class="md-nav__link">
         SELECT
       </a>
     </li>
@@ -1301,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/show-databases/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/show-databases/" class="md-nav__link">
         SHOW DATABASES
       </a>
     </li>
@@ -1315,7 +1327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/show-tables/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/show-tables/" class="md-nav__link">
         SHOW TABLES
       </a>
     </li>
@@ -1329,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/use/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/use/" class="md-nav__link">
         USE
       </a>
     </li>
@@ -1343,7 +1355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/interval/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/interval/" class="md-nav__link">
         INTERVAL
       </a>
     </li>
@@ -1357,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/with-cte/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/with-cte/" class="md-nav__link">
         With CTE
       </a>
     </li>
@@ -1397,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/subquery/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subquery/" class="md-nav__link">
         SUBQUERY 概述
       </a>
     </li>
@@ -1411,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/subqueries/derived-tables/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables/" class="md-nav__link">
         Derived Tables
       </a>
     </li>
@@ -1425,7 +1437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/subqueries/comparisons-using-subqueries/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries/" class="md-nav__link">
         子查询与比较操作符的使用
       </a>
     </li>
@@ -1439,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/subqueries/subquery-with-any-some/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some/" class="md-nav__link">
         SUBQUERY with ANY or SOME
       </a>
     </li>
@@ -1453,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/subqueries/subquery-with-all/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all/" class="md-nav__link">
         SUBQUERY with ALL
       </a>
     </li>
@@ -1467,7 +1479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/subqueries/subquery-with-exists/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists/" class="md-nav__link">
         SUBQUERY with EXISTS
       </a>
     </li>
@@ -1481,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/subqueries/subquery-with-in/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in/" class="md-nav__link">
         SUBQUERY with IN
       </a>
     </li>
@@ -1528,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/join/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/join/" class="md-nav__link">
         JOIN 概览
       </a>
     </li>
@@ -1542,7 +1554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/join/inner-join/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/join/inner-join/" class="md-nav__link">
         INNER JOIN
       </a>
     </li>
@@ -1556,7 +1568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/join/left-join/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/join/left-join/" class="md-nav__link">
         LEFT JOIN
       </a>
     </li>
@@ -1570,7 +1582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/join/right-join/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/join/right-join/" class="md-nav__link">
         RIGHT JOIN
       </a>
     </li>
@@ -1584,7 +1596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/join/full-join/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/join/full-join/" class="md-nav__link">
         FULL JOIN
       </a>
     </li>
@@ -1598,7 +1610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/join/outer-join/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/join/outer-join/" class="md-nav__link">
         OUTER JOIN
       </a>
     </li>
@@ -1612,7 +1624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/join/natural-join/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/join/natural-join/" class="md-nav__link">
         NATURAL JOIN
       </a>
     </li>
@@ -1659,7 +1671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/" class="md-nav__link">
         运算符概述
       </a>
     </li>
@@ -1673,7 +1685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/operator-precedence/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/operator-precedence/" class="md-nav__link">
         运算符的优先级
       </a>
     </li>
@@ -1713,7 +1725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/arithmetic-operators-overview/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/arithmetic-operators-overview/" class="md-nav__link">
         算数运算符概述
       </a>
     </li>
@@ -1727,7 +1739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/mod/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/mod/" class="md-nav__link">
         %,MOD
       </a>
     </li>
@@ -1741,7 +1753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/multiplication/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/multiplication/" class="md-nav__link">
         *
       </a>
     </li>
@@ -1755,7 +1767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/addition/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/addition/" class="md-nav__link">
         +
       </a>
     </li>
@@ -1769,7 +1781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/minus/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/minus/" class="md-nav__link">
         -
       </a>
     </li>
@@ -1783,7 +1795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/unary-minus/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/unary-minus/" class="md-nav__link">
         -
       </a>
     </li>
@@ -1797,7 +1809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/division/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/division/" class="md-nav__link">
         /
       </a>
     </li>
@@ -1811,7 +1823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/div/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/div/" class="md-nav__link">
         DIV
       </a>
     </li>
@@ -1858,7 +1870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/assignment-operators/assignment-operators-overview/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/assignment-operators/assignment-operators-overview/" class="md-nav__link">
         赋值运算符概述
       </a>
     </li>
@@ -1872,7 +1884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/assignment-operators/equal/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/assignment-operators/equal/" class="md-nav__link">
         =
       </a>
     </li>
@@ -1919,7 +1931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/cast-functions-and-operators/cast-functions-and-operators-overview/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/cast-functions-and-operators-overview/" class="md-nav__link">
         强制转换函数和运算符概述
       </a>
     </li>
@@ -1933,7 +1945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/cast-functions-and-operators/cast/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/cast/" class="md-nav__link">
         CAST
       </a>
     </li>
@@ -1947,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/cast-functions-and-operators/convert/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/convert/" class="md-nav__link">
         CONVERT
       </a>
     </li>
@@ -1994,7 +2006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview/" class="md-nav__link">
         比较函数和运算符概述
       </a>
     </li>
@@ -2008,7 +2020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than/" class="md-nav__link">
         >
       </a>
     </li>
@@ -2022,7 +2034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than-or-equal/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than-or-equal/" class="md-nav__link">
         >=
       </a>
     </li>
@@ -2036,7 +2048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than/" class="md-nav__link">
         <
       </a>
     </li>
@@ -2050,7 +2062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-equal/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-equal/" class="md-nav__link">
         <>,!=
       </a>
     </li>
@@ -2064,7 +2076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than-or-equal/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than-or-equal/" class="md-nav__link">
         <=
       </a>
     </li>
@@ -2078,7 +2090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/assign-equal/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/assign-equal/" class="md-nav__link">
         =
       </a>
     </li>
@@ -2092,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/between/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/between/" class="md-nav__link">
         BETWEEN ... AND ...
       </a>
     </li>
@@ -2106,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/in/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/in/" class="md-nav__link">
         IN
       </a>
     </li>
@@ -2120,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/is/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is/" class="md-nav__link">
         IS
       </a>
     </li>
@@ -2134,7 +2146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not/" class="md-nav__link">
         IS NOT
       </a>
     </li>
@@ -2148,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not-null/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not-null/" class="md-nav__link">
         IS NOT NULL
       </a>
     </li>
@@ -2162,7 +2174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-null/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-null/" class="md-nav__link">
         IS NULL
       </a>
     </li>
@@ -2176,7 +2188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/like/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/like/" class="md-nav__link">
         LIKE
       </a>
     </li>
@@ -2190,7 +2202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-between/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-between/" class="md-nav__link">
         NOT BETWEEN ... AND ...
       </a>
     </li>
@@ -2204,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-like/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-like/" class="md-nav__link">
         NOT LIKE
       </a>
     </li>
@@ -2251,7 +2263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/flow-control-functions/flow-control-functions-overview/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/flow-control-functions-overview/" class="md-nav__link">
         控制流函数概述
       </a>
     </li>
@@ -2265,7 +2277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/flow-control-functions/case-when/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/case-when/" class="md-nav__link">
         CASE WHEN
       </a>
     </li>
@@ -2279,7 +2291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/flow-control-functions/function_if/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/function_if/" class="md-nav__link">
         IF
       </a>
     </li>
@@ -2326,7 +2338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/logical-operators/logical-operators-overview/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/logical-operators-overview/" class="md-nav__link">
         逻辑运算符概述
       </a>
     </li>
@@ -2340,7 +2352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/logical-operators/and/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/and/" class="md-nav__link">
         AND,&&
       </a>
     </li>
@@ -2354,7 +2366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/logical-operators/not/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/not/" class="md-nav__link">
         NOT,!
       </a>
     </li>
@@ -2368,7 +2380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/logical-operators/or/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/or/" class="md-nav__link">
         OR
       </a>
     </li>
@@ -2382,7 +2394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Statements/operators/logical-operators/xor/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/xor/" class="md-nav__link">
         XOR
       </a>
     </li>
@@ -2443,7 +2455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/avg/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/avg/" class="md-nav__link">
         AVG
       </a>
     </li>
@@ -2457,7 +2469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/count/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/count/" class="md-nav__link">
         COUNT
       </a>
     </li>
@@ -2471,7 +2483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/max/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/max/" class="md-nav__link">
         MAX
       </a>
     </li>
@@ -2485,7 +2497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/min/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/min/" class="md-nav__link">
         MIN
       </a>
     </li>
@@ -2499,7 +2511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/sum/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/sum/" class="md-nav__link">
         SUM
       </a>
     </li>
@@ -2513,7 +2525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/any-value/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/any-value/" class="md-nav__link">
         ANY_VALUE
       </a>
     </li>
@@ -2527,7 +2539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/bit_and/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/bit_and/" class="md-nav__link">
         BIT_AND
       </a>
     </li>
@@ -2541,7 +2553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/bit_or/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/bit_or/" class="md-nav__link">
         BIT_OR
       </a>
     </li>
@@ -2555,7 +2567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/bit_xor/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/bit_xor/" class="md-nav__link">
         BIT_XOR
       </a>
     </li>
@@ -2569,7 +2581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/stddev_pop/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/stddev_pop/" class="md-nav__link">
         STDDEV_POP
       </a>
     </li>
@@ -2583,7 +2595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Aggregate-Functions/var/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Aggregate-Functions/var/" class="md-nav__link">
         VAR
       </a>
     </li>
@@ -2630,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Transactions/transaction-overview/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Transactions/transaction-overview/" class="md-nav__link">
         事务概述
       </a>
     </li>
@@ -2677,7 +2689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Explain/explain/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Explain/explain/" class="md-nav__link">
         EXPLAIN
       </a>
     </li>
@@ -2691,7 +2703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Explain/explain-workflow/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Explain/explain-workflow/" class="md-nav__link">
         EXPLAIN 输出结构
       </a>
     </li>
@@ -2745,7 +2757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/data-types/" class="md-nav__link">
+      <a href="../../Reference/Data-Types/data-types/" class="md-nav__link">
         数据类型概览
       </a>
     </li>
@@ -2759,7 +2771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/data-type-conversion/" class="md-nav__link">
+      <a href="../../Reference/Data-Types/data-type-conversion/" class="md-nav__link">
         数据类型转换
       </a>
     </li>
@@ -2773,7 +2785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/fixed-point-types/" class="md-nav__link">
+      <a href="../../Reference/Data-Types/fixed-point-types/" class="md-nav__link">
         精确数值类型-DECIMAL
       </a>
     </li>
@@ -2846,7 +2858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/abs/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/abs/" class="md-nav__link">
         ABS()
       </a>
     </li>
@@ -2860,7 +2872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/sin/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/sin/" class="md-nav__link">
         SIN()
       </a>
     </li>
@@ -2874,7 +2886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/cos/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/cos/" class="md-nav__link">
         COS()
       </a>
     </li>
@@ -2888,7 +2900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/tan/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/tan/" class="md-nav__link">
         TAN()
       </a>
     </li>
@@ -2902,7 +2914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/cot/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/cot/" class="md-nav__link">
         COT()
       </a>
     </li>
@@ -2916,7 +2928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/acos/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/acos/" class="md-nav__link">
         ACOS()
       </a>
     </li>
@@ -2930,7 +2942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/atan/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/atan/" class="md-nav__link">
         ATAN()
       </a>
     </li>
@@ -2944,7 +2956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/sinh/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/sinh/" class="md-nav__link">
         SINH()
       </a>
     </li>
@@ -2958,7 +2970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/floor/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/floor/" class="md-nav__link">
         FLOOR()
       </a>
     </li>
@@ -2972,7 +2984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/round/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/round/" class="md-nav__link">
         ROUND()
       </a>
     </li>
@@ -2986,7 +2998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/ceil/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/ceil/" class="md-nav__link">
         CEIL()
       </a>
     </li>
@@ -3000,7 +3012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/power/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/power/" class="md-nav__link">
         POWER()
       </a>
     </li>
@@ -3014,7 +3026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/pi/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/pi/" class="md-nav__link">
         PI()
       </a>
     </li>
@@ -3028,7 +3040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/log/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/log/" class="md-nav__link">
         LOG()
       </a>
     </li>
@@ -3042,7 +3054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/ln/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/ln/" class="md-nav__link">
         LN()
       </a>
     </li>
@@ -3056,7 +3068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Mathematical/exp/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Mathematical/exp/" class="md-nav__link">
         EXP()
       </a>
     </li>
@@ -3103,7 +3115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/year/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/year/" class="md-nav__link">
         YEAR()
       </a>
     </li>
@@ -3117,7 +3129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/month/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/month/" class="md-nav__link">
         MONTH()
       </a>
     </li>
@@ -3131,7 +3143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/date/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/date/" class="md-nav__link">
         DATE()
       </a>
     </li>
@@ -3145,7 +3157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/weekday/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/weekday/" class="md-nav__link">
         WEEKDAY()
       </a>
     </li>
@@ -3159,7 +3171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/dayofyear/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/dayofyear/" class="md-nav__link">
         DAYOFYEAR()
       </a>
     </li>
@@ -3173,7 +3185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/extract/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/extract/" class="md-nav__link">
         EXTRACT()
       </a>
     </li>
@@ -3187,7 +3199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/date-add/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/date-add/" class="md-nav__link">
         DATE_ADD()
       </a>
     </li>
@@ -3201,7 +3213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/date-sub/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/date-sub/" class="md-nav__link">
         DATE_SUB()
       </a>
     </li>
@@ -3215,7 +3227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/to-date/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/to-date/" class="md-nav__link">
         TO_DATE()
       </a>
     </li>
@@ -3229,7 +3241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/unix-timestamp/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/unix-timestamp/" class="md-nav__link">
         UNIX_TIMESTAMP
       </a>
     </li>
@@ -3243,7 +3255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/from-unixtime/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/from-unixtime/" class="md-nav__link">
         FROM_UNIXTIME
       </a>
     </li>
@@ -3257,7 +3269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/utc-timestamp/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/utc-timestamp/" class="md-nav__link">
         UTC_TIMESTAMP()
       </a>
     </li>
@@ -3304,7 +3316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/concat-ws/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/concat-ws/" class="md-nav__link">
         CONCAT_WS()
       </a>
     </li>
@@ -3318,7 +3330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/find-in-set/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/find-in-set/" class="md-nav__link">
         FIND_IN_SET()
       </a>
     </li>
@@ -3332,7 +3344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/oct/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/oct/" class="md-nav__link">
         OCT()
       </a>
     </li>
@@ -3346,7 +3358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/empty/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/empty/" class="md-nav__link">
         EMPTY()
       </a>
     </li>
@@ -3360,7 +3372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/length/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/length/" class="md-nav__link">
         LENGTH()
       </a>
     </li>
@@ -3374,7 +3386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/char-length/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/char-length/" class="md-nav__link">
         LENGTHUTF8()
       </a>
     </li>
@@ -3388,7 +3400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/ltrim/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/ltrim/" class="md-nav__link">
         LTRIM()
       </a>
     </li>
@@ -3402,7 +3414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/rtrim/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/rtrim/" class="md-nav__link">
         RTRIM()
       </a>
     </li>
@@ -3416,7 +3428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/lpad/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/lpad/" class="md-nav__link">
         LPAD()
       </a>
     </li>
@@ -3430,7 +3442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/rpad/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/rpad/" class="md-nav__link">
         RPAD()
       </a>
     </li>
@@ -3444,7 +3456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/startswith/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/startswith/" class="md-nav__link">
         STARTSWITH()
       </a>
     </li>
@@ -3458,7 +3470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/endswith/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/endswith/" class="md-nav__link">
         ENDSWITH()
       </a>
     </li>
@@ -3472,7 +3484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/substring/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/substring/" class="md-nav__link">
         SUBSTRING()
       </a>
     </li>
@@ -3486,7 +3498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/space/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/space/" class="md-nav__link">
         SPACE()
       </a>
     </li>
@@ -3500,7 +3512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/reverse/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/reverse/" class="md-nav__link">
         REVERSE()
       </a>
     </li>
@@ -3554,7 +3566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../System-Parameters/configuration-settings/" class="md-nav__link">
+      <a href="../../Reference/System-Parameters/configuration-settings/" class="md-nav__link">
         通用配置
       </a>
     </li>
@@ -3575,7 +3587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/mysql-compatibility/" class="md-nav__link">
+      <a href="../../Overview/mysql-compatibility/" class="md-nav__link">
         MySQL 兼容性
       </a>
     </li>
@@ -3589,7 +3601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../System-tables/" class="md-nav__link">
+      <a href="../../Reference/System-tables/" class="md-nav__link">
         MatrixOne Catalog
       </a>
     </li>
@@ -3636,7 +3648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../FAQs/product-faqs/" class="md-nav__link">
+      <a href="../../FAQs/product-faqs/" class="md-nav__link">
         产品常见问题
       </a>
     </li>
@@ -3650,7 +3662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../FAQs/deployment-faqs/" class="md-nav__link">
+      <a href="../../FAQs/deployment-faqs/" class="md-nav__link">
         部署常见问题
       </a>
     </li>
@@ -3664,7 +3676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../FAQs/sql-faqs/" class="md-nav__link">
+      <a href="../../FAQs/sql-faqs/" class="md-nav__link">
         SQL 常见问题
       </a>
     </li>
@@ -3711,7 +3723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/release-timeline/" class="md-nav__link">
+      <a href="../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
       </a>
     </li>
@@ -3725,7 +3737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.5.1/" class="md-nav__link">
+      <a href="../../Release-Notes/v0.5.1/" class="md-nav__link">
         v0.5.1
       </a>
     </li>
@@ -3739,7 +3751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.5.0/" class="md-nav__link">
+      <a href="../../Release-Notes/v0.5.0/" class="md-nav__link">
         v0.5.0
       </a>
     </li>
@@ -3753,7 +3765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.4.0/" class="md-nav__link">
+      <a href="../../Release-Notes/v0.4.0/" class="md-nav__link">
         v0.4.0
       </a>
     </li>
@@ -3767,7 +3779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.3.0/" class="md-nav__link">
+      <a href="../../Release-Notes/v0.3.0/" class="md-nav__link">
         v0.3.0
       </a>
     </li>
@@ -3781,7 +3793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.2.0/" class="md-nav__link">
+      <a href="../../Release-Notes/v0.2.0/" class="md-nav__link">
         v0.2.0
       </a>
     </li>
@@ -3795,7 +3807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.1.0/" class="md-nav__link">
+      <a href="../../Release-Notes/v0.1.0/" class="md-nav__link">
         v0.1.0
       </a>
     </li>
@@ -3816,7 +3828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../glossary/" class="md-nav__link">
+      <a href="../../glossary/" class="md-nav__link">
         名词术语表
       </a>
     </li>
@@ -3856,7 +3868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/make-your-first-contribution/" class="md-nav__link">
+      <a href="../../Contribution-Guide/make-your-first-contribution/" class="md-nav__link">
         快速贡献
       </a>
     </li>
@@ -3896,7 +3908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/types-of-contributions/" class="md-nav__link">
+      <a href="../../Contribution-Guide/How-to-Contribute/types-of-contributions/" class="md-nav__link">
         有哪些贡献类型
       </a>
     </li>
@@ -3910,7 +3922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/preparation/" class="md-nav__link">
+      <a href="../../Contribution-Guide/How-to-Contribute/preparation/" class="md-nav__link">
         贡献准备
       </a>
     </li>
@@ -3924,7 +3936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/report-an-issue/" class="md-nav__link">
+      <a href="../../Contribution-Guide/How-to-Contribute/report-an-issue/" class="md-nav__link">
         报告Issue
       </a>
     </li>
@@ -3938,7 +3950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/contribute-code/" class="md-nav__link">
+      <a href="../../Contribution-Guide/How-to-Contribute/contribute-code/" class="md-nav__link">
         贡献代码
       </a>
     </li>
@@ -3952,7 +3964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/review-a-pull-request/" class="md-nav__link">
+      <a href="../../Contribution-Guide/How-to-Contribute/review-a-pull-request/" class="md-nav__link">
         审核修改
       </a>
     </li>
@@ -3966,7 +3978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/contribute-documentation/" class="md-nav__link">
+      <a href="../../Contribution-Guide/How-to-Contribute/contribute-documentation/" class="md-nav__link">
         文档贡献
       </a>
     </li>
@@ -3980,7 +3992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/make-a-design/" class="md-nav__link">
+      <a href="../../Contribution-Guide/How-to-Contribute/make-a-design/" class="md-nav__link">
         提出设计草案
       </a>
     </li>
@@ -4027,7 +4039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/Code-Style/code-of-conduct/" class="md-nav__link">
+      <a href="../../Contribution-Guide/Code-Style/code-of-conduct/" class="md-nav__link">
         编码规范
       </a>
     </li>
@@ -4041,7 +4053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/Code-Style/code-comment-style/" class="md-nav__link">
+      <a href="../../Contribution-Guide/Code-Style/code-comment-style/" class="md-nav__link">
         注释规范
       </a>
     </li>
@@ -4055,7 +4067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/Code-Style/commit-pr-style/" class="md-nav__link">
+      <a href="../../Contribution-Guide/Code-Style/commit-pr-style/" class="md-nav__link">
         提交规范
       </a>
     </li>
@@ -4158,42 +4170,56 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    语法说明
+    配置环境
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    语法结构
+  <a href="#java" class="md-nav__link">
+    初始化一个新的 Java 项目
   </a>
   
-    <nav class="md-nav" aria-label="语法结构">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java-matrixone" class="md-nav__link">
+    编写 Java 代码连接 MatrixOne
+  </a>
+  
+    <nav class="md-nav" aria-label="编写 Java 代码连接 MatrixOne">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    语法图
+    插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    升级数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    SELECT
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    示例
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    限制
-  </a>
   
 </li>
       
@@ -4209,40 +4235,264 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-database.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Tutorial/develop-java-crud-demo.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="create-database"><strong>CREATE DATABASE</strong></h1>
-<h2 id="_1"><strong>语法说明</strong></h2>
-<p><code>CREATE DATABASE</code> 语句同于创建一个数据库。</p>
-<h2 id="_2"><strong>语法结构</strong></h2>
-<div class="highlight"><pre><span></span><code>&gt; CREATE DATABASE [IF NOT EXISTS] &lt;database_name&gt; [create_option] ...
+<h1 id="java-crud">Java CRUD 示例</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>本篇文档所介绍的演示程序的源代码下载地址为：<a href="https://github.com/matrixorigin/matrixone_java_crud_example">github</a>。</p>
+</div>
+<h2 id="_1">配置环境</h2>
+<p>在开始之前，请确保已经下载并安装了以下软件。</p>
+<ul>
+<li>安装部署并启动 <a href="https://docs.matrixorigin.io/0.5.1/MatrixOne/Get-Started/install-standalone-matrixone/">MatrixOne 0.5.1</a>，通过 MySQL 客户端创建数据库。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>mysql&gt; CREATE DATABASE TEST;
+</code></pre></div>
+<ul>
+<li>下载安装<a href="https://www.jetbrains.com/idea/download/">lntelIiJ IDEA(2022.2.1 or later version)</a>。</li>
+<li>根据你的系统环境选择<a href="https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html">JDK 8+ version</a>版本进行下载安装。</li>
+<li><a href="https://dev.mysql.com/downloads/connector/j/">MySQL JDBC connector 8.0+ version</a>：推荐下载平台独立版本，并解压下载文件。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>我们使用 IDEA 作为一个 IDE 示例来演示这个过程，你可以自由地选择 Eclipse 或其他 IDE 工具实践。</p>
+</div>
+<p><img alt="image-20220927102516885" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_download.png?raw=true" /></p>
+<h2 id="java">初始化一个新的 Java 项目</h2>
+<p>启动 IDEA，并创建一个新的 Java 项目，如下所示:</p>
+<p><img alt="image-20220927104740221" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_create_project.png?raw=true" /></p>
+<p>进入菜单 <strong>Project Setting &gt; Libraries</strong>，导入 <em>mysql-connector-java-8.0.xx.jar</em> 文件。</p>
+<p><img alt="image-20220927104904770" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_import_library.png?raw=true" /></p>
+<h2 id="java-matrixone">编写 Java 代码连接 MatrixOne</h2>
+<p>首先，创建一个名为 <em>JDBCUtils</em> 的 Java 类作为连接实用程序。这个类将作为连接 MatrixOne 和执行 SQL 查询的工具。</p>
+<div class="highlight"><pre><span></span><code>import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-&gt; create_option: [DEFAULT] {
-    CHARACTER SET [=] charset_name
-  | COLLATE [=] collation_name
-  | ENCRYPTION [=] {&#39;Y&#39; | &#39;N&#39;}
+public class JDBCUtils {
+    private static String jdbcURL = &quot;jdbc:mysql://127.0.0.1:6001/TEST&quot;;
+    private static String jdbcUsername = &quot;dump&quot;;
+    private static String jdbcPassword = &quot;111&quot;;
+
+    public static Connection getConnection() {
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return connection;
+    }
+
+    public static void printSQLException(SQLException ex) {
+        for (Throwable e : ex) {
+            if (e instanceof SQLException) {
+                e.printStackTrace(System.err);
+                System.err.println(&quot;SQLState: &quot; + ((SQLException) e).getSQLState());
+                System.err.println(&quot;Error Code: &quot; + ((SQLException) e).getErrorCode());
+                System.err.println(&quot;Message: &quot; + e.getMessage());
+                Throwable t = ex.getCause();
+                while (t != null) {
+                    System.out.println(&quot;Cause: &quot; + t);
+                    t = t.getCause();
+                }
+            }
+        }
+    }
 }
 </code></pre></div>
-<h4 id="_3">语法图</h4>
-<p><img alt="Create Database Diagram" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/create_database_statement.png?raw=true" /></p>
-<h2 id="_4"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code>&gt; CREATE DATABASE test01;
+<p>其次，我们用 MatrixOne 编写创建、插入、更新和删除操作的示例代码。</p>
+<h4 id="_2">创建</h4>
+<div class="highlight"><pre><span></span><code>import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-&gt; CREATE DATABASE IF NOT EXISTS test01;
+public class Create {
+    private static final String createTableSQL = &quot;create table student (\r\n&quot; + &quot;  id int primary key,\r\n&quot; +
+            &quot;  name varchar(20),\r\n&quot; + &quot;  email varchar(20),\r\n&quot; + &quot;  country varchar(20),\r\n&quot; +
+            &quot;  age int\r\n&quot; + &quot;  );&quot;;
 
-&gt; CREATE DATABASE test03 DEFAULT CHARACTER SET utf8 collate utf8_general_ci ENCRYPTION &#39;Y&#39;;
+    public static void main(String[] argv) throws SQLException {
+        Create createTable = new Create();
+        createTable.createTable();
+    }
 
-&gt; CREATE DATABASE test04 CHARACTER SET=utf8 collate=utf8_general_ci ENCRYPTION=&#39;N&#39;;
+    public void createTable() throws SQLException {
+
+        System.out.println(createTableSQL);
+        // Step 1: Establishing a Connection
+        try (Connection connection = JDBCUtils.getConnection();
+             // Step 2:Create a statement using connection object
+             Statement statement = connection.createStatement();) {
+
+            // Step 3: Execute the query or update query
+            statement.execute(createTableSQL);
+        } catch (SQLException e) {
+
+            // print SQL exception information
+            JDBCUtils.printSQLException(e);
+        }
+
+        // Step 4: try-with-resource statement will auto close the connection.
+    }
+}
 </code></pre></div>
-<h2 id="_5"><strong>限制</strong></h2>
-<ul>
-<li>目前只支持 <code>UTF-8</code> 字符集。</li>
-<li><code>CHARACTER SET</code>，<code>COLLATE</code>，<code>ENCRYPTION</code> 目前可以使用但无法生效</li>
-</ul>
+<p>执行上述代码将在 <em>TEST</em> 数据库中创建一个表。</p>
+<div class="highlight"><pre><span></span><code>mysql&gt; show create table student;
++---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table   | Create Table                                                                                                                                                                                        |
++---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| student | CREATE TABLE `student` (
+`id` INT DEFAULT NULL,
+`name` VARCHAR(20) DEFAULT NULL,
+`email` VARCHAR(20) DEFAULT NULL,
+`country` VARCHAR(20) DEFAULT NULL,
+`age` INT DEFAULT NULL,
+PRIMARY KEY (`id`)
+) |
++---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.01 sec)
+</code></pre></div>
+<h4 id="_3">插入</h4>
+<div class="highlight"><pre><span></span><code>import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Insert {
+    private static final String INSERT_STUDENT_SQL = &quot;INSERT INTO student&quot; +
+            &quot;  (id, name, email, country, age) VALUES &quot; +
+            &quot; (?, ?, ?, ?, ?);&quot;;
+
+    public static void main(String[] argv) throws SQLException {
+        Insert insertTable = new Insert();
+        insertTable.insertRecord();
+    }
+
+    public void insertRecord() throws SQLException {
+        System.out.println(INSERT_STUDENT_SQL);
+        // Step 1: Establishing a Connection
+        try (Connection connection = JDBCUtils.getConnection();
+             // Step 2:Create a statement using connection object
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_STUDENT_SQL)) {
+            preparedStatement.setInt(1, 1);
+            preparedStatement.setString(2, &quot;Tony&quot;);
+            preparedStatement.setString(3, &quot;tony@gmail.com&quot;);
+            preparedStatement.setString(4, &quot;US&quot;);
+            preparedStatement.setString(5, &quot;20&quot;);
+
+            System.out.println(preparedStatement);
+            // Step 3: Execute the query or update query
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+
+            // print SQL exception information
+            JDBCUtils.printSQLException(e);
+        }
+
+        // Step 4: try-with-resource statement will auto close the connection.
+    }
+
+}
+</code></pre></div>
+<p>执行结果：</p>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+----------------+---------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">email</span><span class="w">          </span><span class="o">|</span><span class="w"> </span><span class="n">country</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">age</span><span class="w">  </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+----------------+---------+------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Tony</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">tony</span><span class="o">@</span><span class="n">gmail</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">US</span><span class="w">      </span><span class="o">|</span><span class="w">   </span><span class="mi">20</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+----------------+---------+------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h4 id="_4">升级数据</h4>
+<div class="highlight"><pre><span></span><code>import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Update {
+    private static final String UPDATE_STUDENT_SQL = &quot;update student set name = ? where id = ?;&quot;;
+
+    public static void main(String[] argv) throws SQLException {
+        Update updateTable = new Update();
+        updateTable.updateRecord();
+    }
+
+    public void updateRecord() throws SQLException {
+        System.out.println(UPDATE_STUDENT_SQL);
+        // Step 1: Establishing a Connection
+        try (Connection connection = JDBCUtils.getConnection();
+             // Step 2:Create a statement using connection object
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_STUDENT_SQL)) {
+            preparedStatement.setString(1, &quot;Ram&quot;);
+            preparedStatement.setInt(2, 1);
+
+            // Step 3: Execute the query or update query
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+
+            // print SQL exception information
+            JDBCUtils.printSQLException(e);
+        }
+
+        // Step 4: try-with-resource statement will auto close the connection.
+    }
+}
+</code></pre></div>
+<p>运行结果：</p>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+----------------+---------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">email</span><span class="w">          </span><span class="o">|</span><span class="w"> </span><span class="n">country</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">age</span><span class="w">  </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+----------------+---------+------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Ram</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">tony</span><span class="o">@</span><span class="n">gmail</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">US</span><span class="w">      </span><span class="o">|</span><span class="w">   </span><span class="mi">20</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------+------+----------------+---------+------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h4 id="select">SELECT</h4>
+<div class="highlight"><pre><span></span><code>import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Select {
+    private static final String QUERY = &quot;select id,name,email,country,age from student where id =?&quot;;
+
+    public static void main(String[] args) {
+
+        // using try-with-resources to avoid closing resources (boiler plate code)
+
+        // Step 1: Establishing a Connection
+        try (Connection connection = JDBCUtils.getConnection();
+
+             // Step 2:Create a statement using connection object
+             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);) {
+            preparedStatement.setInt(1, 1);
+            System.out.println(preparedStatement);
+            // Step 3: Execute the query or update query
+            ResultSet rs = preparedStatement.executeQuery();
+
+            // Step 4: Process the ResultSet object.
+            while (rs.next()) {
+                int id = rs.getInt(&quot;id&quot;);
+                String name = rs.getString(&quot;name&quot;);
+                String email = rs.getString(&quot;email&quot;);
+                String country = rs.getString(&quot;country&quot;);
+                String password = rs.getString(&quot;age&quot;);
+                System.out.println(id + &quot;,&quot; + name + &quot;,&quot; + email + &quot;,&quot; + country + &quot;,&quot; + password);
+            }
+        } catch (SQLException e) {
+            JDBCUtils.printSQLException(e);
+        }
+        // Step 4: try-with-resource statement will auto close the connection.
+    }
+}
+</code></pre></div>
+<p>运行结果：</p>
+<p><img alt="image-20220927113440917" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_select.png?raw=true" /></p>
 
               
             </article>
@@ -4256,7 +4506,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../../../Test/mo-tester/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MO-Tester" rel="prev">
+        <a href="../../Develop/export-data/export-data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 导出数据" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -4265,20 +4515,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              MO-Tester
+              导出数据
             </div>
           </div>
         </a>
       
       
         
-        <a href="../create-table/" class="md-footer__link md-footer__link--next" aria-label="Next: CREATE TABLE" rel="next">
+        <a href="../develop-python-application/" class="md-footer__link md-footer__link--next" aria-label="Next: 股票分析 Python 应用" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              CREATE TABLE
+              股票分析 Python 应用
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -4308,10 +4558,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c44cc438.min.js"></script>
       
     
   </body>
