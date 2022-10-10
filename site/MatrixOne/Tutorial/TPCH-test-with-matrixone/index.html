@@ -678,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../develop-java-crud-demo.md" class="md-nav__link">
+      <a href="../develop-java-crud-demo/" class="md-nav__link">
         Java CRUD 示例
       </a>
     </li>
@@ -4233,7 +4233,7 @@
 <p>TPC Benchmark™H（TPC-H）是决策支持基准。它由一套面向业务的即时查询（ad-hoc）和并发数据修改组成。选择查询和填充数据库的数据具有广泛的行业相关性。该基准测试解释说明了决策支持系统，该系统可检查大量数据，执行高度复杂的查询并为关键业务问题提供答案。TPC-H 是 OLAP 数据库广泛使用的基准测试。</p>
 <p>通过阅读本教程，您将学习如何使用 MatrixOne 完成 TPC-H 测试。</p>
 <h2 id="_1"><strong>准备工作</strong></h2>
-<p>确保你已经安装了<a href="../../Get-Started/install-standalone-matrixone/">单机版MatrixOne</a>并<a href="..Get-Started//connect-to-matrixone-server.md">连接到MatrixOne服务</a>.</p>
+<p>确保你已经安装了<a href="../../Get-Started/install-standalone-matrixone/">单机版MatrixOne</a>并<a href="../../Get-Started/connect-to-matrixone-server/">连接到MatrixOne服务</a>.</p>
 <h2 id="1-dbgen"><strong>1. 编译dbgen</strong></h2>
 <p>默认情况下，tpch dbgen 实用程序是用来生成测试数据集表格的工具，它根据比例因子 Scale Factor（SF)的大小确定数据集的大小，并生成一组平面文件（Flat File)，这些文件适合加载到 tpch 模式中。</p>
 <p>当使用 <code>-s 1</code> 时 <code>dbgen</code> 命令会产生 1GB 的完整数据集，当使用<code>-s 10</code>时会产生大约 10GB 的数据集，以此类推。</p>
