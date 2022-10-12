@@ -4500,18 +4500,44 @@ make build
 <h2 id="2"><h2><a name="binary_packages">方法 2：下载二进制包</a></h2></h2>
 <p>从 0.3.0 版本开始，您可以直接下载二进制包，然后在 X86_64 Linux 环境或者 X86_64 的 MacOS 环境中运行 MatrixOne。</p>
 <h3 id="1_1">1. 下载二进制包并解压</h3>
+<p><strong>Linux 环境</strong></p>
 <ul>
-<li><strong>Linux 环境</strong></li>
-</ul>
+<li>
+<p>下载方式一：</p>
 <div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/matrixone/releases/download/v0.5.1/mo-server-v0.5.1-linux-amd64.zip
 unzip mo-server-v0.5.1-linux-amd64.zip
 </code></pre></div>
-<ul>
-<li><strong>MacOS 环境</strong></li>
+</li>
+<li>
+<p>下载方式二：</p>
+<div class="highlight"><pre><span></span><code>curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.5.1/mo-server-v0.5.1-linux-amd64.zip
+unzip mo-server-v0.5.1-linux-amd64.zip
+</code></pre></div>
+</li>
+<li>
+<p>下载方式三：</p>
+<p>进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v0.5.1">版本 0.5.1</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-server-v0.5.1-linux-amd64.zip</em> 下载即可。</p>
+</li>
 </ul>
+<p><strong>MacOS 环境</strong></p>
+<ul>
+<li>
+<p>下载方式一：</p>
 <div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/matrixone/releases/download/v0.5.1/mo-server-v0.5.1-darwin-x86_64.zip
 unzip mo-server-v0.5.1-darwin-x86_64.zip
 </code></pre></div>
+</li>
+<li>
+<p>下载方式二：</p>
+<div class="highlight"><pre><span></span><code>curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.5.1/mo-server-v0.5.1-darwin-x86_64.zip
+unzip mo-server-v0.5.1-darwin-x86_64.zip
+</code></pre></div>
+</li>
+<li>
+<p>下载方式三：</p>
+<p>进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v0.5.1">版本 0.5.1</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-server-v0.5.1-darwin-x86_64.zip</em> 下载即可。</p>
+</li>
+</ul>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>ARM 芯片硬件配置下，MatrixOne 仅支持通过源代码方式进行安装部署；如果你使用的是 MacOS 系统 M1 及以上版本，请使用<a href="#code_source">源代码</a>构建的方式安装部署 MatrixOne。若果在 X86 硬件配置下使用二进制方式安装部署 MatrixOne 会导致未知问题。</p>

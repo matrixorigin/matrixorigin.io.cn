@@ -927,14 +927,14 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    选项一：自行生成数据集
+    选项一：生成单表数据集
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    选项二：选用已有数据集
+    选项二：下载大宽表数据集
   </a>
   
 </li>
@@ -961,14 +961,14 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    选项一：自行生成的数据集，使用如下命令将数据导入相关表
+    选项一：使用如下命令导入单表数据集
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    选项二：选用已有的数据集，使用如下命令将数据导入相关表
+    选项二：使用如下命令导入大宽表数据集
   </a>
   
 </li>
@@ -4266,14 +4266,14 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    选项一：自行生成数据集
+    选项一：生成单表数据集
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    选项二：选用已有数据集
+    选项二：下载大宽表数据集
   </a>
   
 </li>
@@ -4300,14 +4300,14 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    选项一：自行生成的数据集，使用如下命令将数据导入相关表
+    选项一：使用如下命令导入单表数据集
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    选项二：选用已有的数据集，使用如下命令将数据导入相关表
+    选项二：使用如下命令导入大宽表数据集
   </a>
   
 </li>
@@ -4403,7 +4403,7 @@ make
 <p>如果你的硬件配置为 M1 芯片，编译 dbgen 仍需进行其他配置，参见<a href="../../FAQs/deployment-faqs/">部署常见问题</a>。</p>
 </div>
 <h2 id="2"><strong>2. 生成数据</strong></h2>
-<h3 id="_2">选项一：自行生成数据集</h3>
+<h3 id="_2">选项一：生成单表数据集</h3>
 <p>当使用 <code>-s 1</code> 时 <code>dbgen</code> 命令会生产近600万行数据(670MB)，当使用<code>-s 10</code>时会生产近6000万行数据，会耗费大量时间。</p>
 <div class="highlight"><pre><span></span><code>./dbgen -s 1 -T c
 ./dbgen -s 1 -T l
@@ -4411,10 +4411,10 @@ make
 ./dbgen -s 1 -T s
 ./dbgen -s 1 -T d
 </code></pre></div>
-<h3 id="_3">选项二：选用已有数据集</h3>
-<p>我们准备了 1GB 的数据集供你下载。</p>
+<h3 id="_3">选项二：下载大宽表数据集</h3>
+<p>我们准备了 1GB 的大宽表数据集供你下载。</p>
 <ol>
-<li>在下面链接中直接获取数据集文件：</li>
+<li>在下面链接中直接获取大宽表数据集文件：</li>
 </ol>
 <div class="highlight"><pre><span></span><code>https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/lineorder_flat.tar.bz2
 </code></pre></div>
@@ -4545,7 +4545,7 @@ CREATE TABLE lineorder_flat(
 );
 </code></pre></div>
 <h2 id="4"><strong>4. 导入数据</strong></h2>
-<h3 id="_4">选项一：自行生成的数据集，使用如下命令将数据导入相关表</h3>
+<h3 id="_4">选项一：使用如下命令导入单表数据集</h3>
 <div class="highlight"><pre><span></span><code>load data infile &#39;/ssb-dbgen-path/supplier.tbl&#39; into table supplier FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
 
 load data infile &#39;/ssb-dbgen-path/customer.tbl&#39; into table customer FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
@@ -4557,7 +4557,7 @@ load data infile &#39;/ssb-dbgen-path/part.tbl&#39; into table part FIELDS TERMI
 load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
 </code></pre></div>
 <p>接着你可以在 MatrixOne 中进行查询操作。</p>
-<h3 id="_5">选项二：选用已有的数据集，使用如下命令将数据导入相关表</h3>
+<h3 id="_5">选项二：使用如下命令导入大宽表数据集</h3>
 <p>运行以下命令将数据导入<code>lineorder_flat</code>：</p>
 <div class="highlight"><pre><span></span><code>load data infile &#39;/ssb-dbgen-path/lineorder_flat.tbl&#39; into table lineorder_flat FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
 </code></pre></div>
