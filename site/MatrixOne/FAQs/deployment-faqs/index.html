@@ -729,14 +729,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_5">
-          系统维护
+          运维
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="系统维护" data-md-level="2">
+      <nav class="md-nav" aria-label="运维" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_5">
           <span class="md-nav__icon md-icon"></span>
-          系统维护
+          运维
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -849,14 +849,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_7_1">
-          系统测试
+          性能测试
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="系统测试" data-md-level="3">
+      <nav class="md-nav" aria-label="性能测试" data-md-level="3">
         <label class="md-nav__title" for="__nav_1_7_1">
           <span class="md-nav__icon md-icon"></span>
-          系统测试
+          性能测试
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -867,7 +867,7 @@
   
     <li class="md-nav__item">
       <a href="../../Tutorial/SSB-test-with-matrixone/" class="md-nav__link">
-        完成SSB测试
+        SSB 测试
       </a>
     </li>
   
@@ -881,7 +881,7 @@
   
     <li class="md-nav__item">
       <a href="../../Tutorial/TPCH-test-with-matrixone/" class="md-nav__link">
-        完成TPCH测试
+        TPCH 测试
       </a>
     </li>
   
@@ -4319,8 +4319,6 @@
 </li>
 <li>
 <p>输入命令，确认 gcc-11 是否成功：</p>
-</li>
-</ol>
 <div class="highlight"><pre><span></span><code>gcc-11 -v
 </code></pre></div>
 <p>如下结果，表示成功：</p>
@@ -4333,40 +4331,39 @@ Thread model: posix
 Supported LTO compression algorithms: zlib zstd
 gcc version 11.3.0 (Homebrew GCC 11.3.0)
 </code></pre></div>
-<ol>
+</li>
 <li>
 <p>手动修改 <em>ssb-dbgen</em> 目录下的 <em>bm_utils.c</em> 配置文件：</p>
-</li>
+<ul>
 <li>
 <p>将第41行的 <code>#include &lt;malloc.h&gt;</code> 修改为 <code>#include &lt;sys/malloc.h&gt;</code></p>
 </li>
 <li>
 <p>将第398行的 <code>open(fullpath, ((*mode == 'r')?O_RDONLY:O_WRONLY)|O_CREAT|O_LARGEFILE,0644);</code> 修改为 <code>open(fullpath, ((*mode == 'r')?O_RDONLY:O_WRONLY)|O_CREAT,0644);</code></p>
 </li>
+</ul>
+</li>
 <li>
 <p>手动修改 <em>ssb-dbgen</em> 目录下的 <em>varsub.c</em> 配置文件：</p>
+<ul>
+<li>将第5行的 <code>#include &lt;malloc.h&gt;</code> 修改为 <code>#include &lt;sys/malloc.h&gt;</code></li>
+</ul>
 </li>
-<li>
-<p>将第5行的 <code>#include &lt;malloc.h&gt;</code> 修改为 <code>#include &lt;sys/malloc.h&gt;</code></p>
-</li>
-</ol>
-<p>5.</p>
-<ol>
 <li>
 <p>手动修改 <em>ssb-dbgen</em> 目录下的 <em>makefile</em> 配置文件：</p>
-</li>
-<li>
-<p>将第5行的 <code>CC      = gcc</code> 修改为 <code>CC      = gcc-11</code></p>
+<ul>
+<li>将第5行的 <code>CC      = gcc</code> 修改为 <code>CC      = gcc-11</code></li>
+</ul>
 </li>
 <li>
 <p>再次进入 <em>ssb-dbgen</em> 目录，进行编译：</p>
-</li>
-</ol>
 <div class="highlight"><pre><span></span><code>cd ssb-dbgen
 make
 </code></pre></div>
-<ol>
-<li>查看 <em>ssb-dbgen</em> 目录，生成 <em>dbgen</em> 可执行文件，表示编译成功。</li>
+</li>
+<li>
+<p>查看 <em>ssb-dbgen</em> 目录，生成 <em>dbgen</em> 可执行文件，表示编译成功。</p>
+</li>
 </ol>
 
               
