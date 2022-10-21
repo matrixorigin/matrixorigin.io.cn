@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.2.8">
     
     
       
@@ -4219,6 +4219,8 @@ export GOPATH=/home/go
 export GOPROXY=https://goproxy.cn,direct    
 EOF
 $ source /etc/profile
+$ rm -rf /usr/bin/go
+$ ln -s /usr/local/go/bin/go /usr/bin/go
 </code></pre></div>
 <p>After these, your can check your golang version with go version.</p>
 <h3 id="3-build-and-run-your-own-matrixone">3. Build and run your own MatrixOne</h3>
@@ -4227,6 +4229,9 @@ After download with git clone command, then run the these commands to run Matrix
 <div class="highlight"><pre><span></span><code>$ make config
 $ make build
 $ ./mo-service -cfg etc/cn-standalone-test.toml
+</code></pre></div>
+<p>If in the <code>make config</code> or <code>make build</code> step, there is any timeout or downloading interrupted, please try to refresh your goproxy as following:</p>
+<div class="highlight"><pre><span></span><code>$ go env -w GOPROXY=&lt;https://goproxy.cn,direct&gt;
 </code></pre></div>
 <p>While notified <code>"Server Listening on : 0.0.0.0:6001"</code> , it means your MatirxOne is started.</p>
 <h3 id="4-access-matrixone-database">4. Access MatrixOne database</h3>
