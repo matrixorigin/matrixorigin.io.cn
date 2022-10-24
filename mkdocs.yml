@@ -41,20 +41,37 @@ nav:
     - 关于 MatrixOne:
       - MatrixOne 简介: MatrixOne/Overview/matrixone-introduction.md
       - MatrixOne 技术架构: MatrixOne/Overview/matrixone-architecture.md
+      - MySQL 兼容性: MatrixOne/Overview/mysql-compatibility.md
       - 最新动态: MatrixOne/Overview/whats-new.md
     - 快速上手:
-      - 安装单机版 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
-      - 连接MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
+      - 安装和启动 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
+      - 连接 MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
+      - SQL 的基本操作: MatrixOne/Get-Started/0.6-basic-sql.md
       - Playground 在线体验: MatrixOne/Get-Started/Playground.md
     - 开发指南:
       - 连接 MatrixOne:
-        - 通过客户端连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/client-connect-to-matrixone.md
-        - Java 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/java-connect-to-matrixone.md
+        - 配置 MatrixOne SSL 连接: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
+        - MySQL 客户端连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/client-connect-to-matrixone.md
+        - 数据库客户端 IDE: MatrixOne/Develop/connect-mo/0.6-database-ide.md
+        - Java 连接 MatrixOne 服务:
+          - JDBC: MatrixOne/Develop/connect-mo/0.6-java-connect-to-matrixone/connect-mo-with-jdbc.md
         - Python 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
+      - 数据库模式设计:
+        - 概述: MatrixOne/Develop/0.6-schema-design/overview.md
+        - 创建数据库: MatrixOne/Develop/0.6-schema-design/create-database.md
+        - 创建表: MatrixOne/Develop/0.6-schema-design/create-table.md
       - 导入数据:
         - 导入数据: MatrixOne/Develop/import-data/import-data.md
+      - Read Data:
+        - 单表读取: MatrixOne/Develop/0.6-read-data/query-data-single-table.md
+        - 多表连接查询: MatrixOne/Develop/0.6-read-data/multitable-join-query.md
+        - 子查询: MatrixOne/Develop/0.6-read-data/subquery.md
+        - 视图: MatrixOne/Develop/0.6-read-data/views.md
+        - 公共表表达式: MatrixOne/Develop/0.6-read-data/cte.md
       - 导出数据:
         - 导出数据: MatrixOne/Develop/export-data/export-data.md
+      - 事务:
+        - 事务概述: MatrixOne/Reference/SQL-Reference/Transactions/transaction-overview.md
       - 应用开发示例:
         - Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
         - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
@@ -68,19 +85,46 @@ nav:
         - TPCH 测试: MatrixOne/Tutorial/TPCH-test-with-matrixone.md
       - 测试工具:
         - MO-Tester: MatrixOne/Test/mo-tester.md
+        - MO-Tester 规范要求: MatrixOne/Test/0.6-mo-tester-reference.md
+    - Troubleshooting:
+      - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
+      - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
+      - 审计: MatrixOne/Troubleshooting/audit.md
+    - 安全:
+      - 访问控制概述: MatrixOne/0.6-Security/access-control-overview.md
+      - 访问控制权限: MatrixOne/0.6-Security/access-control.md
+      - 开启 TLS: MatrixOne/0.6-Security/TLS-introduction.md
     - 参考手册:
       - SQL目录:
+        - DAL:
+          - CREATE ACCOUNT: MatrixOne/Reference/SQL-Reference/0.6-Database-Administration-Statements/create-account.md
+          - CREATE ROLE: MatrixOne/Reference/SQL-Reference/0.6-Database-Administration-Statements/create-role.md
+          - CREATE USER: MatrixOne/Reference/SQL-Reference/0.6-Database-Administration-Statements/create-user.md
+          - DROP ACCOUNT: MatrixOne/Reference/SQL-Reference/0.6-Database-Administration-Statements/drop-account.md
+          - DROP USER: MatrixOne/Reference/SQL-Reference/0.6-Database-Administration-Statements/drop-user.md
+          - DROP ROLE: MatrixOne/Reference/SQL-Reference/0.6-Database-Administration-Statements/drop-role.md
+          - GRANT:
+            - GRANT <privileges>: MatrixOne/Reference/SQL-Reference/0.6-Database-Administration-Statements/grant-privileges.md
+            - GRANT ROLE: MatrixOne/Reference/SQL-Reference/0.6-Database-Administration-Statements/grant-role.md
+          - SET ROLE: MatrixOne/Reference/SQL-Reference/0.6-Database-Administration-Statements/set-role.md
+          - REVOKE: MatrixOne/Reference/SQL-Reference/0.6-Database-Administration-Statements/revoke.md
         - DDL:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-database.md
-          - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-table.md
+          - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/0.6-create-table.md
+          - CREATE TEMPORARY TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/0.6-create-temporary-tables.md
+          - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/0.6-show-databases.md
           - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-database.md
           - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-table.md
-          - PRIMARY KEY: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/primary-key.md
+          - PRIMARY KEY: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/0.6-primary-key.md
+          - VIEW:
+            - VIEW Overview: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/0.6-using-view/view-overview.md
+            - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/0.6-using-view/create-view.md
+            - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/0.6-using-view/drop-view.md
         - DML:
-          - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/insert.md
+          - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/0.6-insert.md
           - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/insert-into-select.md
-          - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/update.md
-          - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/delete.md
+          - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/0.6-update.md
+          - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/0.6-delete.md
           - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md
           - SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/select.md
           - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/show-databases.md
@@ -88,6 +132,9 @@ nav:
           - USE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/use.md
           - INTERVAL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/interval.md
           - With CTE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/with-cte.md
+          - UNION: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/0.6-union.md
+          - INTERSECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/0.6-intersect.md
+          - MINUS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/0.6-minus.md
           - SUBQUERY:
             - SUBQUERY 概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subquery.md
             - Derived Tables: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables.md
@@ -119,6 +166,14 @@ nav:
             - 赋值运算符:
               - 赋值运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/assignment-operators/assignment-operators-overview.md
               - =: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/assignment-operators/equal.md
+            - 二进制运算符:
+              - 二进制运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/bit-functions-and-operators-overview.md
+              - '&': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/bitwise-and.md
+              - '>>': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/right-shift.md
+              - '<<': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/left-shift.md
+              - '^': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/bitwise-xor.md
+              - '|': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/bitwise-or.md
+              - '~': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/bitwise-inversion.md
             - 强制转换函数和运算符:
               - 强制转换函数和运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/cast-functions-and-operators-overview.md
               - CAST: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/cast.md
@@ -150,6 +205,11 @@ nav:
               - NOT,!: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/not.md
               - OR: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/or.md
               - XOR: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/xor.md
+        - Prepared:
+          - Prepared 语句概述: MatrixOne/Reference/SQL-Reference/0.6-Prepared-Statements/prepared-statements-overview.md
+          - PREPARE: MatrixOne/Reference/SQL-Reference/0.6-Prepared-Statements/prepare.md
+          - EXCUTE: MatrixOne/Reference/SQL-Reference/0.6-Prepared-Statements/execute.md
+          - DEALLOCATE: MatrixOne/Reference/SQL-Reference/0.6-Prepared-Statements/deallocate.md
         - 聚合函数:
           - AVG: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/avg.md
           - COUNT: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/count.md
@@ -162,14 +222,16 @@ nav:
           - BIT_XOR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_xor.md
           - STDDEV_POP: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/stddev_pop.md
           - VAR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/var.md
-        - 事务:
-          - 事务概述: MatrixOne/Reference/SQL-Reference/Transactions/transaction-overview.md
         - Explain:
-          - EXPLAIN: MatrixOne/Reference/SQL-Reference/Explain/explain.md
+          - EXPLAIN: MatrixOne/Reference/SQL-Reference/Explain/0.6-explain.md
           - EXPLAIN 输出结构: MatrixOne/Reference/SQL-Reference/Explain/explain-workflow.md
+          - Explain Analyze: MatrixOne/Reference/SQL-Reference/Explain/0.6-explain-analyze.md
       - 数据类型:
-        - 数据类型概览: MatrixOne/Reference/Data-Types/data-types.md
+        - 数据类型概览: MatrixOne/Reference/Data-Types/0.6-data-types.md
         - 数据类型转换: MatrixOne/Reference/Data-Types/data-type-conversion.md
+        - TIMESTAMP 和 DATETIME 的自动初始化和更新: MatrixOne/Reference/Data-Types/0.6-timestamp-initialization.md
+        - JSON 数据类型: MatrixOne/Reference/Data-Types/0.6-json-type.md
+        - BLOB 数据类型: MatrixOne/Reference/Data-Types/0.6-blob-type.md
         - 精确数值类型-DECIMAL: MatrixOne/Reference/Data-Types/fixed-point-types.md
       - 系统函数:
         - 数学类:
@@ -188,21 +250,29 @@ nav:
           - PI(): MatrixOne/Reference/Builtin-Functions/Mathematical/pi.md
           - LOG(): MatrixOne/Reference/Builtin-Functions/Mathematical/log.md
           - LN(): MatrixOne/Reference/Builtin-Functions/Mathematical/ln.md
+          - UUID(): MatrixOne/Reference/Builtin-Functions/Mathematical/0.6-uuid.md
           - EXP(): MatrixOne/Reference/Builtin-Functions/Mathematical/exp.md
         - 日期时间类:
+          - DATE_FORMAT(): MatrixOne/Reference/Builtin-Functions/Datetime/0.6-date-format.md
           - YEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/year.md
-          - MONTH(): MatrixOne/Reference/Builtin-Functions/Datetime/month.md
+          - MONTH(): MatrixOne/Reference/Builtin-Functions/Datetime/0.6-month.md
           - DATE(): MatrixOne/Reference/Builtin-Functions/Datetime/date.md
-          - WEEKDAY(): MatrixOne/Reference/Builtin-Functions/Datetime/weekday.md
+          - WEEKDAY(): MatrixOne/Reference/Builtin-Functions/Datetime/0.6-weekday.md
+          - TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/0.6-timestamp.md
           - DAYOFYEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/dayofyear.md
           - EXTRACT(): MatrixOne/Reference/Builtin-Functions/Datetime/extract.md
           - DATE_ADD(): MatrixOne/Reference/Builtin-Functions/Datetime/date-add.md
           - DATE_SUB(): MatrixOne/Reference/Builtin-Functions/Datetime/date-sub.md
           - TO_DATE(): MatrixOne/Reference/Builtin-Functions/Datetime/to-date.md
-          - UNIX_TIMESTAMP: MatrixOne/Reference/Builtin-Functions/Datetime/unix-timestamp.md
-          - FROM_UNIXTIME: MatrixOne/Reference/Builtin-Functions/Datetime/from-unixtime.md
-          - UTC_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/utc-timestamp.md
+          - DAY(): MatrixOne/Reference/Builtin-Functions/Datetime/0.6-day.md
+          - UNIX_TIMESTAMP: MatrixOne/Reference/Builtin-Functions/Datetime/0.6-unix-timestamp.md
+          - FROM_UNIXTIME: MatrixOne/Reference/Builtin-Functions/Datetime/0.6-from-unixtime.md
+          - UTC_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/0.6-utc-timestamp.md
+          - CURRENT_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/0.6-current-timestamp.md
         - 字符串类:
+          - BIN(): MatrixOne/Reference/Builtin-Functions/String/0.6-bin.md
+          - BIT_LENGTH(): MatrixOne/Reference/Builtin-Functions/String/0.6-bit-length.md
+          - HEX(): MatrixOne/Reference/Builtin-Functions/String/0.6-hex.md
           - CONCAT_WS(): MatrixOne/Reference/Builtin-Functions/String/concat-ws.md
           - FIND_IN_SET(): MatrixOne/Reference/Builtin-Functions/String/find-in-set.md
           - OCT(): MatrixOne/Reference/Builtin-Functions/String/oct.md
@@ -218,9 +288,11 @@ nav:
           - SUBSTRING(): MatrixOne/Reference/Builtin-Functions/String/substring.md
           - SPACE(): MatrixOne/Reference/Builtin-Functions/String/space.md
           - REVERSE(): MatrixOne/Reference/Builtin-Functions/String/reverse.md
+        - 表结构类:
+          - UUNEST(): MatrixOne/Reference/Builtin-Functions/Table/0.6-unnest.md
       - 系统配置:
         - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
-      - MySQL 兼容性: MatrixOne/Overview/mysql-compatibility.md
+        - 时区配置: MatrixOne/Reference/System-Parameters/0.6-timezone.md
       - MatrixOne Catalog: MatrixOne/Reference/System-tables.md
     - 常见问题解答:
       - 产品常见问题: MatrixOne/FAQs/product-faqs.md
