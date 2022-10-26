@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#time-zone-support" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -335,6 +335,20 @@
     <li class="md-nav__item">
       <a href="../../../Overview/matrixone-introduction/" class="md-nav__link">
         MatrixOne 简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/matrixone-feature-list.md" class="md-nav__link">
+        MatrixOne 功能列表
       </a>
     </li>
   
@@ -747,10 +761,57 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_1" type="checkbox" id="__nav_1_4_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_3_1">
+          批量导入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="批量导入" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_4_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          批量导入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../Develop/import-data/import-data/" class="md-nav__link">
-        导入数据
+      <a href="../../../Develop/import-data/0.6-bulk-load/load-csv.md" class="md-nav__link">
+        导入 csv 文件
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/0.6-bulk-load/load-jsonline.md" class="md-nav__link">
+        导入 jsonlines 文件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -795,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Develop/0.6-read-data/query-data-single-table.md" class="md-nav__link">
+      <a href="../../../Develop/0.6-read-data/query-data-single-table/" class="md-nav__link">
         单表读取
       </a>
     </li>
@@ -809,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Develop/0.6-read-data/multitable-join-query.md" class="md-nav__link">
+      <a href="../../../Develop/0.6-read-data/multitable-join-query/" class="md-nav__link">
         多表连接查询
       </a>
     </li>
@@ -837,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Develop/0.6-read-data/views.md" class="md-nav__link">
+      <a href="../../../Develop/0.6-read-data/views/" class="md-nav__link">
         视图
       </a>
     </li>
@@ -1323,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Troubleshooting/common-statistics-query.md" class="md-nav__link">
+      <a href="../../../Troubleshooting/common-statistics-query/" class="md-nav__link">
         常用统计数据查询
       </a>
     </li>
@@ -1384,7 +1445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-Security/access-control-overview.md" class="md-nav__link">
+      <a href="../../../0.6-Security/access-control-overview/" class="md-nav__link">
         访问控制概述
       </a>
     </li>
@@ -1398,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-Security/access-control.md" class="md-nav__link">
+      <a href="../../../0.6-Security/access-control/" class="md-nav__link">
         访问控制权限
       </a>
     </li>
@@ -1412,7 +1473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-Security/TLS-introduction.md" class="md-nav__link">
+      <a href="../../../0.6-Security/TLS-introduction/" class="md-nav__link">
         开启 TLS
       </a>
     </li>
@@ -4742,8 +4803,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#changing-matrixone-time-zone" class="md-nav__link">
-    Changing MatrixOne Time Zone
+  <a href="#matrixone" class="md-nav__link">
+    修改 MatrixOne 时区
   </a>
   
 </li>
@@ -5338,8 +5399,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#changing-matrixone-time-zone" class="md-nav__link">
-    Changing MatrixOne Time Zone
+  <a href="#matrixone" class="md-nav__link">
+    修改 MatrixOne 时区
   </a>
   
 </li>
@@ -5362,45 +5423,29 @@
 
 
 
-<h1 id="time-zone-support">Time Zone Support</h1>
-<p>The time zone in MatrixOne is decided by the global <code>time_zone</code> system variable. The default value of time_zone is SYSTEM.</p>
-<p>You can use the following statement to set the global server time_zone value at runtime:</p>
+<h1 id="_1">时区支持</h1>
+<p>MatrixOne 使用的时区取决于全局变量 <code>time_zone</code>。<code>time_zone</code> 的默认值是 <code>System</code>。</p>
+<p>你可以使用如下命令修改全局时区：</p>
 <div class="highlight"><pre><span></span><code>&gt; SET GLOBAL time_zone = timezone;
 </code></pre></div>
-<p>You can use the following statement to view the current values of the global, client-specific and system time zones:</p>
-<div class="highlight"><pre><span></span><code>&gt; SELECT @@global.time_zone, @@session.time_zone, @@global.system_time_zone;
-+-------------+-------------+--------------------+
-| @@time_zone | @@time_zone | @@system_time_zone |
-+-------------+-------------+--------------------+
-| timezone    | +08:00      |                    |
-+-------------+-------------+--------------------+
-1 row in set (0.00 sec)
-</code></pre></div>
-<p>To set the format of the value of the time_zone:</p>
-<ul>
-<li>
-<p>The value <code>SYSTEM</code> indicates that the time zone should be the same as the system time zone.</p>
-</li>
-<li>
-<p>The value can be given as a string indicating an offset from UTC, such as <code>+10:00</code> or <code>-06:00</code>.</p>
-</li>
-<li>
-<p>The value can be given as a named time zone, such as <code>Europe/Helsinki</code>, <code>US/Eastern</code>, or <code>MET</code>.</p>
-</li>
-</ul>
-<p>The current session time zone setting affects the display and storage of time values that are zone-sensitive. This includes the values displayed by functions such as <code>NOW()</code><!-- or CURTIME()-->.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Only the values of the Timestamp data type is affected by time zone. This is because the Timestamp data type uses the literal value + time zone information. Other data types, such as Datetime/Date/Time, do not have time zone information, thus their values are not affected by the changes of time zone.</p>
-</div>
+<p>使用以下 SQL 语句查看当前全局时区、客户端时区和系统时区的值：</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@@</span><span class="k">global</span><span class="p">.</span><span class="n">time_zone</span><span class="p">,</span><span class="w"> </span><span class="o">@@</span><span class="k">session</span><span class="p">.</span><span class="n">time_zone</span><span class="p">,</span><span class="w"> </span><span class="o">@@</span><span class="k">global</span><span class="p">.</span><span class="n">system_time_zone</span><span class="p">;</span><span class="w"></span>
 <span class="o">+</span><span class="c1">-------------+-------------+--------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="o">@@</span><span class="n">time_zone</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">@@</span><span class="n">time_zone</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">@@</span><span class="n">system_time_zone</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
 <span class="o">+</span><span class="c1">-------------+-------------+--------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w">      </span><span class="o">|</span><span class="w">                    </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">timezone</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">+</span><span class="mi">08</span><span class="p">:</span><span class="mi">00</span><span class="w">      </span><span class="o">|</span><span class="w">                    </span><span class="o">|</span><span class="w"></span>
 <span class="o">+</span><span class="c1">-------------+-------------+--------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
+<p>设置 time_zone 的值的格式：</p>
+<p><code>SYSTEM</code> 表明使用系统时间
+相对于 UTC 时间的偏移，比如 <code>+10:00</code> 或者 <code>-6:00</code>
+某个时区的名字，比如 <code>Europe/Helsinki</code>，<code>US/Eastern</code> 或 <code>MET</code>
+NOW() 和 CURTIME() 的返回值都受到时区设置的影响。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>只有 Timestamp 数据类型的值是受时区影响的。可以理解为，Timestamp 数据类型的实际表示使用的是（字面值 + 时区信息）。其它时间和日期类型，比如 Datetime/Date/Time 是不包含时区信息的，所以也不受到时区变化的影响。</p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">ts</span><span class="w"> </span><span class="k">timestamp</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="n">datetime</span><span class="p">);</span><span class="w"></span>
 <span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
 
@@ -5423,14 +5468,14 @@
 <span class="o">+</span><span class="c1">---------------------+---------------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
-<p>In this example, no matter how you adjust the value of the time zone, the value of the Datetime data type is not affected. But the displayed value of the Timestamp data type changes if the time zone information changes. In fact, the value that is stored in the storage does not change, it's just displayed differently according to different time zone setting.</p>
+<p>上面的例子中，无论怎么调整时区的值，Datetime 类型字段的值是不受影响的，而 Timestamp 则随着时区改变，显示的值会发生变化。其实 Timestamp 持久化到存储的值始终没有变化过，只是根据时区的不同显示值不同。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Time zone is involved during the conversion of the value of Timestamp and Datetime, which is handled based on the current time_zone.</p>
+<p>Timestamp 类型和 Datetime 等类型的值，两者相互转换的过程中，会涉及到时区。这种情况一律基于当前 time_zone 时区处理。</p>
 </div>
-<h2 id="changing-matrixone-time-zone">Changing MatrixOne Time Zone</h2>
+<h2 id="matrixone">修改 MatrixOne 时区</h2>
 <ol>
-<li>View the current time and time zone:</li>
+<li>查看当前时间或时区：</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">now</span><span class="p">();</span><span class="w"></span>
 <span class="o">+</span><span class="c1">----------------------------+</span>
@@ -5452,21 +5497,21 @@
 </code></pre></div>
 <ul>
 <li>
-<p><code>time_zone</code> indicates that MatrixOne uses the system time zone.</p>
+<p><code>time_zone</code>：使用system的时区。</p>
 </li>
 <li>
-<p><code>system_time_zone</code> indicates that MatrixOne uses the CST time zone.</p>
+<p><code>system_time_zone</code> 说明system使用CST时区。</p>
 </li>
 <li>
-<p>modify the time zone:</p>
+<p>修改当前时区：</p>
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code>set global time_zone = &#39;+08:00&#39;;
 set time_zone = &#39;+08:00&#39;;
 </code></pre></div>
 <ul>
-<li><code>set global time_zone = '+08:00';</code>: Change the global time zone to Beijing time if we are in the east eight zones.</li>
-<li><code>set time_zone = '+08:00';</code>: Change the time zone of the current session.</li>
+<li><code>set global time_zone = '+08:00';</code>：修改mysql全局时区为北京时间，即我们所在的东8区。</li>
+<li><code>set time_zone = '+08:00';</code>：修改当前会话时区。</li>
 </ul>
 
               
