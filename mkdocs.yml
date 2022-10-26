@@ -40,6 +40,7 @@ nav:
     - 主页: README.md
     - 关于 MatrixOne:
       - MatrixOne 简介: MatrixOne/Overview/matrixone-introduction.md
+      - MatrixOne 功能列表: MatrixOne/Overview/matrixone-feature-list.md
       - MatrixOne 技术架构: MatrixOne/Overview/matrixone-architecture.md
       - MySQL 兼容性: MatrixOne/Overview/mysql-compatibility.md
       - 最新动态: MatrixOne/Overview/whats-new.md
@@ -61,7 +62,9 @@ nav:
         - 创建数据库: MatrixOne/Develop/0.6-schema-design/create-database.md
         - 创建表: MatrixOne/Develop/0.6-schema-design/create-table.md
       - 导入数据:
-        - 导入数据: MatrixOne/Develop/import-data/import-data.md
+        - 批量导入:
+          - 导入 csv 文件: MatrixOne/Develop/import-data/0.6-bulk-load/load-csv.md
+          - 导入 jsonlines 文件: MatrixOne/Develop/import-data/0.6-bulk-load/load-jsonline.md
       - Read Data:
         - 单表读取: MatrixOne/Develop/0.6-read-data/query-data-single-table.md
         - 多表连接查询: MatrixOne/Develop/0.6-read-data/multitable-join-query.md
