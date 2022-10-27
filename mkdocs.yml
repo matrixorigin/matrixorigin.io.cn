@@ -56,6 +56,8 @@ nav:
         - 数据库客户端 IDE: MatrixOne/Develop/connect-mo/0.6-database-ide.md
         - Java 连接 MatrixOne 服务:
           - JDBC: MatrixOne/Develop/connect-mo/0.6-java-connect-to-matrixone/connect-mo-with-jdbc.md
+          - Hibernate: MatrixOne/Develop/connect-mo/0.6-java-connect-to-matrixone/springboot-hibernate-crud-demo.md
+          - MyBatis: MatrixOne/Develop/connect-mo/0.6-java-connect-to-matrixone/springboot-mybatis-crud-demo
         - Python 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
       - 数据库模式设计:
         - 概述: MatrixOne/Develop/0.6-schema-design/overview.md
@@ -65,7 +67,7 @@ nav:
         - 批量导入:
           - 导入 csv 文件: MatrixOne/Develop/import-data/0.6-bulk-load/load-csv.md
           - 导入 jsonlines 文件: MatrixOne/Develop/import-data/0.6-bulk-load/load-jsonline.md
-      - Read Data:
+      - 数据读取:
         - 单表读取: MatrixOne/Develop/0.6-read-data/query-data-single-table.md
         - 多表连接查询: MatrixOne/Develop/0.6-read-data/multitable-join-query.md
         - 子查询: MatrixOne/Develop/0.6-read-data/subquery.md
@@ -80,6 +82,7 @@ nav:
         - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
     - 运维:
       - 升级单机版 MatrixOne: MatrixOne/Maintain/upgrade-standalone-matrixone.md
+      - MatrixOne 目录结构: MatrixOne/Maintain/mo-directory-structure.md
     - 数据迁移:
       - 将数据从 MySQL 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-mysql-to-matrixone.md
     - 测试:
@@ -297,6 +300,7 @@ nav:
         - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 时区配置: MatrixOne/Reference/System-Parameters/0.6-timezone.md
       - MatrixOne Catalog: MatrixOne/Reference/System-tables.md
+      - 使用限制: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
     - 常见问题解答:
       - 产品常见问题: MatrixOne/FAQs/product-faqs.md
       - 部署常见问题: MatrixOne/FAQs/deployment-faqs.md
