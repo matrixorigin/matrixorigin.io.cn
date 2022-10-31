@@ -52,12 +52,9 @@ nav:
     - 开发指南:
       - 连接 MatrixOne:
         - 配置 MatrixOne SSL 连接: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
-        - MySQL 客户端连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/client-connect-to-matrixone.md
         - 数据库客户端 IDE: MatrixOne/Develop/connect-mo/0.6-database-ide.md
         - Java 连接 MatrixOne 服务:
           - JDBC: MatrixOne/Develop/connect-mo/0.6-java-connect-to-matrixone/connect-mo-with-jdbc.md
-          - Hibernate: MatrixOne/Develop/connect-mo/0.6-java-connect-to-matrixone/springboot-hibernate-crud-demo.md
-          - MyBatis: MatrixOne/Develop/connect-mo/0.6-java-connect-to-matrixone/springboot-mybatis-crud-demo
         - Python 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
       - 数据库模式设计:
         - 概述: MatrixOne/Develop/0.6-schema-design/overview.md
@@ -79,6 +76,8 @@ nav:
         - 事务概述: MatrixOne/Reference/SQL-Reference/Transactions/transaction-overview.md
       - 应用开发示例:
         - Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
+        - Hibernate: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
+        - MyBatis: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
         - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
     - 运维:
       - 升级单机版 MatrixOne: MatrixOne/Maintain/upgrade-standalone-matrixone.md
@@ -92,10 +91,18 @@ nav:
       - 测试工具:
         - MO-Tester: MatrixOne/Test/mo-tester.md
         - MO-Tester 规范要求: MatrixOne/Test/0.6-mo-tester-reference.md
-    - Troubleshooting:
+    - 故障诊断:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
       - 审计: MatrixOne/Troubleshooting/audit.md
+    - 性能调优:
+      - 理解 MatrixOne 执行计划:
+        - MatrixOne 执行计划概述: MatrixOne/0.6-Performance-Tuning/explain-overview.md
+        - 使用 EXPLAIN 理解执行计划: MatrixOne/0.6-Performance-Tuning/explain-walkthrough.md
+        - JOIN 查询的执行计划: MatrixOne/0.6-Performance-Tuning/explain-joins.md
+        - 子查询的执行计划: MatrixOne/0.6-Performance-Tuning/explain-subqueries.md
+        - 聚合查询的执行计划: MatrixOne/0.6-Performance-Tuning/explain-aggregation.md
+        - 视图的执行计划: MatrixOne/0.6-Performance-Tuning/explain-views.md
     - 安全:
       - 访问控制概述: MatrixOne/0.6-Security/access-control-overview.md
       - 访问控制权限: MatrixOne/0.6-Security/access-control.md
