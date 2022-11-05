@@ -48,7 +48,6 @@ nav:
       - 安装和启动 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
       - 连接 MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
       - SQL 的基本操作: MatrixOne/Get-Started/0.6-basic-sql.md
-      - Playground 在线体验: MatrixOne/Get-Started/Playground.md
     - 开发指南:
       - 连接 MatrixOne:
         - 配置 MatrixOne SSL 连接: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
@@ -340,5 +339,3 @@ nav:
         - 编码规范: MatrixOne/Contribution-Guide/Code-Style/code-of-conduct.md
         - 注释规范: MatrixOne/Contribution-Guide/Code-Style/code-comment-style.md
         - 提交规范: MatrixOne/Contribution-Guide/Code-Style/commit-pr-style.md
-    - 在线快速体验:
-      - Playground: https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1
