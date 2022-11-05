@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.8">
     
     
       
@@ -5929,7 +5929,7 @@
 <h2 id="_4">命名表</h2>
 <p>创建一个有实际意义的表名称，含有关键词或编号规范的表名称，遵循命名规范，方便查找和使用。</p>
 <p><code>CREATE TABLE</code> 语句通常采用以下形式：</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">{</span><span class="k">table_name</span><span class="err">}</span><span class="w"> </span><span class="p">(</span><span class="err">{</span><span class="n">elements</span><span class="err">}</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="err">{</span><span class="k">table_name</span><span class="err">}</span> <span class="p">(</span><span class="err">{</span><span class="n">elements</span><span class="err">}</span><span class="p">);</span>
 </code></pre></div>
 <p><strong>参数描述</strong></p>
 <ul>
@@ -5949,11 +5949,11 @@
 </ul>
 <p>这里介绍创建一个命名为 <em>user</em> 的表来存储 <em>modatabase</em> 库中的用户信息。</p>
 <p>可以为 <em>users</em> 表添加一些列，如他们的唯一标识 <em>id</em>，余额 <em>balance</em> 及昵称 nickname。</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">users</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">nickname</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">balance</span><span class="o">`</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">bigint</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">nickname</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+  <span class="o">`</span><span class="n">balance</span><span class="o">`</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div>
 <p><strong>示例解释</strong></p>
 <p>下表将解释上述示例中的字段：</p>
@@ -5990,13 +5990,13 @@
 <p>MatrixOne 支持许多其他的列数据类型，包含 整数、浮点数、时间等，参见<a href="../../../Reference/Data-Types/data-types/">数据类型</a>。</p>
 <p><strong>创建一个复杂表</strong></p>
 <p>创建一张 <em>books</em> 表，这张表将是 <em>modatabase</em> 数据的核心。它包含书的 唯一标识、名称、库存、价格、出版时间 字段。</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">books</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">title</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">published_at</span><span class="o">`</span><span class="w"> </span><span class="n">datetime</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">stock</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">price</span><span class="o">`</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">books</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">bigint</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">title</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+  <span class="o">`</span><span class="n">published_at</span><span class="o">`</span> <span class="n">datetime</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">stock</span><span class="o">`</span> <span class="nb">int</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">price</span><span class="o">`</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div>
 <p>这张表比 <em>users</em> 表包含更多的数据类型：</p>
 <table>
@@ -6032,40 +6032,40 @@
 <h3 id="_8"><strong>填充默认值</strong></h3>
 <p>如需在列上设置默认值，请使用 <code>DEFAULT</code> 约束。默认值将可以使你无需指定每一列的值，就可以插入数据。</p>
 <p>你可以将 <code>DEFAULT</code> 与支持的 SQL 函数结合使用，将默认值的计算移出应用层，从而节省应用层的资源（当然，计算所消耗的资源并不会凭空消失，只是被转移到了 MatrixOne 集群中）。常见的，希望实现数据插入时，可默认填充默认的时间。还是使用 <em>ratings</em> 作为示例，可使用以下语句：</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">ratings</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">book_id</span><span class="o">`</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">score</span><span class="o">`</span><span class="w"> </span><span class="n">tinyint</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">rated_at</span><span class="o">`</span><span class="w"> </span><span class="n">datetime</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">(),</span><span class="w"></span>
-<span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">book_id</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="p">)</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">ratings</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">book_id</span><span class="o">`</span> <span class="nb">bigint</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">user_id</span><span class="o">`</span> <span class="nb">bigint</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">score</span><span class="o">`</span> <span class="n">tinyint</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">rated_at</span><span class="o">`</span> <span class="n">datetime</span> <span class="k">DEFAULT</span> <span class="n">NOW</span><span class="p">(),</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">book_id</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div>
 <h3 id="_9"><strong>防止重复</strong></h3>
 <p>如果你需要防止列中出现重复值，那你可以使用 <code>UNIQUE</code> 约束。</p>
 <p>例如，你需要确保用户的昵称唯一，可以这样改写 <em>users</em> 表的创建 SQL：</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">users</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">balance</span><span class="o">`</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">nickname</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">bigint</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">balance</span><span class="o">`</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+  <span class="o">`</span><span class="n">nickname</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">UNIQUE</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div>
 <p>如果你在 <em>users</em> 表中尝试插入相同的 <em>nickname</em>，将返回错误。</p>
 <h3 id="_10"><strong>防止空值</strong></h3>
 <p>如果你需要防止列中出现空值，那就可以使用 <code>NOT NULL</code> 约束。</p>
 <p>还是使用用户昵称来举例子，除了昵称唯一，还希望昵称不可为空，于是此处可以这样改写 <em>users</em> 表的创建 SQL：</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">users</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">balance</span><span class="o">`</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="o">`</span><span class="n">nickname</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">bigint</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">balance</span><span class="o">`</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+  <span class="o">`</span><span class="n">nickname</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">UNIQUE</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div>
 <!--## 使用 HTAP 能力: 缺少数据分析引擎等文档-->
 
 <h2 id="create-table">执行 <code>CREATE TABLE</code> 语句</h2>
 <p>需查看 <em>modatabase</em> 数据库下的所有表，可使用 <code>SHOW TABLES</code> 语句：</p>
-<div class="highlight"><pre><span></span><code><span class="k">SHOW</span><span class="w"> </span><span class="n">TABLES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">SHOW</span> <span class="n">TABLES</span> <span class="k">IN</span> <span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">;</span>
 </code></pre></div>
 <p>运行结果为：</p>
 <div class="highlight"><pre><span></span><code>+----------------------+
