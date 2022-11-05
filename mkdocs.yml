@@ -45,7 +45,6 @@ nav:
     - 快速上手:
       - 安装单机版 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
       - 连接MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
-      - Playground 在线体验: MatrixOne/Get-Started/Playground.md
     - 开发指南:
       - 连接 MatrixOne:
         - 通过客户端连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/client-connect-to-matrixone.md
@@ -249,5 +248,3 @@ nav:
         - 编码规范: MatrixOne/Contribution-Guide/Code-Style/code-of-conduct.md
         - 注释规范: MatrixOne/Contribution-Guide/Code-Style/code-comment-style.md
         - 提交规范: MatrixOne/Contribution-Guide/Code-Style/commit-pr-style.md
-    - 在线快速体验:
-      - Playground: https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1
