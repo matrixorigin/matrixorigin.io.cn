@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.8">
     
     
       
@@ -420,20 +420,6 @@
     <li class="md-nav__item">
       <a href="../../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
         连接MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Get-Started/Playground/" class="md-nav__link">
-        Playground 在线体验
       </a>
     </li>
   
@@ -3992,53 +3978,6 @@
 
             
           
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_13" type="checkbox" id="__nav_1_13" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_13">
-          在线快速体验
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="在线快速体验" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_13">
-          <span class="md-nav__icon md-icon"></span>
-          在线快速体验
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1" class="md-nav__link">
-        Playground
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -4432,72 +4371,72 @@ The <code>+</code>(addition) is defined as merging two <code>Ring</code>s groups
 <p><code>Ring</code> 数据结构下的聚合函数，有两种不同的场景，参见下面的章节。</p>
 <h3 id="1">1. 单表查询</h3>
 <p>在单表查询场景中，运行下面的查询时，根据表 T1 存储的存储块的情况，它会生成一个或多个 <code>Ring</code>。存储块的数量取决于存储策略，每个 <code>Ring</code> 将存储几组 <code>sums</code>，而组的数量取决于有多少重复的行在执行 <code>Ring</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="n">T1</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">T1</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="k">class</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
 <span class="o">+</span><span class="c1">------+-------+------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">age</span><span class="w">  </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">id</span>   <span class="o">|</span> <span class="k">class</span> <span class="o">|</span> <span class="n">age</span>  <span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-------+------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">one</span><span class="w">   </span><span class="o">|</span><span class="w">   </span><span class="mi">23</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">one</span><span class="w">   </span><span class="o">|</span><span class="w">   </span><span class="mi">20</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">one</span><span class="w">   </span><span class="o">|</span><span class="w">   </span><span class="mi">22</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">two</span><span class="w">   </span><span class="o">|</span><span class="w">   </span><span class="mi">20</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">two</span><span class="w">   </span><span class="o">|</span><span class="w">   </span><span class="mi">19</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">18</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">7</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">20</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">21</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">9</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">24</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="mi">10</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">19</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>    <span class="mi">1</span> <span class="o">|</span> <span class="n">one</span>   <span class="o">|</span>   <span class="mi">23</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">2</span> <span class="o">|</span> <span class="n">one</span>   <span class="o">|</span>   <span class="mi">20</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">3</span> <span class="o">|</span> <span class="n">one</span>   <span class="o">|</span>   <span class="mi">22</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">4</span> <span class="o">|</span> <span class="n">two</span>   <span class="o">|</span>   <span class="mi">20</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">5</span> <span class="o">|</span> <span class="n">two</span>   <span class="o">|</span>   <span class="mi">19</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">6</span> <span class="o">|</span> <span class="n">three</span> <span class="o">|</span>   <span class="mi">18</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">7</span> <span class="o">|</span> <span class="n">three</span> <span class="o">|</span>   <span class="mi">20</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">8</span> <span class="o">|</span> <span class="n">three</span> <span class="o">|</span>   <span class="mi">21</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">9</span> <span class="o">|</span> <span class="n">three</span> <span class="o">|</span>   <span class="mi">24</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="mi">10</span> <span class="o">|</span> <span class="n">three</span> <span class="o">|</span>   <span class="mi">19</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-------+------+</span>
 
-<span class="k">select</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">T1</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">class</span><span class="p">;</span><span class="w"></span>
+<span class="k">select</span> <span class="k">class</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">from</span> <span class="n">T1</span> <span class="k">group</span> <span class="k">by</span> <span class="k">class</span><span class="p">;</span>
 </code></pre></div>
 <p>例如，如果生成了两个 <code>Ring</code> ，第一个 <code>Ring</code> 包含前4行的总和，如下所示：</p>
-<div class="highlight"><pre><span></span><code><span class="o">|</span><span class="w">  </span><span class="n">one</span><span class="w">   </span><span class="o">|</span><span class="w">  </span><span class="mi">23</span><span class="o">+</span><span class="mi">20</span><span class="o">+</span><span class="mi">22</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">  </span><span class="n">two</span><span class="w">   </span><span class="o">|</span><span class="w">  </span><span class="mi">20</span><span class="w">       </span><span class="o">|</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">|</span>  <span class="n">one</span>   <span class="o">|</span>  <span class="mi">23</span><span class="o">+</span><span class="mi">20</span><span class="o">+</span><span class="mi">22</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="n">two</span>   <span class="o">|</span>  <span class="mi">20</span>       <span class="o">|</span>
 </code></pre></div>
 <p>第二个 <code>Ring</code> 包含了最后6行的总和，如下所示：</p>
-<div class="highlight"><pre><span></span><code><span class="o">|</span><span class="w">  </span><span class="n">two</span><span class="w">   </span><span class="o">|</span><span class="w">  </span><span class="mi">19</span><span class="w">       </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">  </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="mi">18</span><span class="o">+</span><span class="mi">20</span><span class="o">+</span><span class="mi">21</span><span class="o">+</span><span class="mi">24</span><span class="o">+</span><span class="mi">19</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">|</span>  <span class="n">two</span>   <span class="o">|</span>  <span class="mi">19</span>       <span class="o">|</span>
+<span class="o">|</span>  <span class="n">three</span> <span class="o">|</span>  <span class="mi">18</span><span class="o">+</span><span class="mi">20</span><span class="o">+</span><span class="mi">21</span><span class="o">+</span><span class="mi">24</span><span class="o">+</span><span class="mi">19</span> <span class="o">|</span>
 </code></pre></div>
 <p>先调用 <code>Ring</code> 的 <code>Add</code> 方法将两个组合并到一起，再调用 <code>Eval</code> 方法将整体结果返回。</p>
-<div class="highlight"><pre><span></span><code><span class="o">|</span><span class="w">  </span><span class="n">one</span><span class="w">   </span><span class="o">|</span><span class="w">  </span><span class="mi">23</span><span class="o">+</span><span class="mi">20</span><span class="o">+</span><span class="mi">22</span><span class="w">       </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">  </span><span class="n">two</span><span class="w">   </span><span class="o">|</span><span class="w">  </span><span class="mi">20</span><span class="o">+</span><span class="mi">19</span><span class="w">       </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">  </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="mi">18</span><span class="o">+</span><span class="mi">20</span><span class="o">+</span><span class="mi">21</span><span class="o">+</span><span class="mi">24</span><span class="o">+</span><span class="mi">19</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">|</span>  <span class="n">one</span>   <span class="o">|</span>  <span class="mi">23</span><span class="o">+</span><span class="mi">20</span><span class="o">+</span><span class="mi">22</span>       <span class="o">|</span>
+<span class="o">|</span>  <span class="n">two</span>   <span class="o">|</span>  <span class="mi">20</span><span class="o">+</span><span class="mi">19</span>       <span class="o">|</span>
+<span class="o">|</span>  <span class="n">three</span> <span class="o">|</span>  <span class="mi">18</span><span class="o">+</span><span class="mi">20</span><span class="o">+</span><span class="mi">21</span><span class="o">+</span><span class="mi">24</span><span class="o">+</span><span class="mi">19</span> <span class="o">|</span>
 </code></pre></div>
 <h3 id="2">2. 连接多个表的查询</h3>
 <p>在多表连接查询场景中，假设已建好两个表 <code>Tc</code> 和 <code>Ts</code>，查询示例如下所示：</p>
-<div class="highlight"><pre><span></span><code><span class="n">Tc</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">Tc</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="k">class</span><span class="p">)</span>
 <span class="o">+</span><span class="c1">------+-------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">id</span>   <span class="o">|</span> <span class="k">class</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">one</span><span class="w">   </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">one</span><span class="w">   </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">one</span><span class="w">   </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">two</span><span class="w">   </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">two</span><span class="w">   </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">7</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">9</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="mi">10</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>    <span class="mi">1</span> <span class="o">|</span> <span class="n">one</span>   <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">2</span> <span class="o">|</span> <span class="n">one</span>   <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">3</span> <span class="o">|</span> <span class="n">one</span>   <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">4</span> <span class="o">|</span> <span class="n">two</span>   <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">5</span> <span class="o">|</span> <span class="n">two</span>   <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">6</span> <span class="o">|</span> <span class="n">three</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">7</span> <span class="o">|</span> <span class="n">three</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">8</span> <span class="o">|</span> <span class="n">three</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">9</span> <span class="o">|</span> <span class="n">three</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="mi">10</span> <span class="o">|</span> <span class="n">three</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-------+</span>
 
-<span class="n">Ts</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"></span>
+<span class="n">Ts</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
 <span class="o">+</span><span class="c1">------+------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">age</span><span class="w">  </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">id</span>   <span class="o">|</span> <span class="n">age</span>  <span class="o">|</span>
 <span class="o">+</span><span class="c1">------+------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">23</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">20</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">22</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">20</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">19</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">18</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">7</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">20</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">8</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">24</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">9</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">24</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="mi">10</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">19</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>    <span class="mi">1</span> <span class="o">|</span>   <span class="mi">23</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">2</span> <span class="o">|</span>   <span class="mi">20</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">3</span> <span class="o">|</span>   <span class="mi">22</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">4</span> <span class="o">|</span>   <span class="mi">20</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">5</span> <span class="o">|</span>   <span class="mi">19</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">6</span> <span class="o">|</span>   <span class="mi">18</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">7</span> <span class="o">|</span>   <span class="mi">20</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">8</span> <span class="o">|</span>   <span class="mi">24</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">9</span> <span class="o">|</span>   <span class="mi">24</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="mi">10</span> <span class="o">|</span>   <span class="mi">19</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">------+------+</span>
 
-<span class="k">select</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Tc</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">Ts</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">Tc</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ts</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">class</span><span class="p">;</span><span class="w"></span>
+<span class="k">select</span> <span class="k">class</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">from</span> <span class="n">Tc</span> <span class="k">join</span> <span class="n">Ts</span> <span class="k">on</span> <span class="n">Tc</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">.</span><span class="n">id</span> <span class="k">group</span> <span class="k">by</span> <span class="k">class</span><span class="p">;</span>
 </code></pre></div>
 <p>执行这个查询时，这个查询首先是对 <code>age</code> 这列执行聚合，那么它将首先为 <code>Ts</code> 表生成 <code>Ring</code>。</p>
 <p>它也可能生成一个或多个 <code>Ring</code> 相同的单表。为了易理解，这里假设每个表只创建一个 <code>Ring</code>。</p>
@@ -4531,32 +4470,32 @@ Below are two different implementations for <code>Variance</code> (the second on
 <p>这个公式的结果和上一条公式的计算结果完全一样，在计算过程中，只需要记录 <em>xi^2</em> 和 <em>xi</em> 的和。通过这种重构，大大减少了内存空间。</p>
 <p>总之，每个聚合函数都可以找到一种方法来记录尽可能少的值，以降低使用内存空间。</p>
 <p>下面是“方差”的两种不同实现过程，且第二个实现过程具有更好的性能：</p>
-<div class="highlight"><pre><span></span><code><span class="w">   </span><span class="c1">//Implementation1</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>   <span class="c1">//Implementation1</span>
 
-<span class="w">   </span><span class="kd">type</span><span class="w"> </span><span class="nx">VarRing</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Typ is vector&#39;s value type</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Typ</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">Type</span><span class="w"></span>
+   <span class="kd">type</span> <span class="nx">VarRing</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="c1">// Typ is vector&#39;s value type</span>
+    <span class="nx">Typ</span> <span class="nx">types</span><span class="p">.</span><span class="nx">Type</span>
 
-<span class="w">    </span><span class="c1">// attributes for computing the variance</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Data</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="w">    </span><span class="c1">// store all the Sums&#39; bytes</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Sums</span><span class="w">  </span><span class="p">[]</span><span class="kt">float64</span><span class="w"> </span><span class="c1">// sums of each group, its memory address is same to Data</span><span class="w"></span>
+    <span class="c1">// attributes for computing the variance</span>
+    <span class="nx">Data</span> <span class="p">[]</span><span class="kt">byte</span>    <span class="c1">// store all the Sums&#39; bytes</span>
+    <span class="nx">Sums</span>  <span class="p">[]</span><span class="kt">float64</span> <span class="c1">// sums of each group, its memory address is same to Data</span>
 
-<span class="w">    </span><span class="nx">Values</span><span class="w"> </span><span class="p">[][]</span><span class="kt">float64</span><span class="w">  </span><span class="c1">// values of each group</span><span class="w"></span>
-<span class="w">    </span><span class="nx">NullCounts</span><span class="w"> </span><span class="p">[]</span><span class="kt">int64</span><span class="w">   </span><span class="c1">// group to record number of the null value</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+    <span class="nx">Values</span> <span class="p">[][]</span><span class="kt">float64</span>  <span class="c1">// values of each group</span>
+    <span class="nx">NullCounts</span> <span class="p">[]</span><span class="kt">int64</span>   <span class="c1">// group to record number of the null value</span>
+   <span class="p">}</span>
 
-<span class="w">   </span><span class="c1">//Implementation2</span><span class="w"></span>
-<span class="w">   </span><span class="kd">type</span><span class="w"> </span><span class="nx">VarRing</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Typ is vector&#39;s value type</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Typ</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">Type</span><span class="w"></span>
+   <span class="c1">//Implementation2</span>
+   <span class="kd">type</span> <span class="nx">VarRing</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="c1">// Typ is vector&#39;s value type</span>
+    <span class="nx">Typ</span> <span class="nx">types</span><span class="p">.</span><span class="nx">Type</span>
 
-<span class="w">    </span><span class="c1">// attributes for computing the variance</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Data</span><span class="w">  </span><span class="p">[]</span><span class="kt">byte</span><span class="w"></span>
-<span class="w">    </span><span class="nx">SumX</span><span class="w">  </span><span class="p">[]</span><span class="kt">float64</span><span class="w"> </span><span class="c1">// sum of x, its memory address is same to Data, because we will use it to store result finally.</span><span class="w"></span>
-<span class="w">    </span><span class="nx">SumX2</span><span class="w"> </span><span class="p">[]</span><span class="kt">float64</span><span class="w"> </span><span class="c1">// sum of x^2</span><span class="w"></span>
+    <span class="c1">// attributes for computing the variance</span>
+    <span class="nx">Data</span>  <span class="p">[]</span><span class="kt">byte</span>
+    <span class="nx">SumX</span>  <span class="p">[]</span><span class="kt">float64</span> <span class="c1">// sum of x, its memory address is same to Data, because we will use it to store result finally.</span>
+    <span class="nx">SumX2</span> <span class="p">[]</span><span class="kt">float64</span> <span class="c1">// sum of x^2</span>
 
-<span class="w">    </span><span class="nx">NullCounts</span><span class="w"> </span><span class="p">[]</span><span class="kt">int64</span><span class="w"> </span><span class="c1">// group to record number of the null value</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+    <span class="nx">NullCounts</span> <span class="p">[]</span><span class="kt">int64</span> <span class="c1">// group to record number of the null value</span>
+   <span class="p">}</span>
 </code></pre></div>
 <h2 id="var"><strong>开发 <code>var()</code> 函数</strong></h2>
 <p>在本教程中，我们将以两种不同的方法为例，介绍 Variance(获得标准总体方差值)聚合函数的完整实现过程。</p>
@@ -4564,27 +4503,27 @@ Below are two different implementations for <code>Variance</code> (the second on
 <p>MatrixOne 不区分运算符和函数。</p>
 <p>在代码存储库中，文件 <code>pkg/sql/viewexec/transformer/types.go</code> 将聚合函数注册为操作符，并为每个操作符赋值一个不同的整数。</p>
 <p>新增一个新函数 <code>var()</code>，首先在常量声明中添加一个新的常量 <code>Variance</code>，在名称声明中添加一个 <code>var</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="w">   </span><span class="kd">const</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Sum</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">iota</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Avg</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Max</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Min</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Count</span><span class="w"></span>
-<span class="w">    </span><span class="nx">StarCount</span><span class="w"></span>
-<span class="w">    </span><span class="nx">ApproxCountDistinct</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Variance</span><span class="w"></span>
-<span class="w">   </span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>   <span class="kd">const</span> <span class="p">(</span>
+    <span class="nx">Sum</span> <span class="p">=</span> <span class="kc">iota</span>
+    <span class="nx">Avg</span>
+    <span class="nx">Max</span>
+    <span class="nx">Min</span>
+    <span class="nx">Count</span>
+    <span class="nx">StarCount</span>
+    <span class="nx">ApproxCountDistinct</span>
+    <span class="nx">Variance</span>
+   <span class="p">)</span>
 
-<span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="nx">TransformerNames</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Sum</span><span class="p">:</span><span class="w">                 </span><span class="s">&quot;sum&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Avg</span><span class="p">:</span><span class="w">                 </span><span class="s">&quot;avg&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Max</span><span class="p">:</span><span class="w">                 </span><span class="s">&quot;max&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Min</span><span class="p">:</span><span class="w">                 </span><span class="s">&quot;min&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Count</span><span class="p">:</span><span class="w">               </span><span class="s">&quot;count&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">StarCount</span><span class="p">:</span><span class="w">           </span><span class="s">&quot;starcount&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">ApproxCountDistinct</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;approx_count_distinct&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Variance</span><span class="p">:</span><span class="w">            </span><span class="s">&quot;var&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+   <span class="kd">var</span> <span class="nx">TransformerNames</span> <span class="p">=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+    <span class="nx">Sum</span><span class="p">:</span>                 <span class="s">&quot;sum&quot;</span><span class="p">,</span>
+    <span class="nx">Avg</span><span class="p">:</span>                 <span class="s">&quot;avg&quot;</span><span class="p">,</span>
+    <span class="nx">Max</span><span class="p">:</span>                 <span class="s">&quot;max&quot;</span><span class="p">,</span>
+    <span class="nx">Min</span><span class="p">:</span>                 <span class="s">&quot;min&quot;</span><span class="p">,</span>
+    <span class="nx">Count</span><span class="p">:</span>               <span class="s">&quot;count&quot;</span><span class="p">,</span>
+    <span class="nx">StarCount</span><span class="p">:</span>           <span class="s">&quot;starcount&quot;</span><span class="p">,</span>
+    <span class="nx">ApproxCountDistinct</span><span class="p">:</span> <span class="s">&quot;approx_count_distinct&quot;</span><span class="p">,</span>
+    <span class="nx">Variance</span><span class="p">:</span>            <span class="s">&quot;var&quot;</span><span class="p">,</span>
+   <span class="p">}</span>
 </code></pre></div>
 <h3 id="2-ring">步骤 2：执行 <code>Ring</code> 接口</h3>
 <ol>
@@ -4595,32 +4534,32 @@ Below are two different implementations for <code>Variance</code> (the second on
 <li>计算数值 <code>Sums</code> 和每组的空值的平均值。</li>
 <li>计算各组值的方差。</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="w">   </span><span class="c1">//Implementation1</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>   <span class="c1">//Implementation1</span>
 
-<span class="w">   </span><span class="kd">type</span><span class="w"> </span><span class="nx">VarRing</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Typ is vector&#39;s value type</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Typ</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">Type</span><span class="w"></span>
+   <span class="kd">type</span> <span class="nx">VarRing</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="c1">// Typ is vector&#39;s value type</span>
+    <span class="nx">Typ</span> <span class="nx">types</span><span class="p">.</span><span class="nx">Type</span>
 
-<span class="w">    </span><span class="c1">// attributes for computing the variance</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Data</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="w">    </span><span class="c1">// store all the Sums&#39; bytes</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Sums</span><span class="w">  </span><span class="p">[]</span><span class="kt">float64</span><span class="w"> </span><span class="c1">// sums of each group, its memory address is same to Data</span><span class="w"></span>
+    <span class="c1">// attributes for computing the variance</span>
+    <span class="nx">Data</span> <span class="p">[]</span><span class="kt">byte</span>    <span class="c1">// store all the Sums&#39; bytes</span>
+    <span class="nx">Sums</span>  <span class="p">[]</span><span class="kt">float64</span> <span class="c1">// sums of each group, its memory address is same to Data</span>
 
-<span class="w">    </span><span class="nx">Values</span><span class="w"> </span><span class="p">[][]</span><span class="kt">float64</span><span class="w">  </span><span class="c1">// values of each group</span><span class="w"></span>
-<span class="w">    </span><span class="nx">NullCounts</span><span class="w"> </span><span class="p">[]</span><span class="kt">int64</span><span class="w">   </span><span class="c1">// group to record number of the null value</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+    <span class="nx">Values</span> <span class="p">[][]</span><span class="kt">float64</span>  <span class="c1">// values of each group</span>
+    <span class="nx">NullCounts</span> <span class="p">[]</span><span class="kt">int64</span>   <span class="c1">// group to record number of the null value</span>
+   <span class="p">}</span>
 
-<span class="w">   </span><span class="c1">//Implementation2</span><span class="w"></span>
-<span class="w">   </span><span class="kd">type</span><span class="w"> </span><span class="nx">VarRing</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Typ is vector&#39;s value type</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Typ</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">Type</span><span class="w"></span>
+   <span class="c1">//Implementation2</span>
+   <span class="kd">type</span> <span class="nx">VarRing</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="c1">// Typ is vector&#39;s value type</span>
+    <span class="nx">Typ</span> <span class="nx">types</span><span class="p">.</span><span class="nx">Type</span>
 
-<span class="w">    </span><span class="c1">// attributes for computing the variance</span><span class="w"></span>
-<span class="w">    </span><span class="nx">Data</span><span class="w">  </span><span class="p">[]</span><span class="kt">byte</span><span class="w"></span>
-<span class="w">    </span><span class="nx">SumX</span><span class="w">  </span><span class="p">[]</span><span class="kt">float64</span><span class="w"> </span><span class="c1">// sum of x, its memory address is same to Data, because we will use it to store result finally.</span><span class="w"></span>
-<span class="w">    </span><span class="nx">SumX2</span><span class="w"> </span><span class="p">[]</span><span class="kt">float64</span><span class="w"> </span><span class="c1">// sum of x^2</span><span class="w"></span>
+    <span class="c1">// attributes for computing the variance</span>
+    <span class="nx">Data</span>  <span class="p">[]</span><span class="kt">byte</span>
+    <span class="nx">SumX</span>  <span class="p">[]</span><span class="kt">float64</span> <span class="c1">// sum of x, its memory address is same to Data, because we will use it to store result finally.</span>
+    <span class="nx">SumX2</span> <span class="p">[]</span><span class="kt">float64</span> <span class="c1">// sum of x^2</span>
 
-<span class="w">    </span><span class="nx">NullCounts</span><span class="w"> </span><span class="p">[]</span><span class="kt">int64</span><span class="w"> </span><span class="c1">// group to record number of the null value</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+    <span class="nx">NullCounts</span> <span class="p">[]</span><span class="kt">int64</span> <span class="c1">// group to record number of the null value</span>
+   <span class="p">}</span>
 </code></pre></div>
 <ol>
 <li>实现 <code>Ring</code> 接口的功能</li>
@@ -4629,140 +4568,140 @@ Below are two different implementations for <code>Variance</code> (the second on
 <ul>
 <li><code>Fill</code> 函数</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="w">      </span><span class="c1">//Implementation1</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>      <span class="c1">//Implementation1</span>
 
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"> </span><span class="nx">Fill</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int64</span><span class="p">,</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="kt">int64</span><span class="p">,</span><span class="w"> </span><span class="nx">vec</span><span class="w"> </span><span class="o">*</span><span class="nx">vector</span><span class="p">.</span><span class="nx">Vector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="kt">float64</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+    <span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span> <span class="nx">Fill</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int64</span><span class="p">,</span> <span class="nx">z</span> <span class="kt">int64</span><span class="p">,</span> <span class="nx">vec</span> <span class="o">*</span><span class="nx">vector</span><span class="p">.</span><span class="nx">Vector</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">value</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mi">0</span>
 
-<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="nx">vec</span><span class="p">.</span><span class="nx">Typ</span><span class="p">.</span><span class="nx">Oid</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">T_int8</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nx">value</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">vec</span><span class="p">.</span><span class="nx">Col</span><span class="p">.([]</span><span class="kt">int8</span><span class="p">)[</span><span class="nx">j</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="o">...</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">z</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="o">--</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+        <span class="k">switch</span> <span class="nx">vec</span><span class="p">.</span><span class="nx">Typ</span><span class="p">.</span><span class="nx">Oid</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nx">types</span><span class="p">.</span><span class="nx">T_int8</span><span class="p">:</span>
+            <span class="nx">value</span> <span class="p">=</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">vec</span><span class="p">.</span><span class="nx">Col</span><span class="p">.([]</span><span class="kt">int8</span><span class="p">)[</span><span class="nx">j</span><span class="p">])</span>
+        <span class="k">case</span> <span class="o">...</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="nx">z</span><span class="p">;</span> <span class="nx">k</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">k</span><span class="o">--</span> <span class="p">{</span>
+            <span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">value</span><span class="p">)</span>
+        <span class="p">}</span>
 
-<span class="w">        </span><span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span><span class="w"></span>
+        <span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">value</span> <span class="o">*</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">nulls</span><span class="p">.</span><span class="nx">Contains</span><span class="p">(</span><span class="nx">vec</span><span class="p">.</span><span class="nx">Nsp</span><span class="p">,</span><span class="w"> </span><span class="nb">uint64</span><span class="p">(</span><span class="nx">z</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">z</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">       </span><span class="p">}</span><span class="w"></span>
+        <span class="k">if</span> <span class="nx">nulls</span><span class="p">.</span><span class="nx">Contains</span><span class="p">(</span><span class="nx">vec</span><span class="p">.</span><span class="nx">Nsp</span><span class="p">,</span> <span class="nb">uint64</span><span class="p">(</span><span class="nx">z</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">z</span>
+        <span class="p">}</span>
+       <span class="p">}</span>
 
-<span class="w">       </span><span class="c1">//Implementation2</span><span class="w"></span>
+       <span class="c1">//Implementation2</span>
 
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"> </span><span class="nx">Fill</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int64</span><span class="p">,</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="kt">int64</span><span class="p">,</span><span class="w"> </span><span class="nx">vec</span><span class="w"> </span><span class="o">*</span><span class="nx">vector</span><span class="p">.</span><span class="nx">Vector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="kt">float64</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+    <span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span> <span class="nx">Fill</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int64</span><span class="p">,</span> <span class="nx">z</span> <span class="kt">int64</span><span class="p">,</span> <span class="nx">vec</span> <span class="o">*</span><span class="nx">vector</span><span class="p">.</span><span class="nx">Vector</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">value</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mi">0</span>
 
-<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="nx">vec</span><span class="p">.</span><span class="nx">Typ</span><span class="p">.</span><span class="nx">Oid</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">T_int8</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nx">value</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">vec</span><span class="p">.</span><span class="nx">Col</span><span class="p">.([]</span><span class="kt">int8</span><span class="p">)[</span><span class="nx">j</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="o">...</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+        <span class="k">switch</span> <span class="nx">vec</span><span class="p">.</span><span class="nx">Typ</span><span class="p">.</span><span class="nx">Oid</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nx">types</span><span class="p">.</span><span class="nx">T_int8</span><span class="p">:</span>
+            <span class="nx">value</span> <span class="p">=</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">vec</span><span class="p">.</span><span class="nx">Col</span><span class="p">.([]</span><span class="kt">int8</span><span class="p">)[</span><span class="nx">j</span><span class="p">])</span>
+        <span class="k">case</span> <span class="o">...</span>
+        <span class="p">}</span>
 
-<span class="w">        </span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span><span class="w"></span>
+        <span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">value</span> <span class="o">*</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span>
+        <span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">nulls</span><span class="p">.</span><span class="nx">Contains</span><span class="p">(</span><span class="nx">vec</span><span class="p">.</span><span class="nx">Nsp</span><span class="p">,</span><span class="w"> </span><span class="nb">uint64</span><span class="p">(</span><span class="nx">z</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">z</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+        <span class="k">if</span> <span class="nx">nulls</span><span class="p">.</span><span class="nx">Contains</span><span class="p">(</span><span class="nx">vec</span><span class="p">.</span><span class="nx">Nsp</span><span class="p">,</span> <span class="nb">uint64</span><span class="p">(</span><span class="nx">z</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">z</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
 </code></pre></div>
 <ul>
 <li><code>Add</code> 函数</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="w">      </span><span class="c1">//Implementation1</span><span class="w"></span>
-<span class="w">      </span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"> </span><span class="nx">Add</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="kt">int64</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nx">v2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">a</span><span class="p">.(</span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="w"></span>
-<span class="w">          </span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="w"></span>
-<span class="w">          </span><span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">x</span><span class="p">],</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>      <span class="c1">//Implementation1</span>
+      <span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span> <span class="nx">Add</span><span class="p">(</span><span class="nx">a</span> <span class="kd">interface</span><span class="p">{},</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">v2</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">.(</span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span>
+          <span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span>
+          <span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span>
+          <span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">x</span><span class="p">],</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="o">...</span><span class="p">)</span>
+      <span class="p">}</span>
 
-<span class="w">      </span><span class="c1">//Implementation2</span><span class="w"></span>
-<span class="w">      </span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"> </span><span class="nx">Add</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="kt">int64</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">a</span><span class="p">.(</span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+      <span class="c1">//Implementation2</span>
+      <span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span> <span class="nx">Add</span><span class="p">(</span><span class="nx">a</span> <span class="kd">interface</span><span class="p">{},</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">v2</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">.(</span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span>
+        <span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span>
+        <span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span>
+        <span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span>
+      <span class="p">}</span>
 </code></pre></div>
 <ul>
 <li><code>Mul</code> 函数  </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="w">      </span><span class="c1">//Implementation1</span><span class="w"></span>
-<span class="w">      </span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"> </span><span class="nx">Mul</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="kt">int64</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nx">v2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">a</span><span class="p">.(</span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span><span class="w"></span>
-<span class="w">              </span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">z</span><span class="w"></span>
-<span class="w">              </span><span class="k">for</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">z</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="o">--</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                  </span><span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">x</span><span class="p">],</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
-<span class="w">              </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>      <span class="c1">//Implementation1</span>
+      <span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span> <span class="nx">Mul</span><span class="p">(</span><span class="nx">a</span> <span class="kd">interface</span><span class="p">{},</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">v2</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">.(</span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span>
+          <span class="p">{</span>
+              <span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span> <span class="o">*</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span>
+              <span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span> <span class="o">*</span> <span class="nx">z</span>
+              <span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="nx">z</span><span class="p">;</span> <span class="nx">k</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">k</span><span class="o">--</span> <span class="p">{</span>
+                  <span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">x</span><span class="p">],</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="o">...</span><span class="p">)</span>
+              <span class="p">}</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
 
-<span class="w">      </span><span class="c1">//Implementation2</span><span class="w"></span>
-<span class="w">      </span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"> </span><span class="nx">Mul</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="kt">int64</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">a</span><span class="p">.(</span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v2</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">z</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+      <span class="c1">//Implementation2</span>
+      <span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span> <span class="nx">Mul</span><span class="p">(</span><span class="nx">a</span> <span class="kd">interface</span><span class="p">{},</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">v2</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">.(</span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span> <span class="o">*</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span>
+            <span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span> <span class="o">*</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">z</span><span class="p">)</span>
+            <span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">v2</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span> <span class="o">*</span> <span class="nx">z</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
 </code></pre></div>
 <ul>
 <li><code>Eval</code> 函数</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="w">         </span><span class="c1">//Implementation1</span><span class="w"></span>
-<span class="w">      </span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"> </span><span class="nx">Eval</span><span class="p">(</span><span class="nx">zs</span><span class="w"> </span><span class="p">[]</span><span class="kt">int64</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">vector</span><span class="p">.</span><span class="nx">Vector</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="o">...</span><span class="w"></span>
-<span class="w">          </span><span class="p">}()</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>         <span class="c1">//Implementation1</span>
+      <span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span> <span class="nx">Eval</span><span class="p">(</span><span class="nx">zs</span> <span class="p">[]</span><span class="kt">int64</span><span class="p">)</span> <span class="o">*</span><span class="nx">vector</span><span class="p">.</span><span class="nx">Vector</span> <span class="p">{</span>
+          <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+              <span class="o">...</span>
+          <span class="p">}()</span>
 
-<span class="w">          </span><span class="nx">nsp</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">new</span><span class="p">(</span><span class="nx">nulls</span><span class="p">.</span><span class="nx">Nulls</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">zs</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                  </span><span class="nx">nulls</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">nsp</span><span class="p">,</span><span class="w"> </span><span class="nb">uint64</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span><span class="w"></span>
-<span class="w">              </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                  </span><span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"></span>
+          <span class="nx">nsp</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">nulls</span><span class="p">.</span><span class="nx">Nulls</span><span class="p">)</span>
+          <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">z</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">zs</span> <span class="p">{</span>
+              <span class="k">if</span> <span class="nx">n</span> <span class="o">:=</span> <span class="nx">z</span> <span class="o">-</span> <span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="nx">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+                  <span class="nx">nulls</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">nsp</span><span class="p">,</span> <span class="nb">uint64</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span>
+              <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                  <span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">/=</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
 
-<span class="w">                  </span><span class="kd">var</span><span class="w"> </span><span class="nx">variance</span><span class="w"> </span><span class="kt">float64</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">                  </span><span class="nx">avg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"></span>
-<span class="w">                  </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                      </span><span class="nx">variance</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="nx">value</span><span class="o">-</span><span class="nx">avg</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"></span>
-<span class="w">                  </span><span class="p">}</span><span class="w"></span>
-<span class="w">                  </span><span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">variance</span><span class="w"></span>
-<span class="w">              </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
+                  <span class="kd">var</span> <span class="nx">variance</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mi">0</span>
+                  <span class="nx">avg</span> <span class="o">:=</span> <span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+                  <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">value</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">v</span><span class="p">.</span><span class="nx">Values</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
+                      <span class="nx">variance</span> <span class="o">+=</span> <span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="nx">value</span><span class="o">-</span><span class="nx">avg</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+                  <span class="p">}</span>
+                  <span class="nx">v</span><span class="p">.</span><span class="nx">Sums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">variance</span>
+              <span class="p">}</span>
+          <span class="p">}</span>
 
-<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="o">...</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+          <span class="k">return</span> <span class="o">...</span>
+      <span class="p">}</span>
 
-<span class="w">       </span><span class="c1">//Implementation2</span><span class="w"></span>
-<span class="w">      </span><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"> </span><span class="nx">Eval</span><span class="p">(</span><span class="nx">zs</span><span class="w"> </span><span class="p">[]</span><span class="kt">int64</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">vector</span><span class="p">.</span><span class="nx">Vector</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="o">...</span><span class="w"></span>
-<span class="w">        </span><span class="p">}()</span><span class="w"></span>
+       <span class="c1">//Implementation2</span>
+      <span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span> <span class="nx">Eval</span><span class="p">(</span><span class="nx">zs</span> <span class="p">[]</span><span class="kt">int64</span><span class="p">)</span> <span class="o">*</span><span class="nx">vector</span><span class="p">.</span><span class="nx">Vector</span> <span class="p">{</span>
+        <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+            <span class="o">...</span>
+        <span class="p">}()</span>
 
-<span class="w">        </span><span class="nx">nsp</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">new</span><span class="p">(</span><span class="nx">nulls</span><span class="p">.</span><span class="nx">Nulls</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">zs</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nx">nulls</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">nsp</span><span class="p">,</span><span class="w"> </span><span class="nb">uint64</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w">  </span><span class="c1">// compute E(x)</span><span class="w"></span>
-<span class="w">                </span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="c1">// compute E(x^2)</span><span class="w"></span>
+        <span class="nx">nsp</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">nulls</span><span class="p">.</span><span class="nx">Nulls</span><span class="p">)</span>
+        <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">z</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">zs</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="nx">n</span> <span class="o">:=</span> <span class="nx">z</span> <span class="o">-</span> <span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="nx">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="nx">nulls</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">nsp</span><span class="p">,</span> <span class="nb">uint64</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">/=</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>  <span class="c1">// compute E(x)</span>
+                <span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">/=</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="c1">// compute E(x^2)</span>
 
-<span class="w">                </span><span class="nx">variance</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+                <span class="nx">variance</span> <span class="o">:=</span> <span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="w">                </span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">variance</span><span class="w"> </span><span class="c1">// using v.SumX to record the result and return.</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+                <span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">variance</span> <span class="c1">// using v.SumX to record the result and return.</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
 
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">...</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+        <span class="k">return</span> <span class="o">...</span>
+      <span class="p">}</span>
 </code></pre></div>
 <ol>
 <li>实现 <code>VarRing</code> 的编码和解码：在<code>pkg/sql/protocol/protocol.go</code>文件中，实现<code>VarRing</code>的序列化和反序列化代码。</li>
@@ -4784,68 +4723,68 @@ Below are two different implementations for <code>Variance</code> (the second on
 <ul>
 <li>序列化：</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="o">*</span><span class="nx">variance</span><span class="p">.</span><span class="nx">VarRing</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nx">buf</span><span class="p">.</span><span class="nx">WriteByte</span><span class="p">(</span><span class="nx">VarianceRing</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// NullCounts</span><span class="w"></span>
-<span class="w">        </span><span class="nx">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeUint32</span><span class="p">(</span><span class="nb">uint32</span><span class="p">(</span><span class="nx">n</span><span class="p">)))</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeInt64Slice</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">))</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Sumx2</span><span class="w"></span>
-<span class="w">        </span><span class="nx">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeUint32</span><span class="p">(</span><span class="nb">uint32</span><span class="p">(</span><span class="nx">n</span><span class="p">)))</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeFloat64Slice</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">))</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Sumx</span><span class="w"></span>
-<span class="w">        </span><span class="nx">da</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeFloat64Slice</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="nx">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">da</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeUint32</span><span class="p">(</span><span class="nb">uint32</span><span class="p">(</span><span class="nx">n</span><span class="p">)))</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">da</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Typ</span><span class="w"></span>
-<span class="w">        </span><span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeType</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">Typ</span><span class="p">))</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>   <span class="k">case</span> <span class="o">*</span><span class="nx">variance</span><span class="p">.</span><span class="nx">VarRing</span><span class="p">:</span>
+        <span class="nx">buf</span><span class="p">.</span><span class="nx">WriteByte</span><span class="p">(</span><span class="nx">VarianceRing</span><span class="p">)</span>
+        <span class="c1">// NullCounts</span>
+        <span class="nx">n</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">)</span>
+        <span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeUint32</span><span class="p">(</span><span class="nb">uint32</span><span class="p">(</span><span class="nx">n</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="nx">n</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeInt64Slice</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">))</span>
+        <span class="p">}</span>
+        <span class="c1">// Sumx2</span>
+        <span class="nx">n</span> <span class="p">=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">)</span>
+        <span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeUint32</span><span class="p">(</span><span class="nb">uint32</span><span class="p">(</span><span class="nx">n</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="nx">n</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeFloat64Slice</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">))</span>
+        <span class="p">}</span>
+        <span class="c1">// Sumx</span>
+        <span class="nx">da</span> <span class="o">:=</span> <span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeFloat64Slice</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">SumX</span><span class="p">)</span>
+        <span class="nx">n</span> <span class="p">=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">da</span><span class="p">)</span>
+        <span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeUint32</span><span class="p">(</span><span class="nb">uint32</span><span class="p">(</span><span class="nx">n</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="nx">n</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">da</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="c1">// Typ</span>
+        <span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeType</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">Typ</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">nil</span>
 </code></pre></div>
 <ul>
 <li>反序列化：</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="nx">VarianceRing</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">new</span><span class="p">(</span><span class="nx">variance</span><span class="p">.</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>  <span class="k">case</span> <span class="nx">VarianceRing</span><span class="p">:</span>
+        <span class="nx">r</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">variance</span><span class="p">.</span><span class="nx">VarRing</span><span class="p">)</span>
+        <span class="nx">data</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
-<span class="w">        </span><span class="c1">// decode NullCounts</span><span class="w"></span>
-<span class="w">        </span><span class="nx">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeUint32</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">r</span><span class="p">.</span><span class="nx">NullCounts</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">int64</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="nb">copy</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">,</span><span class="w"> </span><span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeInt64Slice</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="nx">n</span><span class="o">*</span><span class="mi">8</span><span class="p">]))</span><span class="w"></span>
-<span class="w">            </span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="nx">n</span><span class="o">*</span><span class="mi">8</span><span class="p">:]</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// decode Sumx2</span><span class="w"></span>
-<span class="w">        </span><span class="nx">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeUint32</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">r</span><span class="p">.</span><span class="nx">SumX2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">float64</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="nb">copy</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">,</span><span class="w"> </span><span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeFloat64Slice</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="nx">n</span><span class="o">*</span><span class="mi">8</span><span class="p">]))</span><span class="w"></span>
-<span class="w">            </span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="nx">n</span><span class="o">*</span><span class="mi">8</span><span class="p">:]</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// decode Sumx</span><span class="w"></span>
-<span class="w">        </span><span class="nx">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeUint32</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">r</span><span class="p">.</span><span class="nx">Data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[:</span><span class="nx">n</span><span class="p">]</span><span class="w"></span>
-<span class="w">            </span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="nx">n</span><span class="p">:]</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="nx">r</span><span class="p">.</span><span class="nx">SumX</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeFloat64Slice</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">Data</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// decode typ</span><span class="w"></span>
-<span class="w">        </span><span class="nx">typ</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeType</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">TypeSize</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">TypeSize</span><span class="p">:]</span><span class="w"></span>
-<span class="w">        </span><span class="nx">r</span><span class="p">.</span><span class="nx">Typ</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">typ</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// return</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="w"></span>
+        <span class="c1">// decode NullCounts</span>
+        <span class="nx">n</span> <span class="o">:=</span> <span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeUint32</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+        <span class="nx">data</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+        <span class="k">if</span> <span class="nx">n</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="nx">r</span><span class="p">.</span><span class="nx">NullCounts</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int64</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
+            <span class="nb">copy</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">,</span> <span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeInt64Slice</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="nx">n</span><span class="o">*</span><span class="mi">8</span><span class="p">]))</span>
+            <span class="nx">data</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">n</span><span class="o">*</span><span class="mi">8</span><span class="p">:]</span>
+        <span class="p">}</span>
+        <span class="c1">// decode Sumx2</span>
+        <span class="nx">n</span> <span class="p">=</span> <span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeUint32</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+        <span class="nx">data</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+        <span class="k">if</span> <span class="nx">n</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="nx">r</span><span class="p">.</span><span class="nx">SumX2</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">float64</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
+            <span class="nb">copy</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">,</span> <span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeFloat64Slice</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="nx">n</span><span class="o">*</span><span class="mi">8</span><span class="p">]))</span>
+            <span class="nx">data</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">n</span><span class="o">*</span><span class="mi">8</span><span class="p">:]</span>
+        <span class="p">}</span>
+        <span class="c1">// decode Sumx</span>
+        <span class="nx">n</span> <span class="p">=</span> <span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeUint32</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+        <span class="nx">data</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+        <span class="k">if</span> <span class="nx">n</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="nx">r</span><span class="p">.</span><span class="nx">Data</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[:</span><span class="nx">n</span><span class="p">]</span>
+            <span class="nx">data</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">n</span><span class="p">:]</span>
+        <span class="p">}</span>
+        <span class="nx">r</span><span class="p">.</span><span class="nx">SumX</span> <span class="p">=</span> <span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeFloat64Slice</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">Data</span><span class="p">)</span>
+        <span class="c1">// decode typ</span>
+        <span class="nx">typ</span> <span class="o">:=</span> <span class="nx">encoding</span><span class="p">.</span><span class="nx">DecodeType</span><span class="p">(</span><span class="nx">data</span><span class="p">[:</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">TypeSize</span><span class="p">])</span>
+        <span class="nx">data</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">TypeSize</span><span class="p">:]</span>
+        <span class="nx">r</span><span class="p">.</span><span class="nx">Typ</span> <span class="p">=</span> <span class="nx">typ</span>
+        <span class="c1">// return</span>
+        <span class="k">return</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kc">nil</span>
 </code></pre></div>
 <p>现在我们可以启动 MatrixOne 并尝试使用 <code>var()</code> 函数了。</p>
 <h2 id="matrixone_1"><strong>编译并运行 MatrixOne</strong></h2>
@@ -4884,47 +4823,47 @@ Enter password:
 <h3 id="4">步骤 4：使用数据测试你的函数行为</h3>
 <p>参考下面的示例，检查是否得到正确的方差结果。</p>
 <p>你也可以使用 <code>inner join</code> 并检查结果，如果结果正确，则表示因数分解是有效的。</p>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">variance</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">variance</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">a</span>    <span class="o">|</span> <span class="n">b</span>    <span class="o">|</span>
 <span class="o">+</span><span class="c1">------+------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="mi">10</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="mi">19</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">12</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">  </span><span class="mi">239</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="mi">114</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="mi">49</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="mi">149</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="mi">10</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="mi">159</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="mi">34</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">35</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>    <span class="mi">1</span> <span class="o">|</span>    <span class="mi">4</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="mi">10</span> <span class="o">|</span>    <span class="mi">3</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="mi">19</span> <span class="o">|</span>   <span class="mi">12</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="mi">239</span> <span class="o">|</span>  <span class="mi">114</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="mi">49</span> <span class="o">|</span>  <span class="mi">149</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="mi">10</span> <span class="o">|</span>  <span class="mi">159</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">1</span> <span class="o">|</span>    <span class="mi">3</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="mi">34</span> <span class="o">|</span>   <span class="mi">35</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">------+------+</span>
-<span class="mi">8</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">04</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="mi">8</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">04</span> <span class="n">sec</span><span class="p">)</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">variance2</span><span class="p">;</span><span class="w"></span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">variance2</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">    </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">a</span>    <span class="o">|</span> <span class="n">b</span>    <span class="o">|</span>
 <span class="o">+</span><span class="c1">------+------+</span>
-<span class="o">|</span><span class="w">   </span><span class="mi">14</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">3514</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="mi">10</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">3514</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">61</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>   <span class="mi">14</span> <span class="o">|</span> <span class="mi">3514</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="mi">10</span> <span class="o">|</span> <span class="mi">3514</span> <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">1</span> <span class="o">|</span>   <span class="mi">61</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">------+------+</span>
-<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span> <span class="n">sec</span><span class="p">)</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">variance</span><span class="p">;</span><span class="w"></span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">a</span><span class="p">),</span> <span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">b</span><span class="p">)</span> <span class="k">from</span> <span class="n">variance</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-----------------+-----------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">a</span><span class="p">)</span> <span class="o">|</span> <span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">b</span><span class="p">)</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------------+-----------------+</span>
-<span class="o">|</span><span class="w">       </span><span class="mi">5596</span><span class="p">.</span><span class="mi">2344</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="mi">4150</span><span class="p">.</span><span class="mi">1094</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>       <span class="mi">5596</span><span class="p">.</span><span class="mi">2344</span> <span class="o">|</span>       <span class="mi">4150</span><span class="p">.</span><span class="mi">1094</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------------+-----------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">06</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="mi">1</span> <span class="k">row</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">06</span> <span class="n">sec</span><span class="p">)</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">variance</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">variance</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">variance2</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">variance</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">variance2</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">variance</span><span class="p">.</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">variance</span><span class="p">.</span><span class="n">a</span><span class="p">,</span> <span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">b</span><span class="p">)</span> <span class="k">from</span> <span class="n">variance</span> <span class="k">inner</span> <span class="k">join</span> <span class="n">variance2</span> <span class="k">on</span> <span class="n">variance</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span>  <span class="n">variance2</span><span class="p">.</span><span class="n">a</span> <span class="k">group</span> <span class="k">by</span> <span class="n">variance</span><span class="p">.</span><span class="n">a</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------------+-----------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">variance</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">variance</span><span class="p">.</span><span class="n">a</span> <span class="o">|</span> <span class="n">var</span><span class="p">(</span><span class="n">variance</span><span class="p">.</span><span class="n">b</span><span class="p">)</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">------------+-----------------+</span>
-<span class="o">|</span><span class="w">         </span><span class="mi">10</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="mi">6084</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">          </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">          </span><span class="mi">0</span><span class="p">.</span><span class="mi">2500</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>         <span class="mi">10</span> <span class="o">|</span>       <span class="mi">6084</span><span class="p">.</span><span class="mi">0000</span> <span class="o">|</span>
+<span class="o">|</span>          <span class="mi">1</span> <span class="o">|</span>          <span class="mi">0</span><span class="p">.</span><span class="mi">2500</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">------------+-----------------+</span>
-<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">04</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="mi">2</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">04</span> <span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -4937,83 +4876,83 @@ Enter password:
 </code></pre></div>
 <p>编写一个新的测试套件，先创建一个以 <em>_test.go</em> 结尾的文件，命名需要描述函数名称，例如 <em>variance_test.go</em>；将 <em>variance_test.go</em> 文件与测试文件放在同一个包中，打包构建时，不包含 <em>variance_test.go</em> 文件，但在运行 <code>go test</code> 命令时会包含 <em>variance_test.go</em> 文件，详细步骤，参见下述步骤。</p>
 <h3 id="1-pkgcontainerringvariance-variance_testgo-testing-reflect">步骤 1：在 <code>pkg/container/ring/variance/</code> 目录下新建一个名为 <code>variance_test.go</code> 的文件，并导入用于测试的 <code>testing</code> 框架和 <code>reflect</code> 框架</h3>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">variance</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">variance</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="s">&quot;github.com/matrixorigin/matrixone/pkg/container/types&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="s">&quot;reflect&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="s">&quot;testing&quot;</span><span class="w"></span>
-<span class="p">)</span><span class="w"></span>
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;github.com/matrixorigin/matrixone/pkg/container/types&quot;</span>
+    <span class="s">&quot;reflect&quot;</span>
+    <span class="s">&quot;testing&quot;</span>
+<span class="p">)</span>
 
-<span class="c1">// TestVariance just for verify varRing related process</span><span class="w"></span>
-<span class="kd">func</span><span class="w"> </span><span class="nx">TestVariance</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="c1">// TestVariance just for verify varRing related process</span>
+<span class="kd">func</span> <span class="nx">TestVariance</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
 
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="2-testvariance">步骤 2：通过一些预定义值执行 <code>TestVariance</code> 函数</h3>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="kd">func</span><span class="w"> </span><span class="nx">TestVariance</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// verify that if we can calculate</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// the variance of {1, 2, null, 0, 3, 4} and {2, 3, null, null, 4, 5} correctly</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>  <span class="kd">func</span> <span class="nx">TestVariance</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// verify that if we can calculate</span>
+    <span class="c1">// the variance of {1, 2, null, 0, 3, 4} and {2, 3, null, null, 4, 5} correctly</span>
 
-<span class="w">    </span><span class="c1">// 1. make the test case</span><span class="w"></span>
-<span class="w">    </span><span class="nx">v1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewVarianceRing</span><span class="p">(</span><span class="nx">types</span><span class="p">.</span><span class="nx">Type</span><span class="p">{</span><span class="nx">Oid</span><span class="p">:</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">T_float64</span><span class="p">})</span><span class="w"></span>
-<span class="w">    </span><span class="nx">v2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">v1</span><span class="p">.</span><span class="nx">Dup</span><span class="p">().(</span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// first 3 rows.</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// column1: {1, 2, null}, column2: {2, 3, null}</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v1</span><span class="p">.</span><span class="nx">SumX</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v1</span><span class="p">.</span><span class="nx">SumX2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">1</span><span class="o">*</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="mi">3</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v1</span><span class="p">.</span><span class="nx">NullCounts</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int64</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// last 3 rows.</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// column1: {0, 3, 4}, column2: {null, 4, 5}</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v2</span><span class="p">.</span><span class="nx">SumX</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">0</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">+</span><span class="mi">5</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v2</span><span class="p">.</span><span class="nx">SumX2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">3</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="mi">5</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="nx">v2</span><span class="p">.</span><span class="nx">NullCounts</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int64</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="nx">v1</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">v2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nx">v1</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">v2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+    <span class="c1">// 1. make the test case</span>
+    <span class="nx">v1</span> <span class="o">:=</span> <span class="nx">NewVarianceRing</span><span class="p">(</span><span class="nx">types</span><span class="p">.</span><span class="nx">Type</span><span class="p">{</span><span class="nx">Oid</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">T_float64</span><span class="p">})</span>
+    <span class="nx">v2</span> <span class="o">:=</span> <span class="nx">v1</span><span class="p">.</span><span class="nx">Dup</span><span class="p">().(</span><span class="o">*</span><span class="nx">VarRing</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// first 3 rows.</span>
+        <span class="c1">// column1: {1, 2, null}, column2: {2, 3, null}</span>
+        <span class="nx">v1</span><span class="p">.</span><span class="nx">SumX</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="p">}</span>
+        <span class="nx">v1</span><span class="p">.</span><span class="nx">SumX2</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">1</span><span class="o">*</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="mi">3</span><span class="p">}</span>
+        <span class="nx">v1</span><span class="p">.</span><span class="nx">NullCounts</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">int64</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">{</span>
+        <span class="c1">// last 3 rows.</span>
+        <span class="c1">// column1: {0, 3, 4}, column2: {null, 4, 5}</span>
+        <span class="nx">v2</span><span class="p">.</span><span class="nx">SumX</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">0</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="o">+</span><span class="mi">5</span><span class="p">}</span>
+        <span class="nx">v2</span><span class="p">.</span><span class="nx">SumX2</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">3</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="mi">5</span><span class="p">}</span>
+        <span class="nx">v2</span><span class="p">.</span><span class="nx">NullCounts</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">int64</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">v1</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">v2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="nx">v1</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">v2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="w">    </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">v1</span><span class="p">.</span><span class="nx">Eval</span><span class="p">([]</span><span class="kt">int64</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">})</span><span class="w"></span>
+    <span class="nx">result</span> <span class="o">:=</span> <span class="nx">v1</span><span class="p">.</span><span class="nx">Eval</span><span class="p">([]</span><span class="kt">int64</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">})</span>
 
-<span class="w">    </span><span class="nx">expected</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.25</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">DeepEqual</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Col</span><span class="p">,</span><span class="w"> </span><span class="nx">expected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;TestVariance wrong, expected %v, but got %v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">expected</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">Col</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+    <span class="nx">expected</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">}</span>
+    <span class="k">if</span> <span class="p">!</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">DeepEqual</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Col</span><span class="p">,</span> <span class="nx">expected</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;TestVariance wrong, expected %v, but got %v&quot;</span><span class="p">,</span> <span class="nx">expected</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">Col</span><span class="p">))</span>
+    <span class="p">}</span>
+   <span class="p">}</span>
 </code></pre></div>
 <h3 id="3-pkgsqlprotocolprotocol_testgo-testring">步骤 3：在 <code>pkg/sql/protocol/protocol_test.go</code> 文件内的函数 <code>TestRing</code> 中完成序列化和反序列化的单元测试</h3>
 <p>你可以检查 <code>VarRing</code> 的完整测试代码。</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">&amp;</span><span class="nx">variance</span><span class="p">.</span><span class="nx">VarRing</span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">NullCounts</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">int64</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="nx">SumX</span><span class="p">:</span><span class="w">       </span><span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="nx">SumX2</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">81</span><span class="p">,</span><span class="w"> </span><span class="mi">169</span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="nx">Typ</span><span class="p">:</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">Type</span><span class="p">{</span><span class="nx">Oid</span><span class="p">:</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">T</span><span class="p">(</span><span class="nx">types</span><span class="p">.</span><span class="nx">T_float64</span><span class="p">),</span><span class="w"> </span><span class="nx">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">},</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>  <span class="o">&amp;</span><span class="nx">variance</span><span class="p">.</span><span class="nx">VarRing</span><span class="p">{</span>
+            <span class="nx">NullCounts</span><span class="p">:</span> <span class="p">[]</span><span class="kt">int64</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span>
+            <span class="nx">SumX</span><span class="p">:</span>       <span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">},</span>
+            <span class="nx">SumX2</span><span class="p">:</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mi">16</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">169</span><span class="p">},</span>
+            <span class="nx">Typ</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">Type</span><span class="p">{</span><span class="nx">Oid</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">T</span><span class="p">(</span><span class="nx">types</span><span class="p">.</span><span class="nx">T_float64</span><span class="p">),</span> <span class="nx">Size</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+   <span class="p">}</span>
 
-<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="o">*</span><span class="nx">variance</span><span class="p">.</span><span class="nx">VarRing</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nx">oriRing</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.(</span><span class="o">*</span><span class="nx">variance</span><span class="p">.</span><span class="nx">VarRing</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// Sumx</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">ExpectRing</span><span class="p">.</span><span class="nx">Data</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeFloat64Slice</span><span class="p">(</span><span class="nx">oriRing</span><span class="p">.</span><span class="nx">SumX</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;Decode varRing Sums failed.&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">                </span><span class="k">return</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// NullCounts</span><span class="w"></span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">oriRing</span><span class="p">.</span><span class="nx">NullCounts</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="nx">ExpectRing</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;Decode varRing NullCounts failed. \nExpected/Got:\n%v\n%v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">ExpectRing</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span><span class="w"></span>
-<span class="w">                    </span><span class="k">return</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// Sumx2</span><span class="w"></span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">oriRing</span><span class="p">.</span><span class="nx">SumX2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">DeepEqual</span><span class="p">(</span><span class="nx">ExpectRing</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;Decode varRing Values failed. \nExpected/Got:\n%v\n%v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">ExpectRing</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span><span class="w"></span>
-<span class="w">                    </span><span class="k">return</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+   <span class="k">case</span> <span class="o">*</span><span class="nx">variance</span><span class="p">.</span><span class="nx">VarRing</span><span class="p">:</span>
+            <span class="nx">oriRing</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.(</span><span class="o">*</span><span class="nx">variance</span><span class="p">.</span><span class="nx">VarRing</span><span class="p">)</span>
+            <span class="c1">// Sumx</span>
+            <span class="k">if</span> <span class="nb">string</span><span class="p">(</span><span class="nx">ExpectRing</span><span class="p">.</span><span class="nx">Data</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">encoding</span><span class="p">.</span><span class="nx">EncodeFloat64Slice</span><span class="p">(</span><span class="nx">oriRing</span><span class="p">.</span><span class="nx">SumX</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;Decode varRing Sums failed.&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="p">}</span>
+            <span class="c1">// NullCounts</span>
+            <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">n</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">oriRing</span><span class="p">.</span><span class="nx">NullCounts</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="nx">ExpectRing</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">n</span> <span class="p">{</span>
+                    <span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;Decode varRing NullCounts failed. \nExpected/Got:\n%v\n%v&quot;</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">ExpectRing</span><span class="p">.</span><span class="nx">NullCounts</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+                    <span class="k">return</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="c1">// Sumx2</span>
+            <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">oriRing</span><span class="p">.</span><span class="nx">SumX2</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">!</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">DeepEqual</span><span class="p">(</span><span class="nx">ExpectRing</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;Decode varRing Values failed. \nExpected/Got:\n%v\n%v&quot;</span><span class="p">,</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">ExpectRing</span><span class="p">.</span><span class="nx">SumX2</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+                    <span class="k">return</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
 </code></pre></div>
 <h3 id="4_1">步骤 4：启动测试</h3>
 <ol>
@@ -5038,59 +4977,59 @@ Enter password:
 </code></pre></div>
 <h3 id="2-matrixone">步骤 2：解压文件，将数据加载到 MatrixOne</h3>
 <p>使用下面的 SQL 命令，可以创建数据库和表，加载数据 <code>lineorder_flat.tbl</code> 到 MatrixOne。</p>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">ssb</span><span class="p">;</span><span class="w"></span>
-<span class="n">use</span><span class="w"> </span><span class="n">ssb</span><span class="p">;</span><span class="w"></span>
-<span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">lineorder_flat</span><span class="p">;</span><span class="w"></span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">lineorder_flat</span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_ORDERKEY</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_LINENUMBER</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_CUSTKEY</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_PARTKEY</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_SUPPKEY</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_ORDERDATE</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_ORDERPRIORITY</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_SHIPPRIORITY</span><span class="w"> </span><span class="n">tinyint</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_QUANTITY</span><span class="w"> </span><span class="n">double</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_EXTENDEDPRICE</span><span class="w"> </span><span class="n">double</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_ORDTOTALPRICE</span><span class="w"> </span><span class="n">double</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_DISCOUNT</span><span class="w"> </span><span class="n">double</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_REVENUE</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_SUPPLYCOST</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_TAX</span><span class="w"> </span><span class="n">double</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_COMMITDATE</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">LO_SHIPMODE</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">C_NAME</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">C_ADDRESS</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">C_CITY</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">C_NATION</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">C_REGION</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">C_PHONE</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">C_MKTSEGMENT</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">S_NAME</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">S_ADDRESS</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">S_CITY</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">S_NATION</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">S_REGION</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">S_PHONE</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">P_NAME</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">22</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">P_MFGR</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">P_CATEGORY</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">P_BRAND</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">P_COLOR</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">P_TYPE</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="n">P_SIZE</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="n">P_CONTAINER</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">create</span> <span class="k">database</span> <span class="k">if</span> <span class="k">not</span> <span class="k">exists</span> <span class="n">ssb</span><span class="p">;</span>
+<span class="n">use</span> <span class="n">ssb</span><span class="p">;</span>
+<span class="k">drop</span> <span class="k">table</span> <span class="k">if</span> <span class="k">exists</span> <span class="n">lineorder_flat</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">lineorder_flat</span><span class="p">(</span>
+  <span class="n">LO_ORDERKEY</span> <span class="nb">bigint</span> <span class="k">key</span><span class="p">,</span>
+  <span class="n">LO_LINENUMBER</span> <span class="nb">int</span><span class="p">,</span>
+  <span class="n">LO_CUSTKEY</span> <span class="nb">int</span><span class="p">,</span>
+  <span class="n">LO_PARTKEY</span> <span class="nb">int</span><span class="p">,</span>
+  <span class="n">LO_SUPPKEY</span> <span class="nb">int</span><span class="p">,</span>
+  <span class="n">LO_ORDERDATE</span> <span class="nb">date</span><span class="p">,</span>
+  <span class="n">LO_ORDERPRIORITY</span> <span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+  <span class="n">LO_SHIPPRIORITY</span> <span class="n">tinyint</span><span class="p">,</span>
+  <span class="n">LO_QUANTITY</span> <span class="n">double</span><span class="p">,</span>
+  <span class="n">LO_EXTENDEDPRICE</span> <span class="n">double</span><span class="p">,</span>
+  <span class="n">LO_ORDTOTALPRICE</span> <span class="n">double</span><span class="p">,</span>
+  <span class="n">LO_DISCOUNT</span> <span class="n">double</span><span class="p">,</span>
+  <span class="n">LO_REVENUE</span> <span class="nb">int</span> <span class="n">unsigned</span><span class="p">,</span>
+  <span class="n">LO_SUPPLYCOST</span> <span class="nb">int</span> <span class="n">unsigned</span><span class="p">,</span>
+  <span class="n">LO_TAX</span> <span class="n">double</span><span class="p">,</span>
+  <span class="n">LO_COMMITDATE</span> <span class="nb">date</span><span class="p">,</span>
+  <span class="n">LO_SHIPMODE</span> <span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+  <span class="n">C_NAME</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+  <span class="n">C_ADDRESS</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+  <span class="n">C_CITY</span> <span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+  <span class="n">C_NATION</span> <span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+  <span class="n">C_REGION</span> <span class="nb">char</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span>
+  <span class="n">C_PHONE</span> <span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+  <span class="n">C_MKTSEGMENT</span> <span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+  <span class="n">S_NAME</span> <span class="nb">char</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+  <span class="n">S_ADDRESS</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+  <span class="n">S_CITY</span> <span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+  <span class="n">S_NATION</span> <span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+  <span class="n">S_REGION</span> <span class="nb">char</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span>
+  <span class="n">S_PHONE</span> <span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+  <span class="n">P_NAME</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">22</span><span class="p">),</span>
+  <span class="n">P_MFGR</span> <span class="nb">char</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+  <span class="n">P_CATEGORY</span> <span class="nb">char</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span>
+  <span class="n">P_BRAND</span> <span class="nb">char</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span>
+  <span class="n">P_COLOR</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span>
+  <span class="n">P_TYPE</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+  <span class="n">P_SIZE</span> <span class="nb">int</span><span class="p">,</span>
+  <span class="n">P_CONTAINER</span> <span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">);</span>
 
-<span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;/Users/YOURPATH/lineorder_flat.tbl&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">lineorder_flat</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">OPTIONALLY</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">load</span> <span class="k">data</span> <span class="n">infile</span> <span class="s1">&#39;/Users/YOURPATH/lineorder_flat.tbl&#39;</span> <span class="k">into</span> <span class="k">table</span> <span class="n">lineorder_flat</span> <span class="n">FIELDS</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;,&#39;</span> <span class="n">OPTIONALLY</span> <span class="n">ENCLOSED</span> <span class="k">BY</span> <span class="s1">&#39;&quot;&#39;</span> <span class="n">LINES</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p>加载数据集成功，则代码示例如下：</p>
 <div class="highlight"><pre><span></span><code>Query OK, 10272594 rows affected (1 min 7.09 sec)
 </code></pre></div>
 <h3 id="3-lo_suppkey-sum-avg">步骤 3：分别在 <code>LO_SUPPKEY</code> 列上运行聚合函数 <code>sum()</code> 和 <code>avg()</code> 来验证性能</h3>
-<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">LO_SUPPKEY</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">lineorder_flat</span><span class="p">;</span><span class="w"></span>
-<span class="k">select</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">LO_SUPPKEY</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">lineorder_flat</span><span class="p">;</span><span class="w"></span>
-<span class="k">select</span><span class="w"> </span><span class="n">yourfunction</span><span class="p">(</span><span class="n">LO_SUPPKEY</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">lineorder_flat</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">select</span> <span class="k">avg</span><span class="p">(</span><span class="n">LO_SUPPKEY</span><span class="p">)</span> <span class="k">from</span> <span class="n">lineorder_flat</span><span class="p">;</span>
+<span class="k">select</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_SUPPKEY</span><span class="p">)</span> <span class="k">from</span> <span class="n">lineorder_flat</span><span class="p">;</span>
+<span class="k">select</span> <span class="n">yourfunction</span><span class="p">(</span><span class="n">LO_SUPPKEY</span><span class="p">)</span> <span class="k">from</span> <span class="n">lineorder_flat</span><span class="p">;</span>
 </code></pre></div>
 <h3 id="4-pr-pr">步骤 4：提交你的 PR，并且在你的 PR 评论中提交测试结果</h3>
 
