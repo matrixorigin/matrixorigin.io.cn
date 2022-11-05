@@ -505,20 +505,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../../Get-Started/Playground/" class="md-nav__link">
-        Playground在线体验
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3601,53 +3587,6 @@
 
             
           
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_10">
-          在线快速体验
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="在线快速体验" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_10">
-          <span class="md-nav__icon md-icon"></span>
-          在线快速体验
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1" class="md-nav__link">
-        Playground
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3729,33 +3668,33 @@
 <div class="highlight"><pre><span></span><code>&gt; SELECT column1 DIV column2... FROM table_name;
 </code></pre></div>
 <h2 id="_3"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">DIV</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">DIV</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">DIV</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">DIV</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="mi">5</span> <span class="n">DIV</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span> <span class="n">DIV</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span> <span class="n">DIV</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span> <span class="n">DIV</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">---------+----------+----------+-----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">div</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">div</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">div</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">div</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="mi">5</span> <span class="n">div</span> <span class="mi">2</span> <span class="o">|</span> <span class="o">-</span><span class="mi">5</span> <span class="n">div</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">5</span> <span class="n">div</span> <span class="o">-</span><span class="mi">2</span> <span class="o">|</span> <span class="o">-</span><span class="mi">5</span> <span class="n">div</span> <span class="o">-</span><span class="mi">2</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">---------+----------+----------+-----------+</span>
-<span class="o">|</span><span class="w">       </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">         </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>       <span class="mi">2</span> <span class="o">|</span>       <span class="o">-</span><span class="mi">2</span> <span class="o">|</span>       <span class="o">-</span><span class="mi">2</span> <span class="o">|</span>         <span class="mi">2</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">---------+----------+----------+-----------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="mi">1</span> <span class="k">row</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="n">c1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="n">DIV</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="k">create</span> <span class="k">table</span> <span class="n">t2</span><span class="p">(</span><span class="n">c1</span> <span class="nb">int</span><span class="p">,</span> <span class="n">c2</span> <span class="nb">int</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">t2</span> <span class="k">values</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">t2</span> <span class="k">values</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="k">select</span> <span class="n">c1</span> <span class="n">DIV</span> <span class="mi">3</span> <span class="k">from</span> <span class="n">t2</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="n">div</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">c1</span> <span class="n">div</span> <span class="mi">3</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span><span class="w">       </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">        </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>       <span class="o">-</span><span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span>        <span class="mi">0</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">----------+</span>
-<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="n">DIV</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<span class="mi">2</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="k">select</span> <span class="n">c1</span> <span class="n">DIV</span> <span class="n">c2</span> <span class="k">from</span> <span class="n">t2</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="n">div</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">c1</span> <span class="n">div</span> <span class="n">c2</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------+</span>
-<span class="o">|</span><span class="w">        </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">         </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>        <span class="o">-</span><span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span>         <span class="mi">0</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------+</span>
-<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="mi">2</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 
               
