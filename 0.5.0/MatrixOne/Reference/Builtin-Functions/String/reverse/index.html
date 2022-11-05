@@ -505,20 +505,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Get-Started/Playground/" class="md-nav__link">
-        Playground在线体验
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3604,53 +3590,6 @@
 
             
           
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_10">
-          在线快速体验
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="在线快速体验" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_10">
-          <span class="md-nav__icon md-icon"></span>
-          在线快速体验
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1" class="md-nav__link">
-        Playground
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3751,36 +3690,36 @@
 </tbody>
 </table>
 <h2 id="_4"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="k">c</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">30</span><span class="p">));</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;sdfad  &#39;</span><span class="p">,</span><span class="s1">&#39;2022-02-02 22:22:22&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;  sdfad  &#39;</span><span class="p">,</span><span class="s1">&#39;2022-02-02 22:22:22&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;adsf  sdfad&#39;</span><span class="p">,</span><span class="s1">&#39;2022-02-02 22:22:22&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;    sdfad&#39;</span><span class="p">,</span><span class="s1">&#39;2022-02-02 22:22:22&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="n">reverse</span><span class="p">(</span><span class="k">c</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="k">drop</span> <span class="k">table</span> <span class="k">if</span> <span class="k">exists</span> <span class="n">t1</span><span class="p">;</span>
+<span class="o">&gt;</span> <span class="k">create</span> <span class="k">table</span> <span class="n">t1</span><span class="p">(</span><span class="n">a</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="k">c</span> <span class="nb">char</span><span class="p">(</span><span class="mi">30</span><span class="p">));</span>
+<span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;sdfad  &#39;</span><span class="p">,</span><span class="s1">&#39;2022-02-02 22:22:22&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;  sdfad  &#39;</span><span class="p">,</span><span class="s1">&#39;2022-02-02 22:22:22&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;adsf  sdfad&#39;</span><span class="p">,</span><span class="s1">&#39;2022-02-02 22:22:22&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;    sdfad&#39;</span><span class="p">,</span><span class="s1">&#39;2022-02-02 22:22:22&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="k">select</span> <span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="n">reverse</span><span class="p">(</span><span class="k">c</span><span class="p">)</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-------------+---------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">reverse</span><span class="p">(</span><span class="k">c</span><span class="p">)</span><span class="w">          </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="o">|</span> <span class="n">reverse</span><span class="p">(</span><span class="k">c</span><span class="p">)</span>          <span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------+---------------------+</span>
-<span class="o">|</span><span class="w">   </span><span class="n">dafds</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="w"> </span><span class="mi">20</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">2202</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="n">dafds</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="w"> </span><span class="mi">20</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">2202</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w"> </span><span class="n">dafds</span><span class="w">  </span><span class="n">fsda</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="w"> </span><span class="mi">20</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">2202</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w"> </span><span class="n">dafds</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="w"> </span><span class="mi">20</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">2202</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>   <span class="n">dafds</span>     <span class="o">|</span> <span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span> <span class="mi">20</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">2202</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="n">dafds</span>     <span class="o">|</span> <span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span> <span class="mi">20</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">2202</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dafds</span>  <span class="n">fsda</span> <span class="o">|</span> <span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span> <span class="mi">20</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">2202</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dafds</span>       <span class="o">|</span> <span class="mi">22</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">22</span> <span class="mi">20</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">2202</span> <span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------+---------------------+</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;daf%&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="o">&gt;</span> <span class="k">select</span> <span class="n">a</span> <span class="k">from</span> <span class="n">t1</span> <span class="k">where</span> <span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">like</span> <span class="s1">&#39;daf%&#39;</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">           </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">a</span>           <span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">adsf</span><span class="w">  </span><span class="n">sdfad</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">     </span><span class="n">sdfad</span><span class="w">   </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">adsf</span>  <span class="n">sdfad</span> <span class="o">|</span>
+<span class="o">|</span>     <span class="n">sdfad</span>   <span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------+</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="n">reversea</span><span class="p">,</span><span class="n">reverse</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="w"> </span><span class="n">normala</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="o">&gt;</span> <span class="k">select</span> <span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">reversea</span><span class="p">,</span><span class="n">reverse</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="n">normala</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-------------+-------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">reversea</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">normala</span><span class="w">     </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span> <span class="n">reversea</span>    <span class="o">|</span> <span class="n">normala</span>     <span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------+-------------+</span>
-<span class="o">|</span><span class="w">   </span><span class="n">dafds</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">sdfad</span><span class="w">       </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="n">dafds</span><span class="w">     </span><span class="o">|</span><span class="w">   </span><span class="n">sdfad</span><span class="w">     </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w"> </span><span class="n">dafds</span><span class="w">  </span><span class="n">fsda</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">adsf</span><span class="w">  </span><span class="n">sdfad</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w"> </span><span class="n">dafds</span><span class="w">       </span><span class="o">|</span><span class="w">     </span><span class="n">sdfad</span><span class="w">   </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span>   <span class="n">dafds</span>     <span class="o">|</span> <span class="n">sdfad</span>       <span class="o">|</span>
+<span class="o">|</span>   <span class="n">dafds</span>     <span class="o">|</span>   <span class="n">sdfad</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">dafds</span>  <span class="n">fsda</span> <span class="o">|</span> <span class="n">adsf</span>  <span class="n">sdfad</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dafds</span>       <span class="o">|</span>     <span class="n">sdfad</span>   <span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------+-------------+</span>
 </code></pre></div>
 

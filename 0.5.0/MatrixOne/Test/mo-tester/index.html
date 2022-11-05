@@ -505,20 +505,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Get-Started/Playground/" class="md-nav__link">
-        Playground在线体验
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3548,53 +3534,6 @@
 
             
           
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_10">
-          在线快速体验
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="在线快速体验" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_10">
-          <span class="md-nav__icon md-icon"></span>
-          在线快速体验
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1" class="md-nav__link">
-        Playground
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3720,7 +3659,7 @@
 <p>请先确认已安装 jdk8。</p>
 </li>
 <li>
-<p>启动 MatrixOne 或其他数据库用例。参见更多信息 &gt;&gt;<a href="../../Get-Started/install-standalone-matrixone/">安装单机版 MatrixOne</a>.</p>
+<p>启动 MatrixOne 或其他数据库用例。参见更多信息 &gt;&gt;<a href="https://docs.matrixorigin.io/0.5.0/MatrixOne/Get-Started/install-standalone-matrixone/">安装单机版 MatrixOne</a>.</p>
 </li>
 <li>
 <p>克隆 MO-Tester 仓库.</p>
@@ -3729,7 +3668,7 @@
 <div class="highlight"><pre><span></span><code>git clone https://github.com/matrixorigin/mo-tester.git
 </code></pre></div>
 <h2 id="2-mo-tester">2. 配置 MO-Tester</h2>
-<p>MO-tester 基于 Java 语言进行开发，因此 Mo-tester 所依赖的 Java 数据库连接（JDBC，Java Database Connectivity） 驱动程序需要配置 <em>mo.yml</em> 文件里的参数信息：进入到 <em>mo-tester</em> 本地仓库，打开 <em>mo.yml</em> 文件，配置服务器地址、默认的数据库名称、用户名和密码等。</p>
+<p>MO-tester 基于 Java 语言进行开发，因此 JDBC 驱动程序需要配置参数信息：打开 <code>mo.yml</code> 文件，配置服务器地址、默认的数据库名称、用户名和密码等。</p>
 <p>以下是本地独立版本 MatrixOne 的默认示例。</p>
 <div class="highlight"><pre><span></span><code>#jdbc
 jdbc:
@@ -3754,64 +3693,33 @@ user:
   passwrod: &quot;111&quot;
 </code></pre></div>
 <h2 id="3-mo-tester">3. 运行 MO-Tester</h2>
-<p>运行以下所示命令行，SQL 所有测试用例将自动运行，并将报告和错误消息生成至 <em>report/report.txt</em> 和 <em>report/error.txt</em> 文件中。</p>
+<p>运行以下所示命令行，SQL 所有测试用例将自动运行，并将报告和错误消息生成至 <code>report/report.txt</code> 和 <code>report/error.txt</code> 文件中。</p>
 <div class="highlight"><pre><span></span><code>&gt; ./run.sh
 </code></pre></div>
-<p>如果你想调整测试范围，你可以修改 <code>run.yml</code> 文件中的 <code>path</code> 参数。或者，在执行 <code>run.sh</code> 命令时，你也可以指定一些参数，参数解释如下：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-p</td>
-<td>设置由 MO-tester 执行的测试用例的路径。默认值可以参见 <em>run.yml</em> 文件中 <code>path</code> 的配置参数</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>设置 MO-tester 测试的方法，即直接运行或者生成新的测试结果。默认值可以参见 <em>run.yaml</em> 文件中 <code>method</code> 的配置参数</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>设置 MO-tester 执行 SQL 命令的格式类型。默认值可以参见 <em>run.yml</em> 文件中 <code>type</code> 的配置参数。</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>设置测试用例应该达到的成功率。默认值可以参见 <em>run.yml</em> 文件中 <code>rate</code> 的配置参数。</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>设置包含列表，只有路径中名称包含其中一个列表的脚本文件将被执行，如果有多个，如果没有指定，用'，'分隔，指的是包含的所有情况set the including list, and only script files in the path whose name contains one of the lists will be executed, if more than one, separated by <code>,</code>, if not specified, refers to all cases included</td>
-</tr>
-<tr>
-<td>-e</td>
-<td>设置排除列表，如果路径下的脚本文件的名称包含一个排除列表，则不会被执行，如果有多个，用'，'分隔，如果没有指定，表示不排除任何情况set the excluding list, and script files in the path whose name contains one of the lists will not be executed, if more than one, separated by <code>,</code>, if not specified, refers to none of the cases excluded</td>
-</tr>
-<tr>
-<td>-g</td>
-<td>表示带有[-- @bvt:issue#{issueNO.}]标志的 SQL 命令将不会被执行，该标志以 [-- @bvt:issue#{issueNO.}]开始，以 [-- @bvt:issue]结束。例如，<br>-- @bvt:issue#3236<br/><br>select date_add("1997-12-31 23:59:59",INTERVAL "-10000:1" HOUR_MINUTE);<br/><br>select date_add("1997-12-31 23:59:59",INTERVAL "-100 1" YEAR_MONTH);<br/><br>-- @bvt:issue<br/><br>这两个 SQL 命令与问题 #3236 相关联，它们将不会在 MO-tester 测试中执行，直到问题 #3236 修复后标签移除才可以在测试中执行。<br/></td>
-</tr>
-<tr>
-<td>-n</td>
-<td>表示在比较结果时将忽略结果集的元数据</td>
-</tr>
-</tbody>
-</table>
-<p><strong>示例</strong>：</p>
-<div class="highlight"><pre><span></span><code>./run.sh -p case -m run -t script -r 100 -i select,subquery -e substring -g
+<p>如果你想调整测试范围，你可以修改 <code>run.yml</code> 文件中的 <code>path</code> 参数。或者，在执行 <code>run.sh</code> 命令时，你也可以指定一些参数，参数如下：</p>
+<div class="highlight"><pre><span></span><code>-p  set the path of test cases needed to be executed by mo-tester, the default value is configured by the `path` in `run.yaml`
+-m  set the method that mo-tester will run with, the default value is configured by the `method` in `run.yaml`
+-t  set the type of the format that mo-tester executes the SQL command in, the default value is configured by the `type` in `run.yaml`
+-r  set The success rate that test cases should reach, the default value is configured by the `rate` in `run.yaml`
+-i  set the including list, and only script files in the path whose name contains one of the lists will be executed, if more than one, separated by `,`, if not specified, refers to all cases included
+-e  set the excluding list, and script files in the path whose name contains one of the lists will not be executed, if more than one, separated by `,`, if not specified, refers to none of the cases excluded
+-g  means SQL commands which is marked with [bvt:issue] flag will not be executed,this flag starts with [-- @bvt:issue#{issueNO.}],and ends with [-- @bvt:issue],eg:
+    -- @bvt:issue#3236
+    select date_add(&quot;1997-12-31 23:59:59&quot;,INTERVAL &quot;-10000:1&quot; HOUR_MINUTE);
+    select date_add(&quot;1997-12-31 23:59:59&quot;,INTERVAL &quot;-100 1&quot; YEAR_MONTH);
+    -- @bvt:issue
+    Those two sql commands are associated with issue#3236, and they will not be executed in bvt test, until the flag is removed when issue#3236 is fixed.
+
+-n  means the metadata of the resultset will be ignored when comparing the result
+Examples:
+bash run.sh -p case -m run -t script -r 100 -i select,subquery -e substring -g
 </code></pre></div>
-<p>如果你想测试新的 SQL 用例并自动生成 SQL 结果，运行命令中可以将 <code>-m run</code> 更改为 <code>-m genrs</code>，或者将 <em>run.yml</em> 文件里的 <code>method</code> 参数修改为 <code>genrs</code>，相关示例参见<p><a href="#new_test_scenario">示例 4</a></p></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>每次运行 <code>./run.sh</code> 都会覆盖 <em>report/</em> 路径下 <em>error.txt</em>、<em>report.txt</em> 和 <em>success.txt</em> 报告文件。</p>
-</div>
+<p>如果你想测试新的 SQL 用例并自动生成 SQL 结果，你只需要将 <code>run</code> 中的 <code>method</code> 参数 <code>yml</code> 修改为 <code>genrs</code>。运行 <code>run.sh</code> 后，在<code>result/</code> 路径下将直接记录测试结果及其原始文件名。</p>
+<p>注意：每次运行 <code>run.sh</code> 都会覆盖 <code>error.txt</code>、<code>report.txt</code> 和 <code>success.txt</code> 报告文件。</p>
 <h2 id="4">4. 查看测试报告</h2>
-<p>测试完成后，MO-Tester 生成 <em>error.txt</em>、<em>report.txt</em> 和 <em>success.txt</em>  报告文件。</p>
+<p>测试完成后，MO-Tester 生成 <code>error.txt</code>，<code>report.txt</code> 和  <code>success.txt</code> 报告文件。</p>
 <ul>
-<li><em>report.txt</em> 示例如下：</li>
+<li><code>report.txt</code> 示例如下：</li>
 </ul>
 <div class="highlight"><pre><span></span><code>[SUMMARY] TOTAL : 486, SUCCESS : 486, ERROR :0, NOEXE :0, SUCCESS RATE : 100%
 [SUMMARY] TOTAL : 486, SUCCESS : 485, ERROR :1, NOEXE :0, SUCCESS RATE : 99%
@@ -3820,7 +3728,7 @@ user:
 [cases/transaction/isolation_1.sql] TOTAL : 217, SUCCESS : 217, ERROR :0, NOEXE :0, SUCCESS RATE : 100%
 </code></pre></div>
 <ul>
-<li><em>error.txt</em> 示例如下：</li>
+<li><code>error.txt</code> 示例如下：</li>
 </ul>
 <div class="highlight"><pre><span></span><code>[ERROR]
 [SCRIPT   FILE]: cases/transaction/atomicity.sql
@@ -3833,111 +3741,6 @@ c   d
 [ACTUAL RESULT]:
 c   d
 1   1
-</code></pre></div>
-<h2 id="5">5. 测试示例</h2>
-<h3 id="1_1">示例 1</h3>
-<p><strong>示例描述</strong>：运行 <em>mo-tester</em> 仓库内的 <em>/cases</em> 路径下的所有测试用例。</p>
-<p><strong>步骤</strong>：</p>
-<ol>
-<li>拉取最新的 <em>mo-tester</em> 远端仓库。</li>
-</ol>
-<div class="highlight"><pre><span></span><code>cd mo-tester
-git pull https://github.com/matrixorigin/mo-tester.git
-</code></pre></div>
-<ol>
-<li>运行如下命令，即运行 <em>mo-tester</em> 仓库内所有的测试用例：</li>
-</ol>
-<div class="highlight"><pre><span></span><code>./run.sh
-</code></pre></div>
-<ol>
-<li>在 <em>report/</em> 路径下的 <em>error.txt</em>、<em>report.txt</em> 和 <em>success.txt</em> 报告文件中查看运行结果。</li>
-</ol>
-<h3 id="2">示例 2</h3>
-<p><strong>示例描述</strong>：运行 <em>mo-tester</em> 仓库内 <em>/cases/transaction/</em> 路径下的测试用例。</p>
-<p><strong>步骤</strong>：</p>
-<ol>
-<li>拉取最新的 <em>mo-tester</em> 远端仓库。</li>
-</ol>
-<div class="highlight"><pre><span></span><code>cd mo-tester
-git pull https://github.com/matrixorigin/mo-tester.git
-</code></pre></div>
-<ol>
-<li>运行如下命令，即运行 <em>mo-tester</em> 仓库内 <em>cases/transaction/</em> 路径的所有测试用例：</li>
-</ol>
-<div class="highlight"><pre><span></span><code>./run.sh -p cases/transaction/
-</code></pre></div>
-<ol>
-<li>在 <em>report/</em> 路径下的 <em>error.txt</em>、<em>report.txt</em> 和 <em>success.txt</em> 报告文件中查看运行结果。例如，预期 <em>report.txt</em> 报告如下所示：</li>
-</ol>
-<div class="highlight"><pre><span></span><code>[SUMMARY] TOTAL : 486, SUCCESS : 486, ERROR :0, NOEXE :0, SUCCESS RATE : 100%
-[cases/transaction/atomicity.sql] TOTAL : 67, SUCCESS : 67, ERROR :0, NOEXE :0, SUCCESS RATE : 100%
-[cases/transaction/isolation.sql] TOTAL : 202, SUCCESS : 202, ERROR :0, NOEXE :0, SUCCESS RATE : 100%
-[cases/transaction/isolation_1.sql] TOTAL : 217, SUCCESS : 217, ERROR :0, NOEXE :0, SUCCESS RATE : 100%
-</code></pre></div>
-<h3 id="3">示例 3</h3>
-<p><strong>示例描述</strong>：运行 <em>mo-tester</em> 仓库内 <em>cases/transaction/atomicity.sql</em> 单个测试用例。</p>
-<p><strong>步骤</strong>：</p>
-<ol>
-<li>拉取最新的 <em>mo-tester</em> 远端仓库。</li>
-</ol>
-<div class="highlight"><pre><span></span><code>cd mo-tester
-git pull https://github.com/matrixorigin/mo-tester.git
-</code></pre></div>
-<ol>
-<li>运行如下命令，即运行 <em>mo-tester</em> 仓库内 <em>cases/transaction/atomicity.sql</em> 测试用例：</li>
-</ol>
-<div class="highlight"><pre><span></span><code>./run.sh -p cases/transaction/atomicity.sql
-</code></pre></div>
-<ol>
-<li>在 <em>report/</em> 路径下的 <em>error.txt</em>、<em>report.txt</em> 和 <em>success.txt</em> 报告文件中查看运行结果。例如，预期 <em>report.txt</em> 报告如下所示：</li>
-</ol>
-<div class="highlight"><pre><span></span><code>[SUMMARY] TOTAL : 67, SUCCESS : 67, ERROR :0, NOEXE :0, SUCCESS RATE : 100%
-[cases/transaction/atomicity.sql] TOTAL : 67, SUCCESS : 67, ERROR :0, NOEXE :0, SUCCESS RATE : 100%
-</code></pre></div>
-<h3 id="4_1"><h3><a name="new_test_scenario">示例 4</a></h3></h3>
-<p><strong>示例描述</strong>：</p>
-<ul>
-<li>新建一个命名为 <em>local_test</em> 的文件夹，放在 <em>/cases</em> 目录下</li>
-<li>本地新增一个命名为测试文件 <em>new_test.sql</em>，放在 <em>cases/local_test/</em> 路径下</li>
-<li>仅想要运行 <em>new_test.sql</em>* 测试用例</li>
-</ul>
-<p><strong>步骤</strong></p>
-<ol>
-<li>拉取最新的 <em>mo-tester</em> 远端仓库。</li>
-</ol>
-<div class="highlight"><pre><span></span><code>cd mo-tester
-git pull https://github.com/matrixorigin/mo-tester.git
-</code></pre></div>
-<ol>
-<li>
-<p>生成测试结果：</p>
-</li>
-<li>
-<p>方式 1：运行如下命令，生成测试结果。</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code>./run.sh -p cases/local_test/new_test.sql -m genrs -g
-</code></pre></div>
-<ul>
-<li>方式 2：打开 <em>run.yml</em> 文件，先将 <em>method</em> 参数由默认的 <code>run</code> 修改为 <code>genrs</code>，再运行如下命令，生成测试结果。</li>
-</ul>
-<div class="highlight"><pre><span></span><code>./run.sh -p cases/local_test/new_test.sql
-</code></pre></div>
-<ol>
-<li>
-<p>在 <em>result/</em> 路径下查看 <em>local_test/new_test.result</em> 结果。</p>
-</li>
-<li>
-<p>运行如下命令，即运行 <em>mo-tester</em> 仓库内 <em>cases/local_test/new_test.sql</em> 测试用例：</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code>./run.sh -p cases/local_test/new_test.sql -m run -g
-</code></pre></div>
-<ol>
-<li>在 <em>report/</em> 路径下的 <em>error.txt</em>、<em>report.txt</em> 和 <em>success.txt</em> 报告文件中查看运行结果。例如，<em>report.txt</em> 中结果如下所示：</li>
-</ol>
-<div class="highlight"><pre><span></span><code>[SUMMARY] TOTAL : 67, SUCCESS : 67, ERROR :0, NOEXE :0, SUCCESS RATE : 100%
-[cases/local_test/new_test.sql] TOTAL : 67, SUCCESS : 67, ERROR :0, NOEXE :0, SUCCESS RATE : 100%
 </code></pre></div>
 
               

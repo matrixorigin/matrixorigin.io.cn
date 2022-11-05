@@ -501,20 +501,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Get-Started/Playground/" class="md-nav__link">
-        Playground在线体验
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3532,53 +3518,6 @@
 
             
           
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_10">
-          在线快速体验
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="在线快速体验" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_10">
-          <span class="md-nav__icon md-icon"></span>
-          在线快速体验
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1" class="md-nav__link">
-        Playground
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3822,7 +3761,7 @@ MatrixOne社区一共准备了4个类别的56个任务，有不同的难度级�
 A:  是的，参与开发者都需要在issue下面评论认领后再开始任务，不建议直接提PR。这样是为了避免多名开发者针对同一问题重复劳动。</p>
 <p><strong>Q: 为什么<code>select abs(-1);</code>和<code>select d, abs(-1) from t;</code>这样的语句会出问题？</strong>
 A: 目前MatrixOne还不支持无表及常数参数的SQL语句，因此<code>select abs(-1);</code>和<code>select abs(-1) from table1;</code>这样的语句均会出错。正确的SQL语句是需要创建一张表，导入一些数据，然后再将列名作为参数运行built-in函数。如以下例子：</p>
-<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="k">select</span> <span class="k">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">from</span> <span class="n">t</span><span class="p">;</span> 
 </code></pre></div>
 <p><strong>Q: 为什么每次PR完成之后，我的仓库总是会比MatrixOne领先？</strong>
 A: MatrixOne对所有pr的合并都要求是squash and merge，因此pr合并后跟主干会不一致。这里推荐采用的git流程，可以保持本地git，远端git仓库与MatrixOne仓库保持一致的方法：</p>
