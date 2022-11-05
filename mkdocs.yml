@@ -60,7 +60,6 @@ nav:
       - 实践教程:
         - 完成SSB测试: MatrixOne/Get-Started/Tutorial/SSB-test-with-matrixone.md
         - 完成NYC纽约出租车测试: MatrixOne/Get-Started/Tutorial/NYC-test-with-matrixone.md
-      - Playground在线体验: MatrixOne/Get-Started/Playground.md
     - 参考手册:
       - SQL目录: 
         - DDL:
@@ -158,5 +157,3 @@ nav:
         - 编码规范: MatrixOne/Contribution-Guide/Code-Style/code-of-conduct.md
         - 注释规范: MatrixOne/Contribution-Guide/Code-Style/code-comment-style.md
         - 提交规范: MatrixOne/Contribution-Guide/Code-Style/commit-pr-style.md
-    - 在线快速体验:
-      - Playground: https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1
