@@ -75,6 +75,7 @@ nav:
         - 使用 `modump` 备份和恢复数据库: MatrixOne/Develop/export-data/backup-restore-matrixone-with_modump.md
       - 事务:
         - 事务概述: MatrixOne/Reference/SQL-Reference/Transactions/transaction-overview.md
+        - 分布式事务: MatrixOne/Reference/SQL-Reference/Transactions/distributed-transaction-overview.md
       - 应用开发示例:
         - Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
         - Hibernate: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
@@ -127,6 +128,7 @@ nav:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-database.md
           - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/0.6-create-table.md
           - CREATE TEMPORARY TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/0.6-create-temporary-tables.md
+          - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md
           - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/0.6-show-databases.md
           - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-database.md
           - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-table.md
