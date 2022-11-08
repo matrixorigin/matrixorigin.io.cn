@@ -1,0 +1,28 @@
+name: lint
+
+on:
+  pull_request_target:
+    types: [ opened, synchronize, reopened ]
+    branches: 
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  lint-docs:
+    name: Lint Docs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Output Inputs
+      run: echo "${{ toJSON(github) }}"
+        
+    - name: Check out code
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
+        ref: ${{ github.event.pull_request.head.ref }}
+
+    - name: Lint docs
+      uses: docker://avtodev/markdown-lint:v1 # fastest way
+      with:
+        config: './.markdownlint.yaml'
+        args: './docs/MatrixOne'
