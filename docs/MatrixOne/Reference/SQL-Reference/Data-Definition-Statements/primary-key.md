@@ -39,4 +39,3 @@ ERROR 1105 (HY000): tae catalog: schema validation: compound idx not supported y
 ## **限制**
 
 - 目前不支持 带有 `ALTER TABLE` 的 `DROP PRIMARY KEY` 语句。  
-- 不支持复合主键（即由多个列组成的主键，为复合主键)

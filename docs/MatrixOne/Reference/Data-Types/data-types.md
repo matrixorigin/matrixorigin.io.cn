@@ -25,17 +25,41 @@ MatrixOne 的数据类型与MySQL数据类型的定义一致，可参考：
 
 ## **字符串类型**
 
-|  数据类型  | 存储空间  | 语法表示 |
-|  ----  | ----  |   ----  |
-| String  | 24 byte | CHAR, VARCHAR |
+|  数据类型  | 存储空间  | 语法表示 | 描述|
+|  ----  | ----  |   ----  |----  |
+| char      | 24 byte  |CHAR| 定长字符串 |
+| varchar   | 24 byte  |VARCHAR| 变长字符串|
+| text      | 1073741824 bytes| TEXT |长文本数据|
+
+## **二进制类型**
+
+|  数据类型  | 存储空间  | 语法表示 | 描述|
+|  ----  | ----  |   ----  |----  |
+| tinyblob  | 255 bytes   |TINYBLOB|不超过 255 个字符的二进制字符串|
+| blob      | 65535 bytes   |BLOB|二进制形式的长文本数据|
+| mediumblob| 16777215 bytes  |MEDIUMBLOB|二进制形式的中等长度文本数据|
+| longblob  | 4294967295 bytes  |LONGBLOB|二进制形式的极大文本数据|
+
+## **JSON 数据类型**
+
+|JSON 值数据类型| 语法表示 |
+|---|---|
+|数值| INT、FLOAT|
+|字符串| CHAR、VARCHAR、TINYTEXT、TEXT、MEDIUMTEXT、LONGTEXT、TINYBLOB、BLOB、MEDIUMBLOB、LONGBLOB |
+|Bool| TRUE、FALSE|
+|数组| 一个由零或多个值组成的有序序列。每个值可以为任意类型。数组使用 `[]` 括起来，元素之间用逗号 `,` 分隔。 |
+|时间与日期|Date、Datetime|
+|对象|对象：一个由零或者多个键值对组成的无序集合。其中键必须是字符串，值可以为任意类型。对象使用 `{}` 括起来，键值对之间使用逗号 `,` 分隔，键与值之间用冒号 `:` 分隔。|
+|空值| NULL|
 
 ## **时间与日期**
 
 |  数据类型  | 存储空间  | 精度 |  最小值   | 最大值  | 语法表示 |
 |  ----  | ----  |   ----  |  ----  | ----  |   ----  |
-| Date  | 4 byte | day | 1000-01-01  | 9999-12-31 | YYYY-MM-DD |
+|  Time  | 8 byte  |   time  |  -2562047787:59:59.999999 | 2562047787:59:59.999999  |   hh:mm:ss.ssssss  |
+| Date  | 4 byte | day | 0001-01-01  | 9999-12-31 | YYYY-MM-DD/YYYYMMDD |
 | DateTime  | 8 byte | second | 0001-01-01 00:00:00.000000  | 9999-12-31 23:59:59.999999 | YYYY-MM-DD hh:mi:ssssss |
-| TIMESTAMP|8 byte|second|1970-01-01 00:00:01.000000|2038-01-19 03:14:07.999999|YYYYMMDD hh:mi:ss.ssssss|
+| TIMESTAMP|8 byte|second|0001-01-01 00:00:00.000000|9999-12-31 23:59:59.999999|YYYYMMDD hh:mi:ss.ssssss|
 
 ## **Bool**
 
@@ -49,7 +73,7 @@ MatrixOne 的数据类型与MySQL数据类型的定义一致，可参考：
 |  数据类型   | 存储空间  |  精度   | 语法表示 |
 |  ----  | ----  |  ----  | ----  |
 | Decimal64  | 8 byte | 	19位  | Decimal(N,S), N范围(1,18), S范围(0,N) |
-| Decimal128  | 16 byte | 	38位  | Decimal(N,S), N范围(19,38), S范围(0,N) |
+| Decimal128  | 16 byte | 	38位  | Decimal(N,S), N范围(18,38), S范围(0,N) |
 
 ## **示例**
 

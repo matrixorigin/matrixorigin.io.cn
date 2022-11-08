@@ -17,6 +17,7 @@
 | [LIKE](like.md) | 模糊匹配 |
 | [NOT BETWEEN ... AND ...](not-between.md) | 不在两值之间 |
 | [NOT LIKE](not-like.md) | N模糊匹配，Like的否定用法 |
+| [COALESCE](coalesce.md)|返回第一个非空值|
 
 比较运算的结果为 `TRUE`、`FALSE` 或 `NULL`。这些运算对数字和字符串均有效。字符串可以自动转换为数字，数字根据需要自动转换为字符串。
 

@@ -218,8 +218,8 @@ GRANT create table on database * to role_r1;
 SHOW GRANTS for root;
 ```
 
-    !!! note
-        当前仅支持查看 *root* 用户权限，暂不支持查看当前用户的权限。
+!!! note
+    当前仅支持查看 *root* 用户权限，暂不支持查看当前用户的权限。
 
 - 删除用户 *mouser*：
 
