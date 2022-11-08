@@ -18,6 +18,17 @@
 |---|-----|
 | [=](operators/assignment-operators/equal.md) | 等于运算符，用于赋值 |
 
+## [**二进制运算符**](operators/bit-functions-and-operators/bit-functions-and-operators-overview.md)
+
+| 名称 | 描述|
+|---|-----|
+| [&](operators/bit-functions-and-operators/bitwise-and.md) | 位运算符与，按位与 |
+| [>>](operators/bit-functions-and-operators/right-shift.md) | 位移运算符右移 |
+| [<<](operators/bit-functions-and-operators/left-shift.md) |位移运算符右移 |
+| [^](operators/bit-functions-and-operators/bitwise-xor.md) |按位异或 |
+| [|](operators/bit-functions-and-operators/bitwise-or.md) |位运算符或，按位或|
+| [~](operators/bit-functions-and-operators/bitwise-inversion.md) |一元运算符，二进制取反 |
+
 ## [**强制转换函数和运算符**](operators/cast-functions-and-operators/cast-functions-and-operators-overview.md)
 
 | 名称 | 描述|
@@ -44,6 +55,7 @@
 | [LIKE](operators/comparison-functions-and-operators/like.md) | 模糊匹配 |
 | [NOT BETWEEN ... AND ...](operators/comparison-functions-and-operators/not-between.md) | 不在两值之间 |
 | [NOT LIKE](operators/comparison-functions-and-operators/not-like.md) | 模糊匹配，Like的否定用法 |
+| [COALESCE](operators/comparison-functions-and-operators/coalesce.md)|返回第一个非空值|
 
 ## [**控制流函数**](operators/flow-control-functions/flow-control-functions-overview.md)
 
