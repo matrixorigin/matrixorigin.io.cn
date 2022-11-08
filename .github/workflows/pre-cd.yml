@@ -1,0 +1,72 @@
+name: pre-cd
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Document Version'
+        required: true
+        default: 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with: 
+          token: ${{ secrets.ACTIONTOKEN }}
+          ref: ${{ github.event.inputs.version }}
+          
+          
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9.4'
+      - name: Intialiaze Python Env
+        run: |
+          git rev-parse --abbrev-ref HEAD
+          pip install -r requirements.txt
+          
+      - name: Mike Dev Version Snapshot
+        if: ${{ github.event.inputs.version == 'main' }}
+        run: |
+          git fetch --all 
+          git reset --hard origin/main 
+          git pull 
+          git config --global user.email ${{ secrets.GITUSEREMAIL }}
+          git config --global user.name ${{ secrets.GITUSERNAME }}
+          mike deploy --push dev
+          git add *
+          git commit * -m "update site"
+          git push origin ${{ github.event.inputs.version }}
+          git checkout main
+          
+      - name: Mike Release Version Snapshot
+        if: ${{ github.event.inputs.version != 'main' }}
+        run: |
+          git fetch --all
+          git config --global user.email ${{ secrets.GITUSEREMAIL }}
+          git config --global user.name ${{ secrets.GITUSERNAME }}
+          mike deploy --push ${{ github.event.inputs.version }}
+          git add .
+          git commit -m "update site ${{ github.event.inputs.version }}"
+          git push origin ${{ github.event.inputs.version }}
+          git checkout main
+          
+      - name: Login
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUBUSER }}
+          password: ${{ secrets.DOCKERHUBPASSWORD }}
+      
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d%H%M%S')"
+          
+      - name: Build && Push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            matrixorigin/matrixorigin.io.cn:${{ steps.date.outputs.date }}
+            matrixorigin/matrixorigin.io.cn:latest     
