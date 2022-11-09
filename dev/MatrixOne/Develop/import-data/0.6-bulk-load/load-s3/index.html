@@ -9,11 +9,11 @@
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.8">
     
     
       
-        <title>导入 S3 文件 - MatrixOne中文文档</title>
+        <title>从 S3 导入数据 - MatrixOne中文文档</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              导入 S3 文件
+              从 S3 导入数据
             
           </span>
         </div>
@@ -193,15 +193,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../.." class="md-tabs__link">
         MatrixOne
       </a>
     </li>
@@ -263,14 +261,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
       
       
       
@@ -464,8 +460,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/0.6-basic-sql/" class="md-nav__link">
+      <a href="../../../../Get-Started/basic-sql/" class="md-nav__link">
         SQL 的基本操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Get-Started/Playground/" class="md-nav__link">
+        Playground 在线体验
       </a>
     </li>
   
@@ -483,14 +493,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
       
       
       
@@ -553,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connect-mo/0.6-database-ide/" class="md-nav__link">
+      <a href="../../../connect-mo/database-ide/" class="md-nav__link">
         数据库客户端 IDE
       </a>
     </li>
@@ -593,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connect-mo/0.6-java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
+      <a href="../../../connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
         JDBC
       </a>
     </li>
@@ -661,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-schema-design/overview/" class="md-nav__link">
+      <a href="../../../schema-design/overview/" class="md-nav__link">
         概述
       </a>
     </li>
@@ -675,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-schema-design/create-database/" class="md-nav__link">
+      <a href="../../../schema-design/create-database/" class="md-nav__link">
         创建数据库
       </a>
     </li>
@@ -689,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-schema-design/create-table/" class="md-nav__link">
+      <a href="../../../schema-design/create-table/" class="md-nav__link">
         创建表
       </a>
     </li>
@@ -708,14 +716,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3" type="checkbox" id="__nav_1_4_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3" type="checkbox" id="__nav_1_4_3" >
       
       
       
@@ -736,14 +742,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_1" type="checkbox" id="__nav_1_4_3_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_1" type="checkbox" id="__nav_1_4_3_1" >
       
       
       
@@ -766,7 +770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../load-csv/" class="md-nav__link">
+      <a href="../../bulk-load/load-csv/" class="md-nav__link">
         导入 csv 文件
       </a>
     </li>
@@ -780,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../load-jsonline/" class="md-nav__link">
+      <a href="../../bulk-load/load-jsonline/" class="md-nav__link">
         导入 jsonlines 文件
       </a>
     </li>
@@ -792,106 +796,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          导入 S3 文件
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../bulk-load/load-s3/" class="md-nav__link">
         导入 S3 文件
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    概述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    开始前准备
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    导入语法介绍
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    示例
-  </a>
-  
-    <nav class="md-nav" aria-label="示例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#s3-matrixone" class="md-nav__link">
-    方式一：直接将 S3 文件导入到 MatrixOne
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#s3_1" class="md-nav__link">
-    方式二：直接将 S3 文件指定到外部表
-  </a>
-  
-    <nav class="md-nav" aria-label="方式二：直接将 S3 文件指定到外部表">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#load-data" class="md-nav__link">
-    关于外部表 Load data 说明
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -943,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-read-data/query-data-single-table/" class="md-nav__link">
+      <a href="../../../read-data/query-data-single-table/" class="md-nav__link">
         单表读取
       </a>
     </li>
@@ -957,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-read-data/multitable-join-query/" class="md-nav__link">
+      <a href="../../../read-data/multitable-join-query/" class="md-nav__link">
         多表连接查询
       </a>
     </li>
@@ -971,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-read-data/subquery/" class="md-nav__link">
+      <a href="../../../read-data/subquery/" class="md-nav__link">
         子查询
       </a>
     </li>
@@ -985,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-read-data/views/" class="md-nav__link">
+      <a href="../../../read-data/views/" class="md-nav__link">
         视图
       </a>
     </li>
@@ -999,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.6-read-data/cte/" class="md-nav__link">
+      <a href="../../../read-data/cte/" class="md-nav__link">
         公共表表达式
       </a>
     </li>
@@ -1109,6 +1018,20 @@
     <li class="md-nav__item">
       <a href="../../../../Reference/SQL-Reference/Transactions/transaction-overview/" class="md-nav__link">
         事务概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Transactions/distributed-transaction-overview.md" class="md-nav__link">
+        分布式事务
       </a>
     </li>
   
@@ -1473,7 +1396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Test/0.6-mo-tester-reference/" class="md-nav__link">
+      <a href="../../../../Test/mo-tester-reference/" class="md-nav__link">
         MO-Tester 规范要求
       </a>
     </li>
@@ -1628,7 +1551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../0.6-Performance-Tuning/explain-overview/" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain-overview/" class="md-nav__link">
         MatrixOne 执行计划概述
       </a>
     </li>
@@ -1642,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../0.6-Performance-Tuning/explain-walkthrough/" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain-walkthrough/" class="md-nav__link">
         使用 EXPLAIN 理解执行计划
       </a>
     </li>
@@ -1656,7 +1579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../0.6-Performance-Tuning/explain-joins/" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain-joins/" class="md-nav__link">
         JOIN 查询的执行计划
       </a>
     </li>
@@ -1670,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../0.6-Performance-Tuning/explain-subqueries/" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain-subqueries/" class="md-nav__link">
         子查询的执行计划
       </a>
     </li>
@@ -1684,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../0.6-Performance-Tuning/explain-aggregation/" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain-aggregation/" class="md-nav__link">
         聚合查询的执行计划
       </a>
     </li>
@@ -1698,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../0.6-Performance-Tuning/explain-views/" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain-views/" class="md-nav__link">
         视图的执行计划
       </a>
     </li>
@@ -1752,7 +1675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../0.6-Security/access-control-overview/" class="md-nav__link">
+      <a href="../../../../Security/access-control-overview/" class="md-nav__link">
         访问控制概述
       </a>
     </li>
@@ -1766,7 +1689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../0.6-Security/access-control/" class="md-nav__link">
+      <a href="../../../../Security/access-control/" class="md-nav__link">
         访问控制权限
       </a>
     </li>
@@ -1780,7 +1703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../0.6-Security/TLS-introduction/" class="md-nav__link">
+      <a href="../../../../Security/TLS-introduction/" class="md-nav__link">
         开启 TLS
       </a>
     </li>
@@ -1879,7 +1802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Database-Administration-Statements/create-account/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/create-account/" class="md-nav__link">
         CREATE ACCOUNT
       </a>
     </li>
@@ -1893,7 +1816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Database-Administration-Statements/create-role/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/create-role/" class="md-nav__link">
         CREATE ROLE
       </a>
     </li>
@@ -1907,7 +1830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Database-Administration-Statements/create-user/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/create-user/" class="md-nav__link">
         CREATE USER
       </a>
     </li>
@@ -1921,7 +1844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Database-Administration-Statements/drop-account/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/drop-account/" class="md-nav__link">
         DROP ACCOUNT
       </a>
     </li>
@@ -1935,7 +1858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Database-Administration-Statements/drop-user/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/drop-user/" class="md-nav__link">
         DROP USER
       </a>
     </li>
@@ -1949,7 +1872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Database-Administration-Statements/drop-role/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/drop-role/" class="md-nav__link">
         DROP ROLE
       </a>
     </li>
@@ -1989,7 +1912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Database-Administration-Statements/grant-privileges/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/grant-privileges/" class="md-nav__link">
         GRANT <privileges>
       </a>
     </li>
@@ -2003,7 +1926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Database-Administration-Statements/grant-role/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/grant-role/" class="md-nav__link">
         GRANT ROLE
       </a>
     </li>
@@ -2024,7 +1947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Database-Administration-Statements/set-role/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/set-role/" class="md-nav__link">
         SET ROLE
       </a>
     </li>
@@ -2038,7 +1961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Database-Administration-Statements/revoke/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/revoke/" class="md-nav__link">
         REVOKE
       </a>
     </li>
@@ -2099,7 +2022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/0.6-create-table/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/create-table/" class="md-nav__link">
         CREATE TABLE
       </a>
     </li>
@@ -2113,7 +2036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/0.6-create-temporary-tables/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/create-temporary-tables/" class="md-nav__link">
         CREATE TEMPORARY TABLE
       </a>
     </li>
@@ -2127,7 +2050,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/0.6-show-databases/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md" class="md-nav__link">
+        CREATE EXTERNAL TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/show-databases/" class="md-nav__link">
         SHOW DATABASES
       </a>
     </li>
@@ -2169,7 +2106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/0.6-primary-key/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/primary-key/" class="md-nav__link">
         PRIMARY KEY
       </a>
     </li>
@@ -2186,18 +2123,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_2_8" type="checkbox" id="__nav_1_11_1_2_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_2_9" type="checkbox" id="__nav_1_11_1_2_9" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_2_8">
+        <label class="md-nav__link" for="__nav_1_11_1_2_9">
           VIEW
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="VIEW" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_11_1_2_8">
+        <label class="md-nav__title" for="__nav_1_11_1_2_9">
           <span class="md-nav__icon md-icon"></span>
           VIEW
         </label>
@@ -2209,7 +2146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/0.6-using-view/view-overview/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/using-view/view-overview/" class="md-nav__link">
         VIEW Overview
       </a>
     </li>
@@ -2223,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/0.6-using-view/create-view/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/using-view/create-view/" class="md-nav__link">
         CREATE VIEW
       </a>
     </li>
@@ -2237,7 +2174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/0.6-using-view/drop-view/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/using-view/drop-view/" class="md-nav__link">
         DROP VIEW
       </a>
     </li>
@@ -2291,7 +2228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/0.6-insert/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/insert/" class="md-nav__link">
         INSERT
       </a>
     </li>
@@ -2319,7 +2256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/0.6-update/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/update/" class="md-nav__link">
         UPDATE
       </a>
     </li>
@@ -2333,7 +2270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/0.6-delete/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/delete/" class="md-nav__link">
         DELETE
       </a>
     </li>
@@ -2445,7 +2382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/0.6-union/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/union/" class="md-nav__link">
         UNION
       </a>
     </li>
@@ -2459,7 +2396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/0.6-intersect/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/intersect/" class="md-nav__link">
         INTERSECT
       </a>
     </li>
@@ -2473,7 +2410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/0.6-minus/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/minus/" class="md-nav__link">
         MINUS
       </a>
     </li>
@@ -3035,7 +2972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/bit-functions-and-operators-overview/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bit-functions-and-operators-overview/" class="md-nav__link">
         二进制运算符概述
       </a>
     </li>
@@ -3049,7 +2986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/bitwise-and/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-and/" class="md-nav__link">
         &
       </a>
     </li>
@@ -3063,7 +3000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/right-shift/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/right-shift/" class="md-nav__link">
         >>
       </a>
     </li>
@@ -3077,7 +3014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/left-shift/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/left-shift/" class="md-nav__link">
         <<
       </a>
     </li>
@@ -3091,7 +3028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/bitwise-xor/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-xor/" class="md-nav__link">
         ^
       </a>
     </li>
@@ -3105,7 +3042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/bitwise-or/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-or/" class="md-nav__link">
         |
       </a>
     </li>
@@ -3119,7 +3056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/0.6-bit-functions-and-operators/bitwise-inversion/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-inversion/" class="md-nav__link">
         ~
       </a>
     </li>
@@ -3459,6 +3396,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/coalesce/" class="md-nav__link">
+        COALESCE
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -3690,7 +3641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
         Prepared 语句概述
       </a>
     </li>
@@ -3704,7 +3655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Prepared-Statements/prepare/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
     </li>
@@ -3718,7 +3669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Prepared-Statements/execute/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Prepared-Statements/execute/" class="md-nav__link">
         EXCUTE
       </a>
     </li>
@@ -3732,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/0.6-Prepared-Statements/deallocate/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Prepared-Statements/deallocate/" class="md-nav__link">
         DEALLOCATE
       </a>
     </li>
@@ -3966,7 +3917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Explain/0.6-explain/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Explain/explain/" class="md-nav__link">
         EXPLAIN
       </a>
     </li>
@@ -3994,8 +3945,55 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Explain/0.6-explain-analyze/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Explain/explain-analyze/" class="md-nav__link">
         Explain Analyze
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_7" type="checkbox" id="__nav_1_11_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_1_7">
+          系统变量
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统变量" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_11_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          系统变量
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Variable/custom-variable.md" class="md-nav__link">
+        自定义变量
       </a>
     </li>
   
@@ -4048,7 +4046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/0.6-data-types/" class="md-nav__link">
+      <a href="../../../../Reference/Data-Types/data-types/" class="md-nav__link">
         数据类型概览
       </a>
     </li>
@@ -4076,7 +4074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/0.6-timestamp-initialization/" class="md-nav__link">
+      <a href="../../../../Reference/Data-Types/timestamp-initialization/" class="md-nav__link">
         TIMESTAMP 和 DATETIME 的自动初始化和更新
       </a>
     </li>
@@ -4090,7 +4088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/0.6-json-type/" class="md-nav__link">
+      <a href="../../../../Reference/Data-Types/json-type/" class="md-nav__link">
         JSON 数据类型
       </a>
     </li>
@@ -4104,7 +4102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/0.6-blob-type/" class="md-nav__link">
+      <a href="../../../../Reference/Data-Types/blob-type/" class="md-nav__link">
         BLOB 数据类型
       </a>
     </li>
@@ -4401,7 +4399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/0.6-uuid/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Mathematical/uuid/" class="md-nav__link">
         UUID()
       </a>
     </li>
@@ -4462,7 +4460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/0.6-date-format/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Datetime/date-format/" class="md-nav__link">
         DATE_FORMAT()
       </a>
     </li>
@@ -4490,7 +4488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/0.6-month/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Datetime/month/" class="md-nav__link">
         MONTH()
       </a>
     </li>
@@ -4518,7 +4516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/0.6-weekday/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Datetime/weekday/" class="md-nav__link">
         WEEKDAY()
       </a>
     </li>
@@ -4532,7 +4530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/0.6-timestamp/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Datetime/timestamp/" class="md-nav__link">
         TIMESTAMP()
       </a>
     </li>
@@ -4616,7 +4614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/0.6-day/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Datetime/day/" class="md-nav__link">
         DAY()
       </a>
     </li>
@@ -4630,7 +4628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/0.6-unix-timestamp/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Datetime/unix-timestamp/" class="md-nav__link">
         UNIX_TIMESTAMP
       </a>
     </li>
@@ -4644,7 +4642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/0.6-from-unixtime/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Datetime/from-unixtime/" class="md-nav__link">
         FROM_UNIXTIME
       </a>
     </li>
@@ -4658,7 +4656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/0.6-utc-timestamp/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Datetime/utc-timestamp/" class="md-nav__link">
         UTC_TIMESTAMP()
       </a>
     </li>
@@ -4672,7 +4670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/0.6-current-timestamp/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Datetime/current-timestamp/" class="md-nav__link">
         CURRENT_TIMESTAMP()
       </a>
     </li>
@@ -4719,7 +4717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/0.6-bin/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/String/bin/" class="md-nav__link">
         BIN()
       </a>
     </li>
@@ -4733,7 +4731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/0.6-bit-length/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/String/bit-length/" class="md-nav__link">
         BIT_LENGTH()
       </a>
     </li>
@@ -4747,7 +4745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/0.6-hex/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/String/hex/" class="md-nav__link">
         HEX()
       </a>
     </li>
@@ -5004,7 +5002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Table/0.6-unnest.md" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Table/unnest/" class="md-nav__link">
         UUNEST()
       </a>
     </li>
@@ -5072,7 +5070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/System-Parameters/0.6-timezone/" class="md-nav__link">
+      <a href="../../../../Reference/System-Parameters/timezone/" class="md-nav__link">
         时区配置
       </a>
     </li>
@@ -5642,6 +5640,53 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_16" type="checkbox" id="__nav_1_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_16">
+          在线快速体验
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="在线快速体验" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_16">
+          <span class="md-nav__icon md-icon"></span>
+          在线快速体验
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1" class="md-nav__link">
+        Playground
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5767,18 +5812,18 @@
 </code></pre></div>
 <p>上述示例为典型的安装和挂载方式，将其本地路径 <em>~/tmp/docker_loaddata_demo</em> 挂载到内部容器路径 <em>/ssb-dbgen-path</em>。</p>
 <h2 id="_3">导入语法介绍</h2>
-<div class="highlight"><pre><span></span><code><span class="k">LOAD</span> <span class="k">DATA</span>
-    <span class="p">[</span> <span class="n">INFILE</span> <span class="s1">&#39;string&#39;</span>
-    <span class="o">|</span> <span class="n">INFILE</span> <span class="err">{</span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span>
-    <span class="o">|</span> <span class="n">URL</span> <span class="n">s3options</span> <span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span>
-    <span class="p">[</span><span class="k">IGNORE</span><span class="p">]</span>
-    <span class="k">INTO</span> <span class="k">TABLE</span> <span class="n">tbl_name</span>
-    <span class="p">[</span><span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="n">charset_name</span><span class="p">]</span>
-    <span class="p">[</span><span class="err">{</span><span class="n">FIELDS</span> <span class="o">|</span> <span class="n">COLUMNS</span><span class="err">}</span>
-        <span class="p">[[</span><span class="n">OPTIONALLY</span><span class="p">]</span> <span class="n">ENCLOSED</span> <span class="k">BY</span> <span class="s1">&#39;char&#39;</span><span class="p">]</span>
-    <span class="p">]</span>
-    <span class="p">]</span>
-    <span class="p">[</span><span class="k">IGNORE</span> <span class="nb">number</span> <span class="err">{</span><span class="n">LINES</span> <span class="o">|</span> <span class="k">ROWS</span><span class="err">}</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="n">INFILE</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">INFILE</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3options</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="k">IGNORE</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tbl_name</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">charset_name</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="err">{</span><span class="n">FIELDS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">COLUMNS</span><span class="err">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">[[</span><span class="n">OPTIONALLY</span><span class="p">]</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;char&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="k">IGNORE</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="err">{</span><span class="n">LINES</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ROWS</span><span class="err">}</span><span class="p">]</span><span class="w"></span>
 </code></pre></div>
 <!--待确认-heni-->
 
@@ -5831,11 +5876,11 @@
 </table>
 <p>更多信息，参考 <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data/">LOAD DATA</a>。</p>
 <p><strong>代码示例</strong>：</p>
-<div class="highlight"><pre><span></span><code><span class="o">##</span> <span class="err">非指定文件压缩格式</span>
-<span class="k">LOAD</span> <span class="k">DATA</span> <span class="n">INFILE</span> <span class="n">URL</span> <span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span> <span class="k">INTO</span> <span class="k">TABLE</span> <span class="n">t1</span> <span class="n">FIELDS</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;,&#39;</span> <span class="n">ENCLOSED</span> <span class="k">BY</span> <span class="s1">&#39;\&quot;&#39;</span> <span class="n">LINES</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="o">##</span><span class="w"> </span><span class="err">非指定文件压缩格式</span><span class="w"></span>
+<span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"> </span><span class="n">INFILE</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="o">##</span> <span class="err">指定文件压缩格式</span>
-<span class="k">LOAD</span> <span class="k">DATA</span> <span class="n">INFILE</span> <span class="n">URL</span> <span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span> <span class="k">INTO</span> <span class="k">TABLE</span> <span class="n">t1</span> <span class="n">FIELDS</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;,&#39;</span> <span class="n">ENCLOSED</span> <span class="k">BY</span> <span class="s1">&#39;\&quot;&#39;</span> <span class="n">LINES</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+<span class="o">##</span><span class="w"> </span><span class="err">指定文件压缩格式</span><span class="w"></span>
+<span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"> </span><span class="n">INFILE</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <h2 id="_4">示例</h2>
 <p>为方便举例说明，我们准备了 AWS S3 上的数据，如果你还未开通 AWS S3 上的账号，请先开通账号。</p>
@@ -5851,10 +5896,10 @@
 </li>
 <li>
 <p>打开 MySQL 客户端，启动 MatrixOne，在 MatrixOne 中建表，例如：</p>
-<div class="highlight"><pre><span></span><code><span class="k">create</span> <span class="k">database</span> <span class="n">db1</span><span class="p">;</span>
-<span class="n">use</span> <span class="n">db1</span><span class="p">;</span>
-<span class="k">drop</span> <span class="k">table</span> <span class="k">if</span> <span class="k">exists</span> <span class="n">t1</span><span class="p">;</span>
-<span class="k">create</span> <span class="k">table</span> <span class="n">t1</span><span class="p">(</span><span class="n">num_col1</span> <span class="n">tinyint</span><span class="p">,</span><span class="n">num_col2</span> <span class="nb">smallint</span><span class="p">,</span><span class="n">num_col3</span> <span class="nb">int</span><span class="p">,</span><span class="n">num_col4</span> <span class="nb">bigint</span><span class="p">,</span><span class="n">num_col5</span> <span class="n">tinyint</span> <span class="n">unsigned</span><span class="p">,</span><span class="n">num_col6</span> <span class="nb">smallint</span> <span class="n">unsigned</span><span class="p">,</span><span class="n">num_col7</span> <span class="nb">int</span> <span class="n">unsigned</span><span class="p">,</span><span class="n">num_col8</span> <span class="nb">bigint</span> <span class="n">unsigned</span> <span class="p">,</span><span class="n">num_col9</span> <span class="nb">float</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">num_col10</span> <span class="n">double</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">num_col11</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">19</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">db1</span><span class="p">;</span><span class="w"></span>
+<span class="n">use</span><span class="w"> </span><span class="n">db1</span><span class="p">;</span><span class="w"></span>
+<span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">num_col1</span><span class="w"> </span><span class="n">tinyint</span><span class="p">,</span><span class="n">num_col2</span><span class="w"> </span><span class="nb">smallint</span><span class="p">,</span><span class="n">num_col3</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">num_col4</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="n">num_col5</span><span class="w"> </span><span class="n">tinyint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col6</span><span class="w"> </span><span class="nb">smallint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col7</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col8</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="p">,</span><span class="n">num_col9</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">num_col10</span><span class="w"> </span><span class="n">double</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">num_col11</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">19</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
 </li>
 <li>
@@ -5864,7 +5909,7 @@
 </li>
 <li>
 <p>导入成功后，可以使用 SQL 语句查看导入结果：</p>
-<div class="highlight"><pre><span></span><code><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </li>
 </ol>
@@ -5880,26 +5925,26 @@
 </li>
 <li>
 <p>导入成功后，可以使用 SQL 语句查看导入结果：</p>
-<div class="highlight"><pre><span></span><code><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">ex_table_s3_1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">ex_table_s3_1</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </li>
 <li>
 <p>(选做)如果需要将外部表数据导入到 MatrixOne 中的数据表，可以使用以下 SQL 语句：</p>
 <p>在 MatrixOne 中新建表 <em>t1</em>：</p>
-<div class="highlight"><pre><span></span><code><span class="k">create</span> <span class="k">table</span> <span class="n">t1</span><span class="p">(</span><span class="n">num_col1</span> <span class="n">tinyint</span><span class="p">,</span><span class="n">num_col2</span> <span class="nb">smallint</span><span class="p">,</span><span class="n">num_col3</span> <span class="nb">int</span><span class="p">,</span><span class="n">num_col4</span> <span class="nb">bigint</span><span class="p">,</span><span class="n">num_col5</span> <span class="n">tinyint</span> <span class="n">unsigned</span><span class="p">,</span><span class="n">num_col6</span> <span class="nb">smallint</span> <span class="n">unsigned</span><span class="p">,</span><span class="n">num_col7</span> <span class="nb">int</span> <span class="n">unsigned</span><span class="p">,</span><span class="n">num_col8</span> <span class="nb">bigint</span> <span class="n">unsigned</span> <span class="p">,</span><span class="n">num_col9</span> <span class="nb">float</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">num_col10</span> <span class="n">double</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">num_col11</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">19</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">num_col1</span><span class="w"> </span><span class="n">tinyint</span><span class="p">,</span><span class="n">num_col2</span><span class="w"> </span><span class="nb">smallint</span><span class="p">,</span><span class="n">num_col3</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">num_col4</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="n">num_col5</span><span class="w"> </span><span class="n">tinyint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col6</span><span class="w"> </span><span class="nb">smallint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col7</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col8</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="p">,</span><span class="n">num_col9</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">num_col10</span><span class="w"> </span><span class="n">double</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">num_col11</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">19</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
 <p>将外部表 <em>ex_table_s3_1</em> 导入到 <em>t1</em>：</p>
-<div class="highlight"><pre><span></span><code><span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">ex_table_s3_1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">ex_table_s3_1</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </li>
 </ol>
 <h4 id="load-data">关于外部表 <code>Load data</code> 说明</h4>
 <p>外部表 <code>Load data</code> 语法示例如下：</p>
-<div class="highlight"><pre><span></span><code><span class="o">##</span> <span class="err">创建指向</span><span class="n">S3文件的外表</span><span class="err">（指定压缩格式）</span>
-<span class="k">create</span> <span class="k">external</span> <span class="k">table</span> <span class="n">t</span><span class="p">(...)</span> <span class="n">URL</span> <span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span> <span class="n">FIELDS</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;,&#39;</span> <span class="n">ENCLOSED</span> <span class="k">BY</span> <span class="s1">&#39;\&quot;&#39;</span> <span class="n">LINES</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="o">##</span><span class="w"> </span><span class="err">创建指向</span><span class="n">S3文件的外表</span><span class="err">（指定压缩格式）</span><span class="w"></span>
+<span class="k">create</span><span class="w"> </span><span class="k">external</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t</span><span class="p">(...)</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="o">##</span> <span class="err">创建指向</span><span class="n">S3文件的外表</span><span class="err">（不指定压缩格式，则为</span><span class="n">auto格式</span><span class="err">，自动检查文件的格式）</span>
-<span class="k">create</span> <span class="k">external</span> <span class="k">table</span> <span class="n">t</span><span class="p">(...)</span> <span class="n">URL</span> <span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span> <span class="n">FIELDS</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;,&#39;</span> <span class="n">ENCLOSED</span> <span class="k">BY</span> <span class="s1">&#39;\&quot;&#39;</span> <span class="n">LINES</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+<span class="o">##</span><span class="w"> </span><span class="err">创建指向</span><span class="n">S3文件的外表</span><span class="err">（不指定压缩格式，则为</span><span class="n">auto格式</span><span class="err">，自动检查文件的格式）</span><span class="w"></span>
+<span class="k">create</span><span class="w"> </span><span class="k">external</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t</span><span class="p">(...)</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -5907,11 +5952,11 @@
 外部表 <code>select</code> 的操作与目前普通表的操作相同，支持 <code>where</code>，<code>limit</code> 等条件操作。</p>
 </div>
 <p>如果 S3 文件指向外部表，可以使用 <code>select</code> 操作读取外表指向文件里的内容。在 MatrixOne 普通表中导入数据时，可以使用如下 SQL 语句，示例：</p>
-<div class="highlight"><pre><span></span><code><span class="o">##</span> <span class="n">t1为普通表</span><span class="err">，</span><span class="n">t为外表</span>
-<span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="o">##</span><span class="w"> </span><span class="n">t1为普通表</span><span class="err">，</span><span class="n">t为外表</span><span class="w"></span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
 
-<span class="o">##</span> <span class="err">也可以选取外部表文件中某一列导入内表</span>
-<span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">select</span> <span class="n">a</span> <span class="k">from</span> <span class="n">t</span><span class="p">;</span>
+<span class="o">##</span><span class="w"> </span><span class="err">也可以选取外部表文件中某一列导入内表</span><span class="w"></span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 
               
@@ -5922,41 +5967,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../load-jsonline/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 导入 jsonlines 文件" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              导入 jsonlines 文件
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../../../0.6-read-data/query-data-single-table/" class="md-footer__link md-footer__link--next" aria-label="Next: 单表读取" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              单表读取
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
