@@ -1,0 +1,21 @@
+name: Typo issue
+description: Raise a typo issue for MatrixOne documentation
+title: "[Typo]: "
+labels: [kind/typo, fix-directly-please]
+body:
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue about this typo?
+      description: Please check if an issue already exists for the typo problem you encountered.
+      options:
+        - label: I have checked the existing issues.
+          required: true
+  - type: textarea
+    attributes:
+      label: Describe the issue
+      description: |
+        If you find a typo issue, feel free to fire a Pull Request directly to fix it. 
+      render: Markdown
+    validations:
+      required: false
+
