@@ -1,0 +1,20 @@
+name: Enhancement
+description: Request an enhancement for a particular MatrixOne documentation
+title: "[Enhancement]: "
+labels: [kind/enhancement]
+body:
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue about this enhancement?
+      description: Please check if an issue already exists for the enhancement proposal.
+      options:
+        - label: I have checked the existing issues.
+          required: true
+  - type: textarea
+    attributes:
+      label: Describe the enhancement. 
+      description: |
+        A concise description of what you're expecting/suggesting. Why is this enhancement needed? 
+      render: Markdown
+    validations:
+      required: true
