@@ -1,0 +1,20 @@
+name: Displaying
+description: Raise a displaying issue, such as broken link, content formatting, image hidden etc. 
+title: "[Displaying]: "
+labels: [kind/displaying]
+body:
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue about this enhancement?
+      description: Please check if an issue already exists for the typo problem you encountered.
+      options:
+        - label: I have checked the existing issues.
+          required: true
+  - type: textarea
+    attributes:
+      label: Describe the issue. 
+      description: |
+        Where does this issue happen?
+      render: Markdown
+    validations:
+      required: true
