@@ -15,7 +15,6 @@ body:
       label: Describe the issue
       description: |
         If you find a typo issue, feel free to fire a Pull Request directly to fix it. 
-      render: Markdown
     validations:
       required: false
 

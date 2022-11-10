@@ -15,6 +15,5 @@ body:
       label: Describe the doc request. 
       description: |
         Why is this doc required for MatrixOne? How does it help developers? 
-      render: Markdown
     validations:
       required: true

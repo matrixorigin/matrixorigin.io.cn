@@ -15,6 +15,5 @@ body:
       label: Describe the enhancement. 
       description: |
         A concise description of what you're expecting/suggesting. Why is this enhancement needed? 
-      render: Markdown
     validations:
       required: true
