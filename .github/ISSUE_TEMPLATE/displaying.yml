@@ -15,6 +15,5 @@ body:
       label: Describe the issue. 
       description: |
         Where does this issue happen?
-      render: Markdown
     validations:
       required: true
