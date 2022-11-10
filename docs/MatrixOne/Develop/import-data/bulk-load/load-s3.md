@@ -48,7 +48,7 @@ LOAD DATA
 |bucket| 需要访问的桶|
 |filepath| 访问文件的相对路径 |
 |region| s3 所在的区域|
-|compression| S3 文件的压缩格式，为空表示非压缩文件，支持的字段或压缩格式为"auto", "none", "gzip", "bzip2", "flate", "zlib", "lz4"|
+|compression| S3 文件的压缩格式，为空表示非压缩文件，支持的字段或压缩格式为"auto", "none", "gzip", "bzip2", "lz4"|
 |auto|压缩格式，表示通过文件后缀名自动检查文件的压缩格式|
 |none|压缩格式，表示为非压缩格式，其余表示文件的压缩格式|
 

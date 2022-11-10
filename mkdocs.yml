@@ -99,6 +99,7 @@ nav:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
       - 审计: MatrixOne/Troubleshooting/audit.md
+      - 错误码: MatrixOne/Troubleshooting/error-code.md
     - 性能调优:
       - 理解 MatrixOne 执行计划:
         - MatrixOne 执行计划概述: MatrixOne/Performance-Tuning/explain-overview.md
@@ -246,7 +247,7 @@ nav:
           - EXPLAIN 输出结构: MatrixOne/Reference/SQL-Reference/Explain/explain-workflow.md
           - Explain Analyze: MatrixOne/Reference/SQL-Reference/Explain/explain-analyze.md
         - 系统变量:
-          - 自定义变量: MatrixOne/Reference/SQL-Reference/Variable/custom-variable.md
+          - 自定义变量: MatrixOne/Reference/Variable/custom-variable.md
       - 数据类型:
         - 数据类型概览: MatrixOne/Reference/Data-Types/data-types.md
         - 数据类型转换: MatrixOne/Reference/Data-Types/data-type-conversion.md
