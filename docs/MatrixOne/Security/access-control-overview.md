@@ -4,6 +4,8 @@ MatrixOne 的权限控制是结合了基于角色的访问控制 (RBAC，Role-ba
 
 - 基于角色的访问控制（RBAC）：将权限分配给角色，再将角色分配给用户。
 
+   ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/basic-concepts.png?raw=true)
+
 - 自主访问控制（DAC）：每个对象都有一个所有者，所有者可以设置和授予对该对象的访问权限。
 
 ## 基础概念
@@ -11,6 +13,8 @@ MatrixOne 的权限控制是结合了基于角色的访问控制 (RBAC，Role-ba
 ### 对象
 
 对象是 MatrixOne 中封装权限的实体，这些实体之间具有一定的层次结构，例如一个集群（ Cluster ）包含多个 租户（Account），一个租户（Account）包含多个 用户（User）角色（ Role）， 数据库（Database），而一个数据库（Database） 包含多个表（ Table）， 视图（View） 等，这种层次结构如下图所示：
+
+![](https://github.com/matrixorigin/artwork/blob/main/docs/security/object.png?raw=true)
 
 - 每个对象都有且只有一个所有者（Owner），反之，该所有者（Owner）拥有该对象的所有权（Ownership） 权限。
 
