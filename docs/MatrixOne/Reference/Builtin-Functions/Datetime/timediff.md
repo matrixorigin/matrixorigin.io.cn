@@ -2,7 +2,7 @@
 
 ## **函数说明**
 
-`TIMEDIFF()` 返回两个 `TIME` 或 `DATETIME` 值之间的差值。`TIMEDIFF()` 函数的两个表达式必须为相同类型的参数，即 `TIME` 或 `DATETIME`。`TIMEDIFF` 函数返回表示为时间值的` expr1 - expr2` 的结果。
+`TIMEDIFF()` 返回两个 `TIME` 或 `DATETIME` 值之间的差值。`TIMEDIFF()` 函数的两个表达式必须为相同类型的参数，即 `TIME` 或 `DATETIME`。`TIMEDIFF` 函数返回表示为时间值的 `expr1 - expr2` 的结果。
 
 ## **函数语法**
 
