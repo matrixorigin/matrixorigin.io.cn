@@ -35,6 +35,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 nav:
   - MatrixOne:
     - 主页: README.md
@@ -45,8 +47,10 @@ nav:
       - MySQL 兼容性: MatrixOne/Overview/mysql-compatibility.md
       - 最新动态: MatrixOne/Overview/whats-new.md
     - 快速上手:
-      - 安装和启动 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
-      - 连接 MatrixOne: MatrixOne/Get-Started/connect-to-matrixone-server.md
+      - 快速指引概览: MatrixOne/Get-Started/getting-started-with-mo.md
+      - 单元 1. 安装依赖工具: MatrixOne/Get-Started/install-dependency-tool.md
+      - 单元 2. 安装单机版 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
+      - 单元 3. 连接 MatrixOne 服务: MatrixOne/Get-Started/connect-to-matrixone-server.md
       - SQL 的基本操作: MatrixOne/Get-Started/basic-sql.md
       - Playground 在线体验: MatrixOne/Get-Started/Playground.md
     - 开发指南:
@@ -292,6 +296,8 @@ nav:
           - FROM_UNIXTIME: MatrixOne/Reference/Builtin-Functions/Datetime/from-unixtime.md
           - UTC_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/utc-timestamp.md
           - CURRENT_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/current-timestamp.md
+          - TIMEDIFF(): MatrixOne/Reference/Builtin-Functions/Datetime/timediff.md
+          - DATEDIFF(): MatrixOne/Reference/Builtin-Functions/Datetime/date
         - 字符串类:
           - BIN(): MatrixOne/Reference/Builtin-Functions/String/bin.md
           - BIT_LENGTH(): MatrixOne/Reference/Builtin-Functions/String/bit-length.md
