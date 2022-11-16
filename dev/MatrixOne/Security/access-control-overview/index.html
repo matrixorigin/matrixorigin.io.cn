@@ -436,8 +436,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Get-Started/getting-started-with-mo.md" class="md-nav__link">
+        快速指引概览
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Get-Started/install-dependency-tool.md" class="md-nav__link">
+        单元 1. 安装依赖工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装和启动 MatrixOne
+        单元 2. 安装单机版 MatrixOne
       </a>
     </li>
   
@@ -451,7 +479,7 @@
   
     <li class="md-nav__item">
       <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接 MatrixOne
+        单元 3. 连接 MatrixOne 服务
       </a>
     </li>
   
@@ -1034,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Transactions/distributed-transaction-overview.md" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Transactions/distributed-transaction-overview/" class="md-nav__link">
         分布式事务
       </a>
     </li>
@@ -1490,6 +1518,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Troubleshooting/error-code/" class="md-nav__link">
+        错误码
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1813,6 +1855,20 @@
     <li class="md-nav__item">
       <a href="../TLS-introduction/" class="md-nav__link">
         开启 TLS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start-account/" class="md-nav__link">
+        快速开始：创建租户、用户和角色
       </a>
     </li>
   
@@ -2158,7 +2214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table/" class="md-nav__link">
         CREATE EXTERNAL TABLE
       </a>
     </li>
@@ -4100,7 +4156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Variable/custom-variable.md" class="md-nav__link">
+      <a href="../../Reference/Variable/custom-variable/" class="md-nav__link">
         自定义变量
       </a>
     </li>
@@ -4780,6 +4836,34 @@
     <li class="md-nav__item">
       <a href="../../Reference/Builtin-Functions/Datetime/current-timestamp/" class="md-nav__link">
         CURRENT_TIMESTAMP()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Builtin-Functions/Datetime/timediff/" class="md-nav__link">
+        TIMEDIFF()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Builtin-Functions/Datetime/date" class="md-nav__link">
+        DATEDIFF()
       </a>
     </li>
   
@@ -5916,16 +6000,16 @@
 <h1 id="matrixone-">MatrixOne 中的权限控制 - 访问控制概述</h1>
 <p>MatrixOne 的权限控制是结合了基于角色的访问控制 (RBAC，Role-based access control) 和自主访问控制 (DAC，Discretionary access control) 两种安全模型设计和实现的，它既保证了数据访问的安全性，又给数据库运维人员提供了灵活且便捷的管理方法。</p>
 <ul>
-<li>
-<p>基于角色的访问控制（RBAC）：将权限分配给角色，再将角色分配给用户。</p>
-</li>
-<li>
-<p>自主访问控制（DAC）：每个对象都有一个所有者，所有者可以设置和授予对该对象的访问权限。</p>
-</li>
+<li>基于角色的访问控制（RBAC）：将权限分配给角色，再将角色分配给用户。</li>
+</ul>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/security/basic-concepts.png?raw=true" /></p>
+<ul>
+<li>自主访问控制（DAC）：每个对象都有一个所有者，所有者可以设置和授予对该对象的访问权限。</li>
 </ul>
 <h2 id="_1">基础概念</h2>
 <h3 id="_2">对象</h3>
 <p>对象是 MatrixOne 中封装权限的实体，这些实体之间具有一定的层次结构，例如一个集群（ Cluster ）包含多个 租户（Account），一个租户（Account）包含多个 用户（User）角色（ Role）， 数据库（Database），而一个数据库（Database） 包含多个表（ Table）， 视图（View） 等，这种层次结构如下图所示：</p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/security/object.png?raw=true" /></p>
 <ul>
 <li>每个对象都有且只有一个所有者（Owner），反之，该所有者（Owner）拥有该对象的所有权（Ownership） 权限。</li>
 </ul>

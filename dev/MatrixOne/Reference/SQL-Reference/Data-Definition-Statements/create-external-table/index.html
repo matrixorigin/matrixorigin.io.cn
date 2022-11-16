@@ -13,7 +13,7 @@
     
     
       
-        <title>从 S3 导入数据 - MatrixOne中文文档</title>
+        <title>CREATE EXTERNAL TABLE - MatrixOne中文文档</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#s3" class="md-skip">
+        <a href="#create-external-table" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              从 S3 导入数据
+              CREATE EXTERNAL TABLE
             
           </span>
         </div>
@@ -193,13 +193,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../../.." class="md-tabs__link">
+      <a href="../../../../.." class="md-tabs__link md-tabs__link--active">
         MatrixOne
       </a>
     </li>
@@ -261,12 +263,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -432,8 +436,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Get-Started/getting-started-with-mo.md" class="md-nav__link">
+        快速指引概览
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Get-Started/install-dependency-tool.md" class="md-nav__link">
+        单元 1. 安装依赖工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装和启动 MatrixOne
+        单元 2. 安装单机版 MatrixOne
       </a>
     </li>
   
@@ -447,7 +479,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接 MatrixOne
+        单元 3. 连接 MatrixOne 服务
       </a>
     </li>
   
@@ -547,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connect-mo/configure-mo-ssl-connection/" class="md-nav__link">
+      <a href="../../../../Develop/connect-mo/configure-mo-ssl-connection/" class="md-nav__link">
         配置 MatrixOne SSL 连接
       </a>
     </li>
@@ -561,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connect-mo/database-ide/" class="md-nav__link">
+      <a href="../../../../Develop/connect-mo/database-ide/" class="md-nav__link">
         数据库客户端 IDE
       </a>
     </li>
@@ -601,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
+      <a href="../../../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
         JDBC
       </a>
     </li>
@@ -622,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connect-mo/python-connect-to-matrixone/" class="md-nav__link">
+      <a href="../../../../Develop/connect-mo/python-connect-to-matrixone/" class="md-nav__link">
         Python 连接 MatrixOne 服务
       </a>
     </li>
@@ -669,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../schema-design/overview/" class="md-nav__link">
+      <a href="../../../../Develop/schema-design/overview/" class="md-nav__link">
         概述
       </a>
     </li>
@@ -683,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../schema-design/create-database/" class="md-nav__link">
+      <a href="../../../../Develop/schema-design/create-database/" class="md-nav__link">
         创建数据库
       </a>
     </li>
@@ -697,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../schema-design/create-table/" class="md-nav__link">
+      <a href="../../../../Develop/schema-design/create-table/" class="md-nav__link">
         创建表
       </a>
     </li>
@@ -770,7 +802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bulk-load/load-csv/" class="md-nav__link">
+      <a href="../../../../Develop/import-data/bulk-load/load-csv/" class="md-nav__link">
         导入 csv 文件
       </a>
     </li>
@@ -784,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bulk-load/load-jsonline/" class="md-nav__link">
+      <a href="../../../../Develop/import-data/bulk-load/load-jsonline/" class="md-nav__link">
         导入 jsonlines 文件
       </a>
     </li>
@@ -798,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bulk-load/load-s3/" class="md-nav__link">
+      <a href="../../../../Develop/import-data/bulk-load/load-s3/" class="md-nav__link">
         导入 S3 文件
       </a>
     </li>
@@ -852,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../read-data/query-data-single-table/" class="md-nav__link">
+      <a href="../../../../Develop/read-data/query-data-single-table/" class="md-nav__link">
         单表读取
       </a>
     </li>
@@ -866,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../read-data/multitable-join-query/" class="md-nav__link">
+      <a href="../../../../Develop/read-data/multitable-join-query/" class="md-nav__link">
         多表连接查询
       </a>
     </li>
@@ -880,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../read-data/subquery/" class="md-nav__link">
+      <a href="../../../../Develop/read-data/subquery/" class="md-nav__link">
         子查询
       </a>
     </li>
@@ -894,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../read-data/views/" class="md-nav__link">
+      <a href="../../../../Develop/read-data/views/" class="md-nav__link">
         视图
       </a>
     </li>
@@ -908,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../read-data/cte/" class="md-nav__link">
+      <a href="../../../../Develop/read-data/cte/" class="md-nav__link">
         公共表表达式
       </a>
     </li>
@@ -955,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../export-data/export-data/" class="md-nav__link">
+      <a href="../../../../Develop/export-data/export-data/" class="md-nav__link">
         导出数据
       </a>
     </li>
@@ -969,7 +1001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../export-data/backup-restore-matrixone-with_modump/" class="md-nav__link">
+      <a href="../../../../Develop/export-data/backup-restore-matrixone-with_modump/" class="md-nav__link">
         使用 `modump` 备份和恢复数据库
       </a>
     </li>
@@ -1016,7 +1048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Transactions/transaction-overview/" class="md-nav__link">
+      <a href="../../Transactions/transaction-overview/" class="md-nav__link">
         事务概述
       </a>
     </li>
@@ -1030,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Transactions/distributed-transaction-overview.md" class="md-nav__link">
+      <a href="../../Transactions/distributed-transaction-overview/" class="md-nav__link">
         分布式事务
       </a>
     </li>
@@ -1486,6 +1518,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Troubleshooting/error-code/" class="md-nav__link">
+        错误码
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1711,6 +1757,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Security/quick-start-account/" class="md-nav__link">
+        快速开始：创建租户、用户和角色
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1722,12 +1782,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" checked>
       
       
       
@@ -1748,12 +1810,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1" type="checkbox" id="__nav_1_11_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1" type="checkbox" id="__nav_1_11_1" checked>
       
       
       
@@ -1802,7 +1866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/create-account/" class="md-nav__link">
+      <a href="../../Database-Administration-Statements/create-account/" class="md-nav__link">
         CREATE ACCOUNT
       </a>
     </li>
@@ -1816,7 +1880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/create-role/" class="md-nav__link">
+      <a href="../../Database-Administration-Statements/create-role/" class="md-nav__link">
         CREATE ROLE
       </a>
     </li>
@@ -1830,7 +1894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/create-user/" class="md-nav__link">
+      <a href="../../Database-Administration-Statements/create-user/" class="md-nav__link">
         CREATE USER
       </a>
     </li>
@@ -1844,7 +1908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/drop-account/" class="md-nav__link">
+      <a href="../../Database-Administration-Statements/drop-account/" class="md-nav__link">
         DROP ACCOUNT
       </a>
     </li>
@@ -1858,7 +1922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/drop-user/" class="md-nav__link">
+      <a href="../../Database-Administration-Statements/drop-user/" class="md-nav__link">
         DROP USER
       </a>
     </li>
@@ -1872,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/drop-role/" class="md-nav__link">
+      <a href="../../Database-Administration-Statements/drop-role/" class="md-nav__link">
         DROP ROLE
       </a>
     </li>
@@ -1912,7 +1976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/grant-privileges/" class="md-nav__link">
+      <a href="../../Database-Administration-Statements/grant-privileges/" class="md-nav__link">
         GRANT <privileges>
       </a>
     </li>
@@ -1926,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/grant-role/" class="md-nav__link">
+      <a href="../../Database-Administration-Statements/grant-role/" class="md-nav__link">
         GRANT ROLE
       </a>
     </li>
@@ -1947,7 +2011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/set-role/" class="md-nav__link">
+      <a href="../../Database-Administration-Statements/set-role/" class="md-nav__link">
         SET ROLE
       </a>
     </li>
@@ -1961,7 +2025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Database-Administration-Statements/revoke/" class="md-nav__link">
+      <a href="../../Database-Administration-Statements/revoke/" class="md-nav__link">
         REVOKE
       </a>
     </li>
@@ -1980,12 +2044,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_2" type="checkbox" id="__nav_1_11_1_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_2" type="checkbox" id="__nav_1_11_1_2" checked>
       
       
       
@@ -2008,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/create-database/" class="md-nav__link">
+      <a href="../create-database/" class="md-nav__link">
         CREATE DATABASE
       </a>
     </li>
@@ -2022,7 +2088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/create-table/" class="md-nav__link">
+      <a href="../create-table/" class="md-nav__link">
         CREATE TABLE
       </a>
     </li>
@@ -2036,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/create-temporary-tables/" class="md-nav__link">
+      <a href="../create-temporary-tables/" class="md-nav__link">
         CREATE TEMPORARY TABLE
       </a>
     </li>
@@ -2048,11 +2114,113 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CREATE EXTERNAL TABLE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         CREATE EXTERNAL TABLE
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    语法说明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    语法结构
+  </a>
+  
+    <nav class="md-nav" aria-label="语法结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    通用语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    语法示例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    语法说明
+  </a>
+  
+    <nav class="md-nav" aria-label="语法说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参数说明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    限制
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2064,7 +2232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/show-databases/" class="md-nav__link">
+      <a href="../show-databases/" class="md-nav__link">
         SHOW DATABASES
       </a>
     </li>
@@ -2078,7 +2246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/drop-database/" class="md-nav__link">
+      <a href="../drop-database/" class="md-nav__link">
         DROP DATABASE
       </a>
     </li>
@@ -2092,7 +2260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/drop-table/" class="md-nav__link">
+      <a href="../drop-table/" class="md-nav__link">
         DROP TABLE
       </a>
     </li>
@@ -2106,7 +2274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/primary-key/" class="md-nav__link">
+      <a href="../primary-key/" class="md-nav__link">
         PRIMARY KEY
       </a>
     </li>
@@ -2146,7 +2314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/using-view/view-overview/" class="md-nav__link">
+      <a href="../using-view/view-overview/" class="md-nav__link">
         VIEW Overview
       </a>
     </li>
@@ -2160,7 +2328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/using-view/create-view/" class="md-nav__link">
+      <a href="../using-view/create-view/" class="md-nav__link">
         CREATE VIEW
       </a>
     </li>
@@ -2174,7 +2342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Statements/using-view/drop-view/" class="md-nav__link">
+      <a href="../using-view/drop-view/" class="md-nav__link">
         DROP VIEW
       </a>
     </li>
@@ -2228,7 +2396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/insert/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/insert/" class="md-nav__link">
         INSERT
       </a>
     </li>
@@ -2242,7 +2410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/insert-into-select/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/insert-into-select/" class="md-nav__link">
         INSERT INTO SELECT
       </a>
     </li>
@@ -2256,7 +2424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/update/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/update/" class="md-nav__link">
         UPDATE
       </a>
     </li>
@@ -2270,7 +2438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/delete/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/delete/" class="md-nav__link">
         DELETE
       </a>
     </li>
@@ -2284,7 +2452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/load-data/" class="md-nav__link">
         LOAD DATA
       </a>
     </li>
@@ -2298,7 +2466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/select/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/select/" class="md-nav__link">
         SELECT
       </a>
     </li>
@@ -2312,7 +2480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/show-databases/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/show-databases/" class="md-nav__link">
         SHOW DATABASES
       </a>
     </li>
@@ -2326,7 +2494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/show-tables/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/show-tables/" class="md-nav__link">
         SHOW TABLES
       </a>
     </li>
@@ -2340,7 +2508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/use/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/use/" class="md-nav__link">
         USE
       </a>
     </li>
@@ -2354,7 +2522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/interval/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/interval/" class="md-nav__link">
         INTERVAL
       </a>
     </li>
@@ -2368,7 +2536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/with-cte/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/with-cte/" class="md-nav__link">
         With CTE
       </a>
     </li>
@@ -2382,7 +2550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/union/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/union/" class="md-nav__link">
         UNION
       </a>
     </li>
@@ -2396,7 +2564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/intersect/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/intersect/" class="md-nav__link">
         INTERSECT
       </a>
     </li>
@@ -2410,7 +2578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/minus/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/minus/" class="md-nav__link">
         MINUS
       </a>
     </li>
@@ -2450,7 +2618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/subquery/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/subquery/" class="md-nav__link">
         SUBQUERY 概述
       </a>
     </li>
@@ -2464,7 +2632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/subqueries/derived-tables/" class="md-nav__link">
         Derived Tables
       </a>
     </li>
@@ -2478,7 +2646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/subqueries/comparisons-using-subqueries/" class="md-nav__link">
         子查询与比较操作符的使用
       </a>
     </li>
@@ -2492,7 +2660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/subqueries/subquery-with-any-some/" class="md-nav__link">
         SUBQUERY with ANY or SOME
       </a>
     </li>
@@ -2506,7 +2674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/subqueries/subquery-with-all/" class="md-nav__link">
         SUBQUERY with ALL
       </a>
     </li>
@@ -2520,7 +2688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/subqueries/subquery-with-exists/" class="md-nav__link">
         SUBQUERY with EXISTS
       </a>
     </li>
@@ -2534,7 +2702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/subqueries/subquery-with-in/" class="md-nav__link">
         SUBQUERY with IN
       </a>
     </li>
@@ -2581,7 +2749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/join/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/join/" class="md-nav__link">
         JOIN 概览
       </a>
     </li>
@@ -2595,7 +2763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/join/inner-join/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/join/inner-join/" class="md-nav__link">
         INNER JOIN
       </a>
     </li>
@@ -2609,7 +2777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/join/left-join/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/join/left-join/" class="md-nav__link">
         LEFT JOIN
       </a>
     </li>
@@ -2623,7 +2791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/join/right-join/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/join/right-join/" class="md-nav__link">
         RIGHT JOIN
       </a>
     </li>
@@ -2637,7 +2805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/join/full-join/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/join/full-join/" class="md-nav__link">
         FULL JOIN
       </a>
     </li>
@@ -2651,7 +2819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/join/outer-join/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/join/outer-join/" class="md-nav__link">
         OUTER JOIN
       </a>
     </li>
@@ -2665,7 +2833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/join/natural-join/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/join/natural-join/" class="md-nav__link">
         NATURAL JOIN
       </a>
     </li>
@@ -2712,7 +2880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/" class="md-nav__link">
         运算符概述
       </a>
     </li>
@@ -2726,7 +2894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/operator-precedence/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/operator-precedence/" class="md-nav__link">
         运算符的优先级
       </a>
     </li>
@@ -2766,7 +2934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/arithmetic-operators-overview/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/arithmetic-operators-overview/" class="md-nav__link">
         算数运算符概述
       </a>
     </li>
@@ -2780,7 +2948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/mod/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/mod/" class="md-nav__link">
         %,MOD
       </a>
     </li>
@@ -2794,7 +2962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/multiplication/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/multiplication/" class="md-nav__link">
         *
       </a>
     </li>
@@ -2808,7 +2976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/addition/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/addition/" class="md-nav__link">
         +
       </a>
     </li>
@@ -2822,7 +2990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/minus/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/minus/" class="md-nav__link">
         -
       </a>
     </li>
@@ -2836,7 +3004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/unary-minus/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/unary-minus/" class="md-nav__link">
         -
       </a>
     </li>
@@ -2850,7 +3018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/division/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/division/" class="md-nav__link">
         /
       </a>
     </li>
@@ -2864,7 +3032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/div/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/arithmetic-operators/div/" class="md-nav__link">
         DIV
       </a>
     </li>
@@ -2911,7 +3079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/assignment-operators/assignment-operators-overview/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/assignment-operators/assignment-operators-overview/" class="md-nav__link">
         赋值运算符概述
       </a>
     </li>
@@ -2925,7 +3093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/assignment-operators/equal/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/assignment-operators/equal/" class="md-nav__link">
         =
       </a>
     </li>
@@ -2972,7 +3140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bit-functions-and-operators-overview/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/bit-functions-and-operators/bit-functions-and-operators-overview/" class="md-nav__link">
         二进制运算符概述
       </a>
     </li>
@@ -2986,7 +3154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-and/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-and/" class="md-nav__link">
         &
       </a>
     </li>
@@ -3000,7 +3168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/right-shift/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/bit-functions-and-operators/right-shift/" class="md-nav__link">
         >>
       </a>
     </li>
@@ -3014,7 +3182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/left-shift/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/bit-functions-and-operators/left-shift/" class="md-nav__link">
         <<
       </a>
     </li>
@@ -3028,7 +3196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-xor/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-xor/" class="md-nav__link">
         ^
       </a>
     </li>
@@ -3042,7 +3210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-or/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-or/" class="md-nav__link">
         |
       </a>
     </li>
@@ -3056,7 +3224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-inversion/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-inversion/" class="md-nav__link">
         ~
       </a>
     </li>
@@ -3103,7 +3271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/cast-functions-and-operators-overview/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/cast-functions-and-operators/cast-functions-and-operators-overview/" class="md-nav__link">
         强制转换函数和运算符概述
       </a>
     </li>
@@ -3117,7 +3285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/cast/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/cast-functions-and-operators/cast/" class="md-nav__link">
         CAST
       </a>
     </li>
@@ -3131,7 +3299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/convert/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/cast-functions-and-operators/convert/" class="md-nav__link">
         CONVERT
       </a>
     </li>
@@ -3178,7 +3346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview/" class="md-nav__link">
         比较函数和运算符概述
       </a>
     </li>
@@ -3192,7 +3360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than/" class="md-nav__link">
         >
       </a>
     </li>
@@ -3206,7 +3374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than-or-equal/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than-or-equal/" class="md-nav__link">
         >=
       </a>
     </li>
@@ -3220,7 +3388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than/" class="md-nav__link">
         <
       </a>
     </li>
@@ -3234,7 +3402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-equal/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-equal/" class="md-nav__link">
         <>,!=
       </a>
     </li>
@@ -3248,7 +3416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than-or-equal/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than-or-equal/" class="md-nav__link">
         <=
       </a>
     </li>
@@ -3262,7 +3430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/assign-equal/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/assign-equal/" class="md-nav__link">
         =
       </a>
     </li>
@@ -3276,7 +3444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/between/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/between/" class="md-nav__link">
         BETWEEN ... AND ...
       </a>
     </li>
@@ -3290,7 +3458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/in/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/in/" class="md-nav__link">
         IN
       </a>
     </li>
@@ -3304,7 +3472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/is/" class="md-nav__link">
         IS
       </a>
     </li>
@@ -3318,7 +3486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not/" class="md-nav__link">
         IS NOT
       </a>
     </li>
@@ -3332,7 +3500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not-null/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not-null/" class="md-nav__link">
         IS NOT NULL
       </a>
     </li>
@@ -3346,7 +3514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-null/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-null/" class="md-nav__link">
         IS NULL
       </a>
     </li>
@@ -3360,7 +3528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/like/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/like/" class="md-nav__link">
         LIKE
       </a>
     </li>
@@ -3374,7 +3542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-between/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-between/" class="md-nav__link">
         NOT BETWEEN ... AND ...
       </a>
     </li>
@@ -3388,7 +3556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-like/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-like/" class="md-nav__link">
         NOT LIKE
       </a>
     </li>
@@ -3402,7 +3570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/coalesce/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/comparison-functions-and-operators/coalesce/" class="md-nav__link">
         COALESCE
       </a>
     </li>
@@ -3449,7 +3617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/flow-control-functions-overview/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/flow-control-functions/flow-control-functions-overview/" class="md-nav__link">
         控制流函数概述
       </a>
     </li>
@@ -3463,7 +3631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/case-when/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/flow-control-functions/case-when/" class="md-nav__link">
         CASE WHEN
       </a>
     </li>
@@ -3477,7 +3645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/function_if/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/flow-control-functions/function_if/" class="md-nav__link">
         IF
       </a>
     </li>
@@ -3524,7 +3692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/logical-operators-overview/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/logical-operators/logical-operators-overview/" class="md-nav__link">
         逻辑运算符概述
       </a>
     </li>
@@ -3538,7 +3706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/and/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/logical-operators/and/" class="md-nav__link">
         AND,&&
       </a>
     </li>
@@ -3552,7 +3720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/not/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/logical-operators/not/" class="md-nav__link">
         NOT,!
       </a>
     </li>
@@ -3566,7 +3734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/or/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/logical-operators/or/" class="md-nav__link">
         OR
       </a>
     </li>
@@ -3580,7 +3748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/xor/" class="md-nav__link">
+      <a href="../../Data-Manipulation-Statements/operators/logical-operators/xor/" class="md-nav__link">
         XOR
       </a>
     </li>
@@ -3641,7 +3809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
+      <a href="../../Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
         Prepared 语句概述
       </a>
     </li>
@@ -3655,7 +3823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Prepared-Statements/prepare/" class="md-nav__link">
+      <a href="../../Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
     </li>
@@ -3669,7 +3837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Prepared-Statements/execute/" class="md-nav__link">
+      <a href="../../Prepared-Statements/execute/" class="md-nav__link">
         EXCUTE
       </a>
     </li>
@@ -3683,7 +3851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Prepared-Statements/deallocate/" class="md-nav__link">
+      <a href="../../Prepared-Statements/deallocate/" class="md-nav__link">
         DEALLOCATE
       </a>
     </li>
@@ -3730,7 +3898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/avg/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/avg/" class="md-nav__link">
         AVG
       </a>
     </li>
@@ -3744,7 +3912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/count/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/count/" class="md-nav__link">
         COUNT
       </a>
     </li>
@@ -3758,7 +3926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/max/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/max/" class="md-nav__link">
         MAX
       </a>
     </li>
@@ -3772,7 +3940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/min/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/min/" class="md-nav__link">
         MIN
       </a>
     </li>
@@ -3786,7 +3954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/sum/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/sum/" class="md-nav__link">
         SUM
       </a>
     </li>
@@ -3800,7 +3968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/any-value/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/any-value/" class="md-nav__link">
         ANY_VALUE
       </a>
     </li>
@@ -3814,7 +3982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/bit_and/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/bit_and/" class="md-nav__link">
         BIT_AND
       </a>
     </li>
@@ -3828,7 +3996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/bit_or/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/bit_or/" class="md-nav__link">
         BIT_OR
       </a>
     </li>
@@ -3842,7 +4010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/bit_xor/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/bit_xor/" class="md-nav__link">
         BIT_XOR
       </a>
     </li>
@@ -3856,7 +4024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/stddev_pop/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/stddev_pop/" class="md-nav__link">
         STDDEV_POP
       </a>
     </li>
@@ -3870,7 +4038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Aggregate-Functions/var/" class="md-nav__link">
+      <a href="../../Aggregate-Functions/var/" class="md-nav__link">
         VAR
       </a>
     </li>
@@ -3917,7 +4085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Explain/explain/" class="md-nav__link">
+      <a href="../../Explain/explain/" class="md-nav__link">
         EXPLAIN
       </a>
     </li>
@@ -3931,7 +4099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Explain/explain-workflow/" class="md-nav__link">
+      <a href="../../Explain/explain-workflow/" class="md-nav__link">
         EXPLAIN 输出结构
       </a>
     </li>
@@ -3945,7 +4113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Explain/explain-analyze/" class="md-nav__link">
+      <a href="../../Explain/explain-analyze/" class="md-nav__link">
         Explain Analyze
       </a>
     </li>
@@ -3992,7 +4160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Variable/custom-variable.md" class="md-nav__link">
+      <a href="../../../Variable/custom-variable/" class="md-nav__link">
         自定义变量
       </a>
     </li>
@@ -4046,7 +4214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/data-types/" class="md-nav__link">
+      <a href="../../../Data-Types/data-types/" class="md-nav__link">
         数据类型概览
       </a>
     </li>
@@ -4060,7 +4228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/data-type-conversion/" class="md-nav__link">
+      <a href="../../../Data-Types/data-type-conversion/" class="md-nav__link">
         数据类型转换
       </a>
     </li>
@@ -4074,7 +4242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/timestamp-initialization/" class="md-nav__link">
+      <a href="../../../Data-Types/timestamp-initialization/" class="md-nav__link">
         TIMESTAMP 和 DATETIME 的自动初始化和更新
       </a>
     </li>
@@ -4088,7 +4256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/json-type/" class="md-nav__link">
+      <a href="../../../Data-Types/json-type/" class="md-nav__link">
         JSON 数据类型
       </a>
     </li>
@@ -4102,7 +4270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/blob-type/" class="md-nav__link">
+      <a href="../../../Data-Types/blob-type/" class="md-nav__link">
         BLOB 数据类型
       </a>
     </li>
@@ -4116,7 +4284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/fixed-point-types/" class="md-nav__link">
+      <a href="../../../Data-Types/fixed-point-types/" class="md-nav__link">
         精确数值类型-DECIMAL
       </a>
     </li>
@@ -4189,7 +4357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/abs/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/abs/" class="md-nav__link">
         ABS()
       </a>
     </li>
@@ -4203,7 +4371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/sin/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/sin/" class="md-nav__link">
         SIN()
       </a>
     </li>
@@ -4217,7 +4385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/cos/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/cos/" class="md-nav__link">
         COS()
       </a>
     </li>
@@ -4231,7 +4399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/tan/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/tan/" class="md-nav__link">
         TAN()
       </a>
     </li>
@@ -4245,7 +4413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/cot/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/cot/" class="md-nav__link">
         COT()
       </a>
     </li>
@@ -4259,7 +4427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/acos/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/acos/" class="md-nav__link">
         ACOS()
       </a>
     </li>
@@ -4273,7 +4441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/atan/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/atan/" class="md-nav__link">
         ATAN()
       </a>
     </li>
@@ -4287,7 +4455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/sinh/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/sinh/" class="md-nav__link">
         SINH()
       </a>
     </li>
@@ -4301,7 +4469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/floor/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/floor/" class="md-nav__link">
         FLOOR()
       </a>
     </li>
@@ -4315,7 +4483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/round/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/round/" class="md-nav__link">
         ROUND()
       </a>
     </li>
@@ -4329,7 +4497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/ceil/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/ceil/" class="md-nav__link">
         CEIL()
       </a>
     </li>
@@ -4343,7 +4511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/power/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/power/" class="md-nav__link">
         POWER()
       </a>
     </li>
@@ -4357,7 +4525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/pi/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/pi/" class="md-nav__link">
         PI()
       </a>
     </li>
@@ -4371,7 +4539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/log/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/log/" class="md-nav__link">
         LOG()
       </a>
     </li>
@@ -4385,7 +4553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/ln/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/ln/" class="md-nav__link">
         LN()
       </a>
     </li>
@@ -4399,7 +4567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/uuid/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/uuid/" class="md-nav__link">
         UUID()
       </a>
     </li>
@@ -4413,7 +4581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Mathematical/exp/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Mathematical/exp/" class="md-nav__link">
         EXP()
       </a>
     </li>
@@ -4460,7 +4628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/date-format/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/date-format/" class="md-nav__link">
         DATE_FORMAT()
       </a>
     </li>
@@ -4474,7 +4642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/year/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/year/" class="md-nav__link">
         YEAR()
       </a>
     </li>
@@ -4488,7 +4656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/month/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/month/" class="md-nav__link">
         MONTH()
       </a>
     </li>
@@ -4502,7 +4670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/date/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/date/" class="md-nav__link">
         DATE()
       </a>
     </li>
@@ -4516,7 +4684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/weekday/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/weekday/" class="md-nav__link">
         WEEKDAY()
       </a>
     </li>
@@ -4530,7 +4698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/timestamp/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/timestamp/" class="md-nav__link">
         TIMESTAMP()
       </a>
     </li>
@@ -4544,7 +4712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/dayofyear/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/dayofyear/" class="md-nav__link">
         DAYOFYEAR()
       </a>
     </li>
@@ -4558,7 +4726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/extract/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/extract/" class="md-nav__link">
         EXTRACT()
       </a>
     </li>
@@ -4572,7 +4740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/date-add/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/date-add/" class="md-nav__link">
         DATE_ADD()
       </a>
     </li>
@@ -4586,7 +4754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/date-sub/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/date-sub/" class="md-nav__link">
         DATE_SUB()
       </a>
     </li>
@@ -4600,7 +4768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/to-date/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/to-date/" class="md-nav__link">
         TO_DATE()
       </a>
     </li>
@@ -4614,7 +4782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/day/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/day/" class="md-nav__link">
         DAY()
       </a>
     </li>
@@ -4628,7 +4796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/unix-timestamp/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/unix-timestamp/" class="md-nav__link">
         UNIX_TIMESTAMP
       </a>
     </li>
@@ -4642,7 +4810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/from-unixtime/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/from-unixtime/" class="md-nav__link">
         FROM_UNIXTIME
       </a>
     </li>
@@ -4656,7 +4824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/utc-timestamp/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/utc-timestamp/" class="md-nav__link">
         UTC_TIMESTAMP()
       </a>
     </li>
@@ -4670,8 +4838,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/current-timestamp/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/current-timestamp/" class="md-nav__link">
         CURRENT_TIMESTAMP()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Builtin-Functions/Datetime/timediff/" class="md-nav__link">
+        TIMEDIFF()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Builtin-Functions/Datetime/date" class="md-nav__link">
+        DATEDIFF()
       </a>
     </li>
   
@@ -4717,7 +4913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/bin/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/bin/" class="md-nav__link">
         BIN()
       </a>
     </li>
@@ -4731,7 +4927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/bit-length/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/bit-length/" class="md-nav__link">
         BIT_LENGTH()
       </a>
     </li>
@@ -4745,7 +4941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/hex/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/hex/" class="md-nav__link">
         HEX()
       </a>
     </li>
@@ -4759,7 +4955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/concat-ws/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/concat-ws/" class="md-nav__link">
         CONCAT_WS()
       </a>
     </li>
@@ -4773,7 +4969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/find-in-set/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/find-in-set/" class="md-nav__link">
         FIND_IN_SET()
       </a>
     </li>
@@ -4787,7 +4983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/oct/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/oct/" class="md-nav__link">
         OCT()
       </a>
     </li>
@@ -4801,7 +4997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/empty/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/empty/" class="md-nav__link">
         EMPTY()
       </a>
     </li>
@@ -4815,7 +5011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/length/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/length/" class="md-nav__link">
         LENGTH()
       </a>
     </li>
@@ -4829,7 +5025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/char-length/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/char-length/" class="md-nav__link">
         LENGTHUTF8()
       </a>
     </li>
@@ -4843,7 +5039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/ltrim/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/ltrim/" class="md-nav__link">
         LTRIM()
       </a>
     </li>
@@ -4857,7 +5053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/rtrim/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/rtrim/" class="md-nav__link">
         RTRIM()
       </a>
     </li>
@@ -4871,7 +5067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/lpad/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/lpad/" class="md-nav__link">
         LPAD()
       </a>
     </li>
@@ -4885,7 +5081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/rpad/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/rpad/" class="md-nav__link">
         RPAD()
       </a>
     </li>
@@ -4899,7 +5095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/startswith/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/startswith/" class="md-nav__link">
         STARTSWITH()
       </a>
     </li>
@@ -4913,7 +5109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/endswith/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/endswith/" class="md-nav__link">
         ENDSWITH()
       </a>
     </li>
@@ -4927,7 +5123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/substring/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/substring/" class="md-nav__link">
         SUBSTRING()
       </a>
     </li>
@@ -4941,7 +5137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/space/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/space/" class="md-nav__link">
         SPACE()
       </a>
     </li>
@@ -4955,7 +5151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/reverse/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/reverse/" class="md-nav__link">
         REVERSE()
       </a>
     </li>
@@ -5002,7 +5198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Table/unnest/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Table/unnest/" class="md-nav__link">
         UUNEST()
       </a>
     </li>
@@ -5056,7 +5252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/System-Parameters/configuration-settings/" class="md-nav__link">
+      <a href="../../../System-Parameters/configuration-settings/" class="md-nav__link">
         通用配置
       </a>
     </li>
@@ -5070,7 +5266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/System-Parameters/timezone/" class="md-nav__link">
+      <a href="../../../System-Parameters/timezone/" class="md-nav__link">
         时区配置
       </a>
     </li>
@@ -5091,7 +5287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/System-tables/" class="md-nav__link">
+      <a href="../../../System-tables/" class="md-nav__link">
         MatrixOne Catalog
       </a>
     </li>
@@ -5131,7 +5327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Limitations/mo-jdbc-feature-list/" class="md-nav__link">
+      <a href="../../../Limitations/mo-jdbc-feature-list/" class="md-nav__link">
         MatrixOne 的 JDBC 功能支持列表
       </a>
     </li>
@@ -5145,7 +5341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Limitations/mo-partition-support/" class="md-nav__link">
+      <a href="../../../Limitations/mo-partition-support/" class="md-nav__link">
         MatrixOne DDL 语句分区支持的说明
       </a>
     </li>
@@ -5721,62 +5917,69 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    概述
+    语法说明
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    开始前准备
+    语法结构
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="语法结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    导入语法介绍
+    通用语法
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    语法示例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    语法说明
+  </a>
+  
+    <nav class="md-nav" aria-label="语法说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参数说明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     示例
   </a>
   
-    <nav class="md-nav" aria-label="示例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#s3-matrixone" class="md-nav__link">
-    方式一：直接将 S3 文件导入到 MatrixOne
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#s3_1" class="md-nav__link">
-    方式二：直接将 S3 文件指定到外部表
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    限制
   </a>
-  
-    <nav class="md-nav" aria-label="方式二：直接将 S3 文件指定到外部表">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#load-data" class="md-nav__link">
-    关于外部表 Load data 说明
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5792,42 +5995,41 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Develop/import-data/0.6-bulk-load/load-s3.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="s3">从 S3 导入数据</h1>
-<h2 id="_1">概述</h2>
-<p>MatrixOne 支持从对象存储服务（Simple Storage Service, S3) 中读取文件，导入数据到 MatrixOne 数据库表中。</p>
-<p>目前的 S3 支持 AWS，以及国内的主流云厂商，此外 S3 上的文件支持压缩格式，此外还支持文件路径的正则表达式规则，来读取多个文件，例如 "/Users/*.txt" 就会去读取以 <em>.txt</em> 结尾的所有文件。</p>
-<h2 id="_2">开始前准备</h2>
-<ul>
-<li>已通过<a href="https://docs.matrixorigin.io/cn/0.5.0/MatrixOne/Get-Started/install-standalone-matrixone/#1">源代码</a>或<a href="https://docs.matrixorigin.io/cn/0.5.0/MatrixOne/Get-Started/install-standalone-matrixone/#2">二进制包</a>完成安装 MatrixOne</li>
-<li>已完成<a href="../../Get-Started/connect-to-matrixone-server.md">连接 MatrixOne 服务</a></li>
-</ul>
-<p>如果你使用 Docker 安装启动 MatrixOne，确保你已将数据文件目录挂载到容器目录下，示例如下：</p>
-<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.5.1
+<h1 id="create-external-table"><strong>CREATE EXTERNAL TABLE</strong></h1>
+<h2 id="_1"><strong>语法说明</strong></h2>
+<p>外部表是指不在数据库里的表，是操作系统上的一个按照一定格式分割的文本文件，或是其他类型的表，对 MatrixOne 来说类似于视图，可以在数据库中像视图一样进行查询等操作，但是外部表在数据库中只有表结构，而数据存放在操作系统中。</p>
+<p>本篇文档将讲述如何在 MatrixOne 数据库外建表。</p>
+<h2 id="_2"><strong>语法结构</strong></h2>
+<h3 id="_3">通用语法</h3>
+<div class="highlight"><pre><span></span><code>&gt; CREATE EXTERNAL TABLE [IF NOT EXISTS] [db.]table_name;
+(
+    name1 type1,
+    name2 type2,
+    ...
+)
 </code></pre></div>
-<p>上述示例为典型的安装和挂载方式，将其本地路径 <em>~/tmp/docker_loaddata_demo</em> 挂载到内部容器路径 <em>/ssb-dbgen-path</em>。</p>
-<h2 id="_3">导入语法介绍</h2>
-<div class="highlight"><pre><span></span><code><span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="n">INFILE</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">INFILE</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"></span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3options</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="k">IGNORE</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tbl_name</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">charset_name</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="err">{</span><span class="n">FIELDS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">COLUMNS</span><span class="err">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">[[</span><span class="n">OPTIONALLY</span><span class="p">]</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;char&#39;</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="k">IGNORE</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="err">{</span><span class="n">LINES</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ROWS</span><span class="err">}</span><span class="p">]</span><span class="w"></span>
-</code></pre></div>
-<!--待确认-heni-->
+<h3 id="_4">语法示例</h3>
+<div class="highlight"><pre><span></span><code>## 创建指向本地文件的外表（指定压缩格式）
+create external table t(...) localfile{&quot;filepath&quot;=&#39;&lt;string&gt;&#39;, &quot;compression&quot;=&#39;&lt;string&gt;&#39;} FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;\&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
 
-<p><strong>参数说明</strong></p>
+## 创建指向本地文件的外表（不指定压缩格式，则为auto格式，自动检查文件的格式）
+create external table t(...) localfile{&quot;filepath&quot;=&#39;&lt;string&gt;&#39;} FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;\&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
+
+
+## 创建指向S3文件的外表（指定压缩格式）
+create external table t(...) URL s3option{&quot;endpoint&quot;=&#39;&lt;string&gt;&#39;, &quot;access_key_id&quot;=&#39;&lt;string&gt;&#39;, &quot;secret_access_key&quot;=&#39;&lt;string&gt;&#39;, &quot;bucket&quot;=&#39;&lt;string&gt;&#39;, &quot;filepath&quot;=&#39;&lt;string&gt;&#39;, &quot;region&quot;=&#39;&lt;string&gt;&#39;, &quot;compression&quot;=&#39;&lt;string&gt;&#39;} FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;\&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
+
+## 创建指向S3文件的外表（不指定压缩格式，则为auto格式，自动检查文件的格式）
+create external table t(...) URL s3option{&quot;endpoint&quot;=&#39;&lt;string&gt;&#39;, &quot;access_key_id&quot;=&#39;&lt;string&gt;&#39;, &quot;secret_access_key&quot;=&#39;&lt;string&gt;&#39;, &quot;bucket&quot;=&#39;&lt;string&gt;&#39;, &quot;filepath&quot;=&#39;&lt;string&gt;&#39;, &quot;region&quot;=&#39;&lt;string&gt;&#39;} FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;\&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
+</code></pre></div>
+<h3 id="_5">语法说明</h3>
+<h4 id="_6">参数说明</h4>
 <table>
 <thead>
 <tr>
@@ -5874,90 +6076,12 @@
 </tr>
 </tbody>
 </table>
-<p>更多信息，参考 <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data/">LOAD DATA</a>。</p>
-<p><strong>代码示例</strong>：</p>
-<div class="highlight"><pre><span></span><code><span class="o">##</span><span class="w"> </span><span class="err">非指定文件压缩格式</span><span class="w"></span>
-<span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"> </span><span class="n">INFILE</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="o">##</span><span class="w"> </span><span class="err">指定文件压缩格式</span><span class="w"></span>
-<span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"> </span><span class="n">INFILE</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<h2 id="_7">示例</h2>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">external</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">ex_table_cpk</span><span class="p">(</span><span class="n">clo1</span><span class="w"> </span><span class="n">tinyint</span><span class="p">,</span><span class="n">clo2</span><span class="w"> </span><span class="nb">smallint</span><span class="p">,</span><span class="n">clo3</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">clo4</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="n">clo5</span><span class="w"> </span><span class="n">tinyint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">clo6</span><span class="w"> </span><span class="nb">smallint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">clo7</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">clo8</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">col9</span><span class="w"> </span><span class="nb">float</span><span class="p">,</span><span class="n">col10</span><span class="w"> </span><span class="n">double</span><span class="p">,</span><span class="n">col11</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="n">col12</span><span class="w"> </span><span class="nb">Date</span><span class="p">,</span><span class="n">col13</span><span class="w"> </span><span class="n">DateTime</span><span class="p">,</span><span class="n">col14</span><span class="w"> </span><span class="k">timestamp</span><span class="p">,</span><span class="n">col15</span><span class="w"> </span><span class="n">bool</span><span class="p">,</span><span class="n">col16</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">col17</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="n">col18</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="n">col19</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="n">col20</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span><span class="n">infile</span><span class="err">{</span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;$resources/external_table_file/cpk_table_1.csv&#39;</span><span class="err">}</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
-<h2 id="_4">示例</h2>
-<p>为方便举例说明，我们准备了 AWS S3 上的数据，如果你还未开通 AWS S3 上的账号，请先开通账号。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>涉及到账号隐私，此处代码示例不展示有关 access_id 等账号信息。
-你可以通过本篇文档了解主要步骤，对于具体数据和具体账号信息，将不做展示。</p>
-</div>
-<h3 id="s3-matrixone">方式一：直接将 S3 文件导入到 MatrixOne</h3>
-<ol>
-<li>
-<p>准备数据。进入到 <strong>AWS S3 &gt; buckets</strong> 找到表文件 <em>file-demo</em>。</p>
-</li>
-<li>
-<p>打开 MySQL 客户端，启动 MatrixOne，在 MatrixOne 中建表，例如：</p>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">db1</span><span class="p">;</span><span class="w"></span>
-<span class="n">use</span><span class="w"> </span><span class="n">db1</span><span class="p">;</span><span class="w"></span>
-<span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
-<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">num_col1</span><span class="w"> </span><span class="n">tinyint</span><span class="p">,</span><span class="n">num_col2</span><span class="w"> </span><span class="nb">smallint</span><span class="p">,</span><span class="n">num_col3</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">num_col4</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="n">num_col5</span><span class="w"> </span><span class="n">tinyint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col6</span><span class="w"> </span><span class="nb">smallint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col7</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col8</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="p">,</span><span class="n">num_col9</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">num_col10</span><span class="w"> </span><span class="n">double</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">num_col11</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">19</span><span class="p">));</span><span class="w"></span>
-</code></pre></div>
-</li>
-<li>
-<p>将表文件导入到 MatrixOne：</p>
-<div class="highlight"><pre><span></span><code>LOAD DATA INFILE URL s3option{&quot;endpoint&quot;=&#39;s3.us-west-2.amazonaws.com&#39;, &quot;access_key_id&quot;=&#39;&lt;string&gt;&#39;, &quot;secret_access_key&quot;=&#39;&lt;string&gt;&#39;, &quot;bucket&quot;=&#39;&lt;string&gt;&#39;, &quot;filepath&quot;=&#39;&lt;string&gt;&#39;, &quot;region&quot;=&#39;&lt;string&gt;&#39;, &quot;compression&quot;=&#39;&lt;string&gt;&#39;} INTO TABLE t1 FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;\&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
-</code></pre></div>
-</li>
-<li>
-<p>导入成功后，可以使用 SQL 语句查看导入结果：</p>
-<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-</li>
-</ol>
-<h3 id="s3_1">方式二：直接将 S3 文件指定到外部表</h3>
-<ol>
-<li>
-<p>准备数据。进入到 <strong>AWS S3 &gt; Buckes</strong> 找到表文件 <em>file-demo</em>。</p>
-</li>
-<li>
-<p>打开 MySQL 客户端将 S3 表数据指定到外部表：</p>
-<div class="highlight"><pre><span></span><code>create external table ex_table_s3_1(num_col1 tinyint,num_col2 smallint,num_col3 int,num_col4 bigint,num_col5 tinyint unsigned,num_col6 smallint unsigned,num_col7 int unsigned,num_col8 bigint unsigned ,num_col9 float(5,3),num_col10 double(6,5),num_col11 decimal(38,19)) URL s3option{&quot;endpoint&quot;=&#39;s3.us-west-2.amazonaws.com&#39;,&quot;access_key_id&quot;=&#39;AKIAW2D4ZBGTXW2S2PVR&#39;, &quot;secret_access_key&quot;=&#39;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&#39;, &quot;bucket&quot;=&#39;heni-test&#39;, &quot;filepath&quot;=&#39;s3://heni-test/ex_table_number.csv&#39;, &quot;region&quot;=&#39;us-west-2&#39;} fields terminated by &#39;,&#39; enclosed by &#39;\&quot;&#39; lines terminated by &#39;\n&#39;;
-</code></pre></div>
-</li>
-<li>
-<p>导入成功后，可以使用 SQL 语句查看导入结果：</p>
-<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">ex_table_s3_1</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-</li>
-<li>
-<p>(选做)如果需要将外部表数据导入到 MatrixOne 中的数据表，可以使用以下 SQL 语句：</p>
-<p>在 MatrixOne 中新建表 <em>t1</em>：</p>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">num_col1</span><span class="w"> </span><span class="n">tinyint</span><span class="p">,</span><span class="n">num_col2</span><span class="w"> </span><span class="nb">smallint</span><span class="p">,</span><span class="n">num_col3</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">num_col4</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="n">num_col5</span><span class="w"> </span><span class="n">tinyint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col6</span><span class="w"> </span><span class="nb">smallint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col7</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">num_col8</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="p">,</span><span class="n">num_col9</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">num_col10</span><span class="w"> </span><span class="n">double</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">num_col11</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span><span class="mi">19</span><span class="p">));</span><span class="w"></span>
-</code></pre></div>
-<p>将外部表 <em>ex_table_s3_1</em> 导入到 <em>t1</em>：</p>
-<div class="highlight"><pre><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">ex_table_s3_1</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-</li>
-</ol>
-<h4 id="load-data">关于外部表 <code>Load data</code> 说明</h4>
-<p>外部表 <code>Load data</code> 语法示例如下：</p>
-<div class="highlight"><pre><span></span><code><span class="o">##</span><span class="w"> </span><span class="err">创建指向</span><span class="n">S3文件的外表</span><span class="err">（指定压缩格式）</span><span class="w"></span>
-<span class="k">create</span><span class="w"> </span><span class="k">external</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t</span><span class="p">(...)</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="o">##</span><span class="w"> </span><span class="err">创建指向</span><span class="n">S3文件的外表</span><span class="err">（不指定压缩格式，则为</span><span class="n">auto格式</span><span class="err">，自动检查文件的格式）</span><span class="w"></span>
-<span class="k">create</span><span class="w"> </span><span class="k">external</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t</span><span class="p">(...)</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;&lt;string&gt;&#39;</span><span class="err">}</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>MatrixOne 对于外部表仅支持进行 <code>select</code> 操作，<code>delete</code>，<code>insert</code>，<code>update</code> 暂不支持。
-外部表 <code>select</code> 的操作与目前普通表的操作相同，支持 <code>where</code>，<code>limit</code> 等条件操作。</p>
-</div>
-<p>如果 S3 文件指向外部表，可以使用 <code>select</code> 操作读取外表指向文件里的内容。在 MatrixOne 普通表中导入数据时，可以使用如下 SQL 语句，示例：</p>
-<div class="highlight"><pre><span></span><code><span class="o">##</span><span class="w"> </span><span class="n">t1为普通表</span><span class="err">，</span><span class="n">t为外表</span><span class="w"></span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
-
-<span class="o">##</span><span class="w"> </span><span class="err">也可以选取外部表文件中某一列导入内表</span><span class="w"></span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
+<p>更多关于使用外表指定 S3 文件，参见<a href="../../../../Develop/import-data/bulk-load/load-s3/">从 S3 导入数据</a>。</p>
+<h2 id="_8"><strong>限制</strong></h2>
+<p>当前 MatrixOne 仅支持对外部表进行 <code>select</code> 操作，暂时还不支持使用 <code>delete</code>、<code>insert</code>、<code>update</code> 对外部表插入数据。</p>
 
               
             </article>
@@ -5967,6 +6091,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../create-temporary-tables/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CREATE TEMPORARY TABLE" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              CREATE TEMPORARY TABLE
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../show-databases/" class="md-footer__link md-footer__link--next" aria-label="Next: SHOW DATABASES" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              SHOW DATABASES
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
