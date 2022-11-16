@@ -34,7 +34,6 @@ MatrixOne 的访问控制权限分为 **系统权限** 和 **对象权限**，�
 |OWNERSHIP|Account 的所有权限，可以通过 `WITH GRANT OPTION` 设置权限|
 |SHOW GRANT	|查看当前租户下某个角色或用户的权限列表|
 
-
 ### 用户权限
 
 |权限|含义|
