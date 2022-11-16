@@ -2,7 +2,7 @@
 
 ## **语法说明**
 
-将某个角色上被赋予的权限收回。
+将某个用户或者角色上被赋予的权限收回。
 
 ## **语法结构**
 
@@ -11,6 +11,9 @@
     priv_type [(column_list)]
       [, priv_type [(column_list)]] ...
     ON object_type priv_level
+
+> REVOKE [IF EXISTS] role [, role ] ...
+    FROM user_or_role [, user_or_role ] ...
 ```
 
 ## **示例**

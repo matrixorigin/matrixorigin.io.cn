@@ -18,7 +18,7 @@
 | ALTER VIEW                    | N    |
 | CREATE OR REPLACE VIEW        | N    |
 | DROP VIEW                     | Y    |
-| TRUNCATE                      | N    |
+| TRUNCATE                      | Y    |
 | SEQUENCE                      | N    |
 | AUTO_INCREMENT                | Y    |
 | Temporary tables              | Y    |
@@ -74,7 +74,7 @@
 |                      | MEDIUMBLOB        | Y    |
 |                      | LONGBLOB          | Y    |
 | 时间与日期  | Date              | Y    |
-|                      | Time              | N    |
+|                      | Time              | Y    |
 |                      | DateTime          | Y    |
 |                      | Timestamp         | Y    |
 | Boolean         | BOOL              | Y    |
@@ -87,8 +87,8 @@
 | ------------------------------------ | ---- |
 | 主键约束                          | Y    |
 | 复合主键                | Y    |
-| 唯一约束                           | Y    |
-| Secondary KEY                        | Y    |
+| 唯一约束                           | Y，仅语法实现    |
+| Secondary KEY                        | Y，仅语法实现    |
 | 外键约束                          | N    |
 | Enforced Constraints on Invalid Data | Y    |
 | ENUM and SET Constraints             | N    |
