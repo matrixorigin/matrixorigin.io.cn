@@ -116,7 +116,7 @@ FROM *table1*
 WHERE *condition*;
 ```
 
-## 数据库示例
+##  Northwind 数据库示例
 
 以下是从 Northwind 示例数据库中的表中选择的表示例：
 
