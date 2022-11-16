@@ -14,11 +14,19 @@
 
 |  参数   | 说明  |
 |  ----  | ----  |
-| expr  | 必要参数。expr1 和 expr2 表达式需要具有相同的类型。expr1 和 expr2 是转换为 TIME 或 DATETIME 表达式的字符串。如果 expr1 或 expr2 为 NULL 则返回 NULL。 |
+| expr1, expr2  | 必要参数。expr1 和 expr2 表达式需要具有相同的类型。expr1 和 expr2 是转换为 TIME 或 DATETIME 表达式的字符串。如果 expr1 或 expr2 为 NULL 则返回 NULL。 |
 
 ## **示例**
 
 ```sql
+> select timediff("22:22:22", "11:00:00");
++------------------------------+
+| timediff(22:22:22, 11:00:00) |
++------------------------------+
+| 11:22:22.000000              |
++------------------------------+
+1 row in set (0.01 sec)
+
 > select timediff(cast('22:22:22' as time), cast('-11:11:11' as time));
 +-------------------------------------------------------------------+
 | timediff(cast(22:22:22 as time(26)), cast(-11:11:11 as time(26))) |
