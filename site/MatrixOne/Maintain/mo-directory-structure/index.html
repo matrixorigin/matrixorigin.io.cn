@@ -436,8 +436,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Get-Started/getting-started-with-mo.md" class="md-nav__link">
+        快速指引概览
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Get-Started/install-dependency-tool.md" class="md-nav__link">
+        单元 1. 安装依赖工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装和启动 MatrixOne
+        单元 2. 安装单机版 MatrixOne
       </a>
     </li>
   
@@ -451,7 +479,7 @@
   
     <li class="md-nav__item">
       <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接 MatrixOne
+        单元 3. 连接 MatrixOne 服务
       </a>
     </li>
   
@@ -1034,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Transactions/distributed-transaction-overview.md" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Transactions/distributed-transaction-overview/" class="md-nav__link">
         分布式事务
       </a>
     </li>
@@ -1502,6 +1530,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Troubleshooting/error-code/" class="md-nav__link">
+        错误码
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1721,6 +1763,20 @@
     <li class="md-nav__item">
       <a href="../../Security/TLS-introduction/" class="md-nav__link">
         开启 TLS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/quick-start-account/" class="md-nav__link">
+        快速开始：创建租户、用户和角色
       </a>
     </li>
   
@@ -2066,7 +2122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table/" class="md-nav__link">
         CREATE EXTERNAL TABLE
       </a>
     </li>
@@ -4008,7 +4064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Variable/custom-variable.md" class="md-nav__link">
+      <a href="../../Reference/Variable/custom-variable/" class="md-nav__link">
         自定义变量
       </a>
     </li>
@@ -4688,6 +4744,34 @@
     <li class="md-nav__item">
       <a href="../../Reference/Builtin-Functions/Datetime/current-timestamp/" class="md-nav__link">
         CURRENT_TIMESTAMP()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Builtin-Functions/Datetime/timediff/" class="md-nav__link">
+        TIMEDIFF()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Builtin-Functions/Datetime/date" class="md-nav__link">
+        DATEDIFF()
       </a>
     </li>
   
@@ -5748,28 +5832,28 @@
 <h1 id="matrixone">MatrixOne 目录结构</h1>
 <p>完成 MatrixOne 搭建和连接后，首次执行时，MatrixOne 会自动生成以下目录，用于存放各类数据文件或元数据信息。</p>
 <p>进入 <em>matrixone</em> 目录执行 <code>ls</code> 查看目录结构，相关目录结构以及用途如下：</p>
-<p>matrixone    //MatrixOne主目录</p>
-<p>├── etc   //配置文件目录</p>
-<p>│   ├── launch-tae-CN-tae-DN  //分布式配置文件目录</p>
-<p>│   ├── launch-tae-logservice  //单机版配置文件目录</p>
-<p>├── mo-data  //数据文件目录</p>
-<p>│   ├── local   //本地fileservice目录</p>
-<p>│   │   ├── cn //本地cn与存储目录</p>
-<p>│   │   └── etl   //统计信息目录</p>
-<p>│   │       └── sys //统计信息归属于哪个account</p>
-<p>│   │           └── logs //统计信息的类型</p>
-<p>│   │               └── 2022 //统计信息的年份</p>
-<p>│   │                   └── 10  //统计信息的月份</p>
-<p>│   │                       └── 27 //统计信息的天数</p>
-<p>│   │                           ├── metric //统计信息对应表的存储目录</p>
-<p>│   │                           ├── rawlog //统计信息对应表的存储目录</p>
-<p>│   │                           └── statement_info //统计信息对应表的存储路目录</p>
-<p>│   └── logservice  //logservice目录</p>
-<p>│       ├──hostname //MatrixOne的服务器域名</p>
-<p>│       │   └── 00000000000000000001 //快照保存目录</p>
-<p>│       │       └── tandb //bootstrap信息保存目录</p>
-<p>└── store //tae的catalog保存目录</p>
-<p>└── tae</p>
+<p>matrixone    //MatrixOne主目录<br>
+├── etc   //配置文件目录<br>
+│   ├── launch-tae-CN-tae-DN  //分布式配置文件目录<br>
+│   ├── launch-tae-logservice  //单机版配置文件目录<br>
+├── mo-data  //数据文件目录<br>
+│   ├── local   //本地fileservice目录<br>
+│   │   ├── cn //本地cn与存储目录<br>
+│   │   └── etl   //统计信息目录<br>
+│   │       └── sys //统计信息归属于哪个account<br>
+│   │           └── logs //统计信息的类型<br>
+│   │               └── 2022 //统计信息的年份<br>
+│   │                   └── 10  //统计信息的月份<br>
+│   │                       └── 27 //统计信息的天数<br>
+│   │                           ├── metric //统计信息对应表的存储目录<br>
+│   │                           ├── rawlog //统计信息对应表的存储目录<br>
+│   │                           └── statement_info //统计信息对应表的存储路目录<br>
+│   └── logservice  //logservice目录<br>
+│       ├──hostname //MatrixOne的服务器域名<br>
+│       │   └── 00000000000000000001 //快照保存目录<br>
+│       │       └── tandb //bootstrap信息保存目录<br>
+└── store //tae的catalog保存目录<br>
+    └── tae<br></p>
 
               
             </article>
