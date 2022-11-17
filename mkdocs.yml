@@ -126,9 +126,8 @@ nav:
           - DROP ACCOUNT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/drop-account.md
           - DROP USER: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/drop-user.md
           - DROP ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/drop-role.md
-          - GRANT:
-            - GRANT <privileges>: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/grant-privileges.md
-            - GRANT ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/grant-role.md
+          - GRANT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/grant.md
+          - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/show-grants.md
           - SET ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/set-role.md
           - REVOKE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/revoke.md
         - DDL:
