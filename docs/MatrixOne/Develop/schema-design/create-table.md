@@ -157,7 +157,7 @@ CREATE TABLE `modatabase`.`users` (
 
 <!--## 使用 HTAP 能力: 缺少数据分析引擎等文档-->
 
-## 执行 `CREATE TABLE` 语句
+## 执行 `SHOW TABLES` 语句
 
 需查看 *modatabase* 数据库下的所有表，可使用 `SHOW TABLES` 语句：
 
