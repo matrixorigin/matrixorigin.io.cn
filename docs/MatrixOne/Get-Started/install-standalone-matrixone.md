@@ -54,7 +54,7 @@ go version go1.19 darwin/arm64
          make build
          ```
 
-         __Tips__: 你也可以运行`make debug`与`make clean`或者其他任何`Makefile`支持的命令；`make debug` 可以用来调试构建进程，`make clean` 可以清除构建进程。
+         __Tips__: 你也可以运行`make debug`与`make clean`或者其他任何`Makefile`支持的命令；`make debug` 可以用来调试构建进程，`make clean` 可以清除构建进程。如果在 `make build` 时产生报错，参见[安装和部署常见问题](../FAQs/deployment-faqs.md)进行解决。
 
      3. 启动 MatrixOne 服务：
 
@@ -81,7 +81,7 @@ go version go1.19 darwin/arm64
          make build
          ```
 
-         __Tips__: 你也可以运行`make debug`与`make clean`或者其他任何`Makefile`支持的命令；`make debug` 可以用来调试构建进程，`make clean` 可以清除构建进程。
+         __Tips__: 你也可以运行`make debug`与`make clean`或者其他任何`Makefile`支持的命令；`make debug` 可以用来调试构建进程，`make clean` 可以清除构建进程。如果在 `make build` 时产生报错，参见[安装和部署常见问题](../FAQs/deployment-faqs.md)进行解决。
 
      3. 启动 MatrixOne 服务：
 
