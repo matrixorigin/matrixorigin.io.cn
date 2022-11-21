@@ -436,36 +436,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Get-Started/getting-started-with-mo.md" class="md-nav__link">
-        快速指引概览
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Get-Started/install-dependency-tool.md" class="md-nav__link">
-        单元 1. 安装依赖工具
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        单元 2. 安装单机版 MatrixOne
+        安装单机版 MatrixOne
       </a>
     </li>
   
@@ -479,7 +451,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        单元 3. 连接 MatrixOne 服务
+        连接 MatrixOne 服务
       </a>
     </li>
   
@@ -836,8 +808,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-table" class="md-nav__link">
-    执行 CREATE TABLE 语句
+  <a href="#show-tables" class="md-nav__link">
+    执行 SHOW TABLES 语句
   </a>
   
 </li>
@@ -923,22 +895,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../import-data/insert-data/" class="md-nav__link">
+        单条导入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_1" type="checkbox" id="__nav_1_4_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_2" type="checkbox" id="__nav_1_4_3_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_1">
+        <label class="md-nav__link" for="__nav_1_4_3_2">
           批量导入
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="批量导入" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_4_3_1">
+        <label class="md-nav__title" for="__nav_1_4_3_2">
           <span class="md-nav__icon md-icon"></span>
           批量导入
         </label>
@@ -2093,35 +2079,9 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_1_7" type="checkbox" id="__nav_1_11_1_1_7" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_11_1_1_7">
-          GRANT
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="GRANT" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_11_1_1_7">
-          <span class="md-nav__icon md-icon"></span>
-          GRANT
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Database-Administration-Statements/grant-privileges/" class="md-nav__link">
-        GRANT <privileges>
+      <a href="../../../Reference/SQL-Reference/Database-Administration-Statements/grant/" class="md-nav__link">
+        GRANT
       </a>
     </li>
   
@@ -2134,16 +2094,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Database-Administration-Statements/grant-role/" class="md-nav__link">
-        GRANT ROLE
+      <a href="../../../Reference/SQL-Reference/Database-Administration-Statements/show-grants/" class="md-nav__link">
+        SHOW GRANT
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -6025,8 +5978,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-table" class="md-nav__link">
-    执行 CREATE TABLE 语句
+  <a href="#show-tables" class="md-nav__link">
+    执行 SHOW TABLES 语句
   </a>
   
 </li>
@@ -6236,7 +6189,7 @@
 </code></pre></div>
 <!--## 使用 HTAP 能力: 缺少数据分析引擎等文档-->
 
-<h2 id="create-table">执行 <code>CREATE TABLE</code> 语句</h2>
+<h2 id="show-tables">执行 <code>SHOW TABLES</code> 语句</h2>
 <p>需查看 <em>modatabase</em> 数据库下的所有表，可使用 <code>SHOW TABLES</code> 语句：</p>
 <div class="highlight"><pre><span></span><code><span class="k">SHOW</span><span class="w"> </span><span class="n">TABLES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">`</span><span class="n">modatabase</span><span class="o">`</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -6310,13 +6263,13 @@
       
       
         
-        <a href="../../import-data/bulk-load/load-csv/" class="md-footer__link md-footer__link--next" aria-label="Next: 导入 csv 文件" rel="next">
+        <a href="../../import-data/insert-data/" class="md-footer__link md-footer__link--next" aria-label="Next: 单条导入" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              导入 csv 文件
+              单条导入
             </div>
           </div>
           <div class="md-footer__button md-icon">
