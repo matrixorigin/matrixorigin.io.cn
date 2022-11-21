@@ -18,32 +18,6 @@
 
 你也可以查阅[硬件与操作系统要求](../FAQs/deployment-faqs.md)，查看更多关于硬件规格推荐，选用合适的硬件环境。
 
-### 安装部署 MySQL 客户端
-
-!!! note
-    建议 MySQL 客户端版本为 8.0.30 版本及以上。
-
-你可以在 <a href="https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html" target="_blank">MySQL Shell 官方文档</a>，按照官方指导安装，选择对应的操作系统，按照指导步骤完成 **MySQL 客户端** 的安装。
-
-或者，你可以直接点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 **Select Operating System**，再下拉选择 **Select OS Version**，按需选择下载安装包进行安装。
-
-安装完成后，打开终端，输入 `mysqlsh`，安装成功代码示例如下：
-
-```
-MySQL Shell 8.0.30
-
-Copyright (c) 2016, 2022, Oracle and/or its affiliates.
-Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
-Other names may be trademarks of their respective owners.
-
-Type '\help' or '\?' for help; '\quit' to exit.
-MySQL  JS >
-```
-
-__Tips__: 目前，MatrixOne只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
-
-现在，你可以关掉 MySQL 客户端，进入下一章节。
-
 ## <h2><a name="code_source">方法 1：使用源代码搭建</a></h2>
 
 ## 1. 安装部署 Go 语言
