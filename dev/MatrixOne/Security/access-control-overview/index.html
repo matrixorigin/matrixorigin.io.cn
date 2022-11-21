@@ -436,36 +436,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Get-Started/getting-started-with-mo.md" class="md-nav__link">
-        快速指引概览
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Get-Started/install-dependency-tool.md" class="md-nav__link">
-        单元 1. 安装依赖工具
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        单元 2. 安装单机版 MatrixOne
+        安装单机版 MatrixOne
       </a>
     </li>
   
@@ -479,7 +451,7 @@
   
     <li class="md-nav__item">
       <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        单元 3. 连接 MatrixOne 服务
+        连接 MatrixOne 服务
       </a>
     </li>
   
@@ -775,22 +747,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/insert-data/" class="md-nav__link">
+        单条导入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_1" type="checkbox" id="__nav_1_4_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_2" type="checkbox" id="__nav_1_4_3_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_1">
+        <label class="md-nav__link" for="__nav_1_4_3_2">
           批量导入
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="批量导入" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_4_3_1">
+        <label class="md-nav__title" for="__nav_1_4_3_2">
           <span class="md-nav__icon md-icon"></span>
           批量导入
         </label>
@@ -2049,35 +2035,9 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_1_7" type="checkbox" id="__nav_1_11_1_1_7" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_11_1_1_7">
-          GRANT
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="GRANT" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_11_1_1_7">
-          <span class="md-nav__icon md-icon"></span>
-          GRANT
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Database-Administration-Statements/grant-privileges/" class="md-nav__link">
-        GRANT <privileges>
+      <a href="../../Reference/SQL-Reference/Database-Administration-Statements/grant/" class="md-nav__link">
+        GRANT
       </a>
     </li>
   
@@ -2090,16 +2050,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Database-Administration-Statements/grant-role/" class="md-nav__link">
-        GRANT ROLE
+      <a href="../../Reference/SQL-Reference/Database-Administration-Statements/show-grants/" class="md-nav__link">
+        SHOW GRANT
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -6013,9 +5966,13 @@
 <ul>
 <li>每个对象都有且只有一个所有者（Owner），反之，该所有者（Owner）拥有该对象的所有权（Ownership） 权限。</li>
 </ul>
-<p>!!! note
-        - Owner 是针对某个具体的对象而不是一类对象，例如 Role_1 是 db1 的 Owner， Role_2 是 db2 的 Owner，Role_1 与 db2 并没有必然的权限所有关系。
-        - 一个上层对象的 Owner 不一定具有下层对象的访问权限，例如 Role_1 是 db1 的 Owner，Role_2 创建了 db1.table1，则 Role_2 是 db1.table1 的 Owner，Role_1 无法查看它的数据。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Owner 是针对某个具体的对象而不是一类对象，例如 Role_1 是 db1 的 Owner， Role_2 是 db2 的 Owner，Role_1 与 db2 并没有必然的权限所有关系。</li>
+<li>一个上层对象的 Owner 不一定具有下层对象的访问权限，例如 Role_1 是 db1 的 Owner，Role_2 创建了 db1.table1，则 Role_2 是 db1.table1 的 Owner，Role_1 无法查看它的数据。</li>
+</ul>
+</div>
 <ul>
 <li>对象的初始 Owner 是它的创建者，Owner 身份可以由 Owner 本身或具备高级权限控制的所有者发起转移。</li>
 <li>如果对象的 Owner 被删除，则该对象的 Owner 自动变更为被删除者的 Owner。</li>
@@ -6033,15 +5990,15 @@
 <li>
 <p><strong>授予</strong>：权限的授予具有一次授予永久生效的特性。例如<em>角色1</em>拥有权限 a， b， c； <em>角色2</em>拥有权限 d，此时将<em>角色1</em>的权限授予给<em>角色2</em>，则<em>角色2</em>拥有权限 a， b， c， d，当删除 角色1 后， <em>角色2</em>仍拥有权限 a， b， c， d。</p>
 </li>
-<li>
-<p><strong>继承</strong>：权限的继承具有动态传递的特性。例如<em>角色1</em>拥有权限 a， b， c； <em>角色3</em>拥有权限 e， f，可以指定<em>角色3</em>继承<em>角色1</em>，则<em>角色3</em>拥有权限 a， b， c， e， f； 当删除<em>角色1</em>后，<em>角色3</em>仅拥有权限 e， f。</p>
-<p>!!! note
-      1.操作授予和继承的角色需要拥有对象的 Ownership 权限或某一高级授予权限。
-      2.角色的继承关系不能成环。</p>
-</li>
-<li>
-<p>在 MatrixOne 中，实现了租户间权限隔离，即 Account 内的角色和用户仅在该 Account 内生效，不会影响和传递给其他 Account，角色之间的授权也仅限在 Account 内。</p>
-</li>
+<li><strong>继承</strong>：权限的继承具有动态传递的特性。例如<em>角色1</em>拥有权限 a， b， c； <em>角色3</em>拥有权限 e， f，可以指定<em>角色3</em>继承<em>角色1</em>，则<em>角色3</em>拥有权限 a， b， c， e， f； 当删除<em>角色1</em>后，<em>角色3</em>仅拥有权限 e， f。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>1.操作授予和继承的角色需要拥有对象的 Ownership 权限或某一高级授予权限。
+2.角色的继承关系不能成环。</p>
+</div>
+<ul>
+<li>在 MatrixOne 中，实现了租户间权限隔离，即 Account 内的角色和用户仅在该 Account 内生效，不会影响和传递给其他 Account，角色之间的授权也仅限在 Account 内。</li>
 </ul>
 <h3 id="_4">角色切换</h3>
 <p>用户想要获取某一个对象的访问权限时，需要先将权限授予给一个角色，再将角色授予给该用户。用户可以拥有多个角色，但同一时刻该用户只能使用一个角色来访问数据库，我们称这个角色为<strong>主要角色</strong>，其余的角色为<strong>次要角色</strong>。用户在执行某条或某些 SQL 时，系统会判定主要角色是否具有执行 SQL 所需的权限，再决定是否执行 SQL。</p>
