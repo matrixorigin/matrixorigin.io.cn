@@ -18,9 +18,9 @@ MatrixOne 的权限控制是结合了基于角色的访问控制 (RBAC，Role-ba
 
 - 每个对象都有且只有一个所有者（Owner），反之，该所有者（Owner）拥有该对象的所有权（Ownership） 权限。
 
-   !!! note
-        - Owner 是针对某个具体的对象而不是一类对象，例如 Role_1 是 db1 的 Owner， Role_2 是 db2 的 Owner，Role_1 与 db2 并没有必然的权限所有关系。
-        - 一个上层对象的 Owner 不一定具有下层对象的访问权限，例如 Role_1 是 db1 的 Owner，Role_2 创建了 db1.table1，则 Role_2 是 db1.table1 的 Owner，Role_1 无法查看它的数据。
+!!! note
+    - Owner 是针对某个具体的对象而不是一类对象，例如 Role_1 是 db1 的 Owner， Role_2 是 db2 的 Owner，Role_1 与 db2 并没有必然的权限所有关系。
+    - 一个上层对象的 Owner 不一定具有下层对象的访问权限，例如 Role_1 是 db1 的 Owner，Role_2 创建了 db1.table1，则 Role_2 是 db1.table1 的 Owner，Role_1 无法查看它的数据。
 
 - 对象的初始 Owner 是它的创建者，Owner 身份可以由 Owner 本身或具备高级权限控制的所有者发起转移。
 - 如果对象的 Owner 被删除，则该对象的 Owner 自动变更为被删除者的 Owner。
@@ -38,9 +38,9 @@ MatrixOne 的权限控制是结合了基于角色的访问控制 (RBAC，Role-ba
    + **授予**：权限的授予具有一次授予永久生效的特性。例如*角色1*拥有权限 a， b， c； *角色2*拥有权限 d，此时将*角色1*的权限授予给*角色2*，则*角色2*拥有权限 a， b， c， d，当删除 角色1 后， *角色2*仍拥有权限 a， b， c， d。
    + **继承**：权限的继承具有动态传递的特性。例如*角色1*拥有权限 a， b， c； *角色3*拥有权限 e， f，可以指定*角色3*继承*角色1*，则*角色3*拥有权限 a， b， c， e， f； 当删除*角色1*后，*角色3*仅拥有权限 e， f。
 
-     !!! note
-          1.操作授予和继承的角色需要拥有对象的 Ownership 权限或某一高级授予权限。
-          2.角色的继承关系不能成环。
+!!! note
+    1.操作授予和继承的角色需要拥有对象的 Ownership 权限或某一高级授予权限。
+    2.角色的继承关系不能成环。
 
 - 在 MatrixOne 中，实现了租户间权限隔离，即 Account 内的角色和用户仅在该 Account 内生效，不会影响和传递给其他 Account，角色之间的授权也仅限在 Account 内。
 
