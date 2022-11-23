@@ -22,7 +22,7 @@ mysqldump -h 127.0.0.1 -uroot -proot -d test > a.sql
 
 从 MySQL 转储的 SQL 文件还不完全兼容 MatrixOne。你需要删除和修改几个元素，以使 SQL 文件适应 MatrixOne 的格式。
 
-* 需要删除不支持的语法或功能：`CHARACTER SET/CHARSET`、 `COLLATE`、`ROW_FORMAT`、` USING BTREE`、`LOCK TABLE` `SET SYSTEM_VARIABLE`、`ENGINE`。
+* 需要删除不支持的语法或功能：`CHARACTER SET/CHARSET`、`COLLATE`、`ROW_FORMAT`、`USING BTREE`、`LOCK TABLE` `SET SYSTEM_VARIABLE`、`ENGINE`。
 
 * 需要修改不支持的数据类型：如果你使用 BINARY 类型，你可以将其修改为 BLOB 类型。
 
