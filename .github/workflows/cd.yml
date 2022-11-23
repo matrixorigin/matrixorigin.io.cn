@@ -1,0 +1,120 @@
+name: build and push image
+# 3个功能,
+# 1. 默认更新 main 内容到 dev 文档
+# 2. 更新指定分支版本文档
+# 3. 根据 main 分支, 发布全新 Release 版本, 此时需要勾选 is_append_new_version 并指定 version
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Update Release Version, e.g main'
+        required: true
+        default: 'main'
+      is_append_new_version:
+        description: 'True To Deploy New Release, False To Update Exist Release'
+        required: false
+        type: boolean
+      version:
+        description: 'New Release Version, e.g 0.6, Work On True, Depend On main'
+        required: false
+        default: '0.1'
+
+jobs:
+  build-new-release:
+    if: ${{ inputs.is_append_new_version }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v3
+        with:
+          ref: main # 一定是根据 main 分支发布最新文档, 不允许根据旧文档发布
+      - name: check branch
+        run: |
+          git status
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Intialiaze Python Env
+        run: |
+          git rev-parse --abbrev-ref HEAD
+          pip install -r requirements.txt
+      - name: Git Config
+        run: |
+          git fetch --all
+          git config --global user.email ${{ secrets.GITUSEREMAIL }}
+          git config --global user.name ${{ secrets.GITUSERNAME }}
+      - name: Mike New Release Version Snapshot
+        run: |
+          mike deploy --push --update-aliases ${{ inputs.version }} latest
+          mike set-default --push latest
+      - name: Checkout New Release Branch For Archive
+        run: |
+          git checkout -b ${{ inputs.version }}
+          git push -u origin ${{ inputs.version }}
+    
+      - name: Login Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUBUSER }}
+          password: ${{ secrets.DOCKERHUBPASSWORD }}
+
+      - name: Build && Push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            matrixorigin/matrixorigin.io.cn:${{ inputs.version }}_${{ github.sha }} #//
+            matrixorigin/matrixorigin.io.cn:latest
+
+  build-exist-release:
+    if: ${{ !inputs.is_append_new_version }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.branch }} # 可以指定分支 checkout, 但不允许直接修改 gh-pages
+      - name: check branch
+        run: |
+          git status
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Intialiaze Python Env
+        run: |
+          git rev-parse --abbrev-ref HEAD
+          pip install -r requirements.txt
+      - name: Git Config
+        run: |
+          git fetch --all
+          git config --global user.email ${{ secrets.GITUSEREMAIL }}
+          git config --global user.name ${{ secrets.GITUSERNAME }}
+
+      - name: Mike Dev Version Snapshot
+        if: ${{ inputs.branch == 'main' }}
+        run: |
+          mike deploy --push dev
+      - name: Mike Released Version Snapshot
+        if: ${{ inputs.branch != 'main' }}
+        run: |
+          mike deploy --push ${{ inputs.branch }}
+
+      - name: Login Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUBUSER }}
+          password: ${{ secrets.DOCKERHUBPASSWORD }}
+
+      - name: Build && Push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            matrixorigin/matrixorigin.io.cn:${{ inputs.branch }}_${{ github.sha }} #//
+            matrixorigin/matrixorigin.io.cn:latest
