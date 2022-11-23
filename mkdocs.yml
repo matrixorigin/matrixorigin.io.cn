@@ -48,7 +48,7 @@ nav:
       - 最新动态: MatrixOne/Overview/whats-new.md
     - 快速上手:
       - 安装单机版 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
-      - 连接 MatrixOne 服务: MatrixOne/Get-Started/connect-to-matrixone-server.md
+      - 连接单机版 MatrixOne 服务: MatrixOne/Get-Started/connect-to-matrixone-server.md
       - SQL 的基本操作: MatrixOne/Get-Started/basic-sql.md
       - Playground 在线体验: MatrixOne/Get-Started/Playground.md
     - 开发指南:
@@ -65,9 +65,10 @@ nav:
       - 导入数据:
         - 单条导入: MatrixOne/Develop/import-data/insert-data.md
         - 批量导入:
+          - 批量导入概述: MatrixOne/Develop/import-data/bulk-load/bulk-load-overview.md
           - 导入 csv 文件: MatrixOne/Develop/import-data/bulk-load/load-csv.md
           - 导入 jsonlines 文件: MatrixOne/Develop/import-data/bulk-load/load-jsonline.md
-          - 导入 S3 文件: MatrixOne/Develop/import-data/bulk-load/load-s3.md
+          - 从 S3 读取数据并导入至 MatrixOne: MatrixOne/Develop/import-data/bulk-load/load-s3.md
       - 数据读取:
         - 单表读取: MatrixOne/Develop/read-data/query-data-single-table.md
         - 多表连接查询: MatrixOne/Develop/read-data/multitable-join-query.md
@@ -75,8 +76,8 @@ nav:
         - 视图: MatrixOne/Develop/read-data/views.md
         - 公共表表达式: MatrixOne/Develop/read-data/cte.md
       - 导出数据:
-        - 导出数据: MatrixOne/Develop/export-data/export-data.md
-        - 使用 `modump` 备份和恢复数据库: MatrixOne/Develop/export-data/backup-restore-matrixone-with_modump.md
+        - 使用 `SELECT INTO...OUTFILE` 导出数据: MatrixOne/Develop/export-data/select-into-outfile.md
+        - 使用 `modump` 导出数据: MatrixOne/Develop/export-data/modump.md
       - 事务:
         - 事务概述: MatrixOne/Reference/SQL-Reference/Transactions/transaction-overview.md
         - 分布式事务: MatrixOne/Reference/SQL-Reference/Transactions/distributed-transaction-overview.md
@@ -88,6 +89,7 @@ nav:
         - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
     - 运维:
       - 升级单机版 MatrixOne: MatrixOne/Maintain/upgrade-standalone-matrixone.md
+      - 备份与恢复: MatrixOne/Maintain/backup-restore.md
       - MatrixOne 目录结构: MatrixOne/Maintain/mo-directory-structure.md
     - 数据迁移:
       - 将数据从 MySQL 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-mysql-to-matrixone.md
@@ -154,9 +156,11 @@ nav:
           - USE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/use.md
           - INTERVAL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/interval.md
           - With CTE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/with-cte.md
-          - UNION: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/union.md
-          - INTERSECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/intersect.md
-          - MINUS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/minus.md
+          - Set Operations:
+            - Combining Queries (UNION, INTERSECT, MINUS): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/union-intersect-minus-overview.md
+            - UNION: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/union.md
+            - INTERSECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/intersect.md
+            - MINUS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/minus.md
           - SUBQUERY:
             - SUBQUERY 概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subquery.md
             - Derived Tables: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables.md
