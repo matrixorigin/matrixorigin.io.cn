@@ -22,9 +22,9 @@ on:
         required: false
         type: boolean
       version:
-        description: 'New Release Version, e.g 0.6, Work On True, Depend On main'
+        description: 'New Release Version, e.g 0.6.0, Work On True, Depend On main'
         required: false
-        default: '0.1'
+        default: '0.6.0'
 
 jobs:
   build-new-release:
