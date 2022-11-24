@@ -107,3 +107,7 @@ UPDATE table_reference
 +------+------+------+
 3 rows in set (0.00 sec)
 ```
+
+## **限制**
+
+MatrixOne 暂不支持 `INSERT...ON DUPLICATE KEY UPDATE`。
