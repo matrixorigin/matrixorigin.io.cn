@@ -65,7 +65,7 @@ cd mo-tpch
 ./runSQL.sh props.mo tableCreates
 ```
 
-上面的代码表示，进入到 *mo-tpch* 文件夹目录，执行代码创建完成  TPCC 数据库和表。
+上面的代码表示，进入到 *mo-tpch* 文件夹目录，执行代码创建完成 TPCC 数据库和表。
 
 执行完成后，输出结果示例如下：
 
