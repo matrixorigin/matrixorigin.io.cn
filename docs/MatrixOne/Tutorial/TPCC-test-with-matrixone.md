@@ -245,46 +245,24 @@ Worker 001: Loading Warehouse      1 done
 ./runBenchmark.sh props.mo
 ```
 
-执行完成后，输出结果示例如下：
+执行完成后，输出结果示例如下(这里只展示一部分）：
 
 ```
-.:./lib/*
-2022-11-27 01:07:44 INFO  jTPCC:78 - Term-00,
-2022-11-27 01:07:44 INFO  jTPCC:79 - Term-00, +-------------------------------------------------------------+
-2022-11-27 01:07:44 INFO  jTPCC:80 - Term-00,      BenchmarkSQL v5.0
-2022-11-27 01:07:44 INFO  jTPCC:81 - Term-00, +-------------------------------------------------------------+
-2022-11-27 01:07:44 INFO  jTPCC:82 - Term-00,  (c) 2003, Raul Barbosa
-2022-11-27 01:07:44 INFO  jTPCC:83 - Term-00,  (c) 2004-2016, Denis Lussier
-2022-11-27 01:07:44 INFO  jTPCC:84 - Term-00,  (c) 2016, Jan Wieck
-2022-11-27 01:07:44 INFO  jTPCC:85 - Term-00, +-------------------------------------------------------------+
-2022-11-27 01:07:44 INFO  jTPCC:86 - Term-00,
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, db=mo
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, driver=com.mysql.cj.jdbc.Driver
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, conn=jdbc:mysql://127.0.0.1:6001/tpcc?characterSetResults=utf8&continueBatchOnError=false&useServerPrepStmts=true&alwaysSendSetIsolation=false&useLocalSessionState=true&zeroDateTimeBehavior=CONVERT_TO_NULL&failoverReadOnly=false&serverTimezone=Asia/Shanghai&enabledTLSProtocols=TLSv1.2&useSSL=false
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, user=dump
-2022-11-27 01:07:44 INFO  jTPCC:93 - Term-00,
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, warehouses=1
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, terminals=1
-2022-11-27 01:07:44 INFO  jTPCC:100 - Term-00, runMins=1
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, limitTxnsPerMin=0
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, terminalWarehouseFixed=null
-2022-11-27 01:07:44 INFO  jTPCC:108 - Term-00,
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, newOrderWeight=null
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, paymentWeight=null
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, orderStatusWeight=null
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, deliveryWeight=null
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, stockLevelWeight=null
-2022-11-27 01:07:44 INFO  jTPCC:115 - Term-00,
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, resultDirectory=null
-2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, osCollectorScript=null
-2022-11-27 01:07:44 INFO  jTPCC:119 - Term-00,
-2022-11-27 01:07:44 INFO  jTPCC:710 - Term-00, Loading database driver: 'com.mysql.cj.jdbc.Driver'...
-2022-11-27 01:07:44 INFO  jTPCC:324 - Term-00, C value for C_LAST during load: 229
-2022-11-27 01:07:44 INFO  jTPCC:325 - Term-00, C value for C_LAST this run:    110
-2022-11-27 01:07:44 INFO  jTPCC:326 - Term-00,
-Term-00, Running Average tpmTOTAL: 0.00    Current tpmTOTAL: 0    Memory Usage: 15MB / 260MB      2022-11-27 01:07:44 ERROR jTPCC:715 - Term-00, Invalid number in mix percentage!
-java.lang.Exception
-        at io.mo.jTPCC.<init>(jTPCC.java:429)
-        at io.mo.jTPCC.main(jTPCC.java:57)
-Term-00, Running Average tpmTOTAL: 0.00    Current tpmTOTAL: 0    Memory Usage: 15MB / 260MB
+...
+2022-11-27 11:43:35 INFO  jTPCC:694 - Term-00, 
+2022-11-27 11:43:35 INFO  jTPCC:695 - Term-00, 
+2022-11-27 11:43:35 INFO  jTPCC:696 - Term-00, Measured tpmC (NewOrders) = 8.11
+2022-11-27 11:43:35 INFO  jTPCC:697 - Term-00, Measured tpmTOTAL = 26.91
+2022-11-27 11:43:35 INFO  jTPCC:698 - Term-00, Measured tpmE (ErrorCount) = 2.21
+2022-11-27 11:43:35 INFO  jTPCC:699 - Term-00, Session Start     = 2022-11-27 11:40:52
+2022-11-27 11:43:35 INFO  jTPCC:700 - Term-00, Session End       = 2022-11-27 11:43:35
+2022-11-27 11:43:35 INFO  jTPCC:701 - Term-00, Transaction Count = 72
+2022-11-27 11:43:35 INFO  jTPCC:702 - Term-00, Transaction Error = 6
+2022-11-27 11:43:35 INFO  jTPCC:703 - Term-00, Transaction NewOrders = 22
+2022-11-27 11:43:35 INFO  jTPCC:710 - Term-00, Session finished!
 ```
+
+上述结果中有两个核心指标可以作为本次测试的主要指标，来评估系统的性能：
+
+- tpmC 是指平均每分钟成功完成 New Order 事务数
+- tpmTOTAL 是指平均每分钟成功完成的事务总数
