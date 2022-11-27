@@ -43,7 +43,7 @@
 
 **简要说明**
 
--  使用你本地的设备或 AWS Cloud Shell 上 `eksctl` 命令行工具部署 Amazon EKS 集群
+- 使用你本地的设备或 AWS Cloud Shell 上 `eksctl` 命令行工具部署 Amazon EKS 集群
 - 使用 Google Cloud Shell 在 Google Cloud Platform 的 Google Kubernetes Engine 中部署 Kubernetes 集群
 - 使用 Kind 创建在 Docker 中运行的 Kubernetes
 
@@ -56,6 +56,7 @@
 ```
 $ eksctl create cluster --name matrixone --nodegroup-name db --node-type m5.xlarge --node3 3 --node-ami auto
 ```
+
 #### 方法二：创建并启动 Google GKE 集群
 
 1. 参考[将应用部署到 GKE 集群](https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster)官方文档，完成 `gcloud` 命令行工具的安装与配置。
