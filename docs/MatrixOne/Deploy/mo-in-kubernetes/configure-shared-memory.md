@@ -61,7 +61,6 @@
       serviceAccountName: ${serviceAccountName}
     ```
 
-
 #### 选项二：使用 MinIO
 
 1. 参考 MinIO 官方文档，在 Linux 环境下[安装 MinIO 存储](https://min.io/docs/minio/linux/index.html)。
