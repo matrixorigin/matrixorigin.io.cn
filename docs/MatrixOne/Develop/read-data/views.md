@@ -26,16 +26,16 @@
 新建两张表，方便后续为使用视图做准备：
 
 ```sql
-> CREATE TABLE t00(a INTEGER);
-> INSERT INTO t00 VALUES (1),(2);
-> CREATE TABLE t01(a INTEGER);
-> INSERT INTO t01 VALUES (1);
+CREATE TABLE t00(a INTEGER);
+INSERT INTO t00 VALUES (1),(2);
+CREATE TABLE t01(a INTEGER);
+INSERT INTO t01 VALUES (1);
 ```
 
 可以查看一下表 *t00* 的结构：
 
 ```sql
-> select * from t00;
+mysql> select * from t00;
 +------+
 | a    |
 +------+
@@ -68,7 +68,7 @@ CREATE VIEW view_name AS query;
 示例如下：
 
 ```sql
-> CREATE VIEW v0 AS SELECT t00.a, t01.a AS b FROM t00 LEFT JOIN t01 USING(a);
+CREATE VIEW v0 AS SELECT t00.a, t01.a AS b FROM t00 LEFT JOIN t01 USING(a);
 Query OK, 0 rows affected (0.02 sec)
 ```
 
@@ -77,7 +77,7 @@ Query OK, 0 rows affected (0.02 sec)
 视图创建完成后，便可以使用 `SELECT` 语句像查询一般数据表一样查询视图。
 
 ```sql
-> SELECT * FROM v0;
+mysql> SELECT * FROM v0;
 +------+------+
 | a    | b    |
 +------+------+
@@ -91,7 +91,7 @@ Query OK, 0 rows affected (0.02 sec)
 使用 `SHOW CREATE TABLE|VIEW view_name` 语句：
 
 ```sql
-> SHOW CREATE VIEW v0;
+mysql> SHOW CREATE VIEW v0;
 +------+----------------------------------------------------------------------------+
 | View | Create View                                                                |
 +------+----------------------------------------------------------------------------+
@@ -105,5 +105,5 @@ Query OK, 0 rows affected (0.02 sec)
 通过 `DROP VIEW view_name;` 语句可以删除已经创建的视图。
 
 ```sql
-DROP VIEW v0;
+mysql> DROP VIEW v0;
 ```

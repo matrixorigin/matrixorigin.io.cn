@@ -11,6 +11,13 @@
 
 ### 数据准备
 
+#### 新建一个命名为 *token_demo* 的数据库
+
+```sql
+CREATE DATABASE token_demo;
+USE token_demo;
+```
+
 #### 新建一个命名为 *token_count* 的表
 
 ```sql

@@ -64,9 +64,9 @@ MatrixOne 运行时，默认启用自动提交模式。这表示，开启自动�
 +--------------+
 | @@autocommit |
 +--------------+
-| on           |
+|            1 |
 +--------------+
-1 row in set (0.01 sec)
+1 row in set (0.00 sec)
 
 > create table test (c int primary key,d int);
 Query OK, 0 rows affected (0.03 sec)
