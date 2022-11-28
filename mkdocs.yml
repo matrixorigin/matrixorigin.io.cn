@@ -241,7 +241,7 @@ nav:
         - Prepared:
           - Prepared 语句概述: MatrixOne/Reference/SQL-Reference/Prepared-Statements/prepared-statements-overview.md
           - PREPARE: MatrixOne/Reference/SQL-Reference/Prepared-Statements/prepare.md
-          - EXCUTE: MatrixOne/Reference/SQL-Reference/Prepared-Statements/execute.md
+          - EXECUTE: MatrixOne/Reference/SQL-Reference/Prepared-Statements/execute.md
           - DEALLOCATE: MatrixOne/Reference/SQL-Reference/Prepared-Statements/deallocate.md
         - 聚合函数:
           - AVG: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/avg.md
