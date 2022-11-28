@@ -49,21 +49,43 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
 
 * **当我安装完成 MySQL 客户端后，打开终端运行 `mysql` 产生报错 `command not found: mysql`，我该如何解决？**
 
-产生这个报错是环境变量未设置的原因，可以执行以下命令：
+产生这个报错是环境变量未设置的原因，打开一个新的终端，执行以下命令：
 
-```
-cd ~
-sudo vim .bash_profile
-Password:
-```
+=== "**Linux 环境**"
 
-输入你在安装 MySQL 客户端的安装窗口设置的 root 密码后，敲击键盘上的 *i* 进入 insert 状态，继续输入以下命令：
+     ```
+     cd ~
+     sudo vim /etc/profile
+     password:
+     ```
 
-```
-export PATH=${PATH}:/usr/local/mysql/bin
-```
+     回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
 
-输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。继续输入 `source .bash_profile`，回车执行，运行环境变量。
+     输入/跳过 root 密码后，即进入了 *profile* 文件，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+
+     ```
+     export PATH=/software/mysql/bin:$PATH
+     ```
+
+     输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。继续输入 `source  /etc/profile`，回车执行，运行环境变量。
+
+=== "**MacOS 环境**"
+
+     ```
+     cd ~
+     sudo vim .bash_profile
+     Password:
+     ```
+
+     回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
+
+     输入/跳过 root 密码后，即进入了 *profile* 文件，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+
+     ```
+     export PATH=${PATH}:/usr/local/mysql/bin
+     ```
+
+     输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。继续输入 `source .bash_profile`，回车执行，运行环境变量。
 
 * **当我安装选择从源代码安装构建 MatrixOne时，产生了以下错误或构建失败提示，我该如何继续？**
 
