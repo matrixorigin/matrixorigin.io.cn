@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Overview/matrixone-architecture/" class="md-nav__link">
+      <a href="../../Overview/matrixOne-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -470,6 +470,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#matrixone_1" class="md-nav__link">
+    单机版 MatrixOne 概述
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
@@ -589,22 +596,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 创建并运行容器
+  <a href="#3-docker_1" class="md-nav__link">
+    3. 检查 Docker 运行状态
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 挂载数据（选做）
+  <a href="#4-matrixone_1" class="md-nav__link">
+    4. 获取 MatrixOne 镜像并启动
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-matrixone" class="md-nav__link">
-    5. 连接 MatrixOne 服务
+  <a href="#5" class="md-nav__link">
+    5. 挂载数据（选做）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-matrixone" class="md-nav__link">
+    6. 连接 MatrixOne 服务
   </a>
   
 </li>
@@ -652,20 +666,6 @@
     <li class="md-nav__item">
       <a href="../basic-sql/" class="md-nav__link">
         SQL 的基本操作
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Playground/" class="md-nav__link">
-        Playground 在线体验
       </a>
     </li>
   
@@ -1388,14 +1388,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_5">
-          运维
+          部署指南
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="运维" data-md-level="2">
+      <nav class="md-nav" aria-label="部署指南" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_5">
           <span class="md-nav__icon md-icon"></span>
-          运维
+          部署指南
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1405,13 +1405,135 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Maintain/upgrade-standalone-matrixone/" class="md-nav__link">
-        升级单机版 MatrixOne
+      <a href="../../Deploy/check-before-deployment/" class="md-nav__link">
+        软硬件环境要求
       </a>
     </li>
   
 
             
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5_2" type="checkbox" id="__nav_1_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5_2">
+          在 Kubernetes 上部署 MatrixOne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="在 Kubernetes 上部署 MatrixOne" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          在 Kubernetes 上部署 MatrixOne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/install-and-launch-in-k8s/" class="md-nav__link">
+        在 Kubernetes 上部署 MatrixOne 简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/mo-in-kubernetes/whats-mo-operator/" class="md-nav__link">
+        什么是 MatrixOne Operator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/mo-in-kubernetes/get-started/" class="md-nav__link">
+        使用 MatrixOne Operator 部署 MatrixOne 集群
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/mo-in-kubernetes/configure-shared-memory/" class="md-nav__link">
+        为 MatrixOne 集群配置共享存储
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          运维
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="运维" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          运维
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -1457,18 +1579,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_6">
+        <label class="md-nav__link" for="__nav_1_7">
           数据迁移
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="数据迁移" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_6">
+        <label class="md-nav__title" for="__nav_1_7">
           <span class="md-nav__icon md-icon"></span>
           数据迁移
         </label>
@@ -1504,18 +1626,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7">
+        <label class="md-nav__link" for="__nav_1_8">
           测试
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="测试" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_7">
+        <label class="md-nav__title" for="__nav_1_8">
           <span class="md-nav__icon md-icon"></span>
           测试
         </label>
@@ -1530,18 +1652,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1" type="checkbox" id="__nav_1_8_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_1">
+        <label class="md-nav__link" for="__nav_1_8_1">
           性能测试
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="性能测试" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_7_1">
+        <label class="md-nav__title" for="__nav_1_8_1">
           <span class="md-nav__icon md-icon"></span>
           性能测试
         </label>
@@ -1575,6 +1697,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/TPCC-test-with-matrixone/" class="md-nav__link">
+        TPCC 测试
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1591,18 +1727,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_2" type="checkbox" id="__nav_1_8_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_7_2">
+        <label class="md-nav__link" for="__nav_1_8_2">
           测试工具
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="测试工具" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_7_2">
+        <label class="md-nav__title" for="__nav_1_8_2">
           <span class="md-nav__icon md-icon"></span>
           测试工具
         </label>
@@ -1659,18 +1795,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9" type="checkbox" id="__nav_1_9" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_8">
+        <label class="md-nav__link" for="__nav_1_9">
           故障诊断
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="故障诊断" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_8">
+        <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
           故障诊断
         </label>
@@ -1748,18 +1884,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9" type="checkbox" id="__nav_1_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_9">
+        <label class="md-nav__link" for="__nav_1_10">
           性能调优
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="性能调优" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_9">
+        <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
           性能调优
         </label>
@@ -1774,18 +1910,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9_1" type="checkbox" id="__nav_1_9_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10_1" type="checkbox" id="__nav_1_10_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_9_1">
+        <label class="md-nav__link" for="__nav_1_10_1">
           理解 MatrixOne 执行计划
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="理解 MatrixOne 执行计划" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_9_1">
+        <label class="md-nav__title" for="__nav_1_10_1">
           <span class="md-nav__icon md-icon"></span>
           理解 MatrixOne 执行计划
         </label>
@@ -1898,18 +2034,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_10">
+        <label class="md-nav__link" for="__nav_1_11">
           安全
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="安全" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_10">
+        <label class="md-nav__title" for="__nav_1_11">
           <span class="md-nav__icon md-icon"></span>
           安全
         </label>
@@ -1987,18 +2123,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12" type="checkbox" id="__nav_1_12" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11">
+        <label class="md-nav__link" for="__nav_1_12">
           参考手册
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="参考手册" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_11">
+        <label class="md-nav__title" for="__nav_1_12">
           <span class="md-nav__icon md-icon"></span>
           参考手册
         </label>
@@ -2013,18 +2149,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1" type="checkbox" id="__nav_1_11_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1" type="checkbox" id="__nav_1_12_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1">
+        <label class="md-nav__link" for="__nav_1_12_1">
           SQL目录
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="SQL目录" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_11_1">
+        <label class="md-nav__title" for="__nav_1_12_1">
           <span class="md-nav__icon md-icon"></span>
           SQL目录
         </label>
@@ -2039,18 +2175,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_1" type="checkbox" id="__nav_1_11_1_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_1" type="checkbox" id="__nav_1_12_1_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_1">
+        <label class="md-nav__link" for="__nav_1_12_1_1">
           DAL
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="DAL" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_1_1">
+        <label class="md-nav__title" for="__nav_1_12_1_1">
           <span class="md-nav__icon md-icon"></span>
           DAL
         </label>
@@ -2212,18 +2348,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_2" type="checkbox" id="__nav_1_11_1_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2" type="checkbox" id="__nav_1_12_1_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_2">
+        <label class="md-nav__link" for="__nav_1_12_1_2">
           DDL
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="DDL" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_1_2">
+        <label class="md-nav__title" for="__nav_1_12_1_2">
           <span class="md-nav__icon md-icon"></span>
           DDL
         </label>
@@ -2350,18 +2486,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_2_9" type="checkbox" id="__nav_1_11_1_2_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2_9" type="checkbox" id="__nav_1_12_1_2_9" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_2_9">
+        <label class="md-nav__link" for="__nav_1_12_1_2_9">
           VIEW
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="VIEW" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_11_1_2_9">
+        <label class="md-nav__title" for="__nav_1_12_1_2_9">
           <span class="md-nav__icon md-icon"></span>
           VIEW
         </label>
@@ -2432,18 +2568,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3" type="checkbox" id="__nav_1_11_1_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3" type="checkbox" id="__nav_1_12_1_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3">
+        <label class="md-nav__link" for="__nav_1_12_1_3">
           DML
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="DML" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_1_3">
+        <label class="md-nav__title" for="__nav_1_12_1_3">
           <span class="md-nav__icon md-icon"></span>
           DML
         </label>
@@ -2612,18 +2748,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_12" type="checkbox" id="__nav_1_11_1_3_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_12" type="checkbox" id="__nav_1_12_1_3_12" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_12">
+        <label class="md-nav__link" for="__nav_1_12_1_3_12">
           Set Operations
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Set Operations" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_11_1_3_12">
+        <label class="md-nav__title" for="__nav_1_12_1_3_12">
           <span class="md-nav__icon md-icon"></span>
           Set Operations
         </label>
@@ -2701,18 +2837,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_13" type="checkbox" id="__nav_1_11_1_3_13" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_13" type="checkbox" id="__nav_1_12_1_3_13" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_13">
+        <label class="md-nav__link" for="__nav_1_12_1_3_13">
           SUBQUERY
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="SUBQUERY" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_11_1_3_13">
+        <label class="md-nav__title" for="__nav_1_12_1_3_13">
           <span class="md-nav__icon md-icon"></span>
           SUBQUERY
         </label>
@@ -2832,18 +2968,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_14" type="checkbox" id="__nav_1_11_1_3_14" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_14" type="checkbox" id="__nav_1_12_1_3_14" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_14">
+        <label class="md-nav__link" for="__nav_1_12_1_3_14">
           JOIN
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="JOIN" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_11_1_3_14">
+        <label class="md-nav__title" for="__nav_1_12_1_3_14">
           <span class="md-nav__icon md-icon"></span>
           JOIN
         </label>
@@ -2963,18 +3099,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_15" type="checkbox" id="__nav_1_11_1_3_15" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_15" type="checkbox" id="__nav_1_12_1_3_15" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_15">
+        <label class="md-nav__link" for="__nav_1_12_1_3_15">
           OPERATORS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="OPERATORS" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_11_1_3_15">
+        <label class="md-nav__title" for="__nav_1_12_1_3_15">
           <span class="md-nav__icon md-icon"></span>
           OPERATORS
         </label>
@@ -3017,18 +3153,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_15_3" type="checkbox" id="__nav_1_11_1_3_15_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_15_3" type="checkbox" id="__nav_1_12_1_3_15_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_15_3">
+        <label class="md-nav__link" for="__nav_1_12_1_3_15_3">
           算数运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="算数运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_11_1_3_15_3">
+        <label class="md-nav__title" for="__nav_1_12_1_3_15_3">
           <span class="md-nav__icon md-icon"></span>
           算数运算符
         </label>
@@ -3162,18 +3298,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_15_4" type="checkbox" id="__nav_1_11_1_3_15_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_15_4" type="checkbox" id="__nav_1_12_1_3_15_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_15_4">
+        <label class="md-nav__link" for="__nav_1_12_1_3_15_4">
           赋值运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="赋值运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_11_1_3_15_4">
+        <label class="md-nav__title" for="__nav_1_12_1_3_15_4">
           <span class="md-nav__icon md-icon"></span>
           赋值运算符
         </label>
@@ -3223,18 +3359,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_15_5" type="checkbox" id="__nav_1_11_1_3_15_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_15_5" type="checkbox" id="__nav_1_12_1_3_15_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_15_5">
+        <label class="md-nav__link" for="__nav_1_12_1_3_15_5">
           二进制运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="二进制运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_11_1_3_15_5">
+        <label class="md-nav__title" for="__nav_1_12_1_3_15_5">
           <span class="md-nav__icon md-icon"></span>
           二进制运算符
         </label>
@@ -3354,18 +3490,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_15_6" type="checkbox" id="__nav_1_11_1_3_15_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_15_6" type="checkbox" id="__nav_1_12_1_3_15_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_15_6">
+        <label class="md-nav__link" for="__nav_1_12_1_3_15_6">
           强制转换函数和运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="强制转换函数和运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_11_1_3_15_6">
+        <label class="md-nav__title" for="__nav_1_12_1_3_15_6">
           <span class="md-nav__icon md-icon"></span>
           强制转换函数和运算符
         </label>
@@ -3429,18 +3565,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_15_7" type="checkbox" id="__nav_1_11_1_3_15_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_15_7" type="checkbox" id="__nav_1_12_1_3_15_7" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_15_7">
+        <label class="md-nav__link" for="__nav_1_12_1_3_15_7">
           比较函数和运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="比较函数和运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_11_1_3_15_7">
+        <label class="md-nav__title" for="__nav_1_12_1_3_15_7">
           <span class="md-nav__icon md-icon"></span>
           比较函数和运算符
         </label>
@@ -3700,18 +3836,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_15_8" type="checkbox" id="__nav_1_11_1_3_15_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_15_8" type="checkbox" id="__nav_1_12_1_3_15_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_15_8">
+        <label class="md-nav__link" for="__nav_1_12_1_3_15_8">
           控制流函数
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="控制流函数" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_11_1_3_15_8">
+        <label class="md-nav__title" for="__nav_1_12_1_3_15_8">
           <span class="md-nav__icon md-icon"></span>
           控制流函数
         </label>
@@ -3775,18 +3911,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_3_15_9" type="checkbox" id="__nav_1_11_1_3_15_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_15_9" type="checkbox" id="__nav_1_12_1_3_15_9" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_3_15_9">
+        <label class="md-nav__link" for="__nav_1_12_1_3_15_9">
           逻辑运算符
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="逻辑运算符" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_11_1_3_15_9">
+        <label class="md-nav__title" for="__nav_1_12_1_3_15_9">
           <span class="md-nav__icon md-icon"></span>
           逻辑运算符
         </label>
@@ -3892,18 +4028,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_4" type="checkbox" id="__nav_1_11_1_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_4" type="checkbox" id="__nav_1_12_1_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_4">
+        <label class="md-nav__link" for="__nav_1_12_1_4">
           Prepared
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Prepared" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_1_4">
+        <label class="md-nav__title" for="__nav_1_12_1_4">
           <span class="md-nav__icon md-icon"></span>
           Prepared
         </label>
@@ -3981,18 +4117,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_5" type="checkbox" id="__nav_1_11_1_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_5" type="checkbox" id="__nav_1_12_1_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_5">
+        <label class="md-nav__link" for="__nav_1_12_1_5">
           聚合函数
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="聚合函数" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_1_5">
+        <label class="md-nav__title" for="__nav_1_12_1_5">
           <span class="md-nav__icon md-icon"></span>
           聚合函数
         </label>
@@ -4168,18 +4304,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_6" type="checkbox" id="__nav_1_11_1_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_6" type="checkbox" id="__nav_1_12_1_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_6">
+        <label class="md-nav__link" for="__nav_1_12_1_6">
           Explain
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Explain" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_1_6">
+        <label class="md-nav__title" for="__nav_1_12_1_6">
           <span class="md-nav__icon md-icon"></span>
           Explain
         </label>
@@ -4243,18 +4379,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_1_7" type="checkbox" id="__nav_1_11_1_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_7" type="checkbox" id="__nav_1_12_1_7" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_1_7">
+        <label class="md-nav__link" for="__nav_1_12_1_7">
           系统变量
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="系统变量" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_1_7">
+        <label class="md-nav__title" for="__nav_1_12_1_7">
           <span class="md-nav__icon md-icon"></span>
           系统变量
         </label>
@@ -4297,18 +4433,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_2" type="checkbox" id="__nav_1_11_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_2" type="checkbox" id="__nav_1_12_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_2">
+        <label class="md-nav__link" for="__nav_1_12_2">
           数据类型
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="数据类型" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_11_2">
+        <label class="md-nav__title" for="__nav_1_12_2">
           <span class="md-nav__icon md-icon"></span>
           数据类型
         </label>
@@ -4414,18 +4550,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_3" type="checkbox" id="__nav_1_11_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_3" type="checkbox" id="__nav_1_12_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_3">
+        <label class="md-nav__link" for="__nav_1_12_3">
           系统函数
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="系统函数" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_11_3">
+        <label class="md-nav__title" for="__nav_1_12_3">
           <span class="md-nav__icon md-icon"></span>
           系统函数
         </label>
@@ -4440,18 +4576,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_3_1" type="checkbox" id="__nav_1_11_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_3_1" type="checkbox" id="__nav_1_12_3_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_3_1">
+        <label class="md-nav__link" for="__nav_1_12_3_1">
           数学类
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="数学类" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_3_1">
+        <label class="md-nav__title" for="__nav_1_12_3_1">
           <span class="md-nav__icon md-icon"></span>
           数学类
         </label>
@@ -4711,18 +4847,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_3_2" type="checkbox" id="__nav_1_11_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_3_2" type="checkbox" id="__nav_1_12_3_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_3_2">
+        <label class="md-nav__link" for="__nav_1_12_3_2">
           日期时间类
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="日期时间类" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_3_2">
+        <label class="md-nav__title" for="__nav_1_12_3_2">
           <span class="md-nav__icon md-icon"></span>
           日期时间类
         </label>
@@ -4996,18 +5132,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_3_3" type="checkbox" id="__nav_1_11_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_3_3" type="checkbox" id="__nav_1_12_3_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_3_3">
+        <label class="md-nav__link" for="__nav_1_12_3_3">
           字符串类
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="字符串类" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_3_3">
+        <label class="md-nav__title" for="__nav_1_12_3_3">
           <span class="md-nav__icon md-icon"></span>
           字符串类
         </label>
@@ -5272,53 +5408,6 @@
 
             
           
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_3_4" type="checkbox" id="__nav_1_11_3_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_11_3_4">
-          表结构类
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="表结构类" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_11_3_4">
-          <span class="md-nav__icon md-icon"></span>
-          表结构类
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Table/unnest/" class="md-nav__link">
-        UUNEST()
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -5335,18 +5424,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_4" type="checkbox" id="__nav_1_11_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_4" type="checkbox" id="__nav_1_12_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_4">
+        <label class="md-nav__link" for="__nav_1_12_4">
           系统配置
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="系统配置" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_11_4">
+        <label class="md-nav__title" for="__nav_1_12_4">
           <span class="md-nav__icon md-icon"></span>
           系统配置
         </label>
@@ -5410,18 +5499,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_6" type="checkbox" id="__nav_1_11_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_6" type="checkbox" id="__nav_1_12_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_6">
+        <label class="md-nav__link" for="__nav_1_12_6">
           使用限制
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="使用限制" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_11_6">
+        <label class="md-nav__title" for="__nav_1_12_6">
           <span class="md-nav__icon md-icon"></span>
           使用限制
         </label>
@@ -5478,18 +5567,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12" type="checkbox" id="__nav_1_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_13" type="checkbox" id="__nav_1_13" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_12">
+        <label class="md-nav__link" for="__nav_1_13">
           常见问题解答
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="常见问题解答" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_12">
+        <label class="md-nav__title" for="__nav_1_13">
           <span class="md-nav__icon md-icon"></span>
           常见问题解答
         </label>
@@ -5553,18 +5642,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_13" type="checkbox" id="__nav_1_13" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_14" type="checkbox" id="__nav_1_14" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_13">
+        <label class="md-nav__link" for="__nav_1_14">
           版本发布纪要
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="版本发布纪要" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_13">
+        <label class="md-nav__title" for="__nav_1_14">
           <span class="md-nav__icon md-icon"></span>
           版本发布纪要
         </label>
@@ -5698,18 +5787,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_15" type="checkbox" id="__nav_1_15" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_16" type="checkbox" id="__nav_1_16" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_15">
+        <label class="md-nav__link" for="__nav_1_16">
           社区贡献指南
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="社区贡献指南" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_15">
+        <label class="md-nav__title" for="__nav_1_16">
           <span class="md-nav__icon md-icon"></span>
           社区贡献指南
         </label>
@@ -5738,18 +5827,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_15_2" type="checkbox" id="__nav_1_15_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_16_2" type="checkbox" id="__nav_1_16_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_15_2">
+        <label class="md-nav__link" for="__nav_1_16_2">
           贡献指南
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="贡献指南" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_15_2">
+        <label class="md-nav__title" for="__nav_1_16_2">
           <span class="md-nav__icon md-icon"></span>
           贡献指南
         </label>
@@ -5869,18 +5958,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_15_3" type="checkbox" id="__nav_1_15_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_16_3" type="checkbox" id="__nav_1_16_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_15_3">
+        <label class="md-nav__link" for="__nav_1_16_3">
           代码规范
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="代码规范" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_15_3">
+        <label class="md-nav__title" for="__nav_1_16_3">
           <span class="md-nav__icon md-icon"></span>
           代码规范
         </label>
@@ -5942,53 +6031,6 @@
 
             
           
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_16" type="checkbox" id="__nav_1_16" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_16">
-          在线快速体验
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="在线快速体验" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_16">
-          <span class="md-nav__icon md-icon"></span>
-          在线快速体验
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1" class="md-nav__link">
-        Playground
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -6020,6 +6062,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#matrixone_1" class="md-nav__link">
+    单机版 MatrixOne 概述
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
@@ -6139,22 +6188,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 创建并运行容器
+  <a href="#3-docker_1" class="md-nav__link">
+    3. 检查 Docker 运行状态
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 挂载数据（选做）
+  <a href="#4-matrixone_1" class="md-nav__link">
+    4. 获取 MatrixOne 镜像并启动
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-matrixone" class="md-nav__link">
-    5. 连接 MatrixOne 服务
+  <a href="#5" class="md-nav__link">
+    5. 挂载数据（选做）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-matrixone" class="md-nav__link">
+    6. 连接 MatrixOne 服务
   </a>
   
 </li>
@@ -6190,6 +6246,8 @@
 
 
 <h1 id="matrixone"><strong>安装单机版 MatrixOne</strong></h1>
+<h2 id="matrixone_1">单机版 MatrixOne 概述</h2>
+<p>单机版 MatrixOne 适用场景即是使用单台服务器，体验 MatrixOne 最小的完整拓扑，并模拟开发环境下的部署步骤。</p>
 <p>为了方便不同操作习惯的开发者或技术爱好者能够通过最方便快捷的方式安装单机版 MatrixOne，我们提供了以下三种安装方法，你可以根据你的需求，选择最适合你的安装方式：</p>
 <ul>
 <li><p><a href="#code_source">方法 1：使用源代码搭建。</a></p>如果你有一直获取最新 MatrixOne 代码的需求，可以优先选择通过<strong>使用源代码</strong>的方式安装部署 MatrixOne。</li>
@@ -6202,16 +6260,24 @@
 <table>
 <thead>
 <tr>
+<th align="left">操作系统</th>
+<th align="left">操作系统版本</th>
 <th align="left">CPU</th>
 <th align="left">内存</th>
-<th align="left">操作系统</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td align="left">CentOS</td>
+<td align="left">7.3 及以上</td>
 <td align="left">x86 CPU；4核</td>
 <td align="left">32 GB</td>
-<td align="left">CentOS 7+</td>
+</tr>
+<tr>
+<td align="left">macOS</td>
+<td align="left">Monterey 12.3 及以上</td>
+<td align="left">- x86 CPU；4核<br>- ARM；4核</td>
+<td align="left">32 GB</td>
 </tr>
 </tbody>
 </table>
@@ -6224,11 +6290,24 @@
 </div>
 <p>点击 <a href="https://go.dev/doc/install" target="_blank">Go Download and install</a> 入到 <strong>Go</strong> 的官方文档，按照官方指导安装步骤完成 <strong>Go</strong> 语言的安装。</p>
 <p>验证 <strong>Go</strong> 是否安装，请执行代码 <code>go version</code>，安装成功代码行示例如下：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><strong>Linux 环境</strong></label><label for="__tabbed_1_2"><strong>MacOS 环境</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Go 安装成功提示如下：</p>
+<div class="highlight"><pre><span></span><code>go version go1.19.3 linux/amd64
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Go 安装成功提示如下：</p>
 <div class="highlight"><pre><span></span><code>go version go1.19 darwin/arm64
 </code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="2-matrixone">2. 获取 MatrixOne 源码完成搭建</h3>
 <p>根据您的需要，选择您所获取的代码永远保持最新，还是获得稳定版本的代码。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">通过 MatrixOne(开发版本) 代码搭建</label><label for="__tabbed_1_2">通过 MatrixOne(稳定版本) 代码搭建</label></div>
+<p><strong>Tips</strong>: 通过 MatrixOne 源码完成搭建时，<strong>Linux 环境</strong> 与 <strong>MacOS 环境</strong> 通过运行指令进行 MatrixOne 的搭建过程无明显分别，本章节着重介绍不同版本的 MatrixOne 源码搭建步骤。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">通过 MatrixOne(开发版本) 代码搭建</label><label for="__tabbed_2_2">通过 MatrixOne(稳定版本) 代码搭建</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><strong>main</strong> 分支是默认分支，主分支上的代码总是最新的，但不够稳定。</p>
@@ -6243,7 +6322,7 @@
 <p>运行 <code>make build</code> 编译文件：</p>
 <div class="highlight"><pre><span></span><code>make build
 </code></pre></div>
-<p><strong>Tips</strong>: 你也可以运行<code>make debug</code>与<code>make clean</code>或者其他任何<code>Makefile</code>支持的命令；<code>make debug</code> 可以用来调试构建进程，<code>make clean</code> 可以清除构建进程。如果在 <code>make build</code> 时产生报错，参见<a href="../../FAQs/deployment-faqs/">安装和部署常见问题</a>进行解决。</p>
+<p><strong>Tips</strong>: 你也可以运行<code>make debug</code>与<code>make clean</code>或者其他任何<code>Makefile</code>支持的命令；<code>make debug</code> 可以用来调试构建进程，<code>make clean</code> 可以清除构建进程。如果在 <code>make build</code> 时产生 <code>Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout</code> 报错，参见<a href="../../FAQs/deployment-faqs/">安装和部署常见问题</a>进行解决。</p>
 </li>
 <li>
 <p>启动 MatrixOne 服务：</p>
@@ -6267,7 +6346,7 @@ cd matrixone
 <div class="highlight"><pre><span></span><code>make config
 make build
 </code></pre></div>
-<p><strong>Tips</strong>: 你也可以运行<code>make debug</code>与<code>make clean</code>或者其他任何<code>Makefile</code>支持的命令；<code>make debug</code> 可以用来调试构建进程，<code>make clean</code> 可以清除构建进程。如果在 <code>make build</code> 时产生报错，参见<a href="../../FAQs/deployment-faqs/">安装和部署常见问题</a>进行解决。</p>
+<p><strong>Tips</strong>: 你也可以运行<code>make debug</code>与<code>make clean</code>或者其他任何<code>Makefile</code>支持的命令；<code>make debug</code> 可以用来调试构建进程，<code>make clean</code> 可以清除构建进程。如果在 <code>make build</code> 时产生 <code>Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout</code> 报错，参见<a href="../../FAQs/deployment-faqs/">安装和部署常见问题</a>进行解决。</p>
 </li>
 <li>
 <p>启动 MatrixOne 服务：</p>
@@ -6286,7 +6365,7 @@ make build
 <h3 id="1_1">1. 安装下载工具</h3>
 <p>我们提供<strong>下载二进制包</strong>的方式安装 MatrixOne，如果你喜欢通过命令行进行操作，那么你可以提前准备安装好 <code>wget</code> 或 <code>curl</code>。</p>
 <p><strong>Tips</strong>: 建议你下载安装这两个下载工具其中之一，方便后续通过命令行下载二进制包。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">安装 <code>wget</code></label><label for="__tabbed_2_2">安装 <code>curl</code></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">安装 <code>wget</code></label><label for="__tabbed_3_2">安装 <code>curl</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><code>wget</code> 工具用来从指定的 URL 下载文件。<code>wget</code> 是专门的文件下载工具，它非常稳定，而且下载速度快。</p>
@@ -6294,6 +6373,17 @@ make build
 <div class="highlight"><pre><span></span><code>wget -V
 </code></pre></div>
 <p>安装成功结果(仅展示一部分代码)如下：</p>
+<ul>
+<li>Linux 环境，安装成功代码示例如下：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>GNU Wget 1.21.3 built on linux-gnu.
+...
+Copyright (C) 2015 Free Software Foundation, Inc.
+...
+</code></pre></div>
+<ul>
+<li>MacOS 环境，安装成功代码示例如下：</li>
+</ul>
 <div class="highlight"><pre><span></span><code>GNU Wget 1.21.3 在 darwin21.3.0 上编译。
 ...
 Copyright © 2015 Free Software Foundation, Inc.
@@ -6306,6 +6396,16 @@ Copyright © 2015 Free Software Foundation, Inc.
 <div class="highlight"><pre><span></span><code>curl --version
 </code></pre></div>
 <p>安装成功结果(仅展示一部分代码)如下：</p>
+<ul>
+<li>Linux 环境，安装成功代码示例如下：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>curl 7.84.0 (x86_64-pc-linux-gnu) libcurl/7.84.0 OpenSSL/1.1.1k-fips zlib/1.2.11
+Release-Date: 2022-06-27
+...
+</code></pre></div>
+<ul>
+<li>MacOS 环境，安装成功代码示例如下：</li>
+</ul>
 <div class="highlight"><pre><span></span><code>curl 7.84.0 (x86_64-apple-darwin22.0) libcurl/7.84.0 (SecureTransport) LibreSSL/3.3.6 zlib/1.2.11 nghttp2/1.47.0
 Release-Date: 2022-06-27
 ...
@@ -6314,7 +6414,7 @@ Release-Date: 2022-06-27
 </div>
 </div>
 <h3 id="2_1">2. 下载二进制包并解压</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><strong>Linux 环境</strong></label><label for="__tabbed_3_2"><strong>MacOS 环境</strong></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1"><strong>Linux 环境</strong></label><label for="__tabbed_4_2"><strong>MacOS 环境</strong></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><strong>下载方式一</strong>和<strong>下载方式二</strong>需要先安装下载工具 <code>wget</code> 或 <code>curl</code>，如果你未安装，请先安装下载工具。</p>
@@ -6370,6 +6470,7 @@ unzip mo-server-v0.5.1-darwin-x86_64.zip
 <h3 id="4-matrixone">4. 连接 MatrixOne 服务</h3>
 <p>当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne，具体步骤，参见<a href="../connect-to-matrixone-server/">连接 MatrixOne 服务</a>。</p>
 <h2 id="3-docker"><h2><a name="use_docker">方法 3：使用 Docker</a></h2></h2>
+<p><strong>Tips</strong>: 通过 Docer 搭建 MatrixOne 时，<strong>Linux 环境</strong> 与 <strong>MacOS 环境</strong> 通过运行指令进行 MatrixOne 的搭建过程无明显分别。</p>
 <h3 id="1-docker">1. 下载安装 Docker</h3>
 <p>点击<a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a>，进入 Docker 的官方文档页面，根据你的操作系统，下载安装对应的 Docker。</p>
 <p>安装完成后，点击打开 Docker，进入下一步进行验证安装是否成功。</p>
@@ -6380,24 +6481,41 @@ unzip mo-server-v0.5.1-darwin-x86_64.zip
 <p>安装成功，代码示例如下：</p>
 <div class="highlight"><pre><span></span><code>Docker version 20.10.17, build 100c701
 </code></pre></div>
-<h3 id="3">3. 创建并运行容器</h3>
+<h3 id="3-docker_1">3. 检查 Docker 运行状态</h3>
+<p>运行如下命令，启动 Docker 并查看运行状态是否成功：</p>
+<div class="highlight"><pre><span></span><code>systemctl start docker
+systemctl status docker
+</code></pre></div>
+<p>表示 Docker 正在运行的代码示例如下，出现 <code>Active: active (running)</code> 即表示 Docker 已经在运行中。</p>
+<div class="highlight"><pre><span></span><code>docker.service - Docker Application Container Engine
+   Loaded: loaded (/usr/lib/systemd/system/docker.service; disabled; vendor preset: disabled)
+   Active: active (running) since Sat 2022-11-26 17:48:32 CST; 6s ago
+     Docs: https://docs.docker.com
+ Main PID: 234496 (dockerd)
+    Tasks: 8
+   Memory: 23.6M
+</code></pre></div>
+<p>或者你可以直接打开你本地 Docker 客户端，启动 Docker。</p>
+<h3 id="4-matrixone_1">4. 获取 MatrixOne 镜像并启动</h3>
 <p>使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">稳定版本的镜像（0.5.1）</label><label for="__tabbed_4_2">开发版本的镜像（Pre0.6)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">稳定版本的镜像（0.5.1）</label><label for="__tabbed_5_2">开发版本的镜像（Pre0.6)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/matrixone:0.5.1
+<div class="highlight"><pre><span></span><code>docker pull matrixorigin/matrixone:0.5.1
+docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/matrixone:0.5.1
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>获取最新开发版本的镜像，参见<a href="https://hub.docker.com/r/matrixorigin/matrixone/tags">Docker Hub</a>，找到最新Tag，拉取镜像。拉取镜像代码示例如下：</p>
-<div class="highlight"><pre><span></span><code>docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/matrixone:nightly-commitnumber
+<div class="highlight"><pre><span></span><code>docker pull matrixorigin/matrixone:nightly-commitnumber
+docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/matrixone:nightly-commitnumber
 </code></pre></div>
 <p><strong>Notes</strong>: 如上面代码所示，<em>nightly</em> 为标识的 Tag 版本每天都进行更新，请注意获取最新的镜像。</p>
 </div>
 </div>
 </div>
-<p>运行 Docker Hub 时需要输入用户名和密码，获取用户名和密码可以参考步骤 5 - 连接 MatrixOne 服务</p>
-<h3 id="4">4. 挂载数据（选做）</h3>
+<p>运行 Docker Hub 时需要输入用户名和密码，获取用户名和密码可以参考步骤 6 - 连接 MatrixOne 服务</p>
+<h3 id="5">5. 挂载数据（选做）</h3>
 <p>如果你需要自定义<em>配置文件</em>或者<em>数据目录</em>，可以直接挂载存放在本地磁盘的自定义<em>配置文件</em>以及<em>数据目录</em>：</p>
 <div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ${path_name}/system_vars_config.toml:/system_vars_config.toml:ro -v ${path_name}/store:/store:rw --name matrixone matrixorigin/matrixone:0.5.1
 </code></pre></div>
@@ -6428,7 +6546,7 @@ unzip mo-server-v0.5.1-darwin-x86_64.zip
 </tbody>
 </table>
 <p>更多关于 <em>Docker run</em> 的指令释义，运行命令 <code>docker run --help</code> 进行查看。</p>
-<h3 id="5-matrixone">5. 连接 MatrixOne 服务</h3>
+<h3 id="6-matrixone">6. 连接 MatrixOne 服务</h3>
 <p>当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne，具体步骤，参见<a href="../connect-to-matrixone-server/">连接 MatrixOne 服务</a>。</p>
 <h2 id="_3">参考文档</h2>
 <p>升级版本，参见<a href="../../Maintain/upgrade-standalone-matrixone/">升级单机版 MatrixOne</a>。
