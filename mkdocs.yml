@@ -43,14 +43,13 @@ nav:
     - 关于 MatrixOne:
       - MatrixOne 简介: MatrixOne/Overview/matrixone-introduction.md
       - MatrixOne 功能列表: MatrixOne/Overview/matrixone-feature-list.md
-      - MatrixOne 技术架构: MatrixOne/Overview/matrixone-architecture.md
+      - MatrixOne 技术架构: MatrixOne/Overview/matrixOne-architecture-design.md
       - MySQL 兼容性: MatrixOne/Overview/mysql-compatibility.md
       - 最新动态: MatrixOne/Overview/whats-new.md
     - 快速上手:
       - 安装单机版 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
       - 连接单机版 MatrixOne 服务: MatrixOne/Get-Started/connect-to-matrixone-server.md
       - SQL 的基本操作: MatrixOne/Get-Started/basic-sql.md
-      - Playground 在线体验: MatrixOne/Get-Started/Playground.md
     - 开发指南:
       - 连接 MatrixOne:
         - 配置 MatrixOne SSL 连接: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
@@ -88,7 +87,6 @@ nav:
         - ORMs: MatrixOne/Tutorial/connect_mo_with_orm.md
         - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
     - 运维:
-      - 升级单机版 MatrixOne: MatrixOne/Maintain/upgrade-standalone-matrixone.md
       - 备份与恢复: MatrixOne/Maintain/backup-restore.md
       - MatrixOne 目录结构: MatrixOne/Maintain/mo-directory-structure.md
     - 数据迁移:
@@ -97,6 +95,7 @@ nav:
       - 性能测试:
         - SSB 测试: MatrixOne/Tutorial/SSB-test-with-matrixone.md
         - TPCH 测试: MatrixOne/Tutorial/TPCH-test-with-matrixone.md
+        - TPCC 测试: MatrixOne/Tutorial/TPCC-test-with-matrixone.md
       - 测试工具:
         - MO-Tester: MatrixOne/Test/mo-tester.md
         - MO-Tester 规范要求: MatrixOne/Test/mo-tester-reference.md
@@ -319,8 +318,6 @@ nav:
           - SUBSTRING(): MatrixOne/Reference/Builtin-Functions/String/substring.md
           - SPACE(): MatrixOne/Reference/Builtin-Functions/String/space.md
           - REVERSE(): MatrixOne/Reference/Builtin-Functions/String/reverse.md
-        - 表结构类:
-          - UUNEST(): MatrixOne/Reference/Builtin-Functions/Table/unnest.md
       - 系统配置:
         - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 时区配置: MatrixOne/Reference/System-Parameters/timezone.md
@@ -355,5 +352,3 @@ nav:
         - 编码规范: MatrixOne/Contribution-Guide/Code-Style/code-of-conduct.md
         - 注释规范: MatrixOne/Contribution-Guide/Code-Style/code-comment-style.md
         - 提交规范: MatrixOne/Contribution-Guide/Code-Style/commit-pr-style.md
-    - 在线快速体验:
-      - Playground: https://playground.matrixorigin.io/?tutorial=SSB-test-with-matrixone&step=1
