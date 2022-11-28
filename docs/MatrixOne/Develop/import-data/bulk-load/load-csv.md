@@ -41,7 +41,7 @@ docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --na
     !!! note
         如果你使用 Docker 启动 MatrixOne，需要先将这个数据文件路径挂载到容器的目录中。
 
-### 示例：使用 *docker* 执行 `Load data`
+### 示例：使用 *docker* 启动 MatrixOne 执行 `Load data`
 
 本示例将介绍如何使用 Docker 启动 MatrixOne 0.5.1 加载数据。
 

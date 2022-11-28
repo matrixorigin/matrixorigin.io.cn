@@ -27,9 +27,9 @@ SELECT ... FROM <query_name>;
 你可以新建一个简单的表，插入一些数据，帮助你理解后续所展示的 CTE 语句：
 
 ```sql
-> drop table if exists t1;
-> create table t1(a int, b int, c int);
-> insert into t1 values(null,null,null),(2,3,4);
+drop table if exists t1;
+create table t1(a int, b int, c int);
+insert into t1 values(null,null,null),(2,3,4);
 ```
 
 ## CTE 语句使用实例
@@ -37,7 +37,7 @@ SELECT ... FROM <query_name>;
 在下面的示例中，`qn` 作为一个临时的结果集被创建，此时相应的查询结果会被缓存在 MatrixOne 中，你在执行正式的 `qn` 查询时，比非 CTE 场景的性能有所提升。
 
 ```sql
-WITH qn AS (SELECT a FROM t1), qn2 as (select b from t1)
+mysql> WITH qn AS (SELECT a FROM t1), qn2 as (select b from t1)
 SELECT * FROM qn;
 ```
 
