@@ -29,7 +29,7 @@ EXPLAIN SELECT * FROM t WHERE a = 1;
 
 `EXPLAIN` 实际不会执行查询。`EXPLAIN ANALYZE` 可用于实际执行查询并显示执行计划。如果 MatrixOne 所选的执行计划非最优，可用 `EXPLAIN` 或 `EXPLAIN ANALYZE` 来进行诊断。
 
-**EXPLAIN 分析**
+**EXPLAIN 输出分析**
 
 - QUERY PLAN，即本次执行的主题，查询计划
 
