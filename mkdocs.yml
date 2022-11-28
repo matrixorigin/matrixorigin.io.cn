@@ -86,6 +86,13 @@ nav:
         - MyBatis: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
         - ORMs: MatrixOne/Tutorial/connect_mo_with_orm.md
         - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
+    - 部署指南:
+      - 软硬件环境要求: MatrixOne/Deploy/check-before-deployment.md
+      - 在 Kubernetes 上部署 MatrixOne:
+        - 在 Kubernetes 上部署 MatrixOne 简介: MatrixOne/Deploy/install-and-launch-in-k8s.md
+        - 什么是 MatrixOne Operator: MatrixOne/Deploy/mo-in-kubernetes/whats-mo-operator.md
+        - 使用 MatrixOne Operator 部署 MatrixOne 集群: MatrixOne/Deploy/mo-in-kubernetes/get-started.md
+        - 为 MatrixOne 集群配置共享存储: MatrixOne/Deploy/mo-in-kubernetes/configure-shared-memory.md
     - 运维:
       - 备份与恢复: MatrixOne/Maintain/backup-restore.md
       - MatrixOne 目录结构: MatrixOne/Maintain/mo-directory-structure.md
