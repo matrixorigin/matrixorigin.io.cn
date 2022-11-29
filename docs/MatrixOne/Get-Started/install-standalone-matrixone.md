@@ -362,9 +362,23 @@ MacOS 环境下，你可以直接打开你本地 Docker 客户端，启动 Docke
 
 运行 Docker Hub 时需要输入用户名和密码，获取用户名和密码可以参考步骤 6 - 连接 MatrixOne 服务
 
-### 5. 挂载数据（选做）
+### 5. 挂载配置文件和数据目录（选做）
 
-如果你需要挂载*数据目录*，在 Docker 启动之前，可以先挂载存放在本地磁盘：
+如果你需要挂载*配置文件*和*数据目录*，在 Docker 启动之前，可以先挂载存放在本地磁盘：
+
+- **挂载配置文件**
+
+```
+docker run -d -p 6001:6001 -v ${local_data_path}/etc:/etc:rw  --entrypoint "/mo-service" matrixorigin/matrixone:0.6.0 -launch /etc/launch-tae-CN-tae-DN/launch.toml
+```
+
+|参数|描述|
+|---|---|
+|${local_data_path}/etc:/etc|挂载配置文件到本地磁盘目录|
+|--entrypoint "/mo-service"|指定容器启动 MatrixOne 服务|
+|-launch /etc/launch-tae-CN-tae-DN/launch.toml|Matrixone仓库内 /etc 下的启动方式|
+
+- **挂载数据目录**
 
 ```
 docker run -d -p 6001:6001 -v ${local_data_path}:/mo-data:rw --name matrixone matrixorigin/matrixone:0.6.0
@@ -374,14 +388,14 @@ docker run -d -p 6001:6001 -v ${local_data_path}:/mo-data:rw --name matrixone ma
 |---|---|
 |${local_data_path}:/mo-data|备份 /mo-data 到本地磁盘目录|
 
-挂载成功后你可以在你本地磁盘中找到相应的数据目录，示例如下：
+挂载配置文件和数据目录完成后，你可以在你本地磁盘中找到相应的数据目录，示例如下：
 
 ```
 # 进入你挂载数据目录的本地磁盘
 cd ${local_data_path}
-# 查看当前目录下挂载的数据文件或文件夹
+# 查看当前目录下挂载的配置文件和数据文件
 ls
-cn-data  etl  local  logservice-data
+cn-data  etc  etl  local  logservice-data
 ```
 
 更多关于 *Docker run* 的指令释义，运行命令 `docker run --help` 进行查看。
