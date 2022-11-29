@@ -364,7 +364,7 @@ MacOS 环境下，你可以直接打开你本地 Docker 客户端，启动 Docke
 
 ### 5. 挂载配置文件和数据目录（选做）
 
-如果你需要挂载*配置文件*和*数据目录*，在 Docker 启动之前，可以先挂载存放在本地磁盘内的一个空目录下：
+如果你需要挂载*配置文件*和*数据目录*，参见本章节下述内容：
 
 - **挂载配置文件**
 
@@ -374,7 +374,7 @@ docker run -d -p 6001:6001 -v ${local_data_path}/etc:/etc:rw  --entrypoint "/mo-
 
 |参数|描述|
 |---|---|
-|${local_data_path}/etc:/etc|挂载配置文件到本地磁盘目录|
+|${local_data_path}/etc:/etc|挂载本地配置文件到容器 */etc* 文件夹|
 |--entrypoint "/mo-service"|指定容器启动 MatrixOne 服务|
 |-launch /etc/launch-tae-CN-tae-DN/launch.toml|Matrixone仓库内 /etc 下的启动方式|
 
@@ -386,14 +386,13 @@ docker run -d -p 6001:6001 -v ${local_data_path}:/mo-data:rw --name matrixone ma
 
 |参数|描述|
 |---|---|
-|${local_data_path}:/mo-data|备份 /mo-data 到本地磁盘目录|
+|${local_data_path}:/mo-data|挂载本地目录到容器 */mo-data* 文件夹 |
 
 或者你可以运行下面的命令行，同时挂载*配置文件*和*数据目录*：
 
 ```
 docker run -d -p 6001:6001 -v ${local_data_path}/etc:/etc:rw -v ${local_data_path}:/mo-data:rw --entrypoint "/mo-service" matrixorigin/matrixone:0.6.0 -launch /etc/quickstart/launch.toml
 ```
-
 
 挂载配置文件和数据目录完成后，你可以在你本地磁盘中找到相应的数据目录，示例如下：
 
