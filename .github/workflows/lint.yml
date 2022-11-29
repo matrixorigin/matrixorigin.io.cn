@@ -12,9 +12,6 @@ jobs:
     name: Lint Docs
     runs-on: ubuntu-latest
     steps:
-    - name: Output Inputs
-      run: echo "${{ toJSON(github) }}"
-        
     - name: Check out code
       uses: actions/checkout@v2
       with:
