@@ -63,7 +63,7 @@
 ## **示例**
 
 ```sql
-> SELECT DATE_FORMAT('2009-10-04 22:23:00', '%W %M %Y');
+mysql> SELECT DATE_FORMAT('2009-10-04 22:23:00', '%W %M %Y');
 +--------------------------------------------+
 | date_format(2009-10-04 22:23:00, %W %M %Y) |
 +--------------------------------------------+
@@ -71,7 +71,7 @@
 +--------------------------------------------+
 1 row in set (0.01 sec)
 
-> SELECT DATE_FORMAT('2007-10-04 22:23:00', '%H:%i:%s');
+mysql> SELECT DATE_FORMAT('2007-10-04 22:23:00', '%H:%i:%s');
 +--------------------------------------------+
 | date_format(2007-10-04 22:23:00, %H:%i:%s) |
 +--------------------------------------------+
@@ -79,7 +79,7 @@
 +--------------------------------------------+
 1 row in set (0.02 sec)
 
-> SELECT Date_format('1900-10-04 22:23:00', '%D %y %a %d %m %b %j');
+mysql> SELECT Date_format('1900-10-04 22:23:00', '%D %y %a %d %m %b %j');
 +--------------------------------------------------------+
 | date_format(1900-10-04 22:23:00, %D %y %a %d %m %b %j) |
 +--------------------------------------------------------+
@@ -87,7 +87,7 @@
 +--------------------------------------------------------+
 1 row in set (0.01 sec)
 
-> SELECT DATE_FORMAT('1997-10-04 22:23:00', '%H %k %I %r %T %S %w');
+mysql> SELECT DATE_FORMAT('1997-10-04 22:23:00', '%H %k %I %r %T %S %w');
 +--------------------------------------------------------+
 | date_format(1997-10-04 22:23:00, %H %k %I %r %T %S %w) |
 +--------------------------------------------------------+
@@ -95,7 +95,7 @@
 +--------------------------------------------------------+
 1 row in set (0.01 sec)
 
-> SELECT DATE_FORMAT('1999-01-01', '%X %V');
+mysql> SELECT DATE_FORMAT('1999-01-01', '%X %V');
 +--------------------------------+
 | date_format(1999-01-01, %X %V) |
 +--------------------------------+
@@ -105,25 +105,29 @@
 ```
 
 <!--SELECT DATE_FORMAT('2006-06-00', '%d');
-ERROR 1105 (HY000): Can't cast '2006-06-00' from VARCHAR type to DATETIME type.-->
+ERROR 20301 (HY000): invalid input: invalid datatime value 2006-06-00-->
 
 ```sql
-> CREATE TABLE t2 (f1 DATETIME);
-> INSERT INTO t2 (f1) VALUES ('2005-01-01');
-> INSERT INTO t2 (f1) VALUES ('2005-02-01');
-> SELECT Date_format(f1, "%m") AS d1,
+CREATE TABLE t2 (f1 DATETIME);
+INSERT INTO t2 (f1) VALUES ('2005-01-01');
+INSERT INTO t2 (f1) VALUES ('2005-02-01');
+
+mysql> SELECT Date_format(f1, "%m") AS d1,
          Date_format(f1, "%m") AS d2
   FROM   t2
   ORDER  BY Date_format(f1, "%m");
-+------+----------+
-| d1   | d2       |
-+------+----------+
-| 02   | February |
-| 01   | January  |
-+------+----------+
+  +------+------+
+  | d1   | d2   |
+  +------+------+
+  | 01   | 01   |
+  | 02   | 02   |
+  +------+------+
+  2 rows in set (0.00 sec)
+```
 
-> CREATE TABLE t5 (a int, b date);
-> INSERT INTO t5
+```sql
+CREATE TABLE t5 (a int, b date);
+INSERT INTO t5
   VALUES    (1,
              '2000-02-05'),
             (2,
@@ -134,7 +138,8 @@ ERROR 1105 (HY000): Can't cast '2006-06-00' from VARCHAR type to DATETIME type.-
              '2007-09-01'),
             (5,
              '2022-01-01');
-> SELECT * FROM   t5
+
+mysql> SELECT * FROM   t5
   WHERE  b = Date_format('20000205', '%Y-%m-%d');
 +------+------------+
 | a    | b          |
@@ -143,7 +148,7 @@ ERROR 1105 (HY000): Can't cast '2006-06-00' from VARCHAR type to DATETIME type.-
 +------+------------+
 1 row in set (0.01 sec)
 
-> SELECT * FROM   t5
+mysql> SELECT * FROM t5
   WHERE  b != Date_format('20000205', '%Y-%m-%d');
 +------+------------+
 | a    | b          |
@@ -155,7 +160,7 @@ ERROR 1105 (HY000): Can't cast '2006-06-00' from VARCHAR type to DATETIME type.-
 +------+------------+
 4 rows in set (0.01 sec)
 
-> SELECT DATE_FORMAT("2009-01-01",'%W %d %M %Y') as valid_date;
+mysql> SELECT DATE_FORMAT("2009-01-01",'%W %d %M %Y') as valid_date;
 +--------------------------+
 | valid_date               |
 +--------------------------+

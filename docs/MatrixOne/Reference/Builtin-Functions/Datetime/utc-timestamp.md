@@ -21,7 +21,7 @@
 - 示例 1：
 
 ```sql
-> SELECT UTC_TIMESTAMP();
+mysql> SELECT UTC_TIMESTAMP();
 +---------------------+
 | utc_timestamp()     |
 +---------------------+
@@ -29,7 +29,7 @@
 +---------------------+
 1 row in set (0.01 sec)
 
-> select unix_timestamp(utc_timestamp());
+mysql> select unix_timestamp(utc_timestamp());
 +---------------------------------+
 | unix_timestamp(utc_timestamp()) |
 +---------------------------------+
@@ -41,9 +41,10 @@
 - 示例 2：
 
 ```sql
-> create table t1 (ts timestamp);
-> set time_zone='+00:00';
-> select unix_timestamp(utc_timestamp())-unix_timestamp(utc_timestamp());
+create table t1 (ts timestamp);
+set time_zone='+00:00';
+
+mysql> select unix_timestamp(utc_timestamp())-unix_timestamp(utc_timestamp());
 +-------------------------------------------------------------------+
 | unix_timestamp(utc_timestamp()) - unix_timestamp(utc_timestamp()) |
 +-------------------------------------------------------------------+
@@ -51,9 +52,10 @@
 +-------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> insert into t1 (ts) values ('2003-03-30 02:30:00');
-> set time_zone='+10:30';
-> select unix_timestamp(utc_timestamp())-unix_timestamp(utc_timestamp());
+insert into t1 (ts) values ('2003-03-30 02:30:00');
+set time_zone='+10:30';
+
+mysql> select unix_timestamp(utc_timestamp())-unix_timestamp(utc_timestamp());
 +-------------------------------------------------------------------+
 | unix_timestamp(utc_timestamp()) - unix_timestamp(utc_timestamp()) |
 +-------------------------------------------------------------------+
@@ -61,9 +63,10 @@
 +-------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-> insert into t1 (ts) values ('2003-03-30 02:30:00');
-> set time_zone='-10:00';
-> select unix_timestamp(utc_timestamp())-unix_timestamp(current_timestamp());
+insert into t1 (ts) values ('2003-03-30 02:30:00');
+set time_zone='-10:00';
+
+mysql> select unix_timestamp(utc_timestamp())-unix_timestamp(current_timestamp());
 +-----------------------------------------------------------------------+
 | unix_timestamp(utc_timestamp()) - unix_timestamp(current_timestamp()) |
 +-----------------------------------------------------------------------+
@@ -71,8 +74,9 @@
 +-----------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> insert into t1 (ts) values ('2003-03-30 02:30:00');
-> select * from t1;
+insert into t1 (ts) values ('2003-03-30 02:30:00');
+
+mysql> select * from t1;
 +---------------------+
 | ts                  |
 +---------------------+
@@ -86,11 +90,13 @@
 - 示例 3：
 
 ```sql
-> CREATE TABLE t1 (a TIMESTAMP);
-> INSERT INTO t1 select (utc_timestamp());
-> INSERT INTO t1 select (utc_timestamp());
-> INSERT INTO t1 select (utc_timestamp());
-> SELECT year(a) FROM t1 WHERE a > '2008-01-01';
+DROP TABLE IF EXISTS t1;
+CREATE TABLE t1 (a TIMESTAMP);
+INSERT INTO t1 select (utc_timestamp());
+INSERT INTO t1 select (utc_timestamp());
+INSERT INTO t1 select (utc_timestamp());
+
+mysql> SELECT year(a) FROM t1 WHERE a > '2008-01-01';
 +---------+
 | year(a) |
 +---------+
@@ -99,12 +105,15 @@
 |    2022 |
 +---------+
 3 rows in set (0.04 sec)
+```
 
-> DROP TABLE if exists t1;
-> create table t1 (a int primary key, b int, c int, d timestamp);
-> insert into t1 select 1,1,1,utc_timestamp();
-> insert into t1 select 2,0,0,null;
-> select a,b,c,year(d) from t1;
+```sql
+DROP TABLE if exists t1;
+create table t1 (a int primary key, b int, c int, d timestamp);
+insert into t1 select 1,1,1,utc_timestamp();
+insert into t1 select 2,0,0,null;
+
+mysql> select a,b,c,year(d) from t1;
 +------+------+------+---------+
 | a    | b    | c    | year(d) |
 +------+------+------+---------+
@@ -112,12 +121,15 @@
 |    2 |    0 |    0 |    NULL |
 +------+------+------+---------+
 2 rows in set (0.01 sec)
+```
 
-> DROP TABLE t1;
-> CREATE TABLE t1 (a TIMESTAMP);
-> INSERT INTO t1 select (utc_timestamp());
-> INSERT INTO t1 select (utc_timestamp());
-> SELECT 1 FROM t1 ORDER BY 1;
+```sql
+DROP TABLE if exists t1;
+CREATE TABLE t1 (a TIMESTAMP);
+INSERT INTO t1 select (utc_timestamp());
+INSERT INTO t1 select (utc_timestamp());
+
+mysql> SELECT 1 FROM t1 ORDER BY 1;
 +------+
 | 1    |
 +------+

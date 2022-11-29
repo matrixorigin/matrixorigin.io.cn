@@ -19,7 +19,7 @@
 ## **示例**
 
 ```sql
-> SELECT DATEDIFF('2007-12-31 23:59:59','2007-12-30');
+mysql> SELECT DATEDIFF('2007-12-31 23:59:59','2007-12-30');
 +-------------------------------------------+
 | datediff(2007-12-31 23:59:59, 2007-12-30) |
 +-------------------------------------------+
@@ -27,23 +27,26 @@
 +-------------------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT DATEDIFF('2010-11-30 23:59:59','2010-12-31');
+mysql> SELECT DATEDIFF('2010-11-30 23:59:59','2010-12-31');
 +-------------------------------------------+
 | datediff(2010-11-30 23:59:59, 2010-12-31) |
 +-------------------------------------------+
 |                                       -31 |
 +-------------------------------------------+
 1 row in set (0.00 sec)
+```
 
-> create table t1(a INT,  b date);
-> insert into t1 values(1, "2012-10-11");
-> insert into t1 values(2, "2004-04-24");
-> insert into t1 values(3, "2008-12-04");
-> insert into t1 values(4, "2012-03-23");
-> insert into t1 values(5, "2000-03-23");
-> insert into t1 values(6, "2030-03-23");
-> insert into t1 values(7, "2040-03-23");
-> SELECT a, DATEDIFF('2022-10-9', b) from t1;
+```sql
+create table t1(a INT,  b date);
+insert into t1 values(1, "2012-10-11");
+insert into t1 values(2, "2004-04-24");
+insert into t1 values(3, "2008-12-04");
+insert into t1 values(4, "2012-03-23");
+insert into t1 values(5, "2000-03-23");
+insert into t1 values(6, "2030-03-23");
+insert into t1 values(7, "2040-03-23");
+
+mysql> SELECT a, DATEDIFF('2022-10-9', b) from t1;
 +------+------------------------+
 | a    | datediff(2022-10-9, b) |
 +------+------------------------+

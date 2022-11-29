@@ -21,14 +21,16 @@ DATE_SUB(date,INTERVAL expr unit)
 ## **示例**
 
 ```sql
-> create table t2(orderid int, productname varchar(20), orderdate datetime);
-> insert into t2 values ('1','Jarl','2008-11-11 13:23:44.657');
-> SELECT OrderId,DATE_SUB(OrderDate,INTERVAL 5 DAY) AS SubtractDate FROM t2;
+create table t2(orderid int, productname varchar(20), orderdate datetime);
+insert into t2 values ('1','Jarl','2008-11-11 13:23:44.657');
+
+mysql> SELECT OrderId,DATE_SUB(OrderDate,INTERVAL 5 DAY) AS SubtractDate FROM t2;
 +---------+---------------------+
 | orderid | subtractdate        |
 +---------+---------------------+
-|       1 | 2008-11-06 13:23:44 |
+|       1 | 2008-11-06 13:23:45 |
 +---------+---------------------+
+1 row in set (0.01 sec)
 ```
 
 ## **限制**

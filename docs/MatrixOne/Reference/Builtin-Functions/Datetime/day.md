@@ -19,21 +19,24 @@
 ## **示例**
 
 ```sql
-> select day('2007-02-03');
+mysql> SELECT day('2007-02-03');
 +-----------------+
 | day(2007-02-03) |
 +-----------------+
 |               3 |
 +-----------------+
 1 row in set (0.01 sec)
+```
 
-> CREATE TABLE t3(c1 TIMESTAMP NOT NULL);
-> INSERT INTO t3 VALUES('2000-01-01');
-> INSERT INTO t3 VALUES('1999-12-31');
-> INSERT INTO t3 VALUES('2000-01-01');
-> INSERT INTO t3 VALUES('2006-12-25');
-> INSERT INTO t3 VALUES('2008-02-29');
-> select day(c1) from t3;
+```sql
+CREATE TABLE t3(c1 TIMESTAMP NOT NULL);
+INSERT INTO t3 VALUES('2000-01-01');
+INSERT INTO t3 VALUES('1999-12-31');
+INSERT INTO t3 VALUES('2000-01-01');
+INSERT INTO t3 VALUES('2006-12-25');
+INSERT INTO t3 VALUES('2008-02-29');
+
+mysql> SELECT day(c1) from t3;
 +---------+
 | day(c1) |
 +---------+

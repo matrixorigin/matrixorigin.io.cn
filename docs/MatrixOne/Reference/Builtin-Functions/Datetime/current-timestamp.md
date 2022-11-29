@@ -21,7 +21,7 @@
 ## **示例**
 
 ```sql
-> SELECT CURRENT_TIMESTAMP();
+mysql> SELECT CURRENT_TIMESTAMP();
 +----------------------------+
 | current_timestamp()        |
 +----------------------------+
@@ -29,18 +29,21 @@
 +----------------------------+
 1 row in set (0.00 sec)
 
-> SELECT NOW();
+mysql> SELECT NOW();
 +----------------------------+
 | now()                      |
 +----------------------------+
 | 2022-09-21 12:56:36.915961 |
 +----------------------------+
 1 row in set (0.01 sec)
+```
 
-> create table t1 (a int primary key, b int, c int, d timestamp default current_timestamp);
-> insert into t1 select 1,1,1,now();
-> insert into t1 select 2,0,0,null;
-> select a,b,c,year(d) from t1;
+```sql
+create table t1 (a int primary key, b int, c int, d timestamp default current_timestamp);
+insert into t1 select 1,1,1,now();
+insert into t1 select 2,0,0,null;
+
+mysql> select a,b,c,year(d) from t1;
 +------+------+------+---------+
 | a    | b    | c    | year(d) |
 +------+------+------+---------+
