@@ -362,11 +362,9 @@ MacOS 环境下，你可以直接打开你本地 Docker 客户端，启动 Docke
 
 运行 Docker Hub 时需要输入用户名和密码，获取用户名和密码可以参考步骤 6 - 连接 MatrixOne 服务
 
-### 5. 挂载配置文件和数据目录（选做）
+### 5. 挂载配置文件（选做）
 
-如果你需要挂载*配置文件*和*数据目录*，参见本章节下述内容：
-
-- **挂载配置文件**
+如果你需要挂载本地*配置文件*，参见本章节下述内容：
 
 ```
 docker run -d -p 6001:6001 -v ${local_data_path}/etc:/etc:rw  --entrypoint "/mo-service" matrixorigin/matrixone:0.6.0 -launch /etc/quickstart/launch.toml
@@ -376,32 +374,16 @@ docker run -d -p 6001:6001 -v ${local_data_path}/etc:/etc:rw  --entrypoint "/mo-
 |---|---|
 |${local_data_path}/etc:/etc|挂载本地配置文件到容器 */etc* 文件夹|
 |--entrypoint "/mo-service"|指定容器启动 MatrixOne 服务|
-|-launch /etc/launch-tae-CN-tae-DN/launch.toml|Matrixone仓库内 /etc 下的启动方式|
+|-launch /etc/quickstart/launch.toml|Matrixone仓库内 /etc 下的启动方式|
 
-- **挂载数据目录**
-
-```
-docker run -d -p 6001:6001 -v ${local_data_path}:/mo-data:rw --name matrixone matrixorigin/matrixone:0.6.0
-```
-
-|参数|描述|
-|---|---|
-|${local_data_path}:/mo-data|挂载本地目录到容器 */mo-data* 文件夹 |
-
-或者你可以运行下面的命令行，同时挂载*配置文件*和*数据目录*：
-
-```
-docker run -d -p 6001:6001 -v ${local_data_path}/etc:/etc:rw -v ${local_data_path}:/mo-data:rw --entrypoint "/mo-service" matrixorigin/matrixone:0.6.0 -launch /etc/quickstart/launch.toml
-```
-
-挂载配置文件和数据目录完成后，你可以在你本地磁盘中找到相应的数据目录，示例如下：
+挂载配置文件完成后，你可以在你本地磁盘中找到相应的目录，示例如下：
 
 ```
 # 进入你挂载数据目录的本地磁盘
 cd ${local_data_path}
 # 查看当前目录下挂载的配置文件和数据文件
 ls
-cn-data  etc  etl  local  logservice-data
+etc
 ```
 
 更多关于 *Docker run* 的指令释义，运行命令 `docker run --help` 进行查看。
