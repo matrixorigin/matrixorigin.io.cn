@@ -26,22 +26,24 @@ UUID 在空间和时间上是全球唯一的数字。即使是在两个未连接
 ## **示例**
 
 ```sql
-> create table t1(a INT,  b float);
-> insert into t1 values(12124, -4213.413), (12124, -42413.409);
-> SELECT length(uuid()) FROM t1;
+drop table if exists t1;
+create table t1(a INT,  b float);
+insert into t1 values(12124, -4213.413), (12124, -42413.409);
+
+mysql> SELECT length(uuid()) FROM t1;
 +----------------+
 | length(uuid()) |
 +----------------+
 |             36 |
 |             36 |
 +----------------+
-2 rows in set (0.01 sec)
+2 rows in set (0.00 sec)
 
-> SELECT UUID();
+mysql> SELECT UUID();
 +--------------------------------------+
 | uuid()                               |
 +--------------------------------------+
-| 4b64e482-47a3-11ed-8df5-5ad2460dea4f |
+| b293b688-70a7-11ed-a25a-5ad2460dea50 |
 +--------------------------------------+
 1 row in set (0.00 sec)
 ```

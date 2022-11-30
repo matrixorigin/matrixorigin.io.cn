@@ -22,70 +22,75 @@
 ## **示例**
 
 ```sql
-> drop table if exists t1;
-> create table t1(a int ,b float);
-> insert into t1 values(1,0.5);
-> insert into t1 values(2,0.499);
-> insert into t1 values(3,0.501);
-> insert into t1 values(4,20.5);
-> insert into t1 values(5,20.499);
-> insert into t1 values(6,13.500);
-> insert into t1 values(7,-0.500);
-> insert into t1 values(8,-0.499);
-> insert into t1 values(9,-0.501);
-> insert into t1 values(10,-20.499);
-> insert into t1 values(11,-20.500);
-> insert into t1 values(12,-13.500);
-> select a,round(b) from t1;
+drop table if exists t1;
+create table t1(a int ,b float);
+insert into t1 values(1,0.5);
+insert into t1 values(2,0.499);
+insert into t1 values(3,0.501);
+insert into t1 values(4,20.5);
+insert into t1 values(5,20.499);
+insert into t1 values(6,13.500);
+insert into t1 values(7,-0.500);
+insert into t1 values(8,-0.499);
+insert into t1 values(9,-0.501);
+insert into t1 values(10,-20.499);
+insert into t1 values(11,-20.500);
+insert into t1 values(12,-13.500);
+
+mysql> select a,round(b) from t1;
 +------+----------+
 | a    | round(b) |
 +------+----------+
-|    1 |   0.0000 |
-|    2 |   0.0000 |
-|    3 |   1.0000 |
-|    4 |  20.0000 |
-|    5 |  20.0000 |
-|    6 |  14.0000 |
-|    7 |  -0.0000 |
-|    8 |  -0.0000 |
-|    9 |  -1.0000 |
-|   10 | -20.0000 |
-|   11 | -20.0000 |
-|   12 | -14.0000 |
+|    1 |        0 |
+|    2 |        0 |
+|    3 |        1 |
+|    4 |       20 |
+|    5 |       20 |
+|    6 |       14 |
+|    7 |       -0 |
+|    8 |       -0 |
+|    9 |       -1 |
+|   10 |      -20 |
+|   11 |      -20 |
+|   12 |      -14 |
 +------+----------+
-> select a,round(b,-1) from t1;
+12 rows in set (0.00 sec)
+
+mysql> select a,round(b,-1) from t1;
 +------+--------------+
 | a    | round(b, -1) |
 +------+--------------+
-|    1 |       0.0000 |
-|    2 |       0.0000 |
-|    3 |       0.0000 |
-|    4 |      20.0000 |
-|    5 |      20.0000 |
-|    6 |      10.0000 |
-|    7 |      -0.0000 |
-|    8 |      -0.0000 |
-|    9 |      -0.0000 |
-|   10 |     -20.0000 |
-|   11 |     -20.0000 |
-|   12 |     -10.0000 |
+|    1 |            0 |
+|    2 |            0 |
+|    3 |            0 |
+|    4 |           20 |
+|    5 |           20 |
+|    6 |           10 |
+|    7 |           -0 |
+|    8 |           -0 |
+|    9 |           -0 |
+|   10 |          -20 |
+|   11 |          -20 |
+|   12 |          -10 |
 +------+--------------+
-> select round(a*b) from t1;
+12 rows in set (0.01 sec)
+
+mysql> select round(a*b) from t1;
 +--------------+
 | round(a * b) |
 +--------------+
-|       0.0000 |
-|       1.0000 |
-|       2.0000 |
-|      82.0000 |
-|     102.0000 |
-|      81.0000 |
-|      -4.0000 |
-|      -4.0000 |
-|      -5.0000 |
-|    -205.0000 |
-|    -226.0000 |
-|    -162.0000 |
+|            0 |
+|            1 |
+|            2 |
+|           82 |
+|          102 |
+|           81 |
+|           -4 |
+|           -4 |
+|           -5 |
+|         -205 |
+|         -226 |
+|         -162 |
 +--------------+
-
+12 rows in set (0.01 sec)
 ```

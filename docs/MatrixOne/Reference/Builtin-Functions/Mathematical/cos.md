@@ -19,15 +19,17 @@ COS()函数返回输入参数（用弧度表示）的余弦值。
 ## **示例**
 
 ```sql
-> drop table if exists t1;
-> create table t1(a int,b float);
-> insert into t1 values(1,3.14159);
-> insert into t1 values(-1,1.57);
-> select cos(a),cos(b) from t1;
-+--------+---------+
-| cos(a) | cos(b)  |
-+--------+---------+
-| 0.5403 | -1.0000 |
-| 0.5403 |  0.0008 |
-+--------+---------+
+drop table if exists t1;
+create table t1(a int,b float);
+insert into t1 values(1,3.14159);
+insert into t1 values(-1,1.57);
+
+mysql> select cos(a),cos(b) from t1;
++--------------------+----------------------+
+| cos(a)             | cos(b)               |
++--------------------+----------------------+
+| 0.5403023058681398 |  -0.9999999999967865 |
+| 0.5403023058681398 | 0.000796274258662553 |
++--------------------+----------------------+
+2 rows in set (0.01 sec)
 ```
