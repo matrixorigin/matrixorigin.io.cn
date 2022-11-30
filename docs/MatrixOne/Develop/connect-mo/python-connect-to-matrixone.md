@@ -3,7 +3,7 @@
 MatrixOne 支持 Python 连接 MatrixOne 服务。
 
 !!! Note
-    MatrixOne 0.5.0 和 0.5.1 版本仅支持 `pymysql` 工具连接，暂不支持 `sqlalchemy` 和 `mysql-connector`。
+    MatrixOne 0.5.0/0.5.1 和 0.6.0 版本仅支持 `pymysql` 工具连接，暂不支持 `sqlalchemy` 和 `mysql-connector`。
 
 ## 前期准备
 

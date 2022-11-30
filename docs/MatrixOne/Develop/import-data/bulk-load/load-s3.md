@@ -1,4 +1,4 @@
-# 从 S3 导入数据
+# 从 S3 读取数据并导入 MatrixOne
 
 ## 概述
 
@@ -14,7 +14,7 @@ MatrixOne 支持从对象存储服务（Simple Storage Service, S3) 中读取文
 如果你使用 Docker 安装启动 MatrixOne，确保你已将数据文件目录挂载到容器目录下，示例如下：
 
 ```
-docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.5.1
+docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.6.0
 ```
 
 上述示例为典型的安装和挂载方式，将其本地路径 *~/tmp/docker_loaddata_demo* 挂载到内部容器路径 */ssb-dbgen-path*。

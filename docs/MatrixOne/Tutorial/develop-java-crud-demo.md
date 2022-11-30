@@ -7,7 +7,7 @@
 
 在开始之前，请确保已经下载并安装了以下软件。
 
-* 安装部署并启动 [MatrixOne 0.5.1](https://docs.matrixorigin.io/0.5.1/MatrixOne/Get-Started/install-standalone-matrixone/)，通过 MySQL 客户端创建数据库。
+* [安装部署并启动 MatrixOne](../Get-Started/install-standalone-matrixone.md)，通过 MySQL 客户端创建数据库。
 
 ```
 mysql> CREATE DATABASE TEST;

@@ -12,7 +12,7 @@ MatrixOne 支持导出数据保存为 *.txt* 及 *.csv* 类型。
 如果你使用 Docker 安装启动 MatrixOne，确保你已将数据文件目录挂载到容器目录下，示例如下：
 
 ```
-docker run -d -p 6001:6001 -v ~/tmp/docker_export_demo/store:/store:rw --name matrixone matrixorigin/matrixone:0.5.1
+docker run -d -p 6001:6001 -v ~/tmp/docker_export_demo/store:/store:rw --name matrixone matrixorigin/matrixone:0.6.0
 ```
 
 !!! note

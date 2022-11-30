@@ -4,13 +4,13 @@
 
 ## 开始前准备
 
-- 已通过[源代码](https://docs.matrixorigin.io/cn/0.5.1/MatrixOne/Get-Started/install-standalone-matrixone/#1)或[二进制包](https://docs.matrixorigin.io/cn/0.5.1/MatrixOne/Get-Started/install-standalone-matrixone/#2)完成安装 MatrixOne
+- 已通过[源代码或二进制包](../../Get-Started/install-standalone-matrixone.md)完成安装 MatrixOne
 - 已完成[连接 MatrixOne 服务](../../Get-Started/connect-to-matrixone-server.md)
 
 如果你使用 Docker 安装启动 MatrixOne，确保你已将数据文件目录挂载到容器目录下，示例如下：
 
 ```
-docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.5.1
+docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.6.0
 ```
 
 上述示例为典型的安装和挂载方式，将其本地路径 *~/tmp/docker_loaddata_demo* 挂载到内部容器路径 */ssb-dbgen-path*。
@@ -56,7 +56,7 @@ mysql> \. file_name
 
 ### 示例：使用 *docker* 执行 `Load data`
 
-本示例将介绍如何使用 Docker 启动 MatrixOne 0.5.1 加载数据。
+本示例将介绍如何使用 Docker 启动 MatrixOne 0.6.0 加载数据。
 
 1. 下载数据集，并且将数据集存储到本地 *~/tmp/docker_loaddata_demo/* 路径下：
 
@@ -74,7 +74,7 @@ mysql> \. file_name
 3. 使用 Docker 启动 MatrixOne，启动时将存放了数据文件的目录 *~/tmp/docker_loaddata_demo/* 挂载到容器的某个目录下，这里容器目录以 */ssb-dbgen-path* 为例：
 
     ```
-    docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.5.1
+    docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.6.0
     ```
 
 4. 连接 MatrixOne 服务：

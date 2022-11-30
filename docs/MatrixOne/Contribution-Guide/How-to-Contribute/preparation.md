@@ -8,15 +8,15 @@
 
 ### 特点与框架
 
-在[MatrixOne简介](./../../Overview/matrixone-introduction.md)中您可以了解到MO的超融合、云边协同特性以及其所创造的优异表现与独特价值。
-此外，在[MatrixOne框架](./../../Overview/matrixone-architecture.md)中您可以详细地了解 MatrixOne 的整体架构，以及存储层、日志层等具体组成情况。
+在[MatrixOne简介](../../Overview/matrixone-introduction.md)中您可以了解到MO的超融合、云边协同特性以及其所创造的优异表现与独特价值。
+此外，在[MatrixOne框架](../../Overview/matrixone-architecture.md)中您可以详细地了解 MatrixOne 的整体架构，以及存储层、日志层等具体组成情况。
 同时，你也可以查阅[MatrixOne术语表](../../Glossary/glossary.md)来了解一些复杂的词汇。
-在技术层面，[SQL参考指南](./../../Reference/SQL-Reference/Data-Definition-Statements/create-database.md) 为您提供了详细的SQL语言的参考，其中对语法和示例都有详细解释；同样，[自定义函数](./../../Reference/Builtin-Functions/Datetime/year.md)提供了MO中自定义函数的相关解释。
+在技术层面，[SQL参考指南](../../Reference/SQL-Reference/Data-Definition-Statements/create-database.md) 为您提供了详细的SQL语言的参考，其中对语法和示例都有详细解释；同样，[自定义函数](./../../Reference/Builtin-Functions/Datetime/year.md)提供了MO中自定义函数的相关解释。
 
 ### 建设情况
 
-目前，MatrixOne v0.5.1 已经发布了，您可以通过[版本发布指南](./../../Release-Notes/v0.5.1.md)来了解最新的发布信息，其中包含了最新的修改与优化。
-同时，我们当前正在开发 v0.6.0 版本，对应的工作任务在GitHub的milestone[0.6.0](https://github.com/matrixorigin/matrixone/milestone/8)中列出。
+目前，MatrixOne v0.6.0 已经发布了，您可以通过[版本发布指南](../../Release-Notes/v0.6.0.md)来了解最新的发布信息，其中包含了最新的修改与优化。
+同时，我们当前正在开发 v0.7.0 版本，对应的工作任务在GitHub的milestone[0.7.0](https://github.com/matrixorigin/matrixone/milestone/9)中列出。
 关于长期的项目规划，请参阅[MatrixOne roadmap](https://github.com/matrixorigin/matrixone/issues/613)。
 
 ## **你可以做些什么？**
