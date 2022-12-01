@@ -503,15 +503,15 @@
     方法 1：使用源代码搭建
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="方法 1：使用源代码搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#1-go" class="md-nav__link">
     1. 安装部署 Go 语言
   </a>
   
-    <nav class="md-nav" aria-label="1. 安装部署 Go 语言">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#2-matrixone" class="md-nav__link">
@@ -522,7 +522,14 @@
         
           <li class="md-nav__item">
   <a href="#3-matrixone" class="md-nav__link">
-    3. 连接 MatrixOne 服务
+    3. 启动 MatrixOne 服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-matrixone" class="md-nav__link">
+    4. 连接 MatrixOne 服务
   </a>
   
 </li>
@@ -562,7 +569,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-matrixone" class="md-nav__link">
+  <a href="#4-matrixone_1" class="md-nav__link">
     4. 连接 MatrixOne 服务
   </a>
   
@@ -603,7 +610,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-matrixone_1" class="md-nav__link">
+  <a href="#4-matrixone_2" class="md-nav__link">
     4. 获取 MatrixOne 镜像并启动
   </a>
   
@@ -611,7 +618,7 @@
         
           <li class="md-nav__item">
   <a href="#5" class="md-nav__link">
-    5. 挂载数据（选做）
+    5. 挂载配置文件（选做）
   </a>
   
 </li>
@@ -5679,6 +5686,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v0.6.0/" class="md-nav__link">
+        v0.6.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.5.1/" class="md-nav__link">
         v0.5.1
       </a>
@@ -6095,15 +6116,15 @@
     方法 1：使用源代码搭建
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="方法 1：使用源代码搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#1-go" class="md-nav__link">
     1. 安装部署 Go 语言
   </a>
   
-    <nav class="md-nav" aria-label="1. 安装部署 Go 语言">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#2-matrixone" class="md-nav__link">
@@ -6114,7 +6135,14 @@
         
           <li class="md-nav__item">
   <a href="#3-matrixone" class="md-nav__link">
-    3. 连接 MatrixOne 服务
+    3. 启动 MatrixOne 服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-matrixone" class="md-nav__link">
+    4. 连接 MatrixOne 服务
   </a>
   
 </li>
@@ -6154,7 +6182,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-matrixone" class="md-nav__link">
+  <a href="#4-matrixone_1" class="md-nav__link">
     4. 连接 MatrixOne 服务
   </a>
   
@@ -6195,7 +6223,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-matrixone_1" class="md-nav__link">
+  <a href="#4-matrixone_2" class="md-nav__link">
     4. 获取 MatrixOne 镜像并启动
   </a>
   
@@ -6203,7 +6231,7 @@
         
           <li class="md-nav__item">
   <a href="#5" class="md-nav__link">
-    5. 挂载数据（选做）
+    5. 挂载配置文件（选做）
   </a>
   
 </li>
@@ -6283,7 +6311,7 @@
 </table>
 <p>你也可以查阅<a href="../../FAQs/deployment-faqs/">硬件与操作系统要求</a>，查看更多关于硬件规格推荐，选用合适的硬件环境。</p>
 <h2 id="1"><h2><a name="code_source">方法 1：使用源代码搭建</a></h2></h2>
-<h2 id="1-go">1. 安装部署 Go 语言</h2>
+<h3 id="1-go">1. 安装部署 Go 语言</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>建议 Go 语言版本为 1.19 版本。</p>
@@ -6324,20 +6352,14 @@
 </code></pre></div>
 <p><strong>Tips</strong>: 你也可以运行<code>make debug</code>与<code>make clean</code>或者其他任何<code>Makefile</code>支持的命令；<code>make debug</code> 可以用来调试构建进程，<code>make clean</code> 可以清除构建进程。如果在 <code>make build</code> 时产生 <code>Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout</code> 报错，参见<a href="../../FAQs/deployment-faqs/">安装和部署常见问题</a>进行解决。</p>
 </li>
-<li>
-<p>启动 MatrixOne 服务：</p>
-<p><strong>Notes</strong>: 注意，MatrixOne(开发版本) 的启动配置文件与 MatrixOne(稳定版本) 的启动配置文件不同，MatrixOne(开发版本) 的启动配置文件代码如下：</p>
-<div class="highlight"><pre><span></span><code>./mo-service -cfg ./etc/cn-standalone-test.toml
-</code></pre></div>
-</li>
 </ol>
 </div>
 <div class="tabbed-block">
 <ol>
 <li>
-<p>如果您想获得 MatrixOne 发布的最新稳定版本代码，请先从 <strong>main</strong> 切换选择至 <strong>0.5.1</strong> 版本分支。</p>
+<p>如果您想获得 MatrixOne 发布的最新稳定版本代码，请先从 <strong>main</strong> 切换选择至 <strong>0.6.0</strong> 版本分支。</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/matrixorigin/matrixone.git
-git checkout 0.5.1
+git checkout 0.6.0
 cd matrixone
 </code></pre></div>
 </li>
@@ -6348,24 +6370,46 @@ make build
 </code></pre></div>
 <p><strong>Tips</strong>: 你也可以运行<code>make debug</code>与<code>make clean</code>或者其他任何<code>Makefile</code>支持的命令；<code>make debug</code> 可以用来调试构建进程，<code>make clean</code> 可以清除构建进程。如果在 <code>make build</code> 时产生 <code>Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout</code> 报错，参见<a href="../../FAQs/deployment-faqs/">安装和部署常见问题</a>进行解决。</p>
 </li>
-<li>
-<p>启动 MatrixOne 服务：</p>
-<p><strong>Notes</strong>: 注意，MatrixOne(稳定版本) 的启动配置文件与 MatrixOne(开发版本) 的启动配置文件不同，MatrixOne(稳定版本) 的启动配置文件代码如下：</p>
-<div class="highlight"><pre><span></span><code>./mo-server system_vars_config.toml
-</code></pre></div>
-</li>
 </ol>
 </div>
 </div>
 </div>
-<h3 id="3-matrixone">3. 连接 MatrixOne 服务</h3>
+<h3 id="3-matrixone"><h3><a name="launch">3. 启动 MatrixOne 服务</a></h2></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><strong>在终端的前台启动 MatrixOne 服务</strong></label><label for="__tabbed_3_2"><strong>在终端的后台启动 MatrixOne 服务</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>该启动方式会在终端的前台运行 <code>mo-service</code> 进行，实时打印系统日志。如果你想停止 MatrixOne 服务器，只需按 CTRL+C 或关闭当前终端。</p>
+<div class="highlight"><pre><span></span><code># Start mo-service in the backend
+./mo-service -launch ./etc/quickstart/launch.toml
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>该启动方法会在后台运行 <code>mo-service</code> 进程，系统日志将重定向到 <code>test.log</code> 文件中。如果你想停止 MatrixOne 服务器，你需要通过以下命令查找出它的 <code>PID</code> 进程号并消除进程。下面是整个过程的完整示例。</p>
+<div class="highlight"><pre><span></span><code># Start mo-service in the backend
+nohup ./mo-service -launch ./etc/quickstart/launch.toml &amp;&gt; test.log &amp;
+
+# Find mo-service PID
+ps aux | grep mo-service
+
+[root@VM-0-10-centos ~]# ps aux | grep mo-service
+root       15277  2.8 16.6 8870276 5338016 ?     Sl   Nov25 156:59 ./mo-service -launch ./etc/quickstart/launch.toml
+root      836740  0.0  0.0  12136  1040 pts/0    S+   10:39   0:00 grep --color=auto mo-service
+
+# Kill the mo-service process
+kill -9 15277
+</code></pre></div>
+<p><strong>Tips</strong>: 如上述示例所示，使用命令 <code>ps aux | grep mo-service</code> 首先查找出 MatrixOne 运行的进程号为 <code>15277</code>，<code>kill -9 15277</code> 即表示停止进程号为 <code>15277</code> 的 MatrixOne。</p>
+</div>
+</div>
+</div>
+<h3 id="4-matrixone">4. 连接 MatrixOne 服务</h3>
 <p>当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne，具体步骤，参见<a href="../connect-to-matrixone-server/">连接 MatrixOne 服务</a>。</p>
 <h2 id="2"><h2><a name="binary_packages">方法 2：下载二进制包</a></h2></h2>
 <p>从 0.3.0 版本开始，您可以直接下载二进制包。</p>
 <h3 id="1_1">1. 安装下载工具</h3>
 <p>我们提供<strong>下载二进制包</strong>的方式安装 MatrixOne，如果你喜欢通过命令行进行操作，那么你可以提前准备安装好 <code>wget</code> 或 <code>curl</code>。</p>
 <p><strong>Tips</strong>: 建议你下载安装这两个下载工具其中之一，方便后续通过命令行下载二进制包。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">安装 <code>wget</code></label><label for="__tabbed_3_2">安装 <code>curl</code></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">安装 <code>wget</code></label><label for="__tabbed_4_2">安装 <code>curl</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><code>wget</code> 工具用来从指定的 URL 下载文件。<code>wget</code> 是专门的文件下载工具，它非常稳定，而且下载速度快。</p>
@@ -6414,26 +6458,26 @@ Release-Date: 2022-06-27
 </div>
 </div>
 <h3 id="2_1">2. 下载二进制包并解压</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1"><strong>Linux 环境</strong></label><label for="__tabbed_4_2"><strong>MacOS 环境</strong></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1"><strong>Linux 环境</strong></label><label for="__tabbed_5_2"><strong>MacOS 环境</strong></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><strong>下载方式一</strong>和<strong>下载方式二</strong>需要先安装下载工具 <code>wget</code> 或 <code>curl</code>，如果你未安装，请先安装下载工具。</p>
 <ul>
 <li>
 <p><strong>下载方式一：<code>wget</code> 工具下载安装二进制包</strong></p>
-<div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/matrixone/releases/download/v0.5.1/mo-server-v0.5.1-linux-amd64.zip
-unzip mo-server-v0.5.1-linux-amd64.zip
+<div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/matrixone/releases/download/v0.6.0/mo-v0.6.0-linux-amd64.zip
+unzip mo-v0.6.0-linux-amd64.zip
 </code></pre></div>
 </li>
 <li>
 <p><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></p>
-<div class="highlight"><pre><span></span><code>curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.5.1/mo-server-v0.5.1-linux-amd64.zip
-unzip mo-server-v0.5.1-linux-amd64.zip
+<div class="highlight"><pre><span></span><code>curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.6.0/mo-v0.6.0-linux-amd64.zip
+unzip mo-v0.6.0-linux-amd64.zip
 </code></pre></div>
 </li>
 <li>
 <p><strong>下载方式三：如果你想通过更直观的页面下载的方式下载，可以进入下述页面链接，选择安装包下载</strong></p>
-<p>进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v0.5.1">版本 0.5.1</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-server-v0.5.1-linux-amd64.zip</em> 下载即可。</p>
+<p>进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v0.6.0">版本 0.6.0</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v0.6.0-linux-amd64.zip</em> 下载即可。</p>
 </li>
 </ul>
 </div>
@@ -6442,19 +6486,19 @@ unzip mo-server-v0.5.1-linux-amd64.zip
 <ul>
 <li>
 <p><strong>下载方式一：<code>wget</code> 工具下载安装二进制包</strong></p>
-<div class="highlight"><pre><span></span><code>   wget https://github.com/matrixorigin/matrixone/releases/download/v0.5.1/mo-server-v0.5.1-darwin-x86_64.zip
-   unzip mo-server-v0.5.1-darwin-x86_64.zip
+<div class="highlight"><pre><span></span><code>   wget https://github.com/matrixorigin/matrixone/releases/download/v0.6.0/mo-v0.6.0-darwin-x86_64.zip
+   unzip mo-v0.6.0-darwin-x86_64.zip
 </code></pre></div>
 </li>
 <li>
 <p><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></p>
-<div class="highlight"><pre><span></span><code>curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.5.1/mo-server-v0.5.1-darwin-x86_64.zip
-unzip mo-server-v0.5.1-darwin-x86_64.zip
+<div class="highlight"><pre><span></span><code>curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.6.0/mo-v0.6.0-darwin-x86_64.zip
+unzip mo-v0.6.0-darwin-x86_64.zip
 </code></pre></div>
 </li>
 <li>
 <p><strong>下载方式三：如果你想通过更直观的页面下载的方式下载，可以进入下述页面链接，点击下载</strong></p>
-<p>进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v0.5.1">版本 0.5.1</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-server-v0.5.1-darwin-x86_64.zip</em> 下载即可。</p>
+<p>进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v0.6.0">版本 0.6.0</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v0.6.0-darwin-x86_64.zip</em> 下载即可。</p>
 </li>
 </ul>
 </div>
@@ -6465,9 +6509,35 @@ unzip mo-server-v0.5.1-darwin-x86_64.zip
 <p>ARM 芯片硬件配置下，MatrixOne 仅支持通过源代码方式进行安装部署；如果你使用的是 MacOS 系统 M1 及以上版本，请使用<a href="#code_source">源代码</a>构建的方式安装部署 MatrixOne。若果在 X86 硬件配置下使用二进制方式安装部署 MatrixOne 会导致未知问题。</p>
 </div>
 <h3 id="3-matrixone_1">3. 启动 MatrixOne 服务</h3>
-<div class="highlight"><pre><span></span><code>./mo-server system_vars_config.toml
+<p>启动 MatrixOne 服务可以参见<strong>使用源代码搭建</strong>章节的 <a href="#launch">3. 启动 MatrixOne 服务</a>。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1"><strong>在终端的前台启动 MatrixOne 服务</strong></label><label for="__tabbed_6_2"><strong>在终端的后台启动 MatrixOne 服务</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>该启动方式会在终端的前台运行 <code>mo-service</code> 进行，实时打印系统日志。如果你想停止 MatrixOne 服务器，只需按 CTRL+C 或关闭当前终端。</p>
+<div class="highlight"><pre><span></span><code># Start mo-service in the backend
+./mo-service -launch ./etc/quickstart/launch.toml
 </code></pre></div>
-<h3 id="4-matrixone">4. 连接 MatrixOne 服务</h3>
+</div>
+<div class="tabbed-block">
+<p>该启动方法会在后台运行 <code>mo-service</code> 进程，系统日志将重定向到 <code>test.log</code> 文件中。如果你想停止 MatrixOne 服务器，你需要通过以下命令查找出它的 <code>PID</code> 进程号并消除进程。下面是整个过程的完整示例。</p>
+<div class="highlight"><pre><span></span><code># Start mo-service in the backend
+nohup ./mo-service -launch ./etc/quickstart/launch.toml &amp;&gt; test.log &amp;
+
+# Find mo-service PID
+ps aux | grep mo-service
+
+[root@VM-0-10-centos ~]# ps aux | grep mo-service
+root       15277  2.8 16.6 8870276 5338016 ?     Sl   Nov25 156:59 ./mo-service -launch ./etc/quickstart/launch.toml
+root      836740  0.0  0.0  12136  1040 pts/0    S+   10:39   0:00 grep --color=auto mo-service
+
+# Kill the mo-service process
+kill -9 15277
+</code></pre></div>
+<p><strong>Tips</strong>: 如上述示例所示，使用命令 <code>ps aux | grep mo-service</code> 首先查找出 MatrixOne 运行的进程号为 <code>15277</code>，<code>kill -9 15277</code> 即表示停止进程号为 <code>15277</code> 的 MatrixOne。</p>
+</div>
+</div>
+</div>
+<h3 id="4-matrixone_1">4. 连接 MatrixOne 服务</h3>
 <p>当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne，具体步骤，参见<a href="../connect-to-matrixone-server/">连接 MatrixOne 服务</a>。</p>
 <h2 id="3-docker"><h2><a name="use_docker">方法 3：使用 Docker</a></h2></h2>
 <p><strong>Tips</strong>: 通过 Docer 搭建 MatrixOne 时，<strong>Linux 环境</strong> 与 <strong>MacOS 环境</strong> 通过运行指令进行 MatrixOne 的搭建过程无明显分别。</p>
@@ -6482,7 +6552,11 @@ unzip mo-server-v0.5.1-darwin-x86_64.zip
 <div class="highlight"><pre><span></span><code>Docker version 20.10.17, build 100c701
 </code></pre></div>
 <h3 id="3-docker_1">3. 检查 Docker 运行状态</h3>
-<p>运行如下命令，启动 Docker 并查看运行状态是否成功：</p>
+<p>运行如下命令，启动 Docker 并查看运行状态是否成功，不同操作环境的检查建议如下：</p>
+<ul>
+<li><strong>Linux 环境</strong>:</li>
+</ul>
+<p>Linux 环境下，你可以在你终端里执行如下命令：</p>
 <div class="highlight"><pre><span></span><code>systemctl start docker
 systemctl status docker
 </code></pre></div>
@@ -6495,14 +6569,17 @@ systemctl status docker
     Tasks: 8
    Memory: 23.6M
 </code></pre></div>
-<p>或者你可以直接打开你本地 Docker 客户端，启动 Docker。</p>
-<h3 id="4-matrixone_1">4. 获取 MatrixOne 镜像并启动</h3>
+<ul>
+<li><strong>MacOS 环境</strong>:</li>
+</ul>
+<p>MacOS 环境下，你可以直接打开你本地 Docker 客户端，启动 Docker。</p>
+<h3 id="4-matrixone_2">4. 获取 MatrixOne 镜像并启动</h3>
 <p>使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">稳定版本的镜像（0.5.1）</label><label for="__tabbed_5_2">开发版本的镜像（Pre0.6)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">稳定版本的镜像（0.6.0）</label><label for="__tabbed_7_2">开发版本的镜像</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>docker pull matrixorigin/matrixone:0.5.1
-docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/matrixone:0.5.1
+<div class="highlight"><pre><span></span><code>docker pull matrixorigin/matrixone:0.6.0
+docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/matrixone:0.6.0
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -6515,9 +6592,9 @@ docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/
 </div>
 </div>
 <p>运行 Docker Hub 时需要输入用户名和密码，获取用户名和密码可以参考步骤 6 - 连接 MatrixOne 服务</p>
-<h3 id="5">5. 挂载数据（选做）</h3>
-<p>如果你需要自定义<em>配置文件</em>或者<em>数据目录</em>，可以直接挂载存放在本地磁盘的自定义<em>配置文件</em>以及<em>数据目录</em>：</p>
-<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ${path_name}/system_vars_config.toml:/system_vars_config.toml:ro -v ${path_name}/store:/store:rw --name matrixone matrixorigin/matrixone:0.5.1
+<h3 id="5">5. 挂载配置文件（选做）</h3>
+<p>如果你需要挂载本地<em>配置文件</em>，参见本章节下述内容：</p>
+<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ${local_data_path}/etc:/etc:rw  --entrypoint &quot;/mo-service&quot; matrixorigin/matrixone:0.6.0 -launch /etc/quickstart/launch.toml
 </code></pre></div>
 <table>
 <thead>
@@ -6528,23 +6605,26 @@ docker run -d -p <span class="m">6001</span>:6001 --name matrixone matrixorigin/
 </thead>
 <tbody>
 <tr>
-<td>${path_name}/system_vars_config.toml</td>
-<td>挂载配置文件 <em>system_vars_config.toml</em> 的本地磁盘目录</td>
+<td>${local_data_path}/etc:/etc</td>
+<td>挂载本地配置文件到容器 <em>/etc</em> 文件夹</td>
 </tr>
 <tr>
-<td>/system_vars_config.toml</td>
-<td>容器内配置文件</td>
+<td>--entrypoint "/mo-service"</td>
+<td>指定容器启动 MatrixOne 服务</td>
 </tr>
 <tr>
-<td>${path_name}/store</td>
-<td>备份 <em>/store</em> 的本地磁盘目录</td>
-</tr>
-<tr>
-<td>/store</td>
-<td>容器内 <em>/store</em> 目录</td>
+<td>-launch /etc/quickstart/launch.toml</td>
+<td>Matrixone仓库内 /etc 下的启动方式</td>
 </tr>
 </tbody>
 </table>
+<p>挂载配置文件完成后，你可以在你本地磁盘中找到相应的目录，示例如下：</p>
+<div class="highlight"><pre><span></span><code># 进入你挂载数据目录的本地磁盘
+cd ${local_data_path}
+# 查看当前目录下挂载的配置文件和数据文件
+ls
+etc
+</code></pre></div>
 <p>更多关于 <em>Docker run</em> 的指令释义，运行命令 <code>docker run --help</code> 进行查看。</p>
 <h3 id="6-matrixone">6. 连接 MatrixOne 服务</h3>
 <p>当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne，具体步骤，参见<a href="../connect-to-matrixone-server/">连接 MatrixOne 服务</a>。</p>
