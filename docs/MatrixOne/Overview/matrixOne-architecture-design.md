@@ -84,7 +84,7 @@ Computing Node（CN)，是 Matrixone 接收用户请求并处理 SQL 的组件�
 
 ### **Stream Engine**
 
-开发中...
+敬请期待！
 
 ## **MatrixOne 特性**
 
