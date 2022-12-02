@@ -53,7 +53,7 @@ nav:
     - 开发指南:
       - 连接 MatrixOne:
         - 配置 MatrixOne SSL 连接: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
-        - 数据库客户端 IDE: MatrixOne/Develop/connect-mo/database-ide.md
+        - 数据库客户端工具连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/database-ide.md
         - Java 连接 MatrixOne 服务:
           - JDBC: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md
         - Python 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md

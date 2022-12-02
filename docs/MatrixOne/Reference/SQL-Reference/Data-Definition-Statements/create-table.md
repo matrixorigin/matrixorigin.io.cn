@@ -216,7 +216,7 @@ PARTITION BY LIST COLUMNS(a,b) (
 
 可以选择使用 `PARTITIONS num` 子句指定分区数，其中 `num` 是分区数。如果使用此子句的同时，也使用了其他 `PARTITION` 子句，那么 `num` 必须等于使用 `PARTITION` 子句声明的分区的总数。
 
-#### 语法图
+### 语法图
 
 ![Create Table Diagram](https://github.com/matrixorigin/artwork/blob/main/docs/reference/create_table_statement.png?raw=true)
 
