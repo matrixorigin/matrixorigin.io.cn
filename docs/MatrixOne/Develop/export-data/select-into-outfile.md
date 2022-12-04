@@ -47,10 +47,11 @@ mysql> SELECT * FROM TEST INTO OUTFILE '/root/test.csv'
 - 已完成[连接单机版 MatrixOne 服务](../../Get-Started/connect-to-matrixone-server.md)。
 
 !!! note
-    如果你是通过 `docker` 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要导出到本地目录，你需要先将本地目录绑定到容器中。在以下示例中，本地文件系统路径 */tmp/docker_export_demo/store* 绑定到 MatrixOne Docker 映像中，并映射到 */store* 路径下。更多信息，参见 [Docker Mount Volume tutorial](https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/)。
+    如果你是通过 `docker` 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要导出到本地目录，你需要先将本地目录绑定到容器中。在以下示例中，本地文件系统路径 *$MOUNT_PATH/mo-data* 绑定到 MatrixOne Docker 映像中，并映射到 */mo-data* 路径下。更多信息，参见 [Docker Mount Volume tutorial](https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/)。
 
 ```
-docker run -d -p 6001:6001 -v ~/tmp/docker_export_demo/store:/store:rw --name matrixone matrixorigin/matrixone:0.6.0
+export MOUNT_PATH=$PWD
+sudo docker run --name mount-data --privileged -d -p 6001:6001 -v $MOUNT_PATH/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
 ```
 
 ### 步骤
