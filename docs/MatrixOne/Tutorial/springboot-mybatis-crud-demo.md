@@ -28,7 +28,7 @@ mysql> CREATE DATABASE test;
 
 选择 **Spring Initializer**，按需命名项目名称。
 
-![image-20221026152318567](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026152318567.png)
+![image-20221026152318567](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026152318567.png?raw=true)
 
 选择如下依赖项：
 
@@ -37,7 +37,7 @@ mysql> CREATE DATABASE test;
 - **JDBC API**
 - **MySQL Driver**
 
-![image-20221026152447954](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026152447954.png)
+![image-20221026152447954](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026152447954.png?raw=true)
 
 点击 **Create** 创建项目。依赖项列在 *pom.xml* 文件中。通常你无需修改任何东西。
 
@@ -173,7 +173,7 @@ server.port=8080
 
 我们将为这个演示应用程序编写创建、更新、插入、删除和选择操作。
 
-![image-20221026155656694](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026155656694.png)
+![image-20221026155656694](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026155656694.png?raw=true)
 
 ### 1. UserController.java
 
@@ -477,7 +477,7 @@ public class MyBatisDemoApplication {
 
 构建并启动这个项目。
 
-![image-20221026161226923](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161226923.png)
+![image-20221026161226923](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161226923.png?raw=true)
 
 当出现下面的消息时，表示应用程序已经正常启动，你可以打开浏览器并发送 HTTP 请求。
 
@@ -496,7 +496,7 @@ public class MyBatisDemoApplication {
 
 ### 1. 测试新建表
 
-![image-20221026161929338](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161929338.png)
+![image-20221026161929338](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161929338.png?raw=true)
 
 在 MySQL 客户端中，验证表是否已成功创建。
 
@@ -531,7 +531,7 @@ PRIMARY KEY (`id`)
 
 ### 2. 测试增加用户
 
-![image-20221026162317800](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162317800.png)
+![image-20221026162317800](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162317800.png?raw=true)
 
 ```
 mysql> select * from user;
@@ -545,11 +545,11 @@ mysql> select * from user;
 
 ### 3. 测试选择用户
 
-![image-20221026162455058](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162455058.png)
+![image-20221026162455058](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162455058.png?raw=true)
 
 ### 4. 测试更新用户
 
-![image-20221026162613066](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162613066.png)
+![image-20221026162613066](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162613066.png?raw=true)
 
 ```
 mysql> select * from user;
@@ -563,7 +563,7 @@ mysql> select * from user;
 
 ### 5. 测试删除用户
 
-![image-20221026162756460](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162756460.png)
+![image-20221026162756460](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162756460.png?raw=true)
 
 ```
 mysql> select * from user;
