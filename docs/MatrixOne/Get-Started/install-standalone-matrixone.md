@@ -208,14 +208,14 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
            ```bash
            wget https://github.com/matrixorigin/matrixone/releases/download/v0.6.0/mo-v0.6.0-linux-amd64.zip
-           unzip mo-server-v0.6.0-linux-amd64.zip
+           unzip mo-v0.6.0-linux-amd64.zip
            ```
 
       + **下载方式二：`curl` 工具下载二进制包**
 
           ```bash
           curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.6.0/mo-v0.6.0-linux-amd64.zip
-          unzip mo-server-v0.6.0-linux-amd64.zip
+          unzip mo-v0.6.0-linux-amd64.zip
           ```
 
       + **下载方式三：如果你想通过更直观的页面下载的方式下载，可以进入下述页面链接，选择安装包下载**
@@ -230,14 +230,14 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
           ```bash
              wget https://github.com/matrixorigin/matrixone/releases/download/v0.6.0/mo-v0.6.0-darwin-x86_64.zip
-             unzip mo-server-v0.6.0-darwin-x86_64.zip
+             unzip mo-v0.6.0-darwin-x86_64.zip
           ```
 
        + **下载方式二：`curl` 工具下载二进制包**
 
           ```bash
           curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.6.0/mo-v0.6.0-darwin-x86_64.zip
-          unzip mo-server-v0.6.0-darwin-x86_64.zip
+          unzip mo-v0.6.0-darwin-x86_64.zip
           ```
 
        + **下载方式三：如果你想通过更直观的页面下载的方式下载，可以进入下述页面链接，点击下载**
