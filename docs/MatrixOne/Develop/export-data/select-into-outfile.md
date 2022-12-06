@@ -20,7 +20,7 @@ mysql> SELECT * FROM TEST
 
 你可以采用多种形式和选项更改输出格式，用于表示如何引用、分隔列和记录。
 
-使用以下代码以 *.csv* 格式导出 *tutorial_tbl* 表，下面的代码行是用回车换行进行展示的：
+使用以下代码以 *.csv* 格式导出 *TEST* 表，下面的代码行是用回车换行进行展示的：
 
 ```
 mysql> SELECT * FROM TEST INTO OUTFILE '/root/test.csv'
@@ -42,15 +42,16 @@ mysql> SELECT * FROM TEST INTO OUTFILE '/root/test.csv'
 
 ### 开始前准备
 
-- 已通过[源代码](../../Get-Started/install-standalone-matrixone/#1)或[二进制包](../../Get-Started/install-standalone-matrixone/#2)完成安装 MatrixOne。
+- 已通过[源代码或二进制包](../../Get-Started/install-standalone-matrixone.md)完成安装 MatrixOne。
 
 - 已完成[连接单机版 MatrixOne 服务](../../Get-Started/connect-to-matrixone-server.md)。
 
 !!! note
-    如果你是通过 `docker` 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要导出到本地目录，你需要先将本地目录绑定到容器中。在以下示例中，本地文件系统路径 */tmp/docker_export_demo/store* 绑定到 MatrixOne Docker 映像中，并映射到 */store* 路径下。更多信息，参见 [Docker Mount Volume tutorial](https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/)。
+    如果你是通过 `docker` 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要导出到本地目录，你需要先将本地目录挂载到容器中。在以下示例中，本地文件系统路径 *$MOUNT_PATH/mo-data* 挂载到 MatrixOne Docker 映像中，并映射到 */mo-data* 路径下。更多信息，参见 [Docker Mount Volume tutorial](https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/)。
 
 ```
-docker run -d -p 6001:6001 -v ~/tmp/docker_export_demo/store:/store:rw --name matrixone matrixorigin/matrixone:0.5.1
+export MOUNT_PATH=$PWD
+sudo docker run --name <name> --privileged -d -p 6001:6001 -v $MOUNT_PATH/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0 
 ```
 
 ### 步骤

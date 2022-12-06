@@ -101,7 +101,7 @@ __Tips__: 通过 MatrixOne 源码完成搭建时，**Linux 环境** 与 **MacOS 
       该启动方式会在终端的前台运行 `mo-service` 进行，实时打印系统日志。如果你想停止 MatrixOne 服务器，只需按 CTRL+C 或关闭当前终端。
 
       ```
-      # Start mo-service in the backend
+      # Start mo-service in the frontend
       ./mo-service -launch ./etc/quickstart/launch.toml
       ```
 
@@ -256,7 +256,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
       该启动方式会在终端的前台运行 `mo-service` 进行，实时打印系统日志。如果你想停止 MatrixOne 服务器，只需按 CTRL+C 或关闭当前终端。
 
       ```
-      # Start mo-service in the backend
+      # Start mo-service in the frontend
       ./mo-service -launch ./etc/quickstart/launch.toml
       ```
 
@@ -362,28 +362,26 @@ MacOS 环境下，你可以直接打开你本地 Docker 客户端，启动 Docke
 
 运行 Docker Hub 时需要输入用户名和密码，获取用户名和密码可以参考步骤 6 - 连接 MatrixOne 服务
 
-### 5. 挂载配置文件（选做）
+### 5. 挂载数据（选做）
 
-如果你需要挂载本地*配置文件*，参见本章节下述内容：
+如果你需要挂载*数据目录*，在 Docker 启动之前，可以先挂载存放在本地磁盘：
 
 ```
-docker run -d -p 6001:6001 -v ${local_data_path}/etc:/etc:rw  --entrypoint "/mo-service" matrixorigin/matrixone:0.6.0 -launch /etc/quickstart/launch.toml
+docker run -d -p 6001:6001 -v ${local_data_path}:/mo-data:rw --name matrixone matrixorigin/matrixone:0.6.0
 ```
 
 |参数|描述|
 |---|---|
-|${local_data_path}/etc:/etc|挂载本地配置文件到容器 */etc* 文件夹|
-|--entrypoint "/mo-service"|指定容器启动 MatrixOne 服务|
-|-launch /etc/quickstart/launch.toml|Matrixone仓库内 /etc 下的启动方式|
+|${local_data_path}:/mo-data|备份 /mo-data 到本地磁盘目录|
 
-挂载配置文件完成后，你可以在你本地磁盘中找到相应的目录，示例如下：
+挂载成功后你可以在你本地磁盘中找到相应的数据目录，示例如下：
 
 ```
 # 进入你挂载数据目录的本地磁盘
 cd ${local_data_path}
-# 查看当前目录下挂载的配置文件和数据文件
+# 查看当前目录下挂载的数据文件或文件夹
 ls
-etc
+cn-data  etl  local  logservice-data
 ```
 
 更多关于 *Docker run* 的指令释义，运行命令 `docker run --help` 进行查看。
