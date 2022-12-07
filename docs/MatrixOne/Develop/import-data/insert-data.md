@@ -4,8 +4,7 @@
 
 ## 开始前准备
 
-- 已通过[源代码](https://docs.matrixorigin.io/cn/0.5.1/MatrixOne/Get-Started/install-standalone-matrixone/#1)或[二进制包](https://docs.matrixorigin.io/cn/0.5.1/MatrixOne/Get-Started/install-standalone-matrixone/#2)完成安装 MatrixOne。
-- 已完成[连接 MatrixOne 服务](../../Get-Started/connect-to-matrixone-server.md)。
+已完成[单机部署 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
 ## INSERT INTO 语句
 
@@ -24,7 +23,6 @@
     ```
 
 3. 使用 `INSERT...VALUES...` 语句可以插入多行。语句中必须包含多个用逗号分隔的值列表，值列表用圆括号括起来，并用逗号分隔。示例如下：
-
     ```
     INSERT INTO tbl_name (a,b,c) VALUES(1,2,3), (4,5,6), (7,8,9);
     ```

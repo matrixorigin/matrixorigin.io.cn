@@ -59,14 +59,9 @@
 
 执行以下步骤，测试测试 SSL 配置是否成功：
 
-1. 安装构建 MatrixOne 服务，具体步骤，参见[安装单机版 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
-2. 通过 MySQL 客户端连接 MatrixOne 服务，具体步骤，参见 [连接 MatrixOne](../../Get-Started/connect-to-matrixone-server.md)。
+1. 单机部署 MatrixOne 服务，具体步骤，参见[单机部署 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
-    ```
-    mysql -h IP_ADDRESS -P 6001 -udump -p111
-    ```
-
-3. 连接完成后，运行 `status` 命令，输出结果示例如下：
+2. 完成上述步骤 1 中单机部署 MatriOne 服务并连接成功后，运行 `status` 命令，输出结果示例如下：
 
     ```
     mysql> status
@@ -80,7 +75,7 @@
     Current pager:		stdout
     Using outfile:		''
     Using delimiter:	;
-    Server version:		0.5.1 MatrixOne
+    Server version:		0.6.0 MatrixOne
     Protocol version:	10
     Connection:		127.0.0.1 via TCP/IP
     Client characterset:	utf8mb4

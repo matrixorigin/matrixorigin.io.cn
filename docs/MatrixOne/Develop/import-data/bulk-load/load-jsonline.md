@@ -4,16 +4,14 @@ MatrixOne 支持 jsonlines 格式数据（即 *.jl* 文件）导入。
 
 ## 开始前准备
 
-- 已通过[源代码](https://docs.matrixorigin.io/cn/0.5.0/MatrixOne/Get-Started/install-standalone-matrixone/#1)或[二进制包](https://docs.matrixorigin.io/cn/0.5.0/MatrixOne/Get-Started/install-standalone-matrixone/#2)完成安装 MatrixOne
-- 已完成[连接 MatrixOne 服务](../../../Get-Started/connect-to-matrixone-server.md)
+已完成[单机部署 MatrixOne](../../../Get-Started/install-standalone-matrixone.md)。
 
-如果你使用 Docker 安装启动 MatrixOne，确保你已将数据文件目录挂载到容器目录下，示例如下：
+!!! note
+    如果你是通过 `docker` 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要挂载本地目录，参见下面的代码示例：本地文件系统路径 *${local_data_path}/mo-data* 挂载到 MatrixOne Docker 镜像中，并映射到 */mo-data* 路径下。更多信息，参见 [Docker Mount Volume tutorial](https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/)。
 
 ```
-docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.5.1
+sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
 ```
-
-上述示例为典型的安装和挂载方式，将其本地路径 *~/tmp/docker_loaddata_demo* 挂载到内部容器路径 */ssb-dbgen-path*。
 
 ### 基本命令
 
@@ -94,4 +92,4 @@ load data infile {'filepath'='data.txt', 'format'='jsonline','jsondata'='object'
     ```
 
 !!! note
-    Docker 启动 MatrixOne 导入 jsonline 文件，启动时将存放了数据文件的目录挂载到容器的某个目录下，然后再进行数据导入。挂载目录的方式，参见[将容器中的 *store* 目录备份到宿主机](../../../Maintain/upgrade-standalone-matrixone/#1back-up-the-store-directory-in-the-container-to-the-host)。
+    Docker 启动 MatrixOne 导入 jsonline 文件，启动时将存放了数据文件的目录挂载到容器的某个目录下，然后再进行数据导入。

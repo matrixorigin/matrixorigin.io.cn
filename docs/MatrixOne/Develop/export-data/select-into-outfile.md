@@ -42,16 +42,13 @@ mysql> SELECT * FROM TEST INTO OUTFILE '/root/test.csv'
 
 ### 开始前准备
 
-- 已通过[源代码或二进制包](../../Get-Started/install-standalone-matrixone.md)完成安装 MatrixOne。
-
-- 已完成[连接单机版 MatrixOne 服务](../../Get-Started/connect-to-matrixone-server.md)。
+已完成[单机部署 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
 !!! note
-    如果你是通过 `docker` 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要导出到本地目录，你需要先将本地目录挂载到容器中。在以下示例中，本地文件系统路径 *$MOUNT_PATH/mo-data* 挂载到 MatrixOne Docker 映像中，并映射到 */mo-data* 路径下。更多信息，参见 [Docker Mount Volume tutorial](https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/)。
+    如果你是通过 `docker` 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要挂载本地目录，参见下面的代码示例：本地文件系统路径 *${local_data_path}/mo-data* 挂载到 MatrixOne Docker 镜像中，并映射到 */mo-data* 路径下。更多信息，参见 [Docker Mount Volume tutorial](https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/)。
 
 ```
-export MOUNT_PATH=$PWD
-sudo docker run --name <name> --privileged -d -p 6001:6001 -v $MOUNT_PATH/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0 
+sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
 ```
 
 ### 步骤
@@ -79,10 +76,10 @@ sudo docker run --name <name> --privileged -d -p 6001:6001 -v $MOUNT_PATH/mo-dat
     select * from user into outfile '~/tmp/export_demo/export_datatable.txt'
     ```
 
-    使用 Docker 安装构建 MatrixOne，导出到你挂载的容器目录路径，如下例所示。其中目录 *store* 指的是本地路径 *~/tmp/docker_export_demo/store* 。
+    使用 Docker 安装启动 MatrixOne，导出到你挂载的容器目录路径，如下例所示。其中目录 *mo-data* 指的是本地路径 *~/tmp/docker_export_demo/mo-data* 。
 
     ```
-    select * from user into outfile 'store/export_datatable.txt';
+    select * from user into outfile 'mo-data/export_datatable.txt';
     ```
 
 3. 到你本地 *export_datatable.txt* 文件下查看导出情况：
