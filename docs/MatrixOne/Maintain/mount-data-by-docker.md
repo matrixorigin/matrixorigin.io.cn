@@ -31,7 +31,6 @@
      |---|---|
      |${local_data_path}/mo-data:/mo-data|挂载本地数据目录 *${local_data_path}/mo-data* 到容器 */mo-data* 文件夹 <br> __Tips__: 需要挂载的本地数据目录必须为**空目录**。 |
 
-
 ## 挂载自定义配置文件
 
 如果你需要修改启动配置文件，建议你先将 Docker 内的启动配置文件拷贝到你本地目录，然后将存放配置文件的本地目录挂载到 Docker 容器目录下，参考以下详细步骤，挂载配置文件到 Docker 容器：
@@ -62,9 +61,9 @@
     docker rm <containerID>
     ```
 
-5. （选做）修改本地配置文件并保存。
+5.（选做）修改本地配置文件并保存。
 
-6.  挂载配置文件到 Docker 容器目录，同时启动 MatrixOne，挂载命令示例如下：
+6. 挂载配置文件到 Docker 容器目录，同时启动 MatrixOne，挂载命令示例如下：
 
      ```shell
      sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_config_path}/etc:/etc:rw  --entrypoint "/mo-service" matrixorigin/matrixone:0.6.0 -launch /etc/quickstart/launch.toml
