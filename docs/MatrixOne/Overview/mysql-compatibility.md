@@ -57,7 +57,7 @@ MatrixOne的SQL语法兼容了MySQL 8.0.23版本。
 |   | IN | 只支持常数列表 |
 |   | NOT, AND, &&,OR, "\|\|" | 同 MySQL  |
 |   | CAST | 支持不同转换规则。 |
-| Functions | MAX, MIN, COUNT, AVG, SUM | 同 MySQL. |
+| Functions | MAX, MIN, COUNT, AVG, SUM | 同 MySQL |
 |  | any_value | `Any_value` 是 MatrixOne 中的一个聚合函数。不能在 `GROUP` 或过滤条件中使用。 |
 ||正则表达式|即`REGEXP_INSTR()`，`REGEXP_LIKE()`，`REGEXP_REPLACE()`，`REGEXP_SUBSTR()`	暂不支持第三个参数|
 ||to_date|对于日期的入参仅支持常量|
