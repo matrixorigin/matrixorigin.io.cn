@@ -82,9 +82,9 @@ Computing Node（CN)，是 Matrixone 接收用户请求并处理 SQL 的组件�
 - Pipeline，解析逻辑计划，将逻辑计划转成实际的执行计划，然后 Pipeline 运行执行计划。
 - Disttae，负责具体的读写任务，既包含了从 DN 同步 Logtail 和从 S3 读取数据，也会把写入的数据发送给 DN。
 
-### **Streeam Engine
+### **Stream Engine**
 
-开发中...
+Stream Engine 是一个新组件，用于简化从 OLTP 到 OLAP 的 ETL 处理过程。Stream Engine 还处在 MatrixOne 开发过程中，暂尚未实现。
 
 ## **MatrixOne 特性**
 

@@ -19,16 +19,17 @@ ACOS()函数返回给定数值的余弦（用弧度表示）。
 ## **示例**
 
 ```sql
-> drop table if exists t1;
-> create table t1(a float,b int);
-> insert into t1 values(0.5,1);
-> insert into t1 values(-0.5,-1);
-> select acos(a),acos(b) from t1;
-+---------+---------+
-| acos(a) | acos(b) |
-+---------+---------+
-|  1.0472 |  0.0000 |
-|  2.0944 |  3.1416 |
-+---------+---------+
+drop table if exists t1;
+create table t1(a float,b int);
+insert into t1 values(0.5,1);
+insert into t1 values(-0.5,-1);
 
+mysql> select acos(a),acos(b) from t1;
++--------------------+-------------------+
+| acos(a)            | acos(b)           |
++--------------------+-------------------+
+| 1.0471975511965976 |                 0 |
+| 2.0943951023931957 | 3.141592653589793 |
++--------------------+-------------------+
+2 rows in set (0.01 sec)
 ```
