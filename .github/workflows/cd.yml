@@ -1,0 +1,82 @@
+name: build and push image
+# 3个功能,
+# 1. 默认更新 main 内容到 dev 文档
+# 2. 更新指定分支版本文档
+# 3. 可以设置指定版本为默认访问版本
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Update Docs Version From Branch, e.g main for dev'
+        required: true
+        default: 'main'
+      is_set_default:
+        description: 'True To Set Default Version When Visited'
+        required: false
+        type: boolean
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACTIONTOKEN }}
+          ref: ${{ inputs.branch }} # 可以指定分支 checkout, 但不允许直接修改 gh-pages
+      - name: branch status
+        run: |
+          git status
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Intialiaze Python Env
+        run: |
+          git rev-parse --abbrev-ref HEAD
+          pip install -r requirements.txt
+      - name: Git Config
+        run: |
+          git fetch --all
+          git config --global user.email ${{ secrets.GITUSEREMAIL }}
+          git config --global user.name ${{ secrets.GITUSERNAME }}
+
+      - name: Mike dev Version Snapshot
+        if: ${{ inputs.branch == 'main' }}
+        run: |
+          mike deploy --push dev
+      - name: Mike ${{ inputs.branch }} Version Snapshot
+        if: ${{ inputs.branch != 'main' }}
+        run: |
+          mike deploy --push ${{ inputs.branch }}
+
+      - name: Mike Set Default Version
+        if: ${{ inputs.branch == 'main' && inputs.is_set_default }}
+        run: |
+          mike list
+          mike alias -u dev latest
+          mike list
+          mike set-default --push latest
+      - name: Mike Set Default Version
+        if: ${{ inputs.branch != 'main' && inputs.is_set_default }}
+        run: |
+          mike list
+          mike alias -u ${{ inputs.branch }} latest
+          mike list
+          mike set-default --push latest
+
+      - name: Login Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUBUSER }}
+          password: ${{ secrets.DOCKERHUBPASSWORD }}
+
+      - name: Build && Push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            matrixorigin/matrixorigin.io.cn:${{ inputs.branch }}_${{ github.sha }}
+            matrixorigin/matrixorigin.io.cn:latest
