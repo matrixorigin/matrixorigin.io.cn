@@ -12,7 +12,7 @@
 
 - 下载安装 [Eclipse](http://www.eclipse.org/home/index.php)。
 
-- 完成 MatrixOne [搭建](../Get-Started/install-standalone-matrixone.md)与[连接](../Get-Started/connect-to-matrixone-server.md)
+- 完成[单机部署 MatrixOne](../Get-Started/install-standalone-matrixone.md)。
 
 ### 准备 2：代码说明
 

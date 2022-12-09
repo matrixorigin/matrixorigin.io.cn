@@ -77,7 +77,7 @@ SSL:			    Not in use
 Current pager:		stdout
 Using outfile:		''
 Using delimiter:	;
-Server version:		0.5.1 MatrixOne
+Server version:		0.6.0 MatrixOne
 Protocol version:	10
 Connection:		127.0.0.1 via TCP/IP
 ERROR 1105 (HY000): the system variable does not exist

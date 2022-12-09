@@ -18,8 +18,7 @@
 
 你需要确认在开始之前，已经完成了以下任务：
 
-- 已通过[源代码](https://docs.matrixorigin.io/cn/0.5.1/MatrixOne/Get-Started/install-standalone-matrixone/#1)或[二进制包](https://docs.matrixorigin.io/cn/0.5.1/MatrixOne/Get-Started/install-standalone-matrixone/#2)完成安装 MatrixOne
-- 已完成[连接 MatrixOne 服务](../../Get-Started/connect-to-matrixone-server.md)
+- 已完成[单机部署 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
 ### 数据准备
 

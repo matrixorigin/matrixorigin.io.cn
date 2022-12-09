@@ -36,7 +36,7 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
     ```
     Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 1031
-    Server version: 0.5.1 MatrixOne
+    Server version: 0.6.0 MatrixOne
     Copyright (c) 2000, 2022, Oracle and/or its affiliates.
 
     Oracle is a registered trademark of Oracle Corporation and/or its affiliates. Other names may be trademarks of their respective owners.
@@ -61,6 +61,9 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 3. 点击 **Save** 保存设置。
 
 4. 双击左侧数据库目录中的 **MatrixOne**，图标点亮，连接成功。
+
+!!! note
+    在默认设置下，Navicat 连接 MatrixOne 服务可能会遇到一些错误。 
 
 ## 通过 DBeaver 连接 MatrixOne 服务
 

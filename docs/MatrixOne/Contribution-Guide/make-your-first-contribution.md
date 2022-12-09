@@ -32,7 +32,7 @@ MatrixOne社区欢迎所有开发者的加入和贡献！本章节旨在帮助�
 
 前往刚才您创建的Fork仓库，点击 `Code` 按键，然后再点击“复制”图标，将库的网址复制到剪贴板。
 ![Clone your fork](https://github.com/matrixorigin/artwork/blob/main/docs/contribution-guide/contribution-guide-clone.png?raw=true)  
-然后，在您本地挑选一个合适的工作目录，打开命令行输入以下 Git 命令将文件克隆至您本地的目录： 
+然后，在您本地挑选一个合适的工作目录，打开命令行输入以下 Git 命令将文件克隆至您本地的目录：
 
 ```
 git clone <content you just copied>
@@ -65,7 +65,7 @@ git remote add upstream https://github.com/matrixorigin/matrixone.git
 #### **试运行**
 
 如果您在修改完成后想知道改动是否有效，能否解决最初的问题，或者是否影响程序运行，您可以运行MatrixOne进行简单的预览和测试。
-当然，请确保您已经按照教程完成了[安装和部署](./../Get-Started/install-standalone-matrixone.md)，并能成功连接到[MatrixOne服务器](./../Get-Started/connect-to-matrixone-server.md)。
+当然，请确保您已经按照教程完成了[单机部署 MatrixOne](./../Get-Started/install-standalone-matrixone.md)。
 
 ### **步骤 5: 提交修改**
 
@@ -89,7 +89,7 @@ git commit -m "<commit message>"  -s
 ```
 
  `<commit message>`是您对本次修改的简单总结和描述，试着做到简明扼要。
- 
+
 ### **步骤 6: 代码推送**
 
 提交修改后，您需要将本地的提交推送至远程仓库———我们强烈推荐您推送至目标仓库的一个新分支：
