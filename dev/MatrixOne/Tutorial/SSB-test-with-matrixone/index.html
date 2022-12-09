@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Overview/matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../../Overview/matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -437,21 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -1343,6 +1329,20 @@
     <li class="md-nav__item">
       <a href="../../Maintain/backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -6194,7 +6194,7 @@
 <h1 id="ssb"><strong>完成SSB测试</strong></h1>
 <p>SSB 星型模式基准测试是 OLAP 数据库性能测试的常用场景，通过本篇教程，您可以了解到如何在 MatrixOne 中实现 SSB 测试。</p>
 <h2 id="_1"><strong>准备工作</strong></h2>
-<p>确保你已经安装了<a href="../../Get-Started/install-standalone-matrixone/">单机版MatrixOne</a>并<a href="../../Get-Started/connect-to-matrixone-server/">连接到MatrixOne服务</a>.</p>
+<p>确保你已经完成了<a href="../../Get-Started/install-standalone-matrixone/">单机部署 MatrixOne</a>。</p>
 <h2 id="1-dbgen"><strong>1. 编译dbgen</strong></h2>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/vadimtk/ssb-dbgen.git
 cd ssb-dbgen
