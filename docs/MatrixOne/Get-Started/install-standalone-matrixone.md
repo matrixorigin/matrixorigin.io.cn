@@ -1,20 +1,15 @@
-# **安装单机版 MatrixOne**
-
-## 单机版 MatrixOne 概述
+# **单机部署 MatrixOne**
 
 单机版 MatrixOne 适用场景即是使用单台服务器，体验 MatrixOne 最小的完整拓扑，并模拟开发环境下的部署步骤。
 
-为了方便不同操作习惯的开发者或技术爱好者能够通过最方便快捷的方式安装单机版 MatrixOne，我们提供了以下三种安装方法，你可以根据你的需求，选择最适合你的安装方式：
+**单机部署 MatrixOne 主要步骤如下**：
 
-- <p><a href="#code_source">方法 1：使用源代码搭建。</a></p>如果你有一直获取最新 MatrixOne 代码的需求，可以优先选择通过**使用源代码**的方式安装部署 MatrixOne。
-- <p><a href="#binary_packages">方法 2：下载二进制包。</a></p>如果你习惯直接使用安装包进行部署，可以选择通过**下载二进制包**的方式安装部署 MatrixOne。
-- <p><a href="#use_docker">方法 3：使用 Docker。</a></p>如果你平时使用 Docker，也可以选择通过**使用 Docker** 的方式安装部署 MatrixOne。
+<a href="#install_mo">步骤一：单机安装 MatrixOne</a><br>
+<a href="#connect_mo">步骤二：单机连接 MatrixOne</a>
 
-## 开始前准备
+**推荐安装环境**：
 
-### 推荐安装环境
-
-作为一款开源数据库，MatrixOne 目前支持主流的 **Linux** 和 **MacOS** 系统。在本篇快速指引中，为了快速上手，我们优先推荐如下硬件规格：
+作为一款开源数据库，MatrixOne 目前支持主流的 **Linux** 和 **MacOS** 系统。为了快速上手，本文档中优先推荐如下硬件规格：
 
 |操作系统 |操作系统版本| CPU     | 内存 |
 | :------ |:------ | :------ | :----- |
@@ -23,9 +18,17 @@
 
 你也可以查阅[硬件与操作系统要求](../FAQs/deployment-faqs.md)，查看更多关于硬件规格推荐，选用合适的硬件环境。
 
-## <h2><a name="code_source">方法 1：使用源代码搭建</a></h2>
+## <h2><a name="install_mo">步骤一： 单机安装 MatrixOne</a></h2>
 
-### 1. 安装部署 Go 语言
+为了方便不同操作习惯的开发者或技术爱好者能够通过最方便快捷的方式安装单机版 MatrixOne，我们提供了以下三种安装方法，你可以根据你的需求，选择最适合你的安装方式：
+
+- <p><a href="#code_source">方法 1：使用源代码搭建。</a></p>如果你有一直获取最新 MatrixOne 代码的需求，可以优先选择通过**使用源代码**的方式安装部署 MatrixOne。
+- <p><a href="#binary_packages">方法 2：下载二进制包。</a></p>如果你习惯直接使用安装包进行部署，可以选择通过**下载二进制包**的方式安装部署 MatrixOne。
+- <p><a href="#use_docker">方法 3：使用 Docker。</a></p>如果你平时使用 Docker，也可以选择通过**使用 Docker** 的方式安装部署 MatrixOne。
+
+### <h3><a name="code_source">方法 1：使用源代码搭建</a></h3>
+
+#### 1. 安装部署 Go 语言
 
 !!! note
     建议 Go 语言版本为 1.19 版本。
@@ -50,7 +53,7 @@
       go version go1.19 darwin/arm64
       ```
 
-### 2. 获取 MatrixOne 源码完成搭建
+#### 2. 获取 MatrixOne 源码完成搭建
 
 根据您的需要，选择您所获取的代码永远保持最新，还是获得稳定版本的代码。
 
@@ -94,7 +97,7 @@ __Tips__: 通过 MatrixOne 源码完成搭建时，**Linux 环境** 与 **MacOS 
 
          __Tips__: 你也可以运行`make debug`与`make clean`或者其他任何`Makefile`支持的命令；`make debug` 可以用来调试构建进程，`make clean` 可以清除构建进程。如果在 `make build` 时产生 `Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout` 报错，参见[安装和部署常见问题](../FAQs/deployment-faqs.md)进行解决。
 
-### <h3><a name="launch">3. 启动 MatrixOne 服务</a></h2>
+#### <h4><a name="launch">3. 启动 MatrixOne 服务</a></h4>
 
 === "**在终端的前台启动 MatrixOne 服务**"
 
@@ -126,15 +129,15 @@ __Tips__: 通过 MatrixOne 源码完成搭建时，**Linux 环境** 与 **MacOS 
 
       __Tips__: 如上述示例所示，使用命令 `ps aux | grep mo-service` 首先查找出 MatrixOne 运行的进程号为 `15277`，`kill -9 15277` 即表示停止进程号为 `15277` 的 MatrixOne。
 
-### 4. 连接 MatrixOne 服务
+#### 4. 连接 MatrixOne 服务
 
-当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne，具体步骤，参见[连接 MatrixOne 服务](connect-to-matrixone-server.md)。
+当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne，具体步骤，参见<a href="#connect_mo">步骤二：单机连接 MatrixOne</a>。
 
-## <h2><a name="binary_packages">方法 2：下载二进制包</a></h2>
+### <h3><a name="binary_packages">方法 2：下载二进制包</a></h3>
 
 从 0.3.0 版本开始，您可以直接下载二进制包。
 
-### 1. 安装下载工具
+#### 1. 安装下载工具
 
 我们提供**下载二进制包**的方式安装 MatrixOne，如果你喜欢通过命令行进行操作，那么你可以提前准备安装好 `wget` 或 `curl`。
 
@@ -198,7 +201,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      ...
      ```
 
-### 2. 下载二进制包并解压
+#### 2. 下载二进制包并解压
 
 === "**Linux 环境**"
 
@@ -247,7 +250,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 !!! info
      ARM 芯片硬件配置下，MatrixOne 仅支持通过源代码方式进行安装部署；如果你使用的是 MacOS 系统 M1 及以上版本，请使用<a href="#code_source">源代码</a>构建的方式安装部署 MatrixOne。若果在 X86 硬件配置下使用二进制方式安装部署 MatrixOne 会导致未知问题。
 
-### 3. 启动 MatrixOne 服务
+#### 3. 启动 MatrixOne 服务
 
 启动 MatrixOne 服务可以参见**使用源代码搭建**章节的 <a href="#launch">3. 启动 MatrixOne 服务</a>。
 
@@ -281,21 +284,21 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
       __Tips__: 如上述示例所示，使用命令 `ps aux | grep mo-service` 首先查找出 MatrixOne 运行的进程号为 `15277`，`kill -9 15277` 即表示停止进程号为 `15277` 的 MatrixOne。
 
-### 4. 连接 MatrixOne 服务
+#### 4. 连接 MatrixOne 服务
 
-当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne，具体步骤，参见[连接 MatrixOne 服务](connect-to-matrixone-server.md)。
+当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne，具体步骤，参见<a href="#connect_mo">步骤二：单机连接 MatrixOne</a>。
 
-## <h2><a name="use_docker">方法 3：使用 Docker</a></h2>
+### <h3><a name="use_docker">方法 3：使用 Docker</a></h3>
 
 __Tips__: 通过 Docer 搭建 MatrixOne 时，**Linux 环境** 与 **MacOS 环境** 通过运行指令进行 MatrixOne 的搭建过程无明显分别。
 
-### 1. 下载安装 Docker
+#### 1. 下载安装 Docker
 
 点击<a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a>，进入 Docker 的官方文档页面，根据你的操作系统，下载安装对应的 Docker。
 
 安装完成后，点击打开 Docker，进入下一步进行验证安装是否成功。
 
-### 2. 验证 Docker 安装成功
+#### 2. 验证 Docker 安装成功
 
 你可以通过下述代码行确认 Docker 版本，验证 Docker 安装是否成功：
 
@@ -309,7 +312,7 @@ docker --version
 Docker version 20.10.17, build 100c701
 ```
 
-### 3. 检查 Docker 运行状态
+#### 3. 检查 Docker 运行状态
 
 运行如下命令，启动 Docker 并查看运行状态是否成功，不同操作环境的检查建议如下：
 
@@ -338,7 +341,7 @@ docker.service - Docker Application Container Engine
 
 MacOS 环境下，你可以直接打开你本地 Docker 客户端，启动 Docker。
 
-### 4. 获取 MatrixOne 镜像并启动
+#### 4. 获取 MatrixOne 镜像并启动
 
 使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像。
 
@@ -360,37 +363,113 @@ MacOS 环境下，你可以直接打开你本地 Docker 客户端，启动 Docke
 
       __Notes__: 如上面代码所示，*nightly* 为标识的 Tag 版本每天都进行更新，请注意获取最新的镜像。
 
-运行 Docker Hub 时需要输入用户名和密码，获取用户名和密码可以参考步骤 6 - 连接 MatrixOne 服务
+如需挂载数据目录或配置自定义文件，参见[挂载目录到 Docker 容器](../Maintain/mount-data-by-docker.md)。
 
-### 5. 挂载数据（选做）
+运行 Docker Hub 时需要输入用户名和密码，获取用户名和密码可以参见<a href="#connect_mo">步骤二：单机连接 MatrixOne</a>。
 
-如果你需要挂载*数据目录*，在 Docker 启动之前，可以先挂载存放在本地磁盘：
+## <h2><a name="connect_mo">步骤二：单机连接 MatrixOne</a></h2>
+
+### 开始前准备
+
+#### 安装部署 MySQL 客户端
+
+!!! note
+    建议 MySQL 客户端版本为 8.0.30 版本及以上。
+
+你可以在 <a href="https://dev.mysql.com/doc/refman/8.0/en/installing.html" target="_blank">Installing and Upgrading MySQL</a>，按照官方指导安装，选择对应的操作系统，按照指导步骤完成 **MySQL 客户端** 的安装。
+
+或者，你可以直接点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 **Select Operating System**，再下拉选择 **Select OS Version**，按需选择下载安装包进行安装。
+
+#### 配置 MySQL 客户端环境变量
+
+MySQL 客户端安装完成后，需要配置 MySQL 客户端环境变量：
+
+=== "**Linux 环境**"
+
+     1. 打开一个新的终端，输入如下命令：
+
+         ```
+         cd ~
+         sudo vim /etc/profile
+         ```
+
+     2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
+
+     3. 输入/跳过 root 密码后，即进入了 *profile* 文件，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+
+         ```
+         export PATH=/software/mysql/bin:$PATH
+         ```
+
+     4. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
+
+     5. 输入命令 `source  /etc/profile`，回车执行，运行环境变量。
+
+     6. 测试 MySQL 是否可用：
+
+         - 方式一：输入命令 `mysql -u root -p`，回车执行，需要 root 用户密码，显示 `mysql>` 即表示 MySQL 客户端已开启。
+
+         - 方式二：执行命令 `mysql --version`，安装成功提示：`mysql  Ver 8.0.31 for Linux on x86_64 (Source distribution)`
+
+     7. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
+
+=== "**MacOS 环境**"
+
+     1. 打开一个新的终端，输入如下命令：
+
+         ```
+         cd ~
+         sudo vim .bash_profile
+         ```
+
+     2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
+
+     3. 输入/跳过 root 密码后，即进入了 *.bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+
+        ```
+        export PATH=${PATH}:/usr/local/mysql/bin
+        ```
+
+     4. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
+
+     5. 输入命令 `source .bash_profile`，回车执行，运行环境变量。
+
+     6. 测试 MySQL 是否可用：
+
+         - 方式一：输入命令 `mysql -u root -p`，回车执行，需要 root 用户密码，显示 `mysql>` 即表示 MySQL 客户端已开启。
+
+         - 方式二：执行命令 `mysql --version`，安装成功提示：`mysql  Ver 8.0.31 for macos12 on arm64 (MySQL Community Server - GPL)`
+
+     7. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
+
+__Tips__: 目前，MatrixOne只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
+
+### **连接 MatrixOne**
+
+你可以使用 MySQL 命令行客户端来连接 MatrixOne。打开一个新的终端，直接输入以下指令：
 
 ```
-docker run -d -p 6001:6001 -v ${local_data_path}:/mo-data:rw --name matrixone matrixorigin/matrixone:0.6.0
+mysql -h IP -P PORT -uUsername -p
 ```
 
-|参数|描述|
-|---|---|
-|${local_data_path}:/mo-data|备份 /mo-data 到本地磁盘目录|
+输入完成上述命令后，终端会提示你提供用户名和密码。你可以使用我们的内置帐号：
 
-挂载成功后你可以在你本地磁盘中找到相应的数据目录，示例如下：
+- user: dump
+- password: 111
+
+也可以使用 MySQL 客户端下述命令行，输入密码，来连接 MatrixOne 服务：
 
 ```
-# 进入你挂载数据目录的本地磁盘
-cd ${local_data_path}
-# 查看当前目录下挂载的数据文件或文件夹
-ls
-cn-data  etl  local  logservice-data
+mysql -h 127.0.0.1 -P 6001 -udump -p
+Enter password:
 ```
 
-更多关于 *Docker run* 的指令释义，运行命令 `docker run --help` 进行查看。
-
-### 6. 连接 MatrixOne 服务
-
-当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne，具体步骤，参见[连接 MatrixOne 服务](connect-to-matrixone-server.md)。
+目前，MatrixOne 只支持TCP监听。
 
 ## 参考文档
 
-升级版本，参见[升级单机版 MatrixOne](../Maintain/upgrade-standalone-matrixone.md)。
-常见的安装和部署问题，参见[安装和部署常见问题](../FAQs/deployment-faqs.md)。
+- 更多有关连接 MatrixOne 的方式，参见[客户端连接 MatrixOne 服务](../Develop/connect-mo/database-ide.md)、[JDBC 连接 MatrixOne 服务](../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md)和[Python 连接 MatrixOne 服务](../Develop/connect-mo/python-connect-to-matrixone.md)。
+
+- 常见的安装和部署问题，参见[安装和部署常见问题](../FAQs/deployment-faqs.md)。
+
+- 关于分布式部署 MatrixOne，参见 [在 Kubernetes 上部署 MatrixOne](../Deploy/install-and-launch-in-k8s.md)。
