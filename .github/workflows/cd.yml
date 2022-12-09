@@ -9,14 +9,6 @@ on:
       branch:
         description: 'Update Docs Version From Branch, e.g main for dev'
         required: true
-        type: choice
-        options:
-          - main
-          - '0.6.0'
-          - '0.5.1'
-          - '0.5.0'
-          - '0.4.0'
-          - '0.3.0'
         default: 'main'
       is_set_default:
         description: 'True To Set Default Version When Visited'
@@ -30,6 +22,7 @@ jobs:
       - id: checkout
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.ACTIONTOKEN }}
           ref: ${{ inputs.branch }} # 可以指定分支 checkout, 但不允许直接修改 gh-pages
       - name: branch status
         run: |
