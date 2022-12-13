@@ -10,13 +10,15 @@
 
 创建包含 SSL 密钥的目录，执行以下步骤：
 
-1. 通过 SSH 登录 MatrixOne 服务，先确认你已安装 **[mysql_ssl_rsa_setup](https://dev.mysql.com/doc/refman/5.7/en/mysql-ssl-rsa-setup.html)** 工具。
+1. 通过 SSH 登录 MatrixOne 服务，先确认你已安装 `mysql_ssl_rsa_setup` 工具。一般如果MySQL安装完成的话，`mysql_ssl_rsa_setup`也会被一起安装。
 
-    检查你是否安装 MySQL：如果你已安装 MySQL，则出现以下代码，如果没有如下代码，安装 MySQL 参见[install MySQL](https://dev.mysql.com/doc/mysql-getting-started/en/)，`mysql_ssl_rsa_setup` 也将一并安装。
+    检查你是否安装`mysql_ssl_rsa_setup`：如果你已安装`mysql_ssl_rsa_setup`，在命令行工具中执行以下命令，如果没有出现下列结果，则需要重新安装 MySQL, 可以参见[install MySQL](https://dev.mysql.com/doc/mysql-getting-started/en/)，`mysql_ssl_rsa_setup` 也将一并安装。另外你也可以通过`whereis mysql_ssl_rsa_setup`命令查看`mysql_ssl_rsa_setup`可执行文件的路径。
 
     ```
     [pcusername@VM-0-12-centos matrixone]$ mysql_ssl_rsa_setup
     2022-10-19 10:57:30 [ERROR]   Failed to access directory pointed by --datadir. Please make sure that directory exists and is accessible by mysql_ssl_rsa_setup. Supplied value : /var/lib/mysql
+    [pcusername@VM-0-12-centos matrixone]$ whereis mysql_ssl_rsa_setup
+    mysql_ssl_rsa_setup: /usr/bin/mysql_ssl_rsa_setup /usr/share/man/man1/mysql_ssl_rsa_setup.1.gz
     ```
 
 2. 创建一个 MatrixOne 可以访问的 SSL 密钥存储目录。例如，执行命令 `mkdir /home/user/mo_keys` 创建目录 *mo_keys*。
@@ -43,7 +45,7 @@
     ├── server-cert.pem<br>
     └── server-key.pem<br>
 
-2. 在 MatrixOne 目录下的 *etc/launch-tae-logservice/cn1.toml* 文件内的 `[cn.front]` 部分插入以下代码段：
+2. 在 MatrixOne 目录下的 *etc/launch-tae-CN-tae-DN/cn.toml* 文件内的 `[cn.front]` 部分插入以下代码段：
 
     ```
     [cn.frontend]
