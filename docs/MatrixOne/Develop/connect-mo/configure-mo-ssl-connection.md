@@ -33,7 +33,7 @@
     mysql_ssl_rsa_setup --datadir=/home/user/mo_keys
     ```
 
-    文件夹将创建产生一个 *.pem* 文件。
+    文件夹将创建产生多个 *.pem* 文件。
 
     /mo_keys<br>
     ├── ca-key.pem<br>
@@ -45,7 +45,7 @@
     ├── server-cert.pem<br>
     └── server-key.pem<br>
 
-2. 在 MatrixOne 目录下的 *etc/launch-tae-CN-tae-DN/cn.toml* 文件内的 `[cn.front]` 部分插入以下代码段：
+2. 在 MatrixOne 目录下的 *etc/launch-tae-CN-tae-DN/cn.toml* 文件内的 `[cn.frontend]` 部分插入以下代码段：
 
     ```
     [cn.frontend]
