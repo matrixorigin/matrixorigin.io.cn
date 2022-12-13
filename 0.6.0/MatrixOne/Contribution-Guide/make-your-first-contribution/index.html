@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Overview/matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../../Overview/matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -437,21 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -1343,6 +1329,20 @@
     <li class="md-nav__item">
       <a href="../../Maintain/backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -6173,7 +6173,7 @@
 <h3 id="2"><strong>步骤 2: 将仓库克隆至本地</strong></h3>
 <p>前往刚才您创建的Fork仓库，点击 <code>Code</code> 按键，然后再点击“复制”图标，将库的网址复制到剪贴板。
 <img alt="Clone your fork" src="https://github.com/matrixorigin/artwork/blob/main/docs/contribution-guide/contribution-guide-clone.png?raw=true" /><br />
-然后，在您本地挑选一个合适的工作目录，打开命令行输入以下 Git 命令将文件克隆至您本地的目录： </p>
+然后，在您本地挑选一个合适的工作目录，打开命令行输入以下 Git 命令将文件克隆至您本地的目录：</p>
 <div class="highlight"><pre><span></span><code>git clone &lt;content you just copied&gt;
 </code></pre></div>
 <p>例如：   </p>
@@ -6190,7 +6190,7 @@
 <p>克隆代码库之后您就可以开始您的开发过程，可以在您所需要的地方进行任何修改。</p>
 <h4 id="_7"><strong>试运行</strong></h4>
 <p>如果您在修改完成后想知道改动是否有效，能否解决最初的问题，或者是否影响程序运行，您可以运行MatrixOne进行简单的预览和测试。
-当然，请确保您已经按照教程完成了<a href="../../Get-Started/install-standalone-matrixone/">安装和部署</a>，并能成功连接到<a href="../../Get-Started/connect-to-matrixone-server/">MatrixOne服务器</a>。</p>
+当然，请确保您已经按照教程完成了<a href="../../Get-Started/install-standalone-matrixone/">单机部署 MatrixOne</a>。</p>
 <h3 id="5"><strong>步骤 5: 提交修改</strong></h3>
 <p>当完成以上修改和测试后，您就可以开始提交修改。首先使用将您所更改的文件添加至 git 所管理的目录中：</p>
 <div class="highlight"><pre><span></span><code>git add &lt;filename&gt;

@@ -363,7 +363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -449,21 +449,7 @@
   
     <li class="md-nav__item">
       <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -1355,6 +1341,20 @@
     <li class="md-nav__item">
       <a href="../../Maintain/backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -5911,7 +5911,7 @@
 </thead>
 <tbody>
 <tr>
-<td>DDL</td>
+<td>数据定义语言（Data Definition Language，DDL)</td>
 <td>CREATE DATABASE</td>
 <td>不支持中文命名的表名</td>
 </tr>
@@ -5928,12 +5928,7 @@
 <tr>
 <td></td>
 <td>CREATE TABLE</td>
-<td>不支持临时表</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>不支持表的分区</td>
+<td>暂不支持表的分区</td>
 </tr>
 <tr>
 <td></td>
@@ -5948,17 +5943,12 @@
 <tr>
 <td></td>
 <td></td>
-<td>暂不支持复合主键</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
 <td>暂不支持 <code>KEY(column)</code> 语法</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>暂不支持 <code>AUTO_INCREMENT</code></td>
+<td>支持 <code>AUTO_INCREMENT</code> ，但暂不支持自定义起始值</td>
 </tr>
 <tr>
 <td></td>
@@ -5973,7 +5963,7 @@
 <tr>
 <td></td>
 <td>DROP DATABASE</td>
-<td>同 MySQL.</td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
@@ -5981,7 +5971,22 @@
 <td>同 MySQL.</td>
 </tr>
 <tr>
-<td>DML</td>
+<td></td>
+<td>CREAT VIEW</td>
+<td>不支持with check option子句</td>
+</tr>
+<tr>
+<td>数据操作语言（Data Manipulation Language，DML)</td>
+<td>UPDATE</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
+<td>DELETE</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
 <td>INSERT</td>
 <td>暂不支持 <code>LOW_PRIORITY</code>，<code>DELAYED</code>，<code>HIGH_PRIORITY</code></td>
 </tr>
@@ -6023,11 +6028,6 @@
 <tr>
 <td></td>
 <td></td>
-<td>部分支持 <code>Distinct</code></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
 <td>暂不支持 <code>SELECT...FOR UPDATE</code> 从句</td>
 </tr>
 <tr>
@@ -6058,7 +6058,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>暂不支持 <code>SET</code></td>
+<td>支持 <code>SET</code>，但仅支持 <code>SET columns_name=nullif(expr1,expr2)</code></td>
 </tr>
 <tr>
 <td></td>
@@ -6078,37 +6078,22 @@
 <tr>
 <td></td>
 <td>SUBQUERY</td>
-<td>暂不支持 <code>Non-scalar</code> 子查询</td>
+<td>暂不支持 <code>Non-scalar</code> 子查询，但可以作为过滤条件使用</td>
 </tr>
 <tr>
 <td>数据库管理语句</td>
 <td>SHOW</td>
-<td>仅支持 <code>show tables</code> 与 <code>show databases</code></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>支持 <code>CREATE TABLE</code> 与 <code>CREATE DATABASE</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Other statements</td>
-<td>暂不支持</td>
+<td>部分支持</td>
 </tr>
 <tr>
 <td>工具类语句</td>
-<td>USE</td>
-<td><code>Use database</code> 同 MySQL</td>
-</tr>
-<tr>
-<td></td>
 <td>Explain</td>
 <td>分析的结果与 MySQL 有所不同</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>暂不支持 <code>Explain Analyze</code></td>
+<td>不支持json类型的输出</td>
 </tr>
 <tr>
 <td></td>
@@ -6133,7 +6118,7 @@
 <tr>
 <td></td>
 <td>Float/double</td>
-<td>T与MySQL的精度有所不同</td>
+<td>与MySQL的精度有所不同</td>
 </tr>
 <tr>
 <td></td>
@@ -6153,7 +6138,7 @@
 <tr>
 <td></td>
 <td>Timestamp</td>
-<td>同 MySQL，MatrixOne 暂还不支持 <code>timezone</code>，Timestamp 的值不会随着时区的变化而变化。</td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
@@ -6187,23 +6172,33 @@
 </tr>
 <tr>
 <td></td>
-<td>XOR</td>
-<td>暂不支持</td>
-</tr>
-<tr>
-<td></td>
 <td>CAST</td>
 <td>支持不同转换规则。</td>
 </tr>
 <tr>
 <td>Functions</td>
 <td>MAX, MIN, COUNT, AVG, SUM</td>
-<td>同 MySQL. 暂不支持 <code>Distinct</code></td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
 <td>any_value</td>
 <td><code>Any_value</code> 是 MatrixOne 中的一个聚合函数。不能在 <code>GROUP</code> 或过滤条件中使用。</td>
+</tr>
+<tr>
+<td></td>
+<td>正则表达式</td>
+<td>即<code>REGEXP_INSTR()</code>，<code>REGEXP_LIKE()</code>，<code>REGEXP_REPLACE()</code>，<code>REGEXP_SUBSTR()</code>  暂不支持第三个参数</td>
+</tr>
+<tr>
+<td></td>
+<td>to_date</td>
+<td>对于日期的入参仅支持常量</td>
+</tr>
+<tr>
+<td>系统命令</td>
+<td>SHOW GRANTS FOR USERS</td>
+<td>目前只能看到直接授权的角色所具有的权限，继承角色的权限不能显示</td>
 </tr>
 </tbody>
 </table>
@@ -6220,7 +6215,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../matrixOne-architecture-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MatrixOne 技术架构" rel="prev">
+        <a href="../matrixone-architecture-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MatrixOne 技术架构" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>

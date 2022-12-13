@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Overview/matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../../Overview/matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -437,21 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -1345,6 +1331,20 @@
     <li class="md-nav__item">
       <a href="../backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -5902,37 +5902,37 @@
 <h1 id="matrixone">MatrixOne 目录结构</h1>
 <p>完成 MatrixOne 搭建和连接后，首次执行时，MatrixOne 会自动生成以下目录，用于存放各类数据文件或元数据信息。</p>
 <p>进入 <em>matrixone</em> 目录执行 <code>ls</code> 查看目录结构，相关目录结构以及用途如下：</p>
-<p>matrixone    //MatrixOne主目录<br>
-├── etc   //配置文件目录<br>
-│    └── quickstart //配置文件目录<br>
-├── mo-data  //数据文件目录<br>
-│   ├── local   //本地fileservice目录<br>
-│   │   ├── xf<br>
-│   │   └── dnservice   //dn节点信息目录<br>
-│   ├── etl  //外部表目录<br>
-│   │        └── sys //外部表信息归属于哪个租户<br>
-│   │            ├──  logs //统计信息的类型<br>
-│   │               └── 2022 //统计信息的年份<br>
-│   │                   └── 10  //统计信息的月份<br>
-│   │                       └── 27 //统计信息的天数<br>
-│   │                           ├── metric //统计信息对应表的存储目录<br>
-│   │                           ├── rawlog //统计信息对应表的存储目录<br>
-│   │                           └── statement_info //统计信息对应表的存储路目录<br>
-│   │           └── merged //过往外部表信息的合并记录<br>
-│   │                  └──  2022 //统计信息的年份<br>
-│   │                      └──  10  //统计信息的月份<br>
-│   │                         └──  27 //统计信息的天数<br>
-│   │                           ├── metric //统计信息对应表的存储目录<br>
-│   │                           ├── rawlog //统计信息对应表的存储目录<br>
-│   │                           └── statement_info //统计信息对应表的存储路目录<br>
-│   └── logservice  //logservice目录<br>
- |      └── 7c4dccb4-4d3c-41f8-b482-5251dc7a41bf //logservice节点对应目录（随机生成uuid）<br>
-│       ├──hostname //MatrixOne的服务器域名<br>
-│       │   └── 00000000000000000001 //快照保存目录<br>
-│        |     ├── exported-snapshot //导出快照目录<br>
- |         │     └── snapshot-part-n //快照分部保存目录<br>
-│       │       └── tandb //bootstrap信息保存目录<br>
-└── s3  //数据保存目录<br></p>
+<p>matrixone    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>MatrixOne主目录</em></strong><br>
+|-- etc   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>配置文件目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |-- quickstart &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>配置文件目录</em></strong><br>
+|-- mo-data  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>数据文件目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |-- local   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>本地fileservice目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |   |-- cnservice   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>cn节点信息目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |   |-- dnservice   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>dn节点信息目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |-- etl  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>外部表目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |        |-- sys &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>外部表信息归属于哪个租户</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |            |--  logs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息的类型</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |               |-- 2022 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息的年份</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                   |-- 10  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息的月份</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                       |-- 27 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息的天数</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- metric &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息对应表的存储目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- rawlog &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息对应表的存储目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- statement_info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息对应表的存储路目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |             |-- merged &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>过往外部表信息的合并记录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                  |--  2022 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息的年份</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                      |--  10  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息的月份</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                         |--  27 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息的天数</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- metric &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息对应表的存储目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- rawlog &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息对应表的存储目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- statement_info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>统计信息对应表的存储路目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |-- logservice  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>logservice目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |-- 7c4dccb4-4d3c-41f8-b482-5251dc7a41bf &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>logservice节点对应目录（随机生成uuid）</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |--hostname &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>MatrixOne的服务器域名</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- 00000000000000000001 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>快照保存目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- exported-snapshot &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>导出快照目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- snapshot-part-n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>快照分部保存目录</em></strong><br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- tandb &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>bootstrap信息保存目录</em></strong><br>
+|-- s3  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<strong><em>数据保存目录</em></strong><br></p>
 
               
             </article>
@@ -5946,7 +5946,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../backup-restore/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 备份与恢复" rel="prev">
+        <a href="../mount-data-by-docker/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 挂载目录到 Docker 容器" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -5955,7 +5955,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              备份与恢复
+              挂载目录到 Docker 容器
             </div>
           </div>
         </a>

@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../../../../Overview/matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -437,21 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -1343,6 +1329,20 @@
     <li class="md-nav__item">
       <a href="../../../../Maintain/backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -6013,11 +6013,18 @@
 </tbody>
 </table>
 <h2 id="_4"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">b</span><span class="w"> </span><span class="nb">float</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">14159</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">57</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">sinh</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="n">sinh</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">b</span><span class="w"> </span><span class="nb">float</span><span class="p">);</span><span class="w"></span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">14159</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">14159</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">sinh</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">sinh</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="o">+</span><span class="c1">---------------------+---------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">sinh</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">             </span><span class="o">|</span><span class="w"> </span><span class="n">sinh</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">             </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">---------------------+---------------------+</span>
+<span class="o">|</span><span class="w">  </span><span class="mi">1</span><span class="p">.</span><span class="mi">1752011936438014</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="mi">11</span><span class="p">.</span><span class="mi">548709969588323</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">1752011936438014</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="mi">11</span><span class="p">.</span><span class="mi">548709969588323</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">---------------------+---------------------+</span>
+<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 
               

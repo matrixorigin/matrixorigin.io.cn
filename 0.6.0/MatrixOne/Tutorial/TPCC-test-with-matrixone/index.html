@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Overview/matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../../Overview/matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -437,21 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -1343,6 +1329,20 @@
     <li class="md-nav__item">
       <a href="../../Maintain/backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -6090,7 +6090,7 @@
 <p>通过阅读本教程，你将学习如何使用 MatrixOne 完成 TPC-C 测试。</p>
 <h2 id="_1"><strong>开始前准备</strong></h2>
 <h3 id="matrixone">安装并启动 MatrixOne</h3>
-<p>确保你已经安装了<a href="../../Get-Started/install-standalone-matrixone/">单机版 MatrixOne</a>并<a href="../../Get-Started/connect-to-matrixone-server/">连接单机版 MatrixOne 服务</a>.</p>
+<p>确保你已经完成了<a href="../../Get-Started/install-standalone-matrixone/">单机部署 MatrixOne</a>。</p>
 <h3 id="mo-tpch">克隆 mo-tpch 仓库到本地</h3>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/matrixorigin/mo-tpcc.git
 </code></pre></div>
@@ -6126,7 +6126,7 @@ limitTxnsPerMin=0
 <div class="highlight"><pre><span></span><code>cd mo-tpch
 ./runSQL.sh props.mo tableCreates
 </code></pre></div>
-<p>上面的代码表示，进入到 <em>mo-tpch</em> 文件夹目录，执行代码创建完成 TPCC 数据库和表。</p>
+<p>上面的代码表示，进入到 <em>mo-tpch</em> 文件夹目录，执行代码创建完成  TPCC 数据库和表。</p>
 <p>执行完成后，输出结果示例如下：</p>
 <div class="highlight"><pre><span></span><code># ------------------------------------------------------------
 # Loading SQL file ./sql/tableCreates.sql
@@ -6288,25 +6288,47 @@ Worker 001: Loading Warehouse      1 done
 <p>执行下面的代码，运行 TPCC 测试：</p>
 <div class="highlight"><pre><span></span><code>./runBenchmark.sh props.mo
 </code></pre></div>
-<p>执行完成后，输出结果示例如下(这里只展示一部分）：</p>
-<div class="highlight"><pre><span></span><code>...
-2022-11-27 11:43:35 INFO  jTPCC:694 - Term-00, 
-2022-11-27 11:43:35 INFO  jTPCC:695 - Term-00, 
-2022-11-27 11:43:35 INFO  jTPCC:696 - Term-00, Measured tpmC (NewOrders) = 8.11
-2022-11-27 11:43:35 INFO  jTPCC:697 - Term-00, Measured tpmTOTAL = 26.91
-2022-11-27 11:43:35 INFO  jTPCC:698 - Term-00, Measured tpmE (ErrorCount) = 2.21
-2022-11-27 11:43:35 INFO  jTPCC:699 - Term-00, Session Start     = 2022-11-27 11:40:52
-2022-11-27 11:43:35 INFO  jTPCC:700 - Term-00, Session End       = 2022-11-27 11:43:35
-2022-11-27 11:43:35 INFO  jTPCC:701 - Term-00, Transaction Count = 72
-2022-11-27 11:43:35 INFO  jTPCC:702 - Term-00, Transaction Error = 6
-2022-11-27 11:43:35 INFO  jTPCC:703 - Term-00, Transaction NewOrders = 22
-2022-11-27 11:43:35 INFO  jTPCC:710 - Term-00, Session finished!
+<p>执行完成后，输出结果示例如下：</p>
+<div class="highlight"><pre><span></span><code>.:./lib/*
+2022-11-27 01:07:44 INFO  jTPCC:78 - Term-00,
+2022-11-27 01:07:44 INFO  jTPCC:79 - Term-00, +-------------------------------------------------------------+
+2022-11-27 01:07:44 INFO  jTPCC:80 - Term-00,      BenchmarkSQL v5.0
+2022-11-27 01:07:44 INFO  jTPCC:81 - Term-00, +-------------------------------------------------------------+
+2022-11-27 01:07:44 INFO  jTPCC:82 - Term-00,  (c) 2003, Raul Barbosa
+2022-11-27 01:07:44 INFO  jTPCC:83 - Term-00,  (c) 2004-2016, Denis Lussier
+2022-11-27 01:07:44 INFO  jTPCC:84 - Term-00,  (c) 2016, Jan Wieck
+2022-11-27 01:07:44 INFO  jTPCC:85 - Term-00, +-------------------------------------------------------------+
+2022-11-27 01:07:44 INFO  jTPCC:86 - Term-00,
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, db=mo
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, driver=com.mysql.cj.jdbc.Driver
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, conn=jdbc:mysql://127.0.0.1:6001/tpcc?characterSetResults=utf8&amp;continueBatchOnError=false&amp;useServerPrepStmts=true&amp;alwaysSendSetIsolation=false&amp;useLocalSessionState=true&amp;zeroDateTimeBehavior=CONVERT_TO_NULL&amp;failoverReadOnly=false&amp;serverTimezone=Asia/Shanghai&amp;enabledTLSProtocols=TLSv1.2&amp;useSSL=false
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, user=dump
+2022-11-27 01:07:44 INFO  jTPCC:93 - Term-00,
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, warehouses=1
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, terminals=1
+2022-11-27 01:07:44 INFO  jTPCC:100 - Term-00, runMins=1
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, limitTxnsPerMin=0
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, terminalWarehouseFixed=null
+2022-11-27 01:07:44 INFO  jTPCC:108 - Term-00,
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, newOrderWeight=null
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, paymentWeight=null
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, orderStatusWeight=null
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, deliveryWeight=null
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, stockLevelWeight=null
+2022-11-27 01:07:44 INFO  jTPCC:115 - Term-00,
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, resultDirectory=null
+2022-11-27 01:07:44 INFO  jTPCC:63 - Term-00, osCollectorScript=null
+2022-11-27 01:07:44 INFO  jTPCC:119 - Term-00,
+2022-11-27 01:07:44 INFO  jTPCC:710 - Term-00, Loading database driver: &#39;com.mysql.cj.jdbc.Driver&#39;...
+2022-11-27 01:07:44 INFO  jTPCC:324 - Term-00, C value for C_LAST during load: 229
+2022-11-27 01:07:44 INFO  jTPCC:325 - Term-00, C value for C_LAST this run:    110
+2022-11-27 01:07:44 INFO  jTPCC:326 - Term-00,
+Term-00, Running Average tpmTOTAL: 0.00    Current tpmTOTAL: 0    Memory Usage: 15MB / 260MB      2022-11-27 01:07:44 ERROR jTPCC:715 - Term-00, Invalid number in mix percentage!
+java.lang.Exception
+        at io.mo.jTPCC.&lt;init&gt;(jTPCC.java:429)
+        at io.mo.jTPCC.main(jTPCC.java:57)
+Term-00, Running Average tpmTOTAL: 0.00    Current tpmTOTAL: 0    Memory Usage: 15MB / 260MB
 </code></pre></div>
-<p>上述结果中有两个核心指标可以作为本次测试的主要指标，来评估系统的性能：</p>
-<ul>
-<li>tpmC 是指平均每分钟成功完成 New Order 事务数</li>
-<li>tpmTOTAL 是指平均每分钟成功完成的事务总数</li>
-</ul>
 
               
             </article>

@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../../../../Overview/matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -437,21 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -1413,6 +1399,20 @@
     <li class="md-nav__item">
       <a href="../../../../Maintain/backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -6002,14 +6002,13 @@
 <h2 id="jsonlines">导入 jsonlines 数据</h2>
 <p>MatrixOne 支持 jsonlines 格式数据（即 <em>.jl</em> 文件）导入。</p>
 <h2 id="_1">开始前准备</h2>
-<ul>
-<li>已通过<a href="https://docs.matrixorigin.io/cn/0.5.0/MatrixOne/Get-Started/install-standalone-matrixone/#1">源代码</a>或<a href="https://docs.matrixorigin.io/cn/0.5.0/MatrixOne/Get-Started/install-standalone-matrixone/#2">二进制包</a>完成安装 MatrixOne</li>
-<li>已完成<a href="../../../../Get-Started/connect-to-matrixone-server/">连接 MatrixOne 服务</a></li>
-</ul>
-<p>如果你使用 Docker 安装启动 MatrixOne，确保你已将数据文件目录挂载到容器目录下，示例如下：</p>
-<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.5.1
+<p>已完成<a href="../../../../Get-Started/install-standalone-matrixone/">单机部署 MatrixOne</a>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果你是通过 <code>docker</code> 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要挂载本地目录，参见下面的代码示例：本地文件系统路径 <em>${local_data_path}/mo-data</em> 挂载到 MatrixOne Docker 镜像中，并映射到 <em>/mo-data</em> 路径下。更多信息，参见 <a href="https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/">Docker Mount Volume tutorial</a>。</p>
+</div>
+<div class="highlight"><pre><span></span><code>sudo docker run --name &lt;name&gt; --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
 </code></pre></div>
-<p>上述示例为典型的安装和挂载方式，将其本地路径 <em>~/tmp/docker_loaddata_demo</em> 挂载到内部容器路径 <em>/ssb-dbgen-path</em>。</p>
 <h3 id="_2">基本命令</h3>
 <div class="highlight"><pre><span></span><code>load data infile {&#39;filepath&#39;=&#39;data.txt&#39;, &#39;compression&#39;=&#39;BZIP2&#39;,&#39;format&#39;=&#39;jsonline&#39;,&#39;jsondata&#39;=&#39;object&#39;} into table db.a
 
@@ -6085,7 +6084,7 @@ load data infile {&#39;filepath&#39;=&#39;data.txt&#39;, &#39;format&#39;=&#39;j
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Docker 启动 MatrixOne 导入 jsonline 文件，启动时将存放了数据文件的目录挂载到容器的某个目录下，然后再进行数据导入。挂载目录的方式，参见<a href="../../../Maintain/upgrade-standalone-matrixone/#1back-up-the-store-directory-in-the-container-to-the-host">将容器中的 <em>store</em> 目录备份到宿主机</a>。</p>
+<p>Docker 启动 MatrixOne 导入 jsonline 文件，启动时将存放了数据文件的目录挂载到容器的某个目录下，然后再进行数据导入。</p>
 </div>
 
               

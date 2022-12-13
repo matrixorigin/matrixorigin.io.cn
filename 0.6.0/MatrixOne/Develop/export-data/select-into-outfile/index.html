@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Overview/matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../../../Overview/matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -437,21 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -1415,6 +1401,20 @@
     <li class="md-nav__item">
       <a href="../../../Maintain/backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -6015,7 +6015,7 @@
     -&gt; INTO OUTFILE &#39;/root/test.csv&#39;;
 </code></pre></div>
 <p>你可以采用多种形式和选项更改输出格式，用于表示如何引用、分隔列和记录。</p>
-<p>使用以下代码以 <em>.csv</em> 格式导出 <em>tutorial_tbl</em> 表，下面的代码行是用回车换行进行展示的：</p>
+<p>使用以下代码以 <em>.csv</em> 格式导出 <em>TEST</em> 表，下面的代码行是用回车换行进行展示的：</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; SELECT * FROM TEST INTO OUTFILE &#39;/root/test.csv&#39;
    -&gt; FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;&quot;&#39;
    -&gt; LINES TERMINATED BY &#39;\r\n&#39;;
@@ -6037,19 +6037,12 @@
 </ul>
 <h2 id="_2">示例</h2>
 <h3 id="_3">开始前准备</h3>
-<ul>
-<li>
-<p>已通过<a href="../../Get-Started/install-standalone-matrixone/#1">源代码</a>或<a href="../../Get-Started/install-standalone-matrixone/#2">二进制包</a>完成安装 MatrixOne。</p>
-</li>
-<li>
-<p>已完成<a href="../../../Get-Started/connect-to-matrixone-server/">连接单机版 MatrixOne 服务</a>。</p>
-</li>
-</ul>
+<p>已完成<a href="../../../Get-Started/install-standalone-matrixone/">单机部署 MatrixOne</a>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>如果你是通过 <code>docker</code> 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要导出到本地目录，你需要先将本地目录绑定到容器中。在以下示例中，本地文件系统路径 <em>/tmp/docker_export_demo/store</em> 绑定到 MatrixOne Docker 映像中，并映射到 <em>/store</em> 路径下。更多信息，参见 <a href="https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/">Docker Mount Volume tutorial</a>。</p>
+<p>如果你是通过 <code>docker</code> 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要挂载本地目录，参见下面的代码示例：本地文件系统路径 <em>${local_data_path}/mo-data</em> 挂载到 MatrixOne Docker 镜像中，并映射到 <em>/mo-data</em> 路径下。更多信息，参见 <a href="https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/">Docker Mount Volume tutorial</a>。</p>
 </div>
-<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ~/tmp/docker_export_demo/store:/store:rw --name matrixone matrixorigin/matrixone:0.5.1
+<div class="highlight"><pre><span></span><code>sudo docker run --name &lt;name&gt; --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
 </code></pre></div>
 <h3 id="_4">步骤</h3>
 <ol>
@@ -6073,8 +6066,8 @@
 <p>对于使用源代码或二进制文件的方式安装构建 MatrixOne，将表导出到本地目录，例如 <em>~/tmp/export_demo/export_datatable.txt</em>，命令示例如下：</p>
 <div class="highlight"><pre><span></span><code>select * from user into outfile &#39;~/tmp/export_demo/export_datatable.txt&#39;
 </code></pre></div>
-<p>使用 Docker 安装构建 MatrixOne，导出到你挂载的容器目录路径，如下例所示。其中目录 <em>store</em> 指的是本地路径 <em>~/tmp/docker_export_demo/store</em> 。</p>
-<div class="highlight"><pre><span></span><code>select * from user into outfile &#39;store/export_datatable.txt&#39;;
+<p>使用 Docker 安装启动 MatrixOne，导出到你挂载的容器目录路径，如下例所示。其中目录 <em>mo-data</em> 指的是本地路径 <em>~/tmp/docker_export_demo/mo-data</em> 。</p>
+<div class="highlight"><pre><span></span><code>select * from user into outfile &#39;mo-data/export_datatable.txt&#39;;
 </code></pre></div>
 </li>
 <li>

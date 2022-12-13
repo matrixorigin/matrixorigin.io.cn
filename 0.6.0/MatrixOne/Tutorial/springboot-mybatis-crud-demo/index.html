@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Overview/matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../../Overview/matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -437,21 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -1525,6 +1511,20 @@
     <li class="md-nav__item">
       <a href="../../Maintain/backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -6246,7 +6246,7 @@
 </code></pre></div>
 <h3 id="2-intellij-idea-spring-boot">2. 使用 IntelliJ IDEA 创建一个新的 Spring Boot 项目</h3>
 <p>选择 <strong>Spring Initializer</strong>，按需命名项目名称。</p>
-<p><img alt="image-20221026152318567" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026152318567.png" /></p>
+<p><img alt="image-20221026152318567" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026152318567.png?raw=true" /></p>
 <p>选择如下依赖项：</p>
 <ul>
 <li><strong>Spring Web</strong></li>
@@ -6254,7 +6254,7 @@
 <li><strong>JDBC API</strong></li>
 <li><strong>MySQL Driver</strong></li>
 </ul>
-<p><img alt="image-20221026152447954" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026152447954.png" /></p>
+<p><img alt="image-20221026152447954" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026152447954.png?raw=true" /></p>
 <p>点击 <strong>Create</strong> 创建项目。依赖项列在 <em>pom.xml</em> 文件中。通常你无需修改任何东西。</p>
 <div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -6377,7 +6377,7 @@ server.port=8080
 <p>完成环境配置后，我们编写代码来实现一个简单的 CRUD 应用程序。</p>
 <p>在完成编写编码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。</p>
 <p>我们将为这个演示应用程序编写创建、更新、插入、删除和选择操作。</p>
-<p><img alt="image-20221026155656694" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026155656694.png" /></p>
+<p><img alt="image-20221026155656694" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026155656694.png?raw=true" /></p>
 <h3 id="1-usercontrollerjava">1. UserController.java</h3>
 <div class="highlight"><pre><span></span><code>package com.example.mybatisdemo.controller;
 
@@ -6660,7 +6660,7 @@ public class MyBatisDemoApplication {
 </code></pre></div>
 <h2 id="_4">测试</h2>
 <p>构建并启动这个项目。</p>
-<p><img alt="image-20221026161226923" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161226923.png" /></p>
+<p><img alt="image-20221026161226923" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161226923.png?raw=true" /></p>
 <p>当出现下面的消息时，表示应用程序已经正常启动，你可以打开浏览器并发送 HTTP 请求。</p>
 <div class="highlight"><pre><span></span><code>2022-10-26 16:13:24.030  INFO 60253 --- [           main] c.e.mybatisdemo.MyBatisDemoApplication   : Starting MyBatisDemoApplication on nandeng-macbookpro.local with PID 60253 (/Users/nandeng/IdeaProjects/MyBatisDemo/target/classes started by nandeng in /Users/nandeng/IdeaProjects/MyBatisDemo)
 2022-10-26 16:13:24.035  INFO 60253 --- [           main] c.e.mybatisdemo.MyBatisDemoApplication   : No active profile set, falling back to default profiles: default
@@ -6674,7 +6674,7 @@ public class MyBatisDemoApplication {
 2022-10-26 16:13:26.272  INFO 60253 --- [           main] c.e.mybatisdemo.MyBatisDemoApplication   : Started MyBatisDemoApplication in 2.669 seconds (JVM running for 3.544)
 </code></pre></div>
 <h3 id="1">1. 测试新建表</h3>
-<p><img alt="image-20221026161929338" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161929338.png" /></p>
+<p><img alt="image-20221026161929338" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161929338.png?raw=true" /></p>
 <p>在 MySQL 客户端中，验证表是否已成功创建。</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; use test;
 Reading table information for completion of table and column names
@@ -6704,7 +6704,7 @@ PRIMARY KEY (`id`)
 1 row in set (0.01 sec)
 </code></pre></div>
 <h3 id="2">2. 测试增加用户</h3>
-<p><img alt="image-20221026162317800" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162317800.png" /></p>
+<p><img alt="image-20221026162317800" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162317800.png?raw=true" /></p>
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from user;
 +------+----------+----------+----------+
 | id   | username | password | address  |
@@ -6714,9 +6714,9 @@ PRIMARY KEY (`id`)
 1 row in set (0.00 sec)
 </code></pre></div>
 <h3 id="3">3. 测试选择用户</h3>
-<p><img alt="image-20221026162455058" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162455058.png" /></p>
+<p><img alt="image-20221026162455058" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162455058.png?raw=true" /></p>
 <h3 id="4">4. 测试更新用户</h3>
-<p><img alt="image-20221026162613066" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162613066.png" /></p>
+<p><img alt="image-20221026162613066" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162613066.png?raw=true" /></p>
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from user;
 +------+----------+----------+---------+
 | id   | username | password | address |
@@ -6726,7 +6726,7 @@ PRIMARY KEY (`id`)
 1 row in set (0.00 sec)
 </code></pre></div>
 <h3 id="5">5. 测试删除用户</h3>
-<p><img alt="image-20221026162756460" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162756460.png" /></p>
+<p><img alt="image-20221026162756460" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162756460.png?raw=true" /></p>
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from user;
 Empty set (0.00 sec)
 </code></pre></div>

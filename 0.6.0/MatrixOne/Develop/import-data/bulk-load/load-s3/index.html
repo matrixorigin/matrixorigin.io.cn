@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#s3" class="md-skip">
+        <a href="#s3-matrixone" class="md-skip">
           Skip to content
         </a>
       
@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../../../../Overview/matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -437,21 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -885,14 +871,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#s3-matrixone" class="md-nav__link">
+  <a href="#s3-matrixone_1" class="md-nav__link">
     方式一：直接将 S3 文件导入到 MatrixOne
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#s3_1" class="md-nav__link">
+  <a href="#s3" class="md-nav__link">
     方式二：直接将 S3 文件指定到外部表
   </a>
   
@@ -1444,6 +1430,20 @@
     <li class="md-nav__item">
       <a href="../../../../Maintain/backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -6008,14 +6008,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#s3-matrixone" class="md-nav__link">
+  <a href="#s3-matrixone_1" class="md-nav__link">
     方式一：直接将 S3 文件导入到 MatrixOne
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#s3_1" class="md-nav__link">
+  <a href="#s3" class="md-nav__link">
     方式二：直接将 S3 文件指定到外部表
   </a>
   
@@ -6057,19 +6057,18 @@
 
 
 
-<h1 id="s3">从 S3 导入数据</h1>
+<h1 id="s3-matrixone">从 S3 读取数据并导入 MatrixOne</h1>
 <h2 id="_1">概述</h2>
 <p>MatrixOne 支持从对象存储服务（Simple Storage Service, S3) 中读取文件，导入数据到 MatrixOne 数据库表中。</p>
 <p>目前的 S3 支持 AWS，以及国内的主流云厂商，此外 S3 上的文件支持压缩格式，此外还支持文件路径的正则表达式规则，来读取多个文件，例如 "/Users/*.txt" 就会去读取以 <em>.txt</em> 结尾的所有文件。</p>
 <h2 id="_2">开始前准备</h2>
-<ul>
-<li>已通过<a href="https://docs.matrixorigin.io/cn/0.5.0/MatrixOne/Get-Started/install-standalone-matrixone/#1">源代码</a>或<a href="https://docs.matrixorigin.io/cn/0.5.0/MatrixOne/Get-Started/install-standalone-matrixone/#2">二进制包</a>完成安装 MatrixOne</li>
-<li>已完成<a href="../../../../Get-Started/connect-to-matrixone-server/">连接 MatrixOne 服务</a></li>
-</ul>
-<p>如果你使用 Docker 安装启动 MatrixOne，确保你已将数据文件目录挂载到容器目录下，示例如下：</p>
-<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo:/ssb-dbgen-path:rw --name matrixone matrixorigin/matrixone:0.5.1
+<p>已完成<a href="../../../../Get-Started/install-standalone-matrixone/">单机部署 MatrixOne</a>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果你是通过 <code>docker</code> 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要挂载本地目录，参见下面的代码示例：本地文件系统路径 <em>${local_data_path}/mo-data</em> 挂载到 MatrixOne Docker 镜像中，并映射到 <em>/mo-data</em> 路径下。更多信息，参见 <a href="https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/">Docker Mount Volume tutorial</a>。</p>
+</div>
+<div class="highlight"><pre><span></span><code>sudo docker run --name &lt;name&gt; --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
 </code></pre></div>
-<p>上述示例为典型的安装和挂载方式，将其本地路径 <em>~/tmp/docker_loaddata_demo</em> 挂载到内部容器路径 <em>/ssb-dbgen-path</em>。</p>
 <h2 id="_3">导入语法介绍</h2>
 <div class="highlight"><pre><span></span><code><span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"></span>
 <span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="n">INFILE</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="w"></span>
@@ -6084,8 +6083,6 @@
 <span class="w">    </span><span class="p">]</span><span class="w"></span>
 <span class="w">    </span><span class="p">[</span><span class="k">IGNORE</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="err">{</span><span class="n">LINES</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ROWS</span><span class="err">}</span><span class="p">]</span><span class="w"></span>
 </code></pre></div>
-<!--待确认-heni-->
-
 <p><strong>参数说明</strong></p>
 <table>
 <thead>
@@ -6148,7 +6145,7 @@
 <p>涉及到账号隐私，此处代码示例不展示有关 access_id 等账号信息。
 你可以通过本篇文档了解主要步骤，对于具体数据和具体账号信息，将不做展示。</p>
 </div>
-<h3 id="s3-matrixone">方式一：直接将 S3 文件导入到 MatrixOne</h3>
+<h3 id="s3-matrixone_1">方式一：直接将 S3 文件导入到 MatrixOne</h3>
 <ol>
 <li>
 <p>准备数据。进入到 <strong>AWS S3 &gt; buckets</strong> 找到表文件 <em>file-demo</em>。</p>
@@ -6172,7 +6169,7 @@
 </code></pre></div>
 </li>
 </ol>
-<h3 id="s3_1">方式二：直接将 S3 文件指定到外部表</h3>
+<h3 id="s3">方式二：直接将 S3 文件指定到外部表</h3>
 <ol>
 <li>
 <p>准备数据。进入到 <strong>AWS S3 &gt; Buckes</strong> 找到表文件 <em>file-demo</em>。</p>

@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Overview/matrixOne-architecture-design/" class="md-nav__link">
+      <a href="../../../Overview/matrixone-architecture-design/" class="md-nav__link">
         MatrixOne 技术架构
       </a>
     </li>
@@ -437,21 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
-        安装单机版 MatrixOne
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Get-Started/connect-to-matrixone-server/" class="md-nav__link">
-        连接单机版 MatrixOne 服务
+        单机部署 MatrixOne
       </a>
     </li>
   
@@ -1422,6 +1408,20 @@
     <li class="md-nav__item">
       <a href="../../../Maintain/backup-restore/" class="md-nav__link">
         备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
       </a>
     </li>
   
@@ -6023,10 +6023,12 @@
 <p>创建包含 SSL 密钥的目录，执行以下步骤：</p>
 <ol>
 <li>
-<p>通过 SSH 登录 MatrixOne 服务，先确认你已安装 <strong><a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-ssl-rsa-setup.html">mysql_ssl_rsa_setup</a></strong> 工具。</p>
-<p>检查你是否安装 MySQL：如果你已安装 MySQL，则出现以下代码，如果没有如下代码，安装 MySQL 参见<a href="https://dev.mysql.com/doc/mysql-getting-started/en/">install MySQL</a>，<code>mysql_ssl_rsa_setup</code> 也将一并安装。</p>
+<p>通过 SSH 登录 MatrixOne 服务，先确认你已安装 <code>mysql_ssl_rsa_setup</code> 工具。一般如果MySQL安装完成的话，<code>mysql_ssl_rsa_setup</code>也会被一起安装。</p>
+<p>检查你是否安装<code>mysql_ssl_rsa_setup</code>：如果你已安装<code>mysql_ssl_rsa_setup</code>，在命令行工具中执行以下命令，如果没有出现下列结果，则需要重新安装 MySQL, 可以参见<a href="https://dev.mysql.com/doc/mysql-getting-started/en/">install MySQL</a>，<code>mysql_ssl_rsa_setup</code> 也将一并安装。另外你也可以通过<code>whereis mysql_ssl_rsa_setup</code>命令查看<code>mysql_ssl_rsa_setup</code>可执行文件的路径。</p>
 <div class="highlight"><pre><span></span><code>[pcusername@VM-0-12-centos matrixone]$ mysql_ssl_rsa_setup
 2022-10-19 10:57:30 [ERROR]   Failed to access directory pointed by --datadir. Please make sure that directory exists and is accessible by mysql_ssl_rsa_setup. Supplied value : /var/lib/mysql
+[pcusername@VM-0-12-centos matrixone]$ whereis mysql_ssl_rsa_setup
+mysql_ssl_rsa_setup: /usr/bin/mysql_ssl_rsa_setup /usr/share/man/man1/mysql_ssl_rsa_setup.1.gz
 </code></pre></div>
 </li>
 <li>
@@ -6040,7 +6042,7 @@
 <p>运行命令创建 CA (Certificate Authority) 密钥：</p>
 <div class="highlight"><pre><span></span><code>mysql_ssl_rsa_setup --datadir=/home/user/mo_keys
 </code></pre></div>
-<p>文件夹将创建产生一个 <em>.pem</em> 文件。</p>
+<p>文件夹将创建产生多个 <em>.pem</em> 文件。</p>
 <p>/mo_keys<br>
 ├── ca-key.pem<br>
 ├── ca.pem<br>
@@ -6052,7 +6054,7 @@
 └── server-key.pem<br></p>
 </li>
 <li>
-<p>在 MatrixOne 目录下的 <em>etc/launch-tae-logservice/cn1.toml</em> 文件内的 <code>[cn.front]</code> 部分插入以下代码段：</p>
+<p>在 MatrixOne 目录下的 <em>etc/launch-tae-CN-tae-DN/cn.toml</em> 文件内的 <code>[cn.frontend]</code> 部分插入以下代码段：</p>
 <div class="highlight"><pre><span></span><code>[cn.frontend]
 enableTls = true
 tlsCertFile = &quot;/home/user/mo_keys/server-cert.pem&quot;
@@ -6065,14 +6067,11 @@ tlsCaFile = &quot;/home/user/mo_keys/ca.pem&quot;
 <h3 id="ssl_2">测试 SSL 配置是否成功</h3>
 <p>执行以下步骤，测试测试 SSL 配置是否成功：</p>
 <ol>
-<li>安装构建 MatrixOne 服务，具体步骤，参见<a href="../../../Get-Started/install-standalone-matrixone/">安装单机版 MatrixOne</a>。</li>
 <li>
-<p>通过 MySQL 客户端连接 MatrixOne 服务，具体步骤，参见 <a href="../../../Get-Started/connect-to-matrixone-server/">连接 MatrixOne</a>。</p>
-<div class="highlight"><pre><span></span><code>mysql -h IP_ADDRESS -P 6001 -udump -p111
-</code></pre></div>
+<p>单机部署 MatrixOne 服务，具体步骤，参见<a href="../../../Get-Started/install-standalone-matrixone/">单机部署 MatrixOne</a>。</p>
 </li>
 <li>
-<p>连接完成后，运行 <code>status</code> 命令，输出结果示例如下：</p>
+<p>完成上述步骤 1 中单机部署 MatriOne 服务并连接成功后，运行 <code>status</code> 命令，输出结果示例如下：</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; status
 --------------
 mysql  Ver 8.0.28 for Linux on x86_64 (MySQL Community Server - GPL)
@@ -6084,7 +6083,7 @@ SSL:            Cipher in use is TLS_AES_128_GCM_SHA256
 Current pager:      stdout
 Using outfile:      &#39;&#39;
 Using delimiter:    ;
-Server version:     0.5.1 MatrixOne
+Server version:     0.6.0 MatrixOne
 Protocol version:   10
 Connection:     127.0.0.1 via TCP/IP
 Client characterset:    utf8mb4
