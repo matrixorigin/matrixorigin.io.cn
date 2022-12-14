@@ -33,7 +33,7 @@
 以下是从 Northwind 示例数据库中的 **Customers** 表中选择的表示例：
 
 ```
-CREATE TABLE Customer (
+CREATE TABLE Customers (
   CustomerID INT AUTO_INCREMENT NOT NULL
   ,CustomerName VARCHAR(40) NOT NULL
   ,ContactName VARCHAR(30) NULL
@@ -121,7 +121,7 @@ WHERE *condition*;
 以下是从 Northwind 示例数据库中的表中选择的表示例：
 
 ```
-CREATE TABLE Customer (
+CREATE TABLE Customers (
   CustomerID INT AUTO_INCREMENT NOT NULL
   ,CustomerName VARCHAR(40) NOT NULL
   ,ContactName VARCHAR(30) NULL
