@@ -89,7 +89,7 @@ insert into t1 values (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '2019-01-01', '2019-01-01 0
 将 MatrixOne 与 MySQL 客户端连接至同一服务器上，并确保导出的 *.sql* 文件也在同一服务器上。
 
 ```
-mysql> create database t if not exists;
+mysql> create database if not exists t;
 mysql> source /YOUR_SQL_FILE_PATH/t.sql
 ```
 
