@@ -13,7 +13,7 @@
     
     
       
-        <title>JDBC - MatrixOne中文文档</title>
+        <title>使用 JDBC 连接器连接 MatrixOne - MatrixOne中文文档</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JDBC
+              使用 JDBC 连接器连接 MatrixOne
             
           </span>
         </div>
@@ -541,8 +541,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../database-ide/" class="md-nav__link">
-        数据库客户端 IDE
+      <a href="../../database-client-tools/" class="md-nav__link">
+        客户端工具连接 MatrixOne 服务
       </a>
     </li>
   
@@ -593,12 +593,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          JDBC
+          使用 JDBC 连接器连接 MatrixOne
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        JDBC
+        使用 JDBC 连接器连接 MatrixOne
       </a>
       
         
@@ -628,26 +628,6 @@
     步骤
   </a>
   
-    <nav class="md-nav" aria-label="步骤">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jdbc-matrixone_1" class="md-nav__link">
-    场景一：新建项目时使用 JDBC 连接 MatrixOne
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jdbc-matrixone_2" class="md-nav__link">
-    场景二：在现有的项目中使用 JDBC 连接 MatrixOne
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -661,6 +641,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connect-mo-with-orm/" class="md-nav__link">
+        使用 Java ORMs 连接 MatrixOne
+      </a>
     </li>
   
 
@@ -1192,20 +1186,6 @@
     <li class="md-nav__item">
       <a href="../../../../Tutorial/springboot-mybatis-crud-demo/" class="md-nav__link">
         MyBatis
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Tutorial/connect_mo_with_orm/" class="md-nav__link">
-        ORMs
       </a>
     </li>
   
@@ -4393,8 +4373,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/blob-type/" class="md-nav__link">
-        BLOB 数据类型
+      <a href="../../../../Reference/Data-Types/blob-text-type/" class="md-nav__link">
+        BLOB 和 TEXT 数据类型
       </a>
     </li>
   
@@ -5970,26 +5950,6 @@
     步骤
   </a>
   
-    <nav class="md-nav" aria-label="步骤">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jdbc-matrixone_1" class="md-nav__link">
-    场景一：新建项目时使用 JDBC 连接 MatrixOne
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jdbc-matrixone_2" class="md-nav__link">
-    场景二：在现有的项目中使用 JDBC 连接 MatrixOne
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -6017,29 +5977,20 @@
 
 
 
-<h1 id="jdbc-matrixone">如何使用 JDBC 连接 MatrixOne</h1>
+<h1 id="jdbc-matrixone">使用 JDBC 连接 MatrixOne</h1>
 <p>在 Java 中，我们可以通过 Java 代码使用 JDBC 连接器（Java Database Connectivity）连接到 MatrixOne。 JDBC 是用于数据库连接的标准 API 之一，使用它我们可以轻松地运行 SQL 语句并且从数据库中获取数据。</p>
 <h2 id="_1">开始前准备</h2>
 <p>使用 MatrixOne 进行 Java 数据库连接前，需要完成以下下载安装任务：</p>
 <ol>
 <li>已完成<a href="../../../../Get-Started/install-standalone-matrixone/">安装并启动 MatrixOne</a>。</li>
 <li>下载安装<a href="https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html">JDK 8+ version</a>。</li>
-<li>
-<p>下载安装 Java 的 MySQL <a href="https://dev.mysql.com/downloads/connector/j/">connector</a>（JAR 文件），在编译和运行 JDBC 代码时，JAR 文件必须在类路径中。</p>
-<ul>
-<li>系统环境推荐安装：选择 <em>Platform-independent</em> 版本。</li>
-<li>版本推荐安装：connector 版本 <em>mysql-connector-java-8.0.31.jar</em>。</li>
-</ul>
-</li>
-<li>
-<p>下载安装 JAVA IDE，本篇文档以 <a href="http://netbeans.org/downloads/index.html">Apache NetBeans 15</a> 为例，你也可以下载其他 IDE 工具。</p>
-</li>
+<li>下载安装 MySQL 客户端。</li>
+<li>下载安装 JAVA IDE，本篇文档以 <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> 为例，你也可以下载其他 IDE 工具。</li>
 </ol>
 <h2 id="_2">步骤</h2>
-<h3 id="jdbc-matrixone_1">场景一：新建项目时使用 JDBC 连接 MatrixOne</h3>
 <ol>
 <li>
-<p>在 MatrixOne 新建一个名为 <em>test</em> 数据库和一个新的表 <em>t1</em>：</p>
+<p>使用 MySQL 客户端连接 MatrixOne。在 MatrixOne 新建一个名为 <em>test</em> 数据库和一个新的表 <em>t1</em>：</p>
 <div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w"></span>
 <span class="n">use</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w"></span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"></span>
@@ -6050,65 +6001,56 @@
 </code></pre></div>
 </li>
 <li>
-<p>将下载的 JAVA 连接器添加到 NetBeans 中：在左侧菜单栏中选择 <strong>Services</strong> 栏，点击 <strong>Databases &gt; Drivers</strong>，鼠标右键单击 <strong>MySQL(Connector/J driver)</strong> 选择 <strong>Customize</strong>，在弹窗 <strong>Customize JDBC Driver</strong> 中点击 <strong>Add</strong>，添加 connector 的 <em>mysql-connector-java-8.0.31.jar</em> 包，<strong>Drive Class</strong> 为 <em>com.mysql.cj.jdbc.Driver</em>。</p>
+<p>在 IDEA 中新建 Java 名称为 <strong>testJDBC</strong> 的项目并选择 在 <strong>Build System</strong> 中选择 <strong>Maven</strong> 作为构建系统，点击 <strong>Create</strong>。</p>
+<p><img alt="JDBC create project" src="https://github.com/matrixorigin/artwork/blob/main/docs/develop/JDBC_connect/JDBC-create-project.png?raw=true" /></p>
 </li>
 <li>
-<p>鼠标右键单击 <strong>MySQL(Connector/J driver)</strong> 选择 <strong>Connect Using</strong>，在弹窗中填写如下配置：</p>
-<ul>
-<li>Host：127.0.0.1</li>
-<li>Port：6001</li>
-<li>Database：test</li>
-<li>User Name：dump</li>
-<li>Password：111</li>
-<li>Remmember password：勾选</li>
-</ul>
+<p>点击 <strong>File &gt; Project Structure</strong>，进入到 <strong>Project Setting</strong>，点选 <strong>Library</strong>，并点击 <strong>+</strong> 按钮，添加 <strong>From Maven</strong>。</p>
+<p><img alt="JDBC project structure" src="https://github.com/matrixorigin/artwork/blob/main/docs/develop/JDBC_connect/JDBC-project-structure.png?raw=true" /></p>
+<p><img alt="JDBC add library" src="https://github.com/matrixorigin/artwork/blob/main/docs/develop/JDBC_connect/JDBC-from-maven.png?raw=true" /></p>
 </li>
 <li>
-<p>点击 <strong>Test Connection</strong>，提示 <strong>Connection Succeeded</strong>，表示连接成功。</p>
-</li>
-</ol>
-<h3 id="jdbc-matrixone_2">场景二：在现有的项目中使用 JDBC 连接 MatrixOne</h3>
-<p>如果想要在现有的项目中使用，可以参考如下步骤:</p>
-<ol>
-<li>
-<p>将 <em>.jar</em> 文件到 <strong><a href="https://github.com/matrixorigin/mo-tester">mo-tester</a></strong> 仓库的 <em>lib</em> 目录。</p>
+<p>输入框中输入 <strong>mysql-connector-java</strong> 搜索整个库，选择 <strong>mysql:mysql-connector-java:8.0.30</strong>，应用到本项目中。</p>
+<p><img alt="JDBC add driver" src="https://github.com/matrixorigin/artwork/blob/main/docs/develop/JDBC_connect/JDBC-add-driver.png?raw=true" /></p>
 </li>
 <li>
-<p>添加依赖项到 <strong><a href="https://github.com/matrixorigin/mo-tester">mo-tester</a></strong> 仓库的 <em>pom.xml</em> 文件内：</p>
-<div class="highlight"><pre><span></span><code>&lt;dependency&gt;
-    &lt;groupId&gt;mysql&lt;/groupId&gt;
-    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-    &lt;version&gt;8.0.xx&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></div>
-</li>
-<li>
-<p>修改 JAVA 代码，可参考如下例子：</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code>import java.sql.Connection;
+<p>修改 <strong>src/main/java/org/example/Main.java</strong> 中的默认 Java 源代码。如下面的代码示例种所示，这段代码使用连接地址和凭据创建连接。连接到 MatrixOne 后，你可以使用 Java 语言对 MatrixOne 数据库和表进行操作。</p>
+<p>有关如何使用 JDBC 在 MatrixOne 中开发 CRUD（创建、读取、更新、删除）应用程序的完整示例，参考 <a href="../../../../Tutorial/develop-java-crud-demo/">Java CRUD 示例</a>。</p>
+<div class="highlight"><pre><span></span><code>package org.example;
+
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-Connection conn = null;
-...
-try {
-    conn =
-       DriverManager.getConnection(&quot;jdbc:mysql://localhost:6001/test&quot; +
-                                   &quot;user=account_name:user_name&amp;password=your_password&quot;);
 
-    // Do something with the Connection
 
-   ...
-} catch (SQLException ex) {
-    // handle any errors
-    System.out.println(&quot;SQLException: &quot; + ex.getMessage());
-    System.out.println(&quot;SQLState: &quot; + ex.getSQLState());
-    System.out.println(&quot;VendorError: &quot; + ex.getErrorCode());
+public class Main {
+
+
+    private static String jdbcURL = &quot;jdbc:mysql://127.0.0.1:6001/test&quot;;
+    private static String jdbcUsername = &quot;dump&quot;;
+    private static String jdbcPassword = &quot;111&quot;;
+
+    public static void main(String[] args) {
+
+
+        try {
+            Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+            // Do something with the Connection
+
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println(&quot;SQLException: &quot; + ex.getMessage());
+            System.out.println(&quot;SQLState: &quot; + ex.getSQLState());
+            System.out.println(&quot;VendorError: &quot; + ex.getErrorCode());
+        }
+    }
 }
 </code></pre></div>
+</li>
+</ol>
 <h2 id="_3">参考文档</h2>
-<p>有关使用 JDBC 开发应用时的 MatrixOne 支持情况，参见<a href="../../../../Reference/Limitations/mo-jdbc-feature-list/">MatrixOne 的 JDBC 功能支持列表</a>。</p>
+<p>有关 MatrixOne 对 JDBC 特性支持的完整列表，参见<a href="../../../../Reference/Limitations/mo-jdbc-feature-list/">MatrixOne 的 JDBC 功能支持列表</a>。</p>
 
               
             </article>
@@ -6122,7 +6064,7 @@ try {
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../database-ide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 数据库客户端 IDE" rel="prev">
+        <a href="../../database-client-tools/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 客户端工具连接 MatrixOne 服务" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -6131,20 +6073,20 @@ try {
               <span class="md-footer__direction">
                 Previous
               </span>
-              数据库客户端 IDE
+              客户端工具连接 MatrixOne 服务
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../python-connect-to-matrixone/" class="md-footer__link md-footer__link--next" aria-label="Next: Python 连接 MatrixOne 服务" rel="next">
+        <a href="../connect-mo-with-orm/" class="md-footer__link md-footer__link--next" aria-label="Next: 使用 Java ORMs 连接 MatrixOne" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Python 连接 MatrixOne 服务
+              使用 Java ORMs 连接 MatrixOne
             </div>
           </div>
           <div class="md-footer__button md-icon">

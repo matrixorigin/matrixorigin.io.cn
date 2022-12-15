@@ -533,8 +533,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../connect-mo/database-ide/" class="md-nav__link">
-        数据库客户端 IDE
+      <a href="../../connect-mo/database-client-tools/" class="md-nav__link">
+        客户端工具连接 MatrixOne 服务
       </a>
     </li>
   
@@ -574,7 +574,21 @@
   
     <li class="md-nav__item">
       <a href="../../connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
-        JDBC
+        使用 JDBC 连接器连接 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connect-mo/java-connect-to-matrixone/connect-mo-with-orm/" class="md-nav__link">
+        使用 Java ORMs 连接 MatrixOne
       </a>
     </li>
   
@@ -1107,20 +1121,6 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/springboot-mybatis-crud-demo/" class="md-nav__link">
         MyBatis
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Tutorial/connect_mo_with_orm/" class="md-nav__link">
-        ORMs
       </a>
     </li>
   
@@ -4308,8 +4308,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Data-Types/blob-type/" class="md-nav__link">
-        BLOB 数据类型
+      <a href="../../../Reference/Data-Types/blob-text-type/" class="md-nav__link">
+        BLOB 和 TEXT 数据类型
       </a>
     </li>
   
@@ -5999,7 +5999,7 @@ insert into t1 values (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, &#39;2019-01-01&#39;, &#39;
 <h2 id="matrixone">恢复备份到 MatrixOne 服务器</h2>
 <p>将导出的 <em>.sql</em> 文件恢复至 MatrixOne 数据库相对简单。要恢复你的数据库，你必须先创建一个空数据库，并使用 <em>MySQL 客户端</em> 进行恢复。</p>
 <p>将 MatrixOne 与 MySQL 客户端连接至同一服务器上，并确保导出的 <em>.sql</em> 文件也在同一服务器上。</p>
-<div class="highlight"><pre><span></span><code>mysql&gt; create database t if not exists;
+<div class="highlight"><pre><span></span><code>mysql&gt; create database if not exists t;
 mysql&gt; source /YOUR_SQL_FILE_PATH/t.sql
 </code></pre></div>
 <p>成功执行以上命令后，执行以下命令，检查是否在命名为 <em>t</em> 数据库上创建了所有对象。</p>

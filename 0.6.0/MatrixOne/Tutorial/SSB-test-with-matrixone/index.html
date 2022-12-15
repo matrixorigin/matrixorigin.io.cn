@@ -537,8 +537,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Develop/connect-mo/database-ide/" class="md-nav__link">
-        数据库客户端 IDE
+      <a href="../../Develop/connect-mo/database-client-tools/" class="md-nav__link">
+        客户端工具连接 MatrixOne 服务
       </a>
     </li>
   
@@ -578,7 +578,21 @@
   
     <li class="md-nav__item">
       <a href="../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
-        JDBC
+        使用 JDBC 连接器连接 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm/" class="md-nav__link">
+        使用 Java ORMs 连接 MatrixOne
       </a>
     </li>
   
@@ -1111,20 +1125,6 @@
     <li class="md-nav__item">
       <a href="../springboot-mybatis-crud-demo/" class="md-nav__link">
         MyBatis
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../connect_mo_with_orm/" class="md-nav__link">
-        ORMs
       </a>
     </li>
   
@@ -4479,8 +4479,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Data-Types/blob-type/" class="md-nav__link">
-        BLOB 数据类型
+      <a href="../../Reference/Data-Types/blob-text-type/" class="md-nav__link">
+        BLOB 和 TEXT 数据类型
       </a>
     </li>
   
@@ -6230,7 +6230,7 @@ drop table if exists lineorder;
 drop table if exists part;
 drop table if exists supplier;
 drop table if exists customer;
-drop table if exists dates;
+drop table if exists date;
 drop table if exists lineorder_flat;
 
 create table lineorder (
@@ -6286,11 +6286,12 @@ create table customer (
         c_mktsegment char (10)
 ) ;
 
-create table dates (
+create table date (
         d_datekey date,
         d_date char (18),
         d_dayofweek char (9),
         d_month char (9),
+        d_year int,
         d_yearmonthnum int,
         d_yearmonth char (7),
         d_daynuminweek varchar(12),
@@ -6352,7 +6353,7 @@ CREATE TABLE lineorder_flat(
 
 load data infile &#39;/ssb-dbgen-path/customer.tbl&#39; into table customer FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
 
-load data infile &#39;/ssb-dbgen-path/date.tbl&#39; into table dates FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
+load data infile &#39;/ssb-dbgen-path/date.tbl&#39; into table date FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
 
 load data infile &#39;/ssb-dbgen-path/part.tbl&#39; into table part FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;;
 
@@ -6411,13 +6412,13 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <h3 id="_7"><strong>多表查询</strong></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">--Q1.1</span>
 <span class="k">select</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">revenue</span><span class="w"></span>
-<span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">where</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1993</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">lo_discount</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">lo_quantity</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">--Q1.2</span>
 <span class="k">select</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">revenue</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">where</span><span class="w"> </span><span class="n">d_yearmonthnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">199401</span><span class="w"></span>
 <span class="k">and</span><span class="w"> </span><span class="n">lo_discount</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
 <span class="k">and</span><span class="w"> </span><span class="n">lo_quantity</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">35</span><span class="p">;</span><span class="w"></span>
@@ -6425,7 +6426,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q1.3</span>
 <span class="k">select</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">revenue</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">where</span><span class="w"> </span><span class="n">d_weeknuminyear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1994</span><span class="w"></span>
 <span class="k">and</span><span class="w"> </span><span class="n">lo_discount</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">7</span><span class="w"></span>
 <span class="k">and</span><span class="w"> </span><span class="n">lo_quantity</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">35</span><span class="p">;</span><span class="w"></span>
@@ -6433,7 +6434,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q2.1</span>
 <span class="k">select</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lo_revenue</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">p_brand</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_partkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_partkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_suppkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_suppkey</span><span class="w"></span>
 <span class="k">where</span><span class="w"> </span><span class="n">p_category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFGR#12&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">s_region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;AMERICA&#39;</span><span class="w"></span>
@@ -6443,7 +6444,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q2.2</span>
 <span class="k">select</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lo_revenue</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">p_brand</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_partkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_partkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_suppkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_suppkey</span><span class="w"></span>
 <span class="k">where</span><span class="w"> </span><span class="n">p_brand</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="s1">&#39;MFGR#2221&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="s1">&#39;MFGR#2228&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">s_region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ASIA&#39;</span><span class="w"></span>
@@ -6453,7 +6454,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q2.3</span>
 <span class="k">select</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lo_revenue</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">p_brand</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_partkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_partkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_suppkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_suppkey</span><span class="w"></span>
 <span class="k">where</span><span class="w"> </span><span class="n">p_brand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFGR#2239&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">s_region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;EUROPE&#39;</span><span class="w"></span>
@@ -6463,7 +6464,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q3.1</span>
 <span class="k">select</span><span class="w"> </span><span class="n">c_nation</span><span class="p">,</span><span class="w"> </span><span class="n">s_nation</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lo_revenue</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_custkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c_custkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_suppkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_suppkey</span><span class="w"></span>
 <span class="k">where</span><span class="w"> </span><span class="n">c_region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ASIA&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">s_region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ASIA&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">1992</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">1997</span><span class="w"></span>
@@ -6473,7 +6474,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q3.2</span>
 <span class="k">select</span><span class="w"> </span><span class="n">c_city</span><span class="p">,</span><span class="w"> </span><span class="n">s_city</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lo_revenue</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_custkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c_custkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_suppkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_suppkey</span><span class="w"></span>
 <span class="k">where</span><span class="w"> </span><span class="n">c_nation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;UNITED STATES&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">s_nation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;UNITED STATES&#39;</span><span class="w"></span>
@@ -6484,7 +6485,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q3.3</span>
 <span class="k">select</span><span class="w"> </span><span class="n">c_city</span><span class="p">,</span><span class="w"> </span><span class="n">s_city</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lo_revenue</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_custkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c_custkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_suppkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_suppkey</span><span class="w"></span>
 <span class="k">where</span><span class="w"> </span><span class="p">(</span><span class="n">c_city</span><span class="o">=</span><span class="s1">&#39;UNITED KI1&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">c_city</span><span class="o">=</span><span class="s1">&#39;UNITED KI5&#39;</span><span class="p">)</span><span class="w"></span>
@@ -6496,7 +6497,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q3.4</span>
 <span class="k">select</span><span class="w"> </span><span class="n">c_city</span><span class="p">,</span><span class="w"> </span><span class="n">s_city</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lo_revenue</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_custkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c_custkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_suppkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_suppkey</span><span class="w"></span>
 <span class="k">where</span><span class="w"> </span><span class="p">(</span><span class="n">c_city</span><span class="o">=</span><span class="s1">&#39;UNITED KI1&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">c_city</span><span class="o">=</span><span class="s1">&#39;UNITED KI5&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="n">s_city</span><span class="o">=</span><span class="s1">&#39;UNITED KI1&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">s_city</span><span class="o">=</span><span class="s1">&#39;UNITED KI5&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">d_yearmonth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;199712&#39;</span><span class="w"></span>
@@ -6506,7 +6507,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q4.1</span>
 <span class="k">select</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">c_nation</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_supplycost</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">profit</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_custkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c_custkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_suppkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_suppkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_partkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_partkey</span><span class="w"></span>
@@ -6517,7 +6518,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q4.2</span>
 <span class="k">select</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">s_nation</span><span class="p">,</span><span class="w"> </span><span class="n">p_category</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_supplycost</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">profit</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_custkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c_custkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_suppkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_suppkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_partkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_partkey</span><span class="w"></span>
@@ -6530,7 +6531,7 @@ load data infile &#39;/ssb-dbgen-path/lineorder.tbl&#39; into table lineorder FI
 <span class="c1">--Q4.3</span>
 <span class="k">select</span><span class="w"> </span><span class="k">year</span><span class="p">(</span><span class="n">d_datekey</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">s_city</span><span class="p">,</span><span class="w"> </span><span class="n">p_brand</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_revenue</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lo_supplycost</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">profit</span><span class="p">,</span><span class="w"> </span><span class="n">c_region</span><span class="p">,</span><span class="w"> </span><span class="n">s_nation</span><span class="p">,</span><span class="w"> </span><span class="n">p_category</span><span class="w"></span>
 <span class="k">from</span><span class="w"> </span><span class="n">lineorder</span><span class="w"></span>
-<span class="k">join</span><span class="w"> </span><span class="n">dates</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
+<span class="k">join</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_orderdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d_datekey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_custkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c_custkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_suppkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_suppkey</span><span class="w"></span>
 <span class="k">join</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">lo_partkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_partkey</span><span class="w"></span>

@@ -539,8 +539,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../connect-mo/database-ide/" class="md-nav__link">
-        数据库客户端 IDE
+      <a href="../../connect-mo/database-client-tools/" class="md-nav__link">
+        客户端工具连接 MatrixOne 服务
       </a>
     </li>
   
@@ -580,7 +580,21 @@
   
     <li class="md-nav__item">
       <a href="../../connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
-        JDBC
+        使用 JDBC 连接器连接 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connect-mo/java-connect-to-matrixone/connect-mo-with-orm/" class="md-nav__link">
+        使用 Java ORMs 连接 MatrixOne
       </a>
     </li>
   
@@ -1257,20 +1271,6 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/springboot-mybatis-crud-demo/" class="md-nav__link">
         MyBatis
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Tutorial/connect_mo_with_orm/" class="md-nav__link">
-        ORMs
       </a>
     </li>
   
@@ -4458,8 +4458,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Data-Types/blob-type/" class="md-nav__link">
-        BLOB 数据类型
+      <a href="../../../Reference/Data-Types/blob-text-type/" class="md-nav__link">
+        BLOB 和 TEXT 数据类型
       </a>
     </li>
   
@@ -6174,7 +6174,7 @@
 </ol>
 <h2 id="_3">数据库示例</h2>
 <p>以下是从 Northwind 示例数据库中的 <strong>Customers</strong> 表中选择的表示例：</p>
-<div class="highlight"><pre><span></span><code>CREATE TABLE Customer (
+<div class="highlight"><pre><span></span><code>CREATE TABLE Customers (
   CustomerID INT AUTO_INCREMENT NOT NULL
   ,CustomerName VARCHAR(40) NOT NULL
   ,ContactName VARCHAR(30) NULL
@@ -6360,7 +6360,7 @@ WHERE *condition*;
 </code></pre></div>
 <h2 id="northwind">Northwind 数据库示例</h2>
 <p>以下是从 Northwind 示例数据库中的表中选择的表示例：</p>
-<div class="highlight"><pre><span></span><code>CREATE TABLE Customer (
+<div class="highlight"><pre><span></span><code>CREATE TABLE Customers (
   CustomerID INT AUTO_INCREMENT NOT NULL
   ,CustomerName VARCHAR(40) NOT NULL
   ,ContactName VARCHAR(30) NULL

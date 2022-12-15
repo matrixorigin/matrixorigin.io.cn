@@ -539,8 +539,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connect-mo/database-ide/" class="md-nav__link">
-        数据库客户端 IDE
+      <a href="../../../connect-mo/database-client-tools/" class="md-nav__link">
+        客户端工具连接 MatrixOne 服务
       </a>
     </li>
   
@@ -580,7 +580,21 @@
   
     <li class="md-nav__item">
       <a href="../../../connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
-        JDBC
+        使用 JDBC 连接器连接 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../connect-mo/java-connect-to-matrixone/connect-mo-with-orm/" class="md-nav__link">
+        使用 Java ORMs 连接 MatrixOne
       </a>
     </li>
   
@@ -1181,20 +1195,6 @@
     <li class="md-nav__item">
       <a href="../../../../Tutorial/springboot-mybatis-crud-demo/" class="md-nav__link">
         MyBatis
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Tutorial/connect_mo_with_orm/" class="md-nav__link">
-        ORMs
       </a>
     </li>
   
@@ -4382,8 +4382,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/blob-type/" class="md-nav__link">
-        BLOB 数据类型
+      <a href="../../../../Reference/Data-Types/blob-text-type/" class="md-nav__link">
+        BLOB 和 TEXT 数据类型
       </a>
     </li>
   
@@ -6017,7 +6017,7 @@ load data infile {&#39;filepath&#39;=&#39;data.txt&#39;, &#39;format&#39;=&#39;j
 <p><strong>参数说明</strong></p>
 <ul>
 <li>filepath：文件路径。</li>
-<li>compression：压缩格式，支持 BZIP2、GZIP、LZO、SNAPPY、ZLIB。</li>
+<li>compression：压缩格式，支持 BZIP2、GZIP。</li>
 <li>format：文件格式，支持 <em>.csv</em> 和 <em>.jsonline</em></li>
 <li>jsondata：json 数据格式，支持 object 和 array，如果 <code>format</code> 为 <em>jsonline</em>，则<strong>必须</strong>指定 <em>jsondata</em>。</li>
 </ul>
