@@ -1,6 +1,6 @@
 site_name: MatrixOne中文文档
 repo_name: matrixorigin/matrixone
-repo_url: https://github.com/matrixorigin/matrixone
+repo_url: https://github.com/matrixorigin/matrixorigin.io.cn
 theme:
   name: material
   logo: assets/new-logo.png
@@ -17,7 +17,7 @@ theme:
     scheme: mo
   font:
     text: Ubuntu
-edit_uri: edit/main/docs/cn/
+edit_uri: edit/main/docs/
 extra_css:
   - stylesheets/extra.css
 extra:
