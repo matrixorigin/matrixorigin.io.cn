@@ -1,10 +1,12 @@
-# 如何使用 ORMs 连接 MatrixOne
+# 使用 Java ORMs 连接 MatrixOne
 
 除了使用 JDBC 连接 MatrixOne 之外，我们还可以使用对象关系映射(ORM)框架连接到 MySQL 数据库。在本篇文档中，介绍了如何使用 Spring Data JPA 和 MyBatis 连接到 MatrixOne。
 
 ## MyBatis
 
-[MyBatis](https://github.com/mybatis/mybatis-3) 是 SQL 映射框架，它的优点是简单易用。在另一个教程中，我们讨论了如何使用 [MyBatis 和 Spring Boot](springboot-mybatis-crud-demo.md) 构建一个 CRUD 应用程序。在本篇文档中，将介绍如何直接使用 MatrixOne 配置MyBatis。
+[MyBatis](https://github.com/mybatis/mybatis-3) 是 SQL 映射框架，它的优点是简单易用。你可以参考 [SpringBoot 和 MyBatis CRUD 示例](../../../Tutorial/springboot-mybatis-crud-demo.md) 完整教程学习如何构建一个 CRUD 应用程序。在本篇文档中，将重点介绍如何使用 MatrixOne 配置 MyBatis。
+
+下面的示例是 **Maven** 构建系统的典型设置。
 
 ### 1. 在 *Pom.xml* 中添加 *MyBatis-Spring-Boot-Starter*
 
@@ -44,6 +46,10 @@ mybatis.mapper-locations=classpath:mapping/*xml
 ## Spring Data JPA
 
 Spring Data JPA 是 Spring 基于 ORM 框架、JPA 规范的基础上封装的一套 JPA 应用框架，可使开发者用极简的代码即可实现对数据库的访问和操作，它有助于减少样板代码，并提供了一种通过几个预定义的存储库接口之一实现基本 CRUD 操作的机制，并且它也提供了包括增删改查等在内的常用功能，且易于扩展。
+
+Spring Data JPA 是一个强大的应用框架，它有助于减少样板代码，并提供了一种通过几个预定义的存储库接口之一实现基本 CRUD 操作的机制。你可以参考 [SpringBoot 和 Hibernate CRUD 示例](../../../Tutorial/springboot-hibernate-crud-demo.md) 完整教程学习如何构建 CRUD 应用程序。在本篇文档中，将重点介绍如何使用 MatrixOne 连接配置 Spring JPA。
+
+下面的示例是 **Maven** 构建系统的典型设置。
 
 ### 1. 在 *Pom.xml* 中添加 *spring-boot-starter-data-jpa*
 

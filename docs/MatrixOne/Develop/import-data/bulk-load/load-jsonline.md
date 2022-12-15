@@ -24,7 +24,7 @@ load data infile {'filepath'='data.txt', 'format'='jsonline','jsondata'='object'
 **参数说明**
 
 * filepath：文件路径。
-* compression：压缩格式，支持 BZIP2、GZIP、LZO、SNAPPY、ZLIB。
+* compression：压缩格式，支持 BZIP2、GZIP。
 * format：文件格式，支持 *.csv* 和 *.jsonline*
 * jsondata：json 数据格式，支持 object 和 array，如果 `format` 为 *jsonline*，则**必须**指定 *jsondata*。
 
