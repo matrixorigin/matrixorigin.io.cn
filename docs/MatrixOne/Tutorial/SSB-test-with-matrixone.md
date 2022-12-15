@@ -52,7 +52,7 @@ drop table if exists lineorder;
 drop table if exists part;
 drop table if exists supplier;
 drop table if exists customer;
-drop table if exists dates;
+drop table if exists date;
 drop table if exists lineorder_flat;
 
 create table lineorder (
@@ -108,11 +108,12 @@ create table customer (
         c_mktsegment char (10)
 ) ;
 
-create table dates (
+create table date (
         d_datekey date,
         d_date char (18),
         d_dayofweek char (9),
         d_month char (9),
+        d_year int,
         d_yearmonthnum int,
         d_yearmonth char (7),
         d_daynuminweek varchar(12),
@@ -178,7 +179,7 @@ load data infile '/ssb-dbgen-path/supplier.tbl' into table supplier FIELDS TERMI
 
 load data infile '/ssb-dbgen-path/customer.tbl' into table customer FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
 
-load data infile '/ssb-dbgen-path/date.tbl' into table dates FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
+load data infile '/ssb-dbgen-path/date.tbl' into table date FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
 
 load data infile '/ssb-dbgen-path/part.tbl' into table part FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
 
@@ -248,13 +249,13 @@ SELECT year(LO_ORDERDATE) AS year, S_CITY, P_BRAND, sum(LO_REVENUE - LO_SUPPLYCO
 ```sql
 --Q1.1
 select sum(lo_revenue) as revenue
-from lineorder join dates on lo_orderdate = d_datekey
+from lineorder join date on lo_orderdate = d_datekey
 where year(d_datekey)  = 1993 and lo_discount between 1 and 3 and lo_quantity < 25;
 
 --Q1.2
 select sum(lo_revenue) as revenue
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 where d_yearmonthnum = 199401
 and lo_discount between 4 and 6
 and lo_quantity between 26 and 35;
@@ -262,7 +263,7 @@ and lo_quantity between 26 and 35;
 --Q1.3
 select sum(lo_revenue) as revenue
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 where d_weeknuminyear = 6 and year(d_datekey)  = 1994
 and lo_discount between 5 and 7
 and lo_quantity between 26 and 35;
@@ -270,7 +271,7 @@ and lo_quantity between 26 and 35;
 --Q2.1
 select sum(lo_revenue) as lo_revenue, year(d_datekey) as year, p_brand
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join part on lo_partkey = p_partkey
 join supplier on lo_suppkey = s_suppkey
 where p_category = 'MFGR#12' and s_region = 'AMERICA'
@@ -280,7 +281,7 @@ order by year, p_brand;
 --Q2.2
 select sum(lo_revenue) as lo_revenue, year(d_datekey) as year, p_brand
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join part on lo_partkey = p_partkey
 join supplier on lo_suppkey = s_suppkey
 where p_brand between 'MFGR#2221' and 'MFGR#2228' and s_region = 'ASIA'
@@ -290,7 +291,7 @@ order by year, p_brand;
 --Q2.3
 select sum(lo_revenue) as lo_revenue, year(d_datekey) as year, p_brand
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join part on lo_partkey = p_partkey
 join supplier on lo_suppkey = s_suppkey
 where p_brand = 'MFGR#2239' and s_region = 'EUROPE'
@@ -300,7 +301,7 @@ order by year, p_brand;
 --Q3.1
 select c_nation, s_nation, year(d_datekey) as year, sum(lo_revenue) as lo_revenue
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 where c_region = 'ASIA' and s_region = 'ASIA' and year(d_datekey) between 1992 and 1997
@@ -310,7 +311,7 @@ order by year asc, lo_revenue desc;
 --Q3.2
 select c_city, s_city, year(d_datekey) as year, sum(lo_revenue) as lo_revenue
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 where c_nation = 'UNITED STATES' and s_nation = 'UNITED STATES'
@@ -321,7 +322,7 @@ order by year asc, lo_revenue desc;
 --Q3.3
 select c_city, s_city, year(d_datekey) as year, sum(lo_revenue) as lo_revenue
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 where (c_city='UNITED KI1' or c_city='UNITED KI5')
@@ -333,7 +334,7 @@ order by year asc, lo_revenue desc;
 --Q3.4
 select c_city, s_city, year(d_datekey) as year, sum(lo_revenue) as lo_revenue
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 where (c_city='UNITED KI1' or c_city='UNITED KI5') and (s_city='UNITED KI1' or s_city='UNITED KI5') and d_yearmonth = '199712'
@@ -343,7 +344,7 @@ order by year(d_datekey) asc, lo_revenue desc;
 --Q4.1
 select year(d_datekey) as year, c_nation, sum(lo_revenue) - sum(lo_supplycost) as profit
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 join part on lo_partkey = p_partkey
@@ -354,7 +355,7 @@ order by year, c_nation;
 --Q4.2
 select year(d_datekey) as year, s_nation, p_category, sum(lo_revenue) - sum(lo_supplycost) as profit
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 join part on lo_partkey = p_partkey
@@ -367,7 +368,7 @@ order by year, s_nation, p_category;
 --Q4.3
 select year(d_datekey) as year, s_city, p_brand, sum(lo_revenue) - sum(lo_supplycost) as profit, c_region, s_nation, p_category
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 join part on lo_partkey = p_partkey
