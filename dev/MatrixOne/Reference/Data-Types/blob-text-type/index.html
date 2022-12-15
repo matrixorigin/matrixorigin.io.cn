@@ -13,7 +13,7 @@
     
     
       
-        <title>BLOB 数据类型 - MatrixOne中文文档</title>
+        <title>BLOB 和 TEXT 数据类型 - MatrixOne中文文档</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BLOB 数据类型
+              BLOB 和 TEXT 数据类型
             
           </span>
         </div>
@@ -171,7 +171,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/matrixorigin/matrixone" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/matrixorigin/matrixorigin.io.cn" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -244,7 +244,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/matrixorigin/matrixone" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/matrixorigin/matrixorigin.io.cn" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -537,8 +537,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Develop/connect-mo/database-ide/" class="md-nav__link">
-        数据库客户端 IDE
+      <a href="../../../Develop/connect-mo/database-client-tools/" class="md-nav__link">
+        客户端工具连接 MatrixOne 服务
       </a>
     </li>
   
@@ -578,7 +578,21 @@
   
     <li class="md-nav__item">
       <a href="../../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
-        JDBC
+        使用 JDBC 连接器连接 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm/" class="md-nav__link">
+        使用 Java ORMs 连接 MatrixOne
       </a>
     </li>
   
@@ -1111,20 +1125,6 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/springboot-mybatis-crud-demo/" class="md-nav__link">
         MyBatis
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Tutorial/connect_mo_with_orm/" class="md-nav__link">
-        ORMs
       </a>
     </li>
   
@@ -4326,7 +4326,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        BLOB 数据类型
+        BLOB 和 TEXT 数据类型
       </a>
       
     </li>
@@ -5895,7 +5895,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixone/edit/main/docs/cn/MatrixOne/Reference/Data-Types/blob-type.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Reference/Data-Types/blob-text-type.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
@@ -5904,27 +5904,19 @@
 <h1 id="blob-text">BLOB 和 TEXT 数据类型</h1>
 <p><strong>BLOB</strong></p>
 <ul>
-<li><code>BLOB</code> 是可以存储可变数量的大数据二进制对象。BLOB 有四种类型，分别是 <code>TINYBLOB</code>、<code>BLOB</code>、<code>MEDIUMBLOB</code> 和 <code>LONGBLOB</code>，它们保存值的长度不同。</li>
-<li><code>BLOB</code> 值为二进制字符串（字节字符串），对应二进制字符集和排序规则，比较和排序基于列值中字节的数值。</li>
+<li>
+<p><code>BLOB</code> 是可以存储可变数量的大数据二进制对象。</p>
+</li>
+<li>
+<p><code>BLOB</code> 值为二进制字符串（字节字符串），对应二进制字符集和排序规则，比较和排序基于列值中字节的数值。</p>
+</li>
 </ul>
 <p><strong>TEXT</strong></p>
 <ul>
-<li>
-<p>四种 <code>TEXT</code> 类型分别是 <code>TINYTEXT</code>、<code>TEXT</code>、<code>MEDIUMTEXT</code> 和 <code>LONGTEXT</code>。更多信息，参见<a href="../data-types/">数据类型</a></p>
-</li>
-<li>
-<p>TEXT 为非二进制字符串（字符串）。它们具有二进制以外的字符集，并且基于字符集的排序规则对值进行排序和比较。</p>
-</li>
+<li><code>TEXT</code> 为非二进制字符串（字符串），用于存储所有类型的文本数据。它们具有二进制以外的字符集，并且基于字符集的排序规则对值进行排序和比较。</li>
 </ul>
-<!--If strict SQL mode is not enabled and you assign a value to a BLOB or TEXT column that exceeds the column's maximum length, the value is truncated to fit and a warning is generated. For truncation of nonspace characters, you can cause an error to occur (rather than a warning) and suppress insertion of the value by using strict SQL mode. See Section 5.1.11, “Server SQL Modes”.-->
-
 <p><strong>关于 BLOB 和 TEXT</strong></p>
-<p>从要插入 <code>TEXT</code> 列的值中截断多余的尾随空格会产生警告。</p>
-<p>对于 <code>TEXT</code> 和 <code>BLOB</code> 数据类型的列，插入时没有字节填充，则选择时也就没有字节被剥离。</p>
-<p>如果将 <code>BINARY</code> 属性与 <code>TEXT</code> 数据类型一起使用，则会为该列分配列字符集的二进制 <code>(_bin)</code> 排序规则。</p>
-<p><code>LONG</code> 和 <code>LONG VARCHAR</code> 可以被兼容映射到 <code>MEDIUMTEXT</code> 数据类型。</p>
-<p>每个 <code>BLOB</code> 或 <code>TEXT</code> 值在内部由一个单独分配的对象表示。这与所有其他数据类型相反，其他数据类型在打开表时需要为每列分配一次存储。</p>
-<p>在某些情况下，可能需要将二进制数据（例如媒体文件）存储在 <code>BLOB</code> 或 <code>TEXT</code> 列中。</p>
+<p>如果为 <code>BLOB</code> 或 <code>TEXT</code> 列分配的值超过该列的最大长度，则该值超出长度的部分将被截断并生成告警。如果截断的是非空格字符，会发生错误（而不是告警）并禁止插入值。对于 <code>TEXT</code>，截断插入到 <code>TEXT</code> 列的值中多余的尾部空格时，总是会生成告警。</p>
 
               
             </article>
