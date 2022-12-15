@@ -52,9 +52,10 @@ nav:
     - 开发指南:
       - 连接 MatrixOne:
         - 配置 MatrixOne SSL 连接: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
-        - 数据库客户端 IDE: MatrixOne/Develop/connect-mo/database-ide.md
+        - 客户端工具连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/database-client-tools.md
         - Java 连接 MatrixOne 服务:
-          - JDBC: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md
+          - 使用 JDBC 连接器连接 MatrixOne: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md
+          - 使用 Java ORMs 连接 MatrixOne: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm.md
         - Python 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
       - 数据库模式设计:
         - 概述: MatrixOne/Develop/schema-design/overview.md
@@ -83,7 +84,6 @@ nav:
         - Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
         - Hibernate: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
         - MyBatis: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
-        - ORMs: MatrixOne/Tutorial/connect_mo_with_orm.md
         - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
     - 部署指南:
       - 软硬件环境要求: MatrixOne/Deploy/check-before-deployment.md
@@ -266,7 +266,7 @@ nav:
         - 数据类型转换: MatrixOne/Reference/Data-Types/data-type-conversion.md
         - TIMESTAMP 和 DATETIME 的自动初始化和更新: MatrixOne/Reference/Data-Types/timestamp-initialization.md
         - JSON 数据类型: MatrixOne/Reference/Data-Types/json-type.md
-        - BLOB 数据类型: MatrixOne/Reference/Data-Types/blob-type.md
+        - BLOB 和 TEXT 数据类型: MatrixOne/Reference/Data-Types/blob-text-type.md
         - 精确数值类型-DECIMAL: MatrixOne/Reference/Data-Types/fixed-point-types.md
       - 系统函数:
         - 数学类:
