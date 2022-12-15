@@ -8,11 +8,9 @@ MO-Tester 是基于 Java 语言进行开发，用于 MatrixOne 的测试套件�
 
 MO-Tester 相关用例、结果和报告的放在 [MatrixOne](https://github.com/matrixorigin/matrixone) 仓库内，链接如下：
 
-* *Cases*: <https://github.com/matrixorigin/matrixone/tree/main/test/cases>
+* *Cases*: <https://github.com/matrixorigin/matrixone/tree/main/test/distributed/cases>
 
-* *Result*: <https://github.com/matrixorigin/matrixone/tree/main/test/result>
-
-    + 在 [/cases](https://github.com/matrixorigin/matrixone/tree/main/test/cases/)目录的具体测试用例同级目录下也会生成对应的 *.result* 文件。
+* *Result*: 生成在 **/cases** 的具体测试用例下，例如 [/cases/auto_increment](https://github.com/matrixorigin/matrixone/tree/main/test/distributed/cases/auto_increment) 目录的具体测试用例同级目录下生成对应的 *.result* 文件。
 
 * *Report*: 运行结束后，本地目录自动生成 `mo-tester/report`。
 
