@@ -19,19 +19,21 @@
 
 开始步骤一之前，为保证 MatrixOne 集群能够正常部署与使用，请阅读本章节，了解创建 Kubernetes 集群的工具和配置要求。
 
-- Kubernetes
+你可以去以下几个工具的官方网站进行下载，并按照它们的官方文档指导进行安装配置。
+
+- [Kubernetes](https://kubernetes.io/)
 
    **版本要求**：1.18 或以上版本
 
    **作用**：安装 Kubernetes，协助 MatrixOne 集群进行自动部署、扩展和管理容器化应用程序。
 
-- kubectl
+- [kubectl](https://kubernetes.io/zh-cn/docs/reference/kubectl/)
 
    **版本要求**：1.18 或以上版本
 
    **作用**：安装命令行工具 kubectl，它是使用 Kubernetes API 与 Kubernetes 集群的控制面进行通信的命令行工具，协助 MatrixOne 集群使用进行自动部署。
 
-- Helm
+- [Helm](https://helm.sh/)
 
    **版本要求**：3.0 或以上版本
 
@@ -232,3 +234,10 @@ kubectl -n ${NS} delete -f mo-cluster.yaml
 ```
 kubectl -n mo-system delete -f https://raw.githubusercontent.com/matrixorigin/matrixone-operator/main/examples/minio.yaml
 ```
+
+## 了解更多
+
+如果你已经部署完成 MatrixOne 集群，你可以参加以下文档，了解更多。
+
+- [为 MatrixOne 集群配置共享存储](configure-shared-memory.md)
+- [对 MatrixOne 集群进行扩缩容](manage/scale.md)

@@ -543,7 +543,7 @@ mysql> select * from user;
 1 row in set (0.00 sec)
 ```
 
-### 3. 测试选择用户
+### 3. 测试查询用户
 
 ![image-20221026162455058](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162455058.png?raw=true)
 
