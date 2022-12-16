@@ -1,7 +1,7 @@
 # Java CRUD 示例
 
 !!! note
-    本篇文档所介绍的演示程序的源代码下载地址为：[github](https://github.com/matrixorigin/matrixone_java_crud_example)。
+    本篇文档所介绍的演示程序的源代码下载地址为：[Java CRUD 示例](https://github.com/matrixorigin/matrixone_java_crud_example)。
 
 ## 配置环境
 
@@ -190,7 +190,7 @@ mysql> select * from student;
 1 row in set (0.01 sec)
 ```
 
-#### 升级数据
+#### 更新数据
 
 ```
 import java.sql.Connection;
