@@ -6,21 +6,13 @@
 
 已完成[单机部署 MatrixOne](../../../Get-Started/install-standalone-matrixone.md)。
 
-!!! note
-    如果你是通过 `docker` 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要挂载本地目录，参见下面的代码示例：本地文件系统路径 *${local_data_path}/mo-data* 挂载到 MatrixOne Docker 镜像中，并映射到 */mo-data* 路径下。更多信息，参见 [Docker Mount Volume tutorial](https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/)。
-
-```
-sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
-```
-
 ## MySQL Client 中使用 `Load data` 命令导入数据
 
-在 MySQL Client 中使用 `Load data` 命令将外部大数据文件导入，但目前只支持 *.csv* 格式的文件导入。
+你可以使用 `Load Data` 从大数据文件中导入数据，本章将介绍如何导入 *.csv* 格式文件。
+
+__Note__: *.csv*（逗号分隔值）文件是一种特殊的文件类型，可在 Excel 中创建或编辑，*.csv* 文件不是采用多列的形式存储信息，而是使用逗号分隔的形式存储信息。
 
 1. 在 MatrixOne 中执行 `Load Data` 之前，需要提前在 MatrixOne 中创建完成数据表。目前，数据文件需要与 MatrixOne 服务器在同一台机器上，如果它们在不同的机器上，则需要进行文件传输。
-
-    !!! note
-        如果你使用 Docker 启动 MatrixOne，需要先将数据文件挂载到容器的目录中。
 
 2. 在 MatrixOne 本地服务器中启动 MySQL 客户端以访问本地文件系统。
 
@@ -36,12 +28,11 @@ sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}
     FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY "\r\n";
     ```
 
-    !!! note
-        如果你使用 Docker 启动 MatrixOne，需要先将这个数据文件路径挂载到容器的目录中。
-
 ### 示例：使用 *docker* 启动 MatrixOne 执行 `Load data`
 
-本示例将介绍如何使用 Docker 启动 MatrixOne 0.6.0 加载数据。
+如果你通过 **Docker** 安装 MatrixOne，那么文件默认存储在 **Docker** 镜像中。如果你需要将文件存储在本地目录，你需要先将本地目录挂载到容器。
+
+在以下示例中，本地文件系统路径 `~/tmp/docker_loaddata_demo/` 挂载到 MatrixOne Docker 镜像，并映射到 Docker 容器内的 `/ssb-dbgen-path` 目录。本篇示例将指导你使用 MatrixOne 0.6.0 docker 版本加载数据。
 
 1. 下载数据集，并且将数据集存储到本地 *~/tmp/docker_loaddata_demo/* 路径下：
 
@@ -59,7 +50,7 @@ sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}
 3. 使用 Docker 启动 MatrixOne，启动时将存放了数据文件的目录 *~/tmp/docker_loaddata_demo/* 挂载到容器的某个目录下，这里容器目录以 */ssb-dbgen-path* 为例：
 
     ```
-    sudo docker run --name <name> --privileged -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo/:/ssb-dbgen-path:rw matrixorigin/matrixone:0.6.0
+    sudo docker run --name matrixone --privileged -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo/:/ssb-dbgen-path:rw matrixorigin/matrixone:0.6.0
     ```
 
 4. 连接 MatrixOne 服务：
