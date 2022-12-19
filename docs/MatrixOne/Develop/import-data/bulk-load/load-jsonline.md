@@ -39,8 +39,8 @@ load data infile {'filepath'='data.txt', 'format'='jsonline','jsondata'='object'
 
 1. 准备数据。你也可以下载使用我们准备好的 *.jl* 文件。以下步骤将以示例数据讲述。
 
-    - 示例数据 1：*[jsonline_object.jl](https://github.com/matrixorigin/matrixone/blob/main/test/resources/load_data/jsonline_object.jl)*
-    - 示例数据 2：*[jsonline_array.jl](https://github.com/matrixorigin/matrixone/blob/main/test/resources/load_data/jsonline_array.jl)*
+    - 示例数据 1：*[jsonline_object.jl](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/jsonline_object.jl)*
+    - 示例数据 2：*[jsonline_array.jl](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/jsonline_array.jl)*
 
 2. 打开终端，进入到 *.jl* 文件所在目录，输入下面的命令行，显示文件内的具体内容：
 
