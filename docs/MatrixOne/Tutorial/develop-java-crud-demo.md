@@ -10,17 +10,17 @@
 * 完成 [单机部署 MatrixOne](../Get-Started/install-standalone-matrixone/)，通过 MySQL 客户端创建数据库。
 
 ```
-mysql> CREATE DATABASE TEST;
+mysql> create database test;
 ```
 
-* 下载安装[lntelIiJ IDEA(2022.2.1 or later version)](https://www.jetbrains.com/idea/download/)。
+* 下载安装[lntelliJ IDEA(2022.2.1 or later version)](https://www.jetbrains.com/idea/download/)。
 * 根据你的系统环境选择[JDK 8+ version](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html)版本进行下载安装。
 * [MySQL JDBC connector 8.0+ version](https://dev.mysql.com/downloads/connector/j/)：推荐下载平台独立版本，并解压下载文件。
 
+![image-20220927102516885](https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_download.png?raw=true)
+
 !!! note
      我们使用 IDEA 作为一个 IDE 示例来演示这个过程，你可以自由地选择 Eclipse 或其他 IDE 工具实践。
-
-![image-20220927102516885](https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_download.png?raw=true)
 
 ## 初始化一个新的 Java 项目
 
@@ -28,7 +28,7 @@ mysql> CREATE DATABASE TEST;
 
 ![image-20220927104740221](https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_create_project.png?raw=true)
 
-进入菜单 **Project Setting > Libraries**，导入 *mysql-connector-java-8.0.xx.jar* 文件。
+进入菜单 **Project Setting > Libraries**，导入 *mysql-connector-java-8.0.30.jar* 文件。
 
 ![image-20220927104904770](https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_import_library.png?raw=true)
 
@@ -36,13 +36,15 @@ mysql> CREATE DATABASE TEST;
 
 首先，创建一个名为 *JDBCUtils* 的 Java 类作为连接实用程序。这个类将作为连接 MatrixOne 和执行 SQL 查询的工具。
 
+在 *src* 目录下，创建一个名为 `JDBCUtils.java` 的文件，并使用以下代码编辑该文件：
+
 ```
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class JDBCUtils {
-    private static String jdbcURL = "jdbc:mysql://127.0.0.1:6001/TEST";
+    private static String jdbcURL = "jdbc:mysql://127.0.0.1:6001/test";
     private static String jdbcUsername = "dump";
     private static String jdbcPassword = "111";
 
@@ -77,7 +79,9 @@ public class JDBCUtils {
 
 其次，我们用 MatrixOne 编写创建、插入、更新和删除操作的示例代码。
 
-#### 创建
+我们需要在 *src* 目录下创建相应的 java 源代码文件：`Create.java`、`Insert.java`、`Update.java`、`Select.java`，并将下面的代码对应放在这些文件中。
+
+#### 创建（`Create.java`)
 
 ```
 import java.sql.Connection;
@@ -115,7 +119,7 @@ public class Create {
 }
 ```
 
-执行上述代码将在 *TEST* 数据库中创建一个表。
+执行上述代码会在 `test` 数据库中创建一个表，然后你可以在 MySQL 客户端中使用如下代码验证是否创建了表。
 
 ```
 mysql> show create table student;
@@ -134,7 +138,7 @@ PRIMARY KEY (`id`)
 1 row in set (0.01 sec)
 ```
 
-#### 插入
+#### 插入（`Insert.java`）
 
 ```
 import java.sql.Connection;
@@ -190,7 +194,7 @@ mysql> select * from student;
 1 row in set (0.01 sec)
 ```
 
-#### 更新数据
+#### 更新（`Update.java`）
 
 ```
 import java.sql.Connection;
@@ -240,7 +244,7 @@ mysql> select * from student;
 1 row in set (0.00 sec)
 ```
 
-#### SELECT
+#### 查询（`Select.java`）
 
 ```
 import java.sql.Connection;
