@@ -81,9 +81,9 @@ nav:
         - 事务概述: MatrixOne/Reference/SQL-Reference/Transactions/transaction-overview.md
         - 分布式事务: MatrixOne/Reference/SQL-Reference/Transactions/distributed-transaction-overview.md
       - 应用开发示例:
-        - Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
-        - Hibernate: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
-        - MyBatis: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
+        - 构建一个 Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
+        - 使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
+        - 使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
         - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
     - 部署指南:
       - 软硬件环境要求: MatrixOne/Deploy/check-before-deployment.md

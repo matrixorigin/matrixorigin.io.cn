@@ -1,12 +1,12 @@
-# SpringBoot 和 Hibernate CRUD 示例
+# 使用 SpringBoot 和 Spring Data JPA 构建一个 CRUD 示例
 
-本篇文档将介绍一个基于 **SpringBoot + Hibernate + MatrixOne + Intellij IDEA** 的简单示例，并实现基本的 CRUD 功能 。
+本篇文档将介绍一个基于 **SpringBoot + Spring Data JPA + MatrixOne + Intellij IDEA** 的简单示例，并实现基本的 CRUD 功能 。
 
 ## 开始之前
 
 本篇教程涉及到的软件介绍如下：
 
-* Hibernate: Hibernate 是一个 Java 对象映射关系的解决方案的ORM（Object-Relational Mapping）框架，是一个将面向对象的域模型映射到关系数据库的开源框架。
+* Spring Data JPA：JPA（Java Persistence API，Java 持久层 API）是一种规范，是 JDK 5.0 注解或 XML 描述对象与关系表的映射关系，并将运行期的实体对象持久化到数据库中。Spring Data JPA 是一个 Java 对象映射关系的解决方案的ORM（Object-Relational Mapping）框架，是一个将面向对象的域模型映射到关系数据库的开源框架。
 
 * Intellij IDEA：IntelliJ IDEA是一种商业化销售的 Java 集成开发环境（Integrated Development Environment，IDE）工具软件。它所拥有诸多插件，可以提高我们的工作效率。
 
@@ -23,7 +23,7 @@
 按照步骤介绍完成[安装单机版 MatrixOne 0.6](../Get-Started/install-standalone-matrixone.md)，在 MySQL 客户端新建一个命名为 `test` 数据库。
 
 ```
-mysql> CREATE DATABASE test;
+mysql> create database test;
 ```
 
 ### 2. 使用 IntelliJ IDEA 创建一个新的 Spring Boot 项目
@@ -151,7 +151,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 # Data Source name
 spring.datasource.name=defaultDataSource
 
-# Database connection url, modify to MatrixOne address and port, with paratemers
+# Database connection url, modify to MatrixOne address and port, with parameters
 spring.datasource.url=jdbc:mysql://127.0.0.1:6001/test?characterSetResults=UTF-8&continueBatchOnError=false&useServerPrepStmts=true&alwaysSendSetIsolation=false&useLocalSessionState=true&zeroDateTimeBehavior=CONVERT_TO_NULL&failoverReadOnly=false&serverTimezone=Asia/Shanghai&socketTimeout=30000
 # Database username and password
 spring.datasource.username=dump
@@ -168,7 +168,7 @@ spring.jpa.hibernate.ddl-auto = validate
 
 ### 4. 在 MatrixOne 中新建表并插入数据
 
-使用 MySQL 客户端连接到 MatrixOne 并执行以下 SQL 语句：
+使用 MySQL 客户端连接到 MatrixOne 并执行以下 SQL 语句。你可以将这些 SQL 语句保存在 */resource/database/* 目录下的 *book.sql* 中。
 
 ```
 mysql> USE test;
