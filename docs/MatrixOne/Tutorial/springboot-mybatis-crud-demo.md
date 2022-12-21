@@ -1,4 +1,4 @@
-# SpringBoot 和 MyBatis CRUD 示例
+# 使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例
 
 本篇文档将介绍一个基于 **SpringBoot + Mybatis + MatrixOne+Intellij IDEA** 的简单示例，并实现基本的 CRUD 功能 。
 
@@ -21,7 +21,7 @@
 按照步骤介绍完成[安装单机版 MatrixOne 0.6](../Get-Started/install-standalone-matrixone.md)，在 MySQL 客户端新建一个命名为 `test` 数据库。
 
 ```
-mysql> CREATE DATABASE test;
+mysql> create database test;
 ```
 
 ### 2. 使用 IntelliJ IDEA 创建一个新的 Spring Boot 项目
@@ -496,6 +496,8 @@ public class MyBatisDemoApplication {
 
 ### 1. 测试新建表
 
+打开你的的浏览器并输入网址：`http://localhost:8080/test/create`
+
 ![image-20221026161929338](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161929338.png?raw=true)
 
 在 MySQL 客户端中，验证表是否已成功创建。
@@ -531,7 +533,11 @@ PRIMARY KEY (`id`)
 
 ### 2. 测试增加用户
 
+打开你的浏览器并输入网址：`http://localhost:8080/test/add?username=tom&password=123456&address=shanghai`
+
 ![image-20221026162317800](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162317800.png?raw=true)
+
+在 MySQL 客户端中，使用如下命令验证是否成功添加记录：
 
 ```
 mysql> select * from user;
@@ -545,11 +551,19 @@ mysql> select * from user;
 
 ### 3. 测试查询用户
 
+打开你的浏览器并输入网址：`http://localhost:8080/test/selectUserByid?id=1`
+
 ![image-20221026162455058](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162455058.png?raw=true)
+
+你可以直接从浏览器中获取查询结果。
 
 ### 4. 测试更新用户
 
+打开你的浏览器并输入网址：`http://localhost:8080/test/update/username=tom&password=654321&address=beijing`
+
 ![image-20221026162613066](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162613066.png?raw=true)
+
+在 MySQL 客户端中，使用如下命令验证是否成功更新记录：
 
 ```
 mysql> select * from user;
@@ -563,7 +577,11 @@ mysql> select * from user;
 
 ### 5. 测试删除用户
 
+打开你的浏览器并输入网址：`http://localhost:8080/test/delete?id=1`
+
 ![image-20221026162756460](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162756460.png?raw=true)
+
+在 MySQL 客户端中，使用如下命令验证是否成功删除记录：
 
 ```
 mysql> select * from user;
