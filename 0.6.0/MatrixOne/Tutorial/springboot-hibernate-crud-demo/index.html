@@ -13,7 +13,7 @@
     
     
       
-        <title>Hibernate - MatrixOne中文文档</title>
+        <title>使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例 - MatrixOne中文文档</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#springboot-hibernate-crud" class="md-skip">
+        <a href="#springboot-spring-data-jpa-crud" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hibernate
+              使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例
             
           </span>
         </div>
@@ -1100,7 +1100,7 @@
   
     <li class="md-nav__item">
       <a href="../develop-java-crud-demo/" class="md-nav__link">
-        Java CRUD 示例
+        构建一个 Java CRUD 示例
       </a>
     </li>
   
@@ -1123,12 +1123,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Hibernate
+          使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Hibernate
+        使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例
       </a>
       
         
@@ -1340,7 +1340,7 @@
   
     <li class="md-nav__item">
       <a href="../springboot-mybatis-crud-demo/" class="md-nav__link">
-        MyBatis
+        使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例
       </a>
     </li>
   
@@ -6283,19 +6283,19 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/0.6.0/docs/MatrixOne/Tutorial/springboot-hibernate-crud-demo.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Tutorial/springboot-hibernate-crud-demo.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="springboot-hibernate-crud">SpringBoot 和 Hibernate CRUD 示例</h1>
-<p>本篇文档将介绍一个基于 <strong>SpringBoot + Hibernate + MatrixOne + Intellij IDEA</strong> 的简单示例，并实现基本的 CRUD 功能 。</p>
+<h1 id="springboot-spring-data-jpa-crud">使用 SpringBoot 和 Spring Data JPA 构建一个 CRUD 示例</h1>
+<p>本篇文档将介绍一个基于 <strong>SpringBoot + Spring Data JPA + MatrixOne + Intellij IDEA</strong> 的简单示例，并实现基本的 CRUD 功能 。</p>
 <h2 id="_1">开始之前</h2>
 <p>本篇教程涉及到的软件介绍如下：</p>
 <ul>
 <li>
-<p>Hibernate: Hibernate 是一个 Java 对象映射关系的解决方案的ORM（Object-Relational Mapping）框架，是一个将面向对象的域模型映射到关系数据库的开源框架。</p>
+<p>Spring Data JPA：JPA（Java Persistence API，Java 持久层 API）是一种规范，是 JDK 5.0 注解或 XML 描述对象与关系表的映射关系，并将运行期的实体对象持久化到数据库中。Spring Data JPA 是一个 Java 对象映射关系的解决方案的ORM（Object-Relational Mapping）框架，是一个将面向对象的域模型映射到关系数据库的开源框架。</p>
 </li>
 <li>
 <p>Intellij IDEA：IntelliJ IDEA是一种商业化销售的 Java 集成开发环境（Integrated Development Environment，IDE）工具软件。它所拥有诸多插件，可以提高我们的工作效率。</p>
@@ -6313,7 +6313,7 @@
 <h2 id="_2">配置环境</h2>
 <h3 id="1-matrixone">1. 安装构建 MatrixOne</h3>
 <p>按照步骤介绍完成<a href="../../Get-Started/install-standalone-matrixone/">安装单机版 MatrixOne 0.6</a>，在 MySQL 客户端新建一个命名为 <code>test</code> 数据库。</p>
-<div class="highlight"><pre><span></span><code>mysql&gt; CREATE DATABASE test;
+<div class="highlight"><pre><span></span><code>mysql&gt; create database test;
 </code></pre></div>
 <h3 id="2-intellij-idea-spring-boot">2. 使用 IntelliJ IDEA 创建一个新的 Spring Boot 项目</h3>
 <p>选择 <strong>Spring Initializer</strong>，按需命名项目名称。</p>
@@ -6430,7 +6430,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 # Data Source name
 spring.datasource.name=defaultDataSource
 
-# Database connection url, modify to MatrixOne address and port, with paratemers
+# Database connection url, modify to MatrixOne address and port, with parameters
 spring.datasource.url=jdbc:mysql://127.0.0.1:6001/test?characterSetResults=UTF-8&amp;continueBatchOnError=false&amp;useServerPrepStmts=true&amp;alwaysSendSetIsolation=false&amp;useLocalSessionState=true&amp;zeroDateTimeBehavior=CONVERT_TO_NULL&amp;failoverReadOnly=false&amp;serverTimezone=Asia/Shanghai&amp;socketTimeout=30000
 # Database username and password
 spring.datasource.username=dump
@@ -6445,7 +6445,7 @@ spring.jpa.properties.hibernate.format_sql = true
 spring.jpa.hibernate.ddl-auto = validate
 </code></pre></div>
 <h3 id="4-matrixone">4. 在 MatrixOne 中新建表并插入数据</h3>
-<p>使用 MySQL 客户端连接到 MatrixOne 并执行以下 SQL 语句：</p>
+<p>使用 MySQL 客户端连接到 MatrixOne 并执行以下 SQL 语句。你可以将这些 SQL 语句保存在 <em>/resource/database/</em> 目录下的 <em>book.sql</em> 中。</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; USE test;
 mysql&gt; CREATE TABLE IF NOT EXISTS `book` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -6916,7 +6916,7 @@ public class JpademoApplication {
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../develop-java-crud-demo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Java CRUD 示例" rel="prev">
+        <a href="../develop-java-crud-demo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 构建一个 Java CRUD 示例" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -6925,20 +6925,20 @@ public class JpademoApplication {
               <span class="md-footer__direction">
                 Previous
               </span>
-              Java CRUD 示例
+              构建一个 Java CRUD 示例
             </div>
           </div>
         </a>
       
       
         
-        <a href="../springboot-mybatis-crud-demo/" class="md-footer__link md-footer__link--next" aria-label="Next: MyBatis" rel="next">
+        <a href="../springboot-mybatis-crud-demo/" class="md-footer__link md-footer__link--next" aria-label="Next: 使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              MyBatis
+              使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例
             </div>
           </div>
           <div class="md-footer__button md-icon">

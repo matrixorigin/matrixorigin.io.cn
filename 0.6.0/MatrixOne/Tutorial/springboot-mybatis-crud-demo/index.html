@@ -13,7 +13,7 @@
     
     
       
-        <title>MyBatis - MatrixOne中文文档</title>
+        <title>使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例 - MatrixOne中文文档</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MyBatis
+              使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例
             
           </span>
         </div>
@@ -1100,7 +1100,7 @@
   
     <li class="md-nav__item">
       <a href="../develop-java-crud-demo/" class="md-nav__link">
-        Java CRUD 示例
+        构建一个 Java CRUD 示例
       </a>
     </li>
   
@@ -1114,7 +1114,7 @@
   
     <li class="md-nav__item">
       <a href="../springboot-hibernate-crud-demo/" class="md-nav__link">
-        Hibernate
+        使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例
       </a>
     </li>
   
@@ -1137,12 +1137,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          MyBatis
+          使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        MyBatis
+        使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例
       </a>
       
         
@@ -1280,7 +1280,7 @@
         
           <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    3. 测试选择用户
+    3. 测试查询用户
   </a>
   
 </li>
@@ -6179,7 +6179,7 @@
         
           <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    3. 测试选择用户
+    3. 测试查询用户
   </a>
   
 </li>
@@ -6215,13 +6215,13 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/0.6.0/docs/MatrixOne/Tutorial/springboot-mybatis-crud-demo.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Tutorial/springboot-mybatis-crud-demo.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="springboot-mybatis-crud">SpringBoot 和 MyBatis CRUD 示例</h1>
+<h1 id="springboot-mybatis-crud">使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例</h1>
 <p>本篇文档将介绍一个基于 <strong>SpringBoot + Mybatis + MatrixOne+Intellij IDEA</strong> 的简单示例，并实现基本的 CRUD 功能 。</p>
 <h2 id="_1">开始之前</h2>
 <p>本篇教程涉及到的软件介绍如下：</p>
@@ -6242,7 +6242,7 @@
 <h2 id="_2">配置环境</h2>
 <h3 id="1-matrixone">1. 安装构建 MatrixOne</h3>
 <p>按照步骤介绍完成<a href="../../Get-Started/install-standalone-matrixone/">安装单机版 MatrixOne 0.6</a>，在 MySQL 客户端新建一个命名为 <code>test</code> 数据库。</p>
-<div class="highlight"><pre><span></span><code>mysql&gt; CREATE DATABASE test;
+<div class="highlight"><pre><span></span><code>mysql&gt; create database test;
 </code></pre></div>
 <h3 id="2-intellij-idea-spring-boot">2. 使用 IntelliJ IDEA 创建一个新的 Spring Boot 项目</h3>
 <p>选择 <strong>Spring Initializer</strong>，按需命名项目名称。</p>
@@ -6674,6 +6674,7 @@ public class MyBatisDemoApplication {
 2022-10-26 16:13:26.272  INFO 60253 --- [           main] c.e.mybatisdemo.MyBatisDemoApplication   : Started MyBatisDemoApplication in 2.669 seconds (JVM running for 3.544)
 </code></pre></div>
 <h3 id="1">1. 测试新建表</h3>
+<p>打开你的的浏览器并输入网址：<code>http://localhost:8080/test/create</code></p>
 <p><img alt="image-20221026161929338" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161929338.png?raw=true" /></p>
 <p>在 MySQL 客户端中，验证表是否已成功创建。</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; use test;
@@ -6704,7 +6705,9 @@ PRIMARY KEY (`id`)
 1 row in set (0.01 sec)
 </code></pre></div>
 <h3 id="2">2. 测试增加用户</h3>
+<p>打开你的浏览器并输入网址：<code>http://localhost:8080/test/add?username=tom&amp;password=123456&amp;address=shanghai</code></p>
 <p><img alt="image-20221026162317800" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162317800.png?raw=true" /></p>
+<p>在 MySQL 客户端中，使用如下命令验证是否成功添加记录：</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from user;
 +------+----------+----------+----------+
 | id   | username | password | address  |
@@ -6713,10 +6716,14 @@ PRIMARY KEY (`id`)
 +------+----------+----------+----------+
 1 row in set (0.00 sec)
 </code></pre></div>
-<h3 id="3">3. 测试选择用户</h3>
+<h3 id="3">3. 测试查询用户</h3>
+<p>打开你的浏览器并输入网址：<code>http://localhost:8080/test/selectUserByid?id=1</code></p>
 <p><img alt="image-20221026162455058" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162455058.png?raw=true" /></p>
+<p>你可以直接从浏览器中获取查询结果。</p>
 <h3 id="4">4. 测试更新用户</h3>
+<p>打开你的浏览器并输入网址：<code>http://localhost:8080/test/update/username=tom&amp;password=654321&amp;address=beijing</code></p>
 <p><img alt="image-20221026162613066" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162613066.png?raw=true" /></p>
+<p>在 MySQL 客户端中，使用如下命令验证是否成功更新记录：</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from user;
 +------+----------+----------+---------+
 | id   | username | password | address |
@@ -6726,7 +6733,9 @@ PRIMARY KEY (`id`)
 1 row in set (0.00 sec)
 </code></pre></div>
 <h3 id="5">5. 测试删除用户</h3>
+<p>打开你的浏览器并输入网址：<code>http://localhost:8080/test/delete?id=1</code></p>
 <p><img alt="image-20221026162756460" src="https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162756460.png?raw=true" /></p>
+<p>在 MySQL 客户端中，使用如下命令验证是否成功删除记录：</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from user;
 Empty set (0.00 sec)
 </code></pre></div>
@@ -6743,7 +6752,7 @@ Empty set (0.00 sec)
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../springboot-hibernate-crud-demo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hibernate" rel="prev">
+        <a href="../springboot-hibernate-crud-demo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -6752,7 +6761,7 @@ Empty set (0.00 sec)
               <span class="md-footer__direction">
                 Previous
               </span>
-              Hibernate
+              使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例
             </div>
           </div>
         </a>

@@ -1163,7 +1163,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Tutorial/develop-java-crud-demo/" class="md-nav__link">
-        Java CRUD 示例
+        构建一个 Java CRUD 示例
       </a>
     </li>
   
@@ -1177,7 +1177,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Tutorial/springboot-hibernate-crud-demo/" class="md-nav__link">
-        Hibernate
+        使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例
       </a>
     </li>
   
@@ -1191,7 +1191,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Tutorial/springboot-mybatis-crud-demo/" class="md-nav__link">
-        MyBatis
+        使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例
       </a>
     </li>
   
@@ -5983,7 +5983,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/0.6.0/docs/MatrixOne/Develop/import-data/bulk-load/load-csv.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Develop/import-data/bulk-load/load-csv.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
@@ -5993,21 +5993,12 @@
 <p>本篇文档将指导你在 MySQL 客户端启动 MatrixOne 时如何完成 <em>.csv</em> 格式数据导入。</p>
 <h2 id="_1">开始前准备</h2>
 <p>已完成<a href="../../../../Get-Started/install-standalone-matrixone/">单机部署 MatrixOne</a>。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>如果你是通过 <code>docker</code> 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要挂载本地目录，参见下面的代码示例：本地文件系统路径 <em>${local_data_path}/mo-data</em> 挂载到 MatrixOne Docker 镜像中，并映射到 <em>/mo-data</em> 路径下。更多信息，参见 <a href="https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/">Docker Mount Volume tutorial</a>。</p>
-</div>
-<div class="highlight"><pre><span></span><code>sudo docker run --name &lt;name&gt; --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
-</code></pre></div>
 <h2 id="mysql-client-load-data">MySQL Client 中使用 <code>Load data</code> 命令导入数据</h2>
-<p>在 MySQL Client 中使用 <code>Load data</code> 命令将外部大数据文件导入，但目前只支持 <em>.csv</em> 格式的文件导入。</p>
+<p>你可以使用 <code>Load Data</code> 从大数据文件中导入数据，本章将介绍如何导入 <em>.csv</em> 格式文件。</p>
+<p><strong>Note</strong>: <em>.csv</em>（逗号分隔值）文件是一种特殊的文件类型，可在 Excel 中创建或编辑，<em>.csv</em> 文件不是采用多列的形式存储信息，而是使用逗号分隔的形式存储信息。</p>
 <ol>
 <li>
 <p>在 MatrixOne 中执行 <code>Load Data</code> 之前，需要提前在 MatrixOne 中创建完成数据表。目前，数据文件需要与 MatrixOne 服务器在同一台机器上，如果它们在不同的机器上，则需要进行文件传输。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>如果你使用 Docker 启动 MatrixOne，需要先将数据文件挂载到容器的目录中。</p>
-</div>
 </li>
 <li>
 <p>在 MatrixOne 本地服务器中启动 MySQL 客户端以访问本地文件系统。</p>
@@ -6020,14 +6011,11 @@
 INTO TABLE xxxxxx
 FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &quot;\r\n&quot;;
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>如果你使用 Docker 启动 MatrixOne，需要先将这个数据文件路径挂载到容器的目录中。</p>
-</div>
 </li>
 </ol>
 <h3 id="docker-matrixone-load-data">示例：使用 <em>docker</em> 启动 MatrixOne 执行 <code>Load data</code></h3>
-<p>本示例将介绍如何使用 Docker 启动 MatrixOne 0.6.0 加载数据。</p>
+<p>如果你通过 <strong>Docker</strong> 安装 MatrixOne，那么文件默认存储在 <strong>Docker</strong> 镜像中。如果你需要将文件存储在本地目录，你需要先将本地目录挂载到容器。</p>
+<p>在以下示例中，本地文件系统路径 <code>~/tmp/docker_loaddata_demo/</code> 挂载到 MatrixOne Docker 镜像，并映射到 Docker 容器内的 <code>/ssb-dbgen-path</code> 目录。本篇示例将指导你使用 MatrixOne 0.6.0 docker 版本加载数据。</p>
 <ol>
 <li>
 <p>下载数据集，并且将数据集存储到本地 <em>~/tmp/docker_loaddata_demo/</em> 路径下：</p>
@@ -6042,7 +6030,7 @@ wget https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/lineor
 </li>
 <li>
 <p>使用 Docker 启动 MatrixOne，启动时将存放了数据文件的目录 <em>~/tmp/docker_loaddata_demo/</em> 挂载到容器的某个目录下，这里容器目录以 <em>/ssb-dbgen-path</em> 为例：</p>
-<div class="highlight"><pre><span></span><code>sudo docker run --name &lt;name&gt; --privileged -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo/:/ssb-dbgen-path:rw matrixorigin/matrixone:0.6.0
+<div class="highlight"><pre><span></span><code>sudo docker run --name matrixone --privileged -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo/:/ssb-dbgen-path:rw matrixorigin/matrixone:0.6.0
 </code></pre></div>
 </li>
 <li>

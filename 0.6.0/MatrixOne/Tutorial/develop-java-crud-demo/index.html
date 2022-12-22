@@ -13,7 +13,7 @@
     
     
       
-        <title>Java CRUD 示例 - MatrixOne中文文档</title>
+        <title>构建一个 Java CRUD 示例 - MatrixOne中文文档</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Java CRUD 示例
+              构建一个 Java CRUD 示例
             
           </span>
         </div>
@@ -1109,12 +1109,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Java CRUD 示例
+          构建一个 Java CRUD 示例
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Java CRUD 示例
+        构建一个 Java CRUD 示例
       </a>
       
         
@@ -1155,29 +1155,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    创建
+  <a href="#createjava" class="md-nav__link">
+    创建（Create.java)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    插入
+  <a href="#insertjava" class="md-nav__link">
+    插入（Insert.java）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    升级数据
+  <a href="#updatejava" class="md-nav__link">
+    更新（Update.java）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#select" class="md-nav__link">
-    SELECT
+  <a href="#selectjava" class="md-nav__link">
+    查询（Select.java）
   </a>
   
 </li>
@@ -1203,7 +1203,7 @@
   
     <li class="md-nav__item">
       <a href="../springboot-hibernate-crud-demo/" class="md-nav__link">
-        Hibernate
+        使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例
       </a>
     </li>
   
@@ -1217,7 +1217,7 @@
   
     <li class="md-nav__item">
       <a href="../springboot-mybatis-crud-demo/" class="md-nav__link">
-        MyBatis
+        使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例
       </a>
     </li>
   
@@ -5993,29 +5993,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    创建
+  <a href="#createjava" class="md-nav__link">
+    创建（Create.java)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    插入
+  <a href="#insertjava" class="md-nav__link">
+    插入（Insert.java）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    升级数据
+  <a href="#updatejava" class="md-nav__link">
+    更新（Update.java）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#select" class="md-nav__link">
-    SELECT
+  <a href="#selectjava" class="md-nav__link">
+    查询（Select.java）
   </a>
   
 </li>
@@ -6037,7 +6037,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/0.6.0/docs/MatrixOne/Tutorial/develop-java-crud-demo.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Tutorial/develop-java-crud-demo.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
@@ -6046,38 +6046,39 @@
 <h1 id="java-crud">Java CRUD 示例</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>本篇文档所介绍的演示程序的源代码下载地址为：<a href="https://github.com/matrixorigin/matrixone_java_crud_example">github</a>。</p>
+<p>本篇文档所介绍的演示程序的源代码下载地址为：<a href="https://github.com/matrixorigin/matrixone_java_crud_example">Java CRUD 示例</a>。</p>
 </div>
 <h2 id="_1">配置环境</h2>
 <p>在开始之前，请确保已经下载并安装了以下软件。</p>
 <ul>
 <li>完成 <a href="../Get-Started/install-standalone-matrixone/">单机部署 MatrixOne</a>，通过 MySQL 客户端创建数据库。</li>
 </ul>
-<div class="highlight"><pre><span></span><code>mysql&gt; CREATE DATABASE TEST;
+<div class="highlight"><pre><span></span><code>mysql&gt; create database test;
 </code></pre></div>
 <ul>
-<li>下载安装<a href="https://www.jetbrains.com/idea/download/">lntelIiJ IDEA(2022.2.1 or later version)</a>。</li>
+<li>下载安装<a href="https://www.jetbrains.com/idea/download/">lntelliJ IDEA(2022.2.1 or later version)</a>。</li>
 <li>根据你的系统环境选择<a href="https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html">JDK 8+ version</a>版本进行下载安装。</li>
 <li><a href="https://dev.mysql.com/downloads/connector/j/">MySQL JDBC connector 8.0+ version</a>：推荐下载平台独立版本，并解压下载文件。</li>
 </ul>
+<p><img alt="image-20220927102516885" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_download.png?raw=true" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>我们使用 IDEA 作为一个 IDE 示例来演示这个过程，你可以自由地选择 Eclipse 或其他 IDE 工具实践。</p>
 </div>
-<p><img alt="image-20220927102516885" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_download.png?raw=true" /></p>
 <h2 id="java">初始化一个新的 Java 项目</h2>
 <p>启动 IDEA，并创建一个新的 Java 项目，如下所示:</p>
 <p><img alt="image-20220927104740221" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_create_project.png?raw=true" /></p>
-<p>进入菜单 <strong>Project Setting &gt; Libraries</strong>，导入 <em>mysql-connector-java-8.0.xx.jar</em> 文件。</p>
+<p>进入菜单 <strong>Project Setting &gt; Libraries</strong>，导入 <em>mysql-connector-java-8.0.30.jar</em> 文件。</p>
 <p><img alt="image-20220927104904770" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_import_library.png?raw=true" /></p>
 <h2 id="java-matrixone">编写 Java 代码连接 MatrixOne</h2>
 <p>首先，创建一个名为 <em>JDBCUtils</em> 的 Java 类作为连接实用程序。这个类将作为连接 MatrixOne 和执行 SQL 查询的工具。</p>
+<p>在 <em>src</em> 目录下，创建一个名为 <code>JDBCUtils.java</code> 的文件，并使用以下代码编辑该文件：</p>
 <div class="highlight"><pre><span></span><code>import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class JDBCUtils {
-    private static String jdbcURL = &quot;jdbc:mysql://127.0.0.1:6001/TEST&quot;;
+    private static String jdbcURL = &quot;jdbc:mysql://127.0.0.1:6001/test&quot;;
     private static String jdbcUsername = &quot;dump&quot;;
     private static String jdbcPassword = &quot;111&quot;;
 
@@ -6110,7 +6111,8 @@ public class JDBCUtils {
 }
 </code></pre></div>
 <p>其次，我们用 MatrixOne 编写创建、插入、更新和删除操作的示例代码。</p>
-<h4 id="_2">创建</h4>
+<p>我们需要在 <em>src</em> 目录下创建相应的 java 源代码文件：<code>Create.java</code>、<code>Insert.java</code>、<code>Update.java</code>、<code>Select.java</code>，并将下面的代码对应放在这些文件中。</p>
+<h4 id="createjava">创建（<code>Create.java</code>)</h4>
 <div class="highlight"><pre><span></span><code>import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -6145,7 +6147,7 @@ public class Create {
     }
 }
 </code></pre></div>
-<p>执行上述代码将在 <em>TEST</em> 数据库中创建一个表。</p>
+<p>执行上述代码会在 <code>test</code> 数据库中创建一个表，然后你可以在 MySQL 客户端中使用如下代码验证是否创建了表。</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; show create table student;
 +---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Table   | Create Table                                                                                                                                                                                        |
@@ -6161,7 +6163,7 @@ PRIMARY KEY (`id`)
 +---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 </code></pre></div>
-<h4 id="_3">插入</h4>
+<h4 id="insertjava">插入（<code>Insert.java</code>）</h4>
 <div class="highlight"><pre><span></span><code>import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -6211,7 +6213,7 @@ public class Insert {
 <span class="o">+</span><span class="c1">------+------+----------------+---------+------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
-<h4 id="_4">升级数据</h4>
+<h4 id="updatejava">更新（<code>Update.java</code>）</h4>
 <div class="highlight"><pre><span></span><code>import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -6254,7 +6256,7 @@ public class Update {
 <span class="o">+</span><span class="c1">------+------+----------------+---------+------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
-<h4 id="select">SELECT</h4>
+<h4 id="selectjava">查询（<code>Select.java</code>）</h4>
 <div class="highlight"><pre><span></span><code>import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6324,13 +6326,13 @@ public class Select {
       
       
         
-        <a href="../springboot-hibernate-crud-demo/" class="md-footer__link md-footer__link--next" aria-label="Next: Hibernate" rel="next">
+        <a href="../springboot-hibernate-crud-demo/" class="md-footer__link md-footer__link--next" aria-label="Next: 使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Hibernate
+              使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例
             </div>
           </div>
           <div class="md-footer__button md-icon">
