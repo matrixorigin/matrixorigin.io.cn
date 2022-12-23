@@ -14,4 +14,4 @@ MatrixOne通过超融合数据引擎实现单一数据库系统支持事务性�
 |  ----  | ----  |  ----  
 | [MatrixOne简介](MatrixOne/Overview/matrixone-introduction.md)  | [MatrixOne安装部署](MatrixOne/Get-Started/install-standalone-matrixone.md) | 	[SQL参考指南](MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-database.md)
 | [MatrixOne架构](MatrixOne/Overview/matrixone-architecture-design.md)  | [单机部署 MatrixOne](MatrixOne/Get-Started/install-standalone-matrixone.md) | [v0.6.0发布公告](MatrixOne/Release-Notes/v0.6.0.md)
-| [MySQL兼容性](MatrixOne/Overview/mysql-compatibility.md)  | [使用MatrixOne完成SSB测试](MatrixOne/Tutorial/SSB-test-with-matrixone.md)
+| [MySQL兼容性](MatrixOne/Overview/mysql-compatibility.md)  | [使用MatrixOne完成SSB测试](MatrixOne/Test/performance-testing/SSB-test-with-matrixone.md)

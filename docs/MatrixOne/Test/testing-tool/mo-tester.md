@@ -22,7 +22,7 @@ MO-Tester 相关用例、结果和报告的放在 [MatrixOne](https://github.com
 
 * 请先确认已安装 jdk8。
 
-* 启动 MatrixOne 或其他数据库用例。参见更多信息 >>[安装单机版 MatrixOne](../Get-Started/install-standalone-matrixone.md).
+* 启动 MatrixOne 或其他数据库用例。参见更多信息 >>[安装单机版 MatrixOne](../../Get-Started/install-standalone-matrixone.md).
 
 * 克隆 *mo-tester* 仓库。
 

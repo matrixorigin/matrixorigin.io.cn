@@ -84,7 +84,8 @@ nav:
         - 构建一个 Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
         - 使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
         - 使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
-        - 股票分析 Python 应用: MatrixOne/Tutorial/develop-python-application.md
+        - 使用 Python 和 SQLAlchemy 构建一个 CRUD 示例: MatrixOne/Tutorial/sqlalchemy-python-crud-demo.md
+        - 构建一个 Python CRUD 示例: MatrixOne/Tutorial/develop-python-crud-demo.md
     - 部署指南:
       - 软硬件环境要求: MatrixOne/Deploy/check-before-deployment.md
       - 在 Kubernetes 上部署 MatrixOne:
@@ -100,12 +101,12 @@ nav:
       - 将数据从 MySQL 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-mysql-to-matrixone.md
     - 测试:
       - 性能测试:
-        - SSB 测试: MatrixOne/Tutorial/SSB-test-with-matrixone.md
-        - TPCH 测试: MatrixOne/Tutorial/TPCH-test-with-matrixone.md
-        - TPCC 测试: MatrixOne/Tutorial/TPCC-test-with-matrixone.md
+        - SSB 测试: MatrixOne/Test/performance-testing/SSB-test-with-matrixone.md
+        - TPCH 测试: MatrixOne/Test/performance-testing/TPCH-test-with-matrixone.md
+        - TPCC 测试: MatrixOne/Test/performance-testing/TPCC-test-with-matrixone.md
       - 测试工具:
-        - MO-Tester: MatrixOne/Test/mo-tester.md
-        - MO-Tester 规范要求: MatrixOne/Test/mo-tester-reference.md
+        - MO-Tester: MatrixOne/Test/testing-tool/mo-tester.md
+        - MO-Tester 规范要求: MatrixOne/Test/testing-tool/mo-tester-reference.md
     - 故障诊断:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md

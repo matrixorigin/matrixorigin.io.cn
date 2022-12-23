@@ -6,7 +6,7 @@ TPC Benchmark™H（TPC-H）是决策支持基准。它由一套面向业务的�
 
 ## **开始前准备**
 
-确保你已经完成了[单机部署 MatrixOne](../Get-Started/install-standalone-matrixone.md)。
+确保你已经完成了[单机部署 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
 ## **1. 编译dbgen**
 
