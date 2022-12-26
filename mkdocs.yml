@@ -78,8 +78,15 @@ nav:
         - 使用 `SELECT INTO...OUTFILE` 导出数据: MatrixOne/Develop/export-data/select-into-outfile.md
         - 使用 `modump` 导出数据: MatrixOne/Develop/export-data/modump.md
       - 事务:
-        - 事务概述: MatrixOne/Reference/SQL-Reference/Transactions/transaction-overview.md
-        - 分布式事务: MatrixOne/Reference/SQL-Reference/Transactions/distributed-transaction-overview.md
+        - 事务通用概念: MatrixOne/Develop/Transactions/common-transaction-overview.md
+        - MatrixOne 的事务:
+          - MatrixOne 的事务概述: MatrixOne/Develop/Transactions/matrixone-transaction-overview/overview.md
+          - MatrixOne 的显式事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/explicit-transaction.md
+          - MatrixOne 的隐式事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/implicit-transaction.md
+          - MatrixOne 的乐观事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/optimistic-transaction.md
+          - MatrixOne 的事务隔离级别: MatrixOne/Develop/Transactions/matrixone-transaction-overview/snapshot-isolation.md
+          - MVCC: MatrixOne/Develop/Transactions/matrixone-transaction-overview/mvcc.md
+          - MatrixOne 中的事务应用场景: MatrixOne/Develop/Transactions/matrixone-transaction-overview/scenario.md
       - 应用开发示例:
         - 构建一个 Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
         - 使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
