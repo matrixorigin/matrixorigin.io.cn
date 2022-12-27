@@ -18,9 +18,9 @@ MatrixOne 支持乐观事务模型。你在使用乐观并发读取一行时不�
 
 ### 模型示例
 
-下面给出乐观并发的示例，将为你展示服务器如何解决并发冲突。
+下面为乐观并发的示例，将为你展示 MatrixOne 如何解决并发冲突。
 
-1. 在下午 1:00，用户1 从数据库中读取一行，其值如下:
+1. 在下午 1:00，用户 1 从数据库中读取一行，其值如下:
 
     ```
     CustID LastName FirstName
@@ -33,9 +33,9 @@ MatrixOne 支持乐观事务模型。你在使用乐观并发读取一行时不�
     |LastName|Smith|Smith|Smith|
     |FirstName|Bob|Bob|Bob|
 
-2. 在下午 1:01，User2 从数据库中读取同一行。
+2. 在下午 1:01，用户 2 从数据库中读取同一行。
 
-3. 在下午 1:03，用户2 将 FirstName 行的“Bob”改为“Robert”，并更新到数据库里。
+3. 在下午 1:03，用户 2 将 FirstName 行的“Bob”改为“Robert”，并更新到数据库里。
 
     |Column name|Original value|Current value|Value in database|
     |---|---|---|---|
@@ -43,9 +43,9 @@ MatrixOne 支持乐观事务模型。你在使用乐观并发读取一行时不�
     |LastName|Smith|Smith|Smith|
     |FirstName|Bob|Robert|Bob|
 
-4. 上表所示，更新成功，因为更新时数据库中的值与用户2 的原始值匹配。
+4. 如上表所示，更新时数据库中的值与用户 2 的原始值匹配，表示更新成功。
 
-5. 在下午 1:05，用户1 将 FirstName 行的“Bob”改为“James”，并尝试进行更新。
+5. 在下午 1:05，用户 1 将 FirstName 行的“Bob”改为“James”，并尝试进行更新。
 
     |Column name|Original value|Current value|Value in database|
     |---|---|---|---|
@@ -53,4 +53,4 @@ MatrixOne 支持乐观事务模型。你在使用乐观并发读取一行时不�
     |LastName|Smith|Smith|Smith|
     |FirstName|Bob|James|Robert|
 
-6. 此时，用户1 遇到了乐观并发冲突，因为数据库中的值“Robert”不再与用户1 期望的原始值“Bob”匹配，并发冲突提示更新失败。下一步需要决定，是采用用户1 的更改覆盖用户2 的更改，还是取消用户1 的更改。
+6. 此时，用户 1 遇到了乐观并发冲突，因为数据库中的值“Robert”不再与用户 1 期望的原始值“Bob”匹配，并发冲突提示更新失败。下一步需要决定，是采用用户 1 的更改覆盖用户 2 的更改，还是取消用户 1 的更改。
