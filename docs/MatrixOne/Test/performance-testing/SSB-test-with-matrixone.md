@@ -366,16 +366,18 @@ group by year(d_datekey), s_nation, p_category
 order by year, s_nation, p_category;
 
 --Q4.3
-select year(d_datekey) as year, s_city, p_brand, sum(lo_revenue) - sum(lo_supplycost) as profit, c_region, s_nation, p_category
+select year(d_datekey) as year, s_city, p_brand, sum(lo_revenue) - sum(lo_supplycost) as profit
 from lineorder
-join date on lo_orderdate = d_datekey
+join dates on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 join part on lo_partkey = p_partkey
 where
 (year(d_datekey) = 1997 or year(d_datekey) = 1998)
-and s_nation='ALGERIA'
-group by year(d_datekey), s_city, p_brand, c_region, s_nation, p_category
+and c_region = 'AMERICA'
+and s_nation = 'UNITED STATES'
+and p_category = 'MFGR#14'
+group by year, s_city, p_brand
 order by year, s_city, p_brand;
 ```
 
@@ -3053,58 +3055,14 @@ order by year, s_city, p_brand;
 +------+---------------+------------+------------+
 
 --Q4.3
-+------+------------+-----------+----------+-------------+----------+------------+
-| year | s_city     | p_brand   | profit   | c_region    | s_nation | p_category |
-+------+------------+-----------+----------+-------------+----------+------------+
-| 1997 | ALGERIA  0 | MFGR#111  |  1845848 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#111  | 10847138 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1110 |  6035219 | AFRICA      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1110 |   432257 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1111 |  2107179 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1111 |  4071438 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1111 |  3057167 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1112 |  2311386 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1112 |   948054 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1113 |  1602699 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1113 |  1829091 | AFRICA      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1113 |  3219216 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1114 |  4755426 | AFRICA      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1114 |  5240408 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1115 |  4338301 | AFRICA      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1115 |  6297251 | MIDDLE EAST | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1116 |  4030507 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1116 |  1375765 | AFRICA      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1116 |  7716780 | MIDDLE EAST | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1117 |  7095003 | AFRICA      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1117 |  4806253 | MIDDLE EAST | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1119 |  3020204 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1119 |  3898889 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1119 |   636154 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#112  |  6913968 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#112  |  4635551 | MIDDLE EAST | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1120 |  3789881 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1120 |  5375347 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1121 |  2962488 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1121 |   546333 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1121 | 12922204 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1122 |  9912733 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1122 |  5158697 | AFRICA      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1123 |  3024512 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1123 |  2393758 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1124 |  2049203 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1125 | 10168898 | MIDDLE EAST | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1125 |  3169896 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1126 |   364696 | AFRICA      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1126 |  3089145 | MIDDLE EAST | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1126 |   695856 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1127 |  6379893 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1128 |   356710 | AMERICA     | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1128 |  4804429 | MIDDLE EAST | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1128 | 10020597 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1129 |  4396845 | ASIA        | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1129 |   577228 | AFRICA      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#113  |  6419788 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1130 |  3840822 | EUROPE      | ALGERIA  | MFGR#11    |
-| 1997 | ALGERIA  0 | MFGR#1130 |  6045720 | MIDDLE EAST | ALGERIA  | MFGR#11    |
-+------+------------+-----------+----------+-------------+----------+------------+
++------+------------+-----------+---------------+
+| year | s_city     | p_brand   | profit        |
++------+------------+-----------+---------------+
+| 1997 | UNITED ST1 | MFGR#1414 | 10001830.0000 |
+| 1997 | UNITED ST1 | MFGR#147  | 13643806.0000 |
+| 1997 | UNITED ST9 | MFGR#144  |  4953914.0000 |
+| 1998 | UNITED ST0 | MFGR#1424 | 14202690.0000 |
+| 1998 | UNITED ST5 | MFGR#1430 |  7742358.0000 |
++------+------------+-----------+---------------+
+5 rows in set (0.25 sec)
 ```
