@@ -1,35 +1,30 @@
-# 从 S3 读取数据并导入 MatrixOne
+# 从 S3 对象存储服务读取数据并导入 MatrixOne
 
 ## 概述
 
-MatrixOne 支持从对象存储服务（Simple Storage Service, S3) 中读取文件，导入数据到 MatrixOne 数据库表中。
+S3（Simple Storage Service）对象存储是指亚马逊的简单存储服务。你还可以使用与 S3 兼容的对象存储来存储几乎任何类型和大小的数据，包括数据湖、云原生应用程序和移动应用程序。如果你不熟悉 S3 对象服务，你可以在 [AWS](https://docs.aws.amazon.com/s3/index.html) 中查找一些基本介绍。
 
-目前的 S3 支持 AWS，以及国内的主流云厂商，此外 S3 上的文件支持压缩格式，此外还支持文件路径的正则表达式规则，来读取多个文件，例如 "/Users/\*.txt" 就会去读取以 *.txt* 结尾的所有文件。
+AWS S3 十多年来一直非常成功，因此它成为了对象存储的标准。因此几乎所有主流公有云厂商都提供了兼容 S3 的对象存储服务。
 
-## 开始前准备
+MatrixOne 支持将文件从 S3 兼容的对象存储服务加载到数据库中。MatrixOne 支持 AWS 和国内主流云厂商（阿里云、腾讯云）。
 
-已完成[单机部署 MatrixOne](../../../Get-Started/install-standalone-matrixone.md)。
+在 MatrixOne 中，有两种方法可以从 S3 兼容的对象存储中导入数据：
 
-!!! note
-    如果你是通过 `docker` 安装的 MatrixOne，那么导出目录默认位于 docker 镜像中。如果你要需要挂载本地目录，参见下面的代码示例：本地文件系统路径 *${local_data_path}/mo-data* 挂载到 MatrixOne Docker 镜像中，并映射到 */mo-data* 路径下。更多信息，参见 [Docker Mount Volume tutorial](https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/)。
+* 使用带有 s3option 的 `Load data` 将文件加载到 MatrixOne 中。此方法会将数据加载到 MatrixOne 中，所有接下来的查询都将在 MatrixOne 中进行。
+* 创建一个带有 s3option 映射到 S3 文件的“外部表”，并直接查询这个外部表。该方法允许通过 S3 兼容的对象存储服务进行数据访问；每个查询的网络延迟都将被计算在内。
 
-```
-sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
-```
+## 方式 1: `LOAD DATA`
 
-## 导入语法介绍
+### 语法结构
 
 ```sql
 LOAD DATA
-    [ INFILE 'string'
-    | INFILE {"filepath"='<string>', "compression"='<string>'}
     | URL s3options {"endpoint"='<string>', "access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "filepath"='<string>', "region"='<string>', "compression"='<string>'}
-    [IGNORE]
     INTO TABLE tbl_name
-    [CHARACTER SET charset_name]
     [{FIELDS | COLUMNS}
+        [TERMINATED BY 'string']
         [[OPTIONALLY] ENCLOSED BY 'char']
-    ]
+        [ESCAPED BY 'char']
     ]
     [IGNORE number {LINES | ROWS}]
 ```
@@ -37,116 +32,228 @@ LOAD DATA
 **参数说明**
 
 |参数|描述|
-|:-:|:-:|
-|endpoint|终端节点是作为 AWS Web 服务的入口点的 URL。例如：s3.us-west-2.amazonaws.com|
-|access_key_id| S3 的 Access key ID|
-|secret_access_key| S3 的 Secret access key|
-|bucket| 需要访问的桶|
-|filepath| 访问文件的相对路径 |
-|region| s3 所在的区域|
-|compression| S3 文件的压缩格式，为空表示非压缩文件，支持的字段或压缩格式为"auto", "none", "gzip", "bzip2", "lz4"|
-|auto|压缩格式，表示通过文件后缀名自动检查文件的压缩格式|
-|none|压缩格式，表示为非压缩格式，其余表示文件的压缩格式|
+|---|---|
+|endpoint|可以连接到对象存储服务的 URL。例如：s3.us-west-2.amazonaws.com|
+|access_key_id| Access key ID |
+|secret_access_key| Secret access key |
+|bucket| S3 需要访问的桶 |
+|filepath| 相对文件路径。 /files/*.csv 支持正则表达式。 |
+|region| 对象存储服务区域|
+|compression| S3 文件的压缩格式。 如果为空或 "none"，，则表示未压缩的文件。支持的字段或压缩格式为“auto”、“none”、“gzip”、“bz2”和“lz4”。|
 
-更多信息，参考 [LOAD DATA](../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md)。
+其他参数与通用 `LOAD DATA` 参数相同，更多信息，参见 [LOAD DATA](../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md)。
 
-**代码示例**：
+**语法示例**：
 
 ```sql
-## 非指定文件压缩格式
-LOAD DATA INFILE URL s3option{"endpoint"='<string>', "access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "filepath"='<string>', "region"='<string>'} INTO TABLE t1 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';
+# LOAD a csv file from AWS S3 us-east-1 region, test-load-mo bucket, without compression
+LOAD DATA URL s3option{"endpoint"='s3.us-east-1.amazonaws.com', "access_key_id"='XXXXXX', "secret_access_key"='XXXXXX', "bucket"='test-load-mo', "filepath"='test.csv', "region"='us-east-1', "compression"='none'} INTO TABLE t1 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';
 
-## 指定文件压缩格式
-LOAD DATA INFILE URL s3option{"endpoint"='<string>', "access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "filepath"='<string>', "region"='<string>', "compression"='<string>'} INTO TABLE t1 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';
+# LOAD all csv files from Alibaba Cloud OSS Shanghai region, test-load-data bucket, without compression
+LOAD DATA URL s3option{"endpoint"='oss-cn-shanghai.aliyuncs.com', "access_key_id"='XXXXXX', "secret_access_key"='XXXXXX', "bucket"='test-load-data', "filepath"='/test/*.csv', "region"='oss-cn-shanghai', "compression"='none'} INTO TABLE t1 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';
+
+# LOAD a csv file from Tencent Cloud COS Shanghai region, test-1252279971 bucket, without bz2 compression
+LOAD DATA URL s3option{"endpoint"='cos.ap-shanghai.myqcloud.com', "access_key_id"='XXXXXX', "secret_access_key"='XXXXXX', "bucket"='test-1252279971', "filepath"='test.csv.bz2', "region"='ap-shanghai', "compression"='bz2'} INTO TABLE t1 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';
 ```
 
-## 示例
+### 教程：从 AWS S3 加载文件
 
-为方便举例说明，我们准备了 AWS S3 上的数据，如果你还未开通 AWS S3 上的账号，请先开通账号。
+本教程中将指导你完成从 AWS S3 加载 **.csv** 文件的过程。
+
+如果你已经拥有一个 AWS 账户并且已经在你的 S3 服务中准备好数据文件，那么请继续阅读本教程章节。
+
+如果你还没有准备好数据文件，请先注册并上传你的数据文件；你也可以查看 AWS S3 [官方教程](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html)。如果你的数据文件想要上传到阿里云 OSS 或者腾讯云 COS 上，那么操作流程与 AWS S3 类似。
 
 !!! note
-    涉及到账号隐私，此处代码示例不展示有关 access_id 等账号信息。
-    你可以通过本篇文档了解主要步骤，对于具体数据和具体账号信息，将不做展示。
+    由于帐户隐私，此代码示例不会显示帐户信息，例如 `access_key_id` 和 `secret_access_key`。
+    你可以阅读本文档以了解主要步骤；具体数据和账户信息将不会显示。
 
-### 方式一：直接将 S3 文件导入到 MatrixOne
+1. 下载[数据文件](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/char_varchar_1.csv)。进入 **AWS S3 > buckets**，创建一个具有公共访问权限的存储桶 **test-loading** 并上传文件 *char_varchar_1.csv*。
 
-1. 准备数据。进入到 **AWS S3 > buckets** 找到表文件 *file-demo*。
+    <img src="https://github.com/matrixorigin/artwork/blob/main/docs/develop/load_S3/create_bucket.png?raw=true"  style="zoom: 60%;" />
 
-2. 打开 MySQL 客户端，启动 MatrixOne，在 MatrixOne 中建表，例如：
+    ![public block](https://github.com/matrixorigin/artwork/blob/main/docs/develop/load_S3/create_bucket_public_block.png?raw=true)
+
+2. 获取或创建你的 AWS Access key。输入 **Your Account Name > Security Credentials**，获取你现有的访问密钥或创建一个新的访问密钥。
+
+    <img src="https://github.com/matrixorigin/artwork/blob/main/docs/develop/load_S3/security_credential.png?raw=true"  style="zoom: 60%;" />
+
+    ![Access Key](https://github.com/matrixorigin/artwork/blob/main/docs/develop/load_S3/access_key.png?raw=true)
+
+    你可以从下载的凭据或此网页中获取 `Access key` 和 `Secret access key`。
+
+    ![Retrieve Access Key](https://github.com/matrixorigin/artwork/blob/main/docs/develop/load_S3/retrieve_access_key.png?raw=true)
+
+3. 启动 MySQL 客户端，在 MatrixOne 中创建表，SQL 示例如下：
 
     ```sql
-    create database db1;
-    use db1;
+    create database db;
+    use db;
     drop table if exists t1;
-    create table t1(num_col1 tinyint,num_col2 smallint,num_col3 int,num_col4 bigint,num_col5 tinyint unsigned,num_col6 smallint unsigned,num_col7 int unsigned,num_col8 bigint unsigned ,num_col9 float(5,3),num_col10 double(6,5),num_col11 decimal(38,19));
+    create table t1(col1 char(225), col2 varchar(225), col3 text, col4 varchar(225));
     ```
 
-2. 将表文件导入到 MatrixOne：
+4. 将文件导入 MatrixOne：
 
     ```
-    LOAD DATA INFILE URL s3option{"endpoint"='s3.us-west-2.amazonaws.com', "access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "filepath"='<string>', "region"='<string>', "compression"='<string>'} INTO TABLE t1 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';
+    LOAD DATA INFILE URL s3option{"endpoint"='s3.us-east-1.amazonaws.com', "access_key_id"='XXXXXX', "secret_access_key"='XXXXXX', "bucket"='test-loading', "filepath"='char_varchar_1.csv', "region"='us-east-1', "compression"='none'} INTO TABLE t1;
     ```
 
-3. 导入成功后，可以使用 SQL 语句查看导入结果：
+5. 导入完成后，你可以运行 SQL 语句检查文件导入是否成功：
+
+    ```sql
+    mysql> select * from t1;
+    +-----------+-----------+-----------+-----------+
+    | col1      | col2      | col3      | col4      |
+    +-----------+-----------+-----------+-----------+
+    | a         | b         | c         | d         |
+    | a         | b         | c         | d         |
+    | 'a'       | 'b'       | 'c'       | 'd'       |
+    | 'a'       | 'b'       | 'c'       | 'd'       |
+    | aa,aa     | bb,bb     | cc,cc     | dd,dd     |
+    | aa,       | bb,       | cc,       | dd,       |
+    | aa,,,aa   | bb,,,bb   | cc,,,cc   | dd,,,dd   |
+    | aa',',,aa | bb',',,bb | cc',',,cc | dd',',,dd |
+    | aa"aa     | bb"bb     | cc"cc     | dd"dd     |
+    | aa"aa     | bb"bb     | cc"cc     | dd"dd     |
+    | aa"aa     | bb"bb     | cc"cc     | dd"dd     |
+    | aa""aa    | bb""bb    | cc""cc    | dd""dd    |
+    | aa""aa    | bb""bb    | cc""cc    | dd""dd    |
+    | aa",aa    | bb",bb    | cc",cc    | dd",dd    |
+    | aa"",aa   | bb"",bb   | cc"",cc   | dd"",dd   |
+    |           |           |           |           |
+    |           |           |           |           |
+    | NULL      | NULL      | NULL      | NULL      |
+    |           |           |           |           |
+    | "         | "         | "         | "         |
+    | ""        | ""        | ""        | ""        |
+    +-----------+-----------+-----------+-----------+
+    21 rows in set (0.03 sec)
+    ```
+
+## 方式 2：指定 S3 文件到外部表
+
+### 语法结构
+
+```sql
+create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "filepath"='<string>', "region"='<string>', "compression"='<string>'}     
+[{FIELDS | COLUMNS}
+        [TERMINATED BY 'string']
+        [[OPTIONALLY] ENCLOSED BY 'char']
+        [ESCAPED BY 'char']
+]
+[IGNORE number {LINES | ROWS}];
+```
+
+!!! note
+    MatrixOne 对外部表进行 `select`，不支持 `Delete`，`insert`，`update`。
+
+**参数说明**
+
+|参数|描述|
+|:-:|:-:|
+|endpoint|可以连接到对象存储服务的 URL。例如：s3.us-west-2.amazonaws.com|
+|access_key_id| Access key ID |
+|secret_access_key| Secret access key |
+|bucket| S3 需要访问的桶 |
+|filepath| 相对文件路径。 /files/*.csv 支持正则表达式。 |
+|region| 对象存储服务区域|
+|compression| S3 文件的压缩格式。 如果为空或 "none"，，则表示未压缩的文件。支持的字段或压缩格式为“auto”、“none”、“gzip”、“bz2”和“lz4”。|
+
+其他参数与通用 `LOAD DATA` 参数相同，更多信息，参见 [LOAD DATA](../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md)。
+
+有关外部表的更多信息，参见 [创建外部表](../../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md)。
+
+**语法示例**：
+
+```sql
+## Create a external table for a .csv file from AWS S3
+create external table t1(col1 char(225)) url s3option{"endpoint"='s3.us-east-1.amazonaws.com', "access_key_id"='XXXXXX', "secret_access_key"='XXXXXX', "bucket"='test-loading', "filepath"='test.csv', "region"='us-east-1', "compression"='none'} fields terminated by ',' enclosed by '\"' lines terminated by '\n';
+
+## Create a external table for a .csv file compressed with BZIP2 from Tencent Cloud
+create external table t1(col1 char(225)) url s3option{"endpoint"='cos.ap-shanghai.myqcloud.com', "access_key_id"='XXXXXX', "secret_access_key"='XXXXXX', "bucket"='test-1252279971', "filepath"='test.csv.bz2', "region"='ap-shanghai', "compression"='bz2'} fields terminated by ',' enclosed by '\"' lines terminated by '\n' ignore 1 lines;
+```
+
+### 教程：使用 S3 文件创建外部表
+
+本教程将指导你完成使用来自 AWS S3 的 **.csv** 文件创建外部表的整个过程。
+
+!!! note
+    由于帐户隐私，此代码示例不会显示帐户信息，例如 `access_key_id` 和 `secret_access_key`。
+    你可以阅读本文档以了解主要步骤；具体数据和账户信息将不会显示。
+
+1. 下载[数据文件](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/char_varchar_1.csv)。进入 **AWS S3 > buckets**，创建一个具有公共访问权限的存储桶 **test-loading** 并上传文件 *char_varchar_1.csv*。
+
+    <img src="https://github.com/matrixorigin/artwork/blob/main/docs/develop/load_S3/create_bucket.png?raw=true"  style="zoom: 60%;" />
+
+    ![public block](https://github.com/matrixorigin/artwork/blob/main/docs/develop/load_S3/create_bucket_public_block.png?raw=true)
+
+2. 获取或创建你的 AWS Access key。输入 **Your Account Name > Security Credentials**，获取你现有的访问密钥或创建一个新的访问密钥。
+
+    <img src="https://github.com/matrixorigin/artwork/blob/main/docs/develop/load_S3/security_credential.png?raw=true"  style="zoom: 60%;" />
+
+    ![Access Key](https://github.com/matrixorigin/artwork/blob/main/docs/develop/load_S3/access_key.png?raw=true)
+
+    你可以从下载的凭据或此网页中获取 `Access key` 和 `Secret access key`。
+
+    ![Retrieve Access Key](https://github.com/matrixorigin/artwork/blob/main/docs/develop/load_S3/retrieve_access_key.png?raw=true)
+
+3. 启动 MySQL 客户端，指定 S3 文件到外部表：
+
+    ```sql
+    create database db;
+    use db;
+    drop table if exists t1;
+    create external table t1(col1 char(225), col2 varchar(225), col3 text, col4 varchar(225)) url s3option{"endpoint"='s3.us-east-1.amazonaws.com', "access_key_id"='XXXXXX', "secret_access_key"='XXXXXX', "bucket"='test-loading', "filepath"='char_varchar_1.csv', "region"='us-east-1', "compression"='none'} fields terminated by ',' enclosed by '\"' lines terminated by '\n';
+    ```
+
+4. 导入成功后，你可以运行如下 SQL 语句查看导入数据的结果。你将可以看到查询速度明显慢于从本地表查询。
 
     ```sql
     select * from t1;
+    +-----------+-----------+-----------+-----------+
+    | col1      | col2      | col3      | col4      |
+    +-----------+-----------+-----------+-----------+
+    | a         | b         | c         | d         |
+    | a         | b         | c         | d         |
+    | 'a'       | 'b'       | 'c'       | 'd'       |
+    | 'a'       | 'b'       | 'c'       | 'd'       |
+    | aa,aa     | bb,bb     | cc,cc     | dd,dd     |
+    | aa,       | bb,       | cc,       | dd,       |
+    | aa,,,aa   | bb,,,bb   | cc,,,cc   | dd,,,dd   |
+    | aa',',,aa | bb',',,bb | cc',',,cc | dd',',,dd |
+    | aa"aa     | bb"bb     | cc"cc     | dd"dd     |
+    | aa"aa     | bb"bb     | cc"cc     | dd"dd     |
+    | aa"aa     | bb"bb     | cc"cc     | dd"dd     |
+    | aa""aa    | bb""bb    | cc""cc    | dd""dd    |
+    | aa""aa    | bb""bb    | cc""cc    | dd""dd    |
+    | aa",aa    | bb",bb    | cc",cc    | dd",dd    |
+    | aa"",aa   | bb"",bb   | cc"",cc   | dd"",dd   |
+    |           |           |           |           |
+    |           |           |           |           |
+    | NULL      | NULL      | NULL      | NULL      |
+    |           |           |           |           |
+    | "         | "         | "         | "         |
+    | ""        | ""        | ""        | ""        |
+    +-----------+-----------+-----------+-----------+
+    21 rows in set (1.32 sec)
     ```
 
-### 方式二：直接将 S3 文件指定到外部表
+5. （选做）如果需要将外部表数据导入到 MatrixOne 中的数据表，使用如下 SQL 语句：
 
-1. 准备数据。进入到 **AWS S3 > Buckes** 找到表文件 *file-demo*。
-
-2. 打开 MySQL 客户端将 S3 表数据指定到外部表：
-
-    ```
-    create external table ex_table_s3_1(num_col1 tinyint,num_col2 smallint,num_col3 int,num_col4 bigint,num_col5 tinyint unsigned,num_col6 smallint unsigned,num_col7 int unsigned,num_col8 bigint unsigned ,num_col9 float(5,3),num_col10 double(6,5),num_col11 decimal(38,19)) URL s3option{"endpoint"='s3.us-west-2.amazonaws.com',"access_key_id"='AKIAW2D4ZBGTXW2S2PVR', "secret_access_key"='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', "bucket"='heni-test', "filepath"='s3://heni-test/ex_table_number.csv', "region"='us-west-2'} fields terminated by ',' enclosed by '\"' lines terminated by '\n';
-    ```
-
-3. 导入成功后，可以使用 SQL 语句查看导入结果：
+    在 MatrixOne 中新建一个表 *t2*：
 
     ```sql
-    select * from ex_table_s3_1;
+    create table t2(col1 char(225), col2 varchar(225), col3 text, col4 varchar(225));
     ```
 
-4. (选做)如果需要将外部表数据导入到 MatrixOne 中的数据表，可以使用以下 SQL 语句：
-
-    在 MatrixOne 中新建表 *t1*：
+    将外部表 *t1* 导入到 *t2*：
 
     ```sql
-    create table t1(num_col1 tinyint,num_col2 smallint,num_col3 int,num_col4 bigint,num_col5 tinyint unsigned,num_col6 smallint unsigned,num_col7 int unsigned,num_col8 bigint unsigned ,num_col9 float(5,3),num_col10 double(6,5),num_col11 decimal(38,19));
+    insert into t2 select * from t1;
     ```
 
-    将外部表 *ex_table_s3_1* 导入到 *t1*：
+## 限制
 
-    ```sql
-    insert into t1 select * from ex_table_s3_1;
-    ```
-
-#### 关于外部表 `Load data` 说明
-
-外部表 `Load data` 语法示例如下：
-
-```sql
-## 创建指向S3文件的外表（指定压缩格式）
-create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "filepath"='<string>', "region"='<string>', "compression"='<string>'} FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';
-
-## 创建指向S3文件的外表（不指定压缩格式，则为auto格式，自动检查文件的格式）
-create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "filepath"='<string>', "region"='<string>'} FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';
-```
-
-!!! note
-    MatrixOne 对于外部表仅支持进行 `select` 操作，`delete`，`insert`，`update` 暂不支持。
-    外部表 `select` 的操作与目前普通表的操作相同，支持 `where`，`limit` 等条件操作。
-
-如果 S3 文件指向外部表，可以使用 `select` 操作读取外表指向文件里的内容。在 MatrixOne 普通表中导入数据时，可以使用如下 SQL 语句，示例：
-
-```sql
-## t1为普通表，t为外表
-insert into t1 select * from t;
-
-## 也可以选取外部表文件中某一列导入内表
-insert into t1 select a from t;
-```
-
-有关外部表更多信息，参见 [CREATE EXTERNAL TABLE](../../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md)。
+1. MatrixOne 仅支持从 S3 兼容对象存储加载 *.csv* 格式的文件。
+2. 要加载许多具有正则表达式路径的文件，MatrixOne 在加载没有父目录的`*.csv` 时仍然存在一些错误。你只能将文件加载为 `/test/*.csv`。
