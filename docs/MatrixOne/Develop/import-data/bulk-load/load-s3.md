@@ -146,7 +146,7 @@ create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"
 ```
 
 !!! note
-    MatrixOne 对外部表进行 `select`，不支持 `Delete`，`insert`，`update`。
+    MatrixOne 当前仅支持对外部表进行 `select`，暂不支持 `Delete`，`insert`，`update`。
 
 **参数说明**
 
