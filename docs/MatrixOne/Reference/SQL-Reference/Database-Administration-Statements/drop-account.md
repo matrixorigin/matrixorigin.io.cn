@@ -16,3 +16,6 @@
 > drop account if exists tenant_test;
 Query OK, 0 rows affected (0.12 sec)
 ```
+
+!!! note
+    如果租户正在会话中，当租户被移除，会话随即断开，无法再连接 MatrixOne。

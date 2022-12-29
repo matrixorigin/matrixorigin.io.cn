@@ -188,41 +188,55 @@ SELECT * FROM person where id<5;
 
 ## 创建、授权和删除用户
 
+如果你[安装部署单机版的 MatrixOne](connect-to-matrixone-server.md)，连接登录 MatrixOne 时，你本身便具有最高权限，你可以参考下面的内容创建用户并授权，以便体验 MatrixOne 集群的权限管理功能。
+
 - 使用 `CREATE USER` 语句创建一个用户 *mouser*，密码为 *111*：
 
 ```sql
-CREATE USER mouser IDENTIFIED BY '111';
+> CREATE USER mouser IDENTIFIED BY '111';
+Query OK, 0 rows affected (0.10 sec)
 ```
 
-- 创建角色 *role_r1*、*role_r2*、*role_r3*：
+- 创建角色 *role_r1* 测试是否能够创建成功：
 
 ```sql
-CREATE ROLE role_r1,role_r2,role_r3;
+> CREATE ROLE role_r1;
+Query OK, 0 rows affected (0.05 sec)
 ```
 
 - 将角色 *role_r1* 赋予用户 *mouser*：
 
 ```sql
-GRANT role_r1 to mouser;
+> GRANT role_r1 to mouser;
+Query OK, 0 rows affected (0.04 sec)
 ```
 
 - 授权角色 *role_r1* 可以在 *dbdemo* 数据库里建表的权限：
 
 ```sql
-GRANT create table on database * to role_r1;
+> GRANT create table on database * to role_r1;
+Query OK, 0 rows affected (0.03 sec)
 ```
 
-- 查询用户权限：
+- 查询用户 mouser 的权限：
 
 ```sql
-SHOW GRANTS for root;
+> SHOW GRANTS for mouser@localhost;
++-------------------------------------------------------+
+| Grants for mouser@localhost                           |
++-------------------------------------------------------+
+| GRANT create table ON database * `mouser`@`localhost` |
+| GRANT connect ON account  `mouser`@`localhost`        |
++-------------------------------------------------------+
+2 rows in set (0.02 sec)
 ```
 
-!!! note
-    当前仅支持查看 *root* 用户权限，暂不支持查看当前用户的权限。
+你可以看到你已经成功把在 *dbdemo* 数据库里建表的权限授予给了 *mouser*。
 
 - 删除用户 *mouser*：
 
 ```sql
 DROP USER mouser;
 ```
+
+权限管理是数据库中体系庞大但是非常有用的功能，如果你想了解更多，参见[权限管理](../Security/about-privilege-management.md)。
