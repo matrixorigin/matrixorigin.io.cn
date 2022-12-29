@@ -343,6 +343,7 @@ nav:
         - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 时区配置: MatrixOne/Reference/System-Parameters/timezone.md
       - MatrixOne Catalog: MatrixOne/Reference/System-tables.md
+      - 权限分类列表: MatrixOne/Reference/access-control-type.md
       - 使用限制:
         - MatrixOne 的 JDBC 功能支持列表: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
         - MatrixOne DDL 语句分区支持的说明: MatrixOne/Reference/Limitations/mo-partition-support.md
