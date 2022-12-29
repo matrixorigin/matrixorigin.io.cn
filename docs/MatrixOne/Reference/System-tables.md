@@ -1,16 +1,16 @@
 # MatrixOne 系统数据库和表
 
-MatrixOne 系统数据库和表存储 MatrixOne 的系统信息，你可以通过它们访问系统信息。MatrixOne 在初始化时创建了6个系统数据库：`mo_catalog`，`information_schema`，`system_metrcis`，`system`，`mysql` 和 `mo_task`。`mo_task` 当前正在开发中，暂时对你所进行的操作不会产生直接影响。
+MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你可以通过它们访问系统信息。 MatrixOne 在初始化时创建了 6 个系统数据库：`mo_catalog`、`information_schema`、`system_metrcis`、`system`、`mysql` 和 `mo_task`。 `mo_task` 当前正在开发中，暂时对你所进行的操作不会产生直接影响。本文档中描述了其他系统数据库和表函数。
 
-本文档主要介绍 `mo_catalog`，`information_schema`，`system_metrcis`，`system`，`mysql` 系统数据库和表功能。
+系统只能修改系统数据库和表，你仅能从中进行读取操作。
 
 ## `mo_catalog` 数据库
 
 `mo_catalog` 用于存储 MatrixOne 对象的元数据，如：数据库、表、列、系统变量、租户、用户和角色。
 
-由于 MatrixOne 0.6 引入了多租户的概念，默认的 `sys` 租户和其他租户的行为略有不同。对于 `sys` 租户，即进行多租户管理的管理员，可以完全访问三个系统表，`mo_database`，`mo_tables`，`mo_columns`，而其他租户则以 `view` 的身份访问这三个表。`sys` 租户还有一个预留的系统表 `mo_account`，用于进行多租户管理。
+由于 MatrixOne 0.6 引入了多租户的概念，默认的 `sys` 租户和其他租户的行为略有不同。服务于多租户管理的系统表 `mo_account` 仅对 `sys` 租户可见；其他租户看不到此表。
 
-### mo_database table (非 `sys` 租户以视图方式访问)
+### mo_database table
 
 | 列属性          | 类型           | 描述                                |
 | ---------------- | --------------- | --------------------------------------- |
@@ -18,12 +18,12 @@ MatrixOne 系统数据库和表存储 MatrixOne 的系统信息，你可以通�
 | datname          | varchar(100)    | 数据库名称                           |
 | dat_catalog_name | varchar(100)    | 数据库 catalog 名称，默认`def` |
 | dat_createsql    | varchar(100)    | 创建数据库 SQL 语句         |
-| owner            | int unsigned    | 角色 ID                                 |
-| creator          | int unsigned    | 用户 ID                                 |
+| owner            | int unsigned    | 角色 ID ID                                 |
+| creator          | int unsigned    | 用户 ID ID                                 |
 | created_time     | timestamp       | 创建时间                             |
-| account_id       | int unsigned    | 租户 ID                               |
+| account_id       | int unsigned    | 租户 ID ID                               |
 
-### mo_tables table (非 `sys` 租户以视图方式访问)
+### mo_tables table
 
 | 列属性        | 类型           | 描述                                                     |
 | -------------- | --------------- | ------------------------------------------------------------ |
@@ -39,10 +39,10 @@ MatrixOne 系统数据库和表存储 MatrixOne 的系统信息，你可以通�
 | creator        | int unsigned    | 创建者 ID                                                   |
 | owner          | int unsigned    | 创建者的默认角色 ID                                 |
 | account_id     | int unsigned    | 租户 id                                                    |
-| partitioned    | text            | 按语句分区                                       |
-| viewdef        | text            | 视图定义语句                                   |
+| partitioned    | blob            | 按语句分区                                       |
+| viewdef        | blob            | 视图定义语句                                   |
 
-### mo_columns table (非 `sys` 租户以视图方式访问)
+### mo_columns table
 
 | 列属性           | 类型        | 描述                                               |
 | --------------------- | --------------- | ------------------------------------------------------------ |
@@ -68,11 +68,11 @@ MatrixOne 系统数据库和表存储 MatrixOne 的系统信息，你可以通�
 | attr_has_update       | tinyint(1)      | 此列含有更新表达式                           |
 | attr_update           | varchar(1024)   | 更新表达式                                            |
 
-### mo_account table (仅 `sys` 租户可访问)
+### mo_account table (仅 `sys` 租户可见)
 
 | 列属性      | 类型        | 描述     |
 | ------------ | ------------ | ------------ |
-| account_id   | int unsigned | 主键  |
+| account_id   | int unsigned | 租户 ID  |
 | account_name | varchar(100) | 租户名  |
 | status       | varchar(100) | 开启/暂停 |
 | created_time | timestamp    | 创建时间  |
@@ -82,71 +82,62 @@ MatrixOne 系统数据库和表存储 MatrixOne 的系统信息，你可以通�
 
 | 列属性      | 类型        | 描述                      |
 | ------------ | ------------ | ----------------------------- |
-| role_id      | int unsigned | 主键                   |
+| role_id      | int unsigned | 角色 ID                  |
 | role_name    | varchar(100) | 角色名称                     |
 | creator      | int unsigned | 用户 ID                     |
 | owner        | int unsigned | MatrixOne 管理员/租户管理员拥有者 ID |
 | created_time | timestamp    | 创建时间                   |
 | comment     | text         | 注释                      |
 
-### mo_global_variables table
-
-Every account has its own `mo_global_variables` table. `Sys` account doesn't have direct access to this table for other accounts.
-
-| 属性       | 类型         | 主键 | 描述    |
-| ----------------- | ------------- | ----------- | -------------- |
-| gv_variable_name  | varchar(256)  | PK          | 变量名称  |
-| gv_variable_value | varchar(1024) |             | 变量值 |
-
 ### **mo_user** table
 
 | 列属性               | 类型        | 描述            |
 | --------------------- | ------------ | ------------------- |
-| user_id               | int unsigned | PK                  |
-| user_host             | varchar(100) |                     |
-| user_name             | varchar(100) |                     |
-| authentication_string | varchar(100) |                     |
+| user_id               | int          | 用户 ID                |
+| user_host             | varchar(100) |   用户主机地址                  |
+| user_name             | varchar(100) |    用户名                 |
+| authentication_string | varchar(100) |  密码加密的认证字符串     |
 | status                | varchar(8)   | 开启、锁定、失效 |
-| created_time          | timestamp    |                     |
-| expired_time          | timestamp    |                     |
+| created_time          | timestamp    |    用户创建时间                 |
+| expired_time          | timestamp    |      用户过期时间               |
 | login_type            | varchar(16)  | ssl/密码/其他 |
-| creator               | int unsigned | 用户 ID             |
-| owner                 | int unsigned | 管理员角色 ID       |
-| default_role          | int unsigned | 角色 ID           |
+| creator               | int | 创建此用户的创建者 ID              |
+| owner                 | int | 此用户的管理员 ID      |
+| default_role          | int | 此用户的默认角色 ID          |
 
-### mo_user_grant user
+### mo_user_grant table
 
 | 列属性           | 类型        | 描述                            |
 | ----------------- | ------------ | ----------------------------------- |
-| role_id           | int unsigned | 主键                         |
-| user_id           | int unsigned | 主键，用户 ID               |
+| role_id           | int unsigned | 角色 ID                         |
+| user_id           | int unsigned | 用户 ID               |
 | granted_time      | timestamp    | 授权时间                       |
 | with_grant_option | bool         | 是否允许授权 |
 
-### mo_role_grant user
+### mo_role_grant table
 
 | 列属性           | 类型        | 描述                            |
 | ----------------- | ------------ | ----------------------------------- |
-| granted_id        | int unsigned | 主键，授权 ID            |
-| grantee_id        | int unsigned | 主键，授权者 ID            |
-| operation_role_id | int unsigned | 操作角色 ID                   |
-| operation_user_id | int unsigned | 操作用户 ID                  |
+| granted_id        | int        | 被授予的角色 ID            |
+| grantee_id        | int        | 要授予其他角色的角色 ID           |
+| operation_role_id | int        | 操作角色 ID                   |
+| operation_user_id | int        | 操作用户 ID                  |
 | granted_time      | timestamp    | 授权时间                      |
 | with_grant_option | bool         | 是否允许授权 |
 
-### mo_role_privs user
+### mo_role_privs table
 
 | 列属性           | 类型           | 描述                            |
 | ----------------- | --------------- | ----------------------------------- |
-| role_id           | int unsigned    | 主键                         |
-| role_name         | varchar(100)    | 角色名称                           |
-| obj_type          | varchar(16)     | 主键                         |
-| obj_id            | bigint unsigned | 主键                         |
-| privilege_id      | int             | 主键                         |
-| privilege_name    | varchar(100)    |                                     |
-| privilege_level   | varchar(100)    |                                     |
-| operation_user_id | int unsigned    | 用户 ID                             |
-| granted_time      | timestamp       |                                     |
+| role_id           | int unsigned    | 角色 ID                         |
+| role_name         | varchar(100)    | 角色名：accountadmin/public                           |
+| obj_type          | varchar(16)     | 对象类型：account/database/table                         |
+| obj_id            | bigint unsigned | 对象 ID                        |
+| privilege_id      | int             | 权限 ID                      |
+| privilege_name    | varchar(100)    | 权限名：权限列表                                   |
+| privilege_level   | varchar(100)    | 权限级别                                    |
+| operation_user_id | int unsigned    | 操作用户 ID                             |
+| granted_time      | timestamp       | 授权时间                                 |
 | with_grant_option | bool            | 是否允许授权|
 
 ## `system_metrics` 数据库
@@ -163,23 +154,23 @@ Every account has its own `mo_global_variables` table. `Sys` account doesn't hav
 
 - role：MatrixOne 节点角色，包括 CN、DN 和 Log。
 
-- internal：取值为1或0。如果 SQL 语句由 `internal` 启动，则收集为1，如果 SQL 语句由 `user` 启动，则收集为0。
+- account：默认为 “sys” 租户，即触发 SQL 请求的账户。
 
 - type：SQL 类型，可以是 `select`，`insert`，`update`，`delete`，`other` 类型。
 
-### `metrics` 表
+### `metric` 表
 
 | 列属性     | 类型        | 描述                                                     |
 | ----------- | ------------ | ------------------------------------------------------------ |
 | metric_name | VARCHAR(128) | 指标名称，例如：sql_statement_total，server_connections，process_cpu_percent，sys_memory_used 等 |
 | collecttime | DATETIME     | 指标数据收集时间                                     |
 | value       | DOUBLE       | 指标值                                                 |
-| node        | VARCHAR(36)  |节点 uuid                                                    |
-| role        | VARCHAR(32)  | 节点角色                                                   |
-| account     | VARCHAR(128) | 租户名称                                                 |
-| 类型       | VARCHAR(32)  | SQL 类型                                                     |
+| node        | VARCHAR(36)  | MatrixOne 节点 uuid                                                    |
+| role        | VARCHAR(32)  | MatrixOne 节点角色                                                   |
+| account     | VARCHAR(128) | 租户名称，默认 `sys`                             |
+| 类型       | VARCHAR(32)  | SQL 类型，例如：INSERT，SELECT，UPDATE     |
 
-以下表为 `metrics` 表的视图:
+以下表为 `metric` 表的视图:
 
 * `process_cpu_percent` 表：CPU 进程繁忙百分比。
 * `process_open_fs` 表：打开的文件描述符的数量。
