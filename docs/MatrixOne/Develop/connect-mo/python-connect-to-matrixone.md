@@ -129,7 +129,3 @@ SQLAlchemy 是 Python SQL 工具包和对象关系映射器 (ORM)，它为应用
     name: alice
     age: 10
     ```
-
-## 参考文档
-
-更多关于 Python 连接 MatrixOne 服务实践教程，参见[用 MatrixOne 构建一个简单的股票分析 Python 应用程序](../../Tutorial/develop-python-application.md)。

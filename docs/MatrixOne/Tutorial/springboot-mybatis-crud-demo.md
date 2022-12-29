@@ -1,6 +1,6 @@
 # 使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例
 
-本篇文档将介绍一个基于 **SpringBoot + Mybatis + MatrixOne+Intellij IDEA** 的简单示例，并实现基本的 CRUD 功能 。
+本篇文档将指导你如何使用 **SpringBoot**、**Mybatis** 和 **Intellij IDEA** 构建一个简单的应用程序，并实现 CRUD（创建、读取、更新、删除）功能。
 
 ## 开始之前
 
