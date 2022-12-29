@@ -115,6 +115,9 @@ drop user if exist <user_name>;
 |---|---|
 |<user_name>|新建用户的名称|
 
+!!! note
+    删除用户时，需要先停止用户当前存在的会话，否则删除失败。
+
 更多信息，参见[DROP USER](../../Reference/SQL-Reference/Database-Administration-Statements/drop-user.md)。
 
 ## 管理角色
@@ -194,6 +197,9 @@ drop role if exists <role_name>;
 |参数|参数解释|
 |---|---|
 |<role_name>|新建角色的名称|
+
+!!! note
+    删除某个指定角色时，会同时回收已经被授权的用户的角色。
 
 更多信息，参见[DROP ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/drop-role.md)。
 
