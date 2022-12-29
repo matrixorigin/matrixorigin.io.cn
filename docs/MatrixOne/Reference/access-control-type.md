@@ -1,4 +1,4 @@
-# MatrixOne 中的权限控制 - 访问控制权限
+# MatrixOne 权限分类
 
 本篇文章主要介绍 MatrixOne 中的权限分类。
 

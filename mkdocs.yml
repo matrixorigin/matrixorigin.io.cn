@@ -127,11 +127,17 @@ nav:
         - 子查询的执行计划: MatrixOne/Performance-Tuning/explain-subqueries.md
         - 聚合查询的执行计划: MatrixOne/Performance-Tuning/explain-aggregation.md
         - 视图的执行计划: MatrixOne/Performance-Tuning/explain-views.md
-    - 安全:
-      - 访问控制概述: MatrixOne/Security/access-control-overview.md
-      - 访问控制权限: MatrixOne/Security/access-control.md
-      - 开启 TLS: MatrixOne/Security/TLS-introduction.md
-      - 快速开始：创建租户、用户和角色: MatrixOne/Security/quick-start-account.md
+    - 权限:
+      - TLS 安全连接: MatrixOne/Security/TLS-introduction.md
+      - 什么是权限管理:
+        - 关于 MatrixOne 权限管理: MatrixOne/Security/about-privilege-management.md
+        - 最佳实践: MatrixOne/Security/best-practice.md
+      - 操作指南:
+        - 快速开始:
+          - 创建租户，验证资源隔离: MatrixOne/Security/how-tos/quick-start-create-account.md
+          - 新租户创建用户、创建角色和授权: MatrixOne/Security/how-tos/quick-start-create-user.md
+        - 权限管理操作: MatrixOne/Security/how-tos/user-guide.md
+      - 应用场景: MatrixOne/Security/app-scenarios.md
     - 参考手册:
       - SQL目录:
         - DAL:
@@ -337,6 +343,7 @@ nav:
         - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 时区配置: MatrixOne/Reference/System-Parameters/timezone.md
       - MatrixOne Catalog: MatrixOne/Reference/System-tables.md
+      - 权限分类列表: MatrixOne/Reference/access-control-type.md
       - 使用限制:
         - MatrixOne 的 JDBC 功能支持列表: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
         - MatrixOne DDL 语句分区支持的说明: MatrixOne/Reference/Limitations/mo-partition-support.md

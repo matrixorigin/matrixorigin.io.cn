@@ -1,126 +1,154 @@
-# 开启 TLS
+# TLS 安全连接
 
-传输层安全性 (Transport Layer Security, TLS) 是一种广泛采用的安全性协议，旨在促进互联网通信的私密性和数据安全性。
+## 概述
+
+传输层安全性 (Transport Layer Security, TLS) 是一种广泛采用的安全性协议，目的是为互联网通信提供安全及数据完整性保障。
 
 MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加密连接，支持的协议版本有 TLS 1.0, TLS 1.1, TLS 1.2。
 
-使用加密连接需要在 MatrixOne 服务端开启加密连接支持，并在客户端指定使用加密连接。
+- 不开启 TLS 加密连接（默认）：直接使用用户名密码连接 MatrixOne 即可。
+- 使用加密连接：需要在 MatrixOne 服务端开启加密连接支持，并在客户端指定使用加密连接。你可以参加下文指导，开启TLS安全连接。
 
-## 开启 MatrixOne 的 TLS 支持
+本篇文档将指导你如何开启 TLS 安全连接。
 
-1. 生成证书及密钥
+**TLS 安全连接配置主要步骤概述**：
 
-MatrixOne 尚不支持加载有密码保护的私钥，因此必须提供一个没有密码的私钥文件。证书和密钥可以使用 OpenSSL 签发和生成，推荐使用 MySQL 自带的工具 `mysql_ssl_rsa_setup` 快捷生成：
+1. 首先在 MatrixOne 中开启 TLS。
 
-```
-mysql_ssl_rsa_setup --datadir=./yourpath
-yourpath
-├── ca-key.pem
-├── ca.pem
-├── client-cert.pem
-├── client-key.pem
-├── private_key.pem
-├── public_key.pem
-├── server-cert.pem
-└── server-key.pem
-```
+2. 然后配置 MySQL 客户端安全连接参数。
 
-2. 修改 MatrixOne 的 TLS 配置
+完成这两个主要步骤的配置后，即可建立 TLS 安全连接，具体操作参见下文：
 
-打开 MatrixOne 的 TLS 支持，需要修改 `[cn.frontend]` 的配置信息，配置信息解释如下：
+## 步骤一：开启 MatrixOne 的 TLS 支持
 
-|参数|描述|
-|---|---|
-|enableTls|布尔类型，是否在MO服务端打开TLS的支持。默认为false。|
-|tlsCertFile|指定 SSL 证书文件路径|
-|tlsKeyFile|指定证书文件对应的私钥|
-|tlsCaFile|可选，指定受信任的 CA 证书文件路径|
+1. 生成证书及密钥：MatrixOne 尚不支持加载有密码保护的私钥，因此必须提供一个没有密码的私钥文件。证书和密钥可以使用 OpenSSL 签发和生成，推荐使用 MySQL 自带的工具 `mysql_ssl_rsa_setup` 快捷生成：
 
-修改 TLS 配置示例如下：
+    ```
+    #检查你本地 MySQL 客户端的安装目录
+    ps -ef|grep mysql
+    #进入到你本地 MySQL 客户端的安装目录
+    cd /usr/local/mysql/bin
+    #生成证书和密钥
+    ./mysql_ssl_rsa_setup --datadir=<yourpath>
+    #检查你生成的 pem 文件
+    ls <yourpath>
+    ├── ca-key.pem
+    ├── ca.pem
+    ├── client-cert.pem
+    ├── client-key.pem
+    ├── private_key.pem
+    ├── public_key.pem
+    ├── server-cert.pem
+    └── server-key.pem
+    ```
 
-```
-[cn.frontend]
-#default is false. With true. Server will support tls
-enableTls = true
+    __Note__:  上述代码中的 `<yourpath>` 是你需要存放生成的证书及密钥文件的本地目录路径。
 
-#default is ''. Path of file that contains X509 certificate in PEM format for client
-tlsCertFile = "yourpath/server-cert.pem"
+2. 进入到你本地的 MatrixOne 文件目录路径 *matrixone/etc/launch-tae-CN-tae-DN/* 中的 *cn.toml* 配置文件：
 
-#default is ''. Path of file that contains X509 key in PEM format for client
-tlsKeyFile = "yourpath/server-key.pem"
+    你也可以使用 vim 命令直接在终端中打开 cn.toml 文件
 
-#default is ''. Path of file that contains list of trusted SSL CAs for client
-tlsCaFile = "yourpath/ca.pem"
-```
+    ```
+    vim $matrixone/etc/launch-tae-CN-tae-DN/cn.toml
+    ```
 
-如果配置的文件路径或内容错误，则 MatrixOne 服务将无法启动。
+    将下面的代码段复制粘贴到配置文件中：
 
-3. 验证 MatrixOne 的 SSL 是否启用
+    ```
+    [cn.frontend]
+    #default is false. With true. Server will support tls
+    enableTls = true
 
-使用 MySQL 客户端登录后通过 Status 命令查看 SSL 是否启用。
+    #default is ''. Path of file that contains X509 certificate in PEM format for client
+    tlsCertFile = "<yourpath>/server-cert.pem"
 
-返回的SSL的值会有相应说明，如果没有启用，返回结果为 `Not in use`：
+    #default is ''. Path of file that contains X509 key in PEM format for client
+    tlsKeyFile = "<yourpath>/server-key.pem"
 
-```sql
-mysql -h 127.0.0.1 -P 6001 -udump -p111
+    #default is ''. Path of file that contains list of trusted SSL CAs for client
+    tlsCaFile = "<yourpath>/ca.pem"
+    ```
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+    __Note__: 上述代码中的 `<yourpath>` 是你需要存放生成的证书及密钥文件的本地目录路径
 
-mysql> status
---------------
-/usr/local/mysql/bin/mysql  Ver 8.0.30 for macos12 on arm64 (MySQL Community Server - GPL)
+    上述代码中，配置参数解释如下：
 
-Connection id:		1001
-Current database:
-Current user:		dump@0.0.0.0
-SSL:			    Not in use
-Current pager:		stdout
-Using outfile:		''
-Using delimiter:	;
-Server version:		0.6.0 MatrixOne
-Protocol version:	10
-Connection:		127.0.0.1 via TCP/IP
-ERROR 1105 (HY000): the system variable does not exist
-ERROR 2014 (HY000): Commands out of sync; you can't run this command now
-Client characterset:	utf8mb4
-Server characterset:	utf8mb4
-TCP port:		6001
-Binary data as:		Hexadecimal
---------------
-```
+    |参数|描述|
+    |---|---|
+    |enableTls|布尔类型，是否在 MatrixOne 服务端打开 TLS 的支持。|
+    |tlsCertFile|指定 SSL 证书文件路径|
+    |tlsKeyFile|指定证书文件对应的私钥|
+    |tlsCaFile|可选，指定受信任的 CA 证书文件路径|
 
-如果启用，结果为：
+    __Note__: 如果你是使用 Docker 安装部署的 MatrixOne，修改配置文件之前，你需要先挂载配置文件再进行修改，操作具体参见[挂载目录到 Docker 容器](../Maintain/mount-data-by-docker.md)。
 
-```sql
-mysql -h 127.0.0.1 -P 6001 -udump -p111
+3. 验证 MatrixOne 的 SSL 是否启用。
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+    ① 使用 MySQL 客户端连接 MatrixOne：
 
-mysql> status
-mysql  Ver 8.0.28 for macos11 on arm64 (MySQL Community Server - GPL)
+    ```
+    mysql -h 127.0.0.1 -P 6001 -udump -p111
 
-Connection id:          1001
-Current database:
-Current user:           dump@0.0.0.0
-SSL:                    Cipher in use is TLS_AES_128_GCM_SHA256
-Current pager:          stdout
-Using outfile:          ''
-Using delimiter:        ;
-Server version:         0.5.0 MatrixOne
-Protocol version:       10
-Connection:             127.0.0.1 via TCP/IP
-ERROR 20101 (HY000): internal error: the system variable does not exist
-ERROR 2014 (HY000): Commands out of sync; you can't run this command now
-Client characterset:    utf8mb4
-Server characterset:    utf8mb4
-TCP port:               6001
-Binary data as:         Hexadecimal
---------------
-```
+    Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+    ```
 
-## MySQL 客户端配置
+    ② 使用 `Status` 命令查看 SSL 是否启用。
 
-MySQL 客户端连接 Matrix One Server 时，需要通过 `--ssl-mode` 参数指定加密连接行为，如：
+    成功启用，代码示例如下，可以看到 SSL 状态为 `Cipher in use is TLS_AES_128_GCM_SHA256`：
+
+    ```
+    mysql> status
+    mysql  Ver 8.0.28 for macos11 on arm64 (MySQL Community Server - GPL)
+
+    Connection id:          1001
+    Current database:
+    Current user:           dump@0.0.0.0
+    SSL:                    Cipher in use is TLS_AES_128_GCM_SHA256
+    Current pager:          stdout
+    Using outfile:          ''
+    Using delimiter:        ;
+    Server version:         0.6.0 MatrixOne
+    Protocol version:       10
+    Connection:             127.0.0.1 via TCP/IP
+    ERROR 20101 (HY000): internal error: the system variable does not exist
+    ERROR 2014 (HY000): Commands out of sync; you can't run this command now
+    Client characterset:    utf8mb4
+    Server characterset:    utf8mb4
+    TCP port:               6001
+    Binary data as:         Hexadecimal
+    --------------
+    ```
+
+    未启用成功，则返回结果如下，可以看到 SSL 状态为 `Not in use`，你需要重新检查一下上述步骤中你所配置证书及密钥文件的本地目录路径（即 <yourpath>）是否正确：
+
+    ```
+    mysql> status;
+    /usr/local/mysql/bin/mysql  Ver 8.0.30 for macos12 on arm64 (MySQL Community Server - GPL)
+
+    Connection id:		1009
+    Current database:	test
+    Current user:		root@0.0.0.0
+    SSL:			Not in use
+    Current pager:		stdout
+    Using outfile:		''
+    Using delimiter:	;
+    Server version:		8.0.30-MatrixOne-v0.6.0 MatrixOne
+    Protocol version:	10
+    Connection:		127.0.0.1 via TCP/IP
+    Server characterset:	utf8mb4
+    Db     characterset:	utf8mb4
+    Client characterset:	utf8mb4
+    Conn.  characterset:	utf8mb4
+    TCP port:		6001
+    Binary data as:		Hexadecimal
+    --------------
+    ```
+
+完成上述步骤后，即开启了 MatrixOne 的 TLS。
+
+## 步骤二：配置 MySQL 客户端参数
+
+MySQL 客户端连接 MatrixOne Server 时，需要通过 `--ssl-mode` 参数指定加密连接行为，如：
 
 ```sql
 mysql -h 127.0.0.1 -P 6001 -udump -p111 --ssl-mode=PREFFERED
@@ -137,5 +165,5 @@ ssl mode 取值类型如下：
 |VERIFY_IDENTITY|与 VERIFY_CA 行为一样，并且还验证 Server 端 CA 证书中的 host 是否与实际连接的 hostname 是否一致。|
 
 !!! note
-    客户端在指定了 `--ssl-mode=VERIFY_CA` 时，需要使用 `--ssl-ca` 来指定 CA 证书；
+    客户端在指定了 `--ssl-mode=VERIFY_CA` 时，需要使用 `--ssl-ca` 来指定 CA 证书。
     客户端在指定了 `--ssl-mode=VERIFY_IDENTITY` 时，需要指定 CA 证书，且需要使用 `--ssl-key` 指定客户端的私钥和使用 `--ssl-cert` 指定客户端的证书。
