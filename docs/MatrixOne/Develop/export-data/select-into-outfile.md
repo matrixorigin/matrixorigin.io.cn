@@ -1,6 +1,6 @@
 # 使用 `SELECT INTO...OUTFILE` 导出数据
 
-MatrixOne 支持以下两种方式导入数据：
+MatrixOne 支持以下两种方式导出数据：
 
 - `SELECT INTO...OUTFILE`
 - `modump`
@@ -28,15 +28,15 @@ mysql> SELECT * FROM TEST INTO OUTFILE '/root/test.csv'
    -> LINES TERMINATED BY '\r\n';
 ```
 
-`SELECT ... INTO OUTFILE` 特性如下：
+**`SELECT ... INTO OUTFILE` 特性如下**：
 
 - 导出的文件是由 MatrixOne 服务直接创建的，因此命令行中的 `filename`应该指向你需要文件存入的服务器主机的位置。MatrixOne 暂不支持将文件导出到客户端文件系统。
 
-- 你必须有执行 `SELECT ... INTO` 的权限。
+- `SELECT ... INTO OUTFILE` 是用于将检索出来的数据按格式导出到文件中，即需要导出的文件是由 MatrixOne 服务直接创建，导出的文件只能位于 MatrixOne 所在的服务器主机上，所以你必须得有登录 MatrixOne 所在的服务器主机的用户名密码，并且你有权限可以从 MatrixOne 检索文件。
 
-- 需要导出的文件必须不能提前存在。注意防止 MatrixOne 覆盖可能重名的重要文件。
+- 你必须有执行 `SELECT` 的权限。
 
-- 你必须在服务器主机上拥有一个可登录帐户，或者可以从该主机检索文件。否则，`SELECT ... INTO OUTFILE` 命令不可用。
+- 检查文件需要导出到的目录里不要有重名的文件，否则会被新导出的文件覆盖。
 
 ## 示例
 

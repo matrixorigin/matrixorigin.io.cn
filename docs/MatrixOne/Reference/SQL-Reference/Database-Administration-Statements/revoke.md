@@ -19,10 +19,35 @@
 ## **示例**
 
 ```sql
-> drop role if exists rolex;
-> create role rolex;
-> drop user if exists userx;
-> create user userx identified by '111';
-> grant public to userx;
-> revoke public from userx;
+> CREATE USER mouser IDENTIFIED BY '111';
+Query OK, 0 rows affected (0.10 sec)
+
+> CREATE ROLE role_r1;
+Query OK, 0 rows affected (0.05 sec)
+
+> GRANT role_r1 to mouser;
+Query OK, 0 rows affected (0.04 sec)
+
+> GRANT create table on database * to role_r1;
+Query OK, 0 rows affected (0.03 sec)
+
+> SHOW GRANTS for mouser@localhost;
++-------------------------------------------------------+
+| Grants for mouser@localhost                           |
++-------------------------------------------------------+
+| GRANT create table ON database * `mouser`@`localhost` |
+| GRANT connect ON account  `mouser`@`localhost`        |
++-------------------------------------------------------+
+2 rows in set (0.02 sec)
+
+> REVOKE role_r1 from mouser;
+Query OK, 0 rows affected (0.04 sec)
+
+> SHOW GRANT for mouser@localhost;
++------------------------------------------------+
+| Grants for mouser@localhost                    |
++------------------------------------------------+
+| GRANT connect ON account  `mouser`@`localhost` |
++------------------------------------------------+
+1 row in set (0.02 sec)
 ```
