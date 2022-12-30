@@ -32,7 +32,7 @@ mysql> SELECT * FROM TEST INTO OUTFILE '/root/test.csv'
 
 - 导出的文件是由 MatrixOne 服务直接创建的，因此命令行中的 `filename`应该指向你需要文件存入的服务器主机的位置。MatrixOne 暂不支持将文件导出到客户端文件系统。
 
-- `SELECT ... INTO OUTFILE` 用于将检索出来的数据按格式导出到文件中，即需要导出的文件是由 MatrixOne 服务直接创建，所以你必须得有登录 MatrixOne 的用户名密码，或者你有权限可以从 MatrixOne 检索文件。
+- `SELECT ... INTO OUTFILE` 是用于将检索出来的数据按格式导出到文件中，即需要导出的文件是由 MatrixOne 服务直接创建，导出的文件只能位于 MatrixOne 所在的服务器主机上，所以你必须得有登录 MatrixOne 所在的服务器主机的用户名密码，或者你有权限可以从 MatrixOne 检索文件。
 
 - 你必须有执行 `SELECT` 的权限。
 
