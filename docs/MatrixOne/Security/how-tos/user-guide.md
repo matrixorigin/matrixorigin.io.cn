@@ -211,7 +211,7 @@ drop role if exists <role_name>;
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：向某个角色授予某个对象的某个权限
+- 操作说明：向某个角色授予某个对象的某个权限。
 
 **SQL 语法**
 
@@ -236,7 +236,7 @@ grant <privilege> on <object_type> <object_name> to <role_name>
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：向角色授予所有数据库/数据表的某个权限
+- 操作说明：向角色授予所有数据库/数据表的某个权限。
 
 **SQL 语法**
 
@@ -263,7 +263,7 @@ grant <privilege> on table *.* to <role_name>;
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：向某个用户授予某个角色
+- 操作说明：向某个用户授予某个角色。
 
 **SQL 语法**
 
@@ -286,7 +286,7 @@ grant <role_name> to <user_name>;
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：让 role_b 继承 role_a 的所有权限
+- 操作说明：让 role_b 继承 role_a 的所有权限。
 
 **SQL 语法**
 
@@ -305,7 +305,7 @@ grant <role_a> to <role_b>;
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：查看所指定用户当前所拥有的全部权限
+- 操作说明：查看所指定用户当前所拥有的全部权限。
 
 **SQL 语法**
 
@@ -327,7 +327,7 @@ show grants for <user_name>@<localhost>
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：将某一用户的某一角色移除
+- 操作说明：将某一用户的某一角色移除。
 
 **SQL 语法**
 
@@ -350,7 +350,7 @@ revoke <role_name> from <user_name>
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：回收角色中的某个对象权限
+- 操作说明：回收角色中的某个对象权限。
 
 **SQL 语法**
 
