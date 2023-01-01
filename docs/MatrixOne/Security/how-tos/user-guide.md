@@ -249,8 +249,8 @@ grant <privilege> on table *.* to <role_name>;
 
 |参数|参数解释|
 |---|---|
-|<privilege>|权限|
-|<role_name>|被赋予权限的角色|
+|<privilege>|权限名称|
+|<role_name>|被赋予权限的角色名称|
 
 !!! note
     该操作虽然在授权多个相同类别对象时比较简便，但也很容易发生权限泄漏，请谨慎使用。
@@ -295,7 +295,7 @@ grant <role_a> to <role_b>;
 ```
 
 !!! note
-    该权限继承为动态继承，若 role_a 的权限发生改变，则 role_b 所继承的权限也会动态更改。MatrixOne 不允许角色环继承，即 role1 继承 role2，role2 继承 role3，role3 继承 role1。
+    该权限继承为动态继承，若 role_a 的权限发生改变，则 role_b 所继承的权限也会动态更改。MatrixOne 不允许角色环继承，即 role1 继承 role2，role2 继承 role3，但是 role3 继承 不能继承 role1。
 
 更多信息，参见[DRANT ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/grant-role.md)。
 
@@ -321,7 +321,7 @@ show grants for <user_name>@<localhost>
 
 更多信息，参见[SHOW GRANTS](../../Reference/SQL-Reference/Database-Administration-Statements/show-grants.md)。
 
-### 回收角色的授权用户
+### 回收授权用户的某个角色
 
 - 前提条件：拥有 `REVOKE` 权限。
 
@@ -344,7 +344,7 @@ revoke <role_name> from <user_name>
 
 更多信息，参见[REVOKE](../../Reference/SQL-Reference/Database-Administration-Statements/revoke.md)。
 
-### 回收角色的授权权限
+### 回收角色中的某个对象权限
 
 - 前提条件：拥有 `REVOKE` 权限。
 
@@ -362,7 +362,7 @@ revoke <privilege> on <object_type> <object_name> to <role_name>;
 
 |参数|参数解释|
 |---|---|
-|<privilege>|权限|
+|<privilege>|权限名称|
 |<object_type>|对象类型|
 |<object_name>|对象名称|
 |<role_name>|被赋予权限的角色|
