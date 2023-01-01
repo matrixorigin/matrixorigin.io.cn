@@ -196,7 +196,7 @@ drop role if exists <role_name>;
 
 |参数|参数解释|
 |---|---|
-|<role_name>|新建角色的名称|
+|<role_name>|需要删除的角色的名称|
 
 !!! note
     删除某个指定角色时，会同时回收已经被授权的用户的角色。
