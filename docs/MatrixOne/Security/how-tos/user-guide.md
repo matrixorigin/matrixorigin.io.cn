@@ -162,7 +162,7 @@ select * from mo_catalog.mo_role;
 
 - 前提条件：拥有 `SET ROLE` 权限。默认所有用户都拥有这个权限。
 
-- 操作说明：在租户中切换用户的主要角色，获取主要角色的权限，以便执行相应的 SQL。
+- 操作说明：在租户中切换用户的角色，获取其他角色的权限，以便执行相应的 SQL。
 
 **SQL 语法**
 
@@ -174,7 +174,7 @@ set role <role_name>;
 
 |参数|参数解释|
 |---|---|
-|<role_name>|新建角色的名称|
+|<role_name>|角色的名称|
 
 更多信息，参见[SET ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/set-role.md)。
 
