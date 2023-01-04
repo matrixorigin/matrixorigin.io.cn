@@ -83,9 +83,9 @@ mysql> select * from t;
 2 rows in set (0.00 sec)
 ```
 
-- `time_zone`：使用system的时区。
+- `time_zone`：使用 system 的时区。
 
-- `system_time_zone` 说明system使用CST时区。
+- `system_time_zone` 说明 system 使用 CST 时区。
 
 2. 修改当前时区：
 
@@ -94,5 +94,5 @@ set global time_zone = '+08:00';
 set time_zone = '+08:00';
 ```
 
-- `set global time_zone = '+08:00';`：修改mysql全局时区为北京时间，即我们所在的东8区。
+- `set global time_zone = '+08:00';`：修改 mysql 全局时区为北京时间，即我们所在的东 8 区。
 - `set time_zone = '+08:00';`：修改当前会话时区。

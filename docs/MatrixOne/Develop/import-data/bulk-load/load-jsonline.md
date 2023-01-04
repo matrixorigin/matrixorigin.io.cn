@@ -12,9 +12,9 @@ JSONLines 对于数据流来说更为友好。因为每一个新的行意味着�
 
 JSONLines 格式有以下三个要求：
 
-* **UTF-8 编码**：JSON 允许仅使用 ASCII 转义序列对 Unicode 字符串进行编码，但是在文本编辑器中，这些转义难以阅读。 JSON Lines 文件的作者可以选择转义字符来处理纯 ASCII 文件。
+* **UTF-8 编码**：JSON 允许仅使用 ASCII 转义序列对 Unicode 字符串进行编码，但是在文本编辑器中，这些转义难以阅读。JSON Lines 文件的作者可以选择转义字符来处理纯 ASCII 文件。
 
-JSON允许仅用ASCII转义序列编码Unicode字符串，但是当在文本编辑器中查看时，这些转义将很难阅读。JSON Lines文件的作者可以选择转义字符来处理纯ASCII文件。
+JSON 允许仅用 ASCII 转义序列编码 Unicode 字符串，但是当在文本编辑器中查看时，这些转义将很难阅读。JSON Lines 文件的作者可以选择转义字符来处理纯 ASCII 文件。
 
 * **每行都是一个合法的 JSON 值**：最常见的值是对象或数组，任何 JSON 值都是合法的。
 
@@ -73,22 +73,22 @@ LOAD DATA INFILE
 * format：文件格式，支持 *.csv* 和 *.jsonline*
 * jsondata：json 数据格式，支持 object 和 array，如果 `format` 为 *jsonline*，则**必须**指定 *jsondata*。
 
-|参数|值|必须/可选 | 描述|
+|参数 | 值|必须/可选 | 描述|
 |:-:|:-:|:-:|:-:|
-|filepath|String| 必须| 文件路径|
+|filepath|String| 必须 | 文件路径|
 |compression|auto/none/bz2/gzip/lz4|可选 | 压缩格式 |
 |format|csv/jsonline|可选 |加载文件格式，默认 *.csv*|
-|jsondata|object/array|可选| JSON 数据格式。如果 `format` 为 *jsonline*，则**必须**指定 *jsondata*|
-|table_name|String|必须|需加载数据到表的表名称|
-|x|Number|可选|加载时要忽略的行|
+|jsondata|object/array|可选 | JSON 数据格式。如果 `format` 为 *jsonline*，则**必须**指定 *jsondata*|
+|table_name|String|必须 | 需加载数据到表的表名称|
+|x|Number|可选 | 加载时要忽略的行|
 
 **JSONLines 格式数据的 DDL 指南**
 
 在将 JSONLines 数据加载到 MatrixOne 之前，你需要先创建一个表。
 
-由于 JSON 数据类型与 MatrixOne 的数据类型不同，参见下表，可以查看JSON 数据类型对应到 MatrixOne 中时的数据类型：
+由于 JSON 数据类型与 MatrixOne 的数据类型不同，参见下表，可以查看 JSON 数据类型对应到 MatrixOne 中时的数据类型：
 
-|JSON 类型|  MatrixOne 中的数据类型|
+|JSON 类型 |  MatrixOne 中的数据类型|
 |:-:|:-:|
 |String| VARCHAR (定长字符串)|
 |String| TEXT (长文本数据)|

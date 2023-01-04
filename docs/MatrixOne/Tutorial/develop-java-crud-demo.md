@@ -24,7 +24,7 @@ mysql> create database test;
 
 ## 初始化一个新的 Java 项目
 
-启动 IDEA，并创建一个新的 Java 项目，如下所示:
+启动 IDEA，并创建一个新的 Java 项目，如下所示：
 
 ![image-20220927104740221](https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_create_project.png?raw=true)
 

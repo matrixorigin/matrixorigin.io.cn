@@ -4,7 +4,7 @@
 
 ## TPC-C 概述
 
-TPC-C 是一种衡量在线事务处理（OLTP） 系统性能和可伸缩性的基准测试规范。TPC-C 模拟了一个比较有代表意义的 OLTP 应用环境：在线订单处理系统。TPC-C 基准测试中使用的数据库由 Warehouse、Customer、Order、Item 等九个表组成（参见下图）。除 Item 表外，每条记录都以每个 Warehouse 为基础进行填充，并且仓库的数量按比例配置。
+TPC-C 是一种衡量在线事务处理（OLTP）系统性能和可伸缩性的基准测试规范。TPC-C 模拟了一个比较有代表意义的 OLTP 应用环境：在线订单处理系统。TPC-C 基准测试中使用的数据库由 Warehouse、Customer、Order、Item 等九个表组成（参见下图）。除 Item 表外，每条记录都以每个 Warehouse 为基础进行填充，并且仓库的数量按比例配置。
 
 ![TPCC diagram](https://miro.medium.com/max/1400/1*oZOCQB2c84bVxOqbCW1Fsw.webp)
 

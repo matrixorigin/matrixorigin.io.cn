@@ -4,7 +4,7 @@
 
 另外，数据备份也作为升级 MatrixOne 安装之前的保障，同时数据备份也可以可用于将 MatrixOne 安装转移到另一个系统。
 
-MatrixOne 目前仅支持通过 `modump` 实用程序进行逻辑备份。 `modump` 是一个命令行实用程序，用于生成 MatrixOne 数据库的逻辑备份。它生成可用于重新创建数据库对象和数据的SQL语句。你可以在 [modump](../Develop/export-data/modump.md) 章节中查找它的语法说明和使用指南。
+MatrixOne 目前仅支持通过 `modump` 实用程序进行逻辑备份。 `modump` 是一个命令行实用程序，用于生成 MatrixOne 数据库的逻辑备份。它生成可用于重新创建数据库对象和数据的 SQL 语句。你可以在 [modump](../Develop/export-data/modump.md) 章节中查找它的语法说明和使用指南。
 
 我们将通过一个简单的示例来讲述如何使用 `modump` 实用程序完成数据备份和还原的过程。
 

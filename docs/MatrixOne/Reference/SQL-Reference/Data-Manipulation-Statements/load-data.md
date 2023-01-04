@@ -115,13 +115,13 @@ LOAD DATA INFILE 'data.txt' INTO TABLE table1
 |  ----  | ----  |
 | \0 | 	反转义成 0（0x00） |
 | \b | 	回车字符 |
-| \n | 	换行(换行)字符  |
+| \n | 	换行 (换行) 字符  |
 | \r | 	回车字符 |
 | \t | 	Tab 字符 |
 | \Z | 	ASCII 26 (Control+Z) |
 | \N | 	NULL |
 
-例如，如果某些输入值是特殊字符 “\”，则可以使用 `ESCAPE BY`：
+例如，如果某些输入值是特殊字符“\”，则可以使用 `ESCAPE BY`：
 
 ```
 LOAD DATA INFILE 'data.txt' INTO TABLE table1
@@ -161,7 +161,7 @@ something xxx"def",2
 "ghi",3
 ```
 
-则输出的结果行是("abc"，1)和("def"，2)。文件中的第三行由于没有前缀，则被忽略。
+则输出的结果行是 ("abc"，1) 和 ("def"，2)。文件中的第三行由于没有前缀，则被忽略。
 
 ## 支持的文件格式
 

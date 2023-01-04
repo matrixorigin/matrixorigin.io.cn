@@ -35,7 +35,7 @@
 
    **版本要求**：3.0 或以上版本
 
-   **作用**：Helm 是 Kubernetes 的应用程序包管理器，你可使用 Helm Charts 描述应用程序的结构。 使用 Helm 命令行界面，您可以回滚部署、监控应用程序的状态并跟踪 MatrxiOne 集群部署的历史记录。
+   **作用**：Helm 是 Kubernetes 的应用程序包管理器，你可使用 Helm Charts 描述应用程序的结构。使用 Helm 命令行界面，您可以回滚部署、监控应用程序的状态并跟踪 MatrxiOne 集群部署的历史记录。
 
 ### 创建和启动 Kubernetes 集群步骤
 
@@ -123,9 +123,9 @@ $ kind create cluster --name matrixone --config kind.yaml
     kubectl create namespace ${NS}
     ```
 
-    在进行分布式部署时，MatrixOne 数据库需要外部的共享存储，MatrixOne 目前可以使用支持 S3 协议的对象存储（如 AWS S3、MinIO）或网络文件系统（如 NFS）作为共享存储。配置AWS S3或MinIO的步骤，请参考[为MatrixOne 集群配置共享存储](configure-shared-memory.md)的相关内容。
+    在进行分布式部署时，MatrixOne 数据库需要外部的共享存储，MatrixOne 目前可以使用支持 S3 协议的对象存储（如 AWS S3、MinIO）或网络文件系统（如 NFS）作为共享存储。配置 AWS S3 或 MinIO 的步骤，请参考[为 MatrixOne 集群配置共享存储](configure-shared-memory.md)的相关内容。
 
-2. 执行下面的命令，将在目标 Kubernetes 集群中部署一套 MinIO 作为共享存储，相信信息，参考[为MatrixOne 集群配置共享存储](configure-shared-memory.md)。
+2. 执行下面的命令，将在目标 Kubernetes 集群中部署一套 MinIO 作为共享存储，相信信息，参考[为 MatrixOne 集群配置共享存储](configure-shared-memory.md)。
 
     ```
     kubectl -n mo-system apply -f https://raw.githubusercontent.com/matrixorigin/matrixone-operator/main/examples/minio.yaml

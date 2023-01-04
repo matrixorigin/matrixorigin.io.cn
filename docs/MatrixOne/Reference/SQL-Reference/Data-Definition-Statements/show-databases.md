@@ -2,7 +2,7 @@
 
 ## **函数说明**
 
-`SHOW DATABASES` 列出 MatrixOne上的数据库。`SHOW SCHEMAS` 是 `SHOW DATABASES` 的同义词。
+`SHOW DATABASES` 列出 MatrixOne 上的数据库。`SHOW SCHEMAS` 是 `SHOW DATABASES` 的同义词。
 
 如果存在 `LIKE` 子句，表示需要匹配哪些数据库名。`WHERE` 子句可以使用通用的条件来选择行。
 

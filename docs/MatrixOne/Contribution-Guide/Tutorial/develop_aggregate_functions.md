@@ -14,7 +14,7 @@
 
 在数据库系统中，聚合函数是将多行的值组合在一起以形成单个汇总值的函数。
 
-常用的聚合函数包括:
+常用的聚合函数包括：
 
 * `COUNT` 计算在一个特定列中有多少行。
 
@@ -34,7 +34,7 @@
 
 这是数据库设计中常见的实践。然而，当在两个表之间进行 `join` 查询时，通常的方法是通过先连接表来获得一个笛卡尔积，然后用笛卡尔积进行 `AVG` 运算，因此，得到的笛卡尔积可能非常大，计算成本非常高。
 
-在 MatrixOne 中，执行 `join` 操作之前， MatrixOne 采用因数分解方法下推组统计和，以及求和计算。这种方法大大降低了计算和存储成本。因式分解是通过 `Ring` 接口及其内部函数实现的。
+在 MatrixOne 中，执行 `join` 操作之前，MatrixOne 采用因数分解方法下推组统计和，以及求和计算。这种方法大大降低了计算和存储成本。因式分解是通过 `Ring` 接口及其内部函数实现的。
 
 更多关于因式分解理论和因式分解数据库，参见[分解数据库原理](https://fdbresearch.github.io/principles.html)。
 
@@ -47,7 +47,7 @@ A `Ring` in MatrixOne is an interface with several functions similar to the alge
 The `+`(addition) is defined as merging two `Ring`s groups and the `⋅`(multiplication) operation is defined as the computation of a grouped aggregate value combined with its grouping key frequency information.
 
 `Ring` 是 MatrixOne 因式分解的重要数据结构，也是一个具有明确[定义](https://en.wikipedia.org/wiki/Ring_(mathematics))的数学代数概念。
-代数 `Ring` 是一个包含两个二元运算 “+”（加法）和 “⋅”（乘法）组成的集合，并且满足多个公理。
+代数 `Ring` 是一个包含两个二元运算“+”（加法）和“⋅”（乘法）组成的集合，并且满足多个公理。
 
 MatrixOne 中的 `Ring` 是一个接口，具有类似于代数 `Ring` 结构的多个功能。我们使用 `Ring` 接口来实现聚合函数。
 
@@ -73,7 +73,7 @@ MatrixOne 中的 `Ring` 是一个接口，具有类似于代数 `Ring` 结构的
 | BatchAdd                 | Merge several couples of groups for two Rings                           |
 | Mul                      | Multiplication between groups for two Rings, called when join occurs      |
 
-注：6.0版本 ring暂时被删除，不在/pkg/container/ring/下
+注：6.0 版本 ring 暂时被删除，不在/pkg/container/ring/下
 `Ring` 数据结构在路径 `/pkg/container/ring/` 下实现。
 
 ## **`Ring` 如何进行查询**
@@ -106,14 +106,14 @@ T1 (id, class, age)
 select class, sum(age) from T1 group by class;
 ```
 
-例如，如果生成了两个 `Ring` ，第一个 `Ring` 包含前4行的总和，如下所示：
+例如，如果生成了两个 `Ring` ，第一个 `Ring` 包含前 4 行的总和，如下所示：
 
 ```sql
 |  one   |  23+20+22 |
 |  two   |  20       |
 ```
 
-第二个 `Ring` 包含了最后6行的总和，如下所示：
+第二个 `Ring` 包含了最后 6 行的总和，如下所示：
 
 ```sql
 |  two   |  19       |
@@ -184,7 +184,7 @@ sum[i] = sum[i] * f[i]
 
 ## **详解因式分解**
 
-从上面的例子中，你可以看到 `Ring` 执行一些预计算，只有结果(如 `sum`)存储在它的结构中。当执行 `join` 这样的运算时，只需要简单的 `Add` 或 `Multiplication` 就可以得到结果，这在**因式分解**中被称为下推运算。在下推运算的帮助下，数据库将无需处理高成本的笛卡尔积，并且随着连接表数量的增加，因式分解执行仅仅线性增长，而不是指数增长。
+从上面的例子中，你可以看到 `Ring` 执行一些预计算，只有结果 (如 `sum`) 存储在它的结构中。当执行 `join` 这样的运算时，只需要简单的 `Add` 或 `Multiplication` 就可以得到结果，这在**因式分解**中被称为下推运算。在下推运算的帮助下，数据库将无需处理高成本的笛卡尔积，并且随着连接表数量的增加，因式分解执行仅仅线性增长，而不是指数增长。
 
 本章节以“方差”函数的实现为例，详细讲解因式分解，方差公式如下：
 
@@ -256,7 +256,7 @@ Below are two different implementations for `Variance` (the second one has a bet
 
 ## **开发 `var()` 函数**
 
-在本教程中，我们将以两种不同的方法为例，介绍 Variance(获得标准总体方差值)聚合函数的完整实现过程。
+在本教程中，我们将以两种不同的方法为例，介绍 Variance(获得标准总体方差值) 聚合函数的完整实现过程。
 
 ### 步骤 1：注册函数
 
@@ -775,7 +775,7 @@ func TestVariance(t *testing.T) {
 
 ### 步骤 1：载标准测试数据集
 
-本章节为你准备了一个包含1000万行数据的单表SSB查询数据集。原始数据文件大小约为4GB，压缩后为500MB。点击下面的链接，直接获取数据文件：
+本章节为你准备了一个包含 1000 万行数据的单表 SSB 查询数据集。原始数据文件大小约为 4GB，压缩后为 500MB。点击下面的链接，直接获取数据文件：
 
 ```
 https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/lineorder_flat.tar.bz2

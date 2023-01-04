@@ -38,7 +38,7 @@ MO-Tester 相关用例、结果和报告的放在 [MatrixOne](https://github.com
 
 ## 2. 配置 MO-Tester
 
-MO-tester 基于 Java 语言进行开发，因此 Mo-tester 所依赖的 Java 数据库连接（JDBC，Java Database Connectivity） 驱动程序需要配置 *mo.yml* 文件里的参数信息：进入到 *mo-tester* 本地仓库，打开 *mo.yml* 文件，配置服务器地址、默认的数据库名称、用户名和密码等。
+MO-tester 基于 Java 语言进行开发，因此 Mo-tester 所依赖的 Java 数据库连接（JDBC，Java Database Connectivity）驱动程序需要配置 *mo.yml* 文件里的参数信息：进入到 *mo-tester* 本地仓库，打开 *mo.yml* 文件，配置服务器地址、默认的数据库名称、用户名和密码等。
 
 以下是本地独立版本 MatrixOne 的默认示例。
 
@@ -76,14 +76,14 @@ MO-tester 基于 Java 语言进行开发，因此 Mo-tester 所依赖的 Java �
 
 如果你想调整测试范围，你可以修改 `run.yml` 文件中的 `path` 参数。或者，在执行 `./run.sh` 命令时，你也可以指定一些参数，参数解释如下：
 
-|参数|参数释义|
+|参数 | 参数释义|
 |---|---|
 |-p|设置由 MO-tester 执行的测试用例的路径。默认值可以参见 *run.yml* 文件中 `path` 的配置参数|
 |-m|设置 MO-tester 测试的方法，即直接运行或者生成新的测试结果。默认值可以参见 *run.yaml* 文件中 `method` 的配置参数|
 |-t| 设置 MO-tester 执行 SQL 命令的格式类型。默认值可以参见 *run.yml* 文件中 `type` 的配置参数。|
 |-r| 设置测试用例应该达到的成功率。默认值可以参见 *run.yml* 文件中 `rate` 的配置参数。|
-|-i|设置包含列表，只有路径中名称包含其中一个列表的脚本文件将被执行，如果有多个，如果没有指定，用'，'分隔，指的是包含的所有情况set the including list, and only script files in the path whose name contains one of the lists will be executed, if more than one, separated by `,`, if not specified, refers to all cases included|
-|-e|设置排除列表，如果路径下的脚本文件的名称包含一个排除列表，则不会被执行，如果有多个，用','分隔，如果没有指定，表示不排除任何情况set the excluding list, and script files in the path whose name contains one of the lists will not be executed, if more than one, separated by `,`, if not specified, refers to none of the cases excluded|
+|-i|设置包含列表，只有路径中名称包含其中一个列表的脚本文件将被执行，如果有多个，如果没有指定，用'，'分隔，指的是包含的所有情况 set the including list, and only script files in the path whose name contains one of the lists will be executed, if more than one, separated by `,`, if not specified, refers to all cases included|
+|-e|设置排除列表，如果路径下的脚本文件的名称包含一个排除列表，则不会被执行，如果有多个，用','分隔，如果没有指定，表示不排除任何情况 set the excluding list, and script files in the path whose name contains one of the lists will not be executed, if more than one, separated by `,`, if not specified, refers to none of the cases excluded|
 |-g|表示带有[-- @bvt:issue#{issueNO.}]标志的 SQL 命令将不会被执行，该标志以 [-- @bvt:issue#{issueNO.}]开始，以 [-- @bvt:issue]结束。例如，<br>-- @bvt:issue#3236<br/><br>select date_add("1997-12-31 23:59:59",INTERVAL "-10000:1" HOUR_MINUTE);<br/><br>select date_add("1997-12-31 23:59:59",INTERVAL "-100 1" YEAR_MONTH);<br/><br>-- @bvt:issue<br/><br>这两个 SQL 命令与问题 #3236 相关联，它们将不会在 MO-tester 测试中执行，直到问题 #3236 修复后标签移除才可以在测试中执行。<br/>|
 |-n|表示在比较结果时将忽略结果集的元数据|
 |-c|只需要检查 *case* 文件与 *result* 文件是否匹配|
@@ -112,13 +112,13 @@ MO-tester 基于 Java 语言进行开发，因此 Mo-tester 所依赖的 Java �
 [{path_name}/matrixone/test/cases/benchmark/tpch/02_LOAD/02_insert_customer.sql] COST : 0.357s, TOTAL :16, SUCCESS :16, FAILED :0, IGNORED :0, ABNORAML :0, SUCCESS RATE : 100%
 ```
 
-|报告关键词|解释|
+|报告关键词 | 解释|
 |---|---|
 |TOTAL|执行的测试用例（SQL 语句）总数|
 |SUCCESS|执行成功的测试用例（SQL 语句）总数|
 |FAILED|执行失败的测试用例（SQL 语句）总数|
 |IGNORED|忽略执行的测试用例（SQL 语句）总数，特指具有 `--bvt:issue` 标签的测试用例（SQL 语句）|
-|ABNORAML|执行异常的测试用例（SQL 语句）总数，比如执行过程中被系统异常导致MO无法判断实际结果，或者 *.result* 文件解析失败等|
+|ABNORAML|执行异常的测试用例（SQL 语句）总数，比如执行过程中被系统异常导致 MO 无法判断实际结果，或者 *.result* 文件解析失败等|
 |SUCCESS RATE|成功率，即 SUCCESS/(TOTAL - IGNORED)|
 
 * *error.txt* 示例如下：

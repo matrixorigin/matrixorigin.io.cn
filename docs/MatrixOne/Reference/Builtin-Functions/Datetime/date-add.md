@@ -14,9 +14,9 @@
 
 |  参数   | 说明 |
 |  ----  | ----  |
-| date| 必要参数。 date 参数是合法的日期表达式。 |
-| expr  | 必要参数。  expr 参数是需要添加进 date 的时间间隔，如果 expr 为负数，那么可以以“-”开头。 |
-| unit| 必要参数。 unit 参数可以是下列值：<br>MICROSECOND <br>SECOND<br>MINUTE<br>HOUR<br>DAY<br>WEEK<br>MONTH<br>QUA<br>TER<br>YEAR<br>SECOND_MICROSECOND<br>MINUTE_MICROSECOND<br>MINUTE_SECOND<br>HOUR_MICROSECOND<br>HOUR_SECOND<br>HOUR_MINUTE<br>DAY_MICROSECOND<br>DAY_SECOND<br>DAY_MINUTE<br>DAY_HOUR<br>YEAR_MONTH|
+| date| 必要参数。date 参数是合法的日期表达式。 |
+| expr  | 必要参数。expr 参数是需要添加进 date 的时间间隔，如果 expr 为负数，那么可以以“-”开头。 |
+| unit| 必要参数。unit 参数可以是下列值：<br>MICROSECOND <br>SECOND<br>MINUTE<br>HOUR<br>DAY<br>WEEK<br>MONTH<br>QUA<br>TER<br>YEAR<br>SECOND_MICROSECOND<br>MINUTE_MICROSECOND<br>MINUTE_SECOND<br>HOUR_MICROSECOND<br>HOUR_SECOND<br>HOUR_MINUTE<br>DAY_MICROSECOND<br>DAY_SECOND<br>DAY_MINUTE<br>DAY_HOUR<br>YEAR_MONTH|
 
 ## **示例**
 
@@ -34,4 +34,4 @@ mysql> SELECT OrderId,DATE_ADD(OrderDate,INTERVAL 45 DAY) AS OrderPayDate FROM t
 
 ## **限制**
 
-目前date格式只支持 `yyyy-mm-dd` 和 `yyyymmdd` 的数据格式。
+目前 date 格式只支持 `yyyy-mm-dd` 和 `yyyymmdd` 的数据格式。

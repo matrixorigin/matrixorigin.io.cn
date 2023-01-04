@@ -21,7 +21,7 @@ create account <account_name> admin_name='<user_name>' identified by '<password>
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<account_name>|新建租户的名称|
 |<user_name>|新建租户的管理员用户名，其会被自动授予租户的最高权限角色，即 `ACCOUNTADMIN`|
@@ -47,7 +47,7 @@ drop account if exists <account_name>;
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<account_name>|需要删除的租户名称|
 
@@ -60,7 +60,7 @@ drop account if exists <account_name>;
 
 ### 创建用户
 
-- 前提条件： 拥有 `CREATE USER` 权限。
+- 前提条件：拥有 `CREATE USER` 权限。
 
     · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
@@ -74,7 +74,7 @@ create user <user_name> identified by '<password>';
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<user_name>|新建用户的名称|
 |<password>|新建的用户密码|
@@ -83,7 +83,7 @@ create user <user_name> identified by '<password>';
 
 ### 查看用户
 
-- 前提条件： 拥有查看用户的权限。
+- 前提条件：拥有查看用户的权限。
 
     · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
@@ -97,7 +97,7 @@ select * from mo_catalog.mo_user;
 
 ### 删除用户
 
-- 前提条件： 拥有 `DROP USER` 权限。
+- 前提条件：拥有 `DROP USER` 权限。
 
     · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
@@ -111,7 +111,7 @@ drop user if exist <user_name>;
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<user_name>|新建用户的名称|
 
@@ -124,7 +124,7 @@ drop user if exist <user_name>;
 
 ### 创建角色
 
-- 前提条件： 拥有 `CREATE ROLE` 权限。
+- 前提条件：拥有 `CREATE ROLE` 权限。
 
     · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
@@ -138,7 +138,7 @@ create role <role_name>;
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<role_name>|新建角色的名称|
 
@@ -146,7 +146,7 @@ create role <role_name>;
 
 ### 查看角色
 
-- 前提条件： 拥有查看角色权限。
+- 前提条件：拥有查看角色权限。
 
     · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
@@ -172,7 +172,7 @@ set role <role_name>;
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<role_name>|角色的名称|
 
@@ -180,7 +180,7 @@ set role <role_name>;
 
 ### 删除角色
 
-- 前提条件： 拥有 `DROP ROLE` 权限。
+- 前提条件：拥有 `DROP ROLE` 权限。
 
     · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
@@ -194,7 +194,7 @@ drop role if exists <role_name>;
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<role_name>|需要删除的角色的名称|
 
@@ -221,7 +221,7 @@ grant <privilege> on <object_type> <object_name> to <role_name>
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<privilege>|权限|
 |<object_type>|对象类型|
@@ -247,7 +247,7 @@ grant <privilege> on table *.* to <role_name>;
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<privilege>|权限名称|
 |<role_name>|被赋予权限的角色名称|
@@ -273,7 +273,7 @@ grant <role_name> to <user_name>;
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<role_name>|被赋予权限的角色|
 |<user_name>|被赋予权限的用户|
@@ -315,7 +315,7 @@ show grants for <user_name>@<localhost>
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<user_name>|被赋予权限的用户|
 
@@ -337,7 +337,7 @@ revoke <role_name> from <user_name>
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<role_name>|被赋予权限的角色|
 |<user_name>|被赋予权限的用户|
@@ -360,7 +360,7 @@ revoke <privilege> on <object_type> <object_name> to <role_name>;
 
 **参数解释**
 
-|参数|参数解释|
+|参数 | 参数解释|
 |---|---|
 |<privilege>|权限名称|
 |<object_type>|对象类型|

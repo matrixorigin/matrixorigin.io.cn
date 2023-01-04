@@ -27,9 +27,9 @@
 
 目前，`convert` 可以进行如下转换：
 
-* 数值类型之间转换，主要包括SIGNED，UNSIGNED，FLOAT，DOUBLE类型
-* 数值类型向字符CHAR类型转换
-* 格式为数值的字符类型向数值类型转换（负数需要转换为SIGNED）
+* 数值类型之间转换，主要包括 SIGNED，UNSIGNED，FLOAT，DOUBLE 类型
+* 数值类型向字符 CHAR 类型转换
+* 格式为数值的字符类型向数值类型转换（负数需要转换为 SIGNED）
 
 ## **示例**
 
@@ -59,6 +59,6 @@
 ## **限制**
 
 * 非数值的字符类型无法转化为数值类型
-* 日期格式的数值类型、字符类型无法转化为Date类型
-* Date，Datetime类型无法转化为字符类型
-* Date与Datetime暂不能互相转化
+* 日期格式的数值类型、字符类型无法转化为 Date 类型
+* Date，Datetime 类型无法转化为字符类型
+* Date 与 Datetime 暂不能互相转化

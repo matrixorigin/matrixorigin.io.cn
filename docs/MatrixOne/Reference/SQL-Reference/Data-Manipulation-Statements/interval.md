@@ -162,7 +162,7 @@ date - INTERVAL expr unit
 
 ### 示例 3
 
-如果你在一个 `date` 值上加上或减去一个包含时间部分的值，执行结果会自动转换为一个 `datetime` 值:
+如果你在一个 `date` 值上加上或减去一个包含时间部分的值，执行结果会自动转换为一个 `datetime` 值：
 
 ```sql
 > SELECT DATE_ADD('2023-01-01', INTERVAL 1 DAY);

@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `tool` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1913 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='tool table';
 ```
 
-在 MatrixOne 中成功创建这个表，它需要被修改为:
+在 MatrixOne 中成功创建这个表，它需要被修改为：
 
 ```
 DROP TABLE IF EXISTS `tool`;
