@@ -162,7 +162,7 @@ select * from mo_catalog.mo_role;
 
 - 前提条件：拥有 `SET ROLE` 权限。默认所有用户都拥有这个权限。
 
-- 操作说明：在租户中切换用户的主要角色，获取主要角色的权限，以便执行相应的 SQL。
+- 操作说明：在租户中切换用户的角色，获取其他角色的权限，以便执行相应的 SQL。
 
 **SQL 语法**
 
@@ -174,7 +174,7 @@ set role <role_name>;
 
 |参数|参数解释|
 |---|---|
-|<role_name>|新建角色的名称|
+|<role_name>|角色的名称|
 
 更多信息，参见[SET ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/set-role.md)。
 
@@ -196,7 +196,7 @@ drop role if exists <role_name>;
 
 |参数|参数解释|
 |---|---|
-|<role_name>|新建角色的名称|
+|<role_name>|需要删除的角色的名称|
 
 !!! note
     删除某个指定角色时，会同时回收已经被授权的用户的角色。
@@ -211,7 +211,7 @@ drop role if exists <role_name>;
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：向某个角色授予某个对象的某个权限
+- 操作说明：向某个角色授予某个对象的某个权限。
 
 **SQL 语法**
 
@@ -236,7 +236,7 @@ grant <privilege> on <object_type> <object_name> to <role_name>
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：向角色授予所有数据库/数据表的某个权限
+- 操作说明：向角色授予所有数据库/数据表的某个权限。
 
 **SQL 语法**
 
@@ -249,8 +249,8 @@ grant <privilege> on table *.* to <role_name>;
 
 |参数|参数解释|
 |---|---|
-|<privilege>|权限|
-|<role_name>|被赋予权限的角色|
+|<privilege>|权限名称|
+|<role_name>|被赋予权限的角色名称|
 
 !!! note
     该操作虽然在授权多个相同类别对象时比较简便，但也很容易发生权限泄漏，请谨慎使用。
@@ -263,7 +263,7 @@ grant <privilege> on table *.* to <role_name>;
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：向某个用户授予某个角色
+- 操作说明：向某个用户授予某个角色。
 
 **SQL 语法**
 
@@ -286,7 +286,7 @@ grant <role_name> to <user_name>;
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：让 role_b 继承 role_a 的所有权限
+- 操作说明：让 role_b 继承 role_a 的所有权限。
 
 **SQL 语法**
 
@@ -295,7 +295,7 @@ grant <role_a> to <role_b>;
 ```
 
 !!! note
-    该权限继承为动态继承，若 role_a 的权限发生改变，则 role_b 所继承的权限也会动态更改。MatrixOne 不允许角色环继承，即 role1 继承 role2，role2 继承 role3，role3 继承 role1。
+    该权限继承为动态继承，若 role_a 的权限发生改变，则 role_b 所继承的权限也会动态更改。MatrixOne 不允许角色环继承，即 role1 继承 role2，role2 继承 role3，但是 role3 继承 不能继承 role1。
 
 更多信息，参见[DRANT ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/grant-role.md)。
 
@@ -305,7 +305,7 @@ grant <role_a> to <role_b>;
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：查看所指定用户当前所拥有的全部权限
+- 操作说明：查看所指定用户当前所拥有的全部权限。
 
 **SQL 语法**
 
@@ -321,13 +321,13 @@ show grants for <user_name>@<localhost>
 
 更多信息，参见[SHOW GRANTS](../../Reference/SQL-Reference/Database-Administration-Statements/show-grants.md)。
 
-### 回收角色的授权用户
+### 回收授权用户的某个角色
 
 - 前提条件：拥有 `REVOKE` 权限。
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：将某一用户的某一角色移除
+- 操作说明：将某一用户的某一角色移除。
 
 **SQL 语法**
 
@@ -344,13 +344,13 @@ revoke <role_name> from <user_name>
 
 更多信息，参见[REVOKE](../../Reference/SQL-Reference/Database-Administration-Statements/revoke.md)。
 
-### 回收角色的授权权限
+### 回收角色中的某个对象权限
 
 - 前提条件：拥有 `REVOKE` 权限。
 
      · 默认拥有这个权限的角色为 MOADMIN 或 ACCOUNTADMIN：集群管理员（默认账户为 root）和由集群管理员创建的租户管理员默认拥有权限。
 
-- 操作说明：回收角色中的某个对象权限
+- 操作说明：回收角色中的某个对象权限。
 
 **SQL 语法**
 
@@ -362,7 +362,7 @@ revoke <privilege> on <object_type> <object_name> to <role_name>;
 
 |参数|参数解释|
 |---|---|
-|<privilege>|权限|
+|<privilege>|权限名称|
 |<object_type>|对象类型|
 |<object_name>|对象名称|
 |<role_name>|被赋予权限的角色|
