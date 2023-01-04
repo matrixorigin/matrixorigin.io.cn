@@ -266,7 +266,7 @@ mysql> select * from t1;
 
 ### 增加条件导入示例
 
-沿用上面的简单示例，你可以修改一下 LOAD DATA 语句，在末尾增加条件 ` LINES STARTING BY 'aa' ignore 10 lines;`：
+沿用上面的简单示例，你可以修改一下 LOAD DATA 语句，在末尾增加条件 `LINES STARTING BY 'aa' ignore 10 lines;`：
 
 ```sql
 delete from t1;
