@@ -50,15 +50,16 @@ CREATE TABLE {table_name} ({elements});
 - {data_type}：列的数据类型。
 - {column_qualification}：列的限定条件。
 
-这里介绍创建一个命名为 *user* 的表来存储 *modatabase* 库中的用户信息。
+这里介绍创建一个命名为 *NATION* 的表来存储 *modatabase* 库中的用户信息。
 
-可以为 *users* 表添加一些列，如他们的唯一标识 *id*，余额 *balance* 及昵称 nickname。
+可以为 *NATION* 表添加一些列。
 
 ```sql
-CREATE TABLE `modatabase`.`users` (
-  `id` bigint,
-  `nickname` varchar(100),
-  `balance` decimal(15,2)
+CREATE TABLE NATION(
+N_NATIONKEY  INTEGER NOT NULL,
+N_NAME       CHAR(25) NOT NULL,
+N_REGIONKEY  INTEGER NOT NULL,
+N_COMMENT    VARCHAR(152),
 );
 ```
 
@@ -68,32 +69,38 @@ CREATE TABLE `modatabase`.`users` (
 
 |字段名|数据类型|作用|解释|
 |---|---|---|---|
-|id|bigint|用以表示用户唯一标识|所有的用户标识都应该是 bigint 类型的|
-|nickname|varchar|用以表示用户的昵称|所用用户的昵称都是 varchar 类型，且不超过 100 字符的|
-|balance|decimal|用以表示用户的余额|精度为 15，比例为 2，即精度代表字段数值的总位数，而比例代表小数点后有多少位，例如: decimal(5,2)，即精度为 5，比例为 2 时，其取值范围为 -999.99 到 999.99。decimal(6,1) ，即精度为 6，比例为 1 时，其取值范围为 -99999.9 到 99999.9。|
+|N_NATIONKEY |INTEGER|民族的唯一标识|所有标识都应该是 INTEGER 类型的|
+|N_NAME |CHAR|民族名字|民族的名称都是 char 类型，且不超过 25 字符|
+|N_REGIONKEY|INTEGER|地区区号，唯一标识|所有标识都应该是 INTEGER 类型的|
+|N_COMMENT|VARCHAR|comment信息|varchar 类型，且不超过 152 字符|
 
 MatrixOne 支持许多其他的列数据类型，包含 整数、浮点数、时间等，参见[数据类型](../../Reference/Data-Types/data-types.md)。
 
 **创建一个复杂表**
 
-创建一张 *books* 表，这张表将是 *modatabase* 数据的核心。它包含书的 唯一标识、名称、库存、价格、出版时间 字段。
+创建一张 *ORDERS* 表。
 
 ```sql
-CREATE TABLE `modatabase`.`books` (
-  `id` bigint NOT NULL,
-  `title` varchar(100),
-  `published_at` datetime,
-  `stock` int,
-  `price` decimal(15,2)
+CREATE TABLE ORDERS(
+O_ORDERKEY       BIGINT NOT NULL,
+O_CUSTKEY        INTEGER NOT NULL,
+O_ORDERSTATUS    CHAR(1) NOT NULL,
+O_TOTALPRICE     DECIMAL(15,2) NOT NULL,
+O_ORDERDATE      DATE NOT NULL,
+O_ORDERPRIORITY  CHAR(15) NOT NULL,
+O_CLERK          CHAR(15) NOT NULL,
+O_SHIPPRIORITY   INTEGER NOT NULL,
+O_COMMENT        VARCHAR(79) NOT NULL,
+PRIMARY KEY (O_ORDERKEY)
 );
 ```
 
-这张表比 *users* 表包含更多的数据类型：
+这张表比 *NATION* 表包含更多的数据类型：
 
 |字段名|数据类型|作用|解释|
 |---|---|---|---|
-|stock|int|推荐使用合适大小的类型|防止使用过量的硬盘甚至影响性能(类型范围过大)或数据溢出(类型范围过小)|
-|published_at|datetime|时间值|可以使用 datetime 类型保存时间值|
+|O_TOTALPRICE|DECIMAL|用于标记价格|精度为 15，比例为 2，即精度代表字段数值的总位数，而比例代表小数点后有多少位，例如: decimal(5,2)，即精度为 5，比例为 2 时，其取值范围为 -999.99 到 999.99。decimal(6,1) ，即精度为 6，比例为 1 时，其取值范围为 -99999.9 到 99999.9。|
+|O_ORDERDATE|DATE|日期值|订单产生的日期|
 
 ## 选择主键
 
@@ -111,51 +118,56 @@ CREATE TABLE `modatabase`.`books` (
 
 如需在列上设置默认值，请使用 `DEFAULT` 约束。默认值将可以使你无需指定每一列的值，就可以插入数据。
 
-你可以将 `DEFAULT` 与支持的 SQL 函数结合使用，将默认值的计算移出应用层，从而节省应用层的资源（当然，计算所消耗的资源并不会凭空消失，只是被转移到了 MatrixOne 集群中）。常见的，希望实现数据插入时，可默认填充默认的时间。还是使用 *ratings* 作为示例，可使用以下语句：
+你可以将 `DEFAULT` 与支持的 SQL 函数结合使用，将默认值的计算移出应用层，从而节省应用层的资源（当然，计算所消耗的资源并不会凭空消失，只是被转移到了 MatrixOne 集群中）。常见的，希望实现数据插入时，可默认默认填充某个值的时间。这里使用一个简单例子，可使用以下语句：
 
 ```sql
-CREATE TABLE `modatabase`.`ratings` (
-  `book_id` bigint,
-  `user_id` bigint,
-  `score` tinyint,
-  `rated_at` datetime DEFAULT NOW(),
-  PRIMARY KEY (`book_id`,`user_id`)
-);
+create table t1(a int default (1), b int);
+insert into t1(b) values(1), (1);
+> select * from t1;
++------+------+
+| a    | b    |
++------+------+
+|    1 |    1 |
+|    1 |    1 |
++------+------+
+2 rows in set (0.01 sec)
 ```
+
+可以看到，a 的值默认是 1。
 
 ### **防止重复**
 
 如果你需要防止列中出现重复值，那你可以使用 `UNIQUE` 约束。
 
-例如，你需要确保用户的昵称唯一，可以这样改写 *users* 表的创建 SQL：
+例如，你需要确保民族标记的值唯一，可以这样改写 *NATION* 表的创建 SQL：
 
 ```sql
-CREATE TABLE `modatabase`.`users` (
-  `id` bigint,
-  `balance` decimal(15,2),
-  `nickname` varchar(100) UNIQUE,
-  PRIMARY KEY (`id`)
+CREATE TABLE NATION(
+N_NATIONKEY  INTEGER NOT NULL,
+N_NAME       CHAR(25) NOT NULL,
+N_REGIONKEY  INTEGER NOT NULL,
+N_COMMENT    VARCHAR(152),
+PRIMARY KEY (N_NATIONKEY)
 );
 ```
 
-如果你在 *users* 表中尝试插入相同的 *nickname*，将返回错误。
+如果你在 *NATION* 表中尝试插入相同的 *N_NATIONKEY*，将返回错误。
 
 ### **防止空值**
 
 如果你需要防止列中出现空值，那就可以使用 `NOT NULL` 约束。
 
-还是使用用户昵称来举例子，除了昵称唯一，还希望昵称不可为空，于是此处可以这样改写 *users* 表的创建 SQL：
+还是使用民族名称来举例子，除了民族标记的值唯一，还希望民族名称不可为空，于是此处可以这样写 *NATION* 表的创建 SQL：
 
 ```sql
-CREATE TABLE `modatabase`.`users` (
-  `id` bigint,
-  `balance` decimal(15,2),
-  `nickname` varchar(100) UNIQUE NOT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE NATION(
+N_NATIONKEY  INTEGER NOT NULL,
+N_NAME       CHAR(25) NOT NULL,
+N_REGIONKEY  INTEGER NOT NULL,
+N_COMMENT    VARCHAR(152),
+PRIMARY KEY (N_NATIONKEY)
 );
 ```
-
-<!--## 使用 HTAP 能力: 缺少数据分析引擎等文档-->
 
 ## 执行 `SHOW TABLES` 语句
 
@@ -171,9 +183,8 @@ SHOW TABLES IN `modatabase`;
 +----------------------+
 | tables_in_modatabase |
 +----------------------+
-| books                |
-| ratings              |
-| users                |
+| nation               |
+| orders               |
 +----------------------+
 ```
 
