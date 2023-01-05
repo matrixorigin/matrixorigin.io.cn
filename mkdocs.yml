@@ -340,7 +340,7 @@ nav:
           - SPACE(): MatrixOne/Reference/Builtin-Functions/String/space.md
           - REVERSE(): MatrixOne/Reference/Builtin-Functions/String/reverse.md
       - 系统配置:
-        - 通用配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
+        - 分布式参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 时区配置: MatrixOne/Reference/System-Parameters/timezone.md
       - MatrixOne Catalog: MatrixOne/Reference/System-tables.md
       - 权限分类列表: MatrixOne/Reference/access-control-type.md
