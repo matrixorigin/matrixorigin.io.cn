@@ -128,6 +128,6 @@ mysql> select * from t1 order by spID asc nulls last;
 
 ## **限制**
 
-- 在 `GROUP BY` 中暂不支持表别名.
+- 在 `GROUP BY` 中暂不支持表别名。
 - 暂不支持 `SELECT...FOR UPDATE` 。
 - 部分支持 `INTO OUTFILE`。

@@ -1,4 +1,4 @@
-# **完成SSB测试**
+# **完成 SSB 测试**
 
 SSB 星型模式基准测试是 OLAP 数据库性能测试的常用场景，通过本篇教程，您可以了解到如何在 MatrixOne 中实现 SSB 测试。
 
@@ -6,7 +6,7 @@ SSB 星型模式基准测试是 OLAP 数据库性能测试的常用场景，通�
 
 确保你已经完成了[单机部署 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
-## **1. 编译dbgen**
+## **1. 编译 dbgen**
 
 ```
 git clone https://github.com/vadimtk/ssb-dbgen.git
@@ -21,7 +21,7 @@ make
 
 ### 选项一：生成单表数据集
 
-当使用 `-s 1` 时 `dbgen` 命令会生产近600万行数据(670MB)，当使用`-s 10`时会生产近6000万行数据，会耗费大量时间。
+当使用 `-s 1` 时 `dbgen` 命令会生产近 600 万行数据 (670MB)，当使用`-s 10`时会生产近 6000 万行数据，会耗费大量时间。
 
 ```
 ./dbgen -s 1 -T c
@@ -43,7 +43,7 @@ https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/lineorder_f
 
 2. 下载完成后将数据文件解压。
 
-## **3. 在MatrixOne中建表**
+## **3. 在 MatrixOne 中建表**
 
 ```
 create database if not exists ssb;
@@ -196,7 +196,7 @@ load data infile '/ssb-dbgen-path/lineorder.tbl' into table lineorder FIELDS TER
 load data infile '/ssb-dbgen-path/lineorder_flat.tbl' into table lineorder_flat FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
 ```
 
-## **5. 运行SSB测试命令**  
+## **5. 运行 SSB 测试命令**  
 
 !!! note
     `GROUP BY` 暂不支持使用别名。

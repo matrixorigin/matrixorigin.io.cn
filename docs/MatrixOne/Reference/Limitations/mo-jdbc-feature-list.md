@@ -74,7 +74,7 @@
 
 ## 2. Statement 类中的方法
 
-|Statement 类中的方法| 支持（Y）/不支持（N） |
+|Statement 类中的方法 | 支持（Y）/不支持（N） |
 |---|---|
 | executeQuery(String sql) | Y |
 | executeUpdate(String sql) | Y |
@@ -121,7 +121,7 @@
 
 ## 3. ResultSet interface 中的方法
 
-|ResultSet 类中的方法| 支持（Y）/不支持（N）|
+|ResultSet 类中的方法 | 支持（Y）/不支持（N）|
 |---|---|
 | next() | Y |
 | close() | Y |
@@ -201,7 +201,7 @@
 
 ### Mysql 各数据类型 DisplaySize、Prec、Scale 统计
 
-|数据类型| DisplaySize | Prec |  Scale |
+|数据类型 | DisplaySize | Prec |  Scale |
 |---|---|---|---|
 | TINYINT | 4 | 4 | 0 |
 | SMALLINT | 6 | 6 | 0 |

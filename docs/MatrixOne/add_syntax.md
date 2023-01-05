@@ -31,7 +31,7 @@ INSTANCE FROM 'user'@'host':port
     [REQUIRE [NO] SSL]
 ```
 
-本文会举例添加第一个 clone_action 的规则，在第一个 clone_action 规则中，LOCAL, DATA, DIRECTORY 是 MySQL 中的关键字 （<https://dev.mysql.com/doc/refman/8.0/en/keywords.html>）。 [=] 是可选项，可以有等号或者没有，'clone_dir' 是字符串。对于这些 token， 词法分析阶段都会做区分。
+本文会举例添加第一个 clone_action 的规则，在第一个 clone_action 规则中，LOCAL, DATA, DIRECTORY 是 MySQL 中的关键字（<https://dev.mysql.com/doc/refman/8.0/en/keywords.html>）。 [=] 是可选项，可以有等号或者没有，'clone_dir' 是字符串。对于这些 token， 词法分析阶段都会做区分。
 
 我们可以先定义语法树，因为 CLONE 是新语句，我们可以在 tree 目录创建 clone.go 然后定义：
 
@@ -119,17 +119,17 @@ equal_opt:
 
 ## 生成解析器
 
-MO parser 写了 Makefile ，通过 goyacc 生成语法分析器。可以直接进入到 parsers 目录下，直接
+MO parser 写了 Makefile，通过 goyacc 生成语法分析器。可以直接进入到 parsers 目录下，直接
 
 ```
 make
 ```
 
-就会生成新的语法分析器 (mysql_sql.y)。注意： 当 make 后报 shift/reduce 或者 reduce/reduce 冲突，表示编写的语法规则有问题，需要修改。
+就会生成新的语法分析器 (mysql_sql.y)。注意：当 make 后报 shift/reduce 或者 reduce/reduce 冲突，表示编写的语法规则有问题，需要修改。
 
 ## Format
 
-format 会将 ast 转化为 SQL 字符串， 主要作用是方便测试，在 plan 的构造中也会用到。COLNE 的 format 函数如下：
+format 会将 ast 转化为 SQL 字符串，主要作用是方便测试，在 plan 的构造中也会用到。COLNE 的 format 函数如下：
 
 ```
 func (node *Clone) Format(ctx *FmtCtx) {
@@ -164,6 +164,6 @@ validSQL = []struct {
 func NewNotSupported(msg string, args ...any) *Error
 ```
 
-然后需要在 test 目录下添加 bvt 测试，这是一个端到端的测试，预期结果是抛出相应的错误，或正确的结果集。最后可以用 mo-tester (使用可以看 readme )作为检验。
+然后需要在 test 目录下添加 bvt 测试，这是一个端到端的测试，预期结果是抛出相应的错误，或正确的结果集。最后可以用 mo-tester (使用可以看 readme ) 作为检验。
 
 到此，为 MO parser 添加一个简单的语法成功，在 MO 最新的代码中，该语法还未被添加，大家可以尝试验证这个语法是否能解析成功，或者添加其他新的语法。

@@ -31,7 +31,7 @@ LOAD DATA
 
 **参数说明**
 
-|参数|描述|
+|参数 | 描述|
 |---|---|
 |endpoint|可以连接到对象存储服务的 URL。例如：s3.us-west-2.amazonaws.com|
 |access_key_id| Access key ID |
@@ -39,7 +39,7 @@ LOAD DATA
 |bucket| S3 需要访问的桶 |
 |filepath| 相对文件路径。 /files/*.csv 支持正则表达式。 |
 |region| 对象存储服务区域|
-|compression| S3 文件的压缩格式。 如果为空或 "none"，，则表示未压缩的文件。支持的字段或压缩格式为“auto”、“none”、“gzip”、“bz2”和“lz4”。|
+|compression| S3 文件的压缩格式。如果为空或 "none"，，则表示未压缩的文件。支持的字段或压缩格式为“auto”、“none”、“gzip”、“bz2”和“lz4”。|
 
 其他参数与通用 `LOAD DATA` 参数相同，更多信息，参见 [LOAD DATA](../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md)。
 
@@ -150,7 +150,7 @@ create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"
 
 **参数说明**
 
-|参数|描述|
+|参数 | 描述|
 |:-:|:-:|
 |endpoint|可以连接到对象存储服务的 URL。例如：s3.us-west-2.amazonaws.com|
 |access_key_id| Access key ID |
@@ -158,7 +158,7 @@ create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"
 |bucket| S3 需要访问的桶 |
 |filepath| 相对文件路径。 /files/*.csv 支持正则表达式。 |
 |region| 对象存储服务区域|
-|compression| S3 文件的压缩格式。 如果为空或 "none"，，则表示未压缩的文件。支持的字段或压缩格式为“auto”、“none”、“gzip”、“bz2”和“lz4”。|
+|compression| S3 文件的压缩格式。如果为空或 "none"，，则表示未压缩的文件。支持的字段或压缩格式为“auto”、“none”、“gzip”、“bz2”和“lz4”。|
 
 其他参数与通用 `LOAD DATA` 参数相同，更多信息，参见 [LOAD DATA](../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md)。
 

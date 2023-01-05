@@ -53,4 +53,4 @@ a	b	c	d	e
 
 * Currently, only constant lists are supported on the left side of `NOT IN`.  
 * There can only be a single column to the left of `NOT IN`, not a tuple of multiple columns.
-* `NULL` values couldn’t appear in the list to the right of `NOT IN`.  
+* `NULL` values couldn't appear in the list to the right of `NOT IN`.  

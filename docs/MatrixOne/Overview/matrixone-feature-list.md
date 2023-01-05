@@ -4,7 +4,7 @@
 
 ## 数据定义语言（Data definition language, DDL）
 
-| 数据定义语言(DDL) | 支持（Y）/不支持（N） |
+| 数据定义语言 (DDL) | 支持（Y）/不支持（N） |
 | ----------------------------- | ---- |
 | CREATE DATABASE               | Y    |
 | RENAME DATABASE               | N    |

@@ -15,7 +15,7 @@
 
 ### 配置步骤
 
-你可根据自身环境的现有情况，选择 AWS S3，MinIO 或 NFS 中的一种来配置 MatrixOne的共享存储。
+你可根据自身环境的现有情况，选择 AWS S3，MinIO 或 NFS 中的一种来配置 MatrixOne 的共享存储。
 
 #### 选项一：配置 AWS S3
 
@@ -96,7 +96,7 @@
 为了提升性能 `matrixone-operator` 会自动为 MatrixOne 配置共享存储的 `cache`. 规则如下：
 
 - 假如组件没有内存资源申请 (`.esources.requests.memory`), 那么默认不会启用 cache。
-- 假如组件配置了内存资源申请, 那默认会启动基于内存的共享存储 cache, cache 大小是 memory 资源申请的 50%。
+- 假如组件配置了内存资源申请，那默认会启动基于内存的共享存储 cache, cache 大小是 memory 资源申请的 50%。
 - 你总是可以通过设置 `.spec.cn.shreStorageCache.memoryCacheSize` 和 `.spec.dn.sharedStorageCache.memoryCacheSize` 来显式开启 memory cache 并直接指定 cache 大小，设置示例如下：
 
 ```

@@ -14,7 +14,7 @@
 
 数据库中通常有两种类型的函数，即内置函数（也就是本篇文章介绍的系统函数，以下皆称为系统函数）和用户定义函数。系统函数是数据库附带的函数。而用户自定义函数则由用户自定义。系统函数可以根据其操作的数据类型进行分类，如字符串、日期和数学类函数。
 
-本篇文章介绍的示例 `abs()` 也属于系统函数，它用于执行计算，它计算给定数字的绝对(非负)值。
+本篇文章介绍的示例 `abs()` 也属于系统函数，它用于执行计算，它计算给定数字的绝对 (非负) 值。
 
 通常系统函数可以分为以下几类：
 
@@ -52,7 +52,7 @@ const (
 )
 ```
 
-在 `pkg/builtin/unary` 目录下新建一个名为 `abs.go` 的文件.
+在 `pkg/builtin/unary` 目录下新建一个名为 `abs.go` 的文件。
 
 !!! info
     `unary` 目录下的函数只能输入一个值。`binary` 目录下的函数可以输入两个值。`multi` 目录下存放其他类型的函数。
@@ -76,7 +76,7 @@ func init() {
 
 ```
 
-**(1)在 Golang 中，初始化包时会调用 `init` 函数。所有 `ABS()` 函数都包含在这个 `init` 函数中，因此无需显式调用它。**
+**(1) 在 Golang 中，初始化包时会调用 `init` 函数。所有 `ABS()` 函数都包含在这个 `init` 函数中，因此无需显式调用它。**
 
 #### 函数名注册
 
@@ -197,15 +197,15 @@ func init() {
 func Get(proc *Process, size int64, typ types.Type) (*vector.Vector, error)
 ```
 
-   `abs()` 函数的参数类型为 `float32`，它的大小应该是 4*len(origVecCol)，每个 `float32` 对应4个字节。
+   `abs()` 函数的参数类型为 `float32`，它的大小应该是 4*len(origVecCol)，每个 `float32` 对应 4 个字节。
 
 2. encoding.DecodeFloat32Slice：对参数类型做类型转换。
 
 3. Vector.Nsp：MatrixOne 使用 bigmap 将 NULL 值存储在列中，*Vector.Nsp* 是 bigmap 的包装结构。
 
-4. the boolean parameter of the Fn：这个布尔值通常表示传入的向量是否为常量(长度为1)。有时我们可以在函数实现中使用这种情况，例如，*pkg/sql/colexec/extend/overload/plus.go*。
+4. the boolean parameter of the Fn：这个布尔值通常表示传入的向量是否为常量 (长度为 1)。有时我们可以在函数实现中使用这种情况，例如，*pkg/sql/colexec/extend/overload/plus.go*。
 
-由于结果向量与原始向量具有相同的类型，当你在执行计划中不再需要原始向量时，那么可以使用原始向量来存储结果（即原始向量的引用计数为0或1)。
+由于结果向量与原始向量具有相同的类型，当你在执行计划中不再需要原始向量时，那么可以使用原始向量来存储结果（即原始向量的引用计数为 0 或 1)。
 
 重用原始向量的情况如下：
 
@@ -342,7 +342,7 @@ func absFloat64(xs, rs []float64) []float64 {
 }
 ```
 
-当前 MatrixOne 已经在 `absFloat32` 和 `absFloat64` 内部实现了针对 `float32` 和 `float64` 类型的 Golang 版本。其他数据类型(例如，int8、int16、int32、int64)实现方式大致相同，参见以下代码示例：
+当前 MatrixOne 已经在 `absFloat32` 和 `absFloat64` 内部实现了针对 `float32` 和 `float64` 类型的 Golang 版本。其他数据类型 (例如，int8、int16、int32、int64) 实现方式大致相同，参见以下代码示例：
 
 ```go
 func absFloat32(xs, rs []float32) []float32 {
