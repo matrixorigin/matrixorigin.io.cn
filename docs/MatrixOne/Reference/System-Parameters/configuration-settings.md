@@ -1,4 +1,4 @@
-# **分布式参数设置**
+# **通用参数配置**
 
 在 *matrixone/etc/launch-tae-CN-tae-DN/* 目录有三个配置文件 *cn.toml*、*dn.toml* 和 *log.toml*。
 
