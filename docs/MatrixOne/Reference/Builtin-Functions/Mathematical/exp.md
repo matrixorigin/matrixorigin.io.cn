@@ -2,7 +2,7 @@
 
 ## **函数说明**
 
-EXP(number)函数返回以自然常数e为底的number的指数。
+EXP(number) 函数返回以自然常数 e 为底的 number 的指数。
 
 ## **函数语法**
 

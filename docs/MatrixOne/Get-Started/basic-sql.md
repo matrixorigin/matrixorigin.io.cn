@@ -1,8 +1,8 @@
 # MatrixOne 的 SQL 基本操作
 
-MatrixOne 兼容 MySQL，你可以使用 MySQL 客户端或其他方式连接 MatrixOne。 参加 [MySQL 兼容性](../Overview/mysql-compatibility.md) 和 [客户端连接 MatrixOne 服务](../Develop/connect-mo/database-client-tools.md)。
+MatrixOne 兼容 MySQL，你可以使用 MySQL 客户端或其他方式连接 MatrixOne。参加 [MySQL 兼容性](../Overview/mysql-compatibility.md) 和 [客户端连接 MatrixOne 服务](../Develop/connect-mo/database-client-tools.md)。
 
-## 什么是 SQL 语言?
+## 什么是 SQL 语言？
 
 SQL (Structured Query Language:结构化查询语言) 是用于管理关系数据库管理系统（RDBMS）。SQL 的范围包括数据插入、查询、更新和删除，数据库模式创建和修改，以及数据访问控制。
 
@@ -138,7 +138,7 @@ DELETE FROM person WHERE id=2;
 
 ## 查询数据
 
-DQL用于从一个表或多个表检索所需的数据行。
+DQL 用于从一个表或多个表检索所需的数据行。
 
 - 查看表内数据，使用 `SELECT` 语句：
 

@@ -14,8 +14,8 @@
 
 |  参数   | 说明 |
 |  ----  | ----  |
-| date| 必要参数。 date 参数是合法的日期表达式。 |
-| unit| 必要参数。 unit 参数可以是下列值：<br>MICROSECOND <br>SECOND<br>MINUTE<br>HOUR<br>DAY<br>WEEK<br>MONTH<br>QUA<br>TER<br>YEAR<br>SECOND_MICROSECOND<br>MINUTE_MICROSECOND<br>MINUTE_SECOND<br>HOUR_MICROSECOND<br>HOUR_SECOND<br>HOUR_MINUTE<br>DAY_MICROSECOND<br>DAY_SECOND<br>DAY_MINUTE<br>DAY_HOUR<br>YEAR_MONTH|
+| date| 必要参数。date 参数是合法的日期表达式。 |
+| unit| 必要参数。unit 参数可以是下列值：<br>MICROSECOND <br>SECOND<br>MINUTE<br>HOUR<br>DAY<br>WEEK<br>MONTH<br>QUA<br>TER<br>YEAR<br>SECOND_MICROSECOND<br>MINUTE_MICROSECOND<br>MINUTE_SECOND<br>HOUR_MICROSECOND<br>HOUR_SECOND<br>HOUR_MINUTE<br>DAY_MICROSECOND<br>DAY_SECOND<br>DAY_MINUTE<br>DAY_HOUR<br>YEAR_MONTH|
 
 ## **示例**
 
@@ -34,4 +34,4 @@ mysql> SELECT EXTRACT(YEAR FROM OrderDate) AS OrderYear, EXTRACT(MONTH FROM Orde
 
 ## **限制**
 
-目前date格式只支持 `yyyy-mm-dd` 和 `yyyymmdd` 的数据格式。  
+目前 date 格式只支持 `yyyy-mm-dd` 和 `yyyymmdd` 的数据格式。  

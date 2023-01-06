@@ -14,7 +14,7 @@
 > SELECT column1/column2... FROM table_name;
 ```
 
-除法运算不可以除以O。
+除法运算不可以除以 O。
 
 ## **示例**
 

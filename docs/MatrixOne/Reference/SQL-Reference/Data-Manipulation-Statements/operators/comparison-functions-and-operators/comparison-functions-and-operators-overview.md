@@ -16,12 +16,12 @@
 | [IS NULL](is-null.md) | 为空 |
 | [LIKE](like.md) | 模糊匹配 |
 | [NOT BETWEEN ... AND ...](not-between.md) | 不在两值之间 |
-| [NOT LIKE](not-like.md) | N模糊匹配，Like的否定用法 |
+| [NOT LIKE](not-like.md) | N 模糊匹配，Like 的否定用法 |
 | [COALESCE](coalesce.md)|返回第一个非空值|
 
 比较运算的结果为 `TRUE`、`FALSE` 或 `NULL`。这些运算对数字和字符串均有效。字符串可以自动转换为数字，数字根据需要自动转换为字符串。
 
-以下比较运算符不仅可以用于比较标量运算数，也可以用于比较行运算数:
+以下比较运算符不仅可以用于比较标量运算数，也可以用于比较行运算数：
 
 ```
 =  >  <  >=  <=  <>  !=

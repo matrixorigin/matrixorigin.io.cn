@@ -2,7 +2,7 @@
 
 ## **函数说明**
 
-将date或者datetime格式的输入中的日期部分截取出来。
+将 date 或者 datetime 格式的输入中的日期部分截取出来。
 
 ## **函数语法**
 
@@ -14,7 +14,7 @@
 
 |  参数   | 说明  |
 |  ----  | ----  |
-| expr  | 必要参数。需要提取日期的date或者datetime格式的输入值 |
+| expr  | 必要参数。需要提取日期的 date 或者 datetime 格式的输入值 |
 
 ## **示例**
 
@@ -57,4 +57,4 @@ mysql> select date(a),date(date(a)) as dda from t1;
 
 ## **限制**
 
-目前date格式只支持`yyyy-mm-dd` 和 `yyyymmdd`的数据格式。  
+目前 date 格式只支持`yyyy-mm-dd` 和 `yyyymmdd`的数据格式。  

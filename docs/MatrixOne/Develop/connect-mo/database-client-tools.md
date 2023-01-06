@@ -20,7 +20,7 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
     mysql -h IP -P PORT -uUsername -p
     ```
 
-    连接符的格式与MySQL格式相同，你需要提供用户名和密码。
+    连接符的格式与 MySQL 格式相同，你需要提供用户名和密码。
 
     此处以内置帐号作为示例：
 
@@ -67,7 +67,7 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
 2. 下载安装 [Navicat](https://www.navicat.com/en/products)。
 
-3. 安装 Navicat 完成后，打开 Navicat，点击左上角 **Connection > MySQL**， 在弹窗中填入如下参数：
+3. 安装 Navicat 完成后，打开 Navicat，点击左上角 **Connection > MySQL**，在弹窗中填入如下参数：
 
     - **Connction Name**: MatrixOne
     - **Host**: 127.0.0.1

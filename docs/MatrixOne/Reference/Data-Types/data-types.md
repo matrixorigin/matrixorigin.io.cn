@@ -1,6 +1,6 @@
 # **数据类型**
 
-MatrixOne 的数据类型与MySQL数据类型的定义一致，可参考：
+MatrixOne 的数据类型与 MySQL 数据类型的定义一致，可参考：
 <https://dev.mysql.com/doc/refman/8.0/en/data-types.html>
 
 ## **整数类型**
@@ -132,7 +132,7 @@ mysql> select min(big),max(big),max(big)-1 from floattable;
 | char     | 24 bytes| 0 ~ 4294967295  |CHAR| 定长字符串 |
 | varchar  | 24 bytes | 0 ~ 4294967295  |VARCHAR| 变长字符串|
 | text    | 1 GB  |other types mapping | TEXT |长文本数据，不区分 TINY TEXT、MEDIUM TEXT 和 LONG TEXT|
-| blob    | 1 GB | other types mapping  |BLOB|二进制的长文本数据，不区分TINY BLOB、MEDIUM BLOB  和 LONGBLOB|
+| blob    | 1 GB | other types mapping  |BLOB|二进制的长文本数据，不区分 TINY BLOB、MEDIUM BLOB  和 LONGBLOB|
 
 ### **示例**
 
@@ -201,10 +201,10 @@ insert into blobtest values('abcde_');
 
 ## **JSON 数据类型**
 
-|JSON 数据类型| 解释 |
+|JSON 数据类型 | 解释 |
 |---|---|
 |对象 |对象使用 `{}` 括起来，元素之间用 `,` 分隔。JSON 对象中的值/键可以为 String、Nubmber、Bool、时间。|
-|数组| 数组使用 `[]` 括起来，元素之间用逗号 `,` 分隔。JSON 数组中值可以为 String、Nubmber、Bool、时间。|
+|数组 | 数组使用 `[]` 括起来，元素之间用逗号 `,` 分隔。JSON 数组中值可以为 String、Nubmber、Bool、时间。|
 
 ### **示例**
 
@@ -328,12 +328,12 @@ insert into timestamptest values ('20200101000000'), ('2022-01-02'), ('2022-01-0
 5 rows in set (0.00 sec)
 ```
 
-## **定点类型Decimal(Beta)**
+## **定点类型 Decimal(Beta)**
 
 |  数据类型   | 存储空间  |  精度   | 语法表示 |
 |  ----  | ----  |  ----  | ----  |
-| Decimal  | 8 byte | 	19位  | Decimal(N,S) <br> N 表示数字位数的总数，范围是(1 ~ 18)，小数点和 -（负数）符号不包括在 N 中<br>S表示是小数点（标度）后面的位数，范围是(0 ~ N)<br>如果 S 是 0，则值没有小数点或分数部分。如果 S 被省略，默认是 0。如果 N 被省略，默认是 1。 <br>例如Decimal(10,8)，即表示数字总长度为10，小数位为8。|
-| Decimal  | 16 byte | 	38位  | Decimal(N,S) <br> N 表示数字位数的总数，范围是(18 ~ 38)，小数点和 -（负数）符号不包括在 N 中<br>S表示是小数点（标度）后面的位数，范围是(0 ~ N)<br>如果 S 是 0，则值没有小数点或分数部分。如果 S 被省略，默认是 0。如果 N 被省略，默认是 18。<br>例如Decimal(20,19)，即表示数字总长度为20，小数位为19。 |
+| Decimal  | 8 byte | 	19 位  | Decimal(N,S) <br> N 表示数字位数的总数，范围是 (1 ~ 18)，小数点和 -（负数）符号不包括在 N 中<br>S 表示是小数点（标度）后面的位数，范围是 (0 ~ N)<br>如果 S 是 0，则值没有小数点或分数部分。如果 S 被省略，默认是 0。如果 N 被省略，默认是 1。 <br>例如 Decimal(10,8)，即表示数字总长度为 10，小数位为 8。|
+| Decimal  | 16 byte | 	38 位  | Decimal(N,S) <br> N 表示数字位数的总数，范围是 (18 ~ 38)，小数点和 -（负数）符号不包括在 N 中<br>S 表示是小数点（标度）后面的位数，范围是 (0 ~ N)<br>如果 S 是 0，则值没有小数点或分数部分。如果 S 被省略，默认是 0。如果 N 被省略，默认是 18。<br>例如 Decimal(20,19)，即表示数字总长度为 20，小数位为 19。 |
 
 ### **示例**
 

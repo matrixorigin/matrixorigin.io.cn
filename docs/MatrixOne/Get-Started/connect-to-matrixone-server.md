@@ -73,7 +73,7 @@
 
      7. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
 
-__Tips__: 目前，MatrixOne只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
+__Tips__: 目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
 
 ## **连接 MatrixOne 服务**
 
@@ -95,7 +95,7 @@ mysql -h 127.0.0.1 -P 6001 -udump -p
 Enter password:
 ```
 
-目前，MatrixOne 只支持TCP监听。
+目前，MatrixOne 只支持 TCP 监听。
 
 ## 参考文档
 

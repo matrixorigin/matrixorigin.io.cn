@@ -15,7 +15,7 @@
 
 ## 2. 关于分区键的说明
 
-### Partition Keys, Primary Keys 和 Unique Keys的关系
+### Partition Keys, Primary Keys 和 Unique Keys 的关系
 
 分区键（Partition Keys）、主键（Primary Keys）和唯一键（Unique Keys）的关系规则可以概括为：
 
@@ -62,7 +62,7 @@ ERROR 1503 (HY000): A PRIMARY KEY must include all columns in the table's partit
 
     如果没有指定列名作为分区键，则使用表的主键（如果有）。例如，以下 `CREATE TABLE` 语句在 MySQL 中有效。
 
-2. 如果没有主键，但有 UNIQUE KEY，那么 UNIQUE KEY 用于分区键.
+2. 如果没有主键，但有 UNIQUE KEY，那么 UNIQUE KEY 用于分区键。
 
 ​	    例如，以下建表语句中，KEY 分区分区键为 NULL，没有定义主键，但是含有唯一键，构建分区表达式时则使用唯一键作为分区键：
 
@@ -106,7 +106,7 @@ type PartitionInfo struct {
 
 ### KEY Partitioning
 
-KEY 分区会根据分区键和分区数量，构建一个分区表达式，分区表达式的计算结果为一个大于等于0的整数，代表分区序号，从零开始依次递增。
+KEY 分区会根据分区键和分区数量，构建一个分区表达式，分区表达式的计算结果为一个大于等于 0 的整数，代表分区序号，从零开始依次递增。
 
 SQL 示例如下：
 
@@ -124,7 +124,7 @@ PARTITIONS 4;
 
 ### HASH Partitioning
 
-​与 KEY 分区类似，HASH 分区会根据分区函数和分区数量，构建一个分区表达式，分区表达式的计算结果为一个大于等于0的整数，代表分区序号，从零开始依次递增。
+​与 KEY 分区类似，HASH 分区会根据分区函数和分区数量，构建一个分区表达式，分区表达式的计算结果为一个大于等于 0 的整数，代表分区序号，从零开始依次递增。
 
 SQL 示例如下：
 
@@ -164,7 +164,7 @@ PARTITION BY RANGE (store_id) (
 
 ### RANGE COLUMNS partitioning
 
-​RANGE COLUMNS 分区会根据键列表，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 M有SQL 语法，需要执行器报错：`Table has no partition for value xxx`.
+​RANGE COLUMNS 分区会根据键列表，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 M 有 SQL 语法，需要执行器报错：`Table has no partition for value xxx`.
 
 SQL 示例如下：
 
@@ -203,7 +203,7 @@ PARTITION BY LIST (id) (
 
 ### LIST COLUMNS partitioning
 
-​LIST COLUMNS 分区会根据分区键列表，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 M有SQL 语法，需要执行器报错：`Table has no partition for value xxx`.
+​LIST COLUMNS 分区会根据分区键列表，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 M 有 SQL 语法，需要执行器报错：`Table has no partition for value xxx`.
 
 SQL 示例如下：
 

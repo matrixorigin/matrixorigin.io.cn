@@ -66,7 +66,7 @@ where att_constraint_type='p'
 order by database_name,table_name asc;
 ```
 
-## 查看过去24小时内的sql统计（非sys租户暂不支持）
+## 查看过去 24 小时内的 sql 统计（非 sys 租户暂不支持）
 
 ```sql
 > select user,host,status,count(status) as count, date_sub(now(), interval 24 hour) as start_time, now() as end_time

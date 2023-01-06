@@ -2,7 +2,7 @@
 
 ## **语法描述**
 
-The word `ALL`, which must follow a comparison operator, means “return `TRUE` if the comparison is `TRUE` for `ALL` of the values in the column that the subquery returns.”:
+The word `ALL`, which must follow a comparison operator, means “return `TRUE` if the comparison is `TRUE` for `ALL` of the values in the column that the subquery returns.":
 
 关键词 `ALL` 必须跟在比较操作符后面，指如果子查询返回的列中值的 `ALL` 的比较是 `TRUE`，则返回 `TRUE`。
 
@@ -16,7 +16,7 @@ operand comparison_operator ALL (subquery)
 SELECT s1 FROM t1 WHERE s1 > ALL (SELECT s1 FROM t2);
 ```
 
-如上述示例中，假设表 t1 中有一行包含(10)，表 t2 包含(-5,0，+5)，则表达式为 `TRUE`，因为10大于 t2 中的所有三个值。如果表 t2 包含(12,6,NULL，-100)，则表达式为 `FALSE`，因为在表 t2 中有一个大于10的值12。如果表 t2 包含(0,NULL,1)，则表达式为 `NULL`。
+如上述示例中，假设表 t1 中有一行包含 (10)，表 t2 包含 (-5,0，+5)，则表达式为 `TRUE`，因为 10 大于 t2 中的所有三个值。如果表 t2 包含 (12,6,NULL，-100)，则表达式为 `FALSE`，因为在表 t2 中有一个大于 10 的值 12。如果表 t2 包含 (0,NULL,1)，则表达式为 `NULL`。
 
 - 如果表 t2 为空，则表达式为 `TRUE`。例如，当下表 t2 为空时，表达式是 `TRUE`：
 
