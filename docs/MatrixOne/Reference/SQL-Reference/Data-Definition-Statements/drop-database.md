@@ -10,12 +10,11 @@
 > DROP DATABASE [IF EXISTS] <database_name>
 ```
 
-#### 语法图
-
-![Drop Database Diagram](https://github.com/matrixorigin/artwork/blob/main/docs/reference/drop_database_statement.png?raw=true)
-
 ## **示例**
 
-```
-> DROP DATABASE test01;
+```sql
+CREATE DATABASE test01;
+
+mysql> DROP DATABASE test01;
+Query OK, 0 rows affected (0.01 sec)
 ```

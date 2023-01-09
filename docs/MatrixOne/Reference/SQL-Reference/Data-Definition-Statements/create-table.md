@@ -20,7 +20,11 @@
 
 #### TEMPORARY
 
-在创建表时，可以使用 `TEMPORARY` 创建一个临时表。`TEMPORARY` 表只在当前会话中可见，在会话关闭时自动删除。有关更多信息，请参见[CREATE TEMPORARY TABLE](create-temporary-tables.md)。
+在创建表时，可以使用 `TEMPORARY` 关键字。`TEMPORARY` 表只在当前会话中可见，在会话关闭时自动删除。这表示两个不同的会话可以使用相同的临时表名，而不会彼此冲突或与同名的现有非临时表冲突。(在删除临时表之前，会隐藏现有表。)
+
+删除数据库会自动删除数据库中创建的所有 `TEMPORARY` 表。
+
+创建会话可以对表执行任何操作，例如 `DROP table`、`INSERT`、`UPDATE` 或 `SELECT`。
 
 #### COMMENT
 
@@ -39,6 +43,42 @@
 - 自增列需要设置为 `NOT NULL`，否则会直接存储 `NULL`。当你将 NULL（推荐）或 0 值插入索引的 `AUTO_INCREMENT` 列时，该列将设置为下一个序列值。通常这是 *value+1*，其中 *value* 是表中当前列的最大值。
 
 - 每个表只能有一个 `AUTO_INCREMENT` 列，它必须可以被索引，且不能设置默认值。 `AUTO_INCREMENT` 列需要含有正数值，如果插入一个负数被判断为插入一个非常大的正数，这样做是为了避免数字出现精度问题，并确保不会意外出现包含 0 的 `AUTO_INCREMENT` 列。
+
+#### PRIMARY KEY
+
+`PRIMARY KEY` 即主键约束，用于唯一标示表中的每条数据。
+主键必须包含 `UNIQUE` 值，不能包含 `NULL` 值。
+当前版本一个表只能有一个主键，并且这个主键只能有一个列组成。
+
+- **在建表时创建主键**
+
+以下 SQL 语句在创建 `Persons` 表时，在其中的 `ID` 列创建主键：
+
+```
+> CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (ID)
+);
+```
+
+!!! Note 注意区分
+    上述示例中只有一个主键 `PK_Person`, 并且其中仅包含了一列（`ID`）
+
+例如使用如下建表语句时会有错误：
+
+```
+> CREATE TABLE Students (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (ID,LastName)
+);
+ERROR 1105 (HY000): tae catalog: schema validation: compound idx not supported yet
+```
 
 #### Table PARTITION 和 PARTITIONS
 
@@ -216,20 +256,15 @@ PARTITION BY LIST COLUMNS(a,b) (
 
 可以选择使用 `PARTITIONS num` 子句指定分区数，其中 `num` 是分区数。如果使用此子句的同时，也使用了其他 `PARTITION` 子句，那么 `num` 必须等于使用 `PARTITION` 子句声明的分区的总数。
 
-#### 语法图
-
-![Create Table Diagram](https://github.com/matrixorigin/artwork/blob/main/docs/reference/create_table_statement.png?raw=true)
-
 ## **示例**
 
 - 示例 1
 
 ```sql
-> CREATE TABLE test(a int, b varchar(10));
+CREATE TABLE test(a int, b varchar(10));
+INSERT INTO test values(123, 'abc');
 
-> INSERT INTO test values(123, 'abc');
-
-> SELECT * FROM test;
+mysql> SELECT * FROM test;
 +------+---------+
 |   a  |    b    |
 +------+---------+
@@ -240,8 +275,9 @@ PARTITION BY LIST COLUMNS(a,b) (
 - 示例 2
 
 ```sql
-> create table t2 (a int, b int) comment = "事实表";
-> show create table t2;
+create table t2 (a int, b int) comment = "事实表";
+
+mysql> show create table t2;
 +-------+---------------------------------------------------------------------------------------+
 | Table | Create Table                                                                          |
 +-------+---------------------------------------------------------------------------------------+
@@ -255,8 +291,9 @@ PARTITION BY LIST COLUMNS(a,b) (
 - 示例 3
 
 ```sql
-> create table t3 (a int comment '列的注释', b int) comment = "table";
-> show create table t3;
+create table t3 (a int comment '列的注释', b int) comment = "table";
+
+mysql> SHOW CREATE TABLE t3;
 +-------+----------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                             |
 +-------+----------------------------------------------------------------------------------------------------------+
@@ -270,8 +307,9 @@ PARTITION BY LIST COLUMNS(a,b) (
 - 示例 4
 
 ```sql
-> CREATE TABLE tp1 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY KEY(col3) PARTITIONS 4;
-> show create table tp1;
+CREATE TABLE tp1 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY KEY(col3) PARTITIONS 4;
+
+mysql> SHOW CREATE TABLE tp1;
 +-------+-------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                          |
 +-------+-------------------------------------------------------------------------------------------------------+
@@ -283,8 +321,9 @@ PARTITION BY LIST COLUMNS(a,b) (
 +-------+-------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-> CREATE TABLE tp2 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY KEY(col3);
-> show create table tp2;
+CREATE TABLE tp2 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY KEY(col3);
+
+mysql> SHOW CREATE TABLE tp2;
 +-------+-------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                          |
 +-------+-------------------------------------------------------------------------------------------------------+
@@ -296,8 +335,9 @@ PARTITION BY LIST COLUMNS(a,b) (
 +-------+-------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-> CREATE TABLE tp4 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY KEY ALGORITHM = 1 (col3);
-> show create table tp4;
+CREATE TABLE tp4 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY KEY ALGORITHM = 1 (col3);
+
+mysql> SHOW CREATE TABLE tp4;
 +-------+-------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                          |
 +-------+-------------------------------------------------------------------------------------------------------+
@@ -309,8 +349,9 @@ PARTITION BY LIST COLUMNS(a,b) (
 +-------+-------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp5 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY LINEAR KEY ALGORITHM = 1 (col3) PARTITIONS 5;
-> show create table tp5;
+CREATE TABLE tp5 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY LINEAR KEY ALGORITHM = 1 (col3) PARTITIONS 5;
+
+mysql> SHOW CREATE TABLE tp5;
 +-------+-------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                          |
 +-------+-------------------------------------------------------------------------------------------------------+
@@ -322,8 +363,9 @@ PARTITION BY LIST COLUMNS(a,b) (
 +-------+-------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp6 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY KEY(col1, col2) PARTITIONS 4;
-> show create table tp6;
+CREATE TABLE tp6 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY KEY(col1, col2) PARTITIONS 4;
+
+mysql> SHOW CREATE TABLE tp6;
 +-------+-------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                          |
 +-------+-------------------------------------------------------------------------------------------------------+
@@ -335,8 +377,9 @@ PARTITION BY LIST COLUMNS(a,b) (
 +-------+-------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp7 (col1 INT NOT NULL PRIMARY KEY, col2 DATE NOT NULL, col3 INT NOT NULL, col4 INT NOT NULL) PARTITION BY KEY(col1) PARTITIONS 4;
-> show create table tp7;
+CREATE TABLE tp7 (col1 INT NOT NULL PRIMARY KEY, col2 DATE NOT NULL, col3 INT NOT NULL, col4 INT NOT NULL) PARTITION BY KEY(col1) PARTITIONS 4;
+
+mysql> SHOW CREATE TABLE tp7;
 +-------+----------------------------------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                                                     |
 +-------+----------------------------------------------------------------------------------------------------------------------------------+
@@ -350,8 +393,9 @@ PRIMARY KEY (`col1`)
 +-------+----------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp8 (col1 INT, col2 CHAR(5)) PARTITION BY HASH(col1);
-> show create table tp8;
+CREATE TABLE tp8 (col1 INT, col2 CHAR(5)) PARTITION BY HASH(col1);
+
+mysql> SHOW CREATE TABLE tp8;
 +-------+-----------------------------------------------------------------------------+
 | Table | Create Table                                                                |
 +-------+-----------------------------------------------------------------------------+
@@ -362,8 +406,9 @@ PRIMARY KEY (`col1`)
 +-------+-----------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp9 (col1 INT, col2 CHAR(5)) PARTITION BY HASH(col1) PARTITIONS 4;
-> show create table tp9;
+CREATE TABLE tp9 (col1 INT, col2 CHAR(5)) PARTITION BY HASH(col1) PARTITIONS 4;
+
+mysql> SHOW CREATE TABLE tp9;
 +-------+-----------------------------------------------------------------------------+
 | Table | Create Table                                                                |
 +-------+-----------------------------------------------------------------------------+
@@ -374,8 +419,9 @@ PRIMARY KEY (`col1`)
 +-------+-----------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp10 (col1 INT, col2 CHAR(5), col3 DATETIME) PARTITION BY HASH (YEAR(col3));
-> show create table tp10;
+CREATE TABLE tp10 (col1 INT, col2 CHAR(5), col3 DATETIME) PARTITION BY HASH (YEAR(col3));
+
+mysql> SHOW CREATE TABLE tp10;
 +-------+------------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                               |
 +-------+------------------------------------------------------------------------------------------------------------+
@@ -387,8 +433,9 @@ PRIMARY KEY (`col1`)
 +-------+------------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-> CREATE TABLE tp11 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY LINEAR HASH( YEAR(col3)) PARTITIONS 6;
-> show create table tp11;
+CREATE TABLE tp11 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY LINEAR HASH( YEAR(col3)) PARTITIONS 6;
+
+mysql> SHOW CREATE TABLE tp11;
 +-------+--------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                           |
 +-------+--------------------------------------------------------------------------------------------------------+
@@ -400,8 +447,9 @@ PRIMARY KEY (`col1`)
 +-------+--------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp12 (col1 INT NOT NULL PRIMARY KEY, col2 DATE NOT NULL, col3 INT NOT NULL, col4 INT NOT NULL) PARTITION BY HASH(col1) PARTITIONS 4;
-> show create table tp12;
+CREATE TABLE tp12 (col1 INT NOT NULL PRIMARY KEY, col2 DATE NOT NULL, col3 INT NOT NULL, col4 INT NOT NULL) PARTITION BY HASH(col1) PARTITIONS 4;
+
+mysql> SHOW CREATE TABLE tp12;
 +-------+-----------------------------------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                                                      |
 +-------+-----------------------------------------------------------------------------------------------------------------------------------+
@@ -415,8 +463,9 @@ PRIMARY KEY (`col1`)
 +-------+-----------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-> CREATE TABLE tp13 (id INT NOT NULL PRIMARY KEY, fname VARCHAR(30), lname VARCHAR(30), hired DATE NOT NULL DEFAULT '1970-01-01', separated DATE NOT NULL DEFAULT '9999-12-31', job_code INT NOT NULL, store_id INT NOT NULL) PARTITION BY RANGE (id) (PARTITION p0 VALUES LESS THAN (6), PARTITION p1 VALUES LESS THAN (11), PARTITION p2 VALUES LESS THAN (16), PARTITION p3 VALUES LESS THAN (21));
-> show create table tp13;
+CREATE TABLE tp13 (id INT NOT NULL PRIMARY KEY, fname VARCHAR(30), lname VARCHAR(30), hired DATE NOT NULL DEFAULT '1970-01-01', separated DATE NOT NULL DEFAULT '9999-12-31', job_code INT NOT NULL, store_id INT NOT NULL) PARTITION BY RANGE (id) (PARTITION p0 VALUES LESS THAN (6), PARTITION p1 VALUES LESS THAN (11), PARTITION p2 VALUES LESS THAN (16), PARTITION p3 VALUES LESS THAN (21));
+
+mysql> SHOW CREATE TABLE tp13;
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                                                                                                                                                          |
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -433,8 +482,9 @@ PRIMARY KEY (`id`)
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp14 (id INT NOT NULL, fname VARCHAR(30), lname VARCHAR(30), hired DATE NOT NULL DEFAULT '1970-01-01', separated DATE NOT NULL DEFAULT '9999-12-31', job_code INT, store_id INT) PARTITION BY RANGE ( YEAR(separated) ) ( PARTITION p0 VALUES LESS THAN (1991), PARTITION p1 VALUES LESS THAN (1996), PARTITION p2 VALUES LESS THAN (2001), PARTITION p3 VALUES LESS THAN MAXVALUE);
-> show create table tp14;
+CREATE TABLE tp14 (id INT NOT NULL, fname VARCHAR(30), lname VARCHAR(30), hired DATE NOT NULL DEFAULT '1970-01-01', separated DATE NOT NULL DEFAULT '9999-12-31', job_code INT, store_id INT) PARTITION BY RANGE ( YEAR(separated) ) ( PARTITION p0 VALUES LESS THAN (1991), PARTITION p1 VALUES LESS THAN (1996), PARTITION p2 VALUES LESS THAN (2001), PARTITION p3 VALUES LESS THAN MAXVALUE);
+
+mysql> SHOW CREATE TABLE tp14;
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                                                                                                                                              |
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -450,8 +500,9 @@ PRIMARY KEY (`id`)
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-> CREATE TABLE tp15 (a INT NOT NULL, b INT NOT NULL) PARTITION BY RANGE COLUMNS(a,b) PARTITIONS 4 (PARTITION p0 VALUES LESS THAN (10,5), PARTITION p1 VALUES LESS THAN (20,10), PARTITION p2 VALUES LESS THAN (50,20), PARTITION p3 VALUES LESS THAN (65,30));
-> show create table tp15;
+CREATE TABLE tp15 (a INT NOT NULL, b INT NOT NULL) PARTITION BY RANGE COLUMNS(a,b) PARTITIONS 4 (PARTITION p0 VALUES LESS THAN (10,5), PARTITION p1 VALUES LESS THAN (20,10), PARTITION p2 VALUES LESS THAN (50,20), PARTITION p3 VALUES LESS THAN (65,30));
+
+mysql> SHOW CREATE TABLE tp15;
 +-------+------------------------------------------------------------+
 | Table | Create Table                                               |
 +-------+------------------------------------------------------------+
@@ -462,9 +513,9 @@ PRIMARY KEY (`id`)
 +-------+------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp16 (id   INT PRIMARY KEY, name VARCHAR(35), age INT unsigned) PARTITION BY LIST (id) (PARTITION r0 VALUES IN (1, 5, 9, 13, 17, 21), PARTITION r1 VALUES IN (2, 6, 10, 14, 18, 22), PARTITION r2 VALUES IN (3, 7, 11, 15, 19, 23), PARTITION r3 VALUES IN (4, 8, 12, 16, 20, 24));
-show create table tp16;
-> show create table tp16;
+CREATE TABLE tp16 (id   INT PRIMARY KEY, name VARCHAR(35), age INT unsigned) PARTITION BY LIST (id) (PARTITION r0 VALUES IN (1, 5, 9, 13, 17, 21), PARTITION r1 VALUES IN (2, 6, 10, 14, 18, 22), PARTITION r2 VALUES IN (3, 7, 11, 15, 19, 23), PARTITION r3 VALUES IN (4, 8, 12, 16, 20, 24));
+
+mysql> SHOW CREATE TABLE tp16;
 +-------+-------------------------------------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                                                        |
 +-------+-------------------------------------------------------------------------------------------------------------------------------------+
@@ -477,8 +528,9 @@ PRIMARY KEY (`id`)
 +-------+-------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp17 (id   INT, name VARCHAR(35), age INT unsigned) PARTITION BY LIST (id) (PARTITION r0 VALUES IN (1, 5, 9, 13, 17, 21), PARTITION r1 VALUES IN (2, 6, 10, 14, 18, 22), PARTITION r2 VALUES IN (3, 7, 11, 15, 19, 23), PARTITION r3 VALUES IN (4, 8, 12, 16, 20, 24));
-> show create table tp17;
+CREATE TABLE tp17 (id   INT, name VARCHAR(35), age INT unsigned) PARTITION BY LIST (id) (PARTITION r0 VALUES IN (1, 5, 9, 13, 17, 21), PARTITION r1 VALUES IN (2, 6, 10, 14, 18, 22), PARTITION r2 VALUES IN (3, 7, 11, 15, 19, 23), PARTITION r3 VALUES IN (4, 8, 12, 16, 20, 24));
+
+mysql> SHOW CREATE TABLE tp17;
 +-------+-----------------------------------------------------------------------------------------------------------------+
 | Table | Create Table                                                                                                    |
 +-------+-----------------------------------------------------------------------------------------------------------------+
@@ -490,8 +542,9 @@ PRIMARY KEY (`id`)
 +-------+-----------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> CREATE TABLE tp18 (a INT NULL,b INT NULL) PARTITION BY LIST COLUMNS(a,b) (PARTITION p0 VALUES IN( (0,0), (NULL,NULL) ), PARTITION p1 VALUES IN( (0,1), (0,2), (0,3), (1,1), (1,2) ), PARTITION p2 VALUES IN( (1,0), (2,0), (2,1), (3,0), (3,1) ), PARTITION p3 VALUES IN( (1,3), (2,2), (2,3), (3,2), (3,3) ));
-> show create table tp18;
+CREATE TABLE tp18 (a INT NULL,b INT NULL) PARTITION BY LIST COLUMNS(a,b) (PARTITION p0 VALUES IN( (0,0), (NULL,NULL) ), PARTITION p1 VALUES IN( (0,1), (0,2), (0,3), (1,1), (1,2) ), PARTITION p2 VALUES IN( (1,0), (2,0), (2,1), (3,0), (3,1) ), PARTITION p3 VALUES IN( (1,3), (2,2), (2,3), (3,2), (3,3) ));
+
+mysql> SHOW CREATE TABLE tp18;
 +-------+--------------------------------------------------------------------+
 | Table | Create Table                                                       |
 +-------+--------------------------------------------------------------------+
@@ -503,16 +556,17 @@ PRIMARY KEY (`id`)
 1 row in set (0.00 sec)
 ```
 
-- Example 5
+- 示例 5
 
 ```sql
-> drop table if exists t1;
-> create table t1(a bigint primary key auto_increment,
+drop table if exists t1;
+create table t1(a bigint primary key auto_increment,
     b varchar(10));
-> insert into t1(b) values ('bbb');
-> insert into t1 values (3, 'ccc');
-> insert into t1(b) values ('bbb1111');
-> select * from t1 order by a;
+insert into t1(b) values ('bbb');
+insert into t1 values (3, 'ccc');
+insert into t1(b) values ('bbb1111');
+
+mysql> select * from t1 order by a;
 +------+---------+
 | a    | b       |
 +------+---------+
@@ -522,8 +576,9 @@ PRIMARY KEY (`id`)
 +------+---------+
 3 rows in set (0.01 sec)
 
-> insert into t1 values (2, 'aaaa1111');
-> select * from t1 order by a;
+insert into t1 values (2, 'aaaa1111');
+
+mysql> select * from t1 order by a;
 +------+----------+
 | a    | b        |
 +------+----------+
@@ -534,8 +589,9 @@ PRIMARY KEY (`id`)
 +------+----------+
 4 rows in set (0.00 sec)
 
-> insert into t1(b) values ('aaaa1111');
-> select * from t1 order by a;
+insert into t1(b) values ('aaaa1111');
+
+mysql> select * from t1 order by a;
 +------+----------+
 | a    | b        |
 +------+----------+
@@ -547,9 +603,10 @@ PRIMARY KEY (`id`)
 +------+----------+
 5 rows in set (0.01 sec)
 
-> insert into t1 values (100, 'xxxx');
-> insert into t1(b) values ('xxxx');
-> select * from t1 order by a;
+insert into t1 values (100, 'xxxx');
+insert into t1(b) values ('xxxx');
+
+mysql> select * from t1 order by a;
 +------+----------+
 | a    | b        |
 +------+----------+
@@ -563,3 +620,8 @@ PRIMARY KEY (`id`)
 +------+----------+
 7 rows in set (0.00 sec)
 ```
+
+
+## **限制**
+
+目前不支持 带有 `ALTER TABLE` 的 `DROP PRIMARY KEY` 语句。

@@ -55,10 +55,10 @@ create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"
 ## 示例
 
 ```sql
-> create external table ex_table_cpk(clo1 tinyint,clo2 smallint,clo3 int,clo4 bigint,clo5 tinyint unsigned,clo6 smallint unsigned,clo7 int unsigned,clo8 bigint unsigned,col9 float,col10 double,col11 varchar(255),col12 Date,col13 DateTime,col14 timestamp,col15 bool,col16 decimal(5,2),col17 text,col18 varchar(255),col19 varchar(255),col20 varchar(255))infile{"filepath"='$resources/external_table_file/cpk_table_1.csv'} ;
+create external table ex_table_cpk(clo1 tinyint,clo2 smallint,clo3 int,clo4 bigint,clo5 tinyint unsigned,clo6 smallint unsigned,clo7 int unsigned,clo8 bigint unsigned,col9 float,col10 double,col11 varchar(255),col12 Date,col13 DateTime,col14 timestamp,col15 bool,col16 decimal(5,2),col17 text,col18 varchar(255),col19 varchar(255),col20 varchar(255))infile{"filepath"='$resources/external_table_file/cpk_table_1.csv'} ;
 ```
 
-更多关于使用外表指定 S3 文件，参见[从 S3 导入数据](../../../Develop/import-data/bulk-load/load-s3.md)。
+更多关于使用外表指定 S3 文件，参见[从 S3 对象存储服务读取数据并导入 MatrixOne](../../../Develop/import-data/bulk-load/load-s3.md)。
 
 ## **限制**
 
