@@ -16,8 +16,8 @@
 
 |  参数   | 说明 |
 |  ----  | ----  |
-| date  | 必要参数。 date 参数是合法的日期表达式。  |
-| format| 必要参数。 Required. format 可用的说明符可以参加下表详情。|
+| date  | 必要参数。date 参数是合法的日期表达式。  |
+| format| 必要参数。Required. format 可用的说明符可以参加下表详情。|
 
 ### Format 说明符
 
@@ -171,4 +171,4 @@ mysql> SELECT DATE_FORMAT("2009-01-01",'%W %d %M %Y') as valid_date;
 
 ## **限制**
 
-目前date格式只支持 `yyyy-mm-dd` 和 `yyyymmdd` 的数据格式。
+目前 date 格式只支持 `yyyy-mm-dd` 和 `yyyymmdd` 的数据格式。

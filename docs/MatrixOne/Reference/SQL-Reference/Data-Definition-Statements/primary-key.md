@@ -8,7 +8,7 @@
 
 ## **在建表时创建主键**
 
-以下SQL语句在创建 `Persons` 表时，在其中的 `ID` 列创建主键：
+以下 SQL 语句在创建 `Persons` 表时，在其中的 `ID` 列创建主键：
 
 ```
 > CREATE TABLE Persons (

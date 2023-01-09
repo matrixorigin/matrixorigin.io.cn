@@ -41,7 +41,7 @@ PREPARE stmt_name FROM preparable_stmt
 
 - 如果算术运算符没有上下文来确定操作数参数类型，则相关参数的的派生类型都是 `DOUBLE PRECISION`。例如，当参数是 `SELECT` 列表中的顶级节点，或者当它是比较运算符的一部分时，那么它相关参数的的派生类型都是 `DOUBLE PRECISION`。
 
-- 字符串运算符的操作数的形式参数具有与其他操作数的聚合类型相同的派生类型。如果运算符的所有操作数都是形式参数，则派生类型为 `VARCHAR`，其排序规则由 `collation_connection` 的值决定 。
+- 字符串运算符的操作数的形式参数具有与其他操作数的聚合类型相同的派生类型。如果运算符的所有操作数都是形式参数，则派生类型为 `VARCHAR`，其排序规则由 `collation_connection` 的值决定。
 
 - 参数为时间操作符的操作数的形式参数，如果操作符返回 `DATETIME` ，则参数类型为 `DATETIME`；如果操作符返回 `TIME`，则参数类型为 `TIME`；如果操作符返回 `DATE`，则参数类型为 `DATE`。
 
@@ -49,7 +49,7 @@ PREPARE stmt_name FROM preparable_stmt
 
 - 参数为三元比较运算符的操作数的形式参数，例如 `BETWEEN` 运算中的参数，它们的派生类型与其他操作数的聚合类型相同。
 
-- 如果比较运算符的所有操作数都是形式参数，那么每个操作数的派生类型都是 `VARCHAR`，他们的排序规则由 `collation_connection` 的值确定 。
+- 如果比较运算符的所有操作数都是形式参数，那么每个操作数的派生类型都是 `VARCHAR`，他们的排序规则由 `collation_connection` 的值确定。
 
 - `CASE`、`COALESCE`、`IF`、`IFNULL` 或 `NULLIF` 中的任意一个输出操作数的形式参数，其派生类型与操作符的其他输出操作数的聚合类型相同。
 

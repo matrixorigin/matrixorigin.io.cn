@@ -1,6 +1,6 @@
 # 批量导入概述
 
-批量导入是将大量行插入至 MatrixOne 数据表中最快的方法。 MatrixOne 支持从本地文件系统或 *S3 对象存储服务* 批量导入 *csv* 文件、*jsonline* 文件。
+批量导入是将大量行插入至 MatrixOne 数据表中最快的方法。MatrixOne 支持从本地文件系统或 *S3 对象存储服务* 批量导入 *csv* 文件、*jsonline* 文件。
 
 ## MatrixOne 支持导入不同的数据格式
 

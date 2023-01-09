@@ -27,7 +27,7 @@
     sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
     ```
 
-     |参数|描述|
+     |参数 | 描述|
      |---|---|
      |${local_data_path}/mo-data:/mo-data|挂载本地数据目录 *${local_data_path}/mo-data* 到容器 */mo-data* 文件夹 <br> __Tips__: 需要挂载的本地数据目录必须为**空目录**。 |
 
@@ -69,7 +69,7 @@
      sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_config_path}/etc:/etc:rw  --entrypoint "/mo-service" matrixorigin/matrixone:0.6.0 -launch /etc/quickstart/launch.toml
      ```
 
-     |参数|描述|
+     |参数 | 描述|
      |---|---|
      |${local_config_path}/etc:/etc|挂载本地配置文件目录 *${local_config_path}/etc* 到容器 */etc* 文件夹 |
      |--entrypoint "/mo-service"|指定容器启动 MatrixOne 服务 |

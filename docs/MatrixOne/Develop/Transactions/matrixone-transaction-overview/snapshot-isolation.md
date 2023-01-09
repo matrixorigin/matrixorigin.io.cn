@@ -1,6 +1,6 @@
 # MatrixOne 快照隔离
 
-在 MatrixOne中，支持的隔离级别是快照隔离（Snapshot Isolation），该级别的隔离实现原理如下：
+在 MatrixOne 中，支持的隔离级别是快照隔离（Snapshot Isolation），该级别的隔离实现原理如下：
 
 ## 快照隔离原理
 
@@ -64,7 +64,7 @@ SELECT * FROM t1;
 +------+----------+
 ```
 
-在会话 1 中，将事务提交：
+在会话 1 中，我们将事务提交：
 
 ```
 COMMIT;

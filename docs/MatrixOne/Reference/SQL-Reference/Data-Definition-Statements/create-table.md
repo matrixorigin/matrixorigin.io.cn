@@ -26,8 +26,8 @@
 
 可以使用 `comment` 选项指定列或整张表的注释：
 
-- `CREATE TABLE [IF NOT EXISTS] [db.]table_name [comment = "comment of table"];` 中的 `comment` 为整张表的注释，最长2049个字符。
-- `(name1 type1 [comment 'comment of column'],...)` 中的 `comment` 为指定列的注释：最长1024个字符。
+- `CREATE TABLE [IF NOT EXISTS] [db.]table_name [comment = "comment of table"];` 中的 `comment` 为整张表的注释，最长 2049 个字符。
+- `(name1 type1 [comment 'comment of column'],...)` 中的 `comment` 为指定列的注释：最长 1024 个字符。
 
 使用 `SHOW CREATE TABLE` 和 `SHOW FULL COLUMNS` 语句显示注释内容。注释内容也显示在 `INFORMATION_SCHEMA.COLUMN_COMMENT` 列中。
 
@@ -118,7 +118,7 @@ CREATE TABLE tk (col1 INT, col2 CHAR(5), col3 DATE)
     PARTITIONS 4;
 ```
 
-对于按 `KEY` 分区的表，可以使用 `LINEAR KEY` 来进行线性分区。这与使用 `HASH` 分区的表具有相同的效果。下面的示例为使用 `LINEAR KEY` 线性分区在5个分区之间分配数据：
+对于按 `KEY` 分区的表，可以使用 `LINEAR KEY` 来进行线性分区。这与使用 `HASH` 分区的表具有相同的效果。下面的示例为使用 `LINEAR KEY` 线性分区在 5 个分区之间分配数据：
 
 ```
 CREATE TABLE tk (col1 INT, col2 CHAR(5), col3 DATE)
@@ -128,9 +128,9 @@ CREATE TABLE tk (col1 INT, col2 CHAR(5), col3 DATE)
 
 - **RANGE(expr)**
 
-`RANGE` 分区：基于一个给定连续区间范围，把数据（或者可以说是多行）分配到不同的分区。最常见的是基于时间字段. 基于分区的列最好是整型，如果日期型的可以使用函数转换为整型。
+`RANGE` 分区：基于一个给定连续区间范围，把数据（或者可以说是多行）分配到不同的分区。最常见的是基于时间字段。基于分区的列最好是整型，如果日期型的可以使用函数转换为整型。
 
-在这种情况下， expr 使用一组 `VALUES LESS THAN` 运算符显示一系列值。使用范围分区时，你必须使用 `VALUES LESS THAN` 定义至少一个分区，且不能将 `VALUES IN` 与范围分区一起使用。
+在这种情况下，expr 使用一组 `VALUES LESS THAN` 运算符显示一系列值。使用范围分区时，你必须使用 `VALUES LESS THAN` 定义至少一个分区，且不能将 `VALUES IN` 与范围分区一起使用。
 
 `VALUES LESS THAN MAXVALUE` 用于指定小于指定最大值的“剩余”值。
 

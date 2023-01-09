@@ -10,9 +10,9 @@
 
 * Intellij IDEA：IntelliJ IDEA 是一种商业化销售的 Java 集成开发环境（Integrated Development Environment，IDE）工具软件。它所拥有诸多插件，可以提高我们的工作效率。
 
-* Maven：Maven是 Java 中功能强大的项目管理工具，可以根据 *pom.xml* 文件中的配置自动下载和导入 *Jar* 文件。这个特性减少了不同版本 Jar 文件之间的冲突。
+* Maven：Maven 是 Java 中功能强大的项目管理工具，可以根据 *pom.xml* 文件中的配置自动下载和导入 *Jar* 文件。这个特性减少了不同版本 Jar 文件之间的冲突。
 
-* Spring：Spring是 Java 中最流行的框架之一，越来越多的企业使用 Spring 框架来构建他们的项目。Spring Boot 构建在传统的 Spring 框架之上。因此，它提供了 Spring 的所有特性，而且比 Spring 更易用。
+* Spring：Spring 是 Java 中最流行的框架之一，越来越多的企业使用 Spring 框架来构建他们的项目。Spring Boot 构建在传统的 Spring 框架之上。因此，它提供了 Spring 的所有特性，而且比 Spring 更易用。
 
 ## 配置环境
 

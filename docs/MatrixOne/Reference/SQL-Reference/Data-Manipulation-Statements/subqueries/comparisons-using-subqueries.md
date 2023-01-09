@@ -2,13 +2,13 @@
 
 ## **语法描述**
 
-子查询与比较操作符最常见的用法如下:
+子查询与比较操作符最常见的用法如下：
 
 ```
 non_subquery_operand comparison_operator (subquery)
 ```
 
-其中，`comparison_operator` 指以下操作符:
+其中，`comparison_operator` 指以下操作符：
 
 ```
 =  >  <  >=  <=  <>  !=  <=>

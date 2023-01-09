@@ -4,7 +4,7 @@
 
 执行 MatrixOne 的编译命令 `make config` 时，在 *matrixone* 目录下自动产生一个配置文件 *matrixone/system_vars_config.toml*。
 
-相关参数设置如下:
+相关参数设置如下：
 
 ### 常规设置
 
@@ -51,7 +51,7 @@
 | 参数  | 数据类型  |  默认值   | 取值范围  | 作用 |
 |  ----  | ----  |  --------  |  --- | --- |
 | statusPort  | int64 | 7001  | All ports | statusPort 定义状态服务器监听的端口和客户端连接的端口 |
-| metricToProm  | bool | true  | true false | 如果设置为 true，数据指标可以通过host:status/metrics endpoint 抓取 |
+| metricToProm  | bool | true  | true false | 如果设置为 true，数据指标可以通过 host:status/metrics endpoint 抓取 |
 | enableMetric  | bool | true  | true false | 默认为 true，表示在启动时启用数据指标|
 
 ### 其他设置

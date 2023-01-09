@@ -53,7 +53,7 @@ CREATE TABLE Customers (
 
 ## INSERT INTO 示例
 
-下面的SQL语句在 **Customers** 表中插入了一条新记录：
+下面的 SQL 语句在 **Customers** 表中插入了一条新记录：
 
 ### Example
 
@@ -99,7 +99,7 @@ VALUES ('Cardinal', 'Stavanger', 'Norway');
 
 ### INSERT INTO SELECT 语法解释
 
-从一个表复制所有列到另一个表:
+从一个表复制所有列到另一个表：
 
 ```
 INSERT INTO *table2*
@@ -107,7 +107,7 @@ SELECT * FROM *table1
 *WHERE *condition*;
 ```
 
-只从一个表复制一些列到另一个表:
+只从一个表复制一些列到另一个表：
 
 ```
 INSERT INTO *table2* (*column1*, *column2*, *column3*, ...)
@@ -161,7 +161,7 @@ CREATE TABLE Supplier (
 
 ### 示例
 
-下面的SQL语句将 **Supplier** 复制到 **Customers** 中，同时未填充数据的列将填充为 `NULL`：
+下面的 SQL 语句将 **Supplier** 复制到 **Customers** 中，同时未填充数据的列将填充为 `NULL`：
 
 ```
 INSERT INTO Customers (CustomerName, City, Country)

@@ -136,7 +136,7 @@
 
 ### 操作步骤
 
-#### 步骤一：租户管理员开通并授权数据库管理员账号
+#### 步骤一：租户管理员开通并授权数据库用户账号
 
 1. 使用你所拥有的租户管理员账号登录租户：
 
@@ -160,15 +160,15 @@
     grant all on table appdb.* to approle;
     ```
 
-4. 创建用户 *appuser*，密码为 *123456*，并将角色 *approle* 分配给 *appuser*：
+4. 创建数据库用户 *appuser*，密码为 *123456*，并将角色 *approle* 分配给 *appuser*：
 
     ```
     create user appuser identified by "123456" default role approle;
     ```
 
-#### 步骤二：数据用户登录账号并进行测试
+#### 步骤二：数据库用户登录账号并进行测试
 
-1. 使用数据用户账号 *appuser* 登录 MatrixOne：
+1. 使用数据库用户账号 *appuser* 登录 MatrixOne：
 
     ```
     mysql -h127.0.0.1 -utest:appuser -P6001 -p123456

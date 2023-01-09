@@ -54,7 +54,7 @@
 | [IS NULL](operators/comparison-functions-and-operators/is-null.md) | 为空 |
 | [LIKE](operators/comparison-functions-and-operators/like.md) | 模糊匹配 |
 | [NOT BETWEEN ... AND ...](operators/comparison-functions-and-operators/not-between.md) | 不在两值之间 |
-| [NOT LIKE](operators/comparison-functions-and-operators/not-like.md) | 模糊匹配，Like的否定用法 |
+| [NOT LIKE](operators/comparison-functions-and-operators/not-like.md) | 模糊匹配，Like 的否定用法 |
 | [COALESCE](operators/comparison-functions-and-operators/coalesce.md)|返回第一个非空值|
 
 ## [**控制流函数**](operators/flow-control-functions/flow-control-functions-overview.md)
