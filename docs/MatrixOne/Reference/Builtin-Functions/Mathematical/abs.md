@@ -2,7 +2,7 @@
 
 ## **函数说明**
 
-ABS(X)返回X的绝对值，或者NULL如果X是NULL.
+ABS(X) 返回 X 的绝对值，或者 NULL 如果 X 是 NULL.
 
 ## **函数语法**
 

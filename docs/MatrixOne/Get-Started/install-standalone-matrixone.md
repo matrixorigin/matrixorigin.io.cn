@@ -11,14 +11,14 @@
 
 作为一款开源数据库，MatrixOne 目前支持主流的 **Linux** 和 **MacOS** 系统。为了快速上手，本文档中优先推荐如下硬件规格：
 
-|操作系统 |操作系统版本| CPU     | 内存 |
+|操作系统 |操作系统版本 | CPU     | 内存 |
 | :------ |:------ | :------ | :----- |
-|CentOS| 7.3 及以上| x86 CPU；4核 | 32 GB |
-|macOS| Monterey 12.3 及以上| - x86 CPU；4核<br>- ARM；4核 | 32 GB |
+|CentOS| 7.3 及以上 | x86 CPU；4 核 | 32 GB |
+|macOS| Monterey 12.3 及以上 | - x86 CPU；4 核<br>- ARM；4 核 | 32 GB |
 
 你也可以查阅[硬件与操作系统要求](../FAQs/deployment-faqs.md)，查看更多关于硬件规格推荐，选用合适的硬件环境。
 
-## <h2><a name="install_mo">步骤一： 单机安装 MatrixOne</a></h2>
+## <h2><a name="install_mo">步骤一：单机安装 MatrixOne</a></h2>
 
 为了方便不同操作习惯的开发者或技术爱好者能够通过最方便快捷的方式安装单机版 MatrixOne，我们提供了以下三种安装方法，你可以根据你的需求，选择最适合你的安装方式：
 
@@ -442,7 +442,7 @@ MySQL 客户端安装完成后，需要配置 MySQL 客户端环境变量：
 
      7. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
 
-__Tips__: 目前，MatrixOne只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
+__Tips__: 目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
 
 ### **连接 MatrixOne**
 
@@ -464,7 +464,7 @@ mysql -h 127.0.0.1 -P 6001 -udump -p
 Enter password:
 ```
 
-目前，MatrixOne 只支持TCP监听。
+目前，MatrixOne 只支持 TCP 监听。
 
 ## 参考文档
 

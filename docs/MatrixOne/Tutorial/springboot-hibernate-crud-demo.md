@@ -6,13 +6,13 @@
 
 本篇教程涉及到的软件介绍如下：
 
-* Spring Data JPA：JPA（Java Persistence API，Java 持久层 API）是一种规范，是 JDK 5.0 注解或 XML 描述对象与关系表的映射关系，并将运行期的实体对象持久化到数据库中。Spring Data JPA 是一个 Java 对象映射关系的解决方案的ORM（Object-Relational Mapping）框架，是一个将面向对象的域模型映射到关系数据库的开源框架。
+* Spring Data JPA：JPA（Java Persistence API，Java 持久层 API）是一种规范，是 JDK 5.0 注解或 XML 描述对象与关系表的映射关系，并将运行期的实体对象持久化到数据库中。Spring Data JPA 是一个 Java 对象映射关系的解决方案的 ORM（Object-Relational Mapping）框架，是一个将面向对象的域模型映射到关系数据库的开源框架。
 
-* Intellij IDEA：IntelliJ IDEA是一种商业化销售的 Java 集成开发环境（Integrated Development Environment，IDE）工具软件。它所拥有诸多插件，可以提高我们的工作效率。
+* Intellij IDEA：IntelliJ IDEA 是一种商业化销售的 Java 集成开发环境（Integrated Development Environment，IDE）工具软件。它所拥有诸多插件，可以提高我们的工作效率。
 
-* Maven：Maven是 Java 中功能强大的项目管理工具，可以根据 *pom.xml* 文件中的配置自动下载和导入 *Jar* 文件。这个特性减少了不同版本 Jar 文件之间的冲突。
+* Maven：Maven 是 Java 中功能强大的项目管理工具，可以根据 *pom.xml* 文件中的配置自动下载和导入 *Jar* 文件。这个特性减少了不同版本 Jar 文件之间的冲突。
 
-* Spring：Spring是 Java 中最流行的框架之一，越来越多的企业使用 Spring 框架来构建他们的项目。Spring Boot 构建在传统的 Spring 框架之上。因此，它提供了 Spring 的所有特性，而且比 Spring 更易用。
+* Spring：Spring 是 Java 中最流行的框架之一，越来越多的企业使用 Spring 框架来构建他们的项目。Spring Boot 构建在传统的 Spring 框架之上。因此，它提供了 Spring 的所有特性，而且比 Spring 更易用。
 
 * Postman: Postman 是一个用于 API 测试的应用程序。它是一个 HTTP 客户端，利用图形用户界面测试 HTTP 请求，以获得需要进行验证的不同类型的响应。
 

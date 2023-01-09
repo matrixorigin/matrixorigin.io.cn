@@ -2,7 +2,7 @@
 
 两个查询的结果可以使用 `UNION`，`INTERSECT` 和 `MINUS` 语法进行组合查询。
 
-示例语法如下:
+示例语法如下：
 
 ```
 query1 UNION [ALL] query2

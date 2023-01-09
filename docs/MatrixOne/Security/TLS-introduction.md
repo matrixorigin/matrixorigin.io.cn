@@ -7,7 +7,7 @@
 MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加密连接，支持的协议版本有 TLS 1.0, TLS 1.1, TLS 1.2。
 
 - 不开启 TLS 加密连接（默认）：直接使用用户名密码连接 MatrixOne 即可。
-- 使用加密连接：需要在 MatrixOne 服务端开启加密连接支持，并在客户端指定使用加密连接。你可以参加下文指导，开启TLS安全连接。
+- 使用加密连接：需要在 MatrixOne 服务端开启加密连接支持，并在客户端指定使用加密连接。你可以参加下文指导，开启 TLS 安全连接。
 
 本篇文档将指导你如何开启 TLS 安全连接。
 
@@ -73,7 +73,7 @@ MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加�
 
     上述代码中，配置参数解释如下：
 
-    |参数|描述|
+    |参数 | 描述|
     |---|---|
     |enableTls|布尔类型，是否在 MatrixOne 服务端打开 TLS 的支持。|
     |tlsCertFile|指定 SSL 证书文件路径|
@@ -156,7 +156,7 @@ mysql -h 127.0.0.1 -P 6001 -udump -p111 --ssl-mode=PREFFERED
 
 ssl mode 取值类型如下：
 
-|ssl-mode 取值|含义|
+|ssl-mode 取值 | 含义|
 |---|---|
 |DISABLED|不使用 SSL/TLS 建立加密连接，与 skip-ssl 同义。|
 |PREFFERED|默认行为，优先尝试使用 SSL/TLS 建立加密连接，如果无法建则尝试建立非 SSL/TLS 连接。|

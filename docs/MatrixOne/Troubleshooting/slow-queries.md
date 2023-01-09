@@ -25,7 +25,7 @@ create view slow_query as select statement,request_at,duration/1000000000 as dur
 create view slow_query_with_plan as select statement,request_at,duration/1000000000 as duration_second,exec_plan from system.statement_info where statement like 'select%' and duration/1000000000>1  order by request_at desc;
 ```
 
-对于所有超过1秒的查询，可以执行如下语句：
+对于所有超过 1 秒的查询，可以执行如下语句：
 
 ```sql
 mysql> select * from mo_ts.slow_query;

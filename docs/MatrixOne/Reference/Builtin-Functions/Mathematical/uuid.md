@@ -9,7 +9,7 @@ UUID 在空间和时间上是全球唯一的数字。即使是在两个未连接
 !!! info
     尽管 `UUID()` 值唯一，但它们并非是不可猜测或不可预测的。如果需要不可预测性，则应以其他方式生成 UUID 值。
 
-`UUID()` 返回一个符合 [RFC 4122](http://www.ietf.org/rfc/rfc4122.txt) 标准的版本 1 UUID 的值，为 128 位数字，它表示是一个 utf8mb3由五个十六进制数字组成的字符串，即 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee，格式解释如下：
+`UUID()` 返回一个符合 [RFC 4122](http://www.ietf.org/rfc/rfc4122.txt) 标准的版本 1 UUID 的值，为 128 位数字，它表示是一个 utf8mb3 由五个十六进制数字组成的字符串，即 aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee，格式解释如下：
 
 - 前三个数字是从时间戳的低、中和高部分生成的。高位部分还包括 UUID 版本号。
 

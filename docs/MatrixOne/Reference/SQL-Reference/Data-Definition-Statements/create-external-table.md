@@ -40,7 +40,7 @@ create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"
 
 #### 参数说明
 
-|参数|描述|
+|参数 | 描述|
 |:-:|:-:|
 |endpoint|终端节点是作为 AWS Web 服务的入口点的 URL。例如：s3.us-west-2.amazonaws.com|
 |access_key_id| S3 的 Access key ID|

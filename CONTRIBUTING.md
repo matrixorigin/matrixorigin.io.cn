@@ -23,7 +23,7 @@ git submodule init
 git submodule update --remote
 ```
 
-3. 如果已下载, 需要更新到最新代码，可执行：
+3. 如果已下载，需要更新到最新代码，可执行：
 
 ```
 // 更新主项目 渲染文档
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 ```
 
 > 提示：MkDocs 需要最新版本的 [Python](https://www.python.org/) 和 Python 包管理器 [pip](https://pip.readthedocs.io/en/stable/installing/) 才能安装在您的系统上。
-> 查看是否安装成功, 可以通过 `pip list` 看 `mkdocs-material 8.2.8` 是否对应上。
+> 查看是否安装成功，可以通过 `pip list` 看 `mkdocs-material 8.2.8` 是否对应上。
 
 ### 启动服务
 
@@ -60,11 +60,11 @@ mkdocs serve
 
 由于项目是通过 `git submodule` 来管理当前项目和子模块的依赖关系。
 子模块也是一个 git 仓库，所以可以在当前项目中修改子模块代码并提交。
-达成的效果即: 可以进行预览文档的修改，同时调整 HTML 样式布局，而不需要再保存一份子模块仓库代码。
+达成的效果即：可以进行预览文档的修改，同时调整 HTML 样式布局，而不需要再保存一份子模块仓库代码。
 
-对于主项目的修改提交方式不变, 下面介绍在子模块中所做的修改：
+对于主项目的修改提交方式不变，下面介绍在子模块中所做的修改：
 
-例如子模块在 `submodules` 下的 `matrixone` 中，进入这个路径，并做出修改, 例如增加一个文件：
+例如子模块在 `submodules` 下的 `matrixone` 中，进入这个路径，并做出修改，例如增加一个文件：
 
 ```
 cd submodules/matrixone

@@ -1,6 +1,6 @@
 # MatrixOne 系统数据库和表
 
-MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你可以通过它们访问系统信息。 MatrixOne 在初始化时创建了 6 个系统数据库：`mo_catalog`、`information_schema`、`system_metrcis`、`system`、`mysql` 和 `mo_task`。 `mo_task` 当前正在开发中，暂时对你所进行的操作不会产生直接影响。本文档中描述了其他系统数据库和表函数。
+MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你可以通过它们访问系统信息。MatrixOne 在初始化时创建了 6 个系统数据库：`mo_catalog`、`information_schema`、`system_metrcis`、`system`、`mysql` 和 `mo_task`。 `mo_task` 当前正在开发中，暂时对你所进行的操作不会产生直接影响。本文档中描述了其他系统数据库和表函数。
 
 系统只能修改系统数据库和表，你仅能从中进行读取操作。
 
@@ -46,14 +46,14 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 | 列属性           | 类型        | 描述                                               |
 | --------------------- | --------------- | ------------------------------------------------------------ |
-| att_uniq_name         | varchar(256)    | 主键. 隐藏的复合主键，格式类似于 "${att_relname_id}-${attname}" |
+| att_uniq_name         | varchar(256)    | 主键。隐藏的复合主键，格式类似于 "${att_relname_id}-${attname}" |
 | account_id            | int unsigned    | 租户 ID                                                     |
 | att_database_id       | bigint unsigned | 数据库 ID                                                   |
 | att_database          | varchar(256)    | 数据 Name                                                |
 | att_relname_id        | bigint unsigned | 表 ID                                                     |
 | att_relname           | varchar(256)    | 此列所属的表。（参考 mo_tables.relname）|
 | attname               | varchar(256)    | 列名                                              |
-| atttyp                | varchar(256)    | 此列的数据类型(删除的列为 0 )。   |
+| atttyp                | varchar(256)    | 此列的数据类型 (删除的列为 0 )。   |
 | attnum                | int             | 列数。普通列从 1 开始编号。 |
 | att_length            | int             | 类型的字节数                                    |
 | attnotnull            | tinyint(1)      | 表示一个非空约束。                       |
@@ -154,7 +154,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 - role：MatrixOne 节点角色，包括 CN、DN 和 Log。
 
-- account：默认为 “sys” 租户，即触发 SQL 请求的账户。
+- account：默认为“sys”租户，即触发 SQL 请求的账户。
 
 - type：SQL 类型，可以是 `select`，`insert`，`update`，`delete`，`other` 类型。
 
@@ -170,7 +170,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | account     | VARCHAR(128) | 租户名称，默认 `sys`                             |
 | 类型       | VARCHAR(32)  | SQL 类型，例如：INSERT，SELECT，UPDATE     |
 
-以下表为 `metric` 表的视图:
+以下表为 `metric` 表的视图：
 
 * `process_cpu_percent` 表：CPU 进程繁忙百分比。
 * `process_open_fs` 表：打开的文件描述符的数量。
@@ -207,8 +207,8 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | host                  | VARCHAR(1024) | 用户客户端 IP                                               |
 | database              | VARCHAR(1024) | 数据库当前会话停留处                        |
 | statement             | TEXT          | SQL 语句                                          |
-| statement_tag         | TEXT          | 语句中的注释标签(保留)                              |
-| statement_fingerprint | TEXT          | 语句中的注释标签(保留)                               |
+| statement_tag         | TEXT          | 语句中的注释标签 (保留)                              |
+| statement_fingerprint | TEXT          | 语句中的注释标签 (保留)                               |
 | node_uuid             | VARCHAR(36)   | 节点 uuid，即生成数据的某个节点                          |
 | node_type             | VARCHAR(64)   | 在 MatrixOne 内，var 所属的 DN/CN/Log 的节点类型                 |
 | request_at            | DATETIME      | 请求接受的 datetime                                      |
@@ -252,7 +252,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 ## `information_schema` 数据库
 
-**Information Schema** 提供了一种 ANSI 标准方式，用于查看系统元数据的。 MatrixOne 除了为 MySQL 兼容性而包含的表之外，还提供了许多自定义的 `information_schema` 表。
+**Information Schema** 提供了一种 ANSI 标准方式，用于查看系统元数据的。MatrixOne 除了为 MySQL 兼容性而包含的表之外，还提供了许多自定义的 `information_schema` 表。
 
 许多 `INFORMATION_SCHEMA` 表都有相应的 `SHOW` 命令。查询 `INFORMATION_SCHEMA` 可以在表之间进行连接。
 

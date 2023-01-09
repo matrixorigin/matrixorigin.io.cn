@@ -4,13 +4,13 @@
 
 进入 *matrixone* 目录执行 `ls` 查看目录结构，相关目录结构以及用途如下：
 
-matrixone    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***MatrixOne主目录***<br>
+matrixone    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***MatrixOne 主目录***<br>
 |-- etc   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***配置文件目录***<br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |-- quickstart &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***配置文件目录***<br>
 |-- mo-data  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***数据文件目录***<br>
-│&nbsp;&nbsp;&nbsp;&nbsp; |-- local   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***本地fileservice目录***<br>
-│&nbsp;&nbsp;&nbsp;&nbsp; |   |-- cnservice   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***cn节点信息目录***<br>
-│&nbsp;&nbsp;&nbsp;&nbsp; |   |-- dnservice   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***dn节点信息目录***<br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |-- local   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***本地 fileservice 目录***<br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |   |-- cnservice   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***cn 节点信息目录***<br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |   |-- dnservice   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***dn 节点信息目录***<br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |-- etl  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***外部表目录***<br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |        |-- sys &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***外部表信息归属于哪个租户***<br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |            |--  logs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***统计信息的类型***<br>
@@ -27,11 +27,11 @@ matrixone    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***Ma
 │&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- metric &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***统计信息对应表的存储目录***<br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- rawlog &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***统计信息对应表的存储目录***<br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- statement_info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***统计信息对应表的存储路目录***<br>
-│&nbsp;&nbsp;&nbsp;&nbsp; |-- logservice  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***logservice目录***<br>
-│&nbsp;&nbsp;&nbsp;&nbsp; |-- 7c4dccb4-4d3c-41f8-b482-5251dc7a41bf &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***logservice节点对应目录（随机生成uuid）***<br>
-│&nbsp;&nbsp;&nbsp;&nbsp; |--hostname &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***MatrixOne的服务器域名***<br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |-- logservice  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***logservice 目录***<br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |-- 7c4dccb4-4d3c-41f8-b482-5251dc7a41bf &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***logservice 节点对应目录（随机生成 uuid）***<br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |--hostname &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***MatrixOne 的服务器域名***<br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- 00000000000000000001 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***快照保存目录***<br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- exported-snapshot &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***导出快照目录***<br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- snapshot-part-n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***快照分部保存目录***<br>
-│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- tandb &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***bootstrap信息保存目录***<br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |                           |-- tandb &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***bootstrap 信息保存目录***<br>
 |-- s3  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***数据保存目录***<br>

@@ -49,8 +49,6 @@ SHOW DATABASES;
 
 ## 数据库创建时应遵守的规则
 
-- 给你的数据库起一个有意义的名字。
-
 - 你可以使用 `CREATE DATABASE` 语句来创建数据库，并且在 SQL 会话中使用 `USE {databasename};` 语句来使用你所创建的数据库。
 
 - 租户或用户创建新的数据库、角色或子级用户时，只赋予租户或用户必要的权限，参见[MatrixOne 中的权限控制](../../Security/about-privilege-management.md)。

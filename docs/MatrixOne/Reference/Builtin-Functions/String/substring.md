@@ -2,8 +2,8 @@
 
 ## **函数说明**
 
-SUBSTR()是SUBSTRING()的同义词.
-不带len参数的写法会返回一个从pos位置开始的子字符串。带len参数的写法会返回一个从pos位置开始的长度为len的子字符串。
+SUBSTR() 是 SUBSTRING() 的同义词。
+不带 len 参数的写法会返回一个从 pos 位置开始的子字符串。带 len 参数的写法会返回一个从 pos 位置开始的长度为 len 的子字符串。
 
 ## **语法**
 
@@ -16,7 +16,7 @@ SUBSTR()是SUBSTRING()的同义词.
 
 |  参数   | 说明  |
 |  ----  | ----  |
-| str | 必要参数，母字符串。CHAR与VARCHAR类型均可。 |
+| str | 必要参数，母字符串。CHAR 与 VARCHAR 类型均可。 |
 | pos | 必要参数，开始位置 |
 | len | 可选参数，返回子字符串长度 |
 
@@ -66,4 +66,4 @@ estd date NOT NULL DEFAULT '2000-01-01'
 
 ## **限制**
 
-Substring函数目前不支持在函数中使用FROM与FOR操作符。
+Substring 函数目前不支持在函数中使用 FROM 与 FOR 操作符。

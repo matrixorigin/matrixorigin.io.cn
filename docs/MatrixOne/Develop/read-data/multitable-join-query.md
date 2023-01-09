@@ -94,7 +94,7 @@ mysql> select * from t3;
 
 左外连接会返回左表中的所有数据行，以及右表当中能够匹配连接条件的值，如果在右表当中没有找到能够匹配的行，则使用 NULL 填充。
 
-|语法| 图示 |
+|语法 | 图示 |
 |---|---|
 |SELECT /<select_list> FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key|![leftjoin](https://github.com/matrixorigin/artwork/blob/main/docs/reference/left_join.png?raw=true)|
 |SELECT /<select_list> FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL|![leftjoinwhere](https://github.com/matrixorigin/artwork/blob/main/docs/reference/left_join_where.png?raw=true)|
@@ -105,8 +105,8 @@ mysql> select * from t3;
 
 查询 `city` 列、`libname1` 列，以及查询 `libname1` 的检索行，（即，以 `a` 命名的列进行查询），查询步骤是：
 
-1. 将表 t3 左连接表 t1，约束条件是表 t1 的列与表 t3 的列一致，即 libname1=libname3 ；
-2. 步骤1中左连接的结果与表 t2 内连接，约束条件是表 t3 的列与表 t2 的列一致，即 isbn3=isbn2；
+1. 将表 t3 左连接表 t1，约束条件是表 t1 的列与表 t3 的列一致，即 libname1=libname3；
+2. 步骤 1 中左连接的结果与表 t2 内连接，约束条件是表 t3 的列与表 t2 的列一致，即 isbn3=isbn2；
 3. 按照表 t1 列 `city`，`libname1` 进行聚合分组。
 
 ```sql
@@ -151,7 +151,7 @@ mysql> explain select city,libname1,count(libname1) as a from t3 left join t1 on
 
 右外连接返回右表中的所有记录，以及左表当中能够匹配连接条件的值，没有匹配的值则使用 NULL 填充。
 
-|语法| 图示 |
+|语法 | 图示 |
 |---|---|
 |SELECT /<select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key|![leftjoinwhere](https://github.com/matrixorigin/artwork/blob/main/docs/reference/right_join.png?raw=true)|
 |SELECT /<select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL|![leftjoinwhere](https://github.com/matrixorigin/artwork/blob/main/docs/reference/right_join_where.png?raw=true)|
@@ -162,8 +162,8 @@ mysql> explain select city,libname1,count(libname1) as a from t3 left join t1 on
 
 查询 `city` 列、`libname1` 列，以及查询 `libname1` 的检索行，（即，以 `a` 命名的列进行查询），查询规则是：
 
-1. 将表 t3 右连接表 t1，约束条件是表 t1 的列与表 t3 的列一致，即 libname1=libname3 ；
-2. 步骤1中右连接的结果与表 t2 内连接，约束条件是表 t3 的列与表 t2 的列一致，即 isbn3=isbn2；
+1. 将表 t3 右连接表 t1，约束条件是表 t1 的列与表 t3 的列一致，即 libname1=libname3；
+2. 步骤 1 中右连接的结果与表 t2 内连接，约束条件是表 t3 的列与表 t2 的列一致，即 isbn3=isbn2；
 3. 按照表 t1 列 `city`，`libname1` 进行聚合分组。
 
 ```sql
@@ -183,7 +183,7 @@ mysql> select city,libname1,count(libname1) as a from t3 right join t1 on libnam
 
 内连接的连接结果只返回匹配连接条件的行。
 
-|语法| 图示 |
+|语法 | 图示 |
 |---|---|
 |SELECT /<select_list> FROM TableA A INNER JOIN TableB B ON A.Key=B.Key|![innerjoin](https://github.com/matrixorigin/artwork/blob/main/docs/reference/inner_join.png?raw=true)|
 
@@ -193,8 +193,8 @@ mysql> select city,libname1,count(libname1) as a from t3 right join t1 on libnam
 
 查询 `city` 列、`libname1` 列，以及查询 `libname1` 的检索行，（即，以 `a` 命名的列进行查询），查询规则是：
 
-1. 将表 t3 内连接表 t1，约束条件是表 t1 的列与表 t3 的列一致，即 libname1=libname3 ；
-2. 步骤1中内连接的结果表 t2 内连接，约束条件是表 t3 的列与表 t2 的列一致，即 isbn3=isbn2；
+1. 将表 t3 内连接表 t1，约束条件是表 t1 的列与表 t3 的列一致，即 libname1=libname3；
+2. 步骤 1 中内连接的结果表 t2 内连接，约束条件是表 t3 的列与表 t2 的列一致，即 isbn3=isbn2；
 3. 按照表 t1 列 `city`，`libname1` 进行聚合分组。
 
 ```sql

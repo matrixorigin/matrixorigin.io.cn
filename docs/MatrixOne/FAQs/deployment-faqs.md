@@ -2,9 +2,9 @@
 
 ## 操作系统要求
 
-* **部署MatrixOne所需的操作系统版本是什么？**
+* **部署 MatrixOne 所需的操作系统版本是什么？**
 
-- 单机推荐配置： MatrixOne 当前支持下表中操作系统。
+- 单机推荐配置：MatrixOne 当前支持下表中操作系统。
 
 | Linux OS                 | 版本                   |
 | :----------------------- | :------------------------ |
@@ -13,7 +13,7 @@
 | Oracle Enterprise Linux  | 7.3 or later 7.x releases |
 | Ubuntu LTS               | 22.04 or later            |
 
-- MatrixOne也支持 macOS 操作系统，当前仅建议在测试和开发环境运行。
+- MatrixOne 也支持 macOS 操作系统，当前仅建议在测试和开发环境运行。
 
 | macOS | 版本                |
 | :---- | :--------------------- |
@@ -21,7 +21,7 @@
 
 ## 硬件要求
 
-* **MatrixOne对部署硬件的配置要求如何？**
+* **MatrixOne 对部署硬件的配置要求如何？**
 
 单机安装情况下，MatrixOne 当前可以运行在 Intel x86-64 架构的 64 位通用硬件服务器平台上。
 
@@ -87,7 +87,7 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
 
      输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。继续输入 `source .bash_profile`，回车执行，运行环境变量。
 
-* **当我安装选择从源代码安装构建 MatrixOne时，产生了以下错误或构建失败提示，我该如何继续？**
+* **当我安装选择从源代码安装构建 MatrixOne 时，产生了以下错误或构建失败提示，我该如何继续？**
 
 报错： `Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout`
 
@@ -113,7 +113,7 @@ go env -w GOPROXY=https://goproxy.cn,direct
 ulimit -n 65536
 ```
 
-* 对于 Linux 系统，请参考详细的[指南](https://www.linuxtechi.com/set-ulimit-file-descriptors-limit-linux-servers/)，将 *ulimit* 设置为100000。
+* 对于 Linux 系统，请参考详细的[指南](https://www.linuxtechi.com/set-ulimit-file-descriptors-limit-linux-servers/)，将 *ulimit* 设置为 100000。
 
 设置完成后，将不会出现 `too many open files` 错误。
 
@@ -144,17 +144,17 @@ ulimit -n 65536
 
 3. 手动修改 *ssb-dbgen* 目录下的 *bm_utils.c* 配置文件：
 
-    - 将第41行的 `#include <malloc.h>` 修改为 `#include <sys/malloc.h>`
+    - 将第 41 行的 `#include <malloc.h>` 修改为 `#include <sys/malloc.h>`
 
-    - 将第398行的 `open(fullpath, ((*mode == 'r')?O_RDONLY:O_WRONLY)|O_CREAT|O_LARGEFILE,0644);` 修改为 `open(fullpath, ((*mode == 'r')?O_RDONLY:O_WRONLY)|O_CREAT,0644);`
+    - 将第 398 行的 `open(fullpath, ((*mode == 'r')?O_RDONLY:O_WRONLY)|O_CREAT|O_LARGEFILE,0644);` 修改为 `open(fullpath, ((*mode == 'r')?O_RDONLY:O_WRONLY)|O_CREAT,0644);`
 
 4. 手动修改 *ssb-dbgen* 目录下的 *varsub.c* 配置文件：
 
-    - 将第5行的 `#include <malloc.h>` 修改为 `#include <sys/malloc.h>`
+    - 将第 5 行的 `#include <malloc.h>` 修改为 `#include <sys/malloc.h>`
 
 5. 手动修改 *ssb-dbgen* 目录下的 *makefile* 配置文件：
 
-    - 将第5行的 `CC      = gcc` 修改为 `CC      = gcc-11`
+    - 将第 5 行的 `CC      = gcc` 修改为 `CC      = gcc-11`
 
 6. 再次进入 *ssb-dbgen* 目录，进行编译：
 
