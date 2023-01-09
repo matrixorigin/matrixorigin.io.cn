@@ -621,7 +621,6 @@ mysql> select * from t1 order by a;
 7 rows in set (0.00 sec)
 ```
 
-
 ## **限制**
 
 目前不支持 带有 `ALTER TABLE` 的 `DROP PRIMARY KEY` 语句。
