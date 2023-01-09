@@ -1,64 +1,106 @@
-# **通用配置参数**
+# **通用参数配置**
 
-启动 MatrixOne 实例时，配置文件需要设置相关参数。
+在 *matrixone/etc/launch-tae-CN-tae-DN/* 目录有三个配置文件 *cn.toml*、*dn.toml* 和 *log.toml*。
 
-执行 MatrixOne 的编译命令 `make config` 时，在 *matrixone* 目录下自动产生一个配置文件 *matrixone/system_vars_config.toml*。
+各个配置文件中所含参数解释如下：
 
-相关参数设置如下：
+### cn.toml
 
-### 常规设置
+|参数|参数解释|
+|---|---|
+|service-type = "CN" |节点类型|
+|data-dir = "./mo-data"|默认数据目录|
+|[log]||
+|level = "info" |日志级别，可修改为 info/debug/error/faltal|
+|format = "console" |日志格式|
+|max-size = 512|日志默认长度|
+|[hakeeper-client]|HAkeeper 默认地址与端口，不建议更改|
+|service-addresses = [<br>  "127.0.0.1:32001",<br>]||
+|[[fileservice]] |fileservice 配置，不建议更改|
+|name = "LOCAL"|fileservice 存储类型，本地存储|
+|backend = "DISK"|fileservice 后端介质，磁盘|
+|[[fileservice]]||
+|name = "S3" |fileservice 存储类型，S3|
+|backend = "DISK"|fileservice 后端介质，磁盘|
+|data-dir = "mo-data/s3"|s3 存储数据路径|
+|[[fileservice]]||
+|name = "ETL"|fileservice 存储类型，ETL|
+|backend = "DISK-ETL"|fileservice 后端介质，DISK-ETL|
+|[observability]|可观测性参数，默认不开启|
+|disableTrace = true||
+|disableMetric = true||
+|[cn] |cn 节点的编号，不可修改|
+|uuid = "dd1dccb4-4d3c-41f8-b482-5251dc7a41bf"||
+|[cn.Engine]|cn 节点的存储引擎，分布式 tae，不可修改|
+|type = "distributed-tae"||
 
-| 参数  | 数据类型  |  默认值   | 取值范围  | 作用 |
-|  ----  | ----  |  --------  |  --- | --- |
-| rootpassword  | string | 	""  | string value |  用户的密码|
-| dumpdatabase  | string | 	default  | string value |  用于备份的转储数据库名|
-| port  | int64 | 	6001  | [0 - 65536] | 定义了MO服务器监听以及客户端连接的端口|
-| host  | string | 	0.0.0.0  | [0.0.0.0 - 255.255.255.255]  | 监听IP|
+## dn.toml
 
-### Log 设置
+|参数|参数解释|
+|---|---|
+|service-type = "DN" |节点类型|
+|data-dir = "./mo-data"|默认数据目录|
+|[log]||
+|level = "info" |日志级别，可修改为info/debug/error/faltal|
+|format = "console" |日志格式|
+|max-size = 512|日志默认长度|
+|[hakeeper-client]|HAkeeper 默认地址与端口，不建议更改|
+|service-addresses = [<br>  "127.0.0.1:32001",<br>]||
+|[[fileservice]] |fileservice 配置，不建议更改|
+|name = "LOCAL"|fileservice 存储类型，本地存储|
+|backend = "DISK"|fileservice 后端介质，磁盘|
+|[[fileservice]]||
+|name = "S3" |fileservice 存储类型，S3|
+|backend = "DISK"|fileservice 后端介质，磁盘|
+|data-dir = "mo-data/s3"|s3 存储数据路径|
+|[[fileservice]]||
+|name = "ETL"|fileservice 存储类型，ETL|
+|backend = "DISK-ETL"|fileservice 后端介质，DISK-ETL|
+|[dn]||
+|uuid = "dd4dccb4-4d3c-41f8-b482-5251dc7a41bf"|dn 的 uuid，不可修改|
+|[dn.Txn.Storage]|dn 事务后端的存储引擎，不可修改|
+|backend = "TAE" ||
+|log-backend = "logservice"||
+|[dn.Ckp]|dn 的 checkpoint 相关参数，不建议更改|
+|flush-interval = "60s" |内部刷新间隔|
+|min-count = 100 |checkpoint 最小个数|
+|scan-interval = "5s"|内部扫描间隔|
+|incremental-interval = "180s"|checkpoint 自增间隔|
+|global-interval = "100000s" |全局 checkpoint 间隔|
 
-| 参数  | 数据类型  |  默认值   | 取值范围  | 作用 |
-|  ----  | ----  |  --------  |  --- | --- |
-| logLevel  | string | debug  | [debug, info, warn, error, fatal] | 日志输出级别 |
-| logFormat  | string | 	json  | [json, console] |  输出日志样式 |
-| logFilename  | string | 	""  | string value | 输出日志文件名称 |
-| logMaxSize  | int64 | 	512  |  [0 - 314572800] | 最大日志文件大小|
-| logMaxDays  | int64 | 	0  |  [0 - 314572800] | 日志文件最多保存天数|
-| logMaxBackups  | int64 | 	0  |  [0 - 314572800] | 旧日志文件最多保留数目maximum numbers of old log files to retain|
-| lengthOfQueryPrinted  | int64 | 	50  |  [-1 - 10000] | 打印到控制台的查询的长度。“-1”：完整的字符串。“0”：空字符串。“>0"：字符串头部的字符长度。|
-| printLogInterVal  | int64 | 	10  |  [1 - 1000] | 打印日志的时间间隔 |
+## log.toml
 
-### 数据存储设置
-
-| 参数  | 数据类型  |  默认值   | 取值范围  | 作用 |
-|  ----  | ----  |  --------  |  --- | --- |
-| storePath  | string | ./store  | file path | 数据存储的根目录 |
-
-### 内存设置
-
-| 参数  | 数据类型  |  默认值   | 取值范围  | 作用 |
-|  ----  | ----  |  --------  |  --- | --- |
-| hostMmuLimitation  | int64 | 1099511627776  | [0 - 1099511627776] | 主机的mmu限制，默认值: 1 << 40 = 1099511627776  |
-| guestMmuLimitation  | int64 | 1099511627776  | [0 - 1099511627776] | 虚拟机的mmu限制默认值: 1 << 40 = 1099511627776  |
-| mempoolMaxSize  | int64 | 1099511627776  | [0 - 1099511627776] | 内存最大容量 默认值: 1 << 40 = 1099511627776  |
-| mempoolFactor  | int64 | 8  | [0 - TBD] | mempool factor，默认值: 8   |
-| processLimitationSize  | int64 | 42949672960  | [0 - 42949672960] | process.Limitation.Size，默认值: 10 << 32 = 42949672960  |
-| processLimitationBatchRows  | int64 | 42949672960  | [0 - 42949672960] | process.Limitation.BatchRows，默认值: 10 << 32 = 42949672960  |
-| processLimitationPartitionRows  | int64 | 42949672960  | [0 - 42949672960] | process.Limitation.PartitionRows，默认值: 10 << 32 = 42949672960  |
-
-### 数据指标设置
-
-| 参数  | 数据类型  |  默认值   | 取值范围  | 作用 |
-|  ----  | ----  |  --------  |  --- | --- |
-| statusPort  | int64 | 7001  | All ports | statusPort 定义状态服务器监听的端口和客户端连接的端口 |
-| metricToProm  | bool | true  | true false | 如果设置为 true，数据指标可以通过 host:status/metrics endpoint 抓取 |
-| enableMetric  | bool | true  | true false | 默认为 true，表示在启动时启用数据指标|
-
-### 其他设置
-
-| 参数  | 数据类型  |  默认值   | 取值范围  | 作用 |
-|  ----  | ----  |  --------  |  --- | --- |
-| batchSizeInLoadData  | int64 | 50  | 10 - 40000 | 在加载数据时，批处理的行数 |
-| loadDataConcurrencyCount  | int64 | 4  | 1 - 16 | 加载数据的并发线程 |
-| maxBytesInOutbufToFlush  | int64 | 1024  | 32 - 4096 KB | 输出内存缓冲区，当缓冲区超过此限制时将刷新该缓冲区 |
-| exportDataDefaultFlushSize  | int64 | 1  | 1,2,4,8 MB| 导出数据到 *.csv* 文件默认 flush 大小   |
+|参数|参数解释|
+|---|---|
+|service-type = "LOG" |节点类型|
+|data-dir = "./mo-data"|默认数据目录|
+|[log]||
+|level = "info" |日志级别，可修改为info/debug/error/faltal|
+|format = "console" |日志格式|
+|max-size = 512|日志默认长度|
+|[[fileservice]]||
+|name = "S3" |fileservice 存储类型，S3|
+|backend = "DISK"|fileservice 后端介质，磁盘|
+|data-dir = "mo-data/s3"|s3 存储数据路径|
+|[[fileservice]]||
+|name = "ETL"|fileservice 存储类型，ETL|
+|backend = "DISK-ETL"|fileservice 后端介质，DISK-ETL|
+|[observability]|监控相关参数|
+|statusPort = 7001|预留普罗米修斯的监控端口|
+|enableTraceDebug = false|开启 trace 功能的 dbug 模式|
+|[hakeeper-client]|HAkeeper 默认地址与端口，不建议更改|
+|service-addresses = [<br>  "127.0.0.1:32001",<br>]||
+|[logservice] |logservice 的相关参数，不可修改|
+|deployment-id = 1 |logservice 的部署 id|
+|uuid = "7c4dccb4-4d3c-41f8-b482-5251dc7a41bf"|logservice 的节点 id|
+|raft-address = "127.0.0.1:32000"|raft 协议使用的地址|
+|logservice-address = "127.0.0.1:32001"|logservice 服务地址|
+|gossip-address = "127.0.0.1:32002" |gossip 协议的地址|
+|gossip-seed-addresses = [<br>"127.0.0.1:32002",<br>]|gossip 协议的种子节点地址|
+|gossip-allow-self-as-seed = true|是否允许 gossip 协议用本节点做种子节点|
+|[logservice.BootstrapConfig]|bootstrap 相关参数，不可修改|
+|bootstrap-cluster = true|bootstrap 是否集群启动|
+|num-of-log-shards = 1|logservice 的分片数|
+|num-of-dn-shards = 1|dn 的分片数|
+|num-of-log-shard-replicas = 1|logservice 分片的副本数|
+|init-hakeeper-members = [ <br>"131072:7c4dccb4-4d3c-41f8-b482-5251dc7a41bf",<br>]|初始化 hakeeper 的成员|

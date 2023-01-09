@@ -47,7 +47,7 @@ mysql> select * from mo_ts.slow_query_with_plan;
 执行如下内容脚本：
 
 ```sql
-create database mo_ts;
+create database mo_ts if not exists mo_ts;
 use mo_ts;
 create view error_message as select timestamp,message from system.log_info where level in ('error','panic','faltal');
 create view error_sql as select si.request_at time_stamp,si.statement,si.error as SQL from system.statement_info si where si.user<>'internal' and si.status='Failed' ;
