@@ -19,30 +19,25 @@ WHERE columnN LIKE pattern;
 
 ## **示例**
 
-```
-> SELECT * FROM Customers
+```sql
+mysql> SELECT * FROM Customers
 WHERE CustomerName LIKE 'a%'; //The following SQL statement selects all customers with a CustomerName starting with "a"
 
-> SELECT * FROM Customers
+mysql> SELECT * FROM Customers
 WHERE CustomerName LIKE '%a'; //The following SQL statement selects all customers with a CustomerName ending with "a"
 
-> SELECT * FROM Customers
+mysql> SELECT * FROM Customers
 WHERE CustomerName LIKE '%or%'; //The following SQL statement selects all customers with a CustomerName that have "or" in any position
 
-> SELECT * FROM Customers
+mysql> SELECT * FROM Customers
 WHERE CustomerName LIKE '_r%'; //The following SQL statement selects all customers with a CustomerName that have "r" in the second position
 
-> SELECT * FROM Customers
+mysql> SELECT * FROM Customers
 WHERE CustomerName LIKE 'a__%'; //The following SQL statement selects all customers with a CustomerName that starts with "a" and are at least 3 characters in length
 
-> SELECT * FROM Customers
+mysql> SELECT * FROM Customers
 WHERE ContactName LIKE 'a%o'; //The following SQL statement selects all customers with a ContactName that starts with "a" and ends with "o"
 
-> SELECT * FROM Customers
+mysql> SELECT * FROM Customers
 WHERE CustomerName NOT LIKE 'a%'; //The following SQL statement selects all customers with a CustomerName that does NOT start with "a"
-
 ```
-
-## **限制**
-
-现不支持`NOT LIKE`语句。

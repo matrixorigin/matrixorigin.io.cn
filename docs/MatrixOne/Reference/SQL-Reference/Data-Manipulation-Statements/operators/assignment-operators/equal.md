@@ -21,10 +21,11 @@ WHERE columnN = value1;
 ## **示例**
 
 ```sql
-> create table t1 (a bigint(3), b bigint(5) primary key);
-> insert INTO t1 VALUES (1,1),(1,2);
-> update t1 set a=2 where a=1 limit 1;
-> select * from t1;
+create table t1 (a bigint(3), b bigint(5) primary key);
+insert into t1 VALUES (1,1),(1,2);
+update t1 set a=2 where a=1 limit 1;
+
+mysql> select * from t1;
 +------+------+
 | a    | b    |
 +------+------+

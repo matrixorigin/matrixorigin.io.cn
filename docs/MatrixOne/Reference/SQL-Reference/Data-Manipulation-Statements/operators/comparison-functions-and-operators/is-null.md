@@ -13,7 +13,7 @@
 ## **示例**
 
 ```sql
-> SELECT 1 IS NULL, 0 IS NULL, NULL IS NULL;
+mysql> SELECT 1 IS NULL, 0 IS NULL, NULL IS NULL;
 +-----------+-----------+--------------+
 | 1 is null | 0 is null | null is null |
 +-----------+-----------+--------------+
@@ -23,9 +23,10 @@
 ```
 
 ```sql
-> create table t1 (a boolean,b bool);
-> insert into t1 values (0,1),(true,false),(true,1),(0,false),(NULL,NULL);
-> select * from t1;
+create table t1 (a boolean,b bool);
+insert into t1 values (0,1),(true,false),(true,1),(0,false),(NULL,NULL);
+
+mysql> select * from t1;
 +-------+-------+
 | a     | b     |
 +-------+-------+
@@ -35,7 +36,7 @@
 | false | false |
 | NULL  | NULL  |
 +-------+-------+
-> select * from t1 where a IS NULL;
+mysql> select * from t1 where a IS NULL;
 +------+------+
 | a    | b    |
 +------+------+

@@ -13,7 +13,7 @@
 ## **示例**
 
 ```sql
-> SELECT 2 NOT BETWEEN 1 AND 3, 2 NOT BETWEEN 3 and 1;
+mysql> SELECT 2 NOT BETWEEN 1 AND 3, 2 NOT BETWEEN 3 and 1;
 +-----------------------+-----------------------+
 | 2 not between 1 and 3 | 2 not between 3 and 1 |
 +-----------------------+-----------------------+
@@ -23,17 +23,18 @@
 ```
 
 ```sql
-> create table t (id bigint unsigned, b int);
-> insert into t values(8894754949779693574,1);
-> insert into t values(8894754949779693579,2);
-> insert into t values(17790886498483827171,3);
-> select count(*) from t where id>=8894754949779693574 and id =17790886498483827171 order by 1 asc;
+create table t (id bigint unsigned, b int);
+insert into t values(8894754949779693574,1);
+insert into t values(8894754949779693579,2);
+insert into t values(17790886498483827171,3);
+
+mysql> select count(*) from t where id>=8894754949779693574 and id =17790886498483827171 order by 1 asc;
 +----------+
 | count(*) |
 +----------+
 |        0 |
 +----------+
-> select count(*) from t where id not between 8894754949779693574 and 17790886498483827171;
+mysql> select count(*) from t where id not between 8894754949779693574 and 17790886498483827171;
 +----------+
 | count(*) |
 +----------+

@@ -13,7 +13,7 @@
 ## **示例**
 
 ```sql
-> SELECT 1 IS NOT TRUE, 0 IS NOT FALSE, NULL IS NOT UNKNOWN;
+mysql> SELECT 1 IS NOT TRUE, 0 IS NOT FALSE, NULL IS NOT UNKNOWN;
 +-----------+------------+----------+
 | 1 != true | 0 != false | null !=  |
 +-----------+------------+----------+

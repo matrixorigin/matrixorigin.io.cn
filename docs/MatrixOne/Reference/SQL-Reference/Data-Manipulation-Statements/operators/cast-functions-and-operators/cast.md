@@ -29,17 +29,18 @@
 ## **示例**
 
 ```sql
-> drop table if exists t1;
-> CREATE TABLE t1 (a int,b float,c char(1),d varchar(15));
-> INSERT INTO t1 VALUES (1,1.5,'1','-2');
-> SELECT CAST(a AS FLOAT) a_cast,CAST(b AS UNSIGNED) b_cast,CAST(c AS SIGNED) c_cast, CAST(d AS SIGNED) d_cast from t1;
+drop table if exists t1;
+CREATE TABLE t1 (a int,b float,c char(1),d varchar(15));
+INSERT INTO t1 VALUES (1,1.5,'1','-2');
+
+mysql> SELECT CAST(a AS FLOAT) a_cast,CAST(b AS UNSIGNED) b_cast,CAST(c AS SIGNED) c_cast, CAST(d AS SIGNED) d_cast from t1;
 +--------+--------+--------+--------+
 | a_cast | b_cast | c_cast | d_cast |
 +--------+--------+--------+--------+
 | 1.0000 |      1 |      1 |     -2 |
 +--------+--------+--------+--------+
 
-> SELECT CAST(a AS CHAR) a_cast, CAST(b AS CHAR) b_cast,CAST(c AS DOUBLE) c_cast, CAST(d AS FLOAT) d_cast from t1;
+mysql> SELECT CAST(a AS CHAR) a_cast, CAST(b AS CHAR) b_cast,CAST(c AS DOUBLE) c_cast, CAST(d AS FLOAT) d_cast from t1;
 +--------+--------+--------+---------+
 | a_cast | b_cast | c_cast | d_cast  |
 +--------+--------+--------+---------+

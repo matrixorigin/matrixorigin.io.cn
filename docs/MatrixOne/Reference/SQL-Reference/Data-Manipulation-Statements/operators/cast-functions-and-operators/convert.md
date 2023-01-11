@@ -34,7 +34,7 @@
 ## **示例**
 
 ```sql
-> select convert(150,char);
+mysql> select convert(150,char);
 +-------------------+
 | cast(150 as char) |
 +-------------------+
@@ -44,9 +44,10 @@
 ```
 
 ```sql
-> CREATE TABLE t1(a tinyint);
-> INSERT INTO t1 VALUES (127);
-> SELECT 1 FROM
+CREATE TABLE t1(a tinyint);
+INSERT INTO t1 VALUES (127);
+
+mysql> SELECT 1 FROM
   -> (SELECT CONVERT(t2.a USING UTF8) FROM t1, t1 t2 LIMIT 1) AS s LIMIT 1;
 +------+
 | 1    |

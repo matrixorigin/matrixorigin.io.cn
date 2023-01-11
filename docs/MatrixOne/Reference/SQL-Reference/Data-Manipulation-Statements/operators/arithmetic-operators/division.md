@@ -19,7 +19,7 @@
 ## **示例**
 
 ```sql
-> select 1123.2333/1233.3331;
+mysql> select 1123.2333/1233.3331;
 +-----------------------+
 | 1123.2333 / 1233.3331 |
 +-----------------------+
@@ -29,10 +29,11 @@
 ```
 
 ```sql
-> create table t2(c1 int, c2 int);
-> insert into t2 values (-3, 2);
-> insert into t2 values (1, 2);
-> select c1/2 from t2;
+create table t2(c1 int, c2 int);
+insert into t2 values (-3, 2);
+insert into t2 values (1, 2);
+
+mysql> select c1/2 from t2;
 +--------+
 | c1 / 2 |
 +--------+
@@ -40,7 +41,8 @@
 |    0.5 |
 +--------+
 2 rows in set (0.00 sec)
-> select c1/c2 from t2;
+
+mysql> select c1/c2 from t2;
 +---------+
 | c1 / c2 |
 +---------+

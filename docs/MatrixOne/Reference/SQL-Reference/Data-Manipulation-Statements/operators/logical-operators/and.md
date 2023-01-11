@@ -13,25 +13,25 @@
 ## **示例**
 
 ```sql
-> select 1 and 1;
+mysql> select 1 and 1;
 +---------+
 | 1 and 1 |
 +---------+
 | true    |
 +---------+
-> select 1 and 0;
+mysql> select 1 and 0;
 +---------+
 | 1 and 0 |
 +---------+
 | false   |
 +---------+
-> select 1 and null;
+mysql> select 1 and null;
 +------------+
 | 1 and null |
 +------------+
 | NULL       |
 +------------+
-> select null and 0;
+mysql> select null and 0;
 +------------+
 | null and 0 |
 +------------+
@@ -41,10 +41,9 @@
 ```
 
 ```sql
-> create table t1 (a boolean,b bool);
-> insert into t1 values (0,1),(true,false),(true,1),(0,false),(NULL,NULL);
-> select * from t1;
-> select a and b from t1;
+create table t1 (a boolean,b bool);
+insert into t1 values (0,1),(true,false),(true,1),(0,false),(NULL,NULL);
+mysql> select a and b from t1;
 +---------+
 | a and b |
 +---------+
