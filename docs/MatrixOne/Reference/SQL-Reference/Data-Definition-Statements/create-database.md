@@ -19,10 +19,7 @@
 ## **示例**
 
 ```sql
-CREATE DATABASE test01;
 CREATE DATABASE IF NOT EXISTS test01;
-CREATE DATABASE test02 DEFAULT CHARACTER SET utf8 collate utf8_general_ci ENCRYPTION 'Y';
-CREATE DATABASE test03 CHARACTER SET=utf8 collate=utf8_general_ci ENCRYPTION='N';
 ```
 
 **预期结果**
@@ -40,16 +37,14 @@ mysql> show databases;
 | system_metrics     |
 | system             |
 | test01             |
-| test02             |
-| test03             |
 | mo_catalog         |
 +--------------------+
 10 rows in set (0.01 sec)
 ```
 
-可以看到，除了已存在的 6 个系统数据库以外，新的数据库 *test01*，*test02* 和 *test03* 已经创建。
+可以看到，除了已存在的 6 个系统数据库以外，新的数据库 *test01* 已经创建。
 
 ## **限制**
 
 - 目前只支持 `UTF-8` 字符集。
-- `CHARACTER SET`，`COLLATE`，`ENCRYPTION` 目前可以使用但无法生效
+- `CHARACTER SET`，`COLLATE`，`ENCRYPTION` 目前可以使用但无法生效。
