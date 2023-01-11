@@ -12,7 +12,7 @@
 
 `REVOKE` 语句与 `GRANT` 相关，允许租户删除用户权限。有关 `REVOKE` 的更多信息，请参阅 [REVOKE](revoke.md)。
 
-一般情况下，一个集群默认有一个 *root*，*root* 首先使用 `CREATE ACCOUNT` 创建一个新账户，并定义它的非特权权限，例如它的密码，然后租户使用 `CREATE USER` 创建用户并使用 `GRANT` 对其赋权。 `ALTER ACCOUNT` 可用于修改现有租户的非特权特征。 `ALTER USER` 用于修改现有用户的权限特征。如需了解 MatrixOne 支持的权限以及不同层级的权限，请参阅 [MatrixOne 权限分类](../../access-control-type.md)。
+一般情况下，一个集群默认有一个 *root*，*root* 首先使用 `CREATE ACCOUNT` 创建一个新账户，并定义它的非特权权限，例如它的密码，然后租户使用 `CREATE USER` 创建用户并使用 `GRANT` 对其赋权。 `ALTER ACCOUNT` 可用于修改现有租户的非特权特征。 `ALTER USER` 用于修改现有用户的权限特征。如需了解 MatrixOne 支持的权限以及不同层级的权限，请参阅 [MatrixOne 权限分类](../../../access-control-type.md)。
 
 `GRANT` 在成功执行后，得到结果 `Query OK, 0 rows affected` 。要查看操作产生的权限，请使用 [SHOW GRANTS](show-grants.md)
 

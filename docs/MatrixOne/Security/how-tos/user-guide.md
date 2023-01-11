@@ -27,7 +27,7 @@ create account <account_name> admin_name='<user_name>' identified by '<password>
 |<user_name>|新建租户的管理员用户名，其会被自动授予租户的最高权限角色，即 `ACCOUNTADMIN`|
 |<password>|新建的租户管理员密码|
 
-更多信息，参见[CREATE ACCOUNT](../../Reference/SQL-Reference/Database-Administration-Statements/create-account.md)。
+更多信息，参见[CREATE ACCOUNT](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/create-account.md)。
 
 ### 查看租户
 
@@ -54,7 +54,7 @@ drop account if exists <account_name>;
 !!! note
     删除租户后则无法恢复，包括租户账号下的所有数据，请谨慎使用。
 
-更多信息，参见[DROP ACCOUNT](../../Reference/SQL-Reference/Database-Administration-Statements/drop-account.md)。
+更多信息，参见[DROP ACCOUNT](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/drop-account.md)。
 
 ## 管理用户
 
@@ -79,7 +79,7 @@ create user <user_name> identified by '<password>';
 |<user_name>|新建用户的名称|
 |<password>|新建的用户密码|
 
-更多信息，参见[CREATE USER](../../Reference/SQL-Reference/Database-Administration-Statements/create-user.md)。
+更多信息，参见[CREATE USER](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/create-user.md)。
 
 ### 查看用户
 
@@ -118,7 +118,7 @@ drop user if exist <user_name>;
 !!! note
     删除用户时，需要先停止用户当前存在的会话，否则删除失败。
 
-更多信息，参见[DROP USER](../../Reference/SQL-Reference/Database-Administration-Statements/drop-user.md)。
+更多信息，参见[DROP USER](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/drop-user.md)。
 
 ## 管理角色
 
@@ -142,7 +142,7 @@ create role <role_name>;
 |---|---|
 |<role_name>|新建角色的名称|
 
-更多信息，参见[CREATE ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/create-role.md)。
+更多信息，参见[CREATE ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/create-role.md)。
 
 ### 查看角色
 
@@ -176,7 +176,7 @@ set role <role_name>;
 |---|---|
 |<role_name>|角色的名称|
 
-更多信息，参见[SET ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/set-role.md)。
+更多信息，参见[SET ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/set-role.md)。
 
 ### 删除角色
 
@@ -201,7 +201,7 @@ drop role if exists <role_name>;
 !!! note
     删除某个指定角色时，会同时回收已经被授权的用户的角色。
 
-更多信息，参见[DROP ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/drop-role.md)。
+更多信息，参见[DROP ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/drop-role.md)。
 
 ## 管理权限
 
@@ -228,7 +228,7 @@ grant <privilege> on <object_type> <object_name> to <role_name>
 |<object_name>|对象名称|
 |<role_name>|被赋予权限的角色|
 
-更多信息，参见[DRANT PRIVILEGES](../../Reference/SQL-Reference/Database-Administration-Statements/grant-privileges.md)。
+更多信息，参见[DRANT PRIVILEGES](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/grant-privileges.md)。
 
 ### 向角色授予某类对象权限
 
@@ -255,7 +255,7 @@ grant <privilege> on table *.* to <role_name>;
 !!! note
     该操作虽然在授权多个相同类别对象时比较简便，但也很容易发生权限泄漏，请谨慎使用。
 
-更多信息，参见[DRANT PRIVILEGES](../../Reference/SQL-Reference/Database-Administration-Statements/grant-privileges.md)。
+更多信息，参见[DRANT PRIVILEGES](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/grant-privileges.md)。
 
 ### 向用户授予角色
 
@@ -278,7 +278,7 @@ grant <role_name> to <user_name>;
 |<role_name>|被赋予权限的角色|
 |<user_name>|被赋予权限的用户|
 
-更多信息，参见[DRANT ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/grant-role.md)。
+更多信息，参见[DRANT ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/grant-role.md)。
 
 ### 让一个角色继承另一个角色的权限
 
@@ -297,7 +297,7 @@ grant <role_a> to <role_b>;
 !!! note
     该权限继承为动态继承，若 role_a 的权限发生改变，则 role_b 所继承的权限也会动态更改。MatrixOne 不允许角色环继承，即 role1 继承 role2，role2 继承 role3，但是 role3 继承 不能继承 role1。
 
-更多信息，参见[DRANT ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/grant-role.md)。
+更多信息，参见[DRANT ROLE](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/grant-role.md)。
 
 ### 查看某一用户所拥有的权限
 
@@ -319,7 +319,7 @@ show grants for <user_name>@<localhost>
 |---|---|
 |<user_name>|被赋予权限的用户|
 
-更多信息，参见[SHOW GRANTS](../../Reference/SQL-Reference/Database-Administration-Statements/show-grants.md)。
+更多信息，参见[SHOW GRANTS](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/show-grants.md)。
 
 ### 回收授权用户的某个角色
 
@@ -342,7 +342,7 @@ revoke <role_name> from <user_name>
 |<role_name>|被赋予权限的角色|
 |<user_name>|被赋予权限的用户|
 
-更多信息，参见[REVOKE](../../Reference/SQL-Reference/Database-Administration-Statements/revoke.md)。
+更多信息，参见[REVOKE](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/revoke.md)。
 
 ### 回收角色中的某个对象权限
 
@@ -367,4 +367,4 @@ revoke <privilege> on <object_type> <object_name> to <role_name>;
 |<object_name>|对象名称|
 |<role_name>|被赋予权限的角色|
 
-更多信息，参见[REVOKE](../../Reference/SQL-Reference/Database-Administration-Statements/revoke.md)。
+更多信息，参见[REVOKE](../../Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/revoke.md)。
