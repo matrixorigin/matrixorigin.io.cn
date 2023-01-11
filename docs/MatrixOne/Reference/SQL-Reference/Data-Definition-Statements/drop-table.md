@@ -10,13 +10,11 @@
 > DROP TABLE [IF EXISTS] [db.]name
 ```
 
-#### 语法图
-
-![Drop Table Diagram](https://github.com/matrixorigin/artwork/blob/main/docs/reference/drop_table_statement.png?raw=true)
-
 ## **示例**
 
-```
-> CREATE TABLE table01(a int);
-> DROP TABLE table01;
+```sql
+CREATE TABLE table01(a int);
+
+mysql> DROP TABLE table01;
+Query OK, 0 rows affected (0.01 sec)
 ```

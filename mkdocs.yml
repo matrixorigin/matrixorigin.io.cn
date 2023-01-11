@@ -139,41 +139,39 @@ nav:
         - 权限管理操作: MatrixOne/Security/how-tos/user-guide.md
       - 应用场景: MatrixOne/Security/app-scenarios.md
     - 参考手册:
-      - SQL目录:
-        - DAL:
-          - CREATE ACCOUNT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/create-account.md
-          - CREATE ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/create-role.md
-          - CREATE USER: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/create-user.md
-          - DROP ACCOUNT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/drop-account.md
-          - DROP USER: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/drop-user.md
-          - DROP ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/drop-role.md
-          - GRANT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/grant.md
-          - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/show-grants.md
-          - SET ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/set-role.md
-          - REVOKE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/revoke.md
-        - DDL:
+      - SQL 目录:
+        - Database Administration Statements:
+          - Account Management Statements:
+            - CREATE ACCOUNT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/create-account.md
+            - CREATE ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/create-role.md
+            - CREATE USER: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/create-user.md
+            - DROP ACCOUNT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/drop-account.md
+            - DROP USER: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/drop-user.md
+            - DROP ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/drop-role.md
+            - GRANT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/grant.md
+            - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/show-grants.md
+            - SET ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/set-role.md
+            - REVOKE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/revoke.md
+          - SHOW Statements:
+            - SHOW DATABASES Statement: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/SHOW-Statements/show-databases.md
+            - SHOW TABLES Statement: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/SHOW-Statements/show-tables.md
+        - Data Definition Statements:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-database.md
           - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-table.md
-          - CREATE TEMPORARY TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-temporary-tables.md
           - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md
-          - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/show-databases.md
           - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-database.md
           - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-table.md
-          - PRIMARY KEY: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/primary-key.md
           - VIEW:
             - VIEW Overview: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/using-view/view-overview.md
             - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/using-view/create-view.md
             - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/using-view/drop-view.md
-        - DML:
+        - Data Manipulation Statements:
           - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/insert.md
           - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/insert-into-select.md
           - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/update.md
           - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/delete.md
           - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md
           - SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/select.md
-          - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/show-databases.md
-          - SHOW TABLES: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/show-tables.md
-          - USE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/use.md
           - INTERVAL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/interval.md
           - With CTE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/with-cte.md
           - Set Operations:
@@ -269,10 +267,12 @@ nav:
           - BIT_XOR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_xor.md
           - STDDEV_POP: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/stddev_pop.md
           - VAR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/var.md
-        - Explain:
-          - EXPLAIN: MatrixOne/Reference/SQL-Reference/Explain/explain.md
-          - EXPLAIN 输出结构: MatrixOne/Reference/SQL-Reference/Explain/explain-workflow.md
-          - Explain Analyze: MatrixOne/Reference/SQL-Reference/Explain/explain-analyze.md
+        - Utility Statements:
+          - Explain:
+            - EXPLAIN: MatrixOne/Reference/SQL-Reference/Utility-Statements/Explain/explain.md
+            - EXPLAIN 输出结构: MatrixOne/Reference/SQL-Reference/Utility-Statements/Explain/explain-workflow.md
+            - Explain Analyze: MatrixOne/Reference/SQL-Reference/Utility-Statements/Explain/explain-analyze.md
+          - USE Statement: MatrixOne/Reference/SQL-Reference/Utility-Statements/use.md
         - 系统变量:
           - 自定义变量: MatrixOne/Reference/Variable/custom-variable.md
       - 数据类型:

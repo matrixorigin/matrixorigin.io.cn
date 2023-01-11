@@ -16,23 +16,35 @@
 }
 ```
 
-#### 语法图
-
-![Create Database Diagram](https://github.com/matrixorigin/artwork/blob/main/docs/reference/create_database_statement.png?raw=true)
-
 ## **示例**
 
+```sql
+CREATE DATABASE IF NOT EXISTS test01;
 ```
-> CREATE DATABASE test01;
 
-> CREATE DATABASE IF NOT EXISTS test01;
+**预期结果**
 
-> CREATE DATABASE test03 DEFAULT CHARACTER SET utf8 collate utf8_general_ci ENCRYPTION 'Y';
+你可以使用 [`SHOW DATABASES`](../Database-Administration-Statements/SHOW-Statements/show-databases.md) 检查数据库是否已创建。
 
-> CREATE DATABASE test04 CHARACTER SET=utf8 collate=utf8_general_ci ENCRYPTION='N';
+```sql
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| mo_task            |
+| information_schema |
+| mysql              |
+| system_metrics     |
+| system             |
+| test01             |
+| mo_catalog         |
++--------------------+
+10 rows in set (0.01 sec)
 ```
+
+可以看到，除了已存在的 6 个系统数据库以外，新的数据库 *test01* 已经创建。
 
 ## **限制**
 
 - 目前只支持 `UTF-8` 字符集。
-- `CHARACTER SET`，`COLLATE`，`ENCRYPTION` 目前可以使用但无法生效
+- `CHARACTER SET`，`COLLATE`，`ENCRYPTION` 目前可以使用但无法生效。
