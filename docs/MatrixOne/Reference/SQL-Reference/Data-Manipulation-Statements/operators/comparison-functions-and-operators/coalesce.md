@@ -115,7 +115,6 @@ mysql> SELECT MIN(b) AS min_b FROM t1 GROUP BY a ORDER BY COALESCE(MIN(b), 'a') 
 +-------+
 ```
 
-
 - 示例：含有 `Case When` 子句
 
 ```sql
