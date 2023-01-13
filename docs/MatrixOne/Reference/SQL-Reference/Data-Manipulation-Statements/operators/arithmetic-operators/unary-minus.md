@@ -14,7 +14,7 @@ FROM table_name;
 ## **示例**
 
 ```sql
-select -2;
+mysql> select -2;
 +------+
 | -2   |
 +------+
@@ -23,10 +23,11 @@ select -2;
 ```
 
 ```sql
-> create table t2(c1 int, c2 int);
-> insert into t2 values (-3, 2);
-> insert into t2 values (1, 2);
-> select -c1 from t2;
+create table t2(c1 int, c2 int);
+insert into t2 values (-3, 2);
+insert into t2 values (1, 2);
+
+mysql> select -c1 from t2;
 +------+
 | -c1  |
 +------+

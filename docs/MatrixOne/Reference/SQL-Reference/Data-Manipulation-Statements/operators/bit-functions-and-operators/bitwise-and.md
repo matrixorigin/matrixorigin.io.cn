@@ -19,7 +19,7 @@
 ## **示例**
 
 ```sql
-> SELECT 29 & 15;
+mysql> SELECT 29 & 15;
 +---------+
 | 29 & 15 |
 +---------+
@@ -27,9 +27,10 @@
 +---------+
 1 row in set (0.06 sec)
 
-> CREATE TABLE bitwise (a_int_value INT NOT NULL,b_int_value INT NOT NULL);
-> INSERT bitwise VALUES (170, 75);  
-> SELECT a_int_value & b_int_value FROM bitwise;  
+CREATE TABLE bitwise (a_int_value INT NOT NULL,b_int_value INT NOT NULL);
+INSERT bitwise VALUES (170, 75);  
+
+mysql> SELECT a_int_value & b_int_value FROM bitwise;  
 +---------------------------+
 | a_int_value & b_int_value |
 +---------------------------+

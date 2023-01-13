@@ -16,21 +16,21 @@ The return value has the same type as the first argument.
 ## **Examples**
 
 ```sql
-> SELECT NULLIF(1,1);
+mysql> SELECT NULLIF(1,1);
 +--------------+
 | nullif(1, 1) |
 +--------------+
 |         NULL |
 +--------------+
 1 row in set (0.00 sec)
-> SELECT NULLIF(1,2);
+mysql> SELECT NULLIF(1,2);
 +--------------+
 | nullif(1, 2) |
 +--------------+
 |            1 |
 +--------------+
 1 row in set (0.01 sec)
-> SELECT CAST(IFNULL(NULL, NULL) AS DECIMAL);
+mysql> SELECT CAST(IFNULL(NULL, NULL) AS DECIMAL);
 +-----------------------------------------+
 | cast(ifnull(null, null) as decimal(10)) |
 +-----------------------------------------+

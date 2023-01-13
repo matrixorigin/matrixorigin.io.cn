@@ -15,20 +15,21 @@ SELECT column_list FROM table_2;
 ## **示例**
 
 ```sql
-> drop table if exists t1;
-> drop table if exists t2;
-> create table t1 (a smallint, b bigint, c int);
-> insert into t1 values (1,2,3);
-> insert into t1 values (1,2,3);
-> insert into t1 values (3,4,5);
-> insert into t1 values (4,5,6);
-> insert into t1 values (4,5,6);
-> insert into t1 values (1,1,2);
-> create table t2 (a smallint, b bigint, c int);
-> insert into t2 values (1,2,3);
-> insert into t2 values (3,4,5);
-> insert into t2 values (1,2,1);
-> select * from t1 intersect select * from t2;
+drop table if exists t1;
+drop table if exists t2;
+create table t1 (a smallint, b bigint, c int);
+insert into t1 values (1,2,3);
+insert into t1 values (1,2,3);
+insert into t1 values (3,4,5);
+insert into t1 values (4,5,6);
+insert into t1 values (4,5,6);
+insert into t1 values (1,1,2);
+create table t2 (a smallint, b bigint, c int);
+insert into t2 values (1,2,3);
+insert into t2 values (3,4,5);
+insert into t2 values (1,2,1);
+
+mysql> select * from t1 intersect select * from t2;
 +------+------+------+
 | a    | b    | c    |
 +------+------+------+

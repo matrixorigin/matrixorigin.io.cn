@@ -42,9 +42,10 @@ END CASE
 ## **示例**
 
 ```sql
-> CREATE TABLE t1(c0 INTEGER, c1 INTEGER, c2 INTEGER);
-> INSERT INTO t1 VALUES(1, 1, 1), (1, 1, 1);
-> SELECT CASE AVG (c0) WHEN any_value(c1) * any_value(c2) THEN 1 END FROM t1;
+CREATE TABLE t1(c0 INTEGER, c1 INTEGER, c2 INTEGER);
+INSERT INTO t1 VALUES(1, 1, 1), (1, 1, 1);
+
+mysql> SELECT CASE AVG (c0) WHEN any_value(c1) * any_value(c2) THEN 1 END FROM t1;
 +------------------------------------------------------------+
 | case avg(c0) when any_value(c1) * any_value(c2) then 1 end |
 +------------------------------------------------------------+
@@ -52,7 +53,7 @@ END CASE
 +------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-> SELECT CASE any_value(c1) * any_value(c2) WHEN SUM(c0) THEN 1 WHEN AVG(c0) THEN 2 END FROM t1;
+mysql> SELECT CASE any_value(c1) * any_value(c2) WHEN SUM(c0) THEN 1 WHEN AVG(c0) THEN 2 END FROM t1;
 +--------------------------------------------------------------------------------+
 | case any_value(c1) * any_value(c2) when sum(c0) then 1 when avg(c0) then 2 end |
 +--------------------------------------------------------------------------------+
@@ -60,7 +61,7 @@ END CASE
 +--------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-> SELECT CASE any_value(c1) WHEN any_value(c1) + 1 THEN 1 END, ABS(AVG(c0)) FROM t1;
+mysql> SELECT CASE any_value(c1) WHEN any_value(c1) + 1 THEN 1 END, ABS(AVG(c0)) FROM t1;
 +------------------------------------------------------+--------------+
 | case any_value(c1) when any_value(c1) + 1 then 1 end | abs(avg(c0)) |
 +------------------------------------------------------+--------------+

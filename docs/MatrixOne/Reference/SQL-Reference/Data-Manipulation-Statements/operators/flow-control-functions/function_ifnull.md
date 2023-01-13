@@ -14,7 +14,7 @@ The default return type of `IFNULL(expr1,expr2)` is the more "general" of the tw
 ## **Examples**
 
 ```sql
-> SELECT IFNULL(NULL,10);
+mysql> SELECT IFNULL(NULL,10);
 +------------------+
 | ifnull(null, 10) |
 +------------------+
@@ -24,7 +24,7 @@ The default return type of `IFNULL(expr1,expr2)` is the more "general" of the tw
 ```
 
 ```sql
-SELECT CAST(IFNULL(NULL, NULL) AS DECIMAL);
+mysql> SELECT CAST(IFNULL(NULL, NULL) AS DECIMAL);
 +-----------------------------------------+
 | cast(ifnull(null, null) as decimal(10)) |
 +-----------------------------------------+

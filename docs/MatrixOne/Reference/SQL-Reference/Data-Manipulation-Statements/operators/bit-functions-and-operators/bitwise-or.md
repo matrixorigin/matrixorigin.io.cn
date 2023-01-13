@@ -19,7 +19,7 @@
 ## **示例**
 
 ```sql
-> SELECT 29 | 15;
+mysql> SELECT 29 | 15;
 +---------+
 | 29 | 15 |
 +---------+
@@ -27,7 +27,7 @@
 +---------+
 1 row in set (0.01 sec)
 
-> > select null | 2;
+mysql> select null | 2;
 +----------+
 | null | 2 |
 +----------+
@@ -35,7 +35,7 @@
 +----------+
 1 row in set (0.01 sec)
 
-> select null | 2;
+mysql> select null | 2;
 +----------+
 | null | 2 |
 +----------+
@@ -43,9 +43,10 @@
 +----------+
 1 row in set (0.01 sec)
 
-> create table t1(a int, b int unsigned);
-> insert into t1 values (-1, 1), (-5, 5);
-> select a | 2, b | 2 from t1;
+create table t1(a int, b int unsigned);
+insert into t1 values (-1, 1), (-5, 5);
+
+mysql> select a | 2, b | 2 from t1;
 +-------+-------+
 | a | 2 | b | 2 |
 +-------+-------+

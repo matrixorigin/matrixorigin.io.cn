@@ -19,7 +19,7 @@
 ## **示例**
 
 ```sql
-> select ~-5;
+mysql> select ~-5;
 +--------+
 | ~ (-5) |
 +--------+
@@ -27,7 +27,7 @@
 +--------+
 1 row in set (0.00 sec)
 
-> select ~null;
+mysql> select ~null;
 +-------+
 | ~null |
 +-------+
@@ -35,7 +35,7 @@
 +-------+
 1 row in set (0.00 sec)
 
-> select ~a, ~b from t1;
+mysql> select ~a, ~b from t1;
 +------+----------------------+
 | ~a   | ~b                   |
 +------+----------------------+

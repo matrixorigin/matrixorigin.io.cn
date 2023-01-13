@@ -17,7 +17,7 @@ The `ISNULL()` function shares some special behaviors with the `IS NULL` compari
 ## **示例**
 
 ```sql
-> SELECT ISNULL(1+1);
+mysql> SELECT ISNULL(1+1);
 +---------------+
 | isnull(1 + 1) |
 +---------------+

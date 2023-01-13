@@ -25,14 +25,14 @@
 ## **示例**
 
 ```sql
-> SELECT IF(1>2,2,3);
+mysql> SELECT IF(1>2,2,3);
 +-----------------+
 | if(1 > 2, 2, 3) |
 +-----------------+
 |               3 |
 +-----------------+
 1 row in set (0.01 sec)
-> SELECT IF(1<2,'yes','no');
+mysql> SELECT IF(1<2,'yes','no');
 +--------------------+
 | if(1 < 2, yes, no) |
 +--------------------+
@@ -42,9 +42,10 @@
 ```
 
 ```sql
-> CREATE TABLE t1 (st varchar(255) NOT NULL, u int(11) NOT NULL);
-> INSERT INTO t1 VALUES ('a',1),('A',1),('aa',1),('AA',1),('a',1),('aaa',0),('BBB',0);
-> select if(u=1,st,st) s from t1 order by s;
+CREATE TABLE t1 (st varchar(255) NOT NULL, u int(11) NOT NULL);
+INSERT INTO t1 VALUES ('a',1),('A',1),('aa',1),('AA',1),('a',1),('aaa',0),('BBB',0);
+
+mysql> select if(u=1,st,st) s from t1 order by s;
 +------+
 | s    |
 +------+
@@ -58,7 +59,7 @@
 +------+
 7 rows in set (0.00 sec)
 
-> select if(u=1,st,st) s from t1 where st like "%a%" order by s;
+mysql> select if(u=1,st,st) s from t1 where st like "%a%" order by s;
 +------+
 | s    |
 +------+
@@ -72,4 +73,4 @@
 
 ## **限制**
 
-Parameters BIGINT and VARCHAR are not supported with the function 'if'.
+函数 `IF` 暂不支持参数 `BIGINT` 和 `VARCHAR`。

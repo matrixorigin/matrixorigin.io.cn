@@ -15,7 +15,7 @@
 ## **示例**
 
 ```sql
-> select 1 xor 1;
+mysql> select 1 xor 1;
 +---------+
 | 1 xor 1 |
 +---------+
@@ -23,7 +23,7 @@
 +---------+
 1 row in set (0.01 sec)
 
-> select 1 xor 0;
+mysql> select 1 xor 0;
 +---------+
 | 1 xor 0 |
 +---------+
@@ -31,7 +31,7 @@
 +---------+
 1 row in set (0.00 sec)
 
-> select 1 xor null;
+mysql> select 1 xor null;
 +------------+
 | 1 xor null |
 +------------+
@@ -39,7 +39,7 @@
 +------------+
 1 row in set (0.01 sec)
 
-> select 1 xor 1 xor 1;
+mysql> select 1 xor 1 xor 1;
 +---------------+
 | 1 xor 1 xor 1 |
 +---------------+
@@ -49,10 +49,10 @@
 ```
 
 ```sql
-> create table t1 (a boolean,b bool);
-> insert into t1 values (0,1),(true,false),(true,1),(0,false),(NULL,NULL);
-> select * from t1;
-> select a xor b from t1;
+create table t1 (a boolean,b bool);
+insert into t1 values (0,1),(true,false),(true,1),(0,false),(NULL,NULL);
+
+mysql> select a xor b from t1;
 +---------+
 | a xor b |
 +---------+

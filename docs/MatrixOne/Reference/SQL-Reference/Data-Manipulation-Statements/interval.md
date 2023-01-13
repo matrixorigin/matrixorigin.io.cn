@@ -29,7 +29,8 @@ date - INTERVAL expr unit
 |expr| 任何数值类型与字符串列的列名 |
 |unit| 说明符，例如 HOUR、DAY 或 WEEK|
 
-⚠️ 说明：`INTERVAL` 关键字和 `unit` 不区分大小写。
+!!! note
+    `INTERVAL` 关键字和 `unit` 不区分大小写。
 
 - **Interval 表达式和 unit 参数**
 
@@ -65,7 +66,7 @@ date - INTERVAL expr unit
 - 与 `DATE_ADD()` 和 `DATE_SUB()` 一起使用：
 
 ```SQL
-> SELECT DATE_SUB('2018-05-01',INTERVAL 1 YEAR);
+mysql> SELECT DATE_SUB('2018-05-01',INTERVAL 1 YEAR);
 +-----------------------------------------+
 | date_sub(2018-05-01, interval(1, year)) |
 +-----------------------------------------+
@@ -73,7 +74,7 @@ date - INTERVAL expr unit
 +-----------------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT DATE_ADD('2020-12-31 23:59:59', INTERVAL 1 SECOND);
+mysql> SELECT DATE_ADD('2020-12-31 23:59:59', INTERVAL 1 SECOND);
 +----------------------------------------------------+
 | date_add(2020-12-31 23:59:59, interval(1, second)) |
 +----------------------------------------------------+
@@ -81,7 +82,7 @@ date - INTERVAL expr unit
 +----------------------------------------------------+
 1 row in set (0.01 sec)
 
-> SELECT DATE_ADD('2018-12-31 23:59:59', INTERVAL 1 DAY);
+mysql> SELECT DATE_ADD('2018-12-31 23:59:59', INTERVAL 1 DAY);
 +-------------------------------------------------+
 | date_add(2018-12-31 23:59:59, interval(1, day)) |
 +-------------------------------------------------+
@@ -89,7 +90,7 @@ date - INTERVAL expr unit
 +-------------------------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT DATE_ADD('2100-12-31 23:59:59', INTERVAL '1:1' MINUTE_SECOND);
+mysql> SELECT DATE_ADD('2100-12-31 23:59:59', INTERVAL '1:1' MINUTE_SECOND);
 +-------------------------------------------------------------+
 | date_add(2100-12-31 23:59:59, interval(1:1, minute_second)) |
 +-------------------------------------------------------------+
@@ -97,7 +98,7 @@ date - INTERVAL expr unit
 +-------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT DATE_SUB('2025-01-01 00:00:00', INTERVAL '1 1:1:1' DAY_SECOND);
+mysql> SELECT DATE_SUB('2025-01-01 00:00:00', INTERVAL '1 1:1:1' DAY_SECOND);
 +--------------------------------------------------------------+
 | date_sub(2025-01-01 00:00:00, interval(1 1:1:1, day_second)) |
 +--------------------------------------------------------------+
@@ -105,15 +106,15 @@ date - INTERVAL expr unit
 +--------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT DATE_ADD('1900-01-01 00:00:00', INTERVAL '-1 10' DAY_HOUR);
+mysql> SELECT DATE_ADD('1900-01-01 00:00:00', INTERVAL '-1 10' DAY_HOUR);
 +----------------------------------------------------------+
 | date_add(1900-01-01 00:00:00, interval(-1 10, day_hour)) |
 +----------------------------------------------------------+
-| 1899-12-30 14:00:00                                      |
+| 1899-12-30 14:00:00.000000                               |
 +----------------------------------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT DATE_SUB('1998-01-02', INTERVAL 31 DAY);
+mysql> SELECT DATE_SUB('1998-01-02', INTERVAL 31 DAY);
 +-----------------------------------------+
 | date_sub(1998-01-02, interval(31, day)) |
 +-----------------------------------------+
@@ -121,7 +122,7 @@ date - INTERVAL expr unit
 +-----------------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT DATE_ADD('1992-12-31 23:59:59.000002', INTERVAL '1.999999' SECOND_MICROSECOND);
+mysql> SELECT DATE_ADD('1992-12-31 23:59:59.000002', INTERVAL '1.999999' SECOND_MICROSECOND);
 +------------------------------------------------------------------------------+
 | date_add(1992-12-31 23:59:59.000002, interval(1.999999, second_microsecond)) |
 +------------------------------------------------------------------------------+
@@ -135,7 +136,7 @@ date - INTERVAL expr unit
 - 与 `+` 或 `-` 一起使用：
 
 ```sql
-> SELECT '2018-12-31 23:59:59' + INTERVAL 1 SECOND;
+mysql> SELECT '2018-12-31 23:59:59' + INTERVAL 1 SECOND;
 +-------------------------------------------+
 | 2018-12-31 23:59:59 + interval(1, second) |
 +-------------------------------------------+
@@ -143,7 +144,7 @@ date - INTERVAL expr unit
 +-------------------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT INTERVAL 1 DAY + '2018-12-31';
+mysql> SELECT INTERVAL 1 DAY + '2018-12-31';
 +-------------------------------+
 | interval(1, day) + 2018-12-31 |
 +-------------------------------+
@@ -151,7 +152,7 @@ date - INTERVAL expr unit
 +-------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT '2025-01-01' - INTERVAL 1 SECOND;
+mysql> SELECT '2025-01-01' - INTERVAL 1 SECOND;
 +----------------------------------+
 | 2025-01-01 - interval(1, second) |
 +----------------------------------+
@@ -165,7 +166,7 @@ date - INTERVAL expr unit
 如果你在一个 `date` 值上加上或减去一个包含时间部分的值，执行结果会自动转换为一个 `datetime` 值：
 
 ```sql
-> SELECT DATE_ADD('2023-01-01', INTERVAL 1 DAY);
+mysql> SELECT DATE_ADD('2023-01-01', INTERVAL 1 DAY);
 +----------------------------------------+
 | date_add(2023-01-01, interval(1, day)) |
 +----------------------------------------+
@@ -173,7 +174,7 @@ date - INTERVAL expr unit
 +----------------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT DATE_ADD('2023-01-01', INTERVAL 1 HOUR);
+mysql> SELECT DATE_ADD('2023-01-01', INTERVAL 1 HOUR);
 +-----------------------------------------+
 | date_add(2023-01-01, interval(1, hour)) |
 +-----------------------------------------+
@@ -187,7 +188,7 @@ date - INTERVAL expr unit
 如果添加了 `MONTH`、`YEAR_MONTH` 或`YEAR`，并且执行结果的日期的某一天比当月的最大天数大，则该天将被调整为当月的最大天数：
 
 ```sql
-> SELECT DATE_ADD('2019-01-30', INTERVAL 1 MONTH);
+mysql> SELECT DATE_ADD('2019-01-30', INTERVAL 1 MONTH);
 +------------------------------------------+
 | date_add(2019-01-30, interval(1, month)) |
 +------------------------------------------+
@@ -201,7 +202,7 @@ date - INTERVAL expr unit
 `date` 不能用错误的日期，如执行 *2016-07-00* 或格式严重错误的日期则结果为 `NULL`。
 
 ```sql
-> SELECT DATE_ADD('2016-07-00', INTERVAL 1 DAY);
+mysql> SELECT DATE_ADD('2016-07-00', INTERVAL 1 DAY);
 +----------------------------------------+
 | date_add(2016-07-00, interval(1, day)) |
 +----------------------------------------+
@@ -209,7 +210,7 @@ date - INTERVAL expr unit
 +----------------------------------------+
 1 row in set (0.00 sec)
 
-> SELECT '2005-03-32' + INTERVAL 1 MONTH;
+mysql> SELECT '2005-03-32' + INTERVAL 1 MONTH;
 +---------------------------------+
 | 2005-03-32 + interval(1, month) |
 +---------------------------------+

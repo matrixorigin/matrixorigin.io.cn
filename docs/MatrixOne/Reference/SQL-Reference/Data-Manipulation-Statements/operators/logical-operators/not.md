@@ -13,21 +13,21 @@
 ## **示例**
 
 ```sql
-> select not 0;
+mysql> select not 0;
 +-------+
 | not 0 |
 +-------+
 | true  |
 +-------+
 1 row in set (0.02 sec)
-> select not null;
+mysql> select not null;
 +----------+
 | not null |
 +----------+
 | NULL     |
 +----------+
 1 row in set (0.00 sec)
-> select not 1;
+mysql> select not 1;
 +-------+
 | not 1 |
 +-------+
@@ -37,10 +37,10 @@
 ```
 
 ```sql
-> create table t1 (a boolean,b bool);
-> insert into t1 values (0,1),(true,false),(true,1),(0,false),(NULL,NULL);
-> select * from t1;
-> select not a and not b from t1;
+create table t1 (a boolean,b bool);
+insert into t1 values (0,1),(true,false),(true,1),(0,false),(NULL,NULL);
+
+mysql> select not a and not b from t1;
 +-----------------+
 | not a and not b |
 +-----------------+
