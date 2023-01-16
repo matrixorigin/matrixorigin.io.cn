@@ -214,6 +214,12 @@ mysql> select * from part where p_brand='Brand#21' and p_retailprice between 110
 mysql> select p_name from part where P_PARTKEY in (select PS_PARTKEY from PARTSUPP where PS_SUPPLYCOST>=500) and p_name like '%pink%' limit 10;
 ```
 
+MatrixOne 在处理该 SQL 语句是会将其改写为等价的 `JOIN` 查询：
+
+```
+select p_name from part join partsupp on P_PARTKEY=PS_PARTKEY where PS_SUPPLYCOST>=500 and p_name like '%pink%' limit 10;
+```
+
 运行结果为：
 
 ```sql
