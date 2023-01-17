@@ -84,8 +84,8 @@ __Tips__: 通过 MatrixOne 源码完成搭建时，**Linux 环境** 与 **MacOS 
 
          ```
          git clone https://github.com/matrixorigin/matrixone.git
+         cd matrixone         
          git checkout 0.6.0
-         cd matrixone
          ```
 
      2. 运行 `make config` 和 `make build` 编译文件：
