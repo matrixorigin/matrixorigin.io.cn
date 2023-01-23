@@ -24,6 +24,7 @@ MatrixOne 的数据类型与 MySQL 数据类型的定义一致，可参考：
 //Create a table named "inttable" with 2 attributes of a "tinyint", a "tinyint unsigned",
 create table inttable ( a tinyint not null default 1, tinyint8 tinyint unsigned primary key);
 insert into inttable (tinyint8) values (0),(255), (0xFE), (253);
+
 mysql> select * from inttable order by 2 asc;
 +------+----------+
 | a    | tinyint8 |
@@ -43,6 +44,7 @@ mysql> select * from inttable order by 2 asc;
 drop table inttable;
 create table inttable ( a smallint not null default 1, smallint16 smallint unsigned);
 insert into inttable (smallint16) values (0),(65535), (0xFFFE), (65534), (65533);
+
 mysql> select * from inttable;
 +------+------------+
 | a    | smallint16 |
@@ -63,6 +65,7 @@ mysql> select * from inttable;
 drop table inttable;
 create table inttable ( a int not null default 1, int32 int unsigned primary key);
 insert into inttable (int32) values (0),(4294967295), (0xFFFFFFFE), (4294967293), (4294967291);
+
 mysql> select * from inttable order by a desc, 2 asc;
 +------+------------+
 | a    | int32      |
@@ -83,6 +86,7 @@ mysql> select * from inttable order by a desc, 2 asc;
 drop table inttable;
 create table inttable ( a bigint, big bigint primary key );
 insert into inttable values (122345515, 0xFFFFFFFFFFFFE), (1234567, 0xFFFFFFFFFFFF0);
+
 mysql> select * from inttable;
 +-----------+------------------+
 | a         | big              |
@@ -106,6 +110,7 @@ mysql> select * from inttable;
 //Create a table named "floattable" with 1 attributes of a "float"
 create table floattable ( a float not null default 1, big float(20,5) primary key);
 insert into floattable (big) values (-1),(12345678.901234567),(92233720368547.75807);
+
 mysql> select * from floattable order by a desc, big asc;
 +------+----------------+
 | a    | big            |
@@ -145,6 +150,7 @@ insert into names(name, age) values('Abby', '24');
 insert into names(name, age) values("Bob", '25');
 insert into names(name, age) values('Carol', "23");
 insert into names(name, age) values("Dora", "29");
+
 mysql> select name,age from names;
 +-------+------+
 | name  | age  |
@@ -169,7 +175,8 @@ insert into texttest values('ab_def');
 insert into texttest values('abc_ef');
 insert into texttest values('abcd_f');
 insert into texttest values('abcde_');
-> select * from texttest where a like 'ab\_def' order by 1 asc;
+
+mysql> select * from texttest where a like 'ab\_def' order by 1 asc;
 +--------+
 | a      |
 +--------+
@@ -190,7 +197,8 @@ insert into blobtest values('ab_def');
 insert into blobtest values('abc_ef');
 insert into blobtest values('abcd_f');
 insert into blobtest values('abcde_');
-> select * from blobtest where a like 'ab\_def' order by 1 asc;
+
+mysql> select * from blobtest where a like 'ab\_def' order by 1 asc;
 +----------------+
 | a              |
 +----------------+
@@ -212,7 +220,8 @@ insert into blobtest values('abcde_');
 //Create a table named "jsontest" with 1 attribute of a "json"
 create table jsontest (a json,b int);
 insert into jsontest values ('{"t1":"a"}',1),('{"t1":"b"}',2);
-> select * from jsontest;
+
+mysql> select * from jsontest;
 +-------------+------+
 | a           | b    |
 +-------------+------+
@@ -240,7 +249,8 @@ insert into jsontest values ('{"t1":"a"}',1),('{"t1":"b"}',2);
 create table time_02(t1 time);
 insert into time_02 values(200);
 insert into time_02 values("");
-select * from time_02;
+
+mysql> select * from time_02;
 +----------+
 | t1       |
 +----------+
@@ -256,7 +266,8 @@ select * from time_02;
 //Create a table named "datetest" with 1 attributes of a "date"
 create table datetest (a date not null, primary key(a));
 insert into datetest values ('2022-01-01'), ('20220102'),('2022-01-03'),('20220104');
-select * from datetest order by a asc;
+
+mysql> select * from datetest order by a asc;
 +------------+
 | a          |
 +------------+
@@ -273,7 +284,8 @@ select * from datetest order by a asc;
 //Create a table named "datetimetest" with 1 attributes of a "datetime"
 create table datetimetest (a datetime(0) not null, primary key(a));
 insert into datetimetest values ('20200101000000'), ('2022-01-02'), ('2022-01-02 00:00:01'), ('2022-01-02 00:00:01.512345');
-> select * from datetimetest order by a asc;
+
+mysql> select * from datetimetest order by a asc;
 +---------------------+
 | a                   |
 +---------------------+
@@ -291,7 +303,8 @@ insert into datetimetest values ('20200101000000'), ('2022-01-02'), ('2022-01-02
 //Create a table named "timestamptest" with 1 attribute of a "timestamp"
 create table timestamptest (a timestamp(0) not null, primary key(a));
 insert into timestamptest values ('20200101000000'), ('2022-01-02'), ('2022-01-02 00:00:01'), ('2022-01-02 00:00:01.512345');
-> select * from timestamptest;
+
+mysql> select * from timestamptest;
 +---------------------+
 | a                   |
 +---------------------+
@@ -313,9 +326,10 @@ insert into timestamptest values ('20200101000000'), ('2022-01-02'), ('2022-01-0
 
 ```sql
 //Create a table named "booltest" with 2 attribute of a "boolean" and b "bool"
-> create table booltest (a boolean,b bool);
-> insert into booltest values (0,1),(true,false),(true,1),(0,false),(NULL,NULL);
-> select * from booltest;
+create table booltest (a boolean,b bool);
+insert into booltest values (0,1),(true,false),(true,1),(0,false),(NULL,NULL);
+
+mysql> select * from booltest;
 +-------+-------+
 | a     | b     |
 +-------+-------+
@@ -339,9 +353,10 @@ insert into timestamptest values ('20200101000000'), ('2022-01-02'), ('2022-01-0
 
 ```sql
 //Create a table named "decimalTest" with 2 attribute of a "decimal" and b "decimal"
-> create table decimalTest(a decimal(6,3), b decimal(24,18));
-> insert into decimalTest values(123.4567, 123456.1234567891411241355);
-> select * from decimalTest;
+create table decimalTest(a decimal(6,3), b decimal(24,18));
+insert into decimalTest values(123.4567, 123456.1234567891411241355);
+
+mysql> select * from decimalTest;
 +---------+---------------------------+
 | a       | b                         |
 +---------+---------------------------+

@@ -35,7 +35,7 @@ MatrixOne 文档内容可以分为如下几个模块：
 
 * **Deploying**: 介绍如何在部署和运行 MatrixOne 集群。
 
-* **Maintenance**: 介绍如何在运维 MatrixOne，包括备份与恢复数据等。
+* **Maintenance**: 介绍如何运维 MatrixOne，包括备份与恢复数据等。
 
 * **Migrating**: 介绍如何将数据从其他数据库迁移至 MatrixOne。
 
@@ -43,7 +43,7 @@ MatrixOne 文档内容可以分为如下几个模块：
 
 * **Troubleshooting**: 介绍如何对 MatrixOne 进行故障诊断。
 
-* **Tuning Performance**: 介绍如何在单机或分布式环境中快速部署和运行 MatrixOne。
+* **Tuning Performance**: 介绍如何在单机或分布式环境中对 MatrixOne 进行性能调优。
 
 * **Privilege**: 介绍 MatrixOne 集群下多租户管理、账号生命周期管理、授权等。
 
