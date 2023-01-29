@@ -1471,6 +1471,32 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_2" type="checkbox" id="__nav_1_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6_2">
+          数据挂载
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据挂载" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据挂载
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../../Maintain/mount-data-by-docker/" class="md-nav__link">
         挂载目录到 Docker 容器
@@ -1480,15 +1506,8 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Maintain/mo-directory-structure/" class="md-nav__link">
-        MatrixOne 目录结构
-      </a>
+        </ul>
+      </nav>
     </li>
   
 
@@ -5872,6 +5891,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintain/mo-directory-structure/" class="md-nav__link">
+        MatrixOne 目录结构
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -6214,7 +6247,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Contribution-Guide/How-to-Contribute/report-an-issue/" class="md-nav__link">
-        报告Issue
+        报告 Issue
       </a>
     </li>
   
@@ -6627,6 +6660,7 @@
 <div class="highlight"><pre><span></span><code><span class="o">//</span><span class="k">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="ss">&quot;inttable&quot;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">&quot;tinyint&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">&quot;tinyint unsigned&quot;</span><span class="p">,</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tinyint</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">tinyint8</span><span class="w"> </span><span class="n">tinyint</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="p">(</span><span class="n">tinyint8</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">),(</span><span class="mi">255</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="n">xFE</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">253</span><span class="p">);</span>
+
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+----------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">tinyint8</span><span class="w"> </span><span class="o">|</span>
@@ -6645,6 +6679,7 @@
 <span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">inttable</span><span class="p">;</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nb">smallint</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">smallint16</span><span class="w"> </span><span class="nb">smallint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="p">(</span><span class="n">smallint16</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">),(</span><span class="mi">65535</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="n">xFFFE</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">65534</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">65533</span><span class="p">);</span>
+
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">inttable</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">smallint16</span><span class="w"> </span><span class="o">|</span>
@@ -6664,6 +6699,7 @@
 <span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">inttable</span><span class="p">;</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="p">(</span><span class="n">int32</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">),(</span><span class="mi">4294967295</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="n">xFFFFFFFE</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">4294967293</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">4294967291</span><span class="p">);</span>
+
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">desc</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">int32</span><span class="w">      </span><span class="o">|</span>
@@ -6683,6 +6719,7 @@
 <span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">inttable</span><span class="p">;</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="w"> </span><span class="n">big</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">122345515</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="n">xFFFFFFFFFFFFE</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1234567</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="n">xFFFFFFFFFFFF0</span><span class="p">);</span>
+
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">inttable</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-----------+------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">         </span><span class="o">|</span><span class="w"> </span><span class="n">big</span><span class="w">              </span><span class="o">|</span>
@@ -6721,6 +6758,7 @@
 <div class="highlight"><pre><span></span><code><span class="o">//</span><span class="k">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="ss">&quot;floattable&quot;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">&quot;float&quot;</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">floattable</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nb">float</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">big</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">floattable</span><span class="w"> </span><span class="p">(</span><span class="n">big</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),(</span><span class="mi">12345678</span><span class="p">.</span><span class="mi">901234567</span><span class="p">),(</span><span class="mi">92233720368547</span><span class="p">.</span><span class="mi">75807</span><span class="p">);</span>
+
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">floattable</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">desc</span><span class="p">,</span><span class="w"> </span><span class="n">big</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+----------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">big</span><span class="w">            </span><span class="o">|</span>
@@ -6791,6 +6829,7 @@
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">names</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="ss">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;25&#39;</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">names</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;Carol&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;23&quot;</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">names</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="ss">&quot;Dora&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;29&quot;</span><span class="p">);</span>
+
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">names</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-------+------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">name</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">age</span><span class="w">  </span><span class="o">|</span>
@@ -6814,7 +6853,8 @@
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">texttest</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;abc_ef&#39;</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">texttest</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;abcd_f&#39;</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">texttest</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;abcde_&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">texttest</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;ab\_def&#39;</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">texttest</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;ab\_def&#39;</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">--------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">      </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">--------+</span>
@@ -6834,7 +6874,8 @@
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">blobtest</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;abc_ef&#39;</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">blobtest</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;abcd_f&#39;</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">blobtest</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;abcde_&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">blobtest</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;ab\_def&#39;</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">blobtest</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;ab\_def&#39;</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">----------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">              </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------------+</span>
@@ -6865,7 +6906,8 @@
 <div class="highlight"><pre><span></span><code><span class="o">//</span><span class="k">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="ss">&quot;jsontest&quot;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">&quot;json&quot;</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">jsontest</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="n">json</span><span class="p">,</span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">jsontest</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;{&quot;t1&quot;:&quot;a&quot;}&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="s1">&#39;{&quot;t1&quot;:&quot;b&quot;}&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">jsontest</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">jsontest</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-------------+------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">           </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">    </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------+------+</span>
@@ -6929,7 +6971,8 @@
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">time_02</span><span class="p">(</span><span class="n">t1</span><span class="w"> </span><span class="k">time</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">time_02</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">time_02</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="ss">&quot;&quot;</span><span class="p">);</span>
-<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">time_02</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">time_02</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">----------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">t1</span><span class="w">       </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------+</span>
@@ -6944,7 +6987,8 @@
 <div class="highlight"><pre><span></span><code><span class="o">//</span><span class="k">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="ss">&quot;datetest&quot;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">&quot;date&quot;</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">datetest</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">datetest</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;20220102&#39;</span><span class="p">),(</span><span class="s1">&#39;2022-01-03&#39;</span><span class="p">),(</span><span class="s1">&#39;20220104&#39;</span><span class="p">);</span>
-<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">datetest</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">datetest</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">          </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------------+</span>
@@ -6960,7 +7004,8 @@
 <div class="highlight"><pre><span></span><code><span class="o">//</span><span class="k">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="ss">&quot;datetimetest&quot;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">&quot;datetime&quot;</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">datetimetest</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="n">datetime</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">datetimetest</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;20200101000000&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-01-02&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-01-02 00:00:01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-01-02 00:00:01.512345&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">datetimetest</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">datetimetest</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">asc</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">---------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">                   </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">---------------------+</span>
@@ -6977,7 +7022,8 @@
 <div class="highlight"><pre><span></span><code><span class="o">//</span><span class="k">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="ss">&quot;timestamptest&quot;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">&quot;timestamp&quot;</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">timestamptest</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="k">timestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">timestamptest</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;20200101000000&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-01-02&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-01-02 00:00:01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-01-02 00:00:01.512345&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">timestamptest</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">timestamptest</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">---------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">                   </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">---------------------+</span>
@@ -7008,9 +7054,10 @@
 </table>
 <h3 id="_11"><strong>示例</strong></h3>
 <div class="highlight"><pre><span></span><code><span class="o">//</span><span class="k">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="ss">&quot;booltest&quot;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">&quot;boolean&quot;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ss">&quot;bool&quot;</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">booltest</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">boolean</span><span class="p">,</span><span class="n">b</span><span class="w"> </span><span class="n">bool</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">booltest</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="k">true</span><span class="p">,</span><span class="k">false</span><span class="p">),(</span><span class="k">true</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="k">false</span><span class="p">),(</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">booltest</span><span class="p">;</span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">booltest</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">boolean</span><span class="p">,</span><span class="n">b</span><span class="w"> </span><span class="n">bool</span><span class="p">);</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">booltest</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="k">true</span><span class="p">,</span><span class="k">false</span><span class="p">),(</span><span class="k">true</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="k">false</span><span class="p">),(</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">);</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">booltest</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-------+-------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">     </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------+-------+</span>
@@ -7049,9 +7096,10 @@
 </table>
 <h3 id="_12"><strong>示例</strong></h3>
 <div class="highlight"><pre><span></span><code><span class="o">//</span><span class="k">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="ss">&quot;decimalTest&quot;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">&quot;decimal&quot;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ss">&quot;decimal&quot;</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">decimalTest</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">18</span><span class="p">));</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">decimalTest</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">123</span><span class="p">.</span><span class="mi">4567</span><span class="p">,</span><span class="w"> </span><span class="mi">123456</span><span class="p">.</span><span class="mi">1234567891411241355</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">decimalTest</span><span class="p">;</span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">decimalTest</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">18</span><span class="p">));</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">decimalTest</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">123</span><span class="p">.</span><span class="mi">4567</span><span class="p">,</span><span class="w"> </span><span class="mi">123456</span><span class="p">.</span><span class="mi">1234567891411241355</span><span class="p">);</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">decimalTest</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">---------+---------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">                         </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">---------+---------------------------+</span>

@@ -1471,6 +1471,32 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_2" type="checkbox" id="__nav_1_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6_2">
+          数据挂载
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据挂载" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据挂载
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../Maintain/mount-data-by-docker/" class="md-nav__link">
         挂载目录到 Docker 容器
@@ -1480,15 +1506,8 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Maintain/mo-directory-structure/" class="md-nav__link">
-        MatrixOne 目录结构
-      </a>
+        </ul>
+      </nav>
     </li>
   
 
@@ -1902,7 +1921,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    什么是执行计划
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#explain" class="md-nav__link">
+    使用 EXPLAIN 查询执行计划
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain_1" class="md-nav__link">
     EXPLAIN 示例
   </a>
   
@@ -5739,6 +5772,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Maintain/mo-directory-structure/" class="md-nav__link">
+        MatrixOne 目录结构
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -6081,7 +6128,7 @@
   
     <li class="md-nav__item">
       <a href="../../Contribution-Guide/How-to-Contribute/report-an-issue/" class="md-nav__link">
-        报告Issue
+        报告 Issue
       </a>
     </li>
   
@@ -6266,7 +6313,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    什么是执行计划
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#explain" class="md-nav__link">
+    使用 EXPLAIN 查询执行计划
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain_1" class="md-nav__link">
     EXPLAIN 示例
   </a>
   
@@ -6291,12 +6352,18 @@
 
 
 <h1 id="matrixone">MatrixOne 执行计划概述</h1>
-<p>使用 EXPLAIN 可查看 MatrixOne 执行某条 SQL 语句时的执行计划。</p>
+<h2 id="_1">什么是执行计划</h2>
+<p>执行计划（execution plan，也叫查询计划或者解释计划）是数据库执行 SQL 语句的具体步骤，例如通过索引还是全表扫描访问表中的数据，连接查询的实现方式和连接的顺序等；执行计划根据你的表、列、索引和 <code>WHERE</code> 子句中的条件的详细信息，可以告诉你这个查询将会被如何执行或者已经被如何执行过，可以在不读取所有行的情况下执行对巨大表的查询；可以在不比较行的每个组合的情况下执行涉及多个表的连接。。如果 SQL 语句性能不够理想，首先应该查看它的执行计划。和大多数成熟的数据库产品一样，MatrixOne数据库也提供了这一分析查询语句性能的功能。</p>
+<p>MatrixOne 查询优化器对输入的 SQL 查询语句通过<strong>执行计划</strong>而选择出效率最高的一种执行方案。你也可以通过执行计划看到 SQL 代码中那些效率比较低的地方。</p>
+<h2 id="explain">使用 <code>EXPLAIN</code> 查询执行计划</h2>
+<p>使用 <code>EXPLAIN</code> 可查看 MatrixOne 执行某条 SQL 语句时的执行计划。</p>
+<p><code>EXPLAIN</code> 可以和 <code>SELECT</code>、<code>DELETE</code>、<code>INSERT</code>、<code>REPLACE</code>、<code>UPDATE</code> 语句结合使用。当 <code>EXPLAIN</code> 与可解释的语句一起使用时，MatrixOne 会解释它将如何处理该语句，包括有关表如何连接以及连接顺序的信息。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>使用 MySQL 客户端连接到 MatrixOne 时，为避免输出结果在终端中换行，可先执行 <code>pager less -S</code> 命令。执行命令后，新的 <code>EXPLAIN</code> 的输出结果不再换行，可按右箭头 <strong>→</strong> 键水平滚动阅读输出结果。</p>
 </div>
-<h2 id="explain">EXPLAIN 示例</h2>
+<h2 id="explain_1">EXPLAIN 示例</h2>
+<p>下面的例子帮助你了解 <code>EXPLAIN</code>。</p>
 <p><strong>数据准备</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">auto_increment</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">pad1</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w"> </span><span class="k">INDEX</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;aaa&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bbb&#39;</span><span class="p">);</span>

@@ -1471,6 +1471,32 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_2" type="checkbox" id="__nav_1_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6_2">
+          数据挂载
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据挂载" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据挂载
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../../Maintain/mount-data-by-docker/" class="md-nav__link">
         挂载目录到 Docker 容器
@@ -1480,15 +1506,8 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Maintain/mo-directory-structure/" class="md-nav__link">
-        MatrixOne 目录结构
-      </a>
+        </ul>
+      </nav>
     </li>
   
 
@@ -5694,6 +5713,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintain/mo-directory-structure/" class="md-nav__link">
+        MatrixOne 目录结构
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -6040,7 +6073,7 @@
   
     <li class="md-nav__item">
       <a href="../report-an-issue/" class="md-nav__link">
-        报告Issue
+        报告 Issue
       </a>
     </li>
   
@@ -6319,9 +6352,9 @@
 
 
 <h1 id="_1"><strong>审阅与评论</strong></h1>
-<p>对 MatrixOne 来说，对 PR 的审阅和评论是至关重要的：您可以对他人的 PR 进行分类，以便有专家更快的来解决这些问题；您也可以对代码的内容进行审阅，对代码编写的风格、规范等提出建议；哪怕是在评论区留下一个小小的 idea，这也弥足珍贵。
-所有别再犹豫，别再担心您的想法不够完善，无论多么微小的建议都可能会对 MatrixOne 产生深远影响。
-当然，在此之前，我们希望您能认真阅读本节，了解基本要求和相关方法。</p>
+<p>对 MatrixOne 来说，对 PR 的审阅和评论是至关重要的：您可以对他人的 PR 进行分类，以便有专家更快的来解决这些问题；您也可以对代码的内容进行审阅，对代码编写的风格、规范等提出建议；哪怕是在评论区留下一个小小的 Idea，这也弥足珍贵。
+所有别再犹豫，别再担心您的想法不够完善，无论多么微小的建议都可能会对 MatrixOne 产生深远影响。</p>
+<p>当然，在此之前，我们希望您能认真阅读本节，了解基本要求和相关方法。</p>
 <h2 id="_2"><strong>基本原则</strong></h2>
 <p>当对一个 PR 进行评论或者审阅时，无论内容如何，我们呼吁所有参与者都保持友好和善的态度，营造一个和谐的社区氛围。</p>
 <ul>
@@ -6340,10 +6373,10 @@
 </ul>
 <p>此外，在具体内容上我们有如下建议：  </p>
 <ul>
-<li><strong>详细而具体</strong>  </li>
-</ul>
-<p>我们希望您能在评论中提供更为详细而具体的信息，因为信息越详细，他人就更容易理解，也可以更高效地解决问题。如果您进行了测试，完全可以放上测试环境和结果；如果您提出了一些建议，那不妨说说应该如何落实。</p>
-<ul>
+<li>
+<p><strong>详细而具体</strong><br />
+我们希望您能在评论中提供更为详细而具体的信息，因为信息越详细，他人就更容易理解，也可以更高效地解决问题。如果您进行了测试，完全可以放上测试环境和结果；如果您提出了一些建议，那不妨说说应该如何落实。</p>
+</li>
 <li>
 <p><strong>客观而公正</strong><br />
 请避免个人偏见和主观情绪。诚然，每个人的评论或多或少都会带有主观色彩，但是，作为一个成熟的审阅者，您应该注重技术和数据，而不是个人的喜好。</p>
@@ -6363,13 +6396,13 @@
 <li><strong>测试</strong><br />
   代码贡献应该确保代码通过测试（单元测试、集成测试等），并提交一份测试报告，展示所使用的测试用例以及代码覆盖率。</li>
 <li><strong>完善性</strong><br />
-  审阅代码的完善性主要是关注其是否真的解决了当时提出的问题，与最初的目的是否契合，您可以查看<a href="https://github.com/matrixorigin/matrixone/issues/new/choose">GitHub issue</a>来追溯整个问题的前因后果与开发走向。</li>
+  审阅代码的完善性主要是关注其是否真的解决了当时提出的问题，与最初的目的是否契合，您可以查看 <a href="https://github.com/matrixorigin/matrixone/issues/new/choose">GitHub Issue</a> 来追溯整个问题的前因后果与开发走向。</li>
 <li><strong>风格规范</strong><br />
-  PR 中的代码应该遵相应的<a href="../contribute-code/#get-familiar-with-style">规范</a>。现有的部分代码可能与风格指南的要求不一致，您应该维护其一致性，或直接提交一个新的 issue 来更正它。</li>
+  PR 中的代码应该遵相应的<a href="../contribute-code/#get-familiar-with-style">规范</a>。现有的部分代码可能与风格指南的要求不一致，您应该维护其一致性，或直接提交一个新的 Issue 来更正它。</li>
 <li><strong>必要的文档</strong><br />
-  如果一个 PR 改变了用户构建、测试、交互或发布代码的方式，您必须检查它是否也更新了相关文档，如<code>README.md</code>。类似地，如果一个 PR 删除或弃用了一段代码，您必须检查相应的文档是否也应该被删除。</li>
+  如果一个 PR 改变了用户构建、测试、交互或发布代码的方式，您必须检查它是否也更新了相关文档，如 <code>README.md</code>。类似地，如果一个 PR 删除或弃用了一段代码，您必须检查相应的文档是否也应该被删除。</li>
 <li><strong>性能</strong><br />
-  如果您发现新增的代码可能会影响 MatrixOne 的性能，您可以要求开发者提供一个基准测试（如文档中展示的 SSB、NYC 测试）。</li>
+  如果您发现新增的代码可能会影响 MatrixOne 的性能，您可以要求开发者提供一个基准测试（如文档中展示的 SSB、TPCH 测试）。</li>
 </ul>
 
               

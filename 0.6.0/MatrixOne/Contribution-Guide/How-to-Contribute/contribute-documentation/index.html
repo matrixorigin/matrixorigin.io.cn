@@ -1471,6 +1471,32 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_2" type="checkbox" id="__nav_1_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6_2">
+          数据挂载
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据挂载" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据挂载
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../../Maintain/mount-data-by-docker/" class="md-nav__link">
         挂载目录到 Docker 容器
@@ -1480,15 +1506,8 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Maintain/mo-directory-structure/" class="md-nav__link">
-        MatrixOne 目录结构
-      </a>
+        </ul>
+      </nav>
     </li>
   
 
@@ -5694,6 +5713,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintain/mo-directory-structure/" class="md-nav__link">
+        MatrixOne 目录结构
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -6040,7 +6073,7 @@
   
     <li class="md-nav__item">
       <a href="../report-an-issue/" class="md-nav__link">
-        报告Issue
+        报告 Issue
       </a>
     </li>
   
@@ -6363,36 +6396,59 @@
 <h1 id="_1"><strong>文档贡献指南</strong></h1>
 <p>欢迎对 MatrixOne 文档的提出贡献。MatrixOne 社区一直在努力简化整个贡献流程，为此，我们创建本节来一步步地指导您完成文档贡献的过程。</p>
 <h2 id="_2"><strong>准备工作</strong></h2>
-<p>开始之前请尽量熟悉基本的<a href="https://www.markdownguide.org/basic-syntax/">Markdown</a>语法并阅读<a href="../../Code-Style/code-of-conduct/">行为守则</a>和<a href="https://developers.google.com/style/">谷歌开发者文档风格指南</a>，以便您写出更高质量的文档。</p>
+<p>开始之前请尽量熟悉基本的 <a href="https://www.markdownguide.org/basic-syntax/">Markdown</a> 语法并阅读<a href="../../Code-Style/code-of-conduct/">行为守则</a>和<a href="https://developers.google.com/style/">谷歌开发者文档风格指南</a>，以便您写出更高质量的文档。</p>
 <h2 id="_3"><strong>文档管理逻辑</strong></h2>
 <p>MatrixOne 文档通过三个仓库来协调管理：</p>
 <ul>
 <li>
-<p><a href="https://github.com/matrixorigin/matrixorigin.io">matrixorigin.io</a>仓库包含文档框架（配置文件）和 CI 设置  </p>
+<p><a href="https://github.com/matrixorigin/matrixorigin.io">matrixorigin.io</a> 仓库包含英文文档的具体内容。（<em>.md</em> 文件）</p>
 </li>
 <li>
-<p><a href="https://github.com/matrixorigin/matrixone">matrixone</a>仓库中的<code>docs/en/MatrixOne</code>及<code>docs/cn/MatrixOne</code>文件夹包含文档的具体内容（.md 文件）</p>
+<p><a href="https://github.com/matrixorigin/matrixorigin.io.cn">matrixorigin.io.cn</a> 仓库包含中文文档的具体内容。（<em>.md</em> 文件）</p>
 </li>
 <li>
-<p><a href="https://github.com/matrixorigin/artwork">artwork</a> 仓库包含了文档所用到的图像等非结构性文件</p>
+<p><a href="https://github.com/matrixorigin/artwork">artwork</a> 仓库包含了文档所用到的图像等非结构性文件。图像等非结构化文件则直接引用<code>artwork</code>仓库的网站链接，如：</p>
 </li>
 </ul>
-<p><code>matrixorigin.io</code>仓库中有一个子模块<code>submodule</code>，其引用了<code>matrixone</code>仓库中的文档内容，当<code>matrixone</code>仓库的内容更新时，<code>submodule</code>也会同步更新；而图像等非结构化文件则直接引用<code>artwork</code>仓库的网站链接，如：</p>
 <div class="highlight"><pre><span></span><code>https://github.com/matrixorigin/artwork/blob/main/docs/overview/overall-architecture.png?raw=true
 </code></pre></div>
-<p><code>matrixorigin.io</code>部署了一个 CI 程序，当有新的代码被合并时将自动触发，将文档发布到我们的<a href="https://docs.matrixorigin.io/">官方文档网站</a>。<br />
-我们的文档是基于 <a href="https://github.com/squidfunk/mkdocs-material">mkdocs-material</a>组件进行开发的，您可以在此链接中了解更多信息。</p>
+<p><code>matrixorigin.io</code> 和 <code>matrixorigin.io.cn</code> 均部署了一个 CI 程序，当有新的代码被合并时将自动触发，将文档发布到我们的<a href="https://docs.matrixorigin.io/">官方文档网站</a>。<br />
+我们的文档是基于 <a href="https://github.com/squidfunk/mkdocs-material">mkdocs-material</a> 组件进行开发的，您可以在此链接中了解更多信息。</p>
 <h2 id="_4"><strong>文档内容架构</strong></h2>
 <p>MatrixOne 文档内容可以分为如下几个模块：</p>
 <ul>
 <li>
-<p><strong>Overview</strong>: MatrixOne 的简介，包含了项目特点、架构、设计思路和技术细节。</p>
+<p><strong>Overview</strong>: MatrixOne 的简介，包含了产品特点、架构、设计思路和技术细节。</p>
 </li>
 <li>
-<p><strong>Get Started</strong>: 介绍如何在单机或分布式环境中快速部署和运行 MatrixOne。</p>
+<p><strong>Getting Started</strong>: 介绍如何在单机环境中快速部署和运行 MatrixOne。</p>
 </li>
 <li>
-<p><strong>Reference</strong>: 包括 SQL 参考指南、配置参数设置、错误代码。</p>
+<p><strong>Developing Guide</strong>: 介绍如何在单机或分布式环境中深度使用 MatrixOne。</p>
+</li>
+<li>
+<p><strong>Deploying</strong>: 介绍如何在部署和运行 MatrixOne 集群。</p>
+</li>
+<li>
+<p><strong>Maintenance</strong>: 介绍如何运维 MatrixOne，包括备份与恢复数据等。</p>
+</li>
+<li>
+<p><strong>Migrating</strong>: 介绍如何将数据从其他数据库迁移至 MatrixOne。</p>
+</li>
+<li>
+<p><strong>Testing</strong>: 介绍如何在使用测试工具完成自测，或者对 MatrixOne 进行性能测试。</p>
+</li>
+<li>
+<p><strong>Troubleshooting</strong>: 介绍如何对 MatrixOne 进行故障诊断。</p>
+</li>
+<li>
+<p><strong>Tuning Performance</strong>: 介绍如何在单机或分布式环境中对 MatrixOne 进行性能调优。</p>
+</li>
+<li>
+<p><strong>Privilege</strong>: 介绍 MatrixOne 集群下多租户管理、账号生命周期管理、授权等。</p>
+</li>
+<li>
+<p><strong>Reference</strong>: 包括 SQL 参考指南、配置参数设置、使用限制等。</p>
 </li>
 <li>
 <p><strong>FAQs</strong>: 关于产品、技术设计、SQL、部署的常见疑难问题。</p>
@@ -6408,37 +6464,47 @@
 </li>
 </ul>
 <h2 id="_5"><strong>简易的修改</strong></h2>
-<p>如果您发现了错别字或语法错误，可以点击本页面的<code>Edit this Page</code>按键直接进行修改。</p>
+<p>如果您发现了错别字或语法错误，可以点击本页面的 <code>Edit this Page</code> 按键直接进行修改。</p>
 <h2 id="_6"><strong>一般工作流程</strong></h2>
-<p>当您需要更改文档的具体内容但不涉及章节顺序、架构组织的调整时，只需要对<code>matrixone</code>进行操作；反之，若您需要调整文档框架，改动<code>mkdocs.yml</code>文件时，则需要对<code>matrixorigin.io</code>库进行修改。
-以下流程演示的是对二者均做修改的情况，实际情况可以根据您的需求进行简化。</p>
-<p><strong>1.</strong> 在 GitHub 上<a href="https://github.com/matrixorigin/matrixone/issues/new/choose">提出 issue</a>，简单介绍您发现的问题。并且在 issue 下面评论认领该问题。</p>
-<p><strong>2.</strong> Fork <a href="https://github.com/matrixorigin/matrixorigin.io">matrixorigin.io</a> 和 <a href="https://github.com/matrixorigin/matrixone">matrixone</a> 仓库。</p>
-<p><strong>3.</strong> 克隆<a href="https://github.com/matrixorigin/matrixorigin.io">matrixorigin.io</a>仓库，使用<code>--repository</code>来引用<code>matrixone</code>中的内容。</p>
-<div class="highlight"><pre><span></span><code>git clone --recursive git@github.com:yourusername/matrixorigin.io.git
+<p>当您需要更改文档的具体内容但不涉及章节顺序、架构组织的调整时，需要对 <code>matrixorigin.io/tree/main/docs/MatrixOne</code> 或 <code>matrixorigin.io.cn/tree/main/docs/MatrixOne</code> 进行操作。</p>
+<p>如果需要对章节顺序、架构组织进行调整时，需要对 <code>matrixorigin.io/blob/main/mkdocs.yml</code> 或 <code>matrixorigin.io.cn/blob/main/mkdocs.yml</code> 进行操作。</p>
+<p>以下流程演示的是对二者均做修改的情况，实际情况可以根据您的需求进行简化。</p>
+<p><strong>1.</strong> 在 GitHub 上<a href="https://github.com/matrixorigin/matrixorigin.io/issues/new/choose">对英文文档提出 Issue</a>或<a href="https://github.com/matrixorigin/matrixorigin.io.cn/issues/new/choose">对中文文档提出 Issue</a>，简单介绍您发现的问题。并且在 Issue 下面评论认领该问题。</p>
+<p><strong>2.</strong> Fork <a href="https://github.com/matrixorigin/matrixorigin.io">matrixorigin.io</a> 和 <a href="https://github.com/matrixorigin/matrixorigin.io.cn">matrixorigin.io.cn</a> 仓库。</p>
+<p><strong>3.</strong> 克隆 <a href="https://github.com/matrixorigin/matrixorigin.io">matrixorigin.io</a> 和 <a href="https://github.com/matrixorigin/matrixorigin.io.cn">matrixorigin.io.cn</a> 仓库。</p>
+<ul>
+<li>克隆 <a href="https://github.com/matrixorigin/matrixorigin.io">matrixorigin.io</a>：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git clone git@github.com:yourusername/matrixorigin.io.git
 </code></pre></div>
-<p>克隆<a href="https://github.com/matrixorigin/matrixorigin.io">matrixone</a>仓库。</p>
-<div class="highlight"><pre><span></span><code>git clone git@github.com:yourusername/matrixone.git
+<ul>
+<li>克隆 <a href="https://github.com/matrixorigin/matrixorigin.io.cn">matrixorigin.io.cn</a>：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git clone git@github.com:yourusername/matrixorigin.io.cn.git
 </code></pre></div>
-<p><strong>4.</strong> 在您的本地 matrixone 文件夹中将<code>matrixone</code>仓库添加为远程仓库。</p>
-<div class="highlight"><pre><span></span><code>git remote add upstream https://github.com/matrixorigin/matrixone.git
-</code></pre></div>
-<p>在您的本地 matrixorigin.io 文件夹中将<code>matrixorigin.io</code>仓库添加为远程仓库。 </p>
+<p><strong>4.</strong> 在您的本地 <em>matrixorigin.io</em> 和 <em>matrixorigin.io.cn</em> 文件夹中将对应仓库添加为远程仓库。</p>
+<ul>
+<li>在您的本地 <em>matrixorigin.io</em> 文件夹中添加 <code>matrixorigin.io</code> 为远程仓库：</li>
+</ul>
 <div class="highlight"><pre><span></span><code>git remote add upstream https://github.com/matrixorigin/matrixorigin.io.git
 </code></pre></div>
-<p><strong>5.</strong> 本地的 matrixorigin.io 文件夹中将包含文档所需要的全部文件，因此您可以运行 <code>mkdocs serve</code> 命令，然后在<code>http://localhost:8000</code>网址中预览文档，检查整个项目文件是否可以正常运行，并且后续也可以检查您所做的修改是否正确。</p>
+<ul>
+<li>在您的本地 <em>matrixorigin.io.cn</em> 文件夹中添加 <code>matrixorigin.io.cn</code> 为远程仓库：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git remote add upstream https://github.com/matrixorigin/matrixorigin.io.cn.git
+</code></pre></div>
+<p><strong>5.</strong> 本地的 <em>matrixorigin.io</em> 或 <em>matrixorigin.io.cn</em> 文件夹中将包含文档所需要的全部文件，因此您可以运行 <code>mkdocs serve</code> 命令，然后在 <code>http://localhost:8000</code> 网址中预览文档，检查整个项目文件是否可以正常运行，并且后续也可以检查您所做的修改是否正确。</p>
 <div class="highlight"><pre><span></span><code>mkdocs serve
 </code></pre></div>
-<p><strong>6.</strong> 进行文档的修改和完善，如果您想对项目的设置进行改动，或者添加新的 page 来更新 sitemap，或更新 CI&amp;CD 工作流代码，您也可以通过<code>http://localhost:8000</code>来查看您的修改是否有效。<br />
-如果您对文档内容（.md 文件）进行了修改，则需要同步地在<code>matrixone</code>仓库中进行改动，否则仅仅更新<code>matrixorigin.io</code>仓库中的<code>docs</code>子模块是无用的。</p>
-<p><strong>7.</strong> 确认修改无误后，使用<code>git add</code>和<code>git commit</code>命令在本地提交修改，并推送至您 Fork 的远程仓库<code>matrixorigin.io</code> 与 <code>matrixone</code> 。<br />
+<p><strong>6.</strong> 进行文档的修改和完善，如果您想对项目的设置进行改动，或者添加新的 page 来更新 sitemap，或更新 CI&amp;CD 工作流代码，您也可以通过<code>http://localhost:8000</code>来查看您的修改是否有效。  </p>
+<p><strong>7.</strong> 确认修改无误后，使用 <code>git add .</code> 和 <code>git commit</code> 命令在本地提交修改，并推送至您 Fork 的远程仓库 <code>matrixorigin.io</code> 与 <code>matrixorigin.io.cn</code> 。<br />
 我们建议您推送至远程仓库的新分支：</p>
 <div class="highlight"><pre><span></span><code>git push origin main:NEW_BRANCH
 </code></pre></div>
-<p><strong>8.</strong> 在 Github 上相应仓库的<code>NEW_BRANCH</code>分支提交 Pull Request。 </p>
+<p><strong>8.</strong> 在 Github 上相应仓库的 <code>NEW_BRANCH</code> 分支提交 Pull Request。</p>
 <p><strong>9.</strong> 一旦您的修改通过，CI 工作流将开始运行并更新文档网站，这可能需要一些时间。</p>
-<p><strong>10.</strong>  最后，还有一些操作可以帮助保持 MatrixOne 远端仓库，您的远端仓库和本地仓库均保持一致。  </p>
-<p>覆盖本地提交历史： </p>
+<p><strong>10.</strong>  最后，还有一些操作可以帮助保持您的远端仓库和本地仓库均保持一致。  </p>
+<p>覆盖本地提交历史：</p>
 <div class="highlight"><pre><span></span><code>git pull --force upstream main:main
 </code></pre></div>
 <p>更新 Github 上的<code>main</code>分支：</p>
@@ -6446,10 +6512,10 @@
 </code></pre></div>
 <div class="admonition info 注意">
 <p class="admonition-title">Info</p>
-<p>若您在两个仓库都做了修改，那么以上大部分操作都需要分别针对两个仓库都执行一遍。  </p>
+<p>若您在中英文两个仓库都做了修改，那么以上大部分操作都需要分别针对中英文两个仓库都执行一遍。  </p>
 </div>
 <h2 id="_7"><strong>写一篇博文</strong></h2>
-<p>如果您有意写一篇关于 MatrixOne 的博文，请在 GitHub 上提出<a href="https://github.com/matrixorigin/matrixone/issues/new/choose">issue</a> ，或者将您的想法发送到<a href="mailto:dengnan@matrixorigin.io">dengnan@matrixorigin.io</a>，无论是简单的 idea 还是完整的草案，我们统统接受。我们会尽快审查所有内容，如果您的文章或想法很契合我们的博客，我们会直接联系您。</p>
+<p>如果您有意写一篇关于 MatrixOne 的博文，请在 GitHub 上提出 <a href="https://github.com/matrixorigin/matrixone/issues/new/choose">Issue</a> ，或者将您的想法发送到<a href="mailto:dengnan@matrixorigin.io">dengnan@matrixorigin.io</a>，无论是简单的 Idea 还是完整的草案，我们统统接受。我们会尽快审查所有内容，如果您的文章或想法很契合我们的博客，我们会直接联系您。</p>
 
               
             </article>
