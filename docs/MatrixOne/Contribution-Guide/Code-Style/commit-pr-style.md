@@ -97,7 +97,7 @@ issue #
 **Special notes for your reviewer:**
 
 
-**Additional documentation (e.g. design docs, usage docs, etc.):**
+**Additional documentation (e.g. design docs, usage docs, and so on.):**
 
 ```
 

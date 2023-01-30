@@ -16,7 +16,7 @@
     [partition_options]
 ```
 
-### 语法说明
+### 语法释义
 
 #### TEMPORARY
 
