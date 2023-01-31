@@ -14,7 +14,7 @@
     go version go1.19 darwin/arm64
     ```
     
-## 步骤 2：安装部署 GCC
+## 步骤 2：安装 GCC
 
 1. 验证 GCC 环境是否需要安装：
 
