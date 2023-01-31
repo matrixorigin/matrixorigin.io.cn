@@ -18,7 +18,7 @@
     Docker version 20.10.17, build 100c701
     ```
 
-3. 在你终端里执行如下命令，启动 Docker 并查看运行状态是否成功
+3. 在你终端里执行如下命令，启动 Docker 并查看运行状态是否成功：
 
     ```
     systemctl start docker
