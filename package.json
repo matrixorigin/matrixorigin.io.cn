@@ -1,0 +1,11 @@
+{
+  "name": "matrixorigin.io.cn",
+  "scripts": {
+    "config:zhlint": "node ./scripts/genZhlintConfig",
+    "lint:zh": "npm run config:zhlint && npx zhlint ./docs/MatrixOne/**/*.md --fix",
+    "lint-debug": "npx zhlint ./docs/MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/create-user.md"
+  },
+  "devDependencies": {
+    "zhlint": "^0.7.1"
+  }
+}

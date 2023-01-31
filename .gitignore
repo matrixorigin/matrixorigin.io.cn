@@ -1,1 +1,6 @@
 site
+node_modules/
+
+.zhlintrc
+.zhlintignore
+
