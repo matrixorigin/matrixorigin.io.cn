@@ -37,6 +37,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
 nav:
   - MatrixOne:
     - 主页: README.md
@@ -46,10 +49,23 @@ nav:
       - MatrixOne 技术架构: MatrixOne/Overview/matrixone-architecture-design.md
       - MySQL 兼容性: MatrixOne/Overview/mysql-compatibility.md
       - 最新动态: MatrixOne/Overview/whats-new.md
-    - 快速上手:
-      - 单机部署 MatrixOne: MatrixOne/Get-Started/install-standalone-matrixone.md
+    - 快速开始:
+      - 单机部署 MatrixOne:
+        - 单机部署 MatrixOne 概述: MatrixOne/Get-Started/install-standalone-matrixone.md
+        - 在 macOS 上部署:
+          - 使用源代码部署: MatrixOne/Get-Started/install-on-macos/install-on-macos-method1.md
+          - 使用二进制包部署: MatrixOne/Get-Started/install-on-macos/install-on-macos-method2.md
+          - 使用 Docker 部署: MatrixOne/Get-Started/install-on-macos/install-on-macos-method3.md
+        - 在 Linux 上部署:
+          - 使用源代码部署: MatrixOne/Get-Started/install-on-linux/install-on-linux-method1.md
+          - 使用二进制包部署: MatrixOne/Get-Started/install-on-linux/install-on-linux-method2.md
+          - 使用 Docker 部署: MatrixOne/Get-Started/install-on-linux/install-on-linux-method3.md
       - SQL 的基本操作: MatrixOne/Get-Started/basic-sql.md
     - 开发指南:
+      - 数据库模式设计:
+        - 概述: MatrixOne/Develop/schema-design/overview.md
+        - 创建数据库: MatrixOne/Develop/schema-design/create-database.md
+        - 创建表: MatrixOne/Develop/schema-design/create-table.md
       - 连接 MatrixOne:
         - 配置 MatrixOne SSL 连接: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
         - 客户端工具连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/database-client-tools.md
@@ -57,10 +73,6 @@ nav:
           - 使用 JDBC 连接器连接 MatrixOne: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md
           - 使用 Java ORMs 连接 MatrixOne: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm.md
         - Python 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
-      - 数据库模式设计:
-        - 概述: MatrixOne/Develop/schema-design/overview.md
-        - 创建数据库: MatrixOne/Develop/schema-design/create-database.md
-        - 创建表: MatrixOne/Develop/schema-design/create-table.md
       - 导入数据:
         - 单条导入: MatrixOne/Develop/import-data/insert-data.md
         - 批量导入:
@@ -68,15 +80,15 @@ nav:
           - 导入 csv 文件: MatrixOne/Develop/import-data/bulk-load/load-csv.md
           - 导入 jsonlines 文件: MatrixOne/Develop/import-data/bulk-load/load-jsonline.md
           - 从 S3 读取数据并导入至 MatrixOne: MatrixOne/Develop/import-data/bulk-load/load-s3.md
+      - 导出数据:
+        - 使用 `SELECT INTO...OUTFILE` 导出数据: MatrixOne/Develop/export-data/select-into-outfile.md
+        - 使用 `modump` 导出数据: MatrixOne/Develop/export-data/modump.md
       - 数据读取:
         - 单表读取: MatrixOne/Develop/read-data/query-data-single-table.md
         - 多表连接查询: MatrixOne/Develop/read-data/multitable-join-query.md
         - 子查询: MatrixOne/Develop/read-data/subquery.md
         - 视图: MatrixOne/Develop/read-data/views.md
         - 公共表表达式: MatrixOne/Develop/read-data/cte.md
-      - 导出数据:
-        - 使用 `SELECT INTO...OUTFILE` 导出数据: MatrixOne/Develop/export-data/select-into-outfile.md
-        - 使用 `modump` 导出数据: MatrixOne/Develop/export-data/modump.md
       - 事务:
         - 事务通用概念: MatrixOne/Develop/Transactions/common-transaction-overview.md
         - MatrixOne 的事务:
@@ -87,12 +99,6 @@ nav:
           - MatrixOne 的事务隔离级别: MatrixOne/Develop/Transactions/matrixone-transaction-overview/snapshot-isolation.md
           - MVCC: MatrixOne/Develop/Transactions/matrixone-transaction-overview/mvcc.md
           - MatrixOne 中的事务应用场景: MatrixOne/Develop/Transactions/matrixone-transaction-overview/scenario.md
-      - 应用开发示例:
-        - 构建一个 Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
-        - 使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
-        - 使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
-        - 使用 Python 和 SQLAlchemy 构建一个 CRUD 示例: MatrixOne/Tutorial/sqlalchemy-python-crud-demo.md
-        - 构建一个 Python CRUD 示例: MatrixOne/Tutorial/develop-python-crud-demo.md
     - 部署指南:
       - 软硬件环境要求: MatrixOne/Deploy/check-before-deployment.md
       - 在 Kubernetes 上部署 MatrixOne:
@@ -100,6 +106,12 @@ nav:
         - 什么是 MatrixOne Operator: MatrixOne/Deploy/mo-in-kubernetes/whats-mo-operator.md
         - 使用 MatrixOne Operator 部署 MatrixOne 集群: MatrixOne/Deploy/mo-in-kubernetes/get-started.md
         - 为 MatrixOne 集群配置共享存储: MatrixOne/Deploy/mo-in-kubernetes/configure-shared-memory.md
+    - 教程:
+      - 构建一个 Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
+      - 使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
+      - 使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
+      - 使用 Python 和 SQLAlchemy 构建一个 CRUD 示例: MatrixOne/Tutorial/sqlalchemy-python-crud-demo.md
+      - 构建一个 Python CRUD 示例: MatrixOne/Tutorial/develop-python-crud-demo.md
     - 运维:
       - 备份与恢复: MatrixOne/Maintain/backup-restore.md
       - 数据挂载:
@@ -114,11 +126,6 @@ nav:
       - 测试工具:
         - MO-Tester: MatrixOne/Test/testing-tool/mo-tester.md
         - MO-Tester 规范要求: MatrixOne/Test/testing-tool/mo-tester-reference.md
-    - 故障诊断:
-      - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
-      - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
-      - 审计: MatrixOne/Troubleshooting/audit.md
-      - 错误码: MatrixOne/Troubleshooting/error-code.md
     - 性能调优:
       - 理解 MatrixOne 执行计划:
         - MatrixOne 执行计划概述: MatrixOne/Performance-Tuning/explain-overview.md
@@ -348,6 +355,11 @@ nav:
         - MatrixOne 的 JDBC 功能支持列表: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
         - MatrixOne DDL 语句分区支持的说明: MatrixOne/Reference/Limitations/mo-partition-support.md
       - MatrixOne 目录结构: MatrixOne/Maintain/mo-directory-structure.md
+    - 故障诊断:
+      - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
+      - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
+      - 审计: MatrixOne/Troubleshooting/audit.md
+      - 错误码: MatrixOne/Troubleshooting/error-code.md
     - 常见问题解答:
       - 产品常见问题: MatrixOne/FAQs/product-faqs.md
       - 部署常见问题: MatrixOne/FAQs/deployment-faqs.md
