@@ -14,7 +14,32 @@
     go version go1.19.4 linux/amd64
     ```
 
-## 步骤 2：获取 MatrixOne 源代码
+## 步骤 2：安装 GCC
+
+1. 验证 GCC 环境是否需要安装：
+
+    ```
+    gcc -v
+    bash: gcc: command not found
+    ```
+    
+    如代码所示，如果未显示 GCC 的版本，则表示 **GCC** 的环境需要安装。
+    
+2. 点击 <a href="https://gcc.gnu.org/install/" target="_blank">GCC Download and install</a> 入到 **GCC** 的官方文档，按照官方指导安装步骤完成 **GCC** 的安装。
+
+    __Note__: 建议 GCC 版本为 8.5 版本及以上。
+
+3. 验证 **GCC** 是否安装，请执行代码 `gcc -v`，安装成功代码行示例如下（只展示部分代码）：
+
+    ```
+    Using built-in specs.
+    COLLECT_GCC=gcc
+    ...
+    Thread model: posix
+    gcc version 9.3.1 20200408 (Red Hat 9.3.1-2) (GCC) 
+    ```
+
+## 步骤 3：获取 MatrixOne 源代码
 
 根据您的需要，选择您所获取的代码永远保持最新，还是获得稳定版本的代码。
 
@@ -56,7 +81,7 @@
 
          __Tips__: 你也可以运行`make debug`与`make clean`或者其他任何`Makefile`支持的命令；`make debug` 可以用来调试构建进程，`make clean` 可以清除构建进程。如果在 `make build` 时产生 `Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout` 报错，参见[安装和部署常见问题](../../FAQs/deployment-faqs.md)进行解决。
 
-## 步骤 3：启动 MatrixOne 服务
+## 步骤 4：启动 MatrixOne 服务
 
 === "**在终端的前台启动 MatrixOne 服务**"
 
@@ -90,7 +115,7 @@
 
 当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne。
 
-## 步骤 4：连接 MatrixOne
+## 步骤 5：连接 MatrixOne
 
 ### 安装并配置 MySQL 客户端
 
