@@ -121,11 +121,3 @@
        ```
 
 目前，MatrixOne 只支持 TCP 监听。
-
-## 参考文档
-
-- 更多有关连接 MatrixOne 的方式，参见[客户端连接 MatrixOne 服务](../../Develop/connect-mo/database-client-tools.md)、[JDBC 连接 MatrixOne 服务](../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md)和[Python 连接 MatrixOne 服务](../../Develop/connect-mo/python-connect-to-matrixone.md)。
-
-- 常见的安装和部署问题，参见[安装和部署常见问题](../../FAQs/deployment-faqs.md)。
-
-- 关于分布式部署 MatrixOne，参见 [在 Kubernetes 上部署 MatrixOne](../../Deploy/install-and-launch-in-k8s.md)。
