@@ -89,7 +89,7 @@ export PATH=$PATH:$GOPATH/bin
 若您还未使用过 Github 或缺少相关开发经验，您首先需要熟悉**GitHub**上的相关操作，并学习基本的 **git** 命令。  
 如果您没有 Github 帐户，请在[https://github.com](https://github.com)上完成注册。  
 如果你没有 SSH 密钥，你可以按照 GitHub 上关于 [SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh) 的教程来生成、添加密钥。  
-更多详情请参见 [Github Docs](https://docs.github.com/en)。   
+更多详情请参见 [Github Docs](https://docs.github.com/en)。
 
 此外，我们建议您学习并使用 **git** 命令来完成 Github 上的各种流程，因为我们提供的相关工作流程大多通过 **git** 命令完成，这有助于您提高效率。  
 您可通过 [Install git](http://git-scm.com/downloads) 安装 Git 环境。  

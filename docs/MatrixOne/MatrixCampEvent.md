@@ -102,7 +102,7 @@ MatrixOne 社区一共准备了 4 个类别的 56 个任务，有不同的难度
 ## 提交代码 (Pull Request) 要求
 
 1. 注意在实现功能完成之后一定要写单元测试哦，否则你的 PR 是不会被社区采纳的。
-2. 完成代码编写之后，按以下格式向 MatrixOne 提交 PR: 
+2. 完成代码编写之后，按以下格式向 MatrixOne 提交 PR:
 
 * PR 格式: [MatrixCamp] + function name + PR title
 * 标签：[MatrixCamp]
@@ -152,7 +152,7 @@ level = "error"
 A：如果是针对 MatrixOne 本身的测试和行为发现 bug，欢迎向 MatrixOne 社区提出 issue，我们有相应的模版帮助说明如何写 issue，社区会对 issue 进行处理。如果是针对函数本身的实现有问题，可以直接在认领的 issue 下面评论你的想法和疑问，MatrixOne 社区的 mentor 会及时回复。
 
 **Q: 我启动了 MatrixOne 服务，并且用 MySQL 进行连接，但是好像没有获得正确的结果，如何才知道是否成功连接？**
-A: 如果你的 MySQL 客户端连接 MatrixOne 后打印如下信息，就说明已经成功连接： 
+A: 如果你的 MySQL 客户端连接 MatrixOne 后打印如下信息，就说明已经成功连接：
 
 ```
 Welcome to the MySQL monitor.  Commands end with ; or \g.
