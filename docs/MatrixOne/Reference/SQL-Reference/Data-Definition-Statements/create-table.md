@@ -171,7 +171,7 @@ CREATE TABLE tk (col1 INT, col2 CHAR(5), col3 DATE)
 
 - **RANGE COLUMNS(column_list)**
 
-`RANGE COLUMNS(column_list)` 为 `RANGE` 的另一种形式，常用作为使用多个列上的范围条件（即，诸如 `WHERE a = 1 AND b < 10 或 WHERE a = 1 AND b = 10 AND c < 10）`之类的条件对查询进行分区修剪。它使你能够通过使用 `COLUMNS` 子句中的列列表和每个 `PARTITION ... VALUES LESS THAN (value_list)` 分区定义子句中的一组列值来指定多个列中的值范围。（在最简单的情况下，该集合由单个列组成。）`column_list` 和 `value_list` 中可以引用的最大列数为 16。
+`RANGE COLUMNS(column_list)` 为 `RANGE` 的另一种形式，常用作为使用多个列上的范围条件（即，诸如 `WHERE a = 1 AND b < 10 或 WHERE a = 1 AND b = 10 AND c < 10`）之类的条件对查询进行分区修剪。它使你能够通过使用 `COLUMNS` 子句中的列列表和每个 `PARTITION ... VALUES LESS THAN (value_list)` 分区定义子句中的一组列值来指定多个列中的值范围。（在最简单的情况下，该集合由单个列组成。）`column_list` 和 `value_list` 中可以引用的最大列数为 16。
 
 `column_list` 使用：
 

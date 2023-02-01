@@ -31,14 +31,14 @@ MatrixOne 社区欢迎所有开发者的加入和贡献！本章节旨在帮助�
 ### **步骤 2：将仓库克隆至本地**
 
 前往刚才您创建的 Fork 仓库，点击 `Code`，然后再点击“**复制**”图标，将库的网址复制到剪贴板。
-![Clone your fork](https://github.com/matrixorigin/artwork/blob/main/docs/contribution-guide/contribution-guide-clone.png?raw=true)  
+![Clone your fork](https://github.com/matrixorigin/artwork/blob/main/docs/contribution-guide/contribution-guide-clone.png?raw=true)
 然后，在您本地挑选一个合适的工作目录，打开命令行输入以下 Git 命令将文件克隆至您本地的目录：
 
 ```
 git clone <content you just copied>
 ```  
 
-例如：   
+例如：
 
 ```
 git clone git@github.com:<yourname>/matrixone.git
@@ -102,7 +102,7 @@ git push origin main:NEW_BRANCH
 
 ### **步骤 7：创建 PR**
 
-推送后，可以在您所 Fork 的仓库中看到相关提示信息，点击 **Compare & Pull Request** 按键来创建一个 PR（该 PR 应该是从个人仓库的 `NEW_BRANCH` 分支到主库的 `main` 分支。
+推送后，可以在您所 Fork 的仓库中看到相关提示信息，点击 **Compare & Pull Request** 按键来创建一个 PR（该 PR 应该是从个人仓库的 `NEW_BRANCH` 分支到主库的 `main` 分支）。
 !!! Note 注意
     建议按照 PR 中所给出的模板要求，撰写相关信息，如此可以准确表达您的问题以及所做的修改，从而提高审查效率。
 
@@ -113,8 +113,8 @@ git push origin main:NEW_BRANCH
 
 ### **步骤 8：同步代码库**
 
-当进行到这一步时，恭喜您的修改已经被接受并且 Merge 进入项目中，感谢您做出的贡献！  
-但工作还没有结束，还有一些工作要做（这些工作有助于保证提交记录的干净，有利于项目进一步发展）。  
+当进行到这一步时，恭喜您的修改已经被接受并且 Merge 进入项目中，感谢您做出的贡献！
+但工作还没有结束，还有一些工作要做（这些工作有助于保证提交记录的干净，有利于项目进一步发展）。
 可以将远端仓库的代码拉取下来覆盖本地，以保持同步：
 
 ```

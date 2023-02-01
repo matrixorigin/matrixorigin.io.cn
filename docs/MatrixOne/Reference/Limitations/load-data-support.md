@@ -34,7 +34,7 @@ LOAD DATA
 - PARTITION
 - CHARACTER SET：目前仅支持 UTF8
 - FIELDS TERMINATED BY 'string'：simdcsv 不接受 \r,\n,Unicode replacement character (0xFFFD).
-- FIELDS [OPTIONALLY] ENCLOSED BY 'char'：simdCSV固定是'"'。
+- FIELDS [OPTIONALLY] ENCLOSED BY 'char'：simdCSV固定是`"`。
 - FIELDS ESCAPED BY 'char': simdcsv 暂不支持。
 - LINES STARTING BY 'string': simdcsv 不支持。'#'是第一个字符的行都会被过滤掉。
 - LINES TERMINATED BY 'string':simdcsv 不支持修改。固定'\n'，`\r\n`.
@@ -63,8 +63,8 @@ LOAD DATA
 
 |字符 | 描述|
 |---|---|
-|字段分割符 | 通常是','，也可以是其它字符（不是'"','\r','\n')。例如：SSB 数据集就是'|'|
-|字段包含符|'"'|
+|字段分割符 | 通常是','，也可以是其它字符（不是`"`,'\r','\n')。例如：SSB 数据集就是'|'|
+|字段包含符|`"`|
 |行结束符|`\r\n`或'\n'|
 |字段 NULL 值 | 对于值 \N , 表示该字段为 NULL，其他任何情况均视为字符串输入|
 |注释符号|'#' 作为第一个字符的行都会被过滤掉|
