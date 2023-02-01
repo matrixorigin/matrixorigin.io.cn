@@ -20,7 +20,7 @@ const config = {
     // 半角标点
     halfWidthPunctuation: '',
     // 全角标点
-    fullWidthPunctuation: `，。：；？！`,
+    fullWidthPunctuation: `，。：；！`,
     // 对以下缩写，跳过全角标点校验
     skipAbbrs: [
       'Mr.',
@@ -35,6 +35,8 @@ const config = {
       'a.k.a',
       ...indexesOfTitle,
     ],
+    // 忽略首尾的空格
+    trimSpace: false,
   },
 }
 
