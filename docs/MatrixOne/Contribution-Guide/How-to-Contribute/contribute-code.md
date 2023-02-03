@@ -33,7 +33,7 @@ MatrixOne 采用了 Golang 社区建议的编码规范，详情请见 [Effective
 
 ```
 git clone git@github.com:<yourname>/matrixone.git
-```    
+```
 
 并且把 matrixone 仓库添加为远程仓库：
 

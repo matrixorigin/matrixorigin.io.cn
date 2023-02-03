@@ -37,8 +37,8 @@ After these, your can check your golang version with go version.
 
 ### 3. Build and run your own MatrixOne
 
-You can get the code from <https://github.com/matrixorigin/matrixone>. 
-After download with git clone command, then run the these commands to run MatrixOne instance in the diretory of matrixone. 
+You can get the code from <https://github.com/matrixorigin/matrixone>.
+After download with git clone command, then run the these commands to run MatrixOne instance in the diretory of matrixone.
 
 ```
 $ make config
@@ -69,7 +69,7 @@ When you are in mysql command line, you can start your MatrixOne experience. Mor
 
 ### 1. INSERT ... ON DUPLICATE KEY UPDATE Statement
 
-If you specify an `ON DUPLICATE KEY UPDATE` clause and a row to be inserted would cause a duplicate value in a `UNIQUE` index or `PRIMARY KEY` , an `UPDATE` of the old row occurs. 
+If you specify an `ON DUPLICATE KEY UPDATE` clause and a row to be inserted would cause a duplicate value in a `UNIQUE` index or `PRIMARY KEY` , an `UPDATE` of the old row occurs.
 
 ```
 INSERT
@@ -328,7 +328,7 @@ DECLARE var_name [, var_name] ... type [DEFAULT value]
 
 ### 5. HANDLER Statement
 
-The `HANDLER` statement provides direct access to table storage engine interfaces. 
+The `HANDLER` statement provides direct access to table storage engine interfaces.
 
 ```
 HANDLER tbl_name OPEN [ [AS] alias]
@@ -339,7 +339,7 @@ HANDLER tbl_name CLOSE
 
 The `HANDLER ... OPEN` statement opens a table, making it accessible using subsequent `HANDLER ... READ` statements. This table object is not shared by other sessions and is not closed until the session calls `HANDLER ... CLOSE`  or the session terminates.
 The `HANDLER ... READ` syntax fetches a row from the table in natural row order that matches the WHERE condition. Natural row order is the order in which rows are stored in a TAE table data file.
-Without a `LIMIT` clause, all forms of `HANDLER ... READ` fetch a single row if one is available. To return a specific number of rows, include a `LIMIT` clause. It has the same syntax as for the SELECT statement. 
+Without a `LIMIT` clause, all forms of `HANDLER ... READ` fetch a single row if one is available. To return a specific number of rows, include a `LIMIT` clause. It has the same syntax as for the SELECT statement.
 `HANDLER ... CLOSE` closes a table that was opened with `HANDLER ... OPEN` .
 Example:
 
@@ -422,7 +422,7 @@ mysql> CREATE TABLE test (a INT NOT NULL AUTO_INCREMENT,
     ->        SELECT b,c FROM test2;
 ```
 
-This creates a table with three columns, a, b, and c. 
+This creates a table with three columns, a, b, and c.
 Notice that the columns from the `SELECT` statement are appended to the right side of the table, not overlapped onto it. Take the following example:
 
 ```
@@ -449,7 +449,7 @@ mysql> SELECT * FROM bar;
 
 ### 7. CREATE TRIGGER/DROP TRIGGER
 
-This statement creates a new trigger. A trigger is a named database object that is associated with a table, and that activates when a particular event occurs for the table. The trigger becomes associated with the table named tbl_name, which must refer to a permanent table. 
+This statement creates a new trigger. A trigger is a named database object that is associated with a table, and that activates when a particular event occurs for the table. The trigger becomes associated with the table named tbl_name, which must refer to a permanent table.
 
 ```
 CREATE
@@ -467,7 +467,7 @@ trigger_event: { INSERT | UPDATE | DELETE }
 trigger_order: { FOLLOWS | PRECEDES } other_trigger_name
 ```
 
-`IF NOT EXISTS` prevents an error from occurring if a trigger having the same name, on the same table, exists in the same schema. 
+`IF NOT EXISTS` prevents an error from occurring if a trigger having the same name, on the same table, exists in the same schema.
 
 `trigger_time` is the trigger action time. It can be BEFORE or AFTER to indicate that the trigger activates before or after each row to be modified.
 
@@ -482,7 +482,7 @@ The `trigger_event` does not represent a literal type of SQL statement that acti
 DROP TRIGGER [IF EXISTS] [schema_name.]trigger_name
 ```
 
-This statement drops a trigger. The schema (database) name is optional. If the schema is omitted, the trigger is dropped from the default schema. 
+This statement drops a trigger. The schema (database) name is optional. If the schema is omitted, the trigger is dropped from the default schema.
 
 ### 8. TRUNCATE TABLE and KILL Statement
 

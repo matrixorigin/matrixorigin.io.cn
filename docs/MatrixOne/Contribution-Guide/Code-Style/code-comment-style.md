@@ -39,7 +39,7 @@
 
 ### 格式
 
-- Go   
+- Go
     - 使用 `//` 来进行单行注释
     - 使用 `/* ... */` 对代码块进行注释
     - 使用 **gofmt** 来格式化你的代码
@@ -55,7 +55,7 @@
 ### 语言
 
 - 单词
-    - 请统一使用 **美式英语**       
+    - 请统一使用 **美式英语**
         - color, canceling, synchronize     (推荐)
         - colour, cancelling, synchronise   (不推荐)
 
@@ -97,7 +97,7 @@
 - 当注释用来描述代码时，应该保证使用 **描述性语句** 而非 **祈使句**
 
     - Opens the file   (正确)
-    - Open the file    (错误)       
+    - Open the file    (错误)
 
 - 使用 "this" 而非"the"来指代当前事物
 

@@ -30,7 +30,7 @@ auth_option: {
 create user user_name identified by 'password';
 ```
 
-#### IDENTIFIED BY 'auth_string'
+#### IDENTIFIED BY auth_string
 
 `CREATE USER` 允许这些 `auth_option` ：
 

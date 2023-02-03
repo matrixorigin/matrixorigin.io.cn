@@ -13,7 +13,7 @@
     ```
     go version go1.19 darwin/arm64
     ```
-    
+
 ## 步骤 2：安装 GCC
 
 1. 验证 GCC 环境是否需要安装：
@@ -22,9 +22,9 @@
     gcc -v
     bash: gcc: command not found
     ```
-    
+
     如代码所示，未显示 GCC 的版本，则表示 **GCC** 的环境需要安装。
-    
+
 2. 点击 <a href="https://gcc.gnu.org/install/" target="_blank">GCC Download and install</a> 入到 **GCC** 的官方文档，按照官方指导安装步骤完成 **GCC** 的安装。
 
     __Note__: 建议 GCC 版本为 8.5 版本及以上。

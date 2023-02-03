@@ -37,7 +37,7 @@ END CASE
 
 ```
 
-在这个语法中，`CASE` 表达式会从左到右依次计算 `search_condition`，直到第一个为 `true`，然后执行 `THEN` 从句 `statement_list` 并返回对应结果。如果没有为 `true` 的`search_condition`，则执行 `ELSE` 从句 `statement_list` 并返回结果。
+在这个语法中，`CASE` 表达式会从左到右依次计算 `search_condition`，直到第一个为 `true`，然后执行 `THEN` 从句 `statement_list` 并返回对应结果。如果没有为 `true` 的 `search_condition`，则执行 `ELSE` 从句 `statement_list` 并返回结果。
 
 ## **示例**
 

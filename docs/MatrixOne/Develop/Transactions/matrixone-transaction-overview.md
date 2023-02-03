@@ -128,7 +128,7 @@ Empty set (0.01 sec)
 
 MatrixOne 支持显式事务（即使用 `[BEGIN|START TRANSACTION]` 和 `COMMIT` 来定义事务的开始和结束）和隐式事务 (默认)。
 
-如果你通过 `[BEGIN|START TRANSACTION]` 语句启动一个新的事务，事务由默认的隐式事务切换到显式事务，自动提交模式会在 `COMMIT` 或' `ROLLBACK` 之前被禁用。
+如果你通过 `[BEGIN|START TRANSACTION]` 语句启动一个新的事务，事务由默认的隐式事务切换到显式事务，自动提交模式会在 `COMMIT` 或' `ROLLBACK` '之前被禁用。
 
 ### 语句回滚
 
