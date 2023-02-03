@@ -44,19 +44,19 @@
 
 + 第一行
     - 不超过 70 个字符
-    - 如果该改动影响了两个模块，请使用逗号和（带空格）进行分隔，如`util/codec, util/types:`。
-    - 如果该改动影响了三个及以上的模块，请使用`*`，如`*:`。
-    - 在冒号后的文本中使用小写字母。例如："media: **update** the DM architecture image"
+    - 如果该改动影响了两个模块，请使用逗号和（带空格）进行分隔，如 `util/codec, util/types:`。
+    - 如果该改动影响了三个及以上的模块，请使用 `*`，如 `*:`。
+    - 在冒号后的文本中使用小写字母。例如："media：**update** the DM architecture image"
     - 不要在最后添加句号。
 
 - 第二行请留白
-- 第三行“why”部分，如果没有特定的原因，您可以使用以下表述，如"Improve performance", "Improve test coverage."
+- 第三行 “why” 部分，如果没有特定的原因，您可以使用以下表述，如 "Improve performance"，"Improve test coverage。"
 - 其他行不超过 80 个字符。
 
 ### **良好的习惯**
 
 - 进行总结
-- 清楚地描述该方案的逻辑，避免`misc fixes`等表达
+- 清楚地描述该方案的逻辑，避免 `misc fixes` 等表达
 - 叙述当前方案的限制
 - 不要以句号结尾
 - 注意代码的证明和测试
@@ -65,7 +65,7 @@
 ### **规范的语言**
 
 - 在第一行使用祈使句
-- 使用简单的动词 (如"add" not "added")
+- 使用简单的动词 (如 "add" not "added")
 - 保证标准无误的语法
 - 前后使用的单词、短语保持一致
 - 使用短句

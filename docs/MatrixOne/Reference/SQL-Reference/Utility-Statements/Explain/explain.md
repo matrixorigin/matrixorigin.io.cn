@@ -25,19 +25,19 @@ where option can be one of:
 
 ## 参数释义
 
-* ANALYZE:
+* ANALYZE：
 
 执行该命令并显示实际运行时和其他统计数据。该参数默认为 `FALSE`。
 
-* VERBOSE:
+* VERBOSE：
 
 `VERBOSE` 用作显示有关计划的其他信息。具体来说，包括计划树中每个节点的输出列列表、模式限定表和函数名称，始终使用范围表别名标记表达式中的变量，并且始终打印显示统计信息的每个触发器的名称。该参数默认为 `FALSE`。
 
-* FORMAT:
+* FORMAT：
 
 `FORMAT` 用作指定输出格式，可以是 *TEXT*、*JSON*。非文本输出包含与文本输出格式相同的信息，且容易被程序解析。该参数默认为 `TEXT`。
 
-* BOOLEAN:
+* BOOLEAN：
 
 `BOOLEAN` 指定所选选项是打开还是关闭。你可以写 `TRUE` 来启用该选项，或者写 `FALSE` 来禁用它。
 
@@ -45,7 +45,7 @@ where option can be one of:
 
 * STETEMENT
 
-MatrixOne 支持任何`SELECT`，`UPDATE`，`DELETE` 语句执行计划。在 MatrixOne 0.5.1 版本中仅支持 `INSERT`语句类型中的 `INSERT INTO..SELECT` 语句，暂不支持 `INSERT INTO...VALUES` 语句。
+MatrixOne 支持任何 `SELECT`，`UPDATE`，`DELETE` 语句执行计划。在 MatrixOne 0.5.1 版本中仅支持 `INSERT` 语句类型中的 `INSERT INTO..SELECT` 语句，暂不支持 `INSERT INTO...VALUES` 语句。
 
 ## 示例
 

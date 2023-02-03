@@ -22,7 +22,7 @@
     mysql> create database test;
     ```
 
-- 确认你已完成安装 [Python 3.8(or plus) version](https://www.python.org/downloads/).  
+- 确认你已完成安装 [Python 3.8(or plus) version](https://www.python.org/downloads/)。  
 
    使用下面的代码检查 Python 版本确认安装成功：
 
@@ -33,9 +33,9 @@
 
 - 确认你已完成安装 MySQL。
 
-- 下载安装 `sqlalchemy`、`pymysql`、 `cryptography` 和 `faker` 工具。
+- 下载安装 `sqlalchemy`、`pymysql`、`cryptography` 和 `faker` 工具。
 
-   使用下面的代码下载安装 `sqlalchemy`、`pymysql`、 `cryptography` 和 `faker` 工具：
+   使用下面的代码下载安装 `sqlalchemy`、`pymysql`、`cryptography` 和 `faker` 工具：
 
     ```
     pip3 install sqlalchemy
@@ -50,7 +50,7 @@
     pip3 install faker -i https://pypi.tuna.tsinghua.edu.cn/simple
     ```
 
-你可以参考[Python 连接 MatrixOne 服务](../Develop/connect-mo/python-connect-to-matrixone.md) 了解如何通过 `SQLAlchemy` 连接到 MatrixOne，本篇文档将指导你如何实现 CRUD（创建、读取、更新、删除) 。
+你可以参考 [Python 连接 MatrixOne 服务](../Develop/connect-mo/python-connect-to-matrixone.md)了解如何通过 `SQLAlchemy` 连接到 MatrixOne，本篇文档将指导你如何实现 CRUD（创建、读取、更新、删除)。
 
 ## 新建表
 

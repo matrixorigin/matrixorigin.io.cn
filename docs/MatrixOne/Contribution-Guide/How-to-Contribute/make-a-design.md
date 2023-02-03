@@ -7,7 +7,7 @@
 
 与其他工作一样，在开始之前，尽量做足准备，这样不仅可以提高您的工作效率，还可以增加方案通过的可能性；相反，一份粗糙而随意的设计文件可能会因为质量太差而吃到闭门羹。  
 我们鼓励您向有经验的开发人员寻求帮助，通过他们的建议您可以修正设计架构并完善技术细节。
-您可以在前往 Github，提交一个`Feature Request` 或 `Refactoring Request`来向大家展示您的想法。
+您可以在前往 Github，提交一个 `Feature Request` 或 `Refactoring Request` 来向大家展示您的想法。
 
 ## **一般流程**
 
@@ -18,7 +18,7 @@
 * 按照[模板](https://github.com/matrixorigin/matrixone/blob/main/docs/rfcs/00000000-template.md)撰写技术设计文档并创建 PR。
 * 与 Reviewers 交流，并按要求做相应的修改。
 * 当至少有两个 Committer 达成一致且其他 Committer 没有异议时，设计文件即被接受，反之亦然。
-* 如果提议被接受，那就请为该提议创建一个[tracking issue](https://github.com/matrixorigin/matrixone/issues/new)，或者将之前讨论的 issue 转换为 tracking issue，后续不断跟踪子任务和开发进度。
+* 如果提议被接受，那就请为该提议创建一个 [tracking issue](https://github.com/matrixorigin/matrixone/issues/new)，或者将之前讨论的 issue 转换为 tracking issue，后续不断跟踪子任务和开发进度。
 * 合并该设计的 Pull Request。
 * 开始着手实现。
 

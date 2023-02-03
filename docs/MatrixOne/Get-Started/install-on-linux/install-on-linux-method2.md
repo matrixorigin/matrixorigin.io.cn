@@ -6,7 +6,7 @@
 
 我们提供**下载二进制包**的方式安装 MatrixOne，如果你喜欢通过命令行进行操作，那么你可以提前准备安装好 `wget` 或 `curl`。
 
-__Tips__: 建议你下载安装这两个下载工具其中之一，方便后续通过命令行下载二进制包。
+__Tips__：建议你下载安装这两个下载工具其中之一，方便后续通过命令行下载二进制包。
 
 === "安装 `wget`"
 
@@ -105,7 +105,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
 1. 点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 **Select Operating System**，再下拉选择 **Select OS Version**，按需选择下载安装包进行安装。
 
-    __Note__: 建议 MySQL 客户端版本为 8.0.30 版本及以上。
+    __Note__：建议 MySQL 客户端版本为 8.0.30 版本及以上。
 
 2. 配置 MySQL 客户端环境变量：
 
@@ -118,7 +118,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
      2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
 
-     3. 输入/跳过 root 密码后，即进入了 *.bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+     3. 输入/跳过 root 密码后，即进入了*。bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
 
         ```
         export PATH=/software/mysql/bin:$PATH
@@ -136,7 +136,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
      7. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
 
-    __Tips__: 目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
+    __Tips__：目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
 
 ### 连接 MatrixOne
 

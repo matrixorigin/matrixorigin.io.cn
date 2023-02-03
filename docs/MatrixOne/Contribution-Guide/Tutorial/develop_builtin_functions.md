@@ -2,13 +2,13 @@
 
 ## **前提条件**
 
-为 MatrixOne 开发系统函数，你需要具备 Golang 编程的基本知识。你可以通过[Golang 教程](https://www.educative.io/blog/golang-tutorial)来学习一些基本的 Golang 概念。
+为 MatrixOne 开发系统函数，你需要具备 Golang 编程的基本知识。你可以通过 [Golang 教程](https://www.educative.io/blog/golang-tutorial)来学习一些基本的 Golang 概念。
 
 ## **开始前准备**
 
 在你开始之前，请确保你已经安装了 Golang，并将 MatrixOne 代码库克隆到你的本地。
 
-更多信息，参见[准备工作](../How-to-Contribute/preparation.md) 和[代码贡献](../How-to-Contribute/contribute-code.md)。
+更多信息，参见[准备工作](../How-to-Contribute/preparation.md)和[代码贡献](../How-to-Contribute/contribute-code.md)。
 
 ## **什么是系统函数**
 
@@ -89,13 +89,13 @@ func init() {
    ```
 
    !!! note
-       在 MatrixOn e中，函数名中的所有字母在解析过程中都会小写，所以注册函数名只能使用小写字母，否则函数将无法识别。
+       在 MatrixOn e 中，函数名中的所有字母在解析过程中都会小写，所以注册函数名只能使用小写字母，否则函数将无法识别。
 
 2. 声明函数参数类型和返回类型。
 
    所有数字类型都可以作为函数 `abs()` 的参数（uint8、int8、float32...）。那么，可以设置返回一个涵盖所有不同参数类型的 64 位值。为了优化函数的性能，你也可以根据参数类型返回不同的类型。
 
-   a. 在 `init` 函数之外，需要为每对参数类型和返回类型声明这些变量。
+   a。在 `init` 函数之外，需要为每对参数类型和返回类型声明这些变量。
 
 ```go
 var argAndRets = []argsAndRet{
@@ -116,7 +116,7 @@ func init() {
 }
 ```
 
-   b. 为 `abs()` 函数注册参数类型和返回类型：
+   b。为 `abs()` 函数注册参数类型和返回类型：
 
 ```go
 func init() {
@@ -130,7 +130,7 @@ func init() {
 }
 ```
 
-   c. 定义一个 `stringify` 函数并注册 `abs()` 函数类型：
+   c。定义一个 `stringify` 函数并注册 `abs()` 函数类型：
 
 ```go
 func init() {
@@ -150,7 +150,7 @@ func init() {
 
    为更简单的展示示例，本章节仅演示 `abs()` 函数的参数类型为 `float32` 和 `float64` 的两种情况。
 
-   d. 函数调用准备：
+   d。函数调用准备：
 
 ```go
 func init() {
@@ -190,7 +190,7 @@ func init() {
 
 上面的代码中的关键注释如下：
 
-1. process.Get：MatrixOne 为每个查询分配一个“虚拟进程”，在执行查询期间，我需要生成新的 Vector，并为它分配内存，参见下面的命令：
+1. process.Get：MatrixOne 为每个查询分配一个 “虚拟进程”，在执行查询期间，我需要生成新的 Vector，并为它分配内存，参见下面的命令：
 
 ```go
 // proc: the process for this query, size: the memory allocation size  we are asking for, type: the new Vector's type.
@@ -373,7 +373,7 @@ func absFloat64(xs, rs []float64) []float64 {
 ## **编译并运行 MatrixOne**
 
 本章节讲述编译并运行 MatrixOne 来查看函数的行为。
-Once the aggregation function is ready, we can compile and run MatrixOne to see the function behavior.
+Once the aggregation function is ready，we can compile and run MatrixOne to see the function behavior。
 
 ### 步骤 1：运行 `make config` 和 `make build` 来编译 MatrixOne 并构建二进制文件
 
@@ -405,8 +405,8 @@ make build
 
 使用内置账户：
 
-- user: dump
-- password: 111
+- user：dump
+- password：111
 
 ```
 mysql -h 127.0.0.1 -P 6001 -udump -p
@@ -441,7 +441,7 @@ mysql> select a, b, abs(a), abs(b) from abs_test_table;
 3 rows in set (0.01 sec)
 ```
 
-Bingo!
+Bingo！
 
 !!! info
 		除了 `abs()` 之外，MatrixOne 已经有一些系统函数的简洁示例，例如 `floor()`、`round()`、`year()`。稍作相应改动后，过程与其他功能基本相同。

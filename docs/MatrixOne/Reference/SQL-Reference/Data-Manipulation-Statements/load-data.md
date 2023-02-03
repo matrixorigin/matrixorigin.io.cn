@@ -2,7 +2,7 @@
 
 ## **概述**
 
-`LOAD DATA` 语句可以极快地将文本文件中的行读入表中。你可以从服务器主机或 [S3 兼容对象存储](../../../Develop/import-data/bulk-load/load-s3.md) 读取该文件。`LOAD DATA` 是 [`SELECT ... INTO OUTFILE`](../../../Develop/export-data/select-into-outfile.md) 相反的操作。
+`LOAD DATA` 语句可以极快地将文本文件中的行读入表中。你可以从服务器主机或 [S3 兼容对象存储](../../../Develop/import-data/bulk-load/load-s3.md)读取该文件。`LOAD DATA` 是 [`SELECT ... INTO OUTFILE`](../../../Develop/export-data/select-into-outfile.md) 相反的操作。
 
 - 将文件读回表中，使用 `LOAD DATA`。
 - 将表中的数据写入文件，使用 `SELECT ... INTO OUTFILE`。
@@ -60,9 +60,9 @@ FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n'
 
 意义如下：
 
-- `FIELDS TERMINATED BY ','`：以 , 作为分隔符
+- `FIELDS TERMINATED BY ','`：以，作为分隔符
 - `ENCLOSED BY '"'`：使用双引号把各个字段括起来
-- `LINES TERMINATED BY '\n'`：以'\n'为行间分隔符
+- `LINES TERMINATED BY '\n'`：以 '\n' 为行间分隔符
 
 **FIELDS TERMINATED BY**
 
@@ -92,7 +92,7 @@ LOAD DATA INFILE 'data.txt' INTO TABLE table1
 
 **FIELDS ENCLOSED BY**
 
-`FIELDS TERMINATED BY` 指定的值包含输入值的字符。 `ENCLOSED BY` 指定的值必须是单个字符；如果输入值不一定包含在引号中，需要在 `ENCLOSED BY` 选项之前使用 `OPTIONALLY`。
+`FIELDS TERMINATED BY` 指定的值包含输入值的字符。`ENCLOSED BY` 指定的值必须是单个字符；如果输入值不一定包含在引号中，需要在 `ENCLOSED BY` 选项之前使用 `OPTIONALLY`。
 
 如下面的例子所示，即表示一部分输入值用可以用引号括起来，另一些可以不用引号括起来：
 
@@ -121,7 +121,7 @@ LOAD DATA INFILE 'data.txt' INTO TABLE table1
 | \Z | 	ASCII 26 (Control+Z) |
 | \N | 	NULL |
 
-例如，如果某些输入值是特殊字符“\”，则可以使用 `ESCAPE BY`：
+例如，如果某些输入值是特殊字符 “\”，则可以使用 `ESCAPE BY`：
 
 ```
 LOAD DATA INFILE 'data.txt' INTO TABLE table1
@@ -132,7 +132,7 @@ LOAD DATA INFILE 'data.txt' INTO TABLE table1
 
 **LINES TERMINATED BY**
 
-`LINES TERMINATED BY` 用于指定一行的分隔符。 `LINES TERMINATED BY` 值可以超过一个字符。
+`LINES TERMINATED BY` 用于指定一行的分隔符。`LINES TERMINATED BY` 值可以超过一个字符。
 
 例如，如果 *csv* 文件中的行以回车符/换行符对结束，你在加载它时，可以使用 `LINES TERMINATED BY '\r\n'`：
 
@@ -167,7 +167,7 @@ something xxx"def",2
 
 在 MatrixOne 当前版本中，`LOAD DATA` 支持 *CSV* 格式和 *JSONLines* 格式文件。
 
-有关导入这两种格式的文档，参见 [导入 *.csv* 格式数据](../../../Develop/import-data/bulk-load/load-csv.md) 和 [导入 JSONLines 数据](../../../Develop/import-data/bulk-load/load-jsonline.md)。
+有关导入这两种格式的文档，参见[导入*。csv* 格式数据](../../../Develop/import-data/bulk-load/load-csv.md)和[导入 JSONLines 数据](../../../Develop/import-data/bulk-load/load-jsonline.md)。
 
 ## **示例**
 
@@ -296,7 +296,7 @@ mysql> select * from t1;
 
 可以看到，查询结果忽略了前 10 行，并且忽略了公共前缀 aa。
 
-有关如何导入 *CSV* 格式文件的详细步骤，参见[导入 *.csv* 格式数据](../../../Develop/import-data/bulk-load/load-jsonline.md)。
+有关如何导入 *CSV* 格式文件的详细步骤，参见[导入*。csv* 格式数据](../../../Develop/import-data/bulk-load/load-jsonline.md)。
 
 ### 示例 2：LOAD JSONLines
 

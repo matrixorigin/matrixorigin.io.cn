@@ -1,18 +1,18 @@
 # MatrixOne 的 SQL 基本操作
 
-MatrixOne 兼容 MySQL，你可以使用 MySQL 客户端或其他方式连接 MatrixOne。参加 [MySQL 兼容性](../Overview/mysql-compatibility.md) 和 [客户端连接 MatrixOne 服务](../Develop/connect-mo/database-client-tools.md)。
+MatrixOne 兼容 MySQL，你可以使用 MySQL 客户端或其他方式连接 MatrixOne。参加 [MySQL 兼容性](../Overview/mysql-compatibility.md)和[客户端连接 MatrixOne 服务](../Develop/connect-mo/database-client-tools.md)。
 
 ## 什么是 SQL 语言？
 
-SQL (Structured Query Language:结构化查询语言) 是用于管理关系数据库管理系统（RDBMS）。SQL 的范围包括数据插入、查询、更新和删除，数据库模式创建和修改，以及数据访问控制。
+SQL (Structured Query Language：结构化查询语言) 是用于管理关系数据库管理系统（RDBMS）。SQL 的范围包括数据插入、查询、更新和删除，数据库模式创建和修改，以及数据访问控制。
 
 ## MatrixOne 的 SQL 都分为哪几类？
 
 SQL 语言通常按照功能划分成以下的 4 个部分：
 
-- DDL (Data Definition Language)：数据定义语言，用来定义数据库对象，包括库、表、视图等。例如，`CREATE`，`ALTER`，和 `DROP` 等。
+- DDL (Data Definition Language)：数据定义语言，用来定义数据库对象，包括库、表、视图等。例如，`CREATE`，`ALTER`，`TRUNCATE`，`RENAME` 和 `DROP` 等。
 
-- DML (Data Manipulation Language)：数据操作语言，用来操作和业务相关的记录。例如，`SELECT`，`DELETE`，或 `INSERT` 等。
+- DML (Data Manipulation Language)：数据操作语言，用来操作和业务相关的记录。例如，`INSERT`，`DELETE`，`UPDATE` 和 `LOAD DATA` 等。
 
 - DQL (Data Query Language)：数据查询语言，用来查询经过条件筛选的记录。例如，`SELECT...FROM...[WHERE]` 这种多个子句组合而成的 SQL 语句。
 
@@ -54,7 +54,7 @@ USE dbdemo;
 SHOW TABLES FROM dbdemo;
 ```
 
-- 删除数据库，使用`DROP DATABASE` 语句：
+- 删除数据库，使用 `DROP DATABASE` 语句：
 
 ```sql
 DROP DATABASE dbdemo;
@@ -188,7 +188,7 @@ SELECT * FROM person where id<5;
 
 ## 创建、授权和删除用户
 
-如果你[安装部署单机版的 MatrixOne](connect-to-matrixone-server.md)，连接登录 MatrixOne 时，你本身便具有最高权限，你可以参考下面的内容创建用户并授权，以便体验 MatrixOne 集群的权限管理功能。
+如果你[安装部署单机版的 MatrixOne](install-on-macos/install-on-macos-method1.md)，连接登录 MatrixOne 时，你本身便具有最高权限，你可以参考下面的内容创建用户并授权，以便体验 MatrixOne 集群的权限管理功能。
 
 - 使用 `CREATE USER` 语句创建一个用户 *mouser*，密码为 *111*：
 

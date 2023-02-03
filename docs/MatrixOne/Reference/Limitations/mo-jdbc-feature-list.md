@@ -8,8 +8,8 @@
 
 1. 获取执行 Sql 对象 Statement  
 
-    - Statement createStatement();  
-    - Statement prepareStatement(String sql);  
+    - Statement createStatement()；  
+    - Statement prepareStatement(String sql)；  
 
 2. 管理事务
 

@@ -9,16 +9,16 @@ MatrixOne 社区一共准备了 4 个类别的 56 个任务，有不同的难度
 
 这次的任务大家将要挑战的是 MatrixOne 的系统函数和聚合函数，对于刚入门数据库的同学来讲是相对基础但是又不乏挑战的任务。
 
-- 基础任务-系统函数（Built-in function）: 所谓的系统函数就是数据库自带的针对一些基础数据类型进行操作的函数，比如常见的round(), time(), substring()等等。第一周将有25个系统函数作为基础任务发布给大家进行挑战，包含数学类函数，时间日期类函数，字符串类函数，有9个任务非常容易，16个任务稍微有一些难度，只要你有一定的go语言基础，看得懂英文文档，就能快速上手解决哦。
+- 基础任务-系统函数（Built-in function）：所谓的系统函数就是数据库自带的针对一些基础数据类型进行操作的函数，比如常见的 round()，time()，substring() 等等。第一周将有 25 个系统函数作为基础任务发布给大家进行挑战，包含数学类函数，时间日期类函数，字符串类函数，有 9 个任务非常容易，16 个任务稍微有一些难度，只要你有一定的 go 语言基础，看得懂英文文档，就能快速上手解决哦。
 
-- 挑战任务 - 聚合函数（Aggregate function）：所谓的聚合函数就是需要聚集一部分数据进行运算返回结果的函数，比如常见的 sum(),count(),avg() 等等。在 MatrixOne 中，实现聚合函数是要用到我们的大杀器因子化加速能力的，需要对因子化中的“环”数据结构理论有一定理解，实现会有一定复杂度，所以我们将 5 个聚合函数列为了挑战任务。
+- 挑战任务 - 聚合函数（Aggregate function）：所谓的聚合函数就是需要聚集一部分数据进行运算返回结果的函数，比如常见的 sum()，count()，avg() 等等。在 MatrixOne 中，实现聚合函数是要用到我们的大杀器因子化加速能力的，需要对因子化中的 “环” 数据结构理论有一定理解，实现会有一定复杂度，所以我们将 5 个聚合函数列为了挑战任务。
 
 ## 参与流程
 
-在开始之前，先给 MatrixOne 项目 Star, Fork, Watch 一下吧。
+在开始之前，先给 MatrixOne 项目 Star，Fork，Watch 一下吧。
 
-1. 选择很重要！加小助手微信“MatrixOrigin001”填写活动注册表<https://www.wjx.top/vm/Ys1rz1I.aspx> 选择你想要完成的函数任务，并加入 MatrixOne 社区群。
-2. 登录 Github，在你选择的函数 issue 留下你的 comment，比如“I'd like to work on this issue”, 小助手会将相关 issue 分配给你。
+1. 选择很重要！加小助手微信 “MatrixOrigin001” 填写活动注册表 <https://www.wjx.top/vm/Ys1rz1I.aspx> 选择你想要完成的函数任务，并加入 MatrixOne 社区群。
+2. 登录 Github，在你选择的函数 issue 留下你的 comment，比如 “I'd like to work on this issue”，小助手会将相关 issue 分配给你。
 3. 开始只属于你的函数体验任务。如有任何问题，MatrixOne 社区群里的技术大牛全程在线支持。
 
 > 请注意：1 个开发者可以选择多个挑战任务，但是 1 个任务只能由 1 个开发者完成
@@ -95,36 +95,36 @@ MatrixOne 社区一共准备了 4 个类别的 56 个任务，有不同的难度
 
 ## 在开始之前
 
-1. 仔细阅读下 MatrixOne 社区的[贡献者指南](https://docs.matrixorigin.io/0.3.0/MatrixOne/Contribution-Guide/make-your-first-contribution/) 了解如何向 MatrixOne 提交代码。
-2. 了解整个 MatrixOne 数据库项目，参考[MatrixOne 项目文档](https://docs.matrixorigin.io/).
-3. 详细查看 [**系统函数构建指南**](https://docs.matrixorigin.io/0.3.0/MatrixOne/Contribution-Guide/Tutorial/develop_builtin_functions/) 与 [**聚合函数构建指南**](https://docs.matrixorigin.io/0.3.0/MatrixOne/Contribution-Guide/Tutorial/develop_aggregate_functions/)，其中详细描述了如何在 MatrixOne 中开发系统函数和聚合函数，同时给出了很多样例代码。
+1. 仔细阅读下 MatrixOne 社区的[贡献者指南](https://docs.matrixorigin.io/0.3.0/MatrixOne/Contribution-Guide/make-your-first-contribution/)了解如何向 MatrixOne 提交代码。
+2. 了解整个 MatrixOne 数据库项目，参考 [MatrixOne 项目文档](https://docs.matrixorigin.io/)。
+3. 详细查看[**系统函数构建指南**](https://docs.matrixorigin.io/0.3.0/MatrixOne/Contribution-Guide/Tutorial/develop_builtin_functions/)与[**聚合函数构建指南**](https://docs.matrixorigin.io/0.3.0/MatrixOne/Contribution-Guide/Tutorial/develop_aggregate_functions/)，其中详细描述了如何在 MatrixOne 中开发系统函数和聚合函数，同时给出了很多样例代码。
 
 ## 提交代码 (Pull Request) 要求
 
 1. 注意在实现功能完成之后一定要写单元测试哦，否则你的 PR 是不会被社区采纳的。
-2. 完成代码编写之后，按以下格式向 MatrixOne 提交 PR:
+2. 完成代码编写之后，按以下格式向 MatrixOne 提交 PR：
 
-* PR 格式: [MatrixCamp] + function name + PR title
+* PR 格式：[MatrixCamp] + function name + PR title
 * 标签：[MatrixCamp]
-* PR 内容：遵循[MatrixOne 的 PR 模版] (<https://github.com/matrixorigin/matrixone/blob/main/.github/PULL_REQUEST_TEMPLATE.md>)  
+* PR 内容：遵循 [MatrixOne 的 PR 模版] (<https://github.com/matrixorigin/matrixone/blob/main/.github/PULL_REQUEST_TEMPLATE.md>)  
 
 3. 提交 PR 完成后，在你的 PR 下面按以下格式评论：
 评论格式："I have finished Issue #" + PR link id
 
 ## 常见问题
 
-**Q: 必须先领任务才能开始么，可以直接提 PR 吗？**
-A:  是的，参与开发者都需要在 issue 下面评论认领后再开始任务，不建议直接提 PR。这样是为了避免多名开发者针对同一问题重复劳动。
+**Q：必须先领任务才能开始么，可以直接提 PR 吗？**
+A：是的，参与开发者都需要在 issue 下面评论认领后再开始任务，不建议直接提 PR。这样是为了避免多名开发者针对同一问题重复劳动。
 
-**Q: 为什么`select abs(-1);`和`select d, abs(-1) from t;`这样的语句会出问题？**
-A: 目前 MatrixOne 还不支持无表及常数参数的 SQL 语句，因此`select abs(-1);`和`select abs(-1) from table1;`这样的语句均会出错。正确的 SQL 语句是需要创建一张表，导入一些数据，然后再将列名作为参数运行 built-in 函数。如以下例子：
+**Q：为什么 `select abs(-1);` 和 `select d, abs(-1) from t;` 这样的语句会出问题？**
+A：目前 MatrixOne 还不支持无表及常数参数的 SQL 语句，因此 `select abs(-1);` 和 `select abs(-1) from table1;` 这样的语句均会出错。正确的 SQL 语句是需要创建一张表，导入一些数据，然后再将列名作为参数运行 built-in 函数。如以下例子：
 
 ```sql
 select abs(a) from t; 
 ```
 
-**Q: 为什么每次 PR 完成之后，我的仓库总是会比 MatrixOne 领先？**
-A: MatrixOne 对所有 pr 的合并都要求是 squash and merge，因此 pr 合并后跟主干会不一致。这里推荐采用的 git 流程，可以保持本地 git，远端 git 仓库与 MatrixOne 仓库保持一致的方法：
+**Q：为什么每次 PR 完成之后，我的仓库总是会比 MatrixOne 领先？**
+A：MatrixOne 对所有 pr 的合并都要求是 squash and merge，因此 pr 合并后跟主干会不一致。这里推荐采用的 git 流程，可以保持本地 git，远端 git 仓库与 MatrixOne 仓库保持一致的方法：
 
 ```
 1. 首先Fork MatrixOne的仓库。
@@ -137,22 +137,22 @@ A: MatrixOne 对所有 pr 的合并都要求是 squash and merge，因此 pr 合
 8. 再次提交到自己的远端仓库：git push --force origin main:main
 ```
 
-**Q: 我提交的 PR 在自动测试阶段失败了，这个是什么原因？**
+**Q：我提交的 PR 在自动测试阶段失败了，这个是什么原因？**
 A：MatrixOne 会在 PR 提交之后自动进行一系列 CI 及 BVT 测试，开发者在提交之后可以看到测试的进展及日志，如果是与函数功能相关的测试没有通过，请修改 code 后重新提交。如果是其他与函数无关的测试问题，可以在 PR 中进行评论，社区将会查询问题所在，不会影响本次函数任务的判定结果。目前 MatrixOne 的 CI 测试有一定的不稳定程度，因此可能有一些与函数无关的 CI 测试会 fail。
 
-**Q: MatrixOne 服务启动之后的日志信息有点太多了，怎么能关掉？**
-A: 目前 MatrixOne 的默认日志级别是`DEBUG`级，所以信息是会比较多的。控制这个日志级别的是系统配置文件`system_vars_config.toml`，可以在调试的时候将该文件的`cubeLogLevel`与`level`两个参数设置成`ERROR`级别，这样打印的信息会少很多。
+**Q：MatrixOne 服务启动之后的日志信息有点太多了，怎么能关掉？**
+A：目前 MatrixOne 的默认日志级别是 `DEBUG` 级，所以信息是会比较多的。控制这个日志级别的是系统配置文件 `system_vars_config.toml`，可以在调试的时候将该文件的 `cubeLogLevel` 与 `level` 两个参数设置成 `ERROR` 级别，这样打印的信息会少很多。
 
 ```
 cubeLogLevel = "error"
 level = "error"
 ```
 
-**Q: 如果我对认领的函数实现有一些疑问，我应该向谁询问？**
+**Q：如果我对认领的函数实现有一些疑问，我应该向谁询问？**
 A：如果是针对 MatrixOne 本身的测试和行为发现 bug，欢迎向 MatrixOne 社区提出 issue，我们有相应的模版帮助说明如何写 issue，社区会对 issue 进行处理。如果是针对函数本身的实现有问题，可以直接在认领的 issue 下面评论你的想法和疑问，MatrixOne 社区的 mentor 会及时回复。
 
-**Q: 我启动了 MatrixOne 服务，并且用 MySQL 进行连接，但是好像没有获得正确的结果，如何才知道是否成功连接？**
-A: 如果你的 MySQL 客户端连接 MatrixOne 后打印如下信息，就说明已经成功连接：
+**Q：我启动了 MatrixOne 服务，并且用 MySQL 进行连接，但是好像没有获得正确的结果，如何才知道是否成功连接？**
+A：如果你的 MySQL 客户端连接 MatrixOne 后打印如下信息，就说明已经成功连接：
 
 ```
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -168,16 +168,16 @@ owners.
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement. 
 ```
 
-Q: 我的 MatrixOne 服务启动了，但是我的 MySQL 客户端始终连接不上，这个应该怎么解决？
-A: 这个可能由各种原因导致，首先请关注错误的日志信息来定位问题，目前在 MatrixOne 中有两种常见错误：
+Q：我的 MatrixOne 服务启动了，但是我的 MySQL 客户端始终连接不上，这个应该怎么解决？
+A：这个可能由各种原因导致，首先请关注错误的日志信息来定位问题，目前在 MatrixOne 中有两种常见错误：
 
-1. 端口冲突：有的时候因为端口被其他程序占用会有冲突，比如 50000 端口经常被占用。可以通过一下`lsof -i:50000`命令来查找是哪个进程在占用这个端口。从这个命令中可以获得这个进程的 PID，再通过`kill -9 PIDNAME`关闭这个进程。
-2. 存储不兼容：有的时候如果你从新的代码库拉取了最新的代码，但是存储数据是之前版本导入的数据，你可能也会面临连接失败问题。你可以尝试先将 MatrixOne 目录下的`Store`目录清空并重启 MatrixOne 服务。
+1. 端口冲突：有的时候因为端口被其他程序占用会有冲突，比如 50000 端口经常被占用。可以通过一下 `lsof -i:50000` 命令来查找是哪个进程在占用这个端口。从这个命令中可以获得这个进程的 PID，再通过 `kill -9 PIDNAME` 关闭这个进程。
+2. 存储不兼容：有的时候如果你从新的代码库拉取了最新的代码，但是存储数据是之前版本导入的数据，你可能也会面临连接失败问题。你可以尝试先将 MatrixOne 目录下的 `Store` 目录清空并重启 MatrixOne 服务。
 
-**Q: Mentor 要求我对提交的代码格式进行缩进，这个如何做？**
+**Q：Mentor 要求我对提交的代码格式进行缩进，这个如何做？**
 A：可以通过 Golang 语言自带的 gofmt 工具在命令行中进行操作，或者在一些常见的 IDE 如 VS Code 和 GoLand 中也均有相应的设置。
 
-**Q: 如何理解 MatrixOne 的 Vector 数据结构？**
+**Q：如何理解 MatrixOne 的 Vector 数据结构？**
 A：Vector 是 MatrixOne 中表示一列数据的结构，是 MatrixOne 最重要的数据结构体之一。它其中的不同变量含义：
 
 ```

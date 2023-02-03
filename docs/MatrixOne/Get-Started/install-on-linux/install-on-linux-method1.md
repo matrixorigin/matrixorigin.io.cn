@@ -6,7 +6,7 @@
 
 1. 点击 <a href="https://go.dev/doc/install" target="_blank">Go Download and install</a> 入到 **Go** 的官方文档，按照官方指导安装步骤完成 **Go** 语言的安装。
 
-    __Note__: 建议 Go 语言版本为 1.19 版本。
+    __Note__：建议 Go 语言版本为 1.19 版本。
 
 2. 验证 **Go** 是否安装，请执行代码 `go version`，安装成功代码行示例如下：
 
@@ -27,7 +27,7 @@
 
 2. 点击 <a href="https://gcc.gnu.org/install/" target="_blank">GCC Download and install</a> 入到 **GCC** 的官方文档，按照官方指导安装步骤完成 **GCC** 的安装。
 
-    __Note__: 建议 GCC 版本为 8.5 版本及以上。
+    __Note__：建议 GCC 版本为 8.5 版本及以上。
 
 3. 验证 **GCC** 是否安装，请执行代码 `gcc -v`，安装成功代码行示例如下（只展示部分代码）：
 
@@ -43,7 +43,7 @@
 
 根据您的需要，选择您所获取的代码永远保持最新，还是获得稳定版本的代码。
 
-=== "通过 MatrixOne(开发版本) 代码搭建"
+=== "通过 MatrixOne (开发版本) 代码搭建"
 
       **main** 分支是默认分支，主分支上的代码总是最新的，但不够稳定。
 
@@ -62,7 +62,7 @@
 
          __Tips__: 你也可以运行`make debug`与`make clean`或者其他任何`Makefile`支持的命令；`make debug` 可以用来调试构建进程，`make clean` 可以清除构建进程。如果在 `make build` 时产生 `Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout` 报错，参见[安装和部署常见问题](../../FAQs/deployment-faqs.md)进行解决。
 
-=== "通过 MatrixOne(稳定版本) 代码搭建"
+=== "通过 MatrixOne (稳定版本) 代码搭建"
 
      1. 如果您想获得 MatrixOne 发布的最新稳定版本代码，请先从 **main** 切换选择至 **0.6.0** 版本分支。
 
@@ -121,7 +121,7 @@
 
 1. 点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 **Select Operating System**，再下拉选择 **Select OS Version**，按需选择下载安装包进行安装。
 
-    __Note__: 建议 MySQL 客户端版本为 8.0.30 版本及以上。
+    __Note__：建议 MySQL 客户端版本为 8.0.30 版本及以上。
 
 2. 配置 MySQL 客户端环境变量：
 
@@ -134,7 +134,7 @@
 
      2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
 
-     3. 输入/跳过 root 密码后，即进入了 *.bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+     3. 输入/跳过 root 密码后，即进入了*。bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
 
         ```
         export PATH=/software/mysql/bin:$PATH
@@ -152,7 +152,7 @@
 
      7. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
 
-    __Tips__: 目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
+    __Tips__：目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
 
 ### 连接 MatrixOne
 

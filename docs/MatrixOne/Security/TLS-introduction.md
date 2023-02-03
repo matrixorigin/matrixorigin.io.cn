@@ -2,9 +2,9 @@
 
 ## 概述
 
-传输层安全性 (Transport Layer Security, TLS) 是一种广泛采用的安全性协议，目的是为互联网通信提供安全及数据完整性保障。
+传输层安全性 (Transport Layer Security，TLS) 是一种广泛采用的安全性协议，目的是为互联网通信提供安全及数据完整性保障。
 
-MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加密连接，支持的协议版本有 TLS 1.0, TLS 1.1, TLS 1.2。
+MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加密连接，支持的协议版本有 TLS 1.0，TLS 1.1，TLS 1.2。
 
 - 不开启 TLS 加密连接（默认）：直接使用用户名密码连接 MatrixOne 即可。
 - 使用加密连接：需要在 MatrixOne 服务端开启加密连接支持，并在客户端指定使用加密连接。你可以参加下文指导，开启 TLS 安全连接。
@@ -42,7 +42,7 @@ MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加�
     └── server-key.pem
     ```
 
-    __Note__:  上述代码中的 `<yourpath>` 是你需要存放生成的证书及密钥文件的本地目录路径。
+    __Note__：上述代码中的 `<yourpath>` 是你需要存放生成的证书及密钥文件的本地目录路径。
 
 2. 进入到你本地的 MatrixOne 文件目录路径 *matrixone/etc/launch-tae-CN-tae-DN/* 中的 *cn.toml* 配置文件：
 
@@ -69,7 +69,7 @@ MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加�
     tlsCaFile = "<yourpath>/ca.pem"
     ```
 
-    __Note__: 上述代码中的 `<yourpath>` 是你需要存放生成的证书及密钥文件的本地目录路径
+    __Note__：上述代码中的 `<yourpath>` 是你需要存放生成的证书及密钥文件的本地目录路径
 
     上述代码中，配置参数解释如下：
 
@@ -80,7 +80,7 @@ MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加�
     |tlsKeyFile|指定证书文件对应的私钥|
     |tlsCaFile|可选，指定受信任的 CA 证书文件路径|
 
-    __Note__: 如果你是使用 Docker 安装部署的 MatrixOne，修改配置文件之前，你需要先挂载配置文件再进行修改，操作具体参见[挂载目录到 Docker 容器](../Maintain/mount-data-by-docker.md)。
+    __Note__：如果你是使用 Docker 安装部署的 MatrixOne，修改配置文件之前，你需要先挂载配置文件再进行修改，操作具体参见[挂载目录到 Docker 容器](../Maintain/mount-data-by-docker.md)。
 
 3. 验证 MatrixOne 的 SSL 是否启用。
 

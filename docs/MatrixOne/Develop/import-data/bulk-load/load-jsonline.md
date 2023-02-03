@@ -1,12 +1,12 @@
 # 导入 JSONLines 数据
 
-本篇文档将指导你如何将 JSONLines 格式数据（即 *.jl* 或 *.jsonl* 文件）导入 MatrixOne。
+本篇文档将指导你如何将 JSONLines 格式数据（即*。jl* 或*。jsonl* 文件）导入 MatrixOne。
 
 ## 有关 JSONLines 格式
 
-JSON（JavaScript Object Notation）是一种轻量级的数据交换格式。你可以参见 [官方文档](https://www.json.org/json-en.html) 获取更多有关 JSON 的信息。
+JSON（JavaScript Object Notation）是一种轻量级的数据交换格式。你可以参见[官方文档](https://www.json.org/json-en.html)获取更多有关 JSON 的信息。
 
-[JSONLines](https://jsonlines.org/) 文本格式，也称为换行符分隔的 JSON，它是一种更为方便存储结构化的数据格式，可以一次处理一条记录。它每一行都是完整、合法的 JSON 值；它采用 `\n` 作为行分隔符。JSONLines 的每一行都是独立的，因此行的开头或结尾不需要逗号。JSONLines 的全部内容也不需要用`[]`或`{}`括起来。
+[JSONLines](https://jsonlines.org/) 文本格式，也称为换行符分隔的 JSON，它是一种更为方便存储结构化的数据格式，可以一次处理一条记录。它每一行都是完整、合法的 JSON 值；它采用 `\n` 作为行分隔符。JSONLines 的每一行都是独立的，因此行的开头或结尾不需要逗号。JSONLines 的全部内容也不需要用 `[]` 或 `{}` 括起来。
 
 JSONLines 对于数据流来说更为友好。因为每一个新的行意味着一个单独的条目，因此 JSON 行格式的文件可以流式传输。它不需要自定义解析器。只需读取一行，解析为 JSON，再读取一行，解析为 JSON，一直到完成。
 
@@ -18,7 +18,7 @@ JSON 允许仅用 ASCII 转义序列编码 Unicode 字符串，但是当在文�
 
 * **每行都是一个合法的 JSON 值**：最常见的值是对象或数组，任何 JSON 值都是合法的。
 
-* **行分隔符为 `\n`**：由于在解析 JSON 值时会隐式忽略周围的空格在支持行分隔符 `\n` 的同时也支持“\r\n”。
+* **行分隔符为 `\n`**：由于在解析 JSON 值时会隐式忽略周围的空格在支持行分隔符 `\n` 的同时也支持 “\r\n”。
 
 ## 对于 MatrixOne 有效的 JSONLines 格式
 
@@ -70,7 +70,7 @@ LOAD DATA INFILE
 
 * filepath：文件路径。
 * compression：压缩格式，支持 BZIP2、GZIP。
-* format：文件格式，支持 *.csv* 和 *.jsonline*
+* format：文件格式，支持*。csv* 和*。jsonline*
 * jsondata：json 数据格式，支持 object 和 array，如果 `format` 为 *jsonline*，则**必须**指定 *jsondata*。
 
 |参数 | 值|必须/可选 | 描述|
@@ -135,12 +135,12 @@ load data infile {'filepath'='data.jl.gz', 'compression'='gzip','format'='jsonli
 
 在本教程中将指导你如何加载两个具有对象和数组 json 格式的 jsonline 文件。
 
-1. 准备数据。你也可以下载使用我们准备好的 *.jl* 文件。数据目录需要与 MatrixOne 服务器位于同一台计算机上。以下步骤使用示例数据进行说明。
+1. 准备数据。你也可以下载使用我们准备好的*。jl* 文件。数据目录需要与 MatrixOne 服务器位于同一台计算机上。以下步骤使用示例数据进行说明。
 
     - 示例数据 1：*[jsonline_object.jl](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/jsonline_object.jl)*
     - 示例数据 2：*[jsonline_array.jl](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/jsonline_array.jl)*
 
-2. 打开终端，进入到 *.jl* 文件所在目录，输入下面的命令行，显示文件内的具体内容：
+2. 打开终端，进入到*。jl* 文件所在目录，输入下面的命令行，显示文件内的具体内容：
 
     ```shell
     > cd /$filepath
@@ -190,7 +190,7 @@ load data infile {'filepath'='data.jl.gz', 'compression'='gzip','format'='jsonli
     ```
 
 !!! note
-    如果您使用 Docker 启动 MatrixOne，当你需要导入 JSONline 文件时，请确保你已将数据目录挂载到容器。你也可以查看 [导入 *.csv* 格式数据](load-csv.md) ，了解如何使用 Docker 挂载数据。
+    如果您使用 Docker 启动 MatrixOne，当你需要导入 JSONline 文件时，请确保你已将数据目录挂载到容器。你也可以查看[导入*。csv* 格式数据](load-csv.md)，了解如何使用 Docker 挂载数据。
 
 ## 限制
 

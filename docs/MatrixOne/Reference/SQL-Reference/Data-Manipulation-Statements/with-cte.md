@@ -4,7 +4,7 @@
 
 通用表表达式（CTE，common table expression），它是在单个语句的执行范围内定义的临时结果集，只在查询期间有效。它可以自引用，也可在同一查询中多次引用。
 
-定义 `CTE` 后，可以像 `SELECT`，`INSERT`，`UPDATE`，`DELETE`或 `CREATE VIEW` 语句一样引用它。
+定义 `CTE` 后，可以像 `SELECT`，`INSERT`，`UPDATE`，`DELETE` 或 `CREATE VIEW` 语句一样引用它。
 
 使用 `WITH` 从句指定通用表表达式，`WITH` 从句可以使用一个或多个逗号分隔。每个从句提供一个子查询，该子查询生成一个结果集，并将名称与子查询关联起来。
 

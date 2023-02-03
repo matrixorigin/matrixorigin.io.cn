@@ -74,7 +74,7 @@ N_COMMENT    VARCHAR(152),
 |N_REGIONKEY|INTEGER|地区区号，唯一标识|所有标识都应该是 INTEGER 类型的|
 |N_COMMENT|VARCHAR|comment信息|varchar 类型，且不超过 152 字符|
 
-MatrixOne 支持许多其他的列数据类型，包含 整数、浮点数、时间等，参见[数据类型](../../Reference/Data-Types/data-types.md)。
+MatrixOne 支持许多其他的列数据类型，包含整数、浮点数、时间等，参见[数据类型](../../Reference/Data-Types/data-types.md)。
 
 **创建一个复杂表**
 
@@ -194,7 +194,7 @@ SHOW TABLES IN `modatabase`;
 
 - 使用完全限定的表名称（例如：`CREATE TABLE {database_name}.{table_name}`）。这是因为你在不指定数据库名称时，MatrixOne 将使用你 SQL 会话中的当前数据库。若你未在 SQL 会话中使用 `USE {databasename};` 来指定数据库，MatrixOne 将会返回错误。
 
-- 请使用有意义的表名，例如，若你需要创建一个用户表，你可以使用名称：*user*, *t_user*, *users* 等，或遵循你公司或组织的命名规范。如果你的公司或组织没有相应的命名规范，可参考表命名规范。
+- 请使用有意义的表名，例如，若你需要创建一个用户表，你可以使用名称：*user*，*t_user*，*users* 等，或遵循你公司或组织的命名规范。如果你的公司或组织没有相应的命名规范，可参考表命名规范。
 
 - 多个单词以下划线分隔，不推荐超过 32 个字符。
 

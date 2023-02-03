@@ -89,7 +89,7 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
 
 * **当我安装选择从源代码安装构建 MatrixOne 时，产生了以下错误或构建失败提示，我该如何继续？**
 
-报错： `Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout`
+报错：`Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout`
 
 由于 MatrixOne 需要许多 GO 库作为依赖项，所以它在构建时，会同时下载 GO 库。上述所示的报错是下载超时的错误，主要原因是网络问题。
 

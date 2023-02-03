@@ -1,6 +1,6 @@
 # MatrixOne 系统数据库和表
 
-MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你可以通过它们访问系统信息。MatrixOne 在初始化时创建了 6 个系统数据库：`mo_catalog`、`information_schema`、`system_metrcis`、`system`、`mysql` 和 `mo_task`。 `mo_task` 当前正在开发中，暂时对你所进行的操作不会产生直接影响。本文档中描述了其他系统数据库和表函数。
+MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你可以通过它们访问系统信息。MatrixOne 在初始化时创建了 6 个系统数据库：`mo_catalog`、`information_schema`、`system_metrcis`、`system`、`mysql` 和 `mo_task`。`mo_task` 当前正在开发中，暂时对你所进行的操作不会产生直接影响。本文档中描述了其他系统数据库和表函数。
 
 系统只能修改系统数据库和表，你仅能从中进行读取操作。
 
@@ -154,7 +154,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 - role：MatrixOne 节点角色，包括 CN、DN 和 Log。
 
-- account：默认为“sys”租户，即触发 SQL 请求的账户。
+- account：默认为 “sys” 租户，即触发 SQL 请求的账户。
 
 - type：SQL 类型，可以是 `select`，`insert`，`update`，`delete`，`other` 类型。
 
@@ -336,13 +336,13 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 ### `SCHEMATA` 表
 
-`SCHEMATA` 表提供有关数据库的信息。表数据等同于 `SHOW DATABASES` 语句的结果。 `SCHEMATA` 表中的字段描述如下：
+`SCHEMATA` 表提供有关数据库的信息。表数据等同于 `SHOW DATABASES` 语句的结果。`SCHEMATA` 表中的字段描述如下：
 
 - `CATALOG_NAME`：数据库所属的目录。
 - `SCHEMA_NAME`：数据库名称。
 - `DEFAULT_CHARACTER_SET_NAME`：数据库的默认字符集。
 - `DEFAULT_COLLATION_NAME`：数据库的默认排序规则。
-- `SQL_PATH`：此项的值始终为`NULL`。
+- `SQL_PATH`：此项的值始终为 `NULL`。
 - `DEFAULT_TABLE_ENCRYPTION`：定义数据库和通用表空间的 *default encryption* 设置。
 
 ### `TABLES` 表
@@ -357,10 +357,10 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 - `VERSION`：版本。默认值为 `10`。
 - `ROW_FORMAT`：行格式。该值当前为 `Compact`。
 - `TABLE_ROWS`：统计表中的行数。
-- `AVG_ROW_LENGTH`：表的平均行长。 `AVG_ROW_LENGTH` = `DATA_LENGTH` / `TABLE_ROWS`。
-- `DATA_LENGTH`：数据长度。 `DATA_LENGTH` = `TABLE_ROWS` * 元组中列的存储长度之和。不考虑 TiKV 的副本。
+- `AVG_ROW_LENGTH`：表的平均行长。`AVG_ROW_LENGTH` = `DATA_LENGTH` / `TABLE_ROWS`。
+- `DATA_LENGTH`：数据长度。`DATA_LENGTH` = `TABLE_ROWS` * 元组中列的存储长度之和。不考虑 TiKV 的副本。
 - `MAX_DATA_LENGTH`：最大数据长度。该值当前为 `0`，表示数据长度没有上限。
-- `INDEX_LENGTH`：索引长度。 `INDEX_LENGTH` = `TABLE_ROWS` * 索引元组中列的长度总和。
+- `INDEX_LENGTH`：索引长度。`INDEX_LENGTH` = `TABLE_ROWS` * 索引元组中列的长度总和。
 - `DATA_FREE`：数据片段。该值当前为 `0`。
 - `AUTO_INCREMENT`：自增主键的当前步长。
 - `CREATE_TIME`：创建表的时间。
@@ -380,7 +380,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 - `GRANTEE`：授权用户名，格式为 `'user_name'@'host_name'`。
 - `TABLE_CATALOG`：表所属的目录的名称。值为 `def`。
 - `PRIVILEGE_TYPE`：要授予的权限类型。每行只显示一种权限类型。
-- `IS_GRANTABLE`：如果你有 `GRANT OPTION` 权限，该值为 `YES`，没有`GRANT OPTION` 权限，该值为 `NO`。
+- `IS_GRANTABLE`：如果你有 `GRANT OPTION` 权限，该值为 `YES`，没有 `GRANT OPTION` 权限，该值为 `NO`。
 
 ## `mysql` 数据库
 
@@ -388,7 +388,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 授权系统表包含了关于用户帐户及其权限信息：
 
-- `user`用户帐户、全局权限和其他非权限列。
+- `user` 用户帐户、全局权限和其他非权限列。
 
 - `db`：数据库级权限。
 

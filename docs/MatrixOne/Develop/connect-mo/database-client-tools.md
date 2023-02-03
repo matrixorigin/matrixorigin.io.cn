@@ -24,8 +24,8 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
     此处以内置帐号作为示例：
 
-    - user: dump
-    - password: 111
+    - user：dump
+    - password：111
 
     ```
     mysql -h 127.0.0.1 -P 6001 -udump -p
@@ -63,17 +63,17 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
     ./mo-service -launch ./etc/quickstart/launch.toml
     ```
 
-    __Note__: 如果你使用 Docker 的方式安装启动的 MatrixOne，并且你需要修改这个配置文件，请参考[挂载目录到 Docker 容器](../../Maintain/mount-data-by-docker.md).
+    __Note__：如果你使用 Docker 的方式安装启动的 MatrixOne，并且你需要修改这个配置文件，请参考[挂载目录到 Docker 容器](../../Maintain/mount-data-by-docker.md)。
 
 2. 下载安装 [Navicat](https://www.navicat.com/en/products)。
 
 3. 安装 Navicat 完成后，打开 Navicat，点击左上角 **Connection > MySQL**，在弹窗中填入如下参数：
 
-    - **Connction Name**: MatrixOne
-    - **Host**: 127.0.0.1
-    - **Port**: 6001
-    - **User Name**: dump
-    - **Password**: 111
+    - **Connction Name**：MatrixOne
+    - **Host**：127.0.0.1
+    - **Port**：6001
+    - **User Name**：dump
+    - **Password**：111
     - **Save password**：勾选
 
 4. 点击 **Save** 保存设置。
@@ -94,18 +94,18 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
 1. 下载安装 [DBeaver](https://dbeaver.io/download/)。
 
-2. 安装 DBeaver 完成后，打开 DBeaver，点击左上角**连接**图标，在弹窗中选择 **MySQL**，点击**Next**。
+2. 安装 DBeaver 完成后，打开 DBeaver，点击左上角**连接**图标，在弹窗中选择 **MySQL**，点击 **Next**。
 
     ![dbeaver-mysql](https://github.com/matrixorigin/artwork/blob/main/docs/develop/dbeaver-mysql.png?raw=true)
 
-    在 **Connect to a database**窗口的**Main**区中填写如下参数：
+    在 **Connect to a database** 窗口的 **Main** 区中填写如下参数：
 
-    - **Host**: 127.0.0.1
-    - **Port**: 6001
-    - **Database**: MatrixOne
-    - **User Name**: dump
-    - **Password**: 111
-    - **Save password locally**: 勾选
+    - **Host**：127.0.0.1
+    - **Port**：6001
+    - **Database**：MatrixOne
+    - **User Name**：dump
+    - **Password**：111
+    - **Save password locally**：勾选
 
     ![dbeaver-connection](https://github.com/matrixorigin/artwork/blob/main/docs/develop/dbeaver-connection.png?raw=true)
 

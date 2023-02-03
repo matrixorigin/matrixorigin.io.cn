@@ -2,9 +2,9 @@
 
 ## **Description**
 
-The `NULLIF()` function returns NULL if expr1 = expr2 is true, otherwise returns expr1.
+The `NULLIF()` function returns NULL if expr1 = expr2 is true，otherwise returns expr1。
 
-The return value has the same type as the first argument.
+The return value has the same type as the first argument。
 
 ## **Syntax**
 

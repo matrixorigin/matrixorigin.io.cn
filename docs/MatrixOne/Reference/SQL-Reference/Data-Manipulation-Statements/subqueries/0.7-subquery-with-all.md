@@ -2,8 +2,6 @@
 
 ## **语法描述**
 
-The word `ALL`, which must follow a comparison operator, means "return `TRUE` if the comparison is `TRUE` for `ALL` of the values in the column that the subquery returns.":
-
 关键词 `ALL` 必须跟在比较操作符后面，指如果子查询返回的列中值的 `ALL` 的比较是 `TRUE`，则返回 `TRUE`。
 
 ```

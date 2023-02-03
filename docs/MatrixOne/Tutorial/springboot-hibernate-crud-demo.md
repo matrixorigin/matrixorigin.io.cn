@@ -14,7 +14,7 @@
 
 * Spring：Spring 是 Java 中最流行的框架之一，越来越多的企业使用 Spring 框架来构建他们的项目。Spring Boot 构建在传统的 Spring 框架之上。因此，它提供了 Spring 的所有特性，而且比 Spring 更易用。
 
-* Postman: Postman 是一个用于 API 测试的应用程序。它是一个 HTTP 客户端，利用图形用户界面测试 HTTP 请求，以获得需要进行验证的不同类型的响应。
+* Postman：Postman 是一个用于 API 测试的应用程序。它是一个 HTTP 客户端，利用图形用户界面测试 HTTP 请求，以获得需要进行验证的不同类型的响应。
 
 ## 配置环境
 
@@ -604,7 +604,7 @@ public class JpademoApplication {
 2022-10-27 11:16:40.249  INFO 93488 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 66 ms
 ```
 
-### 1. 获取 Book  列表，使用 GET 请求调用以下端口
+### 1. 获取 Book 列表，使用 GET 请求调用以下端口
 
 ```
 http://localhost:8080/bookservice/books

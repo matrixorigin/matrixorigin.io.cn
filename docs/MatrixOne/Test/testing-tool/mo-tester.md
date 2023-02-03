@@ -8,11 +8,11 @@ MO-Tester 是基于 Java 语言进行开发，用于 MatrixOne 的测试套件�
 
 MO-Tester 相关用例、结果和报告的放在 [MatrixOne](https://github.com/matrixorigin/matrixone) 仓库内，链接如下：
 
-* *Cases*: <https://github.com/matrixorigin/matrixone/tree/main/test/distributed/cases>
+* *Cases*：<https://github.com/matrixorigin/matrixone/tree/main/test/distributed/cases>
 
-* *Result*: 生成在 **/cases** 的具体测试用例下，例如 [/cases/auto_increment](https://github.com/matrixorigin/matrixone/tree/main/test/distributed/cases/auto_increment) 目录的具体测试用例同级目录下生成对应的 *.result* 文件。
+* *Result*：生成在 **/cases** 的具体测试用例下，例如 [/cases/auto_increment](https://github.com/matrixorigin/matrixone/tree/main/test/distributed/cases/auto_increment) 目录的具体测试用例同级目录下生成对应的*。result* 文件。
 
-* *Report*: 运行结束后，本地目录自动生成 `mo-tester/report`。
+* *Report*：运行结束后，本地目录自动生成 `mo-tester/report`。
 
 测试用例和测试结果一一对应。如需添加新的测试用例和测试结果请进入右侧所示 MatrixOne 仓库路径中进行添加：<https://github.com/matrixorigin/matrixone/tree/main/test>
 
@@ -22,7 +22,7 @@ MO-Tester 相关用例、结果和报告的放在 [MatrixOne](https://github.com
 
 * 请先确认已安装 jdk8。
 
-* 启动 MatrixOne 或其他数据库用例。参见更多信息 >>[安装单机版 MatrixOne](../../Get-Started/install-standalone-matrixone.md).
+* 启动 MatrixOne 或其他数据库用例。参见更多信息 >>[安装单机版 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
 * 克隆 *mo-tester* 仓库。
 
@@ -94,14 +94,14 @@ MO-tester 基于 Java 语言进行开发，因此 Mo-tester 所依赖的 Java �
 ./run.sh -p {path_name}/matrixone/test/cases -m run -t script -r 100 -i select,subquery -e substring -g
 ```
 
-如果你想测试新的 SQL 用例并自动生成 SQL 结果，运行命令中可以将 `-m run` 更改为 `-m genrs`，或者将 *run.yml* 文件里的 `method` 参数修改为 `genrs`，且 *.result* 文件将生成在与这个新的 SQL 用例同级目录内，相关示例参见<p><a href="#new_test_scenario">示例 4</a></p>
+如果你想测试新的 SQL 用例并自动生成 SQL 结果，运行命令中可以将 `-m run` 更改为 `-m genrs`，或者将 *run.yml* 文件里的 `method` 参数修改为 `genrs`，且*。result* 文件将生成在与这个新的 SQL 用例同级目录内，相关示例参见<p><a href="#new_test_scenario">示例 4</a></p>
 
 !!! note
     每次运行 `./run.sh` 都会覆盖 *mo-tester* 仓库内 *report/* 路径下 *error.txt*、*report.txt* 和 *success.txt* 报告文件。
 
 ## 4. 查看测试报告
 
-测试完成后，*mo-tester* 仓库内将生成 *error.txt*、*report.txt* 和 *success.txt*  报告文件。
+测试完成后，*mo-tester* 仓库内将生成 *error.txt*、*report.txt* 和 *success.txt* 报告文件。
 
 * *report.txt* 示例如下：
 
@@ -266,4 +266,4 @@ c	d
 
 ## 参考文档
 
-更多关于 MO-Tester 测试工具的注解以及测试用例编写规范，参见[MO-Tester 规范要求](mo-tester-reference.md)。
+更多关于 MO-Tester 测试工具的注解以及测试用例编写规范，参见 [MO-Tester 规范要求](mo-tester-reference.md)。

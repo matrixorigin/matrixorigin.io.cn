@@ -9,7 +9,7 @@ MatrixOne 支持以下两种方式导入数据：
 
 ## 什么是 `modump`
 
-`modump` 是 MatrixOne 的一个客户端实用工具，与 `mysqldump` 一样，它可以被用于通过导出 *.sql* 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。
+`modump` 是 MatrixOne 的一个客户端实用工具，与 `mysqldump` 一样，它可以被用于通过导出*。sql* 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。
 
 使用 `modump` 工具，你必须能够访问运行 MatrixOne 实例的服务器。你还必须拥有导出的数据库的用户权限。
 
@@ -37,9 +37,9 @@ MatrixOne 支持以下两种方式导入数据：
 
 `modump` 命令程序嵌入在 MatrixOne 源代码中，你首先需要从 MatrixOne 源代码构建二进制文件
 
-__Tips:__ 由于 `modump` 是基于 Go 语言进行开发，所以你同时需要安装部署 <a href="https://go.dev/doc/install" target="_blank">Go</a> 语言。
+__Tips：__由于 `modump` 是基于 Go 语言进行开发，所以你同时需要安装部署 <a href="https://go.dev/doc/install" target="_blank">Go</a> 语言。
 
-1. 执行下面的代码即可从 MatrixOne 源代码构建 `modump`二进制文件：
+1. 执行下面的代码即可从 MatrixOne 源代码构建 `modump` 二进制文件：
 
     ```
     git clone https://github.com/matrixorigin/matrixone.git
@@ -50,7 +50,7 @@ __Tips:__ 由于 `modump` 是基于 Go 语言进行开发，所以你同时需�
 2. 你可以在 MatrixOne 文件夹中找到 `modump` 可执行文件。
 
 !!! note
-    构建好的 `modump` 文件也可以在相同的硬件平台上工作。但是需要注意在 x86 平台中构建的 `modump` 二进制文件在 Darwin ARM 平台中则无法正常工作。你可以在同一套操作系统和硬件平台内构建并使用 `modump` 二进制文件。 `modump` 目前只支持 Linux 和 macOS。
+    构建好的 `modump` 文件也可以在相同的硬件平台上工作。但是需要注意在 x86 平台中构建的 `modump` 二进制文件在 Darwin ARM 平台中则无法正常工作。你可以在同一套操作系统和硬件平台内构建并使用 `modump` 二进制文件。`modump` 目前只支持 Linux 和 macOS。
 
 ## 如何使用 `modump` 导出 MatrixOne 数据库
 

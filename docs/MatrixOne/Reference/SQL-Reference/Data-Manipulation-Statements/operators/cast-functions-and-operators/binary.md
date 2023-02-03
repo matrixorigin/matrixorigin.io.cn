@@ -2,7 +2,7 @@
 
 ## **Description**
 
-The BINARY() function converts a value to a binary string.
+The BINARY() function converts a value to a binary string。
 
 ## **Syntax**
 

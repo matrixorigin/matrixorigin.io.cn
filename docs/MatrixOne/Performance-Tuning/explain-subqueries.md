@@ -4,7 +4,7 @@ MatrixOne 会执行多种子查询相关的优化，以提升子查询的执行�
 
 从 SQL 语句执行情况上，子查询语句一般有以下两种形式：
 
-- **无关联子查询 (Self-contained Subquery)** ：数据库嵌套查询中内层查询是完全独立于外层查询的。
+- **无关联子查询 (Self-contained Subquery)**：数据库嵌套查询中内层查询是完全独立于外层查询的。
 
      例如：``select * from t1 where t1.id in (select t2.id from t2 where t2.id>=3);`` 执行顺序为：
 
@@ -14,7 +14,7 @@ MatrixOne 会执行多种子查询相关的优化，以提升子查询的执行�
 
 - **关联子查询（Correlated Subquery）**：数据库嵌套查询中内层查询和外层查询不相互独立，内层查询也依赖于外层查询。
 
-     例如：``SELECT * FROM t1 WHERE id in (SELECT id FROM t2 WHERE t1.ti = t2.ti and t2.id>=4);``一般情况下，执行顺序为：
+     例如：``SELECT * FROM t1 WHERE id in (SELECT id FROM t2 WHERE t1.ti = t2.ti and t2.id>=4);`` 一般情况下，执行顺序为：
 
      + 先从外层查询中查询中一条记录：`SELECT * FROM t1 WHERE id`。
 
@@ -129,7 +129,7 @@ MatrixOne 在处理该 SQL 语句是会将其改写为等价的 `JOIN` 查询：
 
 1. 先执行过滤查询 `where t2.id>=4;`。
 
-2. 再扫描表 `Table Scan on db1.t2`，将结果“流入”父节点后，
+2. 再扫描表 `Table Scan on db1.t2`，将结果 “流入” 父节点后，
 
 3. 扫描表 `Table Scan on db1.t1`。
 

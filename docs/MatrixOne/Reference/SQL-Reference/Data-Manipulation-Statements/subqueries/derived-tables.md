@@ -6,7 +6,7 @@
 
 ## **语法结构**
 
-每个 FROM 子查询的表都必须要有一个名字，因此[AS]操作符是必须的。子查询的SELECT列表中每个列也必须要有一个唯一的名字。
+每个 FROM 子查询的表都必须要有一个名字，因此 [AS] 操作符是必须的。子查询的 SELECT 列表中每个列也必须要有一个唯一的名字。
 
 ```
 > SELECT ... FROM (subquery) [AS] name ...
@@ -63,7 +63,7 @@ mysql> SELECT sc1, sc2, sc3 FROM (SELECT c1 AS sc1, c2 AS sc2, c3*3 AS sc3 FROM 
 2 rows in set (0.02 sec)
 ```
 
-- **Subquery with Join**:
+- **Subquery with Join**：
 
 ```sql
 > create table t1 (libname1 varchar(21) not null primary key, city varchar(20));

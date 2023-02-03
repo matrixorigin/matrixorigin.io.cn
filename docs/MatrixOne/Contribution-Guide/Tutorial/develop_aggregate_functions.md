@@ -2,13 +2,13 @@
 
 ## **前提条件**
 
-为 MatrixOne 开发聚合函数，你需要具备 Golang 编程的基本知识。你可以通过[Golang 教程](https://www.educative.io/blog/golang-tutorial)来学习一些基本的 Golang 概念。
+为 MatrixOne 开发聚合函数，你需要具备 Golang 编程的基本知识。你可以通过 [Golang 教程](https://www.educative.io/blog/golang-tutorial)来学习一些基本的 Golang 概念。
 
 ## **开始前准备**
 
 在你开始之前，请确保你已经安装了 Golang，并将 MatrixOne 代码库克隆到你的本地。
 
-更多信息，参见[准备工作](../How-to-Contribute/preparation.md) 和[代码贡献](../How-to-Contribute/contribute-code.md)。
+更多信息，参见[准备工作](../How-to-Contribute/preparation.md)和[代码贡献](../How-to-Contribute/contribute-code.md)。
 
 ## **什么是聚合函数**
 
@@ -40,14 +40,14 @@
 
 ## **什么是 `Ring`**
 
-`Ring` is an important data structure for MatrixOne factorisation, as well as a mathematical algebraic concept with a clear [definition](https://en.wikipedia.org/wiki/Ring_(mathematics)).
-An algebraic `Ring` is a set equipped with two binary operations  `+` (addition) and `⋅` (multiplication) satisfying several axioms.
+`Ring` is an important data structure for MatrixOne factorisation，as well as a mathematical algebraic concept with a clear [definition](https://en.wikipedia.org/wiki/Ring_(mathematics))。
+An algebraic `Ring` is a set equipped with two binary operations `+` (addition) and `⋅` (multiplication) satisfying several axioms。
 
-A `Ring` in MatrixOne is an interface with several functions similar to the algebraic `Ring` structure. We use `Ring` interface to implement aggragate functions.
-The `+`(addition) is defined as merging two `Ring`s groups and the `⋅`(multiplication) operation is defined as the computation of a grouped aggregate value combined with its grouping key frequency information.
+A `Ring` in MatrixOne is an interface with several functions similar to the algebraic `Ring` structure。We use `Ring` interface to implement aggragate functions。
+The `+` (addition) is defined as merging two `Ring` s groups and the `⋅` (multiplication) operation is defined as the computation of a grouped aggregate value combined with its grouping key frequency information。
 
 `Ring` 是 MatrixOne 因式分解的重要数据结构，也是一个具有明确[定义](https://en.wikipedia.org/wiki/Ring_(mathematics))的数学代数概念。
-代数 `Ring` 是一个包含两个二元运算“+”（加法）和“⋅”（乘法）组成的集合，并且满足多个公理。
+代数 `Ring` 是一个包含两个二元运算 “+”（加法）和 “⋅”（乘法）组成的集合，并且满足多个公理。
 
 MatrixOne 中的 `Ring` 是一个接口，具有类似于代数 `Ring` 结构的多个功能。我们使用 `Ring` 接口来实现聚合函数。
 
@@ -106,7 +106,7 @@ T1 (id, class, age)
 select class, sum(age) from T1 group by class;
 ```
 
-例如，如果生成了两个 `Ring` ，第一个 `Ring` 包含前 4 行的总和，如下所示：
+例如，如果生成了两个 `Ring`，第一个 `Ring` 包含前 4 行的总和，如下所示：
 
 ```sql
 |  one   |  23+20+22 |
@@ -174,7 +174,7 @@ select class, sum(age) from Tc join Ts on Tc.id = Ts.id group by class;
 
 `Ring-Ts` 将开始计算 *id* 组的和。然后创建一个哈希表来执行 `join` 操作。
 
-在执行 `join` 的同时创建`Ring-Tc`，`Ring-Tc` 将计算 *id* 出现的频率 `f`，然后调用 `Ring-Ts` 的 `Mul` 方法来计算从 `Ring-Ts` 计算的总和和从 `Ring-Tc` 计算出的频率。
+在执行 `join` 的同时创建 `Ring-Tc`，`Ring-Tc` 将计算 *id* 出现的频率 `f`，然后调用 `Ring-Ts` 的 `Mul` 方法来计算从 `Ring-Ts` 计算的总和和从 `Ring-Tc` 计算出的频率。
 
 ```
 sum[i] = sum[i] * f[i]
@@ -186,7 +186,7 @@ sum[i] = sum[i] * f[i]
 
 从上面的例子中，你可以看到 `Ring` 执行一些预计算，只有结果 (如 `sum`) 存储在它的结构中。当执行 `join` 这样的运算时，只需要简单的 `Add` 或 `Multiplication` 就可以得到结果，这在**因式分解**中被称为下推运算。在下推运算的帮助下，数据库将无需处理高成本的笛卡尔积，并且随着连接表数量的增加，因式分解执行仅仅线性增长，而不是指数增长。
 
-本章节以“方差”函数的实现为例，详细讲解因式分解，方差公式如下：
+本章节以 “方差” 函数的实现为例，详细讲解因式分解，方差公式如下：
 
 ```
 Variance = Σ [(xi - x̅)^2]/n
@@ -195,17 +195,17 @@ Example: xi = 10,8,6,12,14, x̅ = 10
 Calculation: ((10-10)^2+(8-10)^2+(6-10)^2+(12-10)^2+(14-10)^2)/5 = 8
 ```
 
-If we proceed with implementing this formula, we have to record all values of each group, and also maintain these values with `Add` and `Mul` operations of `Ring`. Eventually the result is calculated in an `Eval()` function. This implementation has a drawback of high memory cost since we have to store all the values during processing.
+If we proceed with implementing this formula，we have to record all values of each group，and also maintain these values with `Add` and `Mul` operations of `Ring`。Eventually the result is calculated in an `Eval()` function。This implementation has a drawback of high memory cost since we have to store all the values during processing。
 
-In the `Avg` implementation, it doesn't store all values in the `Ring`. Instead it stores only the `sum` of each group and the null numbers.  It returns the final result with a simple division. This method saves a lot of memory space.
+In the `Avg` implementation，it doesn't store all values in the `Ring`。Instead it stores only the `sum` of each group and the null numbers。It returns the final result with a simple division。This method saves a lot of memory space。
 
-Now let's turn the `Variance` formula a bit into a different form:
+Now let's turn the `Variance` formula a bit into a different form：
 
 执行这个公式，必须记录每组的值，并通过 `Ring` 的 `Add` 和 `Mul` 操作来操作这些值，最终结果将在 `Eval()` 函数中进行计算。在处理计算过程中，需要存储所有值，这种实现方法的缺点是内存成本高
 
 在 `Avg` 实现过程中，它没有将所有值存储在 `Ring` 中。相反，它只存储每个组的 `sum` 和空值。返回结果为只含有简单除法的结果，这种方法节省了大量的内存空间。
 
-下面示例，将“方差”公式转换成另一种形式：
+下面示例，将 “方差” 公式转换成另一种形式：
 
 ```
 Variance = Σ (xi^2)/n-x̅^2
@@ -214,16 +214,16 @@ Example: xi = 10,8,6,12,14, x̅ = 10
 Calculation: (10^2+8^2+6^2+12^2+14^2)/5-10^2 = 8
 ```
 
-This formula's result is exactly the same as the previous one, but we only have to record the values sum of `xi^2` and the sum of `xi`. We can largely reduce the memory space with this kind of reformulation.
+This formula's result is exactly the same as the previous one，but we only have to record the values sum of `xi^2` and the sum of `xi`。We can largely reduce the memory space with this kind of reformulation。
 
-To conclude, every aggregate function needs to find a way to record as little values as possible in order to reduce memory cost.
-Below are two different implementations for `Variance` (the second one has a better performance):
+To conclude，every aggregate function needs to find a way to record as little values as possible in order to reduce memory cost。
+Below are two different implementations for `Variance` (the second one has a better performance)：
 
 这个公式的结果和上一条公式的计算结果完全一样，在计算过程中，只需要记录 *xi^2* 和 *xi* 的和。通过这种重构，大大减少了内存空间。
 
 总之，每个聚合函数都可以找到一种方法来记录尽可能少的值，以降低使用内存空间。
 
-下面是“方差”的两种不同实现过程，且第二个实现过程具有更好的性能：
+下面是 “方差” 的两种不同实现过程，且第二个实现过程具有更好的性能：
 
 ```go
    //Implementation1
@@ -256,7 +256,7 @@ Below are two different implementations for `Variance` (the second one has a bet
 
 ## **开发 `var()` 函数**
 
-在本教程中，我们将以两种不同的方法为例，介绍 Variance(获得标准总体方差值) 聚合函数的完整实现过程。
+在本教程中，我们将以两种不同的方法为例，介绍 Variance (获得标准总体方差值) 聚合函数的完整实现过程。
 
 ### 步骤 1：注册函数
 
@@ -330,7 +330,7 @@ MatrixOne 不区分运算符和函数。
 
 2. 实现 `Ring` 接口的功能
 
-有关完整实现过程，参见[variance.go](https://github.com/matrixorigin/matrixone/blob/main/pkg/container/ring/variance/variance.go)。
+有关完整实现过程，参见 [variance.go](https://github.com/matrixorigin/matrixone/blob/main/pkg/container/ring/variance/variance.go)。
 
 * `Fill` 函数
 
@@ -478,7 +478,7 @@ MatrixOne 不区分运算符和函数。
       }
 ```
 
-3. 实现 `VarRing` 的编码和解码：在`pkg/sql/protocol/protocol.go`文件中，实现`VarRing`的序列化和反序列化代码。
+3. 实现 `VarRing` 的编码和解码：在 `pkg/sql/protocol/protocol.go` 文件中，实现 `VarRing` 的序列化和反序列化代码。
 
    | 序列化函数 | 反序列化函数   |
    | ------------------ | ----------------------------------- |
@@ -588,8 +588,8 @@ make build
 
 使用内置账户：
 
-- user: dump
-- password: 111
+- user：dump
+- password：111
 
 ```
 mysql -h 127.0.0.1 -P 6001 -udump -p

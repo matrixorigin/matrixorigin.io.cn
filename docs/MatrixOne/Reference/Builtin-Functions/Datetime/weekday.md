@@ -18,7 +18,7 @@
 
 ## **示例**
 
-- 示例 1:
+- 示例 1：
 
 ```sql
 mysql> SELECT WEEKDAY('2008-02-03 22:23:00');
@@ -30,7 +30,7 @@ mysql> SELECT WEEKDAY('2008-02-03 22:23:00');
 1 row in set (0.03 sec)
 ```
 
-- 示例 2:
+- 示例 2：
 
 ```sql
 drop table if exists t1;

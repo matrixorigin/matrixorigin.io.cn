@@ -12,7 +12,7 @@
 > CURRENT_TIMESTAMP([fsp])
 ```
 
-## **Arguments**
+## **参数释义**
 
 |  参数   | 说明 |
 |  ----  | ----  |

@@ -10,9 +10,9 @@
 
 创建包含 SSL 密钥的目录，执行以下步骤：
 
-1. 通过 SSH 登录 MatrixOne 服务，先确认你已安装 `mysql_ssl_rsa_setup` 工具。一般如果 MySQL 安装完成的话，`mysql_ssl_rsa_setup`也会被一起安装。
+1. 通过 SSH 登录 MatrixOne 服务，先确认你已安装 `mysql_ssl_rsa_setup` 工具。一般如果 MySQL 安装完成的话，`mysql_ssl_rsa_setup` 也会被一起安装。
 
-    检查你是否安装`mysql_ssl_rsa_setup`：如果你已安装`mysql_ssl_rsa_setup`，在命令行工具中执行以下命令，如果没有出现下列结果，则需要重新安装 MySQL, 可以参见[install MySQL](https://dev.mysql.com/doc/mysql-getting-started/en/)，`mysql_ssl_rsa_setup` 也将一并安装。另外你也可以通过`whereis mysql_ssl_rsa_setup`命令查看`mysql_ssl_rsa_setup`可执行文件的路径。
+    检查你是否安装 `mysql_ssl_rsa_setup`：如果你已安装 `mysql_ssl_rsa_setup`，在命令行工具中执行以下命令，如果没有出现下列结果，则需要重新安装 MySQL，可以参见 [install MySQL](https://dev.mysql.com/doc/mysql-getting-started/en/)，`mysql_ssl_rsa_setup` 也将一并安装。另外你也可以通过 `whereis mysql_ssl_rsa_setup` 命令查看 `mysql_ssl_rsa_setup` 可执行文件的路径。
 
     ```
     [pcusername@VM-0-12-centos matrixone]$ mysql_ssl_rsa_setup
@@ -33,16 +33,16 @@
     mysql_ssl_rsa_setup --datadir=/home/user/mo_keys
     ```
 
-    文件夹将创建产生多个 *.pem* 文件。
+    文件夹将创建产生多个*。pem* 文件。
 
-    /mo_keys<br>
-    ├── ca-key.pem<br>
-    ├── ca.pem<br>
-    ├── client-cert.pem<br>
-    ├── client-key.pem<br>
-    ├── private_key.pem<br>
-    ├── public_key.pem<br>
-    ├── server-cert.pem<br>
+    /mo_keys <br>
+    ├── ca-key.pem <br>
+    ├── ca.pem <br>
+    ├── client-cert.pem <br>
+    ├── client-key.pem <br>
+    ├── private_key.pem <br>
+    ├── public_key.pem <br>
+    ├── server-cert.pem <br>
     └── server-key.pem<br>
 
 2. 在 MatrixOne 目录下的 *etc/launch-tae-CN-tae-DN/cn.toml* 文件内的 `[cn.frontend]` 部分插入以下代码段：
