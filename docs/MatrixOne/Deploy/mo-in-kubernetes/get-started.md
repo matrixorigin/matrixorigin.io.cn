@@ -19,19 +19,21 @@
 
 开始步骤一之前，为保证 MatrixOne 集群能够正常部署与使用，请阅读本章节，了解创建 Kubernetes 集群的工具和配置要求。
 
-- Kubernetes
+你可以去以下几个工具的官方网站进行下载，并按照它们的官方文档指导进行安装配置。
+
+- [Kubernetes](https://kubernetes.io/)
 
    **版本要求**：1.18 或以上版本
 
    **作用**：安装 Kubernetes，协助 MatrixOne 集群进行自动部署、扩展和管理容器化应用程序。
 
-- kubectl
+- [kubectl](https://kubernetes.io/zh-cn/docs/reference/kubectl/)
 
    **版本要求**：1.18 或以上版本
 
    **作用**：安装命令行工具 kubectl，它是使用 Kubernetes API 与 Kubernetes 集群的控制面进行通信的命令行工具，协助 MatrixOne 集群使用进行自动部署。
 
-- Helm
+- [Helm](https://helm.sh/)
 
    **版本要求**：3.0 或以上版本
 
@@ -39,7 +41,7 @@
 
 ### 创建和启动 Kubernetes 集群步骤
 
-本章节介绍了三种创建 Kubernetes 集群的方法，可用于测试使用 MatrixOne Operator 管理的 MatrixOne 集群。你可以选择使用 **EKS**、**GKE** 或 **Kind**安装并启动一套 Kubernetes 集群。
+本章节介绍了三种创建 Kubernetes 集群的方法，可用于测试使用 MatrixOne Operator 管理的 MatrixOne 集群。你可以选择使用 **EKS**、**GKE** 或 **Kind** 安装并启动一套 Kubernetes 集群。
 
 **简要说明**
 
@@ -49,7 +51,7 @@
 
 #### 方法一：创建并启动 Amazon EKS 集群
 
-1. 参考[创建 Amazon EKS 集群](https://docs.aws.amazon.com/zh_cn/eks/latest/userguide/create-cluster.html) 官方文档，完成 `eksctl` 命令行工具的安装与配置。
+1. 参考[创建 Amazon EKS 集群](https://docs.aws.amazon.com/zh_cn/eks/latest/userguide/create-cluster.html)官方文档，完成 `eksctl` 命令行工具的安装与配置。
 
 2. 选择合适的[区域](https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)（如 ap-southeast-1），执行下面的命令，启动一套 EKS 集群：
 
@@ -72,9 +74,9 @@ $ gcloud container clusters create matrixone --machine n2-standard-4 --region ${
 !!! note
     在 Kind 部署的集群上部署的 MatrixOne 数据库没有多节点高可用的能力，不建议在生产环境使用。
 
-1. 参考 [Docker 官方文档](https://docs.docker.com/get-docker/) 在本地环境配置和启动 Docker 进程。
+1. 参考 [Docker 官方文档](https://docs.docker.com/get-docker/)在本地环境配置和启动 Docker 进程。
 
-2. 参考 [Kind 官方文档](https://kind.sigs.k8s.io/docs/user/quick-start/)， 完成 `kind` 命令行工具的安装与配置。
+2. 参考 [Kind 官方文档](https://kind.sigs.k8s.io/docs/user/quick-start/)，完成 `kind` 命令行工具的安装与配置。
 
 3. 执行下面的命令，在本地使用 Kind 部署一套 kubernetes 集群：
 
@@ -221,14 +223,21 @@ $ kind create cluster --name matrixone --config kind.yaml
 
 ## <h2><a name="delete_mo_cluster">删除 MatrixOne 集群</a></h2>
 
-如果需要删除集群，只需要删除<a href="#create_mo_cluster">步骤 3</a>中创建的 MatrixOne 对象，可以执行下面的命令进行删除：
+如果需要删除集群，只需要删除<a href="#create_mo_cluster">步骤 3</a> 中创建的 MatrixOne 对象，可以执行下面的命令进行删除：
 
 ```
 kubectl -n ${NS} delete -f mo-cluster.yaml
 ```
 
-假如 MinIO 中的数据已经不再需要，执行下面的命令，可以删除<a href="#create_mo_cluster">步骤 3</a>创建的 MinIO：
+假如 MinIO 中的数据已经不再需要，执行下面的命令，可以删除<a href="#create_mo_cluster">步骤 3</a> 创建的 MinIO：
 
 ```
 kubectl -n mo-system delete -f https://raw.githubusercontent.com/matrixorigin/matrixone-operator/main/examples/minio.yaml
 ```
+
+## 了解更多
+
+如果你已经部署完成 MatrixOne 集群，你可以参加以下文档，了解更多。
+
+- [为 MatrixOne 集群配置共享存储](configure-shared-memory.md)
+- [对 MatrixOne 集群进行扩缩容](manage/scale.md)
