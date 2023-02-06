@@ -57,4 +57,4 @@ mysql> select date(a),date(date(a)) as dda from t1;
 
 ## **限制**
 
-目前 date 格式只支持`yyyy-mm-dd` 和 `yyyymmdd`的数据格式。  
+目前 date 格式只支持 `yyyy-mm-dd` 和 `yyyymmdd` 的数据格式。  

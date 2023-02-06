@@ -10,7 +10,7 @@
 
 - 确认你已完成[单机部署 MatrixOne](../Get-Started/install-standalone-matrixone.md)。
 
-- 确认你已完成安装[Python 3.8(or plus)](https://www.python.org/downloads/)。
+- 确认你已完成安装 [Python 3.8(or plus)](https://www.python.org/downloads/)。
 
    使用下面的代码检查 Python 版本确认安装成功：
 
@@ -34,7 +34,7 @@
     pip3 install cryptography -i https://pypi.tuna.tsinghua.edu.cn/simple
     ```
 
-你可以参考[Python 连接 MatrixOne 服务](../Develop/connect-mo/python-connect-to-matrixone.md) 了解如何通过 `pymysql` 连接到 MatrixOne，本篇文档将指导你如何实现 CRUD（创建、读取、更新、删除) 。
+你可以参考 [Python 连接 MatrixOne 服务](../Develop/connect-mo/python-connect-to-matrixone.md)了解如何通过 `pymysql` 连接到 MatrixOne，本篇文档将指导你如何实现 CRUD（创建、读取、更新、删除)。
 
 ## 新建表
 
@@ -69,7 +69,7 @@ with SQL_CONNECTION.cursor() as cursor:
 
 ```
 
-打开终端，使用以下代码运行此 *python* 文件。这将在 MatrixOne 中的数​​据库 *test* 内创建一个名为 *cars* 表。
+打开终端，使用以下代码运行此 *python* 文件。这将在 MatrixOne 中的数 ​​ 据库 *test* 内创建一个名为 *cars* 表。
 
 ```
 > python3 create.py
@@ -240,7 +240,7 @@ with SQL_CONNECTION.cursor() as cursor:
 
 ```
 
-执行下面代码更新 id 为“1”的记录：
+执行下面代码更新 id 为 “1” 的记录：
 
 ```
 > python3 read.py
@@ -297,7 +297,7 @@ with SQL_CONNECTION.cursor() as cursor:
         SQL_CONNECTION.close()
 ```
 
-执行下面代码删除 id 为“1”的记录：
+执行下面代码删除 id 为 “1” 的记录：
 
 ```
 > python3 delete.py

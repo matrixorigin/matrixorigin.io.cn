@@ -10,7 +10,7 @@
 
 要指定自动属性，请在列定义中使用 `DEFAULT CURRENT_TIMESTAMP` 和 `ON UPDATE CURRENT_TIMESTAMP` 子句。两个子句如果同时定义一个列，它们的顺序可互换，不影响逻辑计算。另外，`CURRENT_TIMESTAMP` 与 `CURRENT_TIMESTAMP()` 或者 `NOW()` 意义一致。
 
-`DEFAULT CURRENT_TIMESTAMP` 和 `ON UPDATE CURRENT_TIMESTAMP` 的使用是特定于 `TIMESTAMP` 和 `DATETIME` 的。 `DEFAULT` 子句还可用于指定常量（非自动）默认值（例如，`DEFAULT 0` 或 `DEFAULT '2000-01-01 00:00:00'`）。
+`DEFAULT CURRENT_TIMESTAMP` 和 `ON UPDATE CURRENT_TIMESTAMP` 的使用是特定于 `TIMESTAMP` 和 `DATETIME` 的。`DEFAULT` 子句还可用于指定常量（非自动）默认值（例如，`DEFAULT 0` 或 `DEFAULT '2000-01-01 00:00:00'`）。
 
 `TIMESTAMP` 或 `DATETIME` 列定义可以为默认值和自动更新值指定当前时间戳，仅指定其中一个，或者两者都不指定。不同的列可以有不同的自动属性组合。以下规则描述了这些可能性：
 

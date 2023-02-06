@@ -30,7 +30,7 @@
 
     例如：``select * from tableA where tableA.cloumn < (select column from tableB where tableA.id = tableB.id))``
 
-- 无关联子查询 (Self-contained Subquery) ：数据库嵌套查询中内层查询是完全独立于外层查询的。
+- 无关联子查询 (Self-contained Subquery)：数据库嵌套查询中内层查询是完全独立于外层查询的。
 
    执行顺序为：
 
@@ -45,7 +45,7 @@
 - 子查询允许结构化的查询，这样就可以把一个查询语句的每个部分隔开。
 - 子查询提供了另一种方法来执行有些需要复杂的 `JOIN` 和 `UNION` 来实现的操作。
 
-我们将举一个简单的例子帮助你理解 **关联子查询** 和 **无关联子查询**。
+我们将举一个简单的例子帮助你理解**关联子查询**和**无关联子查询**。
 
 ## 示例
 

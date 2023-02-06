@@ -42,7 +42,7 @@
 - 设置 `AUTO_INCREMENT` 的列，需为整数或者浮点数据类型。
 - 自增列需要设置为 `NOT NULL`，否则会直接存储 `NULL`。当你将 NULL（推荐）或 0 值插入索引的 `AUTO_INCREMENT` 列时，该列将设置为下一个序列值。通常这是 *value+1*，其中 *value* 是表中当前列的最大值。
 
-- 每个表只能有一个 `AUTO_INCREMENT` 列，它必须可以被索引，且不能设置默认值。 `AUTO_INCREMENT` 列需要含有正数值，如果插入一个负数被判断为插入一个非常大的正数，这样做是为了避免数字出现精度问题，并确保不会意外出现包含 0 的 `AUTO_INCREMENT` 列。
+- 每个表只能有一个 `AUTO_INCREMENT` 列，它必须可以被索引，且不能设置默认值。`AUTO_INCREMENT` 列需要含有正数值，如果插入一个负数被判断为插入一个非常大的正数，这样做是为了避免数字出现精度问题，并确保不会意外出现包含 0 的 `AUTO_INCREMENT` 列。
 
 #### PRIMARY KEY
 
@@ -65,7 +65,7 @@
 ```
 
 !!! Note 注意区分
-    上述示例中只有一个主键 `PK_Person`, 并且其中仅包含了一列（`ID`）
+    上述示例中只有一个主键 `PK_Person`，并且其中仅包含了一列（`ID`）
 
 例如使用如下建表语句时会有错误：
 
@@ -143,7 +143,7 @@ CREATE TABLE t1 (col1 INT, col2 CHAR(5), col3 DATETIME)
 
 ·  KEY 分区，按照某个字段取余。分区对象必须为列，不能是基于列的表达式，且允许多列，KEY 分区列可以不指定，默认为逐渐或者唯一键，不指定的情况下，则必须显性指定列。
 
-类似于 `HASH`。 `column_list` 参数只是一个包含 1 个或多个表列的列表（最大值：16）。下面的示例为一个按 `KEY` 分区的简单表，有 4 个分区：
+类似于 `HASH`。`column_list` 参数只是一个包含 1 个或多个表列的列表（最大值：16）。下面的示例为一个按 `KEY` 分区的简单表，有 4 个分区：
 
 ```
 CREATE TABLE tk (col1 INT, col2 CHAR(5), col3 DATE)
@@ -165,9 +165,9 @@ CREATE TABLE tk (col1 INT, col2 CHAR(5), col3 DATE)
 
 在这种情况下，expr 使用一组 `VALUES LESS THAN` 运算符显示一系列值。使用范围分区时，你必须使用 `VALUES LESS THAN` 定义至少一个分区，且不能将 `VALUES IN` 与范围分区一起使用。
 
-`VALUES LESS THAN MAXVALUE` 用于指定小于指定最大值的“剩余”值。
+`VALUES LESS THAN MAXVALUE` 用于指定小于指定最大值的 “剩余” 值。
 
-子句排列方式为：每个连续的 `VALUES LESS THAN` 中指定的上限大于前一个的上限，引用  `MAXVALUE` 的那个在列表中排在最后。
+子句排列方式为：每个连续的 `VALUES LESS THAN` 中指定的上限大于前一个的上限，引用 `MAXVALUE` 的那个在列表中排在最后。
 
 - **RANGE COLUMNS(column_list)**
 
@@ -205,7 +205,7 @@ PARTITION BY RANGE COLUMNS(a,b) (
 分区使用：
 
 1. `LIST` 分区列是非 null 列，否则插入 null 值如果枚举列表里面不存在 null 值会插入失败，这点和其它的分区不一样，`RANGE` 分区会将其作为最小分区值存储，`HASH` 或 `KEY` 分为会将其转换成 0 存储，因为 `LIST` 分区只支持整型，非整型字段需要通过函数转换成整形。
-2. 使用 `LIST` 分区时，你必须使用 `VALUES IN` 定义至少一个分区，且不能将 `VALUES LESS THAN` 与 `PARTITION BY LIST`一起使用。
+2. 使用 `LIST` 分区时，你必须使用 `VALUES IN` 定义至少一个分区，且不能将 `VALUES LESS THAN` 与 `PARTITION BY LIST` 一起使用。
 
 示例如下：
 
@@ -224,7 +224,7 @@ PARTITION BY LIST (id) (
 
 - **LIST COLUMNS(column_list)**
 
-`LIST COLUMNS(column_list)` 是 `LIST` 的另一种书写形式，用于多列上的比较条件（即，具有诸如 `WHERE a = 5 AND b = 5 或 WHERE a = 1 AND b = 10 AND c = 5`之类的条件）对查询进行分区修剪。通过使用 `COLUMNS` 子句中的列列表和每个 `PARTITION ... VALUES IN` (value_list) 分区定义子句中的一组列值来指定多个列中的值。
+`LIST COLUMNS(column_list)` 是 `LIST` 的另一种书写形式，用于多列上的比较条件（即，具有诸如 `WHERE a = 5 AND b = 5 或 WHERE a = 1 AND b = 10 AND c = 5` 之类的条件）对查询进行分区修剪。通过使用 `COLUMNS` 子句中的列列表和每个 `PARTITION ... VALUES IN` (value_list) 分区定义子句中的一组列值来指定多个列中的值。
 
 `LIST COLUMNS(column_list)` 中使用的列列表和 `VALUES IN(value_list)` 中使用的值列表的数据类型规则与 `RANGE COLUMNS(column_list)` 中使用的列列表的规则 `VALUES LESS THAN(value_list)` 中使用的值列表规则相同，但在 `VALUES IN` 子句中，不允许使用 `MAXVALUE`，可以使用 `NULL`。
 
@@ -664,4 +664,4 @@ mysql> select * from t1 order by a;
 
 ## **限制**
 
-目前不支持 带有 `ALTER TABLE` 的 `DROP PRIMARY KEY` 语句。
+目前不支持带有 `ALTER TABLE` 的 `DROP PRIMARY KEY` 语句。

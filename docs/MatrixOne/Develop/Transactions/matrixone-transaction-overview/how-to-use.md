@@ -48,7 +48,7 @@ SET AUTOCOMMIT={on|off|0|1}  //设置该参数的值
 SHOW VARIABLES LIKE 'AUTOCOMMIT';
 ```
 
-在该参数设置为 ON 或 1 的时候，意味着自动提交，所有不在 `START TRANSACTION` 或 `BEGIN` 中 的单条 SQL 语句，都会在执行时自动提交。
+在该参数设置为 ON 或 1 的时候，意味着自动提交，所有不在 `START TRANSACTION` 或 `BEGIN` 中的单条 SQL 语句，都会在执行时自动提交。
 
 ```
 insert into t1 values(1,2,3);   //此时自动提交

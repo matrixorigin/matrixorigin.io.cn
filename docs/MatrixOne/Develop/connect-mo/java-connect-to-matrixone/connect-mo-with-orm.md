@@ -4,7 +4,7 @@
 
 ## MyBatis
 
-[MyBatis](https://github.com/mybatis/mybatis-3) 是 SQL 映射框架，它的优点是简单易用。你可以参考 [SpringBoot 和 MyBatis CRUD 示例](../../../Tutorial/springboot-mybatis-crud-demo.md) 完整教程学习如何构建一个 CRUD 应用程序。在本篇文档中，将重点介绍如何使用 MatrixOne 配置 MyBatis。
+[MyBatis](https://github.com/mybatis/mybatis-3) 是 SQL 映射框架，它的优点是简单易用。你可以参考 [SpringBoot 和 MyBatis CRUD 示例](../../../Tutorial/springboot-mybatis-crud-demo.md)完整教程学习如何构建一个 CRUD 应用程序。在本篇文档中，将重点介绍如何使用 MatrixOne 配置 MyBatis。
 
 下面的示例是 **Maven** 构建系统的典型设置。
 
@@ -47,7 +47,7 @@ mybatis.mapper-locations=classpath:mapping/*xml
 
 Spring Data JPA 是 Spring 基于 ORM 框架、JPA 规范的基础上封装的一套 JPA 应用框架，可使开发者用极简的代码即可实现对数据库的访问和操作，它有助于减少样板代码，并提供了一种通过几个预定义的存储库接口之一实现基本 CRUD 操作的机制，并且它也提供了包括增删改查等在内的常用功能，且易于扩展。
 
-Spring Data JPA 是一个强大的应用框架，它有助于减少样板代码，并提供了一种通过几个预定义的存储库接口之一实现基本 CRUD 操作的机制。你可以参考 [SpringBoot 和 Hibernate CRUD 示例](../../../Tutorial/springboot-hibernate-crud-demo.md) 完整教程学习如何构建 CRUD 应用程序。在本篇文档中，将重点介绍如何使用 MatrixOne 连接配置 Spring JPA。
+Spring Data JPA 是一个强大的应用框架，它有助于减少样板代码，并提供了一种通过几个预定义的存储库接口之一实现基本 CRUD 操作的机制。你可以参考 [SpringBoot 和 Hibernate CRUD 示例](../../../Tutorial/springboot-hibernate-crud-demo.md)完整教程学习如何构建 CRUD 应用程序。在本篇文档中，将重点介绍如何使用 MatrixOne 连接配置 Spring JPA。
 
 下面的示例是 **Maven** 构建系统的典型设置。
 
@@ -70,7 +70,7 @@ Spring Data JPA 是一个强大的应用框架，它有助于减少样板代码�
 - `spring.datasource.url`：JDBC 连接 URL 参数。
 - `spring.datasource.username`：数据库用户名。
 - `spring.datasource.password`：数据库密码。
-- `spring.jpa.properties.hibernate.dialect`：*SQL dialect* （即 SQL 方言）使 Hibernate 为所选数据库生成更好的 SQL。MatrixOne 当前仅支持 `org.hibernate.dialect.MySQLDialect`。
+- `spring.jpa.properties.hibernate.dialect`：*SQL dialect*（即 SQL 方言）使 Hibernate 为所选数据库生成更好的 SQL。MatrixOne 当前仅支持 `org.hibernate.dialect.MySQLDialect`。
 
 * `spring.jpa.hibernate.ddl-auto`：`spring.jpa.hibernate.ddl-auto` 属性采用一个枚举，该枚举以更可控的方式控制模式生成。可能的选项和效果如下表所示。MatrixOne 当前仅支持 *none* 和 *validate*。
 

@@ -31,7 +31,7 @@ explain select city,libname1,count(libname1) as a from t3 join t1 on libname1=li
 13 rows in set (0.00 sec)
 ```
 
-EXPLAIN 输出一个名称为 `Execution Plan Tree` 树形结构，每个叶子节点都包含节点类型、受影响的对象以及其他属性的信息，如 `cost`， `rowsize` 等。我们现在只使用节点类型信息来简化展示上面的示例。`Execution Plan Tree` 树形结构可以可视化 SQL 查询的整个过程，显示它所经过的操作节点以及它们的成本估计。
+EXPLAIN 输出一个名称为 `Execution Plan Tree` 树形结构，每个叶子节点都包含节点类型、受影响的对象以及其他属性的信息，如 `cost`，`rowsize` 等。我们现在只使用节点类型信息来简化展示上面的示例。`Execution Plan Tree` 树形结构可以可视化 SQL 查询的整个过程，显示它所经过的操作节点以及它们的成本估计。
 
 ```
 Project

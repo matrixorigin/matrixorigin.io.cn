@@ -34,9 +34,9 @@ mysql> select * from mo_ts.slow_query_with_plan;
 
 **语句解释**
 
-- `select * from mo_ts.slow_query;` ：不带执行计划。
+- `select * from mo_ts.slow_query;`：不带执行计划。
 
-- `select * from mo_ts.slow_query_with_plan;` ：带执行计划。
+- `select * from mo_ts.slow_query_with_plan;`：带执行计划。
 
 ## 错误日志
 

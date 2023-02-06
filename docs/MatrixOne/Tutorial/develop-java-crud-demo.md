@@ -7,14 +7,14 @@
 
 在开始之前，请确保已经下载并安装了以下软件。
 
-* 完成 [单机部署 MatrixOne](../Get-Started/install-standalone-matrixone/)，通过 MySQL 客户端创建数据库。
+* 完成[单机部署 MatrixOne](../Get-Started/install-standalone-matrixone/)，通过 MySQL 客户端创建数据库。
 
 ```
 mysql> create database test;
 ```
 
-* 下载安装[lntelliJ IDEA(2022.2.1 or later version)](https://www.jetbrains.com/idea/download/)。
-* 根据你的系统环境选择[JDK 8+ version](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html)版本进行下载安装。
+* 下载安装 [lntelliJ IDEA(2022.2.1 or later version)](https://www.jetbrains.com/idea/download/)。
+* 根据你的系统环境选择 [JDK 8+ version](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html) 版本进行下载安装。
 * [MySQL JDBC connector 8.0+ version](https://dev.mysql.com/downloads/connector/j/)：推荐下载平台独立版本，并解压下载文件。
 
 ![image-20220927102516885](https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_download.png?raw=true)

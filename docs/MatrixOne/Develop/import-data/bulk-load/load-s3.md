@@ -11,7 +11,7 @@ MatrixOne 支持将文件从 S3 兼容的对象存储服务加载到数据库中
 在 MatrixOne 中，有两种方法可以从 S3 兼容的对象存储中导入数据：
 
 * 使用带有 s3option 的 `Load data` 将文件加载到 MatrixOne 中。此方法会将数据加载到 MatrixOne 中，所有接下来的查询都将在 MatrixOne 中进行。
-* 创建一个带有 s3option 映射到 S3 文件的“外部表”，并直接查询这个外部表。该方法允许通过 S3 兼容的对象存储服务进行数据访问；每个查询的网络延迟都将被计算在内。
+* 创建一个带有 s3option 映射到 S3 文件的 “外部表”，并直接查询这个外部表。该方法允许通过 S3 兼容的对象存储服务进行数据访问；每个查询的网络延迟都将被计算在内。
 
 ## 方式 1: `LOAD DATA`
 
@@ -58,7 +58,7 @@ LOAD DATA URL s3option{"endpoint"='cos.ap-shanghai.myqcloud.com', "access_key_id
 
 ### 教程：从 AWS S3 加载文件
 
-本教程中将指导你完成从 AWS S3 加载 **.csv** 文件的过程。
+本教程中将指导你完成从 AWS S3 加载**. csv** 文件的过程。
 
 如果你已经拥有一个 AWS 账户并且已经在你的 S3 服务中准备好数据文件，那么请继续阅读本教程章节。
 
@@ -162,7 +162,7 @@ create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"
 
 其他参数与通用 `LOAD DATA` 参数相同，更多信息，参见 [LOAD DATA](../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md)。
 
-有关外部表的更多信息，参见 [创建外部表](../../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md)。
+有关外部表的更多信息，参见[创建外部表](../../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md)。
 
 **语法示例**：
 
@@ -176,7 +176,7 @@ create external table t1(col1 char(225)) url s3option{"endpoint"='cos.ap-shangha
 
 ### 教程：使用 S3 文件创建外部表
 
-本教程将指导你完成使用来自 AWS S3 的 **.csv** 文件创建外部表的整个过程。
+本教程将指导你完成使用来自 AWS S3 的**. csv** 文件创建外部表的整个过程。
 
 !!! note
     由于帐户隐私，此代码示例不会显示帐户信息，例如 `access_key_id` 和 `secret_access_key`。
@@ -255,5 +255,5 @@ create external table t1(col1 char(225)) url s3option{"endpoint"='cos.ap-shangha
 
 ## 限制
 
-1. MatrixOne 仅支持从 S3 兼容对象存储加载 *.csv* 格式的文件。
-2. 要加载许多具有正则表达式路径的文件，MatrixOne 在加载没有父目录的`*.csv` 时仍然存在一些错误。你只能将文件加载为 `/test/*.csv`。
+1. MatrixOne 仅支持从 S3 兼容对象存储加载*. csv* 格式的文件。
+2. 要加载许多具有正则表达式路径的文件，MatrixOne 在加载没有父目录的 `*.csv` 时仍然存在一些错误。你只能将文件加载为 `/test/*.csv`。

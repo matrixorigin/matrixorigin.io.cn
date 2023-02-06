@@ -6,7 +6,7 @@
 
 你需要拥有对 MySQL 实例的完全访问权限。
 
-首先，使用 `mysqldump` 将 MySQL 表结构和数据通过以下命令转储到一个文件中。如果你不熟悉如何使用 `mysqldump`，可参见 [mysqldump 教程](https://simplebackups.com/blog/the-complete-mysqldump-guide-with-examples/) 。
+首先，使用 `mysqldump` 将 MySQL 表结构和数据通过以下命令转储到一个文件中。如果你不熟悉如何使用 `mysqldump`，可参见 [mysqldump 教程](https://simplebackups.com/blog/the-complete-mysqldump-guide-with-examples/)。
 
 ```
 mysqldump -h IP_ADDRESS -uUSERNAME -pPASSWORD -d DB_NAME1 DB_NAME2 ... OUTPUT_FILE_NAME.SQL
@@ -18,7 +18,7 @@ mysqldump -h IP_ADDRESS -uUSERNAME -pPASSWORD -d DB_NAME1 DB_NAME2 ... OUTPUT_FI
 mysqldump -h 127.0.0.1 -uroot -proot -d test > a.sql
 ```
 
-## 2. 修改 *.sql* 文件
+## 2. 修改*. sql* 文件
 
 从 MySQL 转储的 SQL 文件还不完全兼容 MatrixOne。你需要删除和修改几个元素，以使 SQL 文件适应 MatrixOne 的格式。
 
@@ -62,17 +62,17 @@ CREATE TABLE IF NOT EXISTS `tool` (
 
 ### 3. 导入至 MatrixOne
 
-转储的 *.sql* 文件修改完成之后，就可以将整个表结构和数据导入到 MatrixOne 中。
+转储的*. sql* 文件修改完成之后，就可以将整个表结构和数据导入到 MatrixOne 中。
 
 1. 打开 MySQL 终端并连接到 MatrixOne。
 
-2. 通过 `source` 命令将 *.sql* 文件导入 MatrixOne。
+2. 通过 `source` 命令将*. sql* 文件导入 MatrixOne。
 
 ```
 mysql> source '/YOUR_PATH/a.sql'
 ```
 
-如果 *.sql* 文件较大，可以使用如下命令在后台运行导入任务：
+如果*. sql* 文件较大，可以使用如下命令在后台运行导入任务：
 
 ```
 nohup mysql -h 127.0.0.1 -P 6001 -udump -p111 -e 'source /YOUR_PATH/a.sql' &

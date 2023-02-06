@@ -15,7 +15,7 @@
 git clone --recurse-submodules git@github.com:matrixorigin/matrixorigin.io.cn.git
 ```
 
-2. 如果使用的是 `git clone`, 需要额外执行子模块的初始化：
+2. 如果使用的是 `git clone`，需要额外执行子模块的初始化：
 
 ```
 git clone git@github.com:matrixorigin/matrixorigin.io.cn.git
@@ -32,7 +32,7 @@ git rebase upstream/main
 
 // 更新子模块 文档内容
 git submodule update --remote
-// 然后提交, 因为子模块版本更新了, 主项目需要记录
+// 然后提交，因为子模块版本更新了，主项目需要记录
 git add .
 git commit
 ```
@@ -76,4 +76,4 @@ echo "test sub modify" > test.md
 > 注意子模块分支管理，注意子模块分支管理，注意子模块分支管理！！！
 > 子模块默认是 `main` 分支
 
-之后回到主项目目录下 `cd ../..`, 进行子模块更新后的操作。相当于之前介绍在主项目执行 `git submodule update --remote` 之后，提交子模块更新的操作。
+之后回到主项目目录下 `cd ../..`，进行子模块更新后的操作。相当于之前介绍在主项目执行 `git submodule update --remote` 之后，提交子模块更新的操作。

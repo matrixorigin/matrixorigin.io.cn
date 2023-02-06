@@ -10,11 +10,11 @@
 
 MatrixOne 文档通过三个仓库来协调管理：
 
-* [matrixorigin.io](https://github.com/matrixorigin/matrixorigin.io) 仓库包含英文文档的具体内容。（*.md* 文件）
+* [matrixorigin.io](https://github.com/matrixorigin/matrixorigin.io) 仓库包含英文文档的具体内容。（*. md* 文件）
 
-* [matrixorigin.io.cn](https://github.com/matrixorigin/matrixorigin.io.cn) 仓库包含中文文档的具体内容。（*.md* 文件）
+* [matrixorigin.io.cn](https://github.com/matrixorigin/matrixorigin.io.cn) 仓库包含中文文档的具体内容。（*. md* 文件）
 
-* [artwork](https://github.com/matrixorigin/artwork) 仓库包含了文档所用到的图像等非结构性文件。图像等非结构化文件则直接引用`artwork`仓库的网站链接，如：
+* [artwork](https://github.com/matrixorigin/artwork) 仓库包含了文档所用到的图像等非结构性文件。图像等非结构化文件则直接引用 `artwork` 仓库的网站链接，如：
 
 ```
 https://github.com/matrixorigin/artwork/blob/main/docs/overview/overall-architecture.png?raw=true
@@ -69,7 +69,7 @@ MatrixOne 文档内容可以分为如下几个模块：
 
 以下流程演示的是对二者均做修改的情况，实际情况可以根据您的需求进行简化。
 
-**1.** 在 GitHub 上[对英文文档提出 Issue](https://github.com/matrixorigin/matrixorigin.io/issues/new/choose)或[对中文文档提出 Issue](https://github.com/matrixorigin/matrixorigin.io.cn/issues/new/choose)，简单介绍您发现的问题。并且在 Issue 下面评论认领该问题。
+**1.** 在 GitHub 上[对英文文档提出 Issue](https://github.com/matrixorigin/matrixorigin.io/issues/new/choose) 或[对中文文档提出 Issue](https://github.com/matrixorigin/matrixorigin.io.cn/issues/new/choose)，简单介绍您发现的问题。并且在 Issue 下面评论认领该问题。
 
 **2.** Fork [matrixorigin.io](https://github.com/matrixorigin/matrixorigin.io) 和 [matrixorigin.io.cn](https://github.com/matrixorigin/matrixorigin.io.cn) 仓库。
 
@@ -107,9 +107,9 @@ git remote add upstream https://github.com/matrixorigin/matrixorigin.io.cn.git
 mkdocs serve
 ```
 
-**6.** 进行文档的修改和完善，如果您想对项目的设置进行改动，或者添加新的 page 来更新 sitemap，或更新 CI&CD 工作流代码，您也可以通过`http://localhost:8000`来查看您的修改是否有效。  
+**6.** 进行文档的修改和完善，如果您想对项目的设置进行改动，或者添加新的 page 来更新 sitemap，或更新 CI&CD 工作流代码，您也可以通过 `http://localhost:8000` 来查看您的修改是否有效。  
 
-**7.** 确认修改无误后，使用 `git add .` 和 `git commit` 命令在本地提交修改，并推送至您 Fork 的远程仓库 `matrixorigin.io` 与 `matrixorigin.io.cn` 。  
+**7.** 确认修改无误后，使用 `git add .` 和 `git commit` 命令在本地提交修改，并推送至您 Fork 的远程仓库 `matrixorigin.io` 与 `matrixorigin.io.cn`。  
 我们建议您推送至远程仓库的新分支：
 
 ```
@@ -120,7 +120,7 @@ git push origin main:NEW_BRANCH
 
 **9.** 一旦您的修改通过，CI 工作流将开始运行并更新文档网站，这可能需要一些时间。
 
-**10.**  最后，还有一些操作可以帮助保持您的远端仓库和本地仓库均保持一致。  
+**10.** 最后，还有一些操作可以帮助保持您的远端仓库和本地仓库均保持一致。  
 
 覆盖本地提交历史：
 
@@ -128,7 +128,7 @@ git push origin main:NEW_BRANCH
 git pull --force upstream main:main
 ```
 
-更新 Github 上的`main`分支：
+更新 Github 上的 `main` 分支：
 
 ```
 git push --force origin main:main
@@ -139,4 +139,4 @@ git push --force origin main:main
 
 ## **写一篇博文**
 
-如果您有意写一篇关于 MatrixOne 的博文，请在 GitHub 上提出 [Issue](https://github.com/matrixorigin/matrixone/issues/new/choose) ，或者将您的想法发送到[dengnan@matrixorigin.io](mailto:dengnan@matrixorigin.io)，无论是简单的 Idea 还是完整的草案，我们统统接受。我们会尽快审查所有内容，如果您的文章或想法很契合我们的博客，我们会直接联系您。
+如果您有意写一篇关于 MatrixOne 的博文，请在 GitHub 上提出 [Issue](https://github.com/matrixorigin/matrixone/issues/new/choose)，或者将您的想法发送到 [dengnan@matrixorigin.io](mailto:dengnan@matrixorigin.io)，无论是简单的 Idea 还是完整的草案，我们统统接受。我们会尽快审查所有内容，如果您的文章或想法很契合我们的博客，我们会直接联系您。

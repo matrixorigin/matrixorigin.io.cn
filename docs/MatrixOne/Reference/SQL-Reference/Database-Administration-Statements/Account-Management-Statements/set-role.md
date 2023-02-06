@@ -20,7 +20,7 @@ SET ROLE role
 
 角色是权限的集合，一个用户可以对应多个角色。
 
-例如，user1 拥有主要角色 role1，次要角色 role2 和 role3, role1 被授予 pri1 和 pri2权限；role2 被赋予权限 pri3； role3 被赋予权限 pri4，授权示例表如下：
+例如，user1 拥有主要角色 role1，次要角色 role2 和 role3, role1 被授予 pri1 和 pri2 权限；role2 被赋予权限 pri3；role3 被赋予权限 pri4，授权示例表如下：
 
 |用户名|角色名|权限名|
 |---|---|---|
@@ -38,7 +38,7 @@ SET ROLE role
 
 此时 Tom 的主要角色是应用开发者，Tom 需要调用*管理员权限*，那么 Tom 可以使用以下两种方法：
 
-—使用 `SET role role` 语句将其角色切换为“数据库管理员”。
+—使用 `SET role role` 语句将其角色切换为 “数据库管理员”。
 
 —如果需要使用主、从角色的所有权限，可以使用 `SET secondary ROLE all`。
 

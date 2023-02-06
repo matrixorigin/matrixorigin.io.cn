@@ -43,7 +43,7 @@ PREPARE stmt_name FROM preparable_stmt
 
 - 字符串运算符的操作数的形式参数具有与其他操作数的聚合类型相同的派生类型。如果运算符的所有操作数都是形式参数，则派生类型为 `VARCHAR`，其排序规则由 `collation_connection` 的值决定。
 
-- 参数为时间操作符的操作数的形式参数，如果操作符返回 `DATETIME` ，则参数类型为 `DATETIME`；如果操作符返回 `TIME`，则参数类型为 `TIME`；如果操作符返回 `DATE`，则参数类型为 `DATE`。
+- 参数为时间操作符的操作数的形式参数，如果操作符返回 `DATETIME`，则参数类型为 `DATETIME`；如果操作符返回 `TIME`，则参数类型为 `TIME`；如果操作符返回 `DATE`，则参数类型为 `DATE`。
 
 - 二元比较运算符的操作数的两个参数的派生类型一致。
 
@@ -54,16 +54,6 @@ PREPARE stmt_name FROM preparable_stmt
 - `CASE`、`COALESCE`、`IF`、`IFNULL` 或 `NULLIF` 中的任意一个输出操作数的形式参数，其派生类型与操作符的其他输出操作数的聚合类型相同。
 
 - 如果 `CASE`、`COALESCE`、`IF`、`IFNULL` 或 `NULLIF` 的所有输出操作数都是形式参数，或者它们都是 `NULL`，则参数的类型由操作符的上下文决定。
-
-- A parameter which is the operand of a CAST() has the same type as specified by the CAST().
-
-- If a parameter is an immediate member of a SELECT list that is not part of an INSERT statement, the derived type of the parameter is VARCHAR, and its collation is determined by the value of collation_connection.
-
-- If a parameter is an immediate member of a SELECT list that is part of an INSERT statement, the derived type of the parameter is the type of the corresponding column into which the parameter is inserted.
-
-- If a parameter is used as source for an assignment in a SET clause of an UPDATE statement or in the ON DUPLICATE KEY UPDATE clause of an INSERT statement, the derived type of the parameter is the type of the corresponding column which is updated by the SET or ON DUPLICATE KEY UPDATE clause.
-
-- If a parameter is an argument of a function, the derived type depends on the function's return type.
 
 — 如果参数是 `CASE`、`COALESCE()`、`IF` 或 `IFNULL` 中的任意一个操作数，并且操作符上下文不能确定其参数类型，则每个参数的派生类型都是 `VARCHAR`，其排序规则由 `collation_connection` 的值决定。
 

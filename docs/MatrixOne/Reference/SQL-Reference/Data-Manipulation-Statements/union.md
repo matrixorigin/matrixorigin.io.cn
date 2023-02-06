@@ -25,7 +25,7 @@ SELECT column_list ...
 
 使用 `UNION ALL`，则重复行（如果可用）将保留在结果中。因为 `UNION ALL` 不需要处理重复项。
 
-#### `UNION` 与`ORDER BY`，`LIMIT`
+#### `UNION` 与 `ORDER BY`，`LIMIT`
 
 使用 `ORDER BY` 或 `LIMIT` 子句来对全部 UNION 结果进行分类或限制，则应对单个地 `SELECT` 语句加圆括号，并把 `ORDER BY` 或 `LIMIT` 放到最后一个的后面。
 

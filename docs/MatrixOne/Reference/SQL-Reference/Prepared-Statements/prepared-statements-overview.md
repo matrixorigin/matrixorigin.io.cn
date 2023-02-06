@@ -6,7 +6,7 @@ MatrixOne 提供对服务器端预处理语句的支持。利用客户端或服�
 
 - 防止 SQL 注入。参数值可以包含未转义的 SQL 引号和分隔符，一次编译，多次运行，省去了解析优化等过程。
 
-## `PREPARE`、`EXECUTE`、和 `DEALLOCATE PREPAR`E 语句
+## `PREPARE`、`EXECUTE`、和 `DEALLOCATE PREPARE` 语句
 
 PREPARE 语句的 SQL 基本语法主要为以下三种 SQL 语句：
 

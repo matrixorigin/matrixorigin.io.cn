@@ -10,11 +10,11 @@ To build MatrixOne locally, golang 1.19 is required. You can follow these steps 
 $ go version
 ```
 
-If the result is like `'go version go1.19 xxxxxx'` , you can skip step 2 and build your MatrixOne. If lower than go 1.19 or no golang, your can follow step 2 to configure your own golang 1.19 environment locally.
+If the result is like `'go version go1.19 xxxxxx'`, you can skip step 2 and build your MatrixOne. If lower than go 1.19 or no golang, your can follow step 2 to configure your own golang 1.19 environment locally.
 
 ### 2. Configure your golang environment
 
-If your OS is Mac OS, download the installation package directly with this url:<https://go.dev/dl>
+If your OS is Mac OS, download the installation package directly with this url: <https://go.dev/dl>
 After installation, use step 1 to make sure again.
 
 If your OS is Linux, still download golang package and modify your profile. Here is a sampe as following. The path can be modified as your preferred.
@@ -52,7 +52,7 @@ If in the `make config` or `make build` step, there is any timeout or downloadin
 $ go env -w GOPROXY=<https://goproxy.cn,direct>
 ```
 
-While notified `"Server Listening on : 0.0.0.0:6001"` , it means your MatirxOne is started.
+While notified `"Server Listening on : 0.0.0.0:6001"`, it means your MatirxOne is started.
 
 ### 4. Access MatrixOne database
 
@@ -69,7 +69,7 @@ When you are in mysql command line, you can start your MatrixOne experience. Mor
 
 ### 1. INSERT ... ON DUPLICATE KEY UPDATE Statement
 
-If you specify an `ON DUPLICATE KEY UPDATE` clause and a row to be inserted would cause a duplicate value in a `UNIQUE` index or `PRIMARY KEY` , an `UPDATE` of the old row occurs.
+If you specify an `ON DUPLICATE KEY UPDATE` clause and a row to be inserted would cause a duplicate value in a `UNIQUE` index or `PRIMARY KEY`, an `UPDATE` of the old row occurs.
 
 ```
 INSERT
@@ -131,7 +131,7 @@ INSERT INTO t1 (a,b,c) VALUES (1,2,3)
 
 ### 2. REPLACE Statement
 
-`REPLACE` works exactly like `INSERT` , except that if an old row in the table has the same value as a new row for a `PRIMARY KEY` or a `UNIQUE` index, the old row is deleted before the new row is inserted.
+`REPLACE` works exactly like `INSERT`, except that if an old row in the table has the same value as a new row for a `PRIMARY KEY` or a `UNIQUE` index, the old row is deleted before the new row is inserted.
 
 ```
 REPLACE 
@@ -204,7 +204,7 @@ mysql> SELECT * FROM test2;
 
 ### 3. VALUES STATEMENT
 
-`VALUES` is a DML statement which returns a set of one or more rows as a table. In other words, it is a table value constructor which also functions as a standalone SQL statement.
+`VALUES` is a DML statement which returns a set of one or more rows as a table. In other words, it is a table value constructor which also functions as a standalone SQL statement.
 
 ```
 VALUES row_constructor_list [ORDER BY column_designator] [LIMIT number]
@@ -274,7 +274,7 @@ mysql> VALUES ROW("q", 42, '2019-12-18'),
 3 rows in set (0.00 sec)
 ```
 
-With `UNION` , as shown here:
+With `UNION`, as shown here:
 
 ```
 mysql> VALUES ROW(1,2), ROW(3,4), ROW(5,6)
@@ -293,13 +293,13 @@ mysql> VALUES ROW(1,2), ROW(3,4), ROW(5,6)
 
 ### 4. DO Statement and DECLARE Statement
 
-`DO` executes the expressions but does not return any results. In most respects, `DO` is shorthand for `SELECT expr, ...` , but has the advantage that it is slightly faster when you do not care about the result.
+`DO` executes the expressions but does not return any results. In most respects, `DO` is shorthand for `SELECT expr, ...`, but has the advantage that it is slightly faster when you do not care about the result.
 
 ```
 DO expr [, expr] ...
 ```
 
-`DO` is useful primarily with functions that have side effects, such as `RELEASE_LOCK()` .
+`DO` is useful primarily with functions that have side effects, such as `RELEASE_LOCK()`.
 Example: This `SELECT` statement pauses, but also produces a result set:
 
 ```
@@ -312,7 +312,7 @@ mysql> SELECT SLEEP(5);
 1 row in set (5.02 sec)
 ```
 
-`DO` , on the other hand, pauses without producing a result set.
+`DO`, on the other hand, pauses without producing a result set.
 
 ```
 mysql> DO SLEEP(5);
@@ -337,10 +337,10 @@ HANDLER tbl_name READ { FIRST | NEXT }
 HANDLER tbl_name CLOSE
 ```
 
-The `HANDLER ... OPEN` statement opens a table, making it accessible using subsequent `HANDLER ... READ` statements. This table object is not shared by other sessions and is not closed until the session calls `HANDLER ... CLOSE`  or the session terminates.
+The `HANDLER ... OPEN` statement opens a table, making it accessible using subsequent `HANDLER ... READ` statements. This table object is not shared by other sessions and is not closed until the session calls `HANDLER ... CLOSE` or the session terminates.
 The `HANDLER ... READ` syntax fetches a row from the table in natural row order that matches the WHERE condition. Natural row order is the order in which rows are stored in a TAE table data file.
 Without a `LIMIT` clause, all forms of `HANDLER ... READ` fetch a single row if one is available. To return a specific number of rows, include a `LIMIT` clause. It has the same syntax as for the SELECT statement.
-`HANDLER ... CLOSE` closes a table that was opened with `HANDLER ... OPEN` .
+`HANDLER ... CLOSE` closes a table that was opened with `HANDLER ... OPEN`.
 Example:
 
 ```
@@ -414,7 +414,7 @@ You can create one table from another by adding a `SELECT` statement at the end 
 CREATE TABLE new_tbl [AS] SELECT * FROM orig_tbl;
 ```
 
-Create new columns for all elements in the `SELECT`. For example:
+Create new columns for all elements in the `SELECT`. For example:
 
 ```
 mysql> CREATE TABLE test (a INT NOT NULL AUTO_INCREMENT,
@@ -472,9 +472,9 @@ trigger_order: { FOLLOWS | PRECEDES } other_trigger_name
 `trigger_time` is the trigger action time. It can be BEFORE or AFTER to indicate that the trigger activates before or after each row to be modified.
 
 `trigger_event` indicates the kind of operation that activates the trigger. These `trigger_event` values are permitted:
-`INSERT` : The trigger activates whenever a new row is inserted into the table (for example, through INSERT, LOAD DATA, and REPLACE statements).
+`INSERT`: The trigger activates whenever a new row is inserted into the table (for example, through INSERT, LOAD DATA, and REPLACE statements).
 `UPDATE`: The trigger activates whenever a row is modified (for example, through `UPDATE` statements).
-`DELETE` : The trigger activates whenever a row is deleted from the table (for example, through DELETE and REPLACE statements). `DROP TABLE` and `TRUNCATE TABLE` statements on the table do not activate this trigger, because they do not use `DELETE` . Dropping a partition does not activate `DELETE` triggers, either.
+`DELETE`: The trigger activates whenever a row is deleted from the table (for example, through DELETE and REPLACE statements). `DROP TABLE` and `TRUNCATE TABLE` statements on the table do not activate this trigger, because they do not use `DELETE`. Dropping a partition does not activate `DELETE` triggers, either.
 The `trigger_event` does not represent a literal type of SQL statement that activates the trigger so much as it represents a type of table operation. For example, an `INSERT` trigger activates not only for `INSERT` statements but also `LOAD DATA` statements because both statements insert rows into a table.
 `trigger_body` is the statement to execute when the trigger activates. To execute multiple statements, use the `BEGIN ... END` compound statement construct.
 

@@ -8,11 +8,11 @@ TPC Benchmark™H（TPC-H）是决策支持基准。它由一套面向业务的�
 
 确保你已经完成了[单机部署 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
-## **1. 编译dbgen**
+## **1. 编译 dbgen**
 
-默认情况下，TPCH dbgen 实用程序是用来生成测试数据集表格的工具，它根据比例因子 Scale Factor（SF)的大小确定数据集的大小，并生成一组平面文件（Flat File)，这些文件适合加载到 tpch 模式中。
+默认情况下，TPCH dbgen 实用程序是用来生成测试数据集表格的工具，它根据比例因子 Scale Factor（SF) 的大小确定数据集的大小，并生成一组平面文件（Flat File)，这些文件适合加载到 tpch 模式中。
 
-当使用 `-s 1` 时 `dbgen` 命令会产生 1GB 的完整数据集，当使用`-s 10`时会产生大约 10GB 的数据集，以此类推。
+当使用 `-s 1` 时 `dbgen` 命令会产生 1GB 的完整数据集，当使用 `-s 10` 时会产生大约 10GB 的数据集，以此类推。
 
 ```
 git clone https://github.com/electrum/tpch-dbgen.git
@@ -22,7 +22,7 @@ make
 
 ## **2. 生成数据**
 
-运行 `dbgen`，获得适当的数据库大小因子(在示例中为 1GB)。
+运行 `dbgen`，获得适当的数据库大小因子 (在示例中为 1GB)。
 
 ```
 ./dbgen -s 1
@@ -48,7 +48,7 @@ total 2150000
 https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/tpch/tpch-1g.zip
 ```
 
-## **3. 在MatrixOne中建表**
+## **3. 在 MatrixOne 中建表**
 
 MatrixOne 暂不支持复合主键和分区，`PARTSUPP` 和 `LINEITEM` 表的创建代码有以下修改：
 
@@ -878,9 +878,9 @@ order by
 
 ## **6. 运行预期结果**
 
-以下为22个 TPCH 查询的预期结果。
+以下为 22 个 TPCH 查询的预期结果。
 
-说明：由于 Q16 的结果段落过长，无法在下文展示，请参阅此连结的完整结果：[Q16运行预期结果](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/tpch/tpch1g_result_matrixone.md)
+说明：由于 Q16 的结果段落过长，无法在下文展示，请参阅此连结的完整结果：[Q16 运行预期结果](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/tpch/tpch1g_result_matrixone.md)
 
 ```
 Q1

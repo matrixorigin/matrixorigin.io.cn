@@ -64,4 +64,4 @@ mysql> select * from t1 where dayofyear(a) between 1 and 184;
 ## **限制**
 
 * 目前 `DAYOFYEAR()` 只支持 `date` 类型。
-* 目前 `date` 格式只支持`yyyy-mm-dd` 和 `yyyymmdd`的数据格式。  
+* 目前 `date` 格式只支持 `yyyy-mm-dd` 和 `yyyymmdd` 的数据格式。  

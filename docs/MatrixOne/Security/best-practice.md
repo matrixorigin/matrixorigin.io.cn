@@ -8,7 +8,7 @@
 
    + 主要工作职能：管理租户内的所有配置信息、用户权限、备份恢复、性能调优、故障排查
    + 参考授予角色：默认创建租户时生成的管理员角色 accountadmin。
-   + 参考授予权限：用户管理（CREATE USER, ALTER USER, DROP USER）、权限管理（MANAGE GRANTS）
+   + 参考授予权限：用户管理（CREATE USER，ALTER USER，DROP USER）、权限管理（MANAGE GRANTS）
 
 ## **负责数据管理（ALL ON ACCOUNT）的工程师**
 

@@ -24,7 +24,7 @@
 
 ### 非 UTC 时区的值和 Unix 时间戳值之间的转换
 
-如果使用 `UNIX_TIMESTAMP()` 和 `FROM_UNIXTIME()` 在非 UTC（Coordinated Universal Time，协调世界时）时区的值和 Unix 时间戳值之间进行转换，则转换是有损的，因为映射在两个方向上不是一对一的。例如，由于诸如夏令时 (DST) 等本地时区更改的约定，`UNIX_TIMESTAMP()` 可以将在非 UTC 时区中不同的两个值映射到相同的 Unix 时间戳值。 `FROM_UNIXTIME()` 将该值仅映射回原始值之一。下面的示例，即，使用在 `MET` 时区不同的值：
+如果使用 `UNIX_TIMESTAMP()` 和 `FROM_UNIXTIME()` 在非 UTC（Coordinated Universal Time，协调世界时）时区的值和 Unix 时间戳值之间进行转换，则转换是有损的，因为映射在两个方向上不是一对一的。例如，由于诸如夏令时 (DST) 等本地时区更改的约定，`UNIX_TIMESTAMP()` 可以将在非 UTC 时区中不同的两个值映射到相同的 Unix 时间戳值。`FROM_UNIXTIME()` 将该值仅映射回原始值之一。下面的示例，即，使用在 `MET` 时区不同的值：
 
 ```sql
 mysql> SET time_zone = 'MET';

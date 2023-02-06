@@ -11,7 +11,7 @@ MatrixOne 支持以下两种方式导出数据：
 
 ## 语法结构
 
-`SELECT...INTO OUTFILE` 语法是 `SELECT` 语法和 `INTO OUTFILE filename` 的结合。默认输出格式与 `LOAD DATA` 命令相同。因此，以下语句是将名称为 **test** 的表导出到目录路径为 **/root/test** 的 *.csv* 文件中。
+`SELECT...INTO OUTFILE` 语法是 `SELECT` 语法和 `INTO OUTFILE filename` 的结合。默认输出格式与 `LOAD DATA` 命令相同。因此，以下语句是将名称为 **test** 的表导出到目录路径为 **/root/test** 的*. csv* 文件中。
 
 ```
 mysql> SELECT * FROM TEST
@@ -20,7 +20,7 @@ mysql> SELECT * FROM TEST
 
 你可以采用多种形式和选项更改输出格式，用于表示如何引用、分隔列和记录。
 
-使用以下代码以 *.csv* 格式导出 *TEST* 表，下面的代码行是用回车换行进行展示的：
+使用以下代码以*. csv* 格式导出 *TEST* 表，下面的代码行是用回车换行进行展示的：
 
 ```
 mysql> SELECT * FROM TEST INTO OUTFILE '/root/test.csv'
@@ -30,7 +30,7 @@ mysql> SELECT * FROM TEST INTO OUTFILE '/root/test.csv'
 
 **`SELECT ... INTO OUTFILE` 特性如下**：
 
-- 导出的文件是由 MatrixOne 服务直接创建的，因此命令行中的 `filename`应该指向你需要文件存入的服务器主机的位置。MatrixOne 暂不支持将文件导出到客户端文件系统。
+- 导出的文件是由 MatrixOne 服务直接创建的，因此命令行中的 `filename` 应该指向你需要文件存入的服务器主机的位置。MatrixOne 暂不支持将文件导出到客户端文件系统。
 
 - `SELECT ... INTO OUTFILE` 是用于将检索出来的数据按格式导出到文件中，即需要导出的文件是由 MatrixOne 服务直接创建，导出的文件只能位于 MatrixOne 所在的服务器主机上，所以你必须得有登录 MatrixOne 所在的服务器主机的用户名密码，并且你有权限可以从 MatrixOne 检索文件。
 
@@ -76,7 +76,7 @@ sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}
     select * from user into outfile '~/tmp/export_demo/export_datatable.txt'
     ```
 
-    使用 Docker 安装启动 MatrixOne，导出到你挂载的容器目录路径，如下例所示。其中目录 *mo-data* 指的是本地路径 *~/tmp/docker_export_demo/mo-data* 。
+    使用 Docker 安装启动 MatrixOne，导出到你挂载的容器目录路径，如下例所示。其中目录 *mo-data* 指的是本地路径 *~/tmp/docker_export_demo/mo-data*。
 
     ```
     select * from user into outfile 'mo-data/export_datatable.txt';
