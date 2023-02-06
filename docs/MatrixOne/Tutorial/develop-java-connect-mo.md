@@ -46,7 +46,7 @@ select * from user;
 
 1. 启动 Eclipse，依次选择 **File > New > Java project**，命名为 *jdbc_demo*，点击 **Finish**，新项目 *jdbc_demo* 创建完成。
 2. 右击项目 *jdbc_demo*，依次选择 **Built path > Add External Archives**，导入已下载好的 [Java 语言 JDBC 连接器](https://dev.mysql.com/downloads/connector/j/)。
-3. 新建一个类：鼠标右键点击项目 *jdbc_demo* 下的 **src > New > Class**, 命名为 *demo*，提交即可。
+3. 新建一个类：鼠标右键点击项目 *jdbc_demo* 下的 **src > New > Class**，命名为 *demo*，提交即可。
 
 ## **步骤 3：连接 MatrixOne，执行 Java 程序**
 

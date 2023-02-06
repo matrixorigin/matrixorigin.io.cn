@@ -7,7 +7,7 @@
 使用 MatrixOne 进行 Java 数据库连接前，需要完成以下下载安装任务：
 
 1. 已完成[安装并启动 MatrixOne](../../../Get-Started/install-standalone-matrixone.md)。
-2. 下载安装[JDK 8+ version](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html)。
+2. 下载安装 [JDK 8+ version](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html)。
 3. 下载安装 MySQL 客户端。
 4. 下载安装 JAVA IDE，本篇文档以 [IntelliJ IDEA](https://www.jetbrains.com/idea/) 为例，你也可以下载其他 IDE 工具。
 
@@ -25,7 +25,7 @@
     );
     ```
 
-2. 在 IDEA 中新建 Java 名称为 **testJDBC** 的项目并选择 在 **Build System** 中选择 **Maven** 作为构建系统，点击 **Create**。
+2. 在 IDEA 中新建 Java 名称为 **testJDBC** 的项目并选择在 **Build System** 中选择 **Maven** 作为构建系统，点击 **Create**。
 
     ![JDBC create project](https://github.com/matrixorigin/artwork/blob/main/docs/develop/JDBC_connect/JDBC-create-project.png?raw=true)
 
@@ -79,4 +79,4 @@
 
 ## 参考文档
 
-有关 MatrixOne 对 JDBC 特性支持的完整列表，参见[MatrixOne 的 JDBC 功能支持列表](../../../Reference/Limitations/mo-jdbc-feature-list.md)。
+有关 MatrixOne 对 JDBC 特性支持的完整列表，参见 [MatrixOne 的 JDBC 功能支持列表](../../../Reference/Limitations/mo-jdbc-feature-list.md)。

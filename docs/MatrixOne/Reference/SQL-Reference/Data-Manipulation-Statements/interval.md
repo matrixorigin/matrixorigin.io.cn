@@ -185,7 +185,7 @@ mysql> SELECT DATE_ADD('2023-01-01', INTERVAL 1 HOUR);
 
 ### 示例 4
 
-如果添加了 `MONTH`、`YEAR_MONTH` 或`YEAR`，并且执行结果的日期的某一天比当月的最大天数大，则该天将被调整为当月的最大天数：
+如果添加了 `MONTH`、`YEAR_MONTH` 或 `YEAR`，并且执行结果的日期的某一天比当月的最大天数大，则该天将被调整为当月的最大天数：
 
 ```sql
 mysql> SELECT DATE_ADD('2019-01-30', INTERVAL 1 MONTH);

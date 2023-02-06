@@ -32,7 +32,7 @@ create user user_name identified by 'password';
 
 #### IDENTIFIED BY auth_string
 
-`CREATE USER` 允许这些 `auth_option` ：
+`CREATE USER` 允许这些 `auth_option`：
 
 - 'auth_string'：在 MatrixOne 中，'auth_string' 为密码，即将密码存储在 *mo_user* 系统表的帐户行中。
 

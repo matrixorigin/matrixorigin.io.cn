@@ -11,7 +11,7 @@
 
 针对不同种类的问题，MatrixOne 使用了不同的模板对其内容进行刻画，其中大多描述了问题的关键信息，有助于审查者与其他开发者理解并参与其中。  
 
-例如，`Bug report`问题模板包含以下信息：
+例如，`Bug report` 问题模板包含以下信息：
 
 * **Detail Environment**  
   Describe the details about the operating environment including version, hardware parameters, OS type and so on.
@@ -77,5 +77,5 @@ Add any other context or screenshots about the refactoring request here.
 
 ## **Good First Issues**
 
-当您首次参与贡献时，您可以选择 [`good-first-issue`](https://github.com/matrixorigin/matrixone/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)标签下的问题着手解决，其下的每个问题都是相对来说容易解决的。  
+当您首次参与贡献时，您可以选择 [`good-first-issue`](https://github.com/matrixorigin/matrixone/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) 标签下的问题着手解决，其下的每个问题都是相对来说容易解决的。  
 详情请阅读[快速上手](../make-your-first-contribution.md)章节。

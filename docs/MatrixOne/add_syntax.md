@@ -31,7 +31,7 @@ INSTANCE FROM 'user'@'host':port
     [REQUIRE [NO] SSL]
 ```
 
-本文会举例添加第一个 clone_action 的规则，在第一个 clone_action 规则中，LOCAL, DATA, DIRECTORY 是 MySQL 中的关键字（<https://dev.mysql.com/doc/refman/8.0/en/keywords.html>）。 [=] 是可选项，可以有等号或者没有，'clone_dir' 是字符串。对于这些 token， 词法分析阶段都会做区分。
+本文会举例添加第一个 clone_action 的规则，在第一个 clone_action 规则中，LOCAL，DATA，DIRECTORY 是 MySQL 中的关键字（<https://dev.mysql.com/doc/refman/8.0/en/keywords.html>）。 [=] 是可选项，可以有等号或者没有，'clone_dir' 是字符串。对于这些 token，词法分析阶段都会做区分。
 
 我们可以先定义语法树，因为 CLONE 是新语句，我们可以在 tree 目录创建 clone.go 然后定义：
 
@@ -90,7 +90,7 @@ non_reserved_keyword:
 %%
 ```
 
-其中 LOCAL, DATA, DIRECTORY 关键字是已经定义好的。
+其中 LOCAL，DATA，DIRECTORY 关键字是已经定义好的。
 
 只需要定义新的关键字 CLONE，可以参考其中一个是怎么定义的。注意要在 MySQL 文档 <https://dev.mysql.com/doc/refman/8.0/en/keywords.html> 中查看，是保留关键字，还是非保留关键字。然后在 keywords.go 中添加：
 
@@ -164,6 +164,6 @@ validSQL = []struct {
 func NewNotSupported(msg string, args ...any) *Error
 ```
 
-然后需要在 test 目录下添加 bvt 测试，这是一个端到端的测试，预期结果是抛出相应的错误，或正确的结果集。最后可以用 mo-tester (使用可以看 readme ) 作为检验。
+然后需要在 test 目录下添加 bvt 测试，这是一个端到端的测试，预期结果是抛出相应的错误，或正确的结果集。最后可以用 mo-tester (使用可以看 readme) 作为检验。
 
 到此，为 MO parser 添加一个简单的语法成功，在 MO 最新的代码中，该语法还未被添加，大家可以尝试验证这个语法是否能解析成功，或者添加其他新的语法。

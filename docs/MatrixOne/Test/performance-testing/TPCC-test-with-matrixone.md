@@ -69,7 +69,7 @@ cd mo-tpcc
 
 __Note__: 如果在运行 `./runSQL.sh props.mo tableCreates` 时产生 `java:command not found` 报错，那么你需要在你计算机上安装或重新安装 Java 和 JDK。
 
-上面的代码表示，进入到 *mo-tpch* 文件夹目录，执行代码创建完成  TPCC 数据库和表。
+上面的代码表示，进入到 *mo-tpch* 文件夹目录，执行代码创建完成 TPCC 数据库和表。
 
 执行完成后，输出结果示例如下：
 

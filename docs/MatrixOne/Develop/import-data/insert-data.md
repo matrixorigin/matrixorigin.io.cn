@@ -34,14 +34,14 @@
 
 ```
 CREATE TABLE Customers (
-  CustomerID INT AUTO_INCREMENT NOT NULL
-  ,CustomerName VARCHAR(40) NOT NULL
-  ,ContactName VARCHAR(30) NULL
-  ,Address VARCHAR(60) NULL
-  ,City VARCHAR(15) NULL
-  ,PostalCode VARCHAR(10) NULL
-  ,Country VARCHAR(15) NULL
-  ,PRIMARY KEY (CustomerID)
+  CustomerID INT AUTO_INCREMENT NOT NULL,
+  CustomerName VARCHAR(40) NOT NULL,
+  ContactName VARCHAR(30) NULL,
+  Address VARCHAR(60) NULL,
+  City VARCHAR(15) NULL,
+  PostalCode VARCHAR(10) NULL,
+  Country VARCHAR(15) NULL,
+  PRIMARY KEY (CustomerID)
   );
 ```
 
@@ -122,24 +122,24 @@ WHERE *condition*;
 
 ```
 CREATE TABLE Customers (
-  CustomerID INT AUTO_INCREMENT NOT NULL
-  ,CustomerName VARCHAR(40) NOT NULL
-  ,ContactName VARCHAR(30) NULL
-  ,Address VARCHAR(60) NULL
-  ,City VARCHAR(15) NULL
-  ,PostalCode VARCHAR(10) NULL
-  ,Country VARCHAR(15) NULL
-  ,PRIMARY KEY (CustomerID)
+  CustomerID INT AUTO_INCREMENT NOT NULL,
+  CustomerName VARCHAR(40) NOT NULL,
+  ContactName VARCHAR(30) NULL,
+  Address VARCHAR(60) NULL,
+  City VARCHAR(15) NULL,
+  PostalCode VARCHAR(10) NULL,
+  Country VARCHAR(15) NULL,
+  PRIMARY KEY (CustomerID)
   );
 CREATE TABLE Supplier (
-  SupplierID INT AUTO_INCREMENT NOT NULL
-  ,SupplierName VARCHAR(40) NOT NULL
-  ,ContactName VARCHAR(30) NULL
-  ,Address VARCHAR(60) NULL
-  ,City VARCHAR(15) NULL
-  ,PostalCode VARCHAR(10) NULL
-  ,Country VARCHAR(15) NULL
-  ,PRIMARY KEY (SupplierID)
+  SupplierID INT AUTO_INCREMENT NOT NULL,
+  SupplierName VARCHAR(40) NOT NULL,
+  ContactName VARCHAR(30) NULL,
+  Address VARCHAR(60) NULL,
+  City VARCHAR(15) NULL,
+  PostalCode VARCHAR(10) NULL,
+  Country VARCHAR(15) NULL,
+  PRIMARY KEY (SupplierID)
   );
 ```
 

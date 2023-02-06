@@ -2,7 +2,7 @@
 
 ## **函数说明**
 
-`YEAR()`和`TOYEAR()`函数返回了给定日期的年份（从 1000 到 9999）。
+`YEAR()` 和 `TOYEAR()` 函数返回了给定日期的年份（从 1000 到 9999）。
 
 ## **函数语法**
 
@@ -58,4 +58,4 @@ mysql> SELECT YEAR(c1) FROM t3;
 
 ## **限制**
 
-目前只支持`yyyy-mm-dd` 和 `yyyymmddd`的数据格式。
+目前只支持 `yyyy-mm-dd` 和 `yyyymmddd` 的数据格式。

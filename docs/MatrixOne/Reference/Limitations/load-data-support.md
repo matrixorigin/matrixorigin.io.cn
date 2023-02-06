@@ -34,13 +34,13 @@ LOAD DATA
 - PARTITION
 - CHARACTER SET：目前仅支持 UTF8
 - FIELDS TERMINATED BY 'string'：simdcsv 不接受 \r,\n,Unicode replacement character (0xFFFD).
-- FIELDS [OPTIONALLY] ENCLOSED BY 'char'：simdCSV固定是`"`。
+- FIELDS [OPTIONALLY] ENCLOSED BY 'char'：simdCSV 固定是 `"`。
 - FIELDS ESCAPED BY 'char': simdcsv 暂不支持。
-- LINES STARTING BY 'string': simdcsv 不支持。'#'是第一个字符的行都会被过滤掉。
-- LINES TERMINATED BY 'string':simdcsv 不支持修改。固定'\n'，`\r\n`.
+- LINES STARTING BY 'string': simdcsv 不支持。'#' 是第一个字符的行都会被过滤掉。
+- LINES TERMINATED BY 'string': simdcsv 不支持修改。固定 '\n'，`\r\n`.
 - user_var：不支持。变量对应的数据列，被过滤掉。
-- SET col_name={expr | DEFAULT}:不支持。
-- LOW_PRIORITY:不支持
+- SET col_name={expr | DEFAULT}: 不支持。
+- LOW_PRIORITY: 不支持
 - CONCURRENT：不支持
 - LOCAL：不支持。local 需要从 client 端将数据传输到 server 端。
 

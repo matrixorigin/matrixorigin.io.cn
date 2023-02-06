@@ -604,7 +604,7 @@ public class JpademoApplication {
 2022-10-27 11:16:40.249  INFO 93488 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 66 ms
 ```
 
-### 1. 获取 Book  列表，使用 GET 请求调用以下端口
+### 1. 获取 Book 列表，使用 GET 请求调用以下端口
 
 ```
 http://localhost:8080/bookservice/books

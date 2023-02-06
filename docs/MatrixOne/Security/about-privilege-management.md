@@ -23,7 +23,7 @@ MatrixOne 的权限管理是结合了基于角色的访问控制 (RBAC，Role-ba
 
 在 MatrixOne 中，为了方便管理多种操作权限，于是便把权限封装在一个实体内，这个实体就是**对象**。
 
-例如，`Select`，`Insert`，`Update` 等操作权限，便封装在了 Table 对象内。更多关于对象权限的信息请参考[MatrixOne 权限分类](../Reference/access-control-type.md)。
+例如，`Select`，`Insert`，`Update` 等操作权限，便封装在了 Table 对象内。更多关于对象权限的信息请参考 [MatrixOne 权限分类](../Reference/access-control-type.md)。
 
 #### 对象与对象之间的关系
 
@@ -109,7 +109,7 @@ MatrixOne 在集群和租户 (Account) 创建后，会自动创建一些默认�
 
 !!! note
     1. 角色的权限继承是动态的，如果被继承角色的权限发生了变化，那么继承角色所继承的权限范围也会动态变化。
-    2. 角色的继承关系不能成环。例如，role1 继承了 role2, role 2 继承了 role3，role3 继承了 role1。
+    2. 角色的继承关系不能成环。例如，role1 继承了 role2，role 2 继承了 role3，role3 继承了 role1。
     3. 角色间的权限传递使得权限管理更加便捷，但同时也存在风险，为此，MatrixOne 只允许具有 *Manage Grants* 权限的角色才能做这样的操作，该权限被默认赋予给系统默认角色 *MOADMIN* 或 *ACCOUNTADMIN* 中，并且不建议在新建自定义角色是将该权限授予给自定义角色。
 
 #### 角色切换
@@ -141,7 +141,7 @@ A 公司购买了 MatrixOne 集群，并且完成了部署。由于 A 公司规�
 
 还是沿用上面的场景示例，*Tom* 把 *BusinessAccount* 这个租户账号给了公司的数据管理员 *Robert*，让 *Robert* 去分配新的用户账号和权限给其他研发同事。
 
-研发同事 *Joe* 是这个 A 公司项目 *BusinessApp* 的应用开发者，*Joe* 有一个开发任务，*Joe* 需要使用数据库内所有的数据。那么 *Robert* 就要帮 *Joe* 开通账号，给*Joe*授权：
+研发同事 *Joe* 是这个 A 公司项目 *BusinessApp* 的应用开发者，*Joe* 有一个开发任务，*Joe* 需要使用数据库内所有的数据。那么 *Robert* 就要帮 *Joe* 开通账号，给 *Joe* 授权：
 
 1. *Robert* 先给 *Joe* 创建了一个用户账号（即，用户），名字叫做 *Joe_G*，*Joe* 就使用 *Joe_G* 这个账号登录到 MatrixOne。
 2. *Robert* 又给 *Joe* 创建了一个角色，名字叫做 *Appdeveloper*，并且把 *Appdeveloper* 角色赋予给 *Joe* 的用户账号 *Joe_G* 上。

@@ -2,7 +2,7 @@
 
 你可以使用 MatrixOne Operator 在 Kubernetes 上部署 MatrixOne。
 
-Matrixone-operator 是 Kubernetes 上的 MatrixOne 集群自动化运维系统，由一组 Kubernetes 自定义资源（CustomResourceDefinitions, CRD），一组 Kubernetes 控制器和一组 Webhook 服务组成。
+Matrixone-operator 是 Kubernetes 上的 MatrixOne 集群自动化运维系统，由一组 Kubernetes 自定义资源（CustomResourceDefinitions, CRD），一组 Kubernetes 控制器和一组 Webhook 服务组成。
 
 具体部署文档和其他相关架构内容，参见：
 

@@ -6,7 +6,7 @@
 
 ``FULL JOIN`` 关键字结合了 ``LEFT JOIN`` 和 ``RIGHT JOIN`` 的结果。
 
-**说明**：在一些数据库中： ``FULL JOIN`` 等同于 ``FULL OUTER JOIN``。
+**说明**：在一些数据库中：``FULL JOIN`` 等同于 ``FULL OUTER JOIN``。
 
 ## **语法结构**
 

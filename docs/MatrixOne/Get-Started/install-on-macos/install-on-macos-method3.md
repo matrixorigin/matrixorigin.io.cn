@@ -4,7 +4,7 @@
 
 ## 步骤 1：下载安装 Docker
 
-1. 点击<a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a>，进入 Docker 的官方文档页面，根据你的操作系统，下载安装对应的 Docker。
+1. 点击 <a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a>，进入 Docker 的官方文档页面，根据你的操作系统，下载安装对应的 Docker。
 
 2. 安装完成后，通过下述代码行确认 Docker 版本，验证 Docker 安装是否成功：
 
@@ -63,7 +63,7 @@
 
      2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
 
-     3. 输入/跳过 root 密码后，即进入了 *.bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+     3. 输入/跳过 root 密码后，即进入了*. bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
 
         ```
         export PATH=${PATH}:/usr/local/mysql/bin

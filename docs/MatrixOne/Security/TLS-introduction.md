@@ -42,7 +42,7 @@ MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加�
     └── server-key.pem
     ```
 
-    __Note__:  上述代码中的 `<yourpath>` 是你需要存放生成的证书及密钥文件的本地目录路径。
+    __Note__: 上述代码中的 `<yourpath>` 是你需要存放生成的证书及密钥文件的本地目录路径。
 
 2. 进入到你本地的 MatrixOne 文件目录路径 *matrixone/etc/launch-tae-CN-tae-DN/* 中的 *cn.toml* 配置文件：
 

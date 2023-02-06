@@ -1,7 +1,7 @@
 # **代码贡献**
 
 MatrixOne 是一个由项目管理者、社区开发者共同维护、改进和扩展的开源项目。
-本文档主要描述了开发的准则与一般流程，并提供了在编写代码、提交 PR 过程中需要使用的样式和模板。如果您在参与 MatrixOne 的贡献过程中遇到任何问题或发现一些错误，请在 Github 上提出[issue](https://github.com/matrixorigin/matrixone/issues) 或通其他平台联系我们。
+本文档主要描述了开发的准则与一般流程，并提供了在编写代码、提交 PR 过程中需要使用的样式和模板。如果您在参与 MatrixOne 的贡献过程中遇到任何问题或发现一些错误，请在 Github 上提出 [issue](https://github.com/matrixorigin/matrixone/issues) 或通其他平台联系我们。
 
 ## **前置准备**
 
@@ -55,7 +55,7 @@ git checkout -b topic-branch
 git push origin main:NEW_BRANCH
 ```  
 
-**6.** 在仓库中的新分支`NEW_BRANCH`中创建 Pull Request，并添加相应标签、[建立与相关 issue 的关联](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)。
+**6.** 在仓库中的新分支 `NEW_BRANCH` 中创建 Pull Request，并添加相应标签、[建立与相关 issue 的关联](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)。
 
 **7.** PR 通过后，覆盖本地提交历史：
 
@@ -69,7 +69,7 @@ git pull --force upstream main:main
 git push --force origin main:main
 ```
 
-如果您仍然有一些困惑，可以参考 [GitHub 官方文档](https://docs.github.com/en) 寻求帮助；若您发现我们提供的工作流程有错误或想要提出改善的方法，欢迎您[提出建议](https://github.com/matrixorigin/matrixone/issues/new/choose)！
+如果您仍然有一些困惑，可以参考 [GitHub 官方文档](https://docs.github.com/en)寻求帮助；若您发现我们提供的工作流程有错误或想要提出改善的方法，欢迎您[提出建议](https://github.com/matrixorigin/matrixone/issues/new/choose)！
 
 ## **代码审阅**
 

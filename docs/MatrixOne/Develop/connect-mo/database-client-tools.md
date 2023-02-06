@@ -94,11 +94,11 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
 1. 下载安装 [DBeaver](https://dbeaver.io/download/)。
 
-2. 安装 DBeaver 完成后，打开 DBeaver，点击左上角**连接**图标，在弹窗中选择 **MySQL**，点击**Next**。
+2. 安装 DBeaver 完成后，打开 DBeaver，点击左上角**连接**图标，在弹窗中选择 **MySQL**，点击 **Next**。
 
     ![dbeaver-mysql](https://github.com/matrixorigin/artwork/blob/main/docs/develop/dbeaver-mysql.png?raw=true)
 
-    在 **Connect to a database**窗口的**Main**区中填写如下参数：
+    在 **Connect to a database** 窗口的 **Main** 区中填写如下参数：
 
     - **Host**: 127.0.0.1
     - **Port**: 6001

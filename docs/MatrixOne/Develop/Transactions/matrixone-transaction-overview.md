@@ -10,9 +10,9 @@ MatrixOne 支持将多个 SQL 语句绑定到单个 All-or-Nothing（即，要�
 
 以下 SQL 语句，用于控制事务的开启、提交、回滚等操作：
 
-- `START TRANSACTION` 或 `BEGIN` ：开始新的事务。
+- `START TRANSACTION` 或 `BEGIN`：开始新的事务。
 - `COMMIT`：提交事务，并使事务的更改永久生效。
-- `ROLLBACK` ：回滚事务，取消当前的更改。
+- `ROLLBACK`：回滚事务，取消当前的更改。
 - `SET autocommit`：禁用或启用当前会话的默认自动提交模式。(在 0.5.1 版本，MatrixOne 当前仅支持启用自动提交模式，暂不支持关闭此模式)。
 
 ### 启动事务
@@ -86,7 +86,7 @@ ERROR 1105 (HY000): the txn has not been began
 1 row in set (0.01 sec)
 ```
 
-在上述所举的例子中，`ROLLBACK` 语句没有生效。这是因为开启了自动提交模式，而 `INSERT` 语句是在自动提交模式中执行的。`ROLLBACK` 只适用于 `BEGIN` 或 `START TRANSACTION` ，也就是说，它相当于下面的单语句事务：
+在上述所举的例子中，`ROLLBACK` 语句没有生效。这是因为开启了自动提交模式，而 `INSERT` 语句是在自动提交模式中执行的。`ROLLBACK` 只适用于 `BEGIN` 或 `START TRANSACTION`，也就是说，它相当于下面的单语句事务：
 
 ```
 START TRANSACTION;
@@ -128,7 +128,7 @@ Empty set (0.01 sec)
 
 MatrixOne 支持显式事务（即使用 `[BEGIN|START TRANSACTION]` 和 `COMMIT` 来定义事务的开始和结束）和隐式事务 (默认)。
 
-如果你通过 `[BEGIN|START TRANSACTION]` 语句启动一个新的事务，事务由默认的隐式事务切换到显式事务，自动提交模式会在 `COMMIT` 或' `ROLLBACK` '之前被禁用。
+如果你通过 `[BEGIN|START TRANSACTION]` 语句启动一个新的事务，事务由默认的隐式事务切换到显式事务，自动提交模式会在 `COMMIT` 或 `ROLLBACK` 之前被禁用。
 
 ### 语句回滚
 
@@ -187,7 +187,7 @@ MatrixOne 实现了快照隔离 (SI，Snapshot Isolation) 一致性，该级别�
 
 在快照隔离的系统中，每个事务似乎都在数据库的独立、一致的快照上运行。在提交之前，事务的更改仅对该事务可见，此时所有更改对后续开始的任何事务都以原子方式可见。如果事务 T1 修改了一个对象 *x*，这时，另一个事务 T2 在 T1 的快照开始后和在 T1 提交之前，向 *x* 提交了一个写操作，那么 T1 必须中止。
 
-[ANSI SQL 隔离级别评论](https://arxiv.org/ftp/cs/papers/0701/0701157.pdf)提出的可能异常的隔离级别，MatrixOne 的隔离级别与[ANSI SQL 隔离级别评论](https://arxiv.org/ftp/cs/papers/0701/0701157.pdf)所述略有不同，参见下表所示，可以查看 MatrixOne 的隔离级别：
+[ANSI SQL 隔离级别评论](https://arxiv.org/ftp/cs/papers/0701/0701157.pdf)提出的可能异常的隔离级别，MatrixOne 的隔离级别与 [ANSI SQL 隔离级别评论](https://arxiv.org/ftp/cs/papers/0701/0701157.pdf)所述略有不同，参见下表所示，可以查看 MatrixOne 的隔离级别：
 
 | Isolation Level                | P0 Dirty Write | P1 Dirty Read | P4C Cursor Lost Update | P4 Lost Update | P2 Fuzzy Read | P3 Phantom   | A5A Read Skew | A5B Write Skew |
 | ------------------------------ | -------------- | ------------- | ---------------------- | -------------- | ------------- | ------------ | ------------- | -------------- |
@@ -215,7 +215,7 @@ MatrixOne 支持乐观事务模型。你在使用乐观并发读取一行时不�
 
 在下午 1:01，User2 从数据库中读取同一行。
 
-在下午 1:03，用户 2 将 **FirstName** 行的“Bob”改为“Robert”，并更新到数据库里。
+在下午 1:03，用户 2 将 **FirstName** 行的 “Bob” 改为 “Robert”，并更新到数据库里。
 
 | Column name | Original value | Current value | Value in database |
 | :---------- | :------------- | :------------ | :---------------- |
@@ -225,7 +225,7 @@ MatrixOne 支持乐观事务模型。你在使用乐观并发读取一行时不�
 
 上表所示，更新成功，因为更新时数据库中的值与用户 2 的原始值匹配。
 
-在下午 1:05，用户 1 将 **FirstName** 行的“Bob”改为“James”，并尝试进行更新。
+在下午 1:05，用户 1 将 **FirstName** 行的 “Bob” 改为 “James”，并尝试进行更新。
 
 | Column name | Original value | Current value | Value in database |
 | :---------- | :------------- | :------------ | :---------------- |
@@ -233,4 +233,4 @@ MatrixOne 支持乐观事务模型。你在使用乐观并发读取一行时不�
 | LastName    | Smith          | Smith         | Smith             |
 | FirstName   | Bob            | James         | Robert            |
 
-此时，用户 1 遇到了乐观并发冲突，因为数据库中的值“Robert”不再与用户 1 期望的原始值“Bob”匹配，并发冲突提示更新失败。下一步需要决定，是采用用户 1 的更改覆盖用户 2 的更改，还是取消用户 1 的更改。
+此时，用户 1 遇到了乐观并发冲突，因为数据库中的值 “Robert” 不再与用户 1 期望的原始值 “Bob” 匹配，并发冲突提示更新失败。下一步需要决定，是采用用户 1 的更改覆盖用户 2 的更改，还是取消用户 1 的更改。

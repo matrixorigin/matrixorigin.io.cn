@@ -21,7 +21,7 @@ make
 
 ### 选项一：生成单表数据集
 
-当使用 `-s 1` 时 `dbgen` 命令会生产近 600 万行数据 (670MB)，当使用`-s 10`时会生产近 6000 万行数据，会耗费大量时间。
+当使用 `-s 1` 时 `dbgen` 命令会生产近 600 万行数据 (670MB)，当使用 `-s 10` 时会生产近 6000 万行数据，会耗费大量时间。
 
 ```
 ./dbgen -s 1 -T c
@@ -190,7 +190,7 @@ load data infile '/ssb-dbgen-path/lineorder.tbl' into table lineorder FIELDS TER
 
 ### 选项二：使用如下命令导入大宽表数据集
 
-运行以下命令将数据导入`lineorder_flat`：
+运行以下命令将数据导入 `lineorder_flat`：
 
 ```
 load data infile '/ssb-dbgen-path/lineorder_flat.tbl' into table lineorder_flat FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
