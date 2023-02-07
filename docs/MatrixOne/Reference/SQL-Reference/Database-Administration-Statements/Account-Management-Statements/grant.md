@@ -6,7 +6,7 @@
 
 ### GRANT 概述
 
-系统权限是初始系统 *root* 的权限。系统 *root* 可以创建和删除其他*租户（Accounts）*，管理*租户（Accounts）*。系统 *root* 不能管理其他*租户（Accounts）*名下的资源。
+系统权限是初始系统租户管理员（对应的是 *root* 用户）的权限。系统租户管理员可以创建和删除其他*租户（Accounts）*，管理*租户（Accounts）*。系统租户管理员不能管理其他*租户（Accounts）*名下的资源。
 
 要使用 `GRANT` 授予其他用户或角色权限，你首先必须具有 `WITH GRANT OPTION` 权限，并且你必须具有你正在授予的权限。了解你当前角色的授权情况或其他角色的授权情况，请使用 `SHOW GRANTS` 语句，更多信息，参见 [SHOW GRANTS](show-grants.md)。
 
@@ -58,20 +58,6 @@ priv_level: {
    + 如果没有 `ON`，则该语句授予角色。
 
    + 必须使用单独的 `GRANT` 语句将权限和角色分配给一个用户，每个 `GRANT` 语句的语法都与要授予的内容相适应。
-
-#### 对象引用准则
-
-`GRANT` 语句中的几个对象需要引用：租户、角色、数据库、表名称。
-
-引用租户名下的 `user_name` 或 `host_name` 值是连续的小写字母，则可以不使用引号。如果名称区分大小写或有空格，则需要使用引号。不允许使用通配符。
-
-示例如下：
-
-```
-GRANT ALL ON db1.* TO 'user1'@'localhost';
-```
-
-用户或角色名称的主机名部分，即 'localhost' 部分，查询 user_name 或 host_name，可以执行 `select user_name,user_host from mo_user;`，查询系统表中的角色或用户对象。
 
 #### 数据库权限
 

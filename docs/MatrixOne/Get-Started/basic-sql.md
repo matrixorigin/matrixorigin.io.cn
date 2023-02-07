@@ -188,7 +188,7 @@ SELECT * FROM person where id<5;
 
 ## 创建、授权和删除用户
 
-如果你[安装部署单机版的 MatrixOne](connect-to-matrixone-server.md)，连接登录 MatrixOne 时，你本身便具有最高权限，你可以参考下面的内容创建用户并授权，以便体验 MatrixOne 集群的权限管理功能。
+如果你[安装部署单机版的 MatrixOne](../Get-Started/install-standalone-matrixone.md)，连接登录 MatrixOne 时，你本身便具有最高权限，你可以参考下面的内容创建用户并授权，以便体验 MatrixOne 集群的权限管理功能。
 
 - 使用 `CREATE USER` 语句创建一个用户 *mouser*，密码为 *111*：
 

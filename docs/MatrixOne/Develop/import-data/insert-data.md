@@ -131,7 +131,7 @@ CREATE TABLE Customers (
   Country VARCHAR(15) NULL,
   PRIMARY KEY (CustomerID)
   );
-CREATE TABLE Supplier (
+CREATE TABLE Suppliers (
   SupplierID INT AUTO_INCREMENT NOT NULL,
   SupplierName VARCHAR(40) NOT NULL,
   ContactName VARCHAR(30) NULL,
@@ -161,7 +161,7 @@ CREATE TABLE Supplier (
 
 ### 示例
 
-下面的 SQL 语句将 **Supplier** 复制到 **Customers** 中，同时未填充数据的列将填充为 `NULL`：
+下面的 SQL 语句将 **Suppliers** 复制到 **Customers** 中，同时未填充数据的列将填充为 `NULL`：
 
 ```
 INSERT INTO Customers (CustomerName, City, Country)

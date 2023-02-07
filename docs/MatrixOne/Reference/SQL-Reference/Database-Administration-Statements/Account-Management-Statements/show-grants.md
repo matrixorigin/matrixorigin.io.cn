@@ -4,7 +4,7 @@
 
 使用 `SHOW GRANTS` 语句显示用户的所有授权信息。`SHOW GRANTS` 语句显示使用 `GRANT` 命令分配给用户的权限。
 
-`SHOW GRANTS` 需要 MatrixOne 系统模式的 `SELECT` 权限，但显示当前用户的权限和角色除外。
+使用 `SHOW GRANTS` 语句需要拥有查询 *mo_catalog* 库下所有表的 `SELECT` 权限，但显示当前用户的权限和角色除外。
 
 要为 `SHOW GRANTS` 命名帐户或角色，即使用与 `GRANT` 语句相同的格式，例如：
 

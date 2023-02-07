@@ -11,7 +11,7 @@
 
 ## MatrixOne 支持从不同存储位置进行导入
 
-根据*数据存储位置不同*的情况，MatrixOne 支持从*本地进行导入*和*从对象存储服务（Simple Storage Service, S3) 导入*。
+根据*数据存储位置不同*的情况，MatrixOne 支持从*服务端的本地进行导入*和*从对象存储服务（Simple Storage Service, S3) 导入*。
 
-- 从本地导入数据的方式，参考[从本地导入*. csv* 格式数据](load-csv.md)或[从本地导入 jsonlines 数据](load-jsonline.md)。
+- 从服务端的本地导入数据的方式，参考[从本地导入*. csv* 格式数据](load-csv.md)或[从本地导入 jsonlines 数据](load-jsonline.md)。
 - 从 S3 导入数据的方式，参考[从 S3 读取数据并导入 MatrixOne](load-s3.md)。
