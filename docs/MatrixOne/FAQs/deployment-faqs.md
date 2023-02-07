@@ -45,7 +45,7 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
 
 * **安装时需要更改什么设置吗？**
 
-通常情况下，安装时，你无需更改任何设置。`system_vars_config.toml` 默认设置完全可以直接运行 MatrixOne。但是如果你需要自定义监听端口、IP 地址、存储数据文件路径，你可以修改相应的 `system_vars_config.toml` 记录。
+通常情况下，安装时，你无需更改任何设置。`launch.toml` 默认设置完全可以直接运行 MatrixOne。但是如果你需要自定义监听端口、IP 地址、存储数据文件路径，你可以修改相应的 [`cn.toml`](https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/cn.toml)、[`dn.toml`](https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/dn.toml) 或 [`log.toml`](https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/log.toml)，这些文件内参数配置详情可参考[通用参数配置](../Reference/System-Parameters/configuration-settings.md)
 
 * **当我安装完成 MySQL 客户端后，打开终端运行 `mysql` 产生报错 `command not found: mysql`，我该如何解决？**
 

@@ -46,7 +46,7 @@ INSERT INTO token_count VALUES (29,'a71250b7ed780f6ef3185bfffe027983',4,17700,'b
 在 MySQL Client 等客户端输入并执行如下 SQL 语句：
 
 ```sql
-> SELECT id, token FROM token_count;
+mysql> SELECT id, token FROM token_count;
 ```
 
 输出结果如下：
@@ -76,7 +76,7 @@ INSERT INTO token_count VALUES (29,'a71250b7ed780f6ef3185bfffe027983',4,17700,'b
 在 SQL 中，可以使用 `WHERE` 子句添加筛选的条件：
 
 ```sql
-SELECT * FROM token_count WHERE id = 25;
+mysql> SELECT * FROM token_count WHERE id = 25;
 ```
 
 输出结果如下：
@@ -96,9 +96,7 @@ SELECT * FROM token_count WHERE id = 25;
 例如，可以通过下面的 SQL 语句对 token_count 表的数据按照 times 列进行降序 (DESC) 排序。
 
 ```sql
-SELECT id, token, times
-FROM token_count
-ORDER BY times DESC;
+mysql> SELECT id, token, times FROM token_count ORDER BY times DESC;
 ```
 
 输出结果如下：
@@ -126,10 +124,7 @@ ORDER BY times DESC;
 如果希望只返回部分结果，可以使用 `LIMIT` 语句限制查询结果返回的记录数。
 
 ```sql
-SELECT id, token, times
-FROM token_count
-ORDER BY times DESC
-LIMIT 5;
+mysql> SELECT id, token, times FROM token_count ORDER BY times DESC LIMIT 5;
 ```
 
 运行结果如下：
@@ -153,9 +148,7 @@ LIMIT 5;
 比如说，你可以将基本信息按照 id、count、times 列进行分组，然后分别统计：
 
 ```sql
-SELECT id, count, times
-FROM token_count
-GROUP BY id, count, times
+mysql> SELECT id, count, times FROM token_count GROUP BY id, count, times
 ORDER BY times DESC
 LIMIT 5;
 ```

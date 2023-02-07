@@ -35,7 +35,7 @@ MatrixOne 支持乐观事务模型。你在使用乐观并发读取一行时不�
 
 2. 在下午 1:01，用户 2 从数据库中读取同一行。
 
-3. 在下午 1:03，用户 2 将 FirstName 行的 “Bob” 改为 “Robert”，并更新到数据库里。
+3. 在下午 1:03，用户 2 将 FirstName 列的 “Bob” 改为 “Robert”，并更新到数据库里。
 
     |Column name|Original value|Current value|Value in database|
     |---|---|---|---|
@@ -45,7 +45,7 @@ MatrixOne 支持乐观事务模型。你在使用乐观并发读取一行时不�
 
 4. 如上表所示，更新时数据库中的值与用户 2 的原始值匹配，表示更新成功。
 
-5. 在下午 1:05，用户 1 将 FirstName 行的 “Bob” 改为 “James”，并尝试进行更新。
+5. 在下午 1:05，用户 1 将 FirstName 列的 “Bob” 改为 “James”，并尝试进行更新。
 
     |Column name|Original value|Current value|Value in database|
     |---|---|---|---|
