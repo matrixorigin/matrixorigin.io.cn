@@ -66,6 +66,12 @@ nav:
         - 概述: MatrixOne/Develop/schema-design/overview.md
         - 创建数据库: MatrixOne/Develop/schema-design/create-database.md
         - 创建表: MatrixOne/Develop/schema-design/create-table.md
+        - 数据完整性:
+          - 数据完整性约束概述: MatrixOne/Develop/schema-design/data-integrity/overview-of-integrity-constraint-types.md
+          - NOT NULL 完整性约束: MatrixOne/Develop/schema-design/data-integrity/not-null-constraints.md
+          - UNIQUE KEY 完整性约束: MatrixOne/Develop/schema-design/data-integrity/unique-key-constraints.md
+          - PRIMARY KEY 完整性约束: MatrixOne/Develop/schema-design/data-integrity/primary-key-constraints.md
+          - FOREIGN KEY 完整性约束: MatrixOne/Develop/schema-design/data-integrity/foreign-key-constraints.md
       - 连接 MatrixOne:
         - 配置 MatrixOne SSL 连接: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
         - 客户端工具连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/database-client-tools.md
@@ -349,12 +355,12 @@ nav:
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 时区配置: MatrixOne/Reference/System-Parameters/timezone.md
-      - MatrixOne Catalog: MatrixOne/Reference/System-tables.md
+      - 系统表目录: MatrixOne/Reference/System-tables.md
       - 权限分类列表: MatrixOne/Reference/access-control-type.md
       - 使用限制:
         - MatrixOne 的 JDBC 功能支持列表: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
         - MatrixOne DDL 语句分区支持的说明: MatrixOne/Reference/Limitations/mo-partition-support.md
-      - MatrixOne 目录结构: MatrixOne/Maintain/mo-directory-structure.md
+      - MatrixOne 文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
     - 故障诊断:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
