@@ -45,12 +45,12 @@ Project
 
 ## 节点类型
 
-MatrixOne 0.5.0 版本支持以下节点类型。
+MatrixOne 支持以下节点类型。
 
 | 节点类型       | Explain 中的命名 |
 | --------------- | --------------- |
-| Node_VALUE_SCAN | Values Scan     |
 | Node_TABLE_SCAN | Table Scan      |
+| Node_VALUE_SCAN | Values Scan     |
 | Node_PROJECT    | Project         |
 | Node_AGG        | Aggregate       |
 | Node_FILTER     | Filter          |
