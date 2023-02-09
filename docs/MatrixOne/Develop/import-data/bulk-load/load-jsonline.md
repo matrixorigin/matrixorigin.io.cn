@@ -1,6 +1,6 @@
 # 导入 JSONLines 数据
 
-本篇文档将指导你如何将 JSONLines 格式数据（即 *.jl* 或* .jsonl* 文件）导入 MatrixOne。
+本篇文档将指导你如何将 JSONLines 格式数据（即 *.jl* 或 *.jsonl* 文件）导入 MatrixOne。
 
 ## 有关 JSONLines 格式
 
