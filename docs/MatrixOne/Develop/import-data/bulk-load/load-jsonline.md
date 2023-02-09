@@ -190,7 +190,7 @@ load data infile {'filepath'='data.jl.gz', 'compression'='gzip','format'='jsonli
     ```
 
 !!! note
-    如果您使用 Docker 启动 MatrixOne，当你需要导入 JSONline 文件时，请确保你已将数据目录挂载到容器。你也可以查看[导入*.csv* 格式数据](load-csv.md)，了解如何使用 Docker 挂载数据。
+    如果您使用 Docker 启动 MatrixOne，当你需要导入 JSONline 文件时，请确保你已将数据目录挂载到容器。你也可以查看[导入 `csv` 格式数据](load-csv.md)，了解如何使用 Docker 挂载数据。
 
 ## 限制
 
