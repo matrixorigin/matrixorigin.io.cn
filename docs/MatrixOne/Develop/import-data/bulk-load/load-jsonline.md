@@ -77,7 +77,7 @@ LOAD DATA INFILE
 |:-:|:-:|:-:|:-:|
 |filepath|String| 必须 | 文件路径|
 |compression|auto/none/bz2/gzip/lz4|可选 | 压缩格式 |
-|format|csv/jsonline|可选 |加载文件格式，默认*.csv*|
+|format|csv/jsonline|可选 |加载文件格式，默认 `csv`|
 |jsondata|object/array|可选 | JSON 数据格式。如果 `format` 为 *jsonline*，则**必须**指定 *jsondata*|
 |table_name|String|必须 | 需加载数据到表的表名称|
 |x|Number|可选 | 加载时要忽略的行|
@@ -135,7 +135,7 @@ load data infile {'filepath'='data.jl.gz', 'compression'='gzip','format'='jsonli
 
 在本教程中将指导你如何加载两个具有对象和数组 json 格式的 jsonline 文件。
 
-1. 准备数据。你也可以下载使用我们准备好的*.jl* 文件。数据目录需要与 MatrixOne 服务器位于同一台计算机上。以下步骤使用示例数据进行说明。
+1. 准备数据。你也可以下载使用我们准备好的 `jl` 文件。数据目录需要与 MatrixOne 服务器位于同一台计算机上。以下步骤使用示例数据进行说明。
 
     - 示例数据 1：*[jsonline_object.jl](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/jsonline_object.jl)*
     - 示例数据 2：*[jsonline_array.jl](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/jsonline_array.jl)*
