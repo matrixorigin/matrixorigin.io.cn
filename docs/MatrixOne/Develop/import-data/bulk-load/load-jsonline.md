@@ -1,6 +1,6 @@
 # 导入 JSONLines 数据
 
-本篇文档将指导你如何将 JSONLines 格式数据（即 *.jl* 或 *.jsonl* 文件）导入 MatrixOne。
+本篇文档将指导你如何将 JSONLines 格式数据（即*.jl* 或*.jsonl* 文件）导入 MatrixOne。
 
 ## 有关 JSONLines 格式
 
@@ -70,14 +70,14 @@ LOAD DATA INFILE
 
 * filepath：文件路径。
 * compression：压缩格式，支持 BZIP2、GZIP。
-* format：文件格式，支持*. csv* 和*. jsonline*
+* format：文件格式，支持*.csv* 和*.jsonline*
 * jsondata：json 数据格式，支持 object 和 array，如果 `format` 为 *jsonline*，则**必须**指定 *jsondata*。
 
 |参数 | 值|必须/可选 | 描述|
 |:-:|:-:|:-:|:-:|
 |filepath|String| 必须 | 文件路径|
 |compression|auto/none/bz2/gzip/lz4|可选 | 压缩格式 |
-|format|csv/jsonline|可选 |加载文件格式，默认 *.csv*|
+|format|csv/jsonline|可选 |加载文件格式，默认*.csv*|
 |jsondata|object/array|可选 | JSON 数据格式。如果 `format` 为 *jsonline*，则**必须**指定 *jsondata*|
 |table_name|String|必须 | 需加载数据到表的表名称|
 |x|Number|可选 | 加载时要忽略的行|
@@ -135,12 +135,12 @@ load data infile {'filepath'='data.jl.gz', 'compression'='gzip','format'='jsonli
 
 在本教程中将指导你如何加载两个具有对象和数组 json 格式的 jsonline 文件。
 
-1. 准备数据。你也可以下载使用我们准备好的 *.jl* 文件。数据目录需要与 MatrixOne 服务器位于同一台计算机上。以下步骤使用示例数据进行说明。
+1. 准备数据。你也可以下载使用我们准备好的*.jl* 文件。数据目录需要与 MatrixOne 服务器位于同一台计算机上。以下步骤使用示例数据进行说明。
 
     - 示例数据 1：*[jsonline_object.jl](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/jsonline_object.jl)*
     - 示例数据 2：*[jsonline_array.jl](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/jsonline_array.jl)*
 
-2. 打开终端，进入到 *.jl* 文件所在目录，输入下面的命令行，显示文件内的具体内容：
+2. 打开终端，进入到*.jl* 文件所在目录，输入下面的命令行，显示文件内的具体内容：
 
     ```shell
     > cd /$filepath
@@ -190,7 +190,7 @@ load data infile {'filepath'='data.jl.gz', 'compression'='gzip','format'='jsonli
     ```
 
 !!! note
-    如果您使用 Docker 启动 MatrixOne，当你需要导入 JSONline 文件时，请确保你已将数据目录挂载到容器。你也可以查看[导入 *. csv* 格式数据](load-csv.md)，了解如何使用 Docker 挂载数据。
+    如果您使用 Docker 启动 MatrixOne，当你需要导入 JSONline 文件时，请确保你已将数据目录挂载到容器。你也可以查看[导入*.csv* 格式数据](load-csv.md)，了解如何使用 Docker 挂载数据。
 
 ## 限制
 
