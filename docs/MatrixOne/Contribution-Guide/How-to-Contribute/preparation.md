@@ -11,7 +11,7 @@
 在 [MatrixOne 简介](./../../Overview/matrixone-introduction.md)中您可以了解到 MO 的超融合、云边协同特性以及其所创造的优异表现与独特价值。
 此外，在 [MatrixOne 框架](./../../Overview/matrixone-architecture-design.md)中您可以详细地了解 MatrixOne 的整体架构，以及存储层、日志层等具体组成情况。
 同时，你也可以查阅 [MatrixOne 术语表](../../Glossary/glossary.md)来了解一些复杂的词汇。
-在技术层面，[SQL 参考指南](./../../Reference/SQL-Reference/Data-Definition-Statements/create-database.md)为您提供了详细的 SQL 语言的参考，其中对语法和示例都有详细解释；同样，[自定义函数](./../../Reference/Builtin-Functions/Mathematical/abs.md)提供了 MO 中自定义函数的相关解释。
+在技术层面，[SQL 参考指南](./../../Reference/SQL-Reference/Data-Definition-Language/create-database.md)为您提供了详细的 SQL 语言的参考，其中对语法和示例都有详细解释；同样，[自定义函数](./../../Reference/Builtin-Functions/Mathematical/abs.md)提供了 MO 中自定义函数的相关解释。
 
 ### 建设情况
 

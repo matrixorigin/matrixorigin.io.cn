@@ -9,7 +9,7 @@
 * **如何将数据从 MatrixOne 导出到文件？**
 
 你可以使用 `SELECT INTO OUTFILE` 命令来将数据导出为 **csv** 文件（只能导出到服务器主机，无法到远程客户端）。  
-关于该命令的更多信息，参见 [SELECT 参考指南](../Reference/SQL-Reference/Data-Manipulation-Statements/select.md)。
+关于该命令的更多信息，参见 [SELECT 参考指南](../Reference/SQL-Reference/Data-Query-Language/select.md)。
 
 * **MatrixOne 事务大小的限制是什么？**
 

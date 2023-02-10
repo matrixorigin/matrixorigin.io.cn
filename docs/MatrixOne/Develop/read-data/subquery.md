@@ -14,7 +14,7 @@
 - 集合比较（Quantified Comparison），如 `WHERE t1.a = ANY(SELECT ... FROM t2)`。
 - 作为比较运算符操作数的子查询，如 `WHERE t1.a > (SELECT ... FROM t2)`。
 
-关于子查询 SQL 语句，参见 [SUBQUERY](../../Reference/SQL-Reference/Data-Manipulation-Statements/subquery.md)。
+关于子查询 SQL 语句，参见 [SUBQUERY](../../Reference/SQL-Reference/Data-Query-Language/subqueries/subquery.md)。
 
 另外，从 SQL 语句执行情况上，子查询语句一般有以下两种形式：
 
