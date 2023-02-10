@@ -24,7 +24,7 @@ CREATE DATABASE IF NOT EXISTS test01;
 
 **预期结果**
 
-你可以使用 [`SHOW DATABASES`](../Database-Administration-Statements/SHOW-Statements/show-databases.md) 检查数据库是否已创建。
+你可以使用 [`SHOW DATABASES`](../Other/SHOW-Statements/show-databases.md) 检查数据库是否已创建。
 
 ```sql
 mysql> show databases;

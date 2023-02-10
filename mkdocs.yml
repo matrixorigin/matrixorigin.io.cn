@@ -153,121 +153,127 @@ nav:
       - 应用场景: MatrixOne/Security/app-scenarios.md
     - 参考手册:
       - SQL 目录:
-        - Database Administration Statements:
-          - Account Management Statements:
-            - CREATE ACCOUNT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/create-account.md
-            - CREATE ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/create-role.md
-            - CREATE USER: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/create-user.md
-            - DROP ACCOUNT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/drop-account.md
-            - DROP USER: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/drop-user.md
-            - DROP ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/drop-role.md
-            - GRANT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/grant.md
-            - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/show-grants.md
-            - SET ROLE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/set-role.md
-            - REVOKE: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/Account-Management-Statements/revoke.md
-          - SHOW Statements:
-            - SHOW DATABASES Statement: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/SHOW-Statements/show-databases.md
-            - SHOW TABLES Statement: MatrixOne/Reference/SQL-Reference/Database-Administration-Statements/SHOW-Statements/show-tables.md
-        - Data Definition Statements:
-          - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-database.md
-          - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-table.md
-          - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md
-          - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-database.md
-          - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/drop-table.md
-          - VIEW:
-            - VIEW Overview: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/using-view/view-overview.md
-            - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/using-view/create-view.md
-            - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Statements/using-view/drop-view.md
-        - Data Manipulation Statements:
-          - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/insert.md
-          - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/insert-into-select.md
-          - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/update.md
-          - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/delete.md
-          - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md
-          - SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/select.md
-          - INTERVAL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/interval.md
-          - With CTE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/with-cte.md
-          - Set Operations:
-            - Combining Queries (UNION, INTERSECT, MINUS): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/union-intersect-minus-overview.md
-            - UNION: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/union.md
-            - INTERSECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/intersect.md
-            - MINUS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/minus.md
-          - SUBQUERY:
-            - SUBQUERY 概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subquery.md
-            - Derived Tables: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/derived-tables.md
-            - 子查询与比较操作符的使用: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/comparisons-using-subqueries.md
-            - SUBQUERY with ANY or SOME: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-any-some.md
-            - SUBQUERY with ALL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-all.md
-            - SUBQUERY with EXISTS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-exists.md
-            - SUBQUERY with IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/subqueries/subquery-with-in.md
-          - JOIN:
-            - JOIN 概览: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join.md
-            - INNER JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/inner-join.md
-            - LEFT JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/left-join.md
-            - RIGHT JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/right-join.md
-            - FULL JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/full-join.md
-            - OUTER JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/outer-join.md
-            - NATURAL JOIN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/join/natural-join.md
+        - 数据定义语言（DDL）:
+          - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md
+          - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table.md
+          - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-external-table.md
+          - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-view.md
+          - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-database.md
+          - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-table.md
+          - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-view.md
+        - 数据修改语言（DML）:
+          - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert.md
+          - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-into-select.md
+          - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/delete.md
+          - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/update.md
+          - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data.md
+          - INTERVAL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/interval.md
           - OPERATORS:
-            - 运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators.md
-            - 运算符的优先级: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/operator-precedence.md
+            - 运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/operators.md
+            - 运算符的优先级: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/operator-precedence.md
             - 算数运算符:
-              - 算数运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/arithmetic-operators-overview.md
-              - '%,MOD': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/mod.md
-              - '*': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/multiplication.md
-              - +: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/addition.md
-              - -: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/minus.md
-              - -: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/unary-minus.md
-              - /: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/division.md
-              - DIV: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/arithmetic-operators/div.md
+              - 算数运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/arithmetic-operators-overview.md
+              - '%,MOD': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/mod.md
+              - '*': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/multiplication.md
+              - +: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/addition.md
+              - -: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/minus.md
+              - -: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/unary-minus.md
+              - /: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/division.md
+              - DIV: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/div.md
             - 赋值运算符:
-              - 赋值运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/assignment-operators/assignment-operators-overview.md
-              - =: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/assignment-operators/equal.md
+              - 赋值运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/assignment-operators/assignment-operators-overview.md
+              - =: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/assignment-operators/equal.md
             - 二进制运算符:
-              - 二进制运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bit-functions-and-operators-overview.md
-              - '&': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-and.md
-              - '>>': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/right-shift.md
-              - '<<': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/left-shift.md
-              - '^': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-xor.md
-              - '|': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-or.md
-              - '~': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/bit-functions-and-operators/bitwise-inversion.md
+              - 二进制运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/bit-functions-and-operators-overview.md
+              - '&': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/bitwise-and.md
+              - '>>': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/right-shift.md
+              - '<<': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/left-shift.md
+              - '^': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/bitwise-xor.md
+              - '|': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/bitwise-or.md
+              - '~': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/bitwise-inversion.md
             - 强制转换函数和运算符:
-              - 强制转换函数和运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/cast-functions-and-operators-overview.md
-              - CAST: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/cast.md
-              - CONVERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/cast-functions-and-operators/convert.md
+              - 强制转换函数和运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/cast-functions-and-operators/cast-functions-and-operators-overview.md
+              - CAST: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/cast-functions-and-operators/cast.md
+              - CONVERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/cast-functions-and-operators/convert.md
             - 比较函数和运算符:
-              - 比较函数和运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview.md
-              - '>': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than.md
-              - '>=': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/greater-than-or-equal.md
-              - <: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than.md
-              - <>,!=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-equal.md
-              - <=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/less-than-or-equal.md
-              - =: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/assign-equal.md
-              - BETWEEN ... AND ...: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/between.md
-              - IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/in.md
-              - IS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is.md
-              - IS NOT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not.md
-              - IS NOT NULL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-not-null.md
-              - IS NULL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/is-null.md
-              - LIKE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/like.md
-              - NOT BETWEEN ... AND ...: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-between.md
-              - NOT LIKE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/not-like.md
-              - COALESCE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/comparison-functions-and-operators/coalesce.md
+              - 比较函数和运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview.md
+              - '>': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/greater-than.md
+              - '>=': MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/greater-than-or-equal.md
+              - <: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/less-than.md
+              - <>,!=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/not-equal.md
+              - <=: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/less-than-or-equal.md
+              - =: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/assign-equal.md
+              - BETWEEN ... AND ...: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/between.md
+              - IN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/in.md
+              - IS: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/is.md
+              - IS NOT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/is-not.md
+              - IS NOT NULL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/is-not-null.md
+              - IS NULL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/is-null.md
+              - LIKE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/like.md
+              - NOT BETWEEN ... AND ...: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/not-between.md
+              - NOT LIKE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/not-like.md
+              - COALESCE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/coalesce.md
             - 控制流函数:
-              - 控制流函数概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/flow-control-functions-overview.md
-              - CASE WHEN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/case-when.md
-              - IF: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/flow-control-functions/function_if.md
+              - 控制流函数概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/flow-control-functions/flow-control-functions-overview.md
+              - CASE WHEN: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/flow-control-functions/case-when.md
+              - IF: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/flow-control-functions/function_if.md
             - 逻辑运算符:
-              - 逻辑运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/logical-operators-overview.md
-              - AND,&&: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/and.md
-              - NOT,!: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/not.md
-              - OR: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/or.md
-              - XOR: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Statements/operators/logical-operators/xor.md
-        - Prepared:
-          - Prepared 语句概述: MatrixOne/Reference/SQL-Reference/Prepared-Statements/prepared-statements-overview.md
-          - PREPARE: MatrixOne/Reference/SQL-Reference/Prepared-Statements/prepare.md
-          - EXECUTE: MatrixOne/Reference/SQL-Reference/Prepared-Statements/execute.md
-          - DEALLOCATE: MatrixOne/Reference/SQL-Reference/Prepared-Statements/deallocate.md
+              - 逻辑运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/logical-operators/logical-operators-overview.md
+              - AND,&&: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/logical-operators/and.md
+              - NOT,!: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/logical-operators/not.md
+              - OR: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/logical-operators/or.md
+              - XOR: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/logical-operators/xor.md
+        - 数据查询语言（DQL）:
+          - SELECT: MatrixOne/Reference/SQL-Reference/Data-Query-Language/select.md
+          - SUBQUERY:
+            - SUBQUERY 概述: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery.md
+            - Derived Tables: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/derived-tables.md
+            - 子查询与比较操作符的使用: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/comparisons-using-subqueries.md
+            - SUBQUERY with ANY or SOME: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-any-some.md
+            - SUBQUERY with ALL: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-all.md
+            - SUBQUERY with EXISTS: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-exists.md
+            - SUBQUERY with IN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-in.md
+          - JOIN:
+            - JOIN 概述: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/join.md
+            - INNER JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/inner-join.md
+            - LEFT JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/left-join.md
+            - RIGHT JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/right-join.md
+            - FULL JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/full-join.md
+            - OUTER JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/outer-join.md
+            - NATURAL JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/natural-join.md
+          - With CTE: MatrixOne/Reference/SQL-Reference/Data-Query-Language/with-cte.md
+          - 联合查询:
+            - 联合查询概述: MatrixOne/Reference/SQL-Reference/Data-Query-Language/union-intersect-minus-overview.md
+            - UNION: MatrixOne/Reference/SQL-Reference/Data-Query-Language/union.md
+            - INTERSECT: MatrixOne/Reference/SQL-Reference/Data-Query-Language/intersect.md
+            - MINUS: MatrixOne/Reference/SQL-Reference/Data-Query-Language/minus.md
+        - Data Control Language:
+          - CREATE ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Control-Language/create-account.md
+          - CREATE ROLE: MatrixOne/Reference/SQL-Reference/Data-Control-Language/create-role.md
+          - CREATE USER: MatrixOne/Reference/SQL-Reference/Data-Control-Language/create-user.md
+          - DROP ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Control-Language/drop-account.md
+          - DROP USER: MatrixOne/Reference/SQL-Reference/Data-Control-Language/drop-user.md
+          - DROP ROLE: MatrixOne/Reference/SQL-Reference/Data-Control-Language/drop-role.md
+          - GRANT: MatrixOne/Reference/SQL-Reference/Data-Control-Language/grant.md
+          - REVOKE: MatrixOne/Reference/SQL-Reference/Data-Control-Language/revoke.md
+        - 其他:
+          - SHOW:
+            - SHOW DATABASES Statement: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-databases.md
+            - SHOW TABLES Statement: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-tables.md
+            - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-grants.md
+          - SET:
+            - SET ROLE: MatrixOne/Reference/SQL-Reference/Other/Set/set-role.md
+          - USE:
+            - USE DATABASE: MatrixOne/Reference/SQL-Reference/Other/use-database.md
+          - Prepared :
+            - Prepared 概述: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview.md
+            - PREPARE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/prepare.md
+            - EXECUTE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/execute.md
+            - DEALLOCATE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/deallocate.md
+          - Explain:
+            - EXPLAIN: MatrixOne/Reference/SQL-Reference/Other/Explain/explain.md
+            - EXPLAIN Output Format: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-workflow.md
+            - Explain Analyze: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-analyze.md
         - 聚合函数:
           - AVG: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/avg.md
           - COUNT: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/count.md
@@ -280,12 +286,6 @@ nav:
           - BIT_XOR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_xor.md
           - STDDEV_POP: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/stddev_pop.md
           - VAR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/var.md
-        - Utility Statements:
-          - Explain:
-            - EXPLAIN: MatrixOne/Reference/SQL-Reference/Utility-Statements/Explain/explain.md
-            - EXPLAIN 输出结构: MatrixOne/Reference/SQL-Reference/Utility-Statements/Explain/explain-workflow.md
-            - Explain Analyze: MatrixOne/Reference/SQL-Reference/Utility-Statements/Explain/explain-analyze.md
-          - USE Statement: MatrixOne/Reference/SQL-Reference/Utility-Statements/use.md
         - 系统变量:
           - 自定义变量: MatrixOne/Reference/Variable/custom-variable.md
       - 数据类型:
@@ -360,7 +360,7 @@ nav:
       - 使用限制:
         - MatrixOne 的 JDBC 功能支持列表: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
         - MatrixOne DDL 语句分区支持的说明: MatrixOne/Reference/Limitations/mo-partition-support.md
-      - MatrixOne 文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
+      - MatrixOne  文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
     - 故障诊断:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md

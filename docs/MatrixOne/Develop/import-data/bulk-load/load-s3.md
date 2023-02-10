@@ -41,7 +41,7 @@ LOAD DATA
 |region| 对象存储服务区域|
 |compression| S3 文件的压缩格式。如果为空或 "none"，，则表示未压缩的文件。支持的字段或压缩格式为“auto”、“none”、“gzip”、“bz2”和“lz4”。|
 
-其他参数与通用 `LOAD DATA` 参数相同，更多信息，参见 [LOAD DATA](../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md)。
+其他参数与通用 `LOAD DATA` 参数相同，更多信息，参见 [LOAD DATA](../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md)。
 
 **语法示例**：
 
@@ -160,9 +160,9 @@ create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"
 |region| 对象存储服务区域|
 |compression| S3 文件的压缩格式。如果为空或 "none"，，则表示未压缩的文件。支持的字段或压缩格式为“auto”、“none”、“gzip”、“bz2”和“lz4”。|
 
-其他参数与通用 `LOAD DATA` 参数相同，更多信息，参见 [LOAD DATA](../../../Reference/SQL-Reference/Data-Manipulation-Statements/load-data.md)。
+其他参数与通用 `LOAD DATA` 参数相同，更多信息，参见 [LOAD DATA](../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md)。
 
-有关外部表的更多信息，参见[创建外部表](../../../Reference/SQL-Reference/Data-Definition-Statements/create-external-table.md)。
+有关外部表的更多信息，参见[创建外部表](../../../Reference/SQL-Reference/Data-Definition-Language/create-external-table.md)。
 
 **语法示例**：
 

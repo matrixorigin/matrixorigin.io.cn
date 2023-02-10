@@ -3,7 +3,7 @@
 本篇文档中介绍如何使用 SQL 来创建数据库，及创建数据库时应遵守的规则。
 
 !!! note
-    此处仅对 `CREATE DATABASE` 语句进行简单描述。更多信息，参见 [CREATE DATABASE](../../Reference/SQL-Reference/Data-Definition-Statements/create-database.md)。
+    此处仅对 `CREATE DATABASE` 语句进行简单描述。更多信息，参见 [CREATE DATABASE](../../Reference/SQL-Reference/Data-Definition-Language/create-database.md)。
 
 ## 开始前准备
 

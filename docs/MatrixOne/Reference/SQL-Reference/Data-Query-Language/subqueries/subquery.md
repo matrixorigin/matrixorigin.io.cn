@@ -26,12 +26,12 @@ SELECT * FROM t1 WHERE column1 = (SELECT column1 FROM t2);
 
 更多信息，参见：
 
-- [派生表](subqueries/derived-tables.md)
-- [子查询与比较操作符的使用](subqueries/comparisons-using-subqueries.md)
-- [子查询与 ANY 或 SOME 操作符的使用](subqueries/subquery-with-any-some.md)
-- [子查询与 ALL 操作符的使用](subqueries/subquery-with-all.md)
-- [子查询与 EXISTS 操作符的使用](subqueries/subquery-with-exists.md)
-- [子查询与 IN 操作符的使用](subqueries/subquery-with-in.md)
+- [派生表](derived-tables.md)
+- [子查询与比较操作符的使用](comparisons-using-subqueries.md)
+- [子查询与 ANY 或 SOME 操作符的使用](subquery-with-any-some.md)
+- [子查询与 ALL 操作符的使用](subquery-with-all.md)
+- [子查询与 EXISTS 操作符的使用](subquery-with-exists.md)
+- [子查询与 IN 操作符的使用](subquery-with-in.md)
 
 ## **限制**
 
