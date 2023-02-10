@@ -13,11 +13,11 @@
 执行如下内容脚本，开启审计功能：
 
 ```sql
-> drop database if exists mo_audits;
-> create database mo_audits;
-> use mo_audits;
-> create view mo_user_action as select request_at,user,host,statement,status from system.statement_info where user<>'internal' order by request_at desc;
-> create view mo_events as select timestamp,level,message from system.log_info where level in ('error','panic','fatal') order by timestamp desc;
+drop database if exists mo_audits;
+create database mo_audits;
+use mo_audits;
+create view mo_user_action as select request_at,user,host,statement,status from system.statement_info where user in (select distinct user_name from mo_catalog.mo_user) and statement not like '______internal_%' order by request_at desc;
+create view mo_events as select timestamp,level,message from system.log_info where level in ('error','panic','fatal') order by timestamp desc;
 ```
 
 ## 审计查询
@@ -25,36 +25,53 @@
 对用户行为进行审计时，执行下面的 SQL 语句进行查看：
 
 ```sql
-> select * from mo_audits.mo_user_action;
+mysql> select * from mo_audits.mo_user_action;
 ```
 
 查询示例结果如下：
 
 ```
-| 2022-10-18 16:45:43.508278 | dump | 0.0.0.0 | show grants for test@localhost                                                                                                                                                                                                         | Success |
-| 2022-10-18 16:45:26.058345 | dump | 0.0.0.0 | show grants for root@localhost                                                                                                                                                                                                         | Success |
-| 2022-10-18 16:45:18.957485 | dump | 0.0.0.0 | show grants for root@localhost@%                                                                                                                                                                                                       | Success |
-| 2022-10-18 16:45:12.331454 | dump | 0.0.0.0 | show grants for root@%                                                                                                                                                                                                                 | Success |
-| 2022-10-18 16:43:44.027403 | dump | 0.0.0.0 | show grants                                                                                                                                                                                                                            | Success |
-| 2022-10-18 16:31:18.406944 | dump | 0.0.0.0 | select date_sub(now(), interval(1, "hour"))                                                                                                                                                                                            | Success |
-| 2022-10-18 16:28:51.355151 | dump | 0.0.0.0 | create view error_message as select timestamp, message from system.log_info where level in ("error", "panic", "faltal")                                                                                                                | Success |
-| 2022-10-18 16:28:51.351457 | dump | 0.0.0.0 | create view slow_query_with_plan as select statement, request_at, duration / 1000000000 as duration_second, exec_plan from system.statement_info where statement like "select%" and duration / 1000000000 > 1 order by request_at desc | Success |
-| 2022-10-18 16:28:51.347598 | dump | 0.0.0.0 | create view slow_query as select statement, request_at, duration / 1000000000 as duration_second from system.statement_info where statement like "select%" and duration / 1000000000 > 1 order by request_at desc                      | Success |
-| 2022-10-18 16:28:51.343752 | dump | 0.0.0.0 | show tables                                                                                                                                                                                                                            | Success |
-| 2022-10-18 16:28:51.341880 | dump | 0.0.0.0 | show databases                                                                                                                                                                                                                         | Success |
-| 2022-10-18 16:28:51.340159 | dump | 0.0.0.0 | use mo_ts                                                                                                                                                                                                                              | Success |
-| 2022-10-18 16:28:51.339825 | dump | 0.0.0.0 | select database()                                                                                                                                                                                                                      | Success |
-| 2022-10-18 16:28:51.337843 | dump | 0.0.0.0 | create database mo_ts                                                                                                                                                                                                                  | Success |
-| 2022-10-18 16:28:51.335967 | dump | 0.0.0.0 | drop database if exists mo_ts                                                                                                                                                                                                          | Success |
-| 2022-10-18 16:28:21.830069 | dump | 0.0.0.0 | use mo_ts                                                                                                                                                                                                                              | Failed  |
-| 2022-10-18 16:28:21.829747 | dump | 0.0.0.0 | select database()                                                                                                                                                                                                                      | Success |
-| 2022-10-18 16:28:21.827240 | dump | 0.0.0.0 | drop database if exists mo_ts                                                                                                                                                                                                          | Success |
++----------------------------+------+---------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+| request_at                 | user | host    | statement                                                                                                                                                                                                                                      | status  |
++----------------------------+------+---------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+| 2023-02-10 19:54:28.831970 | root | 0.0.0.0 | create view mo_user_action as select request_at, user, host, statement, status from system.statement_info where user in (select distinct user_name from mo_catalog.mo_user) and statement not like "______internal_%" order by request_at desc | Success |
+| 2023-02-10 19:54:14.079939 | root | 0.0.0.0 | show tables                                                                                                                                                                                                                                    | Success |
+| 2023-02-10 19:54:14.076260 | root | 0.0.0.0 | show databases                                                                                                                                                                                                                                 | Success |
+| 2023-02-10 19:54:14.071728 | root | 0.0.0.0 | use mo_audits                                                                                                                                                                                                                                  | Success |
+| 2023-02-10 19:54:14.071108 | root | 0.0.0.0 | select database()                                                                                                                                                                                                                              | Success |
+| 2023-02-10 19:54:01.007241 | root | 0.0.0.0 | create database mo_audits                                                                                                                                                                                                                      | Success |
+| 2023-02-10 19:53:48.924819 | root | 0.0.0.0 | drop database if exists mo_audits                                                                                                                                                                                                              | Success |
+| 2023-02-10 19:30:59.668646 | root | 0.0.0.0 | show triggers                                                                                                                                                                                                                                  | Success |
+| 2023-02-10 19:30:53.438212 | root | 0.0.0.0 | show locks                                                                                                                                                                                                                                     | Success |
+| 2023-02-10 19:30:44.258894 | root | 0.0.0.0 | show index from t                                                                                                                                                                                                                              | Success |
+| 2023-02-10 19:30:43.662063 | root | 0.0.0.0 | create table t (a int, b int, c int, primary key (a))                                                                                                                                                                                          | Success |
+| 2023-02-10 19:30:23.104830 | root | 0.0.0.0 | show triggers                                                                                                                                                                                                                                  | Success |
+| 2023-02-10 19:30:20.062010 | root | 0.0.0.0 | show tables                                                                                                                                                                                                                                    | Success |
+| 2023-02-10 19:30:20.060324 | root | 0.0.0.0 | show databases                                                                                                                                                                                                                                 | Success |
+| 2023-02-10 19:30:20.055515 | root | 0.0.0.0 | use aab                                                                                                                                                                                                                                        | Success |
+| 2023-02-10 19:30:20.055186 | root | 0.0.0.0 | select database()                                                                                                                                                                                                                              | Success |
+| 2023-02-10 19:30:17.152087 | root | 0.0.0.0 | create database aab                                                                                                                                                                                                                            | Success |
+| 2023-02-10 19:30:10.621294 | root | 0.0.0.0 | create aab                                                                                                                                                                                                                                     | Failed  |
+| 2023-02-10 19:29:59.983433 | root | 0.0.0.0 | show databases                                                                                                                                                                                                                                 | Success |
+| 2023-02-10 19:29:45.370956 | root | 0.0.0.0 | show index from t                                                                                                                                                                                                                              | Failed  |
+| 2023-02-10 19:29:44.875580 | root | 0.0.0.0 | create table t (a int, b int, c int, primary key (a))                                                                                                                                                                                          | Failed  |
+| 2023-02-10 19:29:44.859588 | root | 0.0.0.0 | drop table if exists t                                                                                                                                                                                                                         | Success |
+| 2023-02-10 19:29:19.974775 | root | 0.0.0.0 | show index                                                                                                                                                                                                                                     | Failed  |
+| 2023-02-10 19:29:11.188286 | root | 0.0.0.0 | show locks                                                                                                                                                                                                                                     | Success |
+| 2023-02-10 19:29:06.618778 | root | 0.0.0.0 | show node list                                                                                                                                                                                                                                 | Success |
+| 2023-02-10 19:19:11.319058 | root | 0.0.0.0 | show triggers                                                                                                                                                                                                                                  | Failed  |
+| 2023-02-10 19:19:06.809302 | root | 0.0.0.0 | show databases                                                                                                                                                                                                                                 | Success |
+| 2023-02-10 19:18:52.840282 | root | 0.0.0.0 | show triggers                                                                                                                                                                                                                                  | Failed  |
+| 2023-02-10 10:54:09.892254 | root | 0.0.0.0 | show databases                                                                                                                                                                                                                                 | Success |
+| 2023-02-10 10:54:04.468721 | root | 0.0.0.0 | select @@version_comment limit 1                                                                                                                                                                                                               | Success |
++----------------------------+------+---------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+30 rows in set (0.81 sec)
 ```
 
 查询数据库内部状态变更查询，执行下面的 SQL 语句进行查看：
 
 ```sql
-> select * from mo_events;
+mysql> select * from mo_events;
 ```
 
 查询示例结果如下：
