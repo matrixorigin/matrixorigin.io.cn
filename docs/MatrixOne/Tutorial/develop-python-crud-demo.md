@@ -243,7 +243,7 @@ with SQL_CONNECTION.cursor() as cursor:
 执行下面代码更新 id 为 “1” 的记录：
 
 ```
-> python3 read.py
+> python3 update.py
 1
 Record Updated
 ```
