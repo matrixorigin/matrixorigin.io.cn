@@ -13,7 +13,8 @@
 ## 显式事务示例
 
 ```
+CREATE TABLE t1(a bigint, b varchar(10), c varchar(10));
 START TRANSACTION;
-insert into t1 values(1,2,3);
+INSERT IN t1 values(1,2,3);
 COMMIT;
 ```
