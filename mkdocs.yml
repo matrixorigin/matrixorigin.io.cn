@@ -102,6 +102,7 @@ nav:
           - MatrixOne 的显式事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/explicit-transaction.md
           - MatrixOne 的隐式事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/implicit-transaction.md
           - MatrixOne 的乐观事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/optimistic-transaction.md
+          - 如何使用 MatrixOne 事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/how-to-use.md
           - MatrixOne 的事务隔离级别: MatrixOne/Develop/Transactions/matrixone-transaction-overview/snapshot-isolation.md
           - MVCC: MatrixOne/Develop/Transactions/matrixone-transaction-overview/mvcc.md
           - MatrixOne 中的事务应用场景: MatrixOne/Develop/Transactions/matrixone-transaction-overview/scenario.md
