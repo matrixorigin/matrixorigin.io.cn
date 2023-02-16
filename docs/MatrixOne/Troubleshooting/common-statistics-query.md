@@ -111,3 +111,7 @@ from mo_catalog.mo_user mu, mo_catalog.mo_role mr1, mo_catalog.mo_role mr2,mo_ca
 where mu.user_id=mrg.operation_user_id and mr1.role_id=mrg.grantee_id and mr2.role_id=mrg.granted_id
 order by mr1.role_name,mr2.role_name asc;
 ```
+
+## 参考文档
+
+本篇文章中所查询的 MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。如果你想了解更多关于系统数据库和表的详细信息，请参见 [MatrixOne 系统数据库和表](../Reference/System-tables.md)。
