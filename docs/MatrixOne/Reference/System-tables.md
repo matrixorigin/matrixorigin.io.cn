@@ -76,7 +76,8 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | account_name | varchar(100) | 租户名  |
 | status       | varchar(100) | 开启/暂停 |
 | created_time | timestamp    | 创建时间  |
-| comment     | varchar(256) | 注释      |
+| comment     | varchar(256)  | 注释      |
+| suspended_time | TIMESTAMP    | 修改租户状态的时间|
 
 ### mo_role table
 
@@ -220,6 +221,11 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | exec_plan             | JSON          | 语句执行计划                                   |
 | rows_read             | BIGINT        | 读取总行数                                              |
 | bytes_scan            | BIGINT        | 扫描总字节数                                           |
+| stats                 | JSON          | global stats info in exec_plan                                              |
+| statement_type        | VARCHAR(1024) | statement type, val in [Insert, Delete, Update, Drop Table, Drop User, ...] |
+| query_type            | VARCHAR(1024) | query type, val in [DQL, DDL, DML, DCL, TCL]                                |
+| role_id               | BIGINT        | role id                                                                     |
+| sql_source_type       | TEXT          | sql statement source type                                                   |
 
 ### `rawlog` 表
 
