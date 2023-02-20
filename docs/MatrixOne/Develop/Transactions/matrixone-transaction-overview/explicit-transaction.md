@@ -15,6 +15,6 @@
 ```
 CREATE TABLE t1(a bigint, b varchar(10), c varchar(10));
 START TRANSACTION;
-INSERT IN t1 values(1,2,3);
+INSERT INTO t1 values(1,2,3);
 COMMIT;
 ```
