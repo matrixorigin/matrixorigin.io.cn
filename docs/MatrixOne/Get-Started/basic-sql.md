@@ -8,15 +8,19 @@ SQL (Structured Query Language: 结构化查询语言) 是用于管理关系数�
 
 ## MatrixOne 的 SQL 都分为哪几类？
 
-SQL 语言通常按照功能划分成以下的 4 个部分：
+SQL 语言通常按照功能划分成以下的 6 个部分：
 
 - DDL (Data Definition Language)：数据定义语言，用来定义数据库对象，包括库、表、视图等。例如，`CREATE`，`ALTER`，和 `DROP` 等。
 
-- DML (Data Manipulation Language)：数据操作语言，用来操作和业务相关的记录。例如，`SELECT`，`DELETE`，或 `INSERT` 等。
+- DML (Data Manipulation Language)：数据修改语言，用来修改和业务相关的记录。例如，`SELECT`，`DELETE`，或 `INSERT` 等。
 
 - DQL (Data Query Language)：数据查询语言，用来查询经过条件筛选的记录。例如，`SELECT...FROM...[WHERE]` 这种多个子句组合而成的 SQL 语句。
 
-- DCL (Data Control Language)：数据控制语言，用来定义访问权限和安全级别。例如，`COMMIT`，`ROLLBACK`，或 `SET TRANSACTION` 等。
+- TCL（Transaction Control Language）：事务控制语言，用于事务管控。例如，`COMMIT`，`ROLLBACK`，或 `SET TRANSACTION` 等。
+
+- DCL (Data Control Language)：数据控制语言，用来分配与回收资源，创建和阐述用户与角色，授权和回收权限。例如，`CREATET ACCOUNT`，`DROP ACCOUNT`，或 `GRANT` 等。
+
+- 其他：其他类型的管理语言在 MatrixOne 中，与数据没有直接关联，对数据库参数、资源分配的获取与修改的总称。例如，`SHOW`，`SET variable`，或 `KILL` 等。
 
 ## 查看、创建和删除数据库
 
