@@ -12,7 +12,6 @@ MatrixOne 的 SQL 语法兼容了 MySQL 8.0.23 版本。
 |   |   | 不支持列级约束 |
 |   |   | 暂不支持 `KEY(column)` 语法|
 | | | 支持 `AUTO_INCREMENT` ，但暂不支持自定义起始值 |
-|   | CREATE other projects | 不支持 `CREATE/DROP INDEX` |
 |   | ALTER | 暂不支持  |
 |   | DROP DATABASE | 同 MySQL |
 |   | DROP TABLE | 同 MySQL.|
@@ -29,13 +28,12 @@ MatrixOne 的 SQL 语法兼容了 MySQL 8.0.23 版本。
 |   | SELECT | 在 `GROUP BY` 中不支持表别名 |
 |   |   | 暂不支持 `SELECT...FOR UPDATE` 从句  |
 |   |   | 部分支持 `INTO OUTFILE` |
-|   | LOAD DATA | 只能导入 csv 文件  |
+|   | LOAD DATA | 支持导入 csv 和 jsonline 文件  |
 |   |   | 包括符 enclosed 应该为""  |
 |   |   | 字段分隔符 `FILEDS TERMINATED BY` 应该为 "," 或 "|
 |   |   | 行分隔符 `LINES TERMINATED BY` 应该为 "\n" |
 |   |   | 支持 `SET`，但仅支持 `SET columns_name=nullif(expr1,expr2)` |
 |   |   | 不支持本地关键词 |
-|   |   | 只有 mo-server 上的文件才支持相对路径 |
 | | JOIN | 同 MySQL  |
 | | SUBQUERY | 暂不支持 `Non-scalar` 子查询，但可以作为过滤条件使用 |
 | 数据库管理语句  | SHOW | 部分支持  |
