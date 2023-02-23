@@ -6,7 +6,7 @@
     "lint:fix": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md' --fix && npx markdownlint-cli2-fix './docs/MatrixOne/**/*.md'"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.6.0",
+    "markdownlint-cli2": "^0.7.0",
     "zhlint": "^0.7.1"
   }
 }
