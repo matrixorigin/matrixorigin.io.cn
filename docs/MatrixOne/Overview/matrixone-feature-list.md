@@ -7,18 +7,21 @@
 | 数据定义语言 (DDL) | 支持（Y）/不支持（N） |
 | ----------------------------- | ---- |
 | CREATE DATABASE               | Y    |
-| RENAME DATABASE               | N    |
 | DROP DATABASE                 | Y    |
+| RENAME DATABASE               | N    |
 | CREATE TABLE                  | Y    |
 | ALTER TABLE                   | N    |
-| MODIFY COLUMN                 | N    |
 | RENAME TABLE                  | N    |
+| DROP TABLE                    | Y    |
+| CREATE INDEX                  | Y    |
+| DROP INDEX                    | Y    |
+| MODIFY COLUMN                 | N    |
 | PRIMARY KEY                   | Y    |
 | CREATE VIEW                   | Y    |
-| ALTER VIEW                    | N    |
-| CREATE OR REPLACE VIEW        | N    |
+| ALTER VIEW                    | Y    |
 | DROP VIEW                     | Y    |
-| TRUNCATE                      | Y    |
+| CREATE OR REPLACE VIEW        | N    |
+| TRUNCATE                      | N    |
 | SEQUENCE                      | N    |
 | AUTO_INCREMENT                | Y    |
 | Temporary tables              | Y    |
@@ -47,7 +50,7 @@
 | Trigger                             | N    |
 | Event Scheduler                     | N    |
 | PARTITION BY                        | Y    |
-| LOCK TABLE                          | Y    |
+| LOCK TABLE                          | N    |
 
 ## 数据类型
 
@@ -65,14 +68,8 @@
 |                      | DOUBLE            | Y    |
 | 字符串类型         | CHAR              | Y    |
 |                      | VARCHAR           | Y    |
-|                      | TINYTEXT          | Y    |
-|                      | TEXT              | Y    |
-|                      | MEDIUMTEXT        | Y    |
-|                      | LONGTEXT          | Y    |
-| 二进制类型         | TINYBLOB          | Y    |
-|                      | BLOB              | Y    |
-|                      | MEDIUMBLOB        | Y    |
-|                      | LONGBLOB          | Y    |
+|                      | TINYTEXT/TEXT/MEDIUMTEXT/LONGTEXT             | Y    |
+| 二进制类型         | TINYBLOB/BLOB/MEDIUMBLOB/LONGBLOB         | Y    |
 | 时间与日期  | Date              | Y    |
 |                      | Time              | Y    |
 |                      | DateTime          | Y    |
@@ -87,11 +84,11 @@
 | ------------------------------------ | ---- |
 | 主键约束                          | Y    |
 | 复合主键                | Y    |
-| 唯一约束                           | Y，仅语法实现    |
+| 唯一约束                           | Y    |
 | Secondary KEY                        | Y，仅语法实现    |
-| 外键约束                          | N    |
-| Enforced Constraints on Invalid Data | Y    |
-| ENUM and SET Constraints             | N    |
+| 外键约束                          | Y    |
+| 无效数据强制约束 | Y    |
+| ENUM 和 SET 约束             | N    |
 | 非空约束                  | Y    |
 
 ## 事务
@@ -108,16 +105,20 @@
 
 | 函数与操作符 | 名称                |
 | ---------------------------------- | ------------------- |
-| 聚合函数                            | SUM()               |
+| 聚合函数                             | AVG()              |
 |                                    | COUNT()             |
 |                                    | MAX()               |
 |                                    | MIN()               |
-|                                    | AVG()               |
-|                                    | STD()               |
-|                                    | VARIANCE()          |
+|                                    | Median()            |
+|                                    | SUM()               |
+|                                    | ANY_VALUE()         |
 |                                    | BIT_OR()            |
 |                                    | BIT_AND()           |
 |                                    | BIT_XOR()           |
+|                                    | STD()               |
+|                                    | VARIANCE()          |
+|                                    | GROUP_CONCAT()      |
+|                                    | SLEEP()             |
 | 数学类                              | ABS()               |
 |                                    | SIN()               |
 |                                    | COS()               |
@@ -133,12 +134,14 @@
 |                                    | PI()                |
 |                                    | LOG()               |
 |                                    | LN()                |
+|                                    | UUID()              |
 |                                    | EXP()               |
-| 日期时间类                          | DATE_FORMAT()       |
+| 日期时间类                           | DATE_FORMAT()       |
 |                                    | YEAR()              |
 |                                    | MONTH()             |
 |                                    | DATE()              |
 |                                    | WEEKDAY()           |
+|                                    | TIMESTAMP()         |
 |                                    | DAYOFYEAR()         |
 |                                    | EXTRACT()           |
 |                                    | DATE_ADD()          |
@@ -152,15 +155,22 @@
 |                                    | CURRENT_TIMESTAMP() |
 |                                    | DATEDIFF()          |
 |                                    | TIMEDIFF()          |
-| 字符串类                            | BIN()               |
+|                                    | CURDATE()           |
+| 字符串类                             | BIN()               |
+|                                    | BIT_LENGTH()        |
+|                                    | HEX()               |
 |                                    | CONCAT()            |
 |                                    | CONCAT_WS()         |
 |                                    | FIND_IN_SET()       |
+|                                    | FORMAT()            |
 |                                    | OCT()               |
 |                                    | EMPTY()             |
 |                                    | LENGTH()            |
+|                                    | BIT_LENGTH()        |
+|                                    | LENGTHUTF8()        |
 |                                    | CHAR_LENGTH()       |
 |                                    | LEFT()              |
+|                                    | TRIM()              |
 |                                    | LTRIM()             |
 |                                    | RTRIM()             |
 |                                    | LPAD()              |
@@ -169,30 +179,42 @@
 |                                    | ENDSWITH()          |
 |                                    | SUBSTRING()         |
 |                                    | SPACE()             |
-|                                    | TRIM                |
 |                                    | REVERSE()           |
-|                                    | UUID()              |
-| 其他函数                            | COALESCE()          |
-|                                    | ANY_VALUE()         |
+|                                    | SUBSTRING_INDEX()   |
+|                                    | FIELD()             |
+| 操作符                              | %, MOD              |
+|                                    | *                   |
+|                                    | +                   |
+|                                    | -                   |
+|                                    | /                   |
+|                                    | Div                 |
+|                                    | =                   |
+|                                    | &                   |
+|                                    | >>                  |
+|                                    | <<                  |
+|                                    | ^                   |
+|                                    | \|                  |
+|                                    | ~                   |
 |                                    | CAST()              |
-| 操作符                              | =                   |
-|                                    | <>                  |
+|                                    | CONVERT()           |
 |                                    | >                   |
 |                                    | >=                  |
 |                                    | <                   |
+|                                    | <>, !=              |
 |                                    | <=                  |
+|                                    | =                   |
 |                                    | LIKE                |
-|                                    | +                   |
-|                                    | -                   |
-|                                    | *                   |
-|                                    | /                   |
-|                                    | Div                 |
-|                                    | %                   |
+|                                    | BETWEEN ... AND ... |
+|                                    | IN()                |
+|                                    | IS/IS NOT           |
+|                                    | IS/IS NOT NULL      |
+|                                    | NOT BETWEEN ... AND ... |
+|                                    | LIKE                |
+|                                    | NOT LIKE            |
+|                                    | COALESCE()          |
+|                                    | CASE...WHEN         |
+|                                    | IF                  |
 |                                    | AND                 |
 |                                    | OR                  |
 |                                    | XOR                 |
 |                                    | NOT                 |
-|                                    | CASE...WHEN         |
-|                                    | IF                  |
-|                                    | IS/IS NOT           |
-|                                    | IS/IS NOT NULL      |
