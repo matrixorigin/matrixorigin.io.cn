@@ -52,20 +52,20 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 === "**下载方式一：`wget` 工具下载安装二进制包**"
 
      ```bash
-     wget https://github.com/matrixorigin/matrixone/releases/download/v0.6.0/mo-v0.6.0-darwin-x86_64.zip
-     unzip mo-v0.6.0-darwin-x86_64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v0.7.0/mo-v0.7.0-darwin-x86_64.zip
+     unzip mo-v0.7.0-darwin-x86_64.zip
      ```
 
 === "**下载方式二：`curl` 工具下载二进制包**"
 
      ```bash
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.6.0/mo-v0.6.0-darwin-x86_64.zip
-     unzip mo-v0.6.0-darwin-x86_64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.7.0/mo-v0.7.0-darwin-x86_64.zip
+     unzip mo-v0.7.0-darwin-x86_64.zip
      ```
 
 === "**下载方式三：页面下载**"
 
-     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 0.6.0](https://github.com/matrixorigin/matrixone/releases/tag/v0.6.0)，下拉找到 **Assets** 栏，点击安装包 *mo-v0.6.0-darwin-x86_64.zip* 下载即可。
+     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 0.7.0](https://github.com/matrixorigin/matrixone/releases/tag/v0.7.0)，下拉找到 **Assets** 栏，点击安装包 *mo-v0.7.0-darwin-x86_64.zip* 下载即可。
 
 !!! info
      ARM 芯片硬件配置下，MatrixOne 仅支持通过源代码方式进行安装部署；如果你使用的是 MacOS 系统 M1 及以上版本，请使用[源代码](install-on-macos-method1.md)构建的方式安装部署 MatrixOne。若果在 X86 硬件配置下使用二进制方式安装部署 MatrixOne 会导致未知问题。
@@ -80,14 +80,15 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
       # Start mo-service in the frontend
       ./mo-service -launch ./etc/quickstart/launch.toml
       ```
+      在前台启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne。
 
-=== "**在终端的后台启动 MatrixOne 服务**"
+=== "**推荐使用：在终端的后台启动 MatrixOne 服务**"
 
       该启动方法会在后台运行 `mo-service` 进程，系统日志将重定向到 `test.log` 文件中。如果你想停止 MatrixOne 服务器，你需要通过以下命令查找出它的 `PID` 进程号并消除进程。下面是整个过程的完整示例。
 
       ```
       # Start mo-service in the backend
-      nohup ./mo-service -launch ./etc/quickstart/launch.toml &> test.log &
+      ./mo-service --daemon --launch ./etc/quickstart/launch.toml &> test.log &
 
       # Find mo-service PID
       ps aux | grep mo-service
@@ -102,7 +103,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
       __Tips__: 如上述示例所示，使用命令 `ps aux | grep mo-service` 首先查找出 MatrixOne 运行的进程号为 `15277`，`kill -9 15277` 即表示停止进程号为 `15277` 的 MatrixOne。
 
-当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne。
+      接下来你可以进行下一步 - 连接 MatrixOne。
 
 ## 步骤 4：连接 MatrixOne
 

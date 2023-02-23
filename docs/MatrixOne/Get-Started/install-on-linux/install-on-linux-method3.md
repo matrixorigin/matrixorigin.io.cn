@@ -41,11 +41,11 @@
 
 使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像。
 
-=== "稳定版本的镜像（0.6.0）"
+=== "稳定版本的镜像（0.7.0）"
 
       ```bash
-      docker pull matrixorigin/matrixone:0.6.0
-      docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:0.6.0
+      docker pull matrixorigin/matrixone:0.7.0
+      docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:0.7.0
       ```
 
 === "开发版本的镜像"
