@@ -24,7 +24,7 @@
 3. 把本地**空目录**挂载到 Docker 容器目录 */mo-data* 下，命令示例如下：
 
     ```
-    sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.6.0
+    sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:0.7.0
     ```
 
      |参数 | 描述|
@@ -44,7 +44,7 @@
 2. 如果 Docker 内还没有正在运行的 MatrixOne，请先启动：
 
     ```
-    docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:0.6.0
+    docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:0.7.0
     ```
 
 3. 查看 Docker 已经启动 MatrixOne 的 containerID，并将配置文件目录拷贝到本地目录内：
@@ -66,7 +66,7 @@
 6. 挂载配置文件到 Docker 容器目录，同时启动 MatrixOne，挂载命令示例如下：
 
      ```shell
-     sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_config_path}/etc:/etc:rw  --entrypoint "/mo-service" matrixorigin/matrixone:0.6.0 -launch /etc/quickstart/launch.toml
+     sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_config_path}/etc:/etc:rw  --entrypoint "/mo-service" matrixorigin/matrixone:0.7.0 -launch /etc/quickstart/launch.toml
      ```
 
      |参数 | 描述|

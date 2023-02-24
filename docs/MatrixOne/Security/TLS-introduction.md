@@ -107,13 +107,13 @@ MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加�
     Current pager:          stdout
     Using outfile:          ''
     Using delimiter:        ;
-    Server version:         0.6.0 MatrixOne
+    Server version:         8.0.30-MatrixOne-v0.7.0 MatrixOne
     Protocol version:       10
     Connection:             127.0.0.1 via TCP/IP
-    ERROR 20101 (HY000): internal error: the system variable does not exist
-    ERROR 2014 (HY000): Commands out of sync; you can't run this command now
-    Client characterset:    utf8mb4
     Server characterset:    utf8mb4
+    DB     characterset:    utf8mb4
+    Client characterset:    utf8mb4
+    Conn.  characterset:    utf8mb4
     TCP port:               6001
     Binary data as:         Hexadecimal
     --------------
@@ -132,7 +132,7 @@ MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加�
     Current pager:		stdout
     Using outfile:		''
     Using delimiter:	;
-    Server version:		8.0.30-MatrixOne-v0.6.0 MatrixOne
+    Server version:		8.0.30-MatrixOne-v0.7.0 MatrixOne
     Protocol version:	10
     Connection:		127.0.0.1 via TCP/IP
     Server characterset:	utf8mb4

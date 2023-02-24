@@ -1,6 +1,6 @@
 # Python 连接 MatrixOne 服务
 
-MatrixOne 支持 Python 连接，在 0.6.0 版本中，MatrixOne 支持 `pymysql` 和 `sqlalchemy` 两种驱动程序。
+MatrixOne 支持 Python 连接，在 0.7.0 版本中，MatrixOne 支持 `pymysql` 和 `sqlalchemy` 两种驱动程序。
 
 本篇文档将指导你了解如何通过这两个 *python* 驱动程序连接 MatrixOne。
 
@@ -72,7 +72,7 @@ PyMySQL 是一个纯 Python MySQL 客户端库。
 
     ```
     > python3 pymysql_connect_matrixone.py
-    Database version : 8.0.30-MatrixOne-v0.6.0
+    Database version : 8.0.30-MatrixOne-v0.7.0
     ```
 
 ## 使用 sqlalchemy 连接 MatrixOne

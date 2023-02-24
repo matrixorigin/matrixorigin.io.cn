@@ -36,7 +36,7 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
     ```
     Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 1031
-    Server version: 0.6.0 MatrixOne
+    Server version: 8.0.30-MatrixOne-v0.7.0 MatrixOne
     Copyright (c) 2000, 2022, Oracle and/or its affiliates.
 
     Oracle is a registered trademark of Oracle Corporation and/or its affiliates. Other names may be trademarks of their respective owners.
@@ -47,7 +47,7 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
 ## 通过 Navicat 连接 MatrixOne 服务
 
-1. 由于 MatrixOne 0.6 不能完全兼容 MySQL 8.0，我们将 MatrixOne 服务器版本重置为 0.6.0 以适配 Navicat 连接。
+1. 由于 MatrixOne 0.7 不能完全兼容 MySQL 8.0，我们将 MatrixOne 服务器版本重置为 0.7.0 以适配 Navicat 连接。
 
     在启动 MatrixOne 之前，进入 MatrixOne 文件夹中的 *etc/launch-tae-CN-tae-DN/cn.toml* 文件，将 `[cn.frontend]` 行命令插入到文件中，再启动 MatrixOne。`[cn.frontend]` 行命令如下：
 
