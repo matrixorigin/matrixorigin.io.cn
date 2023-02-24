@@ -46,7 +46,7 @@
 
       **main** 分支是默认分支，主分支上的代码总是最新的，但不够稳定。
 
-     1. 获取 MatrixOne(开发版本，即 Pre0.6 版本) 代码方法如下：
+     1. 获取 MatrixOne(开发版本) 代码方法如下：
 
          ```shell
          git clone https://github.com/matrixorigin/matrixone.git
@@ -63,12 +63,12 @@
 
 === "通过 MatrixOne (稳定版本) 代码搭建"
 
-     1. 如果您想获得 MatrixOne 发布的最新稳定版本代码，请先从 **main** 切换选择至 **0.6.0** 版本分支。
+     1. 如果您想获得 MatrixOne 发布的最新稳定版本代码，请先从 **main** 切换选择至 **0.7.0** 版本分支。
 
          ```
          git clone https://github.com/matrixorigin/matrixone.git
          cd matrixone         
-         git checkout 0.6.0
+         git checkout 0.7.0
          ```
 
      2. 运行 `make config` 和 `make build` 编译文件：
@@ -94,13 +94,15 @@
       ./mo-service -launch ./etc/quickstart/launch.toml
       ```
 
-=== "**在终端的后台启动 MatrixOne 服务**"
+      在前台启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne。
+
+=== "**推荐使用：在终端的后台启动 MatrixOne 服务**"
 
       该启动方法会在后台运行 `mo-service` 进程，系统日志将重定向到 `test.log` 文件中。如果你想停止 MatrixOne 服务器，你需要通过以下命令查找出它的 `PID` 进程号并消除进程。下面是整个过程的完整示例。
 
       ```
       # Start mo-service in the backend
-      nohup ./mo-service -launch ./etc/quickstart/launch.toml &> test.log &
+      ./mo-service --daemon --launch ./etc/quickstart/launch.toml &> test.log &
 
       # Find mo-service PID
       ps aux | grep mo-service
@@ -115,7 +117,7 @@
 
       __Tips__: 如上述示例所示，使用命令 `ps aux | grep mo-service` 首先查找出 MatrixOne 运行的进程号为 `15277`，`kill -9 15277` 即表示停止进程号为 `15277` 的 MatrixOne。
 
-当你按照上述步骤完成安装启动 MatrixOne，默认在启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne。
+      接下来你可以进行下一步 - 连接 MatrixOne。
 
 ## 步骤 5：连接 MatrixOne
 
