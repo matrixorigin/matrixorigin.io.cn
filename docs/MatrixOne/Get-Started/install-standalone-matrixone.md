@@ -39,4 +39,4 @@
 
 - 常见的安装和部署问题，参见[安装和部署常见问题](../FAQs/deployment-faqs.md)。
 
-- 关于分布式部署 MatrixOne，参见[MatrixOne 分布式集群部署](../Deploy/deploy-MatrixOne-cluster.md)。
+- 关于分布式部署 MatrixOne，参见 [MatrixOne 分布式集群部署](../Deploy/deploy-MatrixOne-cluster.md)。
