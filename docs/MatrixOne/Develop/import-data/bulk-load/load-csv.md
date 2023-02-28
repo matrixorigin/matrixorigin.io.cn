@@ -1,6 +1,46 @@
-# 导入 `csv` 格式数据
+# 导入 *csv* 格式数据
 
-本篇文档将指导你在 MySQL 客户端启动 MatrixOne 时如何完成 `csv` 格式数据导入。
+本篇文档将指导你在 MySQL 客户端启动 MatrixOne 时如何完成 *csv* 格式数据导入。
+
+## 语法结构
+
+- 场景一：数据文件与 MatrixOne 服务器在同一台机器上：
+
+```
+LOAD DATA
+INFILE 'file_name'
+INTO TABLE tbl_name
+[{FIELDS | COLUMNS}
+[TERMINATED BY 'string']
+[[OPTIONALLY] ENCLOSED BY 'char']
+[ESCAPED BY 'char']
+]
+[LINES
+[STARTING BY 'string']
+[TERMINATED BY 'string']
+]
+[IGNORE number {LINES | ROWS}]
+[PARALLEL {'TRUE' | 'FALSE'}]
+```
+
+- 场景二：数据文件与 MatrixOne 服务器在不同的机器上：
+
+```
+LOAD DATA LOCAL
+INFILE 'file_name'
+INTO TABLE tbl_name
+[{FIELDS | COLUMNS}
+[TERMINATED BY 'string']
+[[OPTIONALLY] ENCLOSED BY 'char']
+[ESCAPED BY 'char']
+]
+[LINES
+[STARTING BY 'string']
+[TERMINATED BY 'string']
+]
+[IGNORE number {LINES | ROWS}]
+[PARALLEL {'TRUE' | 'FALSE'}]
+```
 
 ## 开始前准备
 
@@ -8,23 +48,47 @@
 
 ## MySQL Client 中使用 `Load data` 命令导入数据
 
-你可以使用 `Load Data` 从大数据文件中导入数据，本章将介绍如何导入 `csv` 格式文件。
+你可以使用 `Load Data` 从大数据文件中导入数据，本章将介绍如何导入 *csv* 格式文件。
 
-__Note__: `csv`（逗号分隔值）文件是一种特殊的文件类型，可在 Excel 中创建或编辑，`csv` 文件不是采用多列的形式存储信息，而是使用逗号分隔的形式存储信息。
+__Note__: *csv*（逗号分隔值）文件是一种特殊的文件类型，可在 Excel 中创建或编辑，*csv* 文件不是采用多列的形式存储信息，而是使用逗号分隔的形式存储信息。
 
-1. 在 MatrixOne 中执行 `Load Data` 之前，需要提前在 MatrixOne 中创建完成数据表。目前，数据文件需要与 MatrixOne 服务器在同一台机器上，如果它们在不同的机器上，则需要进行文件传输。
+### 步骤
 
-2. 在 MatrixOne 本地服务器中启动 MySQL 客户端以访问本地文件系统。
+#### 数据文件与 MatrixOne 服务器在同一台机器上
+
+1. 在 MatrixOne 中执行 `Load Data` 之前，需要提前在 MatrixOne 中创建完成数据表。
+
+2. 启动 MySQL 客户端，连接 MatrixOne：
 
     ```
     mysql -h 127.0.0.1 -P 6001 -udump -p111
     ```
 
+    __Note:__ 如果你的数据文件与 MatrixOne 服务器在不同的机器上，即数据文件在你所使用的客户端机器上时，那么你连接 MatrixOne 服务主机需要使用命令行：`mysql -h <mo-host-ip> -P 6001 -udump -p111 --local-infile`。
+
 3. 在 MySQL 客户端对对应的文件路径执行 `LOAD DATA`：
 
     ```
     mysql> LOAD DATA INFILE '/tmp/xxx.csv'
-    INTO TABLE xxxxxx
+    INTO TABLE table_name
+    FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY "\r\n";
+    ```
+
+#### 数据文件与 MatrixOne 服务器在不同的机器上
+
+1. 在 MatrixOne 中执行 `LOAD DATA LOCAL` 之前，需要提前在 MatrixOne 中创建完成数据表。
+
+2. 启动 MySQL 客户端，连接 MatrixOne：
+
+    ```
+    mysql -h <mo-host-ip> -P 6001 -udump -p111 --local-infile
+    ```
+
+3. 在 MySQL 客户端对对应的文件路径执行 `LOAD DATA LOCAL`：
+
+    ```
+    mysql> LOAD DATA LOCAL INFILE '/tmp/xxx.csv'
+    INTO TABLE table_name
     FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY "\r\n";
     ```
 
@@ -32,7 +96,7 @@ __Note__: `csv`（逗号分隔值）文件是一种特殊的文件类型，可�
 
 如果你通过 **Docker** 安装 MatrixOne，那么文件默认存储在 **Docker** 镜像中。如果你需要将文件存储在本地目录，你需要先将本地目录挂载到容器。
 
-在以下示例中，本地文件系统路径 `~/tmp/docker_loaddata_demo/` 挂载到 MatrixOne Docker 镜像，并映射到 Docker 容器内的 `/ssb-dbgen-path` 目录。本篇示例将指导你使用 MatrixOne 0.7.0 docker 版本加载数据。
+在以下示例中，本地文件系统路径 `~/tmp/docker_loaddata_demo/` 挂载到 MatrixOne Docker 镜像，并映射到 Docker 容器内的 `/ssb-dbgen-path` 目录。本篇示例将指导你使用 Docker 加载数据。
 
 1. 下载数据集，并且将数据集存储到本地 *~/tmp/docker_loaddata_demo/* 路径下：
 
@@ -50,7 +114,7 @@ __Note__: `csv`（逗号分隔值）文件是一种特殊的文件类型，可�
 3. 使用 Docker 启动 MatrixOne，启动时将存放了数据文件的目录 *~/tmp/docker_loaddata_demo/* 挂载到容器的某个目录下，这里容器目录以 */ssb-dbgen-path* 为例：
 
     ```
-    sudo docker run --name matrixone --privileged -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo/:/ssb-dbgen-path:rw matrixorigin/matrixone:0.7.0
+    sudo docker run --name matrixone --privileged -d -p 6001:6001 -v ~/tmp/docker_loaddata_demo/:/ssb-dbgen-path:rw matrixorigin/matrixone:0.6.0
     ```
 
 4. 连接 MatrixOne 服务：
@@ -58,6 +122,8 @@ __Note__: `csv`（逗号分隔值）文件是一种特殊的文件类型，可�
     ```
     mysql -h 127.0.0.1 -P 6001 -udump -p111
     ```
+
+    __Note:__ 如果你的数据文件与 MatrixOne 服务器在不同的机器上，即数据文件在你所使用的客户端机器上时，那么你连接 MatrixOne 服务主机需要使用命令行：`mysql -h <mo-host-ip> -P 6001 -udump -p111 --local-infile`；并且导入的命令行需要使用 `LOAD DATA LOCAL INFILE` 语法。
 
 5. 在 MatrixOne 中新建表 *lineorder_flat*，并且将数据集导入至 MatriOne：
 

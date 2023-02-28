@@ -107,12 +107,7 @@ nav:
           - MVCC: MatrixOne/Develop/Transactions/matrixone-transaction-overview/mvcc.md
           - MatrixOne 中的事务应用场景: MatrixOne/Develop/Transactions/matrixone-transaction-overview/scenario.md
     - 部署指南:
-      - 软硬件环境要求: MatrixOne/Deploy/check-before-deployment.md
-      - 在 Kubernetes 上部署 MatrixOne:
-        - 在 Kubernetes 上部署 MatrixOne 简介: MatrixOne/Deploy/install-and-launch-in-k8s.md
-        - 什么是 MatrixOne Operator: MatrixOne/Deploy/mo-in-kubernetes/whats-mo-operator.md
-        - 使用 MatrixOne Operator 部署 MatrixOne 集群: MatrixOne/Deploy/mo-in-kubernetes/get-started.md
-        - 为 MatrixOne 集群配置共享存储: MatrixOne/Deploy/mo-in-kubernetes/configure-shared-memory.md
+      - MatrixOne 分布式集群部署: MatrixOne/Deploy/deploy-MatrixOne-cluster.md
     - 教程:
       - 构建一个 Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
       - 使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
@@ -153,13 +148,18 @@ nav:
         - 权限管理操作: MatrixOne/Security/how-tos/user-guide.md
       - 应用场景: MatrixOne/Security/app-scenarios.md
     - 参考手册:
+      - SQL 结构与语法:
+        - 关键字: MatrixOne/Reference/Language-Structure/keywords.md
       - SQL 目录:
         - 数据定义语言（DDL）:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md
+          - CREATE INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index.md
           - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table.md
           - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-external-table.md
           - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-view.md
+          - ALTER VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-view.md
           - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-database.md
+          - DROP INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-index.md
           - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-table.md
           - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-view.md
         - 数据修改语言（DML）:
@@ -169,6 +169,9 @@ nav:
           - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/update.md
           - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data.md
           - INTERVAL: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/interval.md
+          - Information Functions:
+            - LAST_QUERY_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id.md
+            - LAST_INSERT_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-insert-id.md
           - OPERATORS:
             - 运算符概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/operators.md
             - 运算符的优先级: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/operators/operator-precedence.md
@@ -248,8 +251,9 @@ nav:
             - UNION: MatrixOne/Reference/SQL-Reference/Data-Query-Language/union.md
             - INTERSECT: MatrixOne/Reference/SQL-Reference/Data-Query-Language/intersect.md
             - MINUS: MatrixOne/Reference/SQL-Reference/Data-Query-Language/minus.md
-        - Data Control Language:
+        - 数据控制语言（DCL）:
           - CREATE ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Control-Language/create-account.md
+          - ALTER ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Control-Language/alter-account.md
           - CREATE ROLE: MatrixOne/Reference/SQL-Reference/Data-Control-Language/create-role.md
           - CREATE USER: MatrixOne/Reference/SQL-Reference/Data-Control-Language/create-user.md
           - DROP ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Control-Language/drop-account.md
@@ -259,8 +263,9 @@ nav:
           - REVOKE: MatrixOne/Reference/SQL-Reference/Data-Control-Language/revoke.md
         - 其他:
           - SHOW:
-            - SHOW DATABASES Statement: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-databases.md
-            - SHOW TABLES Statement: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-tables.md
+            - SHOW ACCOUNTS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-account.md
+            - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-databases.md
+            - SHOW TABLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-tables.md
             - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-grants.md
           - SET:
             - SET ROLE: MatrixOne/Reference/SQL-Reference/Other/Set/set-role.md
@@ -276,17 +281,19 @@ nav:
             - EXPLAIN Output Format: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-workflow.md
             - Explain Analyze: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-analyze.md
         - 聚合函数:
-          - AVG: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/avg.md
-          - COUNT: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/count.md
-          - MAX: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/max.md
-          - MIN: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/min.md
-          - SUM: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/sum.md
           - ANY_VALUE: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/any-value.md
+          - AVG: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/avg.md
           - BIT_AND: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_and.md
           - BIT_OR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_or.md
           - BIT_XOR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/bit_xor.md
+          - COUNT: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/count.md
+          - GROUP_CONCAT: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/group-concat.md
+          - MAX: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/max.md
+          - MEDIAN: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/median.md
+          - MIN: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/min.md
+          - SLEEP: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/sleep.md
           - STDDEV_POP: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/stddev_pop.md
-          - VAR: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/var.md
+          - SUM: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/sum.md
         - 系统变量:
           - 自定义变量: MatrixOne/Reference/Variable/custom-variable.md
       - 数据类型:
@@ -299,60 +306,67 @@ nav:
       - 系统函数:
         - 数学类:
           - ABS(): MatrixOne/Reference/Builtin-Functions/Mathematical/abs.md
-          - SIN(): MatrixOne/Reference/Builtin-Functions/Mathematical/sin.md
-          - COS(): MatrixOne/Reference/Builtin-Functions/Mathematical/cos.md
-          - TAN(): MatrixOne/Reference/Builtin-Functions/Mathematical/tan.md
-          - COT(): MatrixOne/Reference/Builtin-Functions/Mathematical/cot.md
           - ACOS(): MatrixOne/Reference/Builtin-Functions/Mathematical/acos.md
           - ATAN(): MatrixOne/Reference/Builtin-Functions/Mathematical/atan.md
-          - SINH(): MatrixOne/Reference/Builtin-Functions/Mathematical/sinh.md
-          - FLOOR(): MatrixOne/Reference/Builtin-Functions/Mathematical/floor.md
-          - ROUND(): MatrixOne/Reference/Builtin-Functions/Mathematical/round.md
           - CEIL(): MatrixOne/Reference/Builtin-Functions/Mathematical/ceil.md
-          - POWER(): MatrixOne/Reference/Builtin-Functions/Mathematical/power.md
-          - PI(): MatrixOne/Reference/Builtin-Functions/Mathematical/pi.md
-          - LOG(): MatrixOne/Reference/Builtin-Functions/Mathematical/log.md
-          - LN(): MatrixOne/Reference/Builtin-Functions/Mathematical/ln.md
-          - UUID(): MatrixOne/Reference/Builtin-Functions/Mathematical/uuid.md
+          - COS(): MatrixOne/Reference/Builtin-Functions/Mathematical/cos.md
+          - COT(): MatrixOne/Reference/Builtin-Functions/Mathematical/cot.md
           - EXP(): MatrixOne/Reference/Builtin-Functions/Mathematical/exp.md
+          - FLOOR(): MatrixOne/Reference/Builtin-Functions/Mathematical/floor.md
+          - LN(): MatrixOne/Reference/Builtin-Functions/Mathematical/ln.md
+          - LOG(): MatrixOne/Reference/Builtin-Functions/Mathematical/log.md
+          - PI(): MatrixOne/Reference/Builtin-Functions/Mathematical/pi.md
+          - POWER(): MatrixOne/Reference/Builtin-Functions/Mathematical/power.md
+          - ROUND(): MatrixOne/Reference/Builtin-Functions/Mathematical/round.md
+          - SIN(): MatrixOne/Reference/Builtin-Functions/Mathematical/sin.md
+          - SINH(): MatrixOne/Reference/Builtin-Functions/Mathematical/sinh.md
+          - TAN(): MatrixOne/Reference/Builtin-Functions/Mathematical/tan.md
+          - UUID(): MatrixOne/Reference/Builtin-Functions/Mathematical/uuid.md
         - 日期时间类:
-          - DATE_FORMAT(): MatrixOne/Reference/Builtin-Functions/Datetime/date-format.md
-          - YEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/year.md
-          - MONTH(): MatrixOne/Reference/Builtin-Functions/Datetime/month.md
+          - CURDATE(): MatrixOne/Reference/Builtin-Functions/Datetime/curdate.md
+          - CURRENT_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/current-timestamp.md
           - DATE(): MatrixOne/Reference/Builtin-Functions/Datetime/date.md
-          - WEEKDAY(): MatrixOne/Reference/Builtin-Functions/Datetime/weekday.md
-          - TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/timestamp.md
+          - DATE_ADD(): MatrixOne/Reference/Builtin-Functions/Datetime/date-add.md
+          - DATE_FORMAT(): MatrixOne/Reference/Builtin-Functions/Datetime/date-format.md
+          - DATE_SUB(): MatrixOne/Reference/Builtin-Functions/Datetime/date-sub.md
+          - DATEDIFF(): MatrixOne/Reference/Builtin-Functions/Datetime/date
+          - DAY(): MatrixOne/Reference/Builtin-Functions/Datetime/day.md
           - DAYOFYEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/dayofyear.md
           - EXTRACT(): MatrixOne/Reference/Builtin-Functions/Datetime/extract.md
-          - DATE_ADD(): MatrixOne/Reference/Builtin-Functions/Datetime/date-add.md
-          - DATE_SUB(): MatrixOne/Reference/Builtin-Functions/Datetime/date-sub.md
-          - TO_DATE(): MatrixOne/Reference/Builtin-Functions/Datetime/to-date.md
-          - DAY(): MatrixOne/Reference/Builtin-Functions/Datetime/day.md
-          - UNIX_TIMESTAMP: MatrixOne/Reference/Builtin-Functions/Datetime/unix-timestamp.md
           - FROM_UNIXTIME: MatrixOne/Reference/Builtin-Functions/Datetime/from-unixtime.md
-          - UTC_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/utc-timestamp.md
-          - CURRENT_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/current-timestamp.md
+          - MONTH(): MatrixOne/Reference/Builtin-Functions/Datetime/month.md
           - TIMEDIFF(): MatrixOne/Reference/Builtin-Functions/Datetime/timediff.md
-          - DATEDIFF(): MatrixOne/Reference/Builtin-Functions/Datetime/date
+          - TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/timestamp.md
+          - TO_DATE(): MatrixOne/Reference/Builtin-Functions/Datetime/to-date.md
+          - UNIX_TIMESTAMP: MatrixOne/Reference/Builtin-Functions/Datetime/unix-timestamp.md
+          - UTC_TIMESTAMP(): MatrixOne/Reference/Builtin-Functions/Datetime/utc-timestamp.md
+          - WEEKDAY(): MatrixOne/Reference/Builtin-Functions/Datetime/weekday.md
+          - YEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/year.md
         - 字符串类:
           - BIN(): MatrixOne/Reference/Builtin-Functions/String/bin.md
           - BIT_LENGTH(): MatrixOne/Reference/Builtin-Functions/String/bit-length.md
-          - HEX(): MatrixOne/Reference/Builtin-Functions/String/hex.md
+          - CHAR_LENGTH(): MatrixOne/Reference/Builtin-Functions/String/char-length.md
+          - CONCAT(): MatrixOne/Reference/Builtin-Functions/String/concat-ws.md
           - CONCAT_WS(): MatrixOne/Reference/Builtin-Functions/String/concat-ws.md
-          - FIND_IN_SET(): MatrixOne/Reference/Builtin-Functions/String/find-in-set.md
-          - OCT(): MatrixOne/Reference/Builtin-Functions/String/oct.md
           - EMPTY(): MatrixOne/Reference/Builtin-Functions/String/empty.md
-          - LENGTH(): MatrixOne/Reference/Builtin-Functions/String/length.md
-          - LENGTHUTF8(): MatrixOne/Reference/Builtin-Functions/String/char-length.md
-          - LTRIM(): MatrixOne/Reference/Builtin-Functions/String/ltrim.md
-          - RTRIM(): MatrixOne/Reference/Builtin-Functions/String/rtrim.md
-          - LPAD(): MatrixOne/Reference/Builtin-Functions/String/lpad.md
-          - RPAD(): MatrixOne/Reference/Builtin-Functions/String/rpad.md
-          - STARTSWITH(): MatrixOne/Reference/Builtin-Functions/String/startswith.md
           - ENDSWITH(): MatrixOne/Reference/Builtin-Functions/String/endswith.md
-          - SUBSTRING(): MatrixOne/Reference/Builtin-Functions/String/substring.md
-          - SPACE(): MatrixOne/Reference/Builtin-Functions/String/space.md
+          - FIELD(): MatrixOne/Reference/Builtin-Functions/String/field.md
+          - FIND_IN_SET(): MatrixOne/Reference/Builtin-Functions/String/find-in-set.md
+          - FORMAT(): MatrixOne/Reference/Builtin-Functions/String/format.md
+          - HEX(): MatrixOne/Reference/Builtin-Functions/String/hex.md
+          - LEFT(): MatrixOne/Reference/Builtin-Functions/String/left.md
+          - LENGTH(): MatrixOne/Reference/Builtin-Functions/String/length.md
+          - LPAD(): MatrixOne/Reference/Builtin-Functions/String/lpad.md
+          - LTRIM(): MatrixOne/Reference/Builtin-Functions/String/ltrim.md
+          - OCT(): MatrixOne/Reference/Builtin-Functions/String/oct.md
           - REVERSE(): MatrixOne/Reference/Builtin-Functions/String/reverse.md
+          - RPAD(): MatrixOne/Reference/Builtin-Functions/String/rpad.md
+          - RTRIM(): MatrixOne/Reference/Builtin-Functions/String/rtrim.md
+          - SPACE(): MatrixOne/Reference/Builtin-Functions/String/space.md
+          - STARTSWITH(): MatrixOne/Reference/Builtin-Functions/String/startswith.md
+          - SUBSTRING(): MatrixOne/Reference/Builtin-Functions/String/substring.md
+          - SUBSTRING_INDEX(): MatrixOne/Reference/Builtin-Functions/String/substring-index.md
+          - TRIM(): MatrixOne/Reference/Builtin-Functions/String/trim.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
         - 时区配置: MatrixOne/Reference/System-Parameters/timezone.md
@@ -365,6 +379,7 @@ nav:
     - 故障诊断:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
+      - 数据库统计信息: MatrixOne/Troubleshooting/query-table-statistics.md
       - 审计: MatrixOne/Troubleshooting/audit.md
       - 错误码: MatrixOne/Troubleshooting/error-code.md
     - 常见问题解答:
