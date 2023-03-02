@@ -11,7 +11,7 @@
 ## **语法结构**
 
 ```
-> LOAD DATA
+> LOAD DATA [LOCAL]
     INFILE 'file_name'
     INTO TABLE tbl_name
     [{FIELDS | COLUMNS}
@@ -24,6 +24,7 @@
         [TERMINATED BY 'string']
     ]
     [IGNORE number {LINES | ROWS}]
+    [PARALLEL {'TRUE' | 'FALSE'}]
 ```
 
 **参数解释**
@@ -32,7 +33,15 @@
 
 ### INFILE
 
-MatrixOne 目前只支持加载服务器主机上的数据，`file_name` 必须是 MatrixOne 所在的服务器主机上存放文件的绝对路径名称。
+- `LOAD DATA INFILE 'file_name'`：
+
+   **命令行使用场景**：需要加载的数据文件与 MatrixOne 主机服务器在同一台机器上。
+   `file_name` 可以是文件的存放位置的相对路径名称，也可以是绝对路径名称。
+
+- `LOAD DATA LOCAL INFILE 'file_name'`：
+
+   **命令行使用场景**：需要加载的数据文件与 MatrixOne 主机服务器不在同一台机器上，即，数据文件在客户机上。
+   `file_name` 可以是文件的存放位置的相对路径名称，也可以是绝对路径名称。
 
 ### IGNORE LINES
 
@@ -162,6 +171,27 @@ something xxx"def",2
 ```
 
 则输出的结果行是 ("abc"，1) 和 ("def"，2)。文件中的第三行由于没有前缀，则被忽略。
+
+### PARALLEL
+
+对于一个格式良好的大文件，例如 *JSONLines* 文件，或者一行数据中没有换行符的 *CSV* 文件，都可以使用 `PARALLEL` 就可以对该文件进行并行加载，以加快加载速度。
+
+例如，对于 2 个 G 的大文件，使用两个线程去进行加载，第 2 个线程先拆分定位到 1G 的位置，然后一直往后读取并进行加载。这样就可以做到两个线程同时读取大文件，每个线程读取 1G 的数据。
+
+**开启/关闭并行加载命令行示例**：
+
+```
+// 打开并行加载
+load data infile 'file_name' into table tbl_name FIELDS TERMINATED BY '|' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES PARALLEL 'TRUE';
+
+// 关闭并行加载
+load data infile 'file_name' into table tbl_name FIELDS TERMINATED BY '|' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES PARALLEL 'FALSE';
+
+// 默认关闭并行加载
+load data infile 'file_name' into table tbl_name FIELDS TERMINATED BY '|' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES;
+```
+
+__Note:__ `LOAD` 语句中如果不加 `PARALLEL` 字段，对于 *CSV* 文件，是默认关闭并行加载；对于 *JSONLines* 文件，默认开启并行加载。如果 *CSV* 文件中有行结束符，比如 '\n'，否则有可能会导致文件加载时数据出错，如果文件过大，建议从换行符为起止点手动拆分文件后再开启并行加载。
 
 ## 支持的文件格式
 
@@ -365,7 +395,8 @@ mysql> select * from t1;
 
 ## **限制**
 
-1. `LOAD DATA` 暂不支持在客户端主机加载文件，仅支持在服务器主机加载文件。
-2. `REPLACE` 和 `IGNORE` 修饰符解决唯一索引的冲突：`REPLACE` 表示若表中已经存在则用新的数据替换掉旧的数据，而 `IGNORE` 则表示保留旧的数据，忽略掉新数据。这两个修饰符在 MatrixOne 中尚不支持。
-3. 当前只支持绝对文件路径。
-4. `SET` 提供不是来源于输入文件的值，MatrixOne 当前部分支持 `SET`，仅支持 `SET columns_name=nullif(expr1,expr2)`。
+1. `REPLACE` 和 `IGNORE` 修饰符解决唯一索引的冲突：`REPLACE` 表示若表中已经存在则用新的数据替换掉旧的数据，而 `IGNORE` 则表示保留旧的数据，忽略掉新数据。这两个修饰符在 MatrixOne 中尚不支持。
+2. `SET` 提供不是来源于输入文件的值，MatrixOne 当前部分支持 `SET`，仅支持 `SET columns_name=nullif(expr1,expr2)`。
+3. 开启并行加载操作时必须要保证文件中每行数据中不包含指定的行结束符，比如 '\n'，否则有可能会导致文件加载时数据出错。
+4. 文件的并行加载要求文件必须是非压缩格式，暂不支持并行加载压缩格式的文件。
+5. `LOAD DATA LOCAL` 暂不支持并行加载。

@@ -9,7 +9,7 @@
 ```
 > CREATE [TEMPORARY] TABLE [IF NOT EXISTS] [db.]table_name [comment = "comment of table"];
 (
-    name1 type1 [comment 'comment of column'] [AUTO_INCREMENT] [[PRIMARY] KEY],
+    name1 type1 [comment 'comment of column'] [AUTO_INCREMENT] [[PRIMARY] KEY] [[FOREIGN] KEY],
     name2 type2 [comment 'comment of column'],
     ...
 )
@@ -79,6 +79,59 @@
 );
 ERROR 1105 (HY000): tae catalog: schema validation: compound idx not supported yet
 ```
+
+#### FOREIGN KEY
+
+FOREIGN KEY 约束，即外键约束，是表的一个特殊字段，经常与主键约束一起使用。外键约束是用于防止破坏表之间链接的行为。对于两个具有关联关系的表而言，相关联字段中主键所在的表就是主表（父表），外键所在的表就是从表（子表）。外键用来建立主表与从表的关联关系，为两个表的数据建立连接，约束两个表中数据的一致性和完整性。
+
+FOREIGN KEY 约束也能防止非法数据插入外键列，因为它必须是它指向的那个表中的值之一。
+
+定义外键时，需要遵守下列规则：
+
+- 主表必须已经存在于数据库中，或者是当前正在创建的表。如果是后一种情况，则主表与从表是同一个表，这样的表称为自参照表，这种结构称为自参照完整性。
+- 必须为主表定义主键。
+
+- 在主表的表名后面指定列名或列名的组合。这个列或列的组合必须是主表的主键或候选键。当前 MatrixOne 仅支持单列外键约束。
+
+- 外键中列的数目必须和主表的主键中列的数目相同。
+
+- 外键中列的数据类型必须和主表主键中对应列的数据类型相同。
+
+下面通过一个例子进行说明通过 FOREIGN KEY 和 PRIMARY KEY 关联父表与子表：
+
+首先创建一个父表，字段 a 为主键：
+
+```sql
+create table t1(a int primary key,b varchar(5));
+insert into t1 values(101,'abc'),(102,'def');
+mysql> select * from t1;
++------+------+
+| a    | b    |
++------+------+
+|  101 | abc  |
+|  102 | def  |
++------+------+
+2 rows in set (0.00 sec)
+```
+
+然后创建一个子表，字段 c 为外键，关联父表字段 a：
+
+```sql
+create table t2(a int ,b varchar(5),c int, foreign key(c) references t1(a));
+insert into t2 values(1,'zs1',101),(2,'zs2',102);
+insert into t2 values(3,'xyz',null);
+mysql> select * from t2;
++------+------+------+
+| a    | b    | c    |
++------+------+------+
+|    1 | zs1  |  101 |
+|    2 | zs2  |  102 |
+|    3 | xyz  | NULL |
++------+------+------+
+3 rows in set (0.00 sec)
+```
+
+有关数据完整性约束的更多信息，参见[数据完整性约束概述](../../../Develop/schema-design/data-integrity/overview-of-integrity-constraint-types.md)。
 
 #### Table PARTITION 和 PARTITIONS
 

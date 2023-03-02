@@ -19,7 +19,7 @@ MatrixOne 支持将文件从 S3 兼容的对象存储服务加载到数据库中
 
 ```sql
 LOAD DATA
-    | URL s3options {"endpoint"='<string>', "access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "filepath"='<string>', "region"='<string>', "compression"='<string>'}
+    | URL s3options {"endpoint"='<string>', "access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "role_arn"='xxxx', "external_id"='yyy', "filepath"='<string>', "region"='<string>', "compression"='<string>'}
     INTO TABLE tbl_name
     [{FIELDS | COLUMNS}
         [TERMINATED BY 'string']
@@ -27,6 +27,7 @@ LOAD DATA
         [ESCAPED BY 'char']
     ]
     [IGNORE number {LINES | ROWS}]
+    [PARALLEL {'TRUE' | 'FALSE'}]
 ```
 
 **参数说明**
@@ -37,6 +38,8 @@ LOAD DATA
 |access_key_id| Access key ID |
 |secret_access_key| Secret access key |
 |bucket| S3 需要访问的桶 |
+|role_arn| |
+|external_id| |
 |filepath| 相对文件路径。 /files/*.csv 支持正则表达式。 |
 |region| 对象存储服务区域|
 |compression| S3 文件的压缩格式。如果为空或 "none"，，则表示未压缩的文件。支持的字段或压缩格式为“auto”、“none”、“gzip”、“bz2”和“lz4”。|
@@ -252,8 +255,3 @@ create external table t1(col1 char(225)) url s3option{"endpoint"='cos.ap-shangha
     ```sql
     insert into t2 select * from t1;
     ```
-
-## 限制
-
-1. MatrixOne 仅支持从 S3 兼容对象存储加载*. csv* 格式的文件。
-2. 要加载许多具有正则表达式路径的文件，MatrixOne 在加载没有父目录的 `*.csv` 时仍然存在一些错误。你只能将文件加载为 `/test/*.csv`。
