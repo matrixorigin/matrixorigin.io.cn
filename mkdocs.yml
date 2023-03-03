@@ -162,6 +162,7 @@ nav:
           - DROP INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-index.md
           - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-table.md
           - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-view.md
+          - TRUNCATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/truncate-table.md
         - 数据修改语言（DML）:
           - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert.md
           - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-into-select.md
@@ -265,13 +266,19 @@ nav:
           - SHOW:
             - SHOW ACCOUNTS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-account.md
             - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-databases.md
+            - SHOW CREATE TABLE: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-create-table.md
+            - SHOW CREATE VIEW: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-create-view.md
             - SHOW TABLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-tables.md
+            - SHOW INDEX: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-index.md
+            - SHOW COLLATION: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-collation.md
+            - SHOW COLUMNS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-columns.md
             - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-grants.md
+            - SHOW VARIABLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-variables.md
           - SET:
             - SET ROLE: MatrixOne/Reference/SQL-Reference/Other/Set/set-role.md
           - USE:
             - USE DATABASE: MatrixOne/Reference/SQL-Reference/Other/use-database.md
-          - Prepared :
+          - Prepared:
             - Prepared 概述: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview.md
             - PREPARE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/prepare.md
             - EXECUTE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/execute.md

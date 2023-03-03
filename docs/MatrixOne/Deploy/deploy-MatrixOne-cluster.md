@@ -1,12 +1,12 @@
 # MatrixOne 分布式集群部署
 
-本系列文档将主要讲述如何从 0 开始部署一个基于**私有化 Kubernetes 集群的云原生存算分离的分布式数据库 MatrixOne**。
+本篇文档将主要讲述如何从 0 开始部署一个基于**私有化 Kubernetes 集群的云原生存算分离的分布式数据库 MatrixOne**。
 
 ## **主要步骤**
 
 1. 部署 Kubernetes 集群
 2. 部署对象存储 MinIO  
-3. 创建并连接 Matrixone 集群
+3. 创建并连接 MatrixOne 集群
 
 ## **名词解释**
 
@@ -30,14 +30,14 @@
 
 ## **1. 部署 Kubernetes 集群**
 
-由于 Matrixone 的分布式部署依赖于 Kubernetes 集群，因此我们需要一个 Kubernetes 集群。本篇文章将指导你通过使用 **Kuboard-Spray** 的方式搭建一个 Kubernetes 集群。
+由于 MatrixOne 的分布式部署依赖于 Kubernetes 集群，因此我们需要一个 Kubernetes 集群。本篇文章将指导你通过使用 **Kuboard-Spray** 的方式搭建一个 Kubernetes 集群。
 
 ### **准备集群环境**
 
 对于集群环境，需要做如下准备：
 
 - 3 台 VirtualBox 虚拟机
-- 操作系统使用 Ubuntu 20.04 (默认不允许 root 账号远程登入，请预先修改 `sshd` 的配置文件，允许 root 远程登入)：其中两台作为部署 Kubernetes 以及 Matrixone 相关依赖环境的机器，另外一台作为跳板机，来搭建 Kubernetes 集群。
+- 操作系统使用 Ubuntu 20.04 (默认不允许 root 账号远程登入，请预先修改 `sshd` 的配置文件，允许 root 远程登入)：其中两台作为部署 Kubernetes 以及 MatrixOne 相关依赖环境的机器，另外一台作为跳板机，来搭建 Kubernetes 集群。
 
 各个机器情况分布具体如下所示：
 
@@ -47,7 +47,7 @@
 | master0 | 192.168.56.10 | 4G | 2C | 50G | master etcd |
 | node0 | 192.168.56.11 | 4G | 2C | 50G | worker |
 
-### **跳板机部署 Kuboard Sprayy**
+### **跳板机部署 Kuboard Spray**
 
 Kuboard-Spray 是用来可视化部署 Kubernetes 集群的一个工具。它会使用 Docker 快速拉起一个能够可视化部署 Kubernetes 集群的 Web 应用。Kubernetes 集群环境部署完成后，可以将该 Docker 应用停掉。
 
@@ -178,7 +178,7 @@ Operator 的安装依赖于 helm，因此需要先安装 helm。
 
 __Note:__ 本章节均是在 master0 节点操作。
 
-1. 下载 helm 安装包
+1. 下载 helm 安装包：
 
     ```
     wget https://get.helm.sh/helm-v3.10.2-linux-amd64.tar.gz
@@ -243,7 +243,7 @@ __Note:__ 本章节均是在 master0 节点操作。
 
 ## **4. MinIO 部署**
 
- MinIO 的作用是为 Matrixone 提供对象存储。本章节将指导你部署一个单节点的 MinIO。
+ MinIO 的作用是为 MatrixOne 提供对象存储。本章节将指导你部署一个单节点的 MinIO。
 
 __Note:__ 本章节均是在 master0 节点操作。
 
@@ -279,9 +279,9 @@ __Note:__ 本章节均是在 master0 节点操作。
 
     ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-15.png?raw=true)
 
-## **5. Matrixone 集群部署**
+## **5. MatrixOne 集群部署**
 
-本章节将指导你部署 Matrixone 集群。
+本章节将指导你部署 MatrixOne 集群。
 
 __Note:__ 本章节均是在 master0 节点操作。
 
@@ -306,7 +306,7 @@ matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
 
 如上上代码行所示，对应 Pod 状态均正常。
 
-### **创建 Matrixone 集群**
+### **创建 MatrixOne 集群**
 
 自定义 MatrixOne 集群的 `yaml` 文件，示例如下：
 
@@ -367,7 +367,7 @@ matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
       imagePullPolicy: Always
     ```
 
-2. 定义 Matrixone 访问 MinIO 的 secret 服务：
+2. 定义 MatrixOne 访问 MinIO 的 secret 服务：
 
     ```
     kubectl -n mo-hn create secret generic minio --from-literal=AWS_ACCESS_KEY_ID=rootuser --from-literal=AWS_SECRET_ACCESS_KEY=rootpass123
@@ -375,7 +375,7 @@ matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
 
     用户名和密码使用创建 MinIO 集群时设定的 rootUser 和 rootPassword。
 
-3. 使用如下命令行部署 Matrixone 集群：
+3. 使用如下命令行部署 MatrixOne 集群：
 
     ```
     kubectl apply -f mo.yaml
@@ -394,9 +394,9 @@ matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
     mo-tp-cn-0                            1/1     Running   1 (45m ago)   46m
     ```
 
-## **6. 连接 Matrixone 集群**
+## **6. 连接 Matrix0ne 集群**
 
-由于提供对外访问的 CN 的 pod id 不是 node ip，因此，你需要将对应服务的端口映射到 MatrixOne 节点上。本章节将指导你使用 `kubectl port-forward` 连接 Matrixone 集群。
+由于提供对外访问的 CN 的 pod id 不是 node ip，因此，你需要将对应服务的端口映射到 MatrixOne 节点上。本章节将指导你使用 `kubectl port-forward` 连接 MatrixOne 集群。
 
 - 只允许本地访问：
 
@@ -430,4 +430,4 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql>
 ```
 
-显式 `mysql>` 后，分布式的 Matrixone 集群搭建连接完成。
+显式 `mysql>` 后，分布式的 MatrixOne 集群搭建连接完成。

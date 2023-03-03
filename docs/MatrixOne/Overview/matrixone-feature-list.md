@@ -21,7 +21,7 @@
 | ALTER VIEW                    | Y    |
 | DROP VIEW                     | Y    |
 | CREATE OR REPLACE VIEW        | N    |
-| TRUNCATE                      | N    |
+| TRUNCATE                      | Y    |
 | SEQUENCE                      | N    |
 | AUTO_INCREMENT                | Y    |
 | Temporary tables              | Y    |

@@ -201,9 +201,3 @@ __Note:__ 本教程中，数据文件与 MatrixOne 服务器在同一台机器�
 
 !!! note
     如果您使用 Docker 启动 MatrixOne，当你需要导入 JSONline 文件时，请确保你已将数据目录挂载到容器。你也可以查看[导入 *csv* 格式数据](load-csv.md)，了解如何使用 Docker 挂载数据。
-
-## 限制
-
-1. `Load data` 暂不支持数据库模式中的 JSON 类型。
-2. MatrixOne 暂不支持加载嵌套结构数据（对象、数组）的 JSONLine 文件。
-3. MatrixOne 暂不支持加载空类型数据。
