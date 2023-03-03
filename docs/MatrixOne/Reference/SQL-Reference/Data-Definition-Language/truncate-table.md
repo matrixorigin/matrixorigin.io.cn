@@ -16,8 +16,8 @@
 
 `DROP TABLE`、`TRUNCATE TABLE` 和 `DELETE TABLE` 的区别：
 
-- `DROP TABLE`：当你不再需要该表时， 用 `DROP TABLE`。
-- `TRUNCATE TABLE`：当你仍要保留该表，但要删除所有记录时， 用 `TRUNCATE TABLE`。
+- `DROP TABLE`：当你不再需要该表时，用 `DROP TABLE`。
+- `TRUNCATE TABLE`：当你仍要保留该表，但要删除所有记录时，用 `TRUNCATE TABLE`。
 - `DELETE TABLE`：当你要删除部分记录时，用 `DELETE TABLE`。
 
 ## **语法结构**
