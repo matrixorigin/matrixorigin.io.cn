@@ -155,7 +155,7 @@ ANSI/ISO SQL 定义的标准隔离级别共有四个：
 
 - **读已提交**：在提交读（READ COMMITTED）级别中，基于锁机制并发控制的 DBMS 需要对选定对象的写锁一直保持到事务结束，但是读锁在 SELECT 操作完成后马上释放。和前一种隔离级别一样，也不要求 “范围锁”。
 
-- **可重复读**：在可重复读（REPEATABLE READS）隔离级别中，基于锁机制并发控制的 DBMS 需要对选定对象的读锁（read locks）和写锁（write locks）一直保持到事务结束，但不要求 “范围锁”，因此可能会发生 “幻读”。
+- **可重复读**：在可重复读（REPEATABLE READS）隔离级别中，基于锁机制并发控制的 DBMS 需要对选定对象的读锁（read locks）和写锁（write locks）一直保持到事务结束，但不要求 “范围锁”，因此可能会发生 “幻读”。MatixOne 实现了快照隔离（即 Snapshot Isolation），为了与 MySQL 隔离级别保持一致，MatixOne 快照隔离又叫做可重复读（REPEATABLE READS）。
 
 - **可串行化**：可串行化（SERIALIZABLE）是最高的隔离级别。在基于锁机制并发控制的 DBMS 上，可串行化要求在选定对象上的读锁和写锁直到事务结束后才能释放。在 SELECT 的查询中使用一个 “WHERE” 子句来描述一个范围时应该获得一个 “范围锁”（range-locks）。
 
