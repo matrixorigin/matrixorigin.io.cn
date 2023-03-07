@@ -129,13 +129,16 @@ nav:
         - MO-Tester: MatrixOne/Test/testing-tool/mo-tester.md
         - MO-Tester 规范要求: MatrixOne/Test/testing-tool/mo-tester-reference.md
     - 性能调优:
-      - 理解 MatrixOne 执行计划:
-        - MatrixOne 执行计划概述: MatrixOne/Performance-Tuning/explain-overview.md
-        - 使用 EXPLAIN 理解执行计划: MatrixOne/Performance-Tuning/explain-walkthrough.md
-        - JOIN 查询的执行计划: MatrixOne/Performance-Tuning/explain-joins.md
-        - 子查询的执行计划: MatrixOne/Performance-Tuning/explain-subqueries.md
-        - 聚合查询的执行计划: MatrixOne/Performance-Tuning/explain-aggregation.md
-        - 视图的执行计划: MatrixOne/Performance-Tuning/explain-views.md
+      - SQL 性能调优方法概述: MatrixOne/Performance-Tuning/performance-tuning-overview.md
+      - MatrixOne 执行计划:
+        - MatrixOne 执行计划概述: MatrixOne/Performance-Tuning/explain/explain-overview.md
+        - 使用 EXPLAIN 理解执行计划: MatrixOne/Performance-Tuning/explain/explain-walkthrough.md
+        - JOIN 查询的执行计划: MatrixOne/Performance-Tuning/explain/explain-joins.md
+        - 子查询的执行计划: MatrixOne/Performance-Tuning/explain/explain-subqueries.md
+        - 聚合查询的执行计划: MatrixOne/Performance-Tuning/explain/explain-aggregation.md
+        - 视图的执行计划: MatrixOne/Performance-Tuning/explain/explain-views.md
+      - 性能调优最佳实践:
+        - 使用 Cluster by 语句调优: MatrixOne/Performance-Tuning/optimization-concepts/through-cluster-by.md
     - 权限:
       - TLS 安全连接: MatrixOne/Security/TLS-introduction.md
       - 什么是权限管理:
