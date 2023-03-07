@@ -87,4 +87,4 @@ EXPLAIN ANALYZE 是一个用于查询的分析工具，它将向你显示 SQL �
 
 从上面的输出结果来看，执行以上示例查询耗时 0.00 秒，说明执行性能较为理想。也由于我们这次示例中执行的查询简单，满足较高的执行性能。
 
-更多关于 EXPLAIN ANALYZE 的信息，请参见 [EXPLAIN ANALYZE](../Reference/SQL-Reference/Other/Explain/explain-analyze.md)。
+更多关于 EXPLAIN ANALYZE 的信息，请参见 [EXPLAIN ANALYZE](../../Reference/SQL-Reference/Other/Explain/explain-analyze.md)。
