@@ -141,7 +141,7 @@ mysql> select * from t2;
 - 单列语法为：`create table() cluster by col;`  
 - 多列语法为：`create table() cluster by (col1, col2);`  
 
-__Note:__ `Cluster by` 不能和主键同时存在，否则会语法报错；`Cluster by`只能在建表时指定，不支持动态创建。
+__Note:__ `Cluster by` 不能和主键同时存在，否则会语法报错；`Cluster by` 只能在建表时指定，不支持动态创建。
 
 更多关于使用 `Cluster by` 进行性能调优，参见[使用 Cluster by 语句调优](../../../Performance-Tuning/optimization-concepts/through-cluster-by.md).
 
