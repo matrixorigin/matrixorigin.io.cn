@@ -1978,24 +1978,38 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../Performance-Tuning/performance-tuning-overview/" class="md-nav__link">
+        SQL 性能调优方法概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10_1" type="checkbox" id="__nav_1_10_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10_2" type="checkbox" id="__nav_1_10_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_10_1">
-          理解 MatrixOne 执行计划
+        <label class="md-nav__link" for="__nav_1_10_2">
+          MatrixOne 执行计划
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="理解 MatrixOne 执行计划" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_10_1">
+      <nav class="md-nav" aria-label="MatrixOne 执行计划" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_10_2">
           <span class="md-nav__icon md-icon"></span>
-          理解 MatrixOne 执行计划
+          MatrixOne 执行计划
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2005,7 +2019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain-overview.md" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain/explain-overview/" class="md-nav__link">
         MatrixOne 执行计划概述
       </a>
     </li>
@@ -2019,7 +2033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain-walkthrough.md" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain/explain-walkthrough/" class="md-nav__link">
         使用 EXPLAIN 理解执行计划
       </a>
     </li>
@@ -2033,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain-joins.md" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain/explain-joins/" class="md-nav__link">
         JOIN 查询的执行计划
       </a>
     </li>
@@ -2047,7 +2061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain-subqueries.md" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain/explain-subqueries/" class="md-nav__link">
         子查询的执行计划
       </a>
     </li>
@@ -2061,7 +2075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain-aggregation.md" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain/explain-aggregation/" class="md-nav__link">
         聚合查询的执行计划
       </a>
     </li>
@@ -2075,8 +2089,55 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain-views.md" class="md-nav__link">
+      <a href="../../../../Performance-Tuning/explain/explain-views/" class="md-nav__link">
         视图的执行计划
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10_3" type="checkbox" id="__nav_1_10_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_10_3">
+          性能调优最佳实践
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="性能调优最佳实践" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_10_3">
+          <span class="md-nav__icon md-icon"></span>
+          性能调优最佳实践
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Performance-Tuning/optimization-concepts/through-cluster-by/" class="md-nav__link">
+        使用 Cluster by 语句调优
       </a>
     </li>
   
@@ -2579,6 +2640,13 @@
           <li class="md-nav__item">
   <a href="#foreign-key" class="md-nav__link">
     FOREIGN KEY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-by" class="md-nav__link">
+    Cluster by
   </a>
   
 </li>
@@ -7101,6 +7169,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cluster-by" class="md-nav__link">
+    Cluster by
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#table-partition-partitions" class="md-nav__link">
     Table PARTITION 和 PARTITIONS
   </a>
@@ -7159,6 +7234,7 @@
     name2 type2 [comment &#39;comment of column&#39;],
     ...
 )
+    [cluster by (column_name1, column_name2, ...);]
     [partition_options]
 </code></pre></div>
 <h3 id="_3">语法释义</h3>
@@ -7261,6 +7337,14 @@ ERROR 1105 (HY000): tae catalog: schema validation: compound idx not supported y
 <span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>有关数据完整性约束的更多信息，参见<a href="../../../../Develop/schema-design/data-integrity/overview-of-integrity-constraint-types/">数据完整性约束概述</a>。</p>
+<h4 id="cluster-by">Cluster by</h4>
+<p><code>Cluster by</code> 是一种用于优化表的物理排列方式的命令。在建表时使用 <code>Cluster by</code> 命令，对于无主键的表，可以按照指定的列对表进行物理排序，并将数据行重新排列成与该列的值的顺序相同的顺序。使用 <code>Cluster by</code> 提高查询性能。</p>
+<ul>
+<li>单列语法为：<code>create table() cluster by col;</code>  </li>
+<li>多列语法为：<code>create table() cluster by (col1, col2);</code>  </li>
+</ul>
+<p><strong>Note:</strong> <code>Cluster by</code> 不能和主键同时存在，否则会语法报错；<code>Cluster by</code> 只能在建表时指定，不支持动态创建。</p>
+<p>更多关于使用 <code>Cluster by</code> 进行性能调优，参见<a href="../../../../Performance-Tuning/optimization-concepts/through-cluster-by/">使用 Cluster by 语句调优</a>.</p>
 <h4 id="table-partition-partitions">Table PARTITION 和 PARTITIONS</h4>
 <div class="highlight"><pre><span></span><code>partition_options:
  PARTITION BY
