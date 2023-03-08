@@ -13,6 +13,7 @@
     name2 type2 [comment 'comment of column'],
     ...
 )
+    [cluster by (column_name1, column_name2, ...);]
     [partition_options]
 ```
 
@@ -132,6 +133,17 @@ mysql> select * from t2;
 ```
 
 有关数据完整性约束的更多信息，参见[数据完整性约束概述](../../../Develop/schema-design/data-integrity/overview-of-integrity-constraint-types.md)。
+
+#### Cluster by
+
+`Cluster by` 是一种用于优化表的物理排列方式的命令。在建表时使用 `Cluster by` 命令，对于无主键的表，可以按照指定的列对表进行物理排序，并将数据行重新排列成与该列的值的顺序相同的顺序。使用 `Cluster by` 提高查询性能。
+
+- 单列语法为：`create table() cluster by col;`  
+- 多列语法为：`create table() cluster by (col1, col2);`  
+
+__Note:__ `Cluster by` 不能和主键同时存在，否则会语法报错；`Cluster by` 只能在建表时指定，不支持动态创建。
+
+更多关于使用 `Cluster by` 进行性能调优，参见[使用 Cluster by 语句调优](../../../Performance-Tuning/optimization-concepts/through-cluster-by.md).
 
 #### Table PARTITION 和 PARTITIONS
 
