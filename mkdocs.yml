@@ -26,11 +26,11 @@ extra:
     provider: mike
   alternate:
     - name: English
-      link: https://docs.matrixorigin.io
+      link: /en/
       lang: en
     - name: 中文简体
-      link: https://docs.matrixorigin.io/cn/
-      lang: cn
+      link: /
+      lang: zh
 markdown_extensions:
   - admonition
   - pymdownx.details
