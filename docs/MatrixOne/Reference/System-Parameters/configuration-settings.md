@@ -20,9 +20,13 @@
 |name = "LOCAL"|fileservice 存储类型，本地存储|
 |backend = "DISK"|fileservice 后端介质，磁盘|
 |[[fileservice]]||
-|name = "S3" |fileservice 存储类型，S3|
+|name = "SHARED" |fileservice 存储类型，S3|
 |backend = "DISK"|fileservice 后端介质，磁盘|
 |data-dir = "mo-data/s3"|s3 存储数据路径|
+|[fileservice.cache]||
+|memory-capacity = "512MB"|fileservice 使用的 cache 内存大小|
+|disk-capacity = "8GB"|fileservice 使用的 cache 磁盘大小|
+|disk-path = "mo-data/file-service-cache"|fileservice 的磁盘 cache 路径|
 |[[fileservice]]||
 |name = "ETL"|fileservice 存储类型，ETL|
 |backend = "DISK-ETL"|fileservice 后端介质，DISK-ETL|
@@ -50,9 +54,13 @@
 |name = "LOCAL"|fileservice 存储类型，本地存储|
 |backend = "DISK"|fileservice 后端介质，磁盘|
 |[[fileservice]]||
-|name = "S3" |fileservice 存储类型，S3|
+|name = "SHARED" |fileservice 存储类型，S3|
 |backend = "DISK"|fileservice 后端介质，磁盘|
 |data-dir = "mo-data/s3"|s3 存储数据路径|
+|[fileservice.cache]||
+|memory-capacity = "512MB"|fileservice 使用的 cache 内存大小|
+|disk-capacity = "8GB"|fileservice 使用的 cache 磁盘大小|
+|disk-path = "mo-data/file-service-cache"|fileservice 的磁盘 cache 路径|
 |[[fileservice]]||
 |name = "ETL"|fileservice 存储类型，ETL|
 |backend = "DISK-ETL"|fileservice 后端介质，DISK-ETL|
@@ -66,7 +74,16 @@
 |min-count = 100 |checkpoint 最小个数|
 |scan-interval = "5s"|内部扫描间隔|
 |incremental-interval = "180s"|checkpoint 自增间隔|
-|global-interval = "100000s" |全局 checkpoint 间隔|
+|global-min-count = 60 |全局最小的 dn checkpoint 个数|
+|[dn.LogtailServer]||
+|listen-address = "0.0.0.0:32003"|logtail 监听端口|
+|service-address = "127.0.0.1:32003"|logtail 内部访问地址|
+|rpc-max-message-size = "16KiB"|logtail 使用的最大 rpc 消息大小|
+|rpc-payload-copy-buffer-size = "16KiB"|rpc 复制 buffer 的大小|
+|rpc-enable-checksum = true|是否开启 rpc checksum|
+|logtail-collect-interval = "2ms"|logtail 的统计收集时间间隔|
+|logtail-response-send-timeout = "10s"|logtail 发送的超时时间|
+|max-logtail-fetch-failure = 5|获取 logtail 允许的最大失败次数|
 
 ## log.toml
 
@@ -78,10 +95,17 @@
 |level = "info" |日志级别，可修改为info/debug/error/faltal|
 |format = "console" |日志格式|
 |max-size = 512|日志默认长度|
+|[[fileservice]] |fileservice 配置，不建议更改|
+|name = "LOCAL"|fileservice 存储类型，本地存储|
+|backend = "DISK"|fileservice 后端介质，磁盘|
 |[[fileservice]]||
-|name = "S3" |fileservice 存储类型，S3|
+|name = "SHARED" |fileservice 存储类型，S3|
 |backend = "DISK"|fileservice 后端介质，磁盘|
 |data-dir = "mo-data/s3"|s3 存储数据路径|
+|[fileservice.cache]||
+|memory-capacity = "512MB"|fileservice 使用的 cache 内存大小|
+|disk-capacity = "8GB"|fileservice 使用的 cache 磁盘大小|
+|disk-path = "mo-data/file-service-cache"|fileservice 的磁盘 cache 路径|
 |[[fileservice]]||
 |name = "ETL"|fileservice 存储类型，ETL|
 |backend = "DISK-ETL"|fileservice 后端介质，DISK-ETL|
