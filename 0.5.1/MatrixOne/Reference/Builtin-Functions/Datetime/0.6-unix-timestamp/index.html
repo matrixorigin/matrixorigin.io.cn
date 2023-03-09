@@ -119,13 +119,13 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="https://docs.matrixorigin.io" hreflang="en" class="md-select__link">
+                  <a href="/en/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="https://docs.matrixorigin.io/cn/" hreflang="cn" class="md-select__link">
+                  <a href="/" hreflang="zh" class="md-select__link">
                     中文简体
                   </a>
                 </li>
@@ -4102,49 +4102,49 @@
 </table>
 <h3 id="utc-unix">非 UTC 时区的值和 Unix 时间戳值之间的转换</h3>
 <p>如果使用 <code>UNIX_TIMESTAMP()</code> 和 <code>FROM_UNIXTIME()</code> 在非 UTC（Coordinated Universal Time，协调世界时）时区的值和 Unix 时间戳值之间进行转换，则转换是有损的，因为映射在两个方向上不是一对一的。例如，由于诸如夏令时 (DST) 等本地时区更改的约定，<code>UNIX_TIMESTAMP()</code> 可以将在非 UTC 时区中不同的两个值映射到相同的 Unix 时间戳值。 <code>FROM_UNIXTIME()</code> 将该值仅映射回原始值之一。下面的示例，即，使用在 <code>MET</code> 时区不同的值：</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">time_zone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MET&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">(</span><span class="s1">&#39;2005-03-27 03:00:00&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">time_zone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MET&#39;</span><span class="p">;</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">(</span><span class="s1">&#39;2005-03-27 03:00:00&#39;</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">-------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">unix_timestamp</span><span class="p">(</span><span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">03</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">unix_timestamp</span><span class="p">(</span><span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">03</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------------------------------+</span>
-<span class="o">|</span><span class="w">                          </span><span class="mi">1111885200</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">-------------------------------------+</span>
-
-<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">(</span><span class="s1">&#39;2005-03-27 02:00:00&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="o">+</span><span class="c1">-------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">unix_timestamp</span><span class="p">(</span><span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">02</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">+</span><span class="c1">-------------------------------------+</span>
-<span class="o">|</span><span class="w">                          </span><span class="mi">1111885200</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">                          </span><span class="mi">1111885200</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------------------------------+</span>
 
-<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">FROM_UNIXTIME</span><span class="p">(</span><span class="mi">1111885200</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">(</span><span class="s1">&#39;2005-03-27 02:00:00&#39;</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">-------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">unix_timestamp</span><span class="p">(</span><span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">02</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------------------------------+</span>
+<span class="o">|</span><span class="w">                          </span><span class="mi">1111885200</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------------------------------+</span>
+
+<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">FROM_UNIXTIME</span><span class="p">(</span><span class="mi">1111885200</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">---------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">from_unixtime</span><span class="p">(</span><span class="mi">1111885200</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">from_unixtime</span><span class="p">(</span><span class="mi">1111885200</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">---------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">03</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w">       </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">03</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w">       </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">---------------------------+</span>
 </code></pre></div>
 <h2 id="_4"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">(</span><span class="ss">&quot;2016-07-11&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">(</span><span class="ss">&quot;2016-07-11&quot;</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">----------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">unix_timestamp</span><span class="p">(</span><span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">unix_timestamp</span><span class="p">(</span><span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------------------------+</span>
-<span class="o">|</span><span class="w">                 </span><span class="mi">1468195200</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">                 </span><span class="mi">1468195200</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------------------------+</span>
 
-<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">(</span><span class="s1">&#39;2015-11-13 10:20:19&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">(</span><span class="s1">&#39;2015-11-13 10:20:19&#39;</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">-------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">unix_timestamp</span><span class="p">(</span><span class="mi">2015</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">13</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">19</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">unix_timestamp</span><span class="p">(</span><span class="mi">2015</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">13</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">19</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------------------------------+</span>
-<span class="o">|</span><span class="w">                          </span><span class="mi">1447381219</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">                          </span><span class="mi">1447381219</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------------------------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">(</span><span class="s1">&#39;2015-11-13 10:20:19.012&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">(</span><span class="s1">&#39;2015-11-13 10:20:19.012&#39;</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">-----------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">unix_timestamp</span><span class="p">(</span><span class="mi">2015</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">13</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">19</span><span class="p">.</span><span class="mi">012</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">unix_timestamp</span><span class="p">(</span><span class="mi">2015</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">13</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">19</span><span class="p">.</span><span class="mi">012</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------------------------------------+</span>
-<span class="o">|</span><span class="w">                              </span><span class="mi">1447381219</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">                              </span><span class="mi">1447381219</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------------------------------------+</span>
 </code></pre></div>
 <h2 id="_5"><strong>限制</strong></h2>

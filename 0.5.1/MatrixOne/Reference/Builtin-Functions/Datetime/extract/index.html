@@ -119,13 +119,13 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="https://docs.matrixorigin.io" hreflang="en" class="md-select__link">
+                  <a href="/en/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="https://docs.matrixorigin.io/cn/" hreflang="cn" class="md-select__link">
+                  <a href="/" hreflang="zh" class="md-select__link">
                     中文简体
                   </a>
                 </li>
@@ -4168,13 +4168,13 @@
 </tbody>
 </table>
 <h2 id="_4"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="n">orderid</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">productname</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="n">orderdate</span><span class="w"> </span><span class="n">datetime</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;Jarl&#39;</span><span class="p">,</span><span class="s1">&#39;2008-11-11 13:23:44.657&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="k">YEAR</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">OrderDate</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">OrderYear</span><span class="p">,</span><span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="k">MONTH</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">OrderDate</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">OrderMonth</span><span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">OrderId</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="n">orderid</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">productname</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="n">orderdate</span><span class="w"> </span><span class="n">datetime</span><span class="p">);</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;Jarl&#39;</span><span class="p">,</span><span class="s1">&#39;2008-11-11 13:23:44.657&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="k">YEAR</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">OrderDate</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">OrderYear</span><span class="p">,</span><span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="k">MONTH</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">OrderDate</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">OrderMonth</span><span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">OrderId</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-----------+------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">orderyear</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ordermonth</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">orderyear</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ordermonth</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------+------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">2008</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="mi">11</span><span class="w">         </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="mi">2008</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="mi">11</span><span class="w">         </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------+------------+</span>
 </code></pre></div>
 <h2 id="_5"><strong>限制</strong></h2>

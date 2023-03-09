@@ -119,13 +119,13 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="https://docs.matrixorigin.io" hreflang="en" class="md-select__link">
+                  <a href="/en/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="https://docs.matrixorigin.io/cn/" hreflang="cn" class="md-select__link">
+                  <a href="/" hreflang="zh" class="md-select__link">
                     中文简体
                   </a>
                 </li>
@@ -4254,8 +4254,8 @@
 <p>（选做）下载源码并且安装 <code>Tushare</code> 依赖：</p>
 <p>a. 下载本篇文章所演示的 Demo 的源代码<a href="https://github.com/matrixorigin/matrixone_python_app">matrix_one_app</a>。</p>
 <p>b. 进入到源码路径 <em>matrixone_python_app/stock_analysis</em> 安装 <code>Tushare</code> 依赖项：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> matrixone_python_app/stock_analysis
-pip3 install -r requirements.txt
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>matrixone_python_app/stock_analysis
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
 </li>
 <li>
@@ -4313,7 +4313,7 @@ pip3 install -r requirements.txt
 </li>
 <li>
 <p>启动 MatrixOne 服务器，在 MatrixOne 创建名为 “stock” 的数据库。</p>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">stock</span><span class="p">.</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">stock</span><span class="p">.</span>
 </code></pre></div>
 </li>
 <li>
@@ -4348,13 +4348,13 @@ pip3 install -r requirements.txt
 <ol>
 <li>
 <p>将历史股票数据加载到 MatrixOne 后，查看数据记录，可以看到大约有1100万条记录：</p>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pe</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pe</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">11233508</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="mi">11233508</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">16</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w"></span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">16</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
