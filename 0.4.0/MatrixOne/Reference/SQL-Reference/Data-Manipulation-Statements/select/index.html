@@ -119,13 +119,13 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="https://docs.matrixorigin.io" hreflang="en" class="md-select__link">
+                  <a href="/en/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="https://docs.matrixorigin.io/cn/" hreflang="cn" class="md-select__link">
+                  <a href="/" hreflang="zh" class="md-select__link">
                     中文简体
                   </a>
                 </li>
@@ -2587,19 +2587,19 @@
 <h2 id="_1"><strong>语法描述</strong></h2>
 <p><code>SELECT</code>语句用于从表中检索数据。</p>
 <h2 id="_2"><strong>语法结构</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="k">ALL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DISTINCT</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="n">select_expr</span><span class="w"> </span><span class="p">[[</span><span class="k">AS</span><span class="p">]</span><span class="w"> </span><span class="k">alias</span><span class="p">],</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="k">INTO</span><span class="w"> </span><span class="k">variable</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="p">...]]</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table_references</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">expr</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{{</span><span class="n">col_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">position</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">extended_grouping_expr</span><span class="err">}</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="k">HAVING</span><span class="w"> </span><span class="n">expr</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{</span><span class="n">col_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">expr</span><span class="err">}</span><span class="w"> </span><span class="p">[</span><span class="k">ASC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DESC</span><span class="p">],</span><span class="w"> </span><span class="p">...]</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="k">LIMIT</span><span class="w"> </span><span class="k">row_count</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="k">OFFSET</span><span class="w"> </span><span class="k">row_count</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span>
+<span class="w">    </span><span class="p">[</span><span class="k">ALL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DISTINCT</span><span class="p">]</span>
+<span class="w">    </span><span class="n">select_expr</span><span class="w"> </span><span class="p">[[</span><span class="k">AS</span><span class="p">]</span><span class="w"> </span><span class="k">alias</span><span class="p">],</span><span class="w"> </span><span class="p">...</span>
+<span class="w">    </span><span class="p">[</span><span class="k">INTO</span><span class="w"> </span><span class="k">variable</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="p">...]]</span>
+<span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table_references</span>
+<span class="w">    </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">expr</span><span class="p">]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{{</span><span class="n">col_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">position</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="p">...</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">extended_grouping_expr</span><span class="err">}</span><span class="p">]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">HAVING</span><span class="w"> </span><span class="n">expr</span><span class="p">]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{</span><span class="n">col_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">expr</span><span class="err">}</span><span class="w"> </span><span class="p">[</span><span class="k">ASC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DESC</span><span class="p">],</span><span class="w"> </span><span class="p">...]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">LIMIT</span><span class="w"> </span><span class="k">row_count</span><span class="p">]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">OFFSET</span><span class="w"> </span><span class="k">row_count</span><span class="p">]</span>
+<span class="w">    </span><span class="p">]</span>
 </code></pre></div>
 <h3 id="select-into"><strong>SELECT INTO</strong></h3>
 <p><code>SELECT INTO</code> statement enables a query result to be stored in variables or written to a file<br />
@@ -2612,16 +2612,16 @@
 </ul>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">expr_list</span><span class="o">&gt;</span><span class="w"> </span>
 <span class="w">  </span><span class="k">INTO</span><span class="w"> </span><span class="n">OUTFILE</span><span class="w"> </span><span class="s1">&#39;file_name&#39;</span><span class="w"> </span>
-<span class="w">    </span><span class="p">[</span><span class="err">{</span><span class="n">FIELDS</span><span class="err">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="err">{</span><span class="n">FIELDS</span><span class="err">}</span>
 <span class="w">        </span><span class="p">[</span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;char&#39;</span><span class="p">]</span><span class="w"> </span>
-<span class="w">        </span><span class="p">[</span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;char&#39;</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="n">LINES</span><span class="w"></span>
-<span class="w">        </span><span class="p">[</span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="n">HEADER</span><span class="w"> </span><span class="s1">&#39;bool&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;char&#39;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">    </span><span class="p">[</span><span class="n">LINES</span>
+<span class="w">        </span><span class="p">[</span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">    </span><span class="p">[</span><span class="n">HEADER</span><span class="w"> </span><span class="s1">&#39;bool&#39;</span><span class="p">]</span>
 <span class="w">    </span><span class="p">[</span><span class="n">MAX_FILE_SIZE</span><span class="w"> </span><span class="n">long</span><span class="p">]</span><span class="w"> </span>
-<span class="w">    </span><span class="p">[</span><span class="n">FORCE_QUOTE</span><span class="w"> </span><span class="err">{</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span><span class="s1">&#39;col2&#39;</span><span class="p">,...</span><span class="err">}</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">FORCE_QUOTE</span><span class="w"> </span><span class="err">{</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span><span class="s1">&#39;col2&#39;</span><span class="p">,...</span><span class="err">}</span><span class="p">]</span>
 </code></pre></div>
 <h4 id="_3">参数释义</h4>
 <ul>
@@ -2647,26 +2647,26 @@
 <li>目前只支持通过绝对路径将文件导出到服务器主机，而不能导出到远程客户端。</li>
 </ul>
 <h2 id="_5"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">numbers</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">numbers</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">--------+</span>
-<span class="o">|</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">--------+</span>
-<span class="o">|</span><span class="w">      </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">      </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w">      </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">      </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">--------+</span>
 
-<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">spID</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="o">&gt;=</span><span class="mi">2</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">spID</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="o">&gt;=</span><span class="mi">2</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
-<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">userID</span><span class="p">,</span><span class="k">MAX</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="n">max_score</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">max_score</span><span class="p">;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">userID</span><span class="p">,</span><span class="k">MAX</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="n">max_score</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">userID</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">max_score</span><span class="p">;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">outfile</span><span class="w"> </span><span class="s1">&#39;/Users/tmp/test.csv&#39;</span><span class="w"> </span>
 <span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span>
-<span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="w"></span>
+<span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span>
 <span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span>
 <span class="n">header</span><span class="w"> </span><span class="s1">&#39;TRUE&#39;</span><span class="w"> </span>
 <span class="n">MAX_FILE_SIZE</span><span class="w"> </span><span class="mi">9223372036854775807</span><span class="w"> </span>
-<span class="n">FORCE_QUOTE</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="n">FORCE_QUOTE</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
               
