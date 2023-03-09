@@ -36,4 +36,4 @@ MatrixOne 是一款面向未来的超融合异构云原生数据库，通过超�
 
 * **除了官方文档，是否还有其他 MatrixOne 知识获取途径？**
 
-  目前，[MatrixOne 文档](https://docs.matrixorigin.io/)是获取 MatrixOne 相关知识最重要、最及时的途径。此外，我们在 Slack 和微信还有一些技术交流群。如有任何需求，请联系 [opensource@matrixorigin.io](mailto:opensource@matrixorigin.io)。
+  目前，[MatrixOne 文档](https://docs.matrixorigin.cn)是获取 MatrixOne 相关知识最重要、最及时的途径。此外，我们在 Slack 和微信还有一些技术交流群。如有任何需求，请联系 [opensource@matrixorigin.io](mailto:opensource@matrixorigin.io)。
