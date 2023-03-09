@@ -95,9 +95,9 @@ MatrixOne 社区一共准备了 4 个类别的 56 个任务，有不同的难度
 
 ## 在开始之前
 
-1. 仔细阅读下 MatrixOne 社区的[贡献者指南](https://docs.matrixorigin.io/0.3.0/MatrixOne/Contribution-Guide/make-your-first-contribution/)了解如何向 MatrixOne 提交代码。
-2. 了解整个 MatrixOne 数据库项目，参考 [MatrixOne 项目文档](https://docs.matrixorigin.io/).
-3. 详细查看[**系统函数构建指南**](https://docs.matrixorigin.io/0.3.0/MatrixOne/Contribution-Guide/Tutorial/develop_builtin_functions/)与[**聚合函数构建指南**](https://docs.matrixorigin.io/0.3.0/MatrixOne/Contribution-Guide/Tutorial/develop_aggregate_functions/)，其中详细描述了如何在 MatrixOne 中开发系统函数和聚合函数，同时给出了很多样例代码。
+1. 仔细阅读下 MatrixOne 社区的[贡献者指南](https://docs.matrixorigin.cn/0.3.0/MatrixOne/Contribution-Guide/make-your-first-contribution/)了解如何向 MatrixOne 提交代码。
+2. 了解整个 MatrixOne 数据库项目，参考 [MatrixOne 项目文档](https://docs.matrixorigin.cn/).
+3. 详细查看[**系统函数构建指南**](https://docs.matrixorigin.cn/0.3.0/MatrixOne/Contribution-Guide/Tutorial/develop_builtin_functions/)与[**聚合函数构建指南**](https://docs.matrixorigin.cn/0.3.0/MatrixOne/Contribution-Guide/Tutorial/develop_aggregate_functions/)，其中详细描述了如何在 MatrixOne 中开发系统函数和聚合函数，同时给出了很多样例代码。
 
 ## 提交代码 (Pull Request) 要求
 
@@ -120,7 +120,7 @@ A: 是的，参与开发者都需要在 issue 下面评论认领后再开始任�
 A: 目前 MatrixOne 还不支持无表及常数参数的 SQL 语句，因此 `select abs(-1);` 和 `select abs(-1) from table1;` 这样的语句均会出错。正确的 SQL 语句是需要创建一张表，导入一些数据，然后再将列名作为参数运行 built-in 函数。如以下例子：
 
 ```sql
-select abs(a) from t; 
+select abs(a) from t;
 ```
 
 **Q: 为什么每次 PR 完成之后，我的仓库总是会比 MatrixOne 领先？**
@@ -165,7 +165,7 @@ Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
 owners.
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement. 
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 ```
 
 Q: 我的 MatrixOne 服务启动了，但是我的 MySQL 客户端始终连接不上，这个应该怎么解决？

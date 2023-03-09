@@ -20,7 +20,7 @@ MatrixOne 文档通过三个仓库来协调管理：
 https://github.com/matrixorigin/artwork/blob/main/docs/overview/overall-architecture.png?raw=true
 ```
 
-`matrixorigin.io` 和 `matrixorigin.io.cn` 均部署了一个 CI 程序，当有新的代码被合并时将自动触发，将文档发布到我们的[官方文档网站](https://docs.matrixorigin.io/)。  
+`matrixorigin.io` 和 `matrixorigin.io.cn` 均部署了一个 CI 程序，当有新的代码被合并时将自动触发，将文档发布到我们的[官方文档网站](https://docs.matrixorigin.cn)。  
 我们的文档是基于 [mkdocs-material](https://github.com/squidfunk/mkdocs-material) 组件进行开发的，您可以在此链接中了解更多信息。
 
 ## **文档内容架构**
