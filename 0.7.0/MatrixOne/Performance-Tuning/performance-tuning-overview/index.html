@@ -13,7 +13,7 @@
     
     
       
-        <title>聚合查询的执行计划 - MatrixOne 中文文档</title>
+        <title>SQL 性能调优方法概述 - MatrixOne 中文文档</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#explain" class="md-skip">
+        <a href="#sql" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              聚合查询的执行计划
+              SQL 性能调优方法概述
             
           </span>
         </div>
@@ -119,13 +119,13 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="https://docs.matrixorigin.io" hreflang="en" class="md-select__link">
+                  <a href="/en/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="https://docs.matrixorigin.io/cn/" hreflang="cn" class="md-select__link">
+                  <a href="/" hreflang="zh" class="md-select__link">
                     中文简体
                   </a>
                 </li>
@@ -1982,24 +1982,46 @@
     
   
   
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        SQL 性能调优方法概述
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10_1" type="checkbox" id="__nav_1_10_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10_2" type="checkbox" id="__nav_1_10_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_10_1">
-          理解 MatrixOne 执行计划
+        <label class="md-nav__link" for="__nav_1_10_2">
+          MatrixOne 执行计划
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="理解 MatrixOne 执行计划" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_10_1">
+      <nav class="md-nav" aria-label="MatrixOne 执行计划" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_10_2">
           <span class="md-nav__icon md-icon"></span>
-          理解 MatrixOne 执行计划
+          MatrixOne 执行计划
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2009,7 +2031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-overview/" class="md-nav__link">
+      <a href="../explain/explain-overview/" class="md-nav__link">
         MatrixOne 执行计划概述
       </a>
     </li>
@@ -2023,7 +2045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-walkthrough/" class="md-nav__link">
+      <a href="../explain/explain-walkthrough/" class="md-nav__link">
         使用 EXPLAIN 理解执行计划
       </a>
     </li>
@@ -2037,7 +2059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-joins/" class="md-nav__link">
+      <a href="../explain/explain-joins/" class="md-nav__link">
         JOIN 查询的执行计划
       </a>
     </li>
@@ -2051,7 +2073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-subqueries/" class="md-nav__link">
+      <a href="../explain/explain-subqueries/" class="md-nav__link">
         子查询的执行计划
       </a>
     </li>
@@ -2063,65 +2085,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          聚合查询的执行计划
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../explain/explain-aggregation/" class="md-nav__link">
         聚合查询的执行计划
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    示例
-  </a>
-  
-    <nav class="md-nav" aria-label="示例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hash-aggregation" class="md-nav__link">
-    Hash Aggregation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2133,8 +2101,55 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-views/" class="md-nav__link">
+      <a href="../explain/explain-views/" class="md-nav__link">
         视图的执行计划
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10_3" type="checkbox" id="__nav_1_10_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_10_3">
+          性能调优最佳实践
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="性能调优最佳实践" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_10_3">
+          <span class="md-nav__icon md-icon"></span>
+          性能调优最佳实践
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization-concepts/through-cluster-by/" class="md-nav__link">
+        使用 Cluster by 语句调优
       </a>
     </li>
   
@@ -6965,34 +6980,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    示例
-  </a>
-  
-    <nav class="md-nav" aria-label="示例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hash-aggregation" class="md-nav__link">
-    Hash Aggregation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -7003,50 +6990,41 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Performance-Tuning/explain-aggregation.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Performance-Tuning/performance-tuning-overview.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="explain">用 EXPLAIN 查看聚合查询执行计划</h1>
-<p>SQL 查询中可能会使用聚合计算，可以通过 EXPLAIN 语句来查看聚合查询的执行计划。</p>
-<h2 id="_1">示例</h2>
-<p>我们这里准备一个简单的示例，帮助你理解使用 EXPLAIN 解读聚合查询的执行计划。</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">ti</span><span class="w"> </span><span class="n">tinyint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">si</span><span class="w"> </span><span class="nb">smallint</span><span class="p">,</span><span class="n">bi</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="n">unsigned</span><span class="p">,</span><span class="n">fl</span><span class="w"> </span><span class="nb">float</span><span class="p">,</span><span class="n">dl</span><span class="w"> </span><span class="n">double</span><span class="p">,</span><span class="n">de</span><span class="w"> </span><span class="nb">decimal</span><span class="p">,</span><span class="n">ch</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="n">vch</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="n">dd</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span><span class="n">dt</span><span class="w"> </span><span class="n">datetime</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1113</span><span class="p">.</span><span class="mi">32</span><span class="p">,</span><span class="mi">111332</span><span class="p">,</span><span class="mi">1113</span><span class="p">.</span><span class="mi">32</span><span class="p">,</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="s1">&#39;subquery&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28 22:40:11&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2252</span><span class="p">.</span><span class="mi">05</span><span class="p">,</span><span class="mi">225205</span><span class="p">,</span><span class="mi">2252</span><span class="p">.</span><span class="mi">05</span><span class="p">,</span><span class="s1">&#39;bye&#39;</span><span class="p">,</span><span class="s1">&#39;sub query&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28 22:40:11&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3663</span><span class="p">.</span><span class="mi">21</span><span class="p">,</span><span class="mi">366321</span><span class="p">,</span><span class="mi">3663</span><span class="p">.</span><span class="mi">21</span><span class="p">,</span><span class="s1">&#39;hi&#39;</span><span class="p">,</span><span class="s1">&#39;subquery&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28 22:40:11&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4715</span><span class="p">.</span><span class="mi">22</span><span class="p">,</span><span class="mi">471522</span><span class="p">,</span><span class="mi">4715</span><span class="p">.</span><span class="mi">22</span><span class="p">,</span><span class="s1">&#39;good morning&#39;</span><span class="p">,</span><span class="s1">&#39;my subquery&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28 22:40:11&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">51</span><span class="p">.</span><span class="mi">26</span><span class="p">,</span><span class="mi">5126</span><span class="p">,</span><span class="mi">51</span><span class="p">.</span><span class="mi">26</span><span class="p">,</span><span class="s1">&#39;byebye&#39;</span><span class="p">,</span><span class="s1">&#39; is subquery?&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28 22:40:11&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">632</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">6321</span><span class="p">,</span><span class="mi">632</span><span class="p">.</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;good night&#39;</span><span class="p">,</span><span class="s1">&#39;maybe subquery&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28 22:40:11&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7443</span><span class="p">.</span><span class="mi">11</span><span class="p">,</span><span class="mi">744311</span><span class="p">,</span><span class="mi">7443</span><span class="p">.</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span><span class="s1">&#39;subquery&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28 22:40:11&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8758</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="mi">875800</span><span class="p">,</span><span class="mi">8758</span><span class="p">.</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;nice to meet&#39;</span><span class="p">,</span><span class="s1">&#39;just subquery&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28 22:40:11&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9849</span><span class="p">.</span><span class="mi">312</span><span class="p">,</span><span class="mi">9849312</span><span class="p">,</span><span class="mi">9849</span><span class="p">.</span><span class="mi">312</span><span class="p">,</span><span class="s1">&#39;see you&#39;</span><span class="p">,</span><span class="s1">&#39;subquery&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28&#39;</span><span class="p">,</span><span class="s1">&#39;2022-04-28 22:40:11&#39;</span><span class="p">);</span>
-</code></pre></div>
-<h3 id="hash-aggregation">Hash Aggregation</h3>
-<p>Hash Aggregation 算法在执行聚合时使用 Hash 表存储中间结果。此算法采用多线程并发优化，执行速度快，但与 Stream Aggregation 算法相比会消耗较多内存。</p>
-<p>下面是一个使用 Hash Aggregation 的例子：</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="cm">/*+ HASH_AGG() */</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span><span class="w">        </span><span class="mi">9</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">----------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="cm">/*+ HASH_AGG() */</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">-------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                   </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Aggregate</span><span class="w">                           </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="k">Aggregate</span><span class="w"> </span><span class="n">Functions</span><span class="p">:</span><span class="w"> </span><span class="n">starcount</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">          </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------------------------+</span>
-<span class="mi">4</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-</code></pre></div>
+<h1 id="sql">SQL 性能调优方法概述</h1>
+<p>SQL 性能调优是一种优化数据库查询和操作的过程，旨在提高数据库的性能和响应时间。常见的几种性能调优方式如下：</p>
+<ul>
+<li>
+<p>索引优化：索引可以加速查询，提高数据库的性能。通过使用正确的索引类型、选择正确的索引列、避免使用过多的索引以及定期重新构建索引等方法，可以最大化地利用索引来提高性能。</p>
+</li>
+<li>
+<p>优化查询语句：通过优化查询语句的结构、避免使用不必要的子查询、使用更有效的 <code>JOIN</code> 语句、避免使用 <code>OR</code> 操作符等方法，可以减少查询所需的时间和资源。</p>
+</li>
+<li>
+<p>优化表结构：优化表结构，如选择正确的数据类型、避免 NULL 值、使用合适的约束和默认值、归一化和反归一化等方法，可以减少表的存储空间和减少查询的时间。</p>
+</li>
+<li>
+<p>控制数据量：通过限制返回的数据量、分页、缓存、使用存储过程等方法，可以减少查询所需的时间和资源。</p>
+</li>
+<li>
+<p>优化服务器配置：通过增加服务器的内存、调整数据库参数、定期清理日志和缓存等方法，可以提高数据库的性能和响应时间。</p>
+</li>
+<li>
+<p>监控和调试：使用数据库性能监控工具、调试 SQL 查询语句、查看数据库的日志和错误信息等方法，可以帮助发现并解决性能问题。</p>
+</li>
+</ul>
+<p>需要注意的是，SQL 性能调优是一种复杂的过程，需要综合考虑数据库的结构、数据量、查询模式等多个因素，同时需要不断测试和验证优化结果，才能最终提高数据库的性能和响应时间。</p>
+<p>MatrixOne 在执行 SQL 语句时，会自动规划并选择最优的执行方案，并非按照 SQL 语句进行查询，当前 MatrixOne 支持通过 <strong>EXPLAIN 解读执行计划</strong>选择最优执行方案进行性能调优，也支持通过优化表的物理排列进行性能调优。为帮助你更好的 MatrixOne 对于 SQL 语句查询进行性能调优，你可以查看以下文档：</p>
+<ul>
+<li><a href="../explain/explain-overview/">了解 MatrixOne 执行计划</a>：介绍 MatrixOne 执行计划概念。</li>
+<li><a href="../explain/explain-walkthrough/">使用 EXPLAIN 解读执行计划</a>：介绍如何使用 EXPLAIN 语句来理解 MatrixOne 是如何执行某个查询的。</li>
+<li><a href="../optimization-concepts/through-cluster-by/">性能调优最佳实践</a>：介绍 MatrixOne 使用 <code>Cluster by</code> 达到性能调优的最佳实践，学习提高查询性能的方法。</li>
+</ul>
 
               
             </article>
@@ -7060,7 +7038,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../explain-subqueries/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 子查询的执行计划" rel="prev">
+        <a href="../../Test/testing-tool/mo-tester-reference/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MO-Tester 规范要求" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -7069,20 +7047,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              子查询的执行计划
+              MO-Tester 规范要求
             </div>
           </div>
         </a>
       
       
         
-        <a href="../explain-views/" class="md-footer__link md-footer__link--next" aria-label="Next: 视图的执行计划" rel="next">
+        <a href="../explain/explain-overview/" class="md-footer__link md-footer__link--next" aria-label="Next: MatrixOne 执行计划概述" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              视图的执行计划
+              MatrixOne 执行计划概述
             </div>
           </div>
           <div class="md-footer__button md-icon">
