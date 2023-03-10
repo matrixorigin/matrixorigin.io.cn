@@ -24,6 +24,7 @@
         [TERMINATED BY 'string']
     ]
     [IGNORE number {LINES | ROWS}]
+    [SET column_name_1=nullif(column_name_1, expr1), column_name_2=nullif(column_name_2, expr2)...]
     [PARALLEL {'TRUE' | 'FALSE'}]
 ```
 
@@ -171,6 +172,50 @@ something xxx"def",2
 ```
 
 则输出的结果行是 ("abc"，1) 和 ("def"，2)。文件中的第三行由于没有前缀，则被忽略。
+
+### SET
+
+MatrixOne 当前仅支持 `SET column_name=nullif(column_name,expr)`。即，当 `column_name = expr`，返回 `NULL`；否则，则返回 `column_name`。例如，`SET a=nullif(a, 1)`，当 a=1 时，返回 `NULL`；否则，返回 a 列原始的值。
+
+使用这种方法，可以在加载文件时，设置参数 `SET column_name=nullif(column_name,"null")`，用于返回列中的 `NULL` 值。
+
+**示例**
+
+1. 本地文件 `test.txt` 详情如下：
+
+    ```
+    id,user_name,sex
+    1,"weder","man"
+    2,"tom","man"
+    null,wederTom,"man"
+    ```
+
+2. 在 MatrixOne 中新建一个表 `user`：
+
+    ```sql
+    create database aaa;
+    use aaa;
+    CREATE TABLE `user` (`id` int(11) ,`user_name` varchar(255) ,`sex` varchar(255));
+    ```
+
+3. 使用下面的命令行将 `test.txt` 导入至表 `user`：
+
+    ```sql
+    LOAD DATA INFILE '/tmp/test.txt' INTO TABLE user SET id=nullif(id,"null");
+    ```
+
+4. 导入后的表内容如下：
+
+    ```sql
+    select * from user;
+    +------+-----------+------+
+    | id   | user_name | sex  |
+    +------+-----------+------+
+    |    1 | weder     | man  |
+    |    2 | tom       | man  |
+    | null | wederTom  | man  |
+    +------+-----------+------+
+    ```
 
 ### PARALLEL
 
@@ -396,7 +441,7 @@ mysql> select * from t1;
 ## **限制**
 
 1. `REPLACE` 和 `IGNORE` 修饰符解决唯一索引的冲突：`REPLACE` 表示若表中已经存在则用新的数据替换掉旧的数据，而 `IGNORE` 则表示保留旧的数据，忽略掉新数据。这两个修饰符在 MatrixOne 中尚不支持。
-2. `SET` 提供不是来源于输入文件的值，MatrixOne 当前部分支持 `SET`，仅支持 `SET columns_name=nullif(expr1,expr2)`。
+2. MatrixOne 当前部分支持 `SET`，仅支持 `SET columns_name=nullif(col_name,expr2)`。
 3. 开启并行加载操作时必须要保证文件中每行数据中不包含指定的行结束符，比如 '\n'，否则有可能会导致文件加载时数据出错。
 4. 文件的并行加载要求文件必须是非压缩格式，暂不支持并行加载压缩格式的文件。
 5. `LOAD DATA LOCAL` 暂不支持并行加载。
