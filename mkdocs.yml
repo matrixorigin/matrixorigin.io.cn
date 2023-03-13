@@ -339,7 +339,7 @@ nav:
           - DATE_ADD(): MatrixOne/Reference/Builtin-Functions/Datetime/date-add.md
           - DATE_FORMAT(): MatrixOne/Reference/Builtin-Functions/Datetime/date-format.md
           - DATE_SUB(): MatrixOne/Reference/Builtin-Functions/Datetime/date-sub.md
-          - DATEDIFF(): MatrixOne/Reference/Builtin-Functions/Datetime/date
+          - DATEDIFF(): MatrixOne/Reference/Builtin-Functions/Datetime/datediff.md
           - DAY(): MatrixOne/Reference/Builtin-Functions/Datetime/day.md
           - DAYOFYEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/dayofyear.md
           - EXTRACT(): MatrixOne/Reference/Builtin-Functions/Datetime/extract.md
