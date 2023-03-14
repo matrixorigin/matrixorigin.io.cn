@@ -19,7 +19,7 @@ POWER(X, Y) 返回 X 的 Y 次方指数值。
 
 ## **示例**
 
-````sql
+```sql
 drop table if exists t1;
 create table t1(a int,b int);
 insert into t1 values(5,-2),(10,3),(100,0),(4,3),(6,-3);
