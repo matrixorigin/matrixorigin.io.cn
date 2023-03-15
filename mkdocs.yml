@@ -339,7 +339,7 @@ nav:
           - DATE_ADD(): MatrixOne/Reference/Builtin-Functions/Datetime/date-add.md
           - DATE_FORMAT(): MatrixOne/Reference/Builtin-Functions/Datetime/date-format.md
           - DATE_SUB(): MatrixOne/Reference/Builtin-Functions/Datetime/date-sub.md
-          - DATEDIFF(): MatrixOne/Reference/Builtin-Functions/Datetime/date
+          - DATEDIFF(): MatrixOne/Reference/Builtin-Functions/Datetime/datediff.md
           - DAY(): MatrixOne/Reference/Builtin-Functions/Datetime/day.md
           - DAYOFYEAR(): MatrixOne/Reference/Builtin-Functions/Datetime/dayofyear.md
           - EXTRACT(): MatrixOne/Reference/Builtin-Functions/Datetime/extract.md
@@ -356,7 +356,7 @@ nav:
           - BIN(): MatrixOne/Reference/Builtin-Functions/String/bin.md
           - BIT_LENGTH(): MatrixOne/Reference/Builtin-Functions/String/bit-length.md
           - CHAR_LENGTH(): MatrixOne/Reference/Builtin-Functions/String/char-length.md
-          - CONCAT(): MatrixOne/Reference/Builtin-Functions/String/concat-ws.md
+          - CONCAT(): MatrixOne/Reference/Builtin-Functions/String/concat.md
           - CONCAT_WS(): MatrixOne/Reference/Builtin-Functions/String/concat-ws.md
           - EMPTY(): MatrixOne/Reference/Builtin-Functions/String/empty.md
           - ENDSWITH(): MatrixOne/Reference/Builtin-Functions/String/endswith.md
