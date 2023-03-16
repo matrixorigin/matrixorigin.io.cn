@@ -26,7 +26,7 @@ mysql> show table_number from mo_catalog;
 |                             11 |
 +--------------------------------+
 
-//验证一下是哪些表
+-- 验证一下是哪些表
 mysql> use mo_catalog;
 mysql> show tables;
 +----------------------------+
@@ -49,15 +49,15 @@ mysql> show tables;
 
 - **示例 2**：创建数据库，并创建了新的表，查询指定数据库下表的总数：
 
-```
+```sql
 create database demo_1;
 use demo_1;
-//创建三个新的表
+-- 创建三个新的表
 CREATE TABLE t1(a bigint, b varchar(10), c varchar(10));
 CREATE TABLE t2(a bigint, b int);
 CREATE TABLE t3(a int, b varchar(10), c varchar(10));
 
-//查询出数据库 demo_1 中有三个表
+-- 查询出数据库 demo_1 中有三个表
 mysql> show table_number from demo_1;
 +----------------------------+
 | Number of tables in demo_1 |
@@ -89,7 +89,7 @@ mysql> show column_number from mo_user;
 |                           11 |
 +------------------------------+
 
-//或者使用下面的命令
+-- 或者使用下面的命令
 mysql> show column_number from mo_catalog.mo_user;
 +------------------------------+
 | Number of columns in mo_user |
@@ -97,7 +97,7 @@ mysql> show column_number from mo_catalog.mo_user;
 |                           11 |
 +------------------------------+
 
-//查看验证有哪些列
+-- 查看验证有哪些列
 mysql> desc mo_catalog.mo_user;
 +-----------------------+--------------+------+------+---------+-------+---------+
 | Field                 | Type         | Null | Key  | Default | Extra | Comment |
@@ -160,7 +160,7 @@ MO_TABLE_ROWS({DATABASE_NAME},{TABLE_NAME})
 ### 示例
 
 ```sql
-//查询数据库 mo_catalog 下表 mo_tables 的总行数
+-- 查询数据库 mo_catalog 下表 mo_tables 的总行数
 mysql> select mo_table_rows('mo_catalog','mo_tables');
 +--------------------------------------+
 | mo_table_rows(mo_catalog, mo_tables) |
@@ -182,7 +182,7 @@ MO_TABLE_SIZE({DATABASE_NAME},{TABLE_NAME})
 ### 示例
 
 ```sql
-//查询数据库 mo_catalog 下表 mo_tables 占用的存储空间
+-- 查询数据库 mo_catalog 下表 mo_tables 占用的存储空间
 mysql> select mo_table_size('mo_catalog','mo_tables');
 +--------------------------------------+
 | mo_table_size(mo_catalog, mo_tables) |

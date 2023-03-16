@@ -179,7 +179,7 @@ load data infile '/YOUR_TPCH_DATA_PATH/lineitem.tbl' into table LINEITEM FIELDS 
 ## **5. 运行 TPCH 测试命令**
 
 ```sql
---Q1
+-- Q1
 select
     l_returnflag,
     l_linestatus,
@@ -203,7 +203,7 @@ order by
     l_linestatus
 ;
 
---Q2
+-- Q2
 select
     s_acctbal,
     s_name,
@@ -251,7 +251,7 @@ limit 100
 ;
 
 
---Q3
+-- Q3
 select
     l_orderkey,
     sum(l_extendedprice * (1 - l_discount)) as revenue,
@@ -277,7 +277,7 @@ order by
 limit 10
 ;
 
---Q4
+-- Q4
 select
     o_orderpriority,
     count(*) as order_count
@@ -302,7 +302,7 @@ order by
 ;
 
 
---Q5
+-- Q5
 select
     n_name,
     sum(l_extendedprice * (1 - l_discount)) as revenue
@@ -330,7 +330,7 @@ order by
 ;
 
 
---Q6
+-- Q6
 select
     sum(l_extendedprice * l_discount) as revenue
 from
@@ -341,7 +341,7 @@ where
     and l_discount between 0.03 - 0.01 and 0.03 + 0.01
     and l_quantity < 24;
 
---Q7
+-- Q7
 select
     supp_nation,
     cust_nation,
@@ -383,7 +383,7 @@ order by
     l_year
 ;
 
---Q8
+-- Q8
 select
     o_year,
     (sum(case
@@ -423,7 +423,7 @@ order by
     o_year
 ;
 
---Q9
+-- Q9
 select
     nation,
     o_year,
@@ -459,7 +459,7 @@ order by
 ;
 
 
---Q10
+-- Q10
 select
     c_custkey,
     c_name,
@@ -495,7 +495,7 @@ limit 20
 ;
 
 
---Q11
+-- Q11
 select
     ps_partkey,
     sum(ps_supplycost * ps_availqty) as value
@@ -524,7 +524,7 @@ order by
     value desc
 ;
 
---Q12
+-- Q12
 select
         l_shipmode,
         sum(case
@@ -555,7 +555,7 @@ order by
         l_shipmode
 ;
 
---Q13
+-- Q13
 select
     c_count,
     count(*) as custdist
@@ -578,7 +578,7 @@ order by
     c_count desc
 ;
 
---Q14
+-- Q14
 select
     100.00 * sum(case
         when p_type like 'PROMO%'
@@ -593,7 +593,7 @@ where
     and l_shipdate >= date '1996-04-01'
     and l_shipdate < date '1996-04-01' + interval '1' month;
 
---Q15
+-- Q15
 with q15_revenue0 as (
     select
         l_suppkey as supplier_no,
@@ -627,7 +627,7 @@ order by
     s_suppkey
 ;
 
---Q16
+-- Q16
 select
     p_brand,
     p_type,
@@ -660,7 +660,7 @@ order by
     p_size
 ;
 
---Q17
+-- Q17
 select
     sum(l_extendedprice) / 7.0 as avg_yearly
 from
@@ -679,7 +679,7 @@ where
             l_partkey = p_partkey
     );
 
---Q18
+-- Q18
 select
     c_name,
     c_custkey,
@@ -715,7 +715,7 @@ order by
 limit 100
 ;
 
---Q19
+-- Q19
 select
     sum(l_extendedprice* (1 - l_discount)) as revenue
 from
@@ -752,7 +752,7 @@ where
         and l_shipinstruct = 'DELIVER IN PERSON'
     );
 
---Q20
+-- Q20
 select
     s_name,
     s_address
@@ -791,7 +791,7 @@ where
 order by s_name
 ;
 
---Q21
+-- Q21
 select
     s_name,
     count(*) as numwait
@@ -834,7 +834,7 @@ order by
 limit 100
 ;
 
---Q22
+-- Q22
 select
     cntrycode,
     count(*) as numcust,

@@ -379,7 +379,7 @@ mysql> SHOW CREATE TABLE tp1;
 +-------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-//不指定分区数
+-- 不指定分区数
 CREATE TABLE tp2 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY KEY(col3);
 
 mysql> SHOW CREATE TABLE tp2;
@@ -394,7 +394,7 @@ mysql> SHOW CREATE TABLE tp2;
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-//指定分区算法
+-- 指定分区算法
 CREATE TABLE tp3
 (
     col1 INT,
@@ -415,7 +415,7 @@ mysql> show create table tp3;
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-//指定分区算法及分区数
+-- 指定分区算法及分区数
 CREATE TABLE tp4 (col1 INT, col2 CHAR(5), col3 DATE) PARTITION BY LINEAR KEY ALGORITHM = 1 (col3) PARTITIONS 5;
 
 mysql> SHOW CREATE TABLE tp4;
@@ -430,7 +430,7 @@ mysql> SHOW CREATE TABLE tp4;
 +-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-//多列分区
+-- 多列分区
 CREATE TABLE tp5
 (
     col1 INT,
@@ -450,7 +450,7 @@ mysql> SHOW CREATE TABLE tp5;
 +-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-//创建主键列分区
+-- 创建主键列分区
 CREATE TABLE tp6
 (
     col1 INT  NOT NULL PRIMARY KEY,
@@ -473,7 +473,7 @@ PRIMARY KEY (`col1`)
 +-------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-//创建HASH分区
+-- 创建HASH分区
 CREATE TABLE tp7
 (
     col1 INT,
@@ -491,7 +491,7 @@ mysql> SHOW CREATE TABLE tp7;
 +-------+------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-//创建 HASH 分区时指定分区数
+-- 创建 HASH 分区时指定分区数
 CREATE TABLE tp8
 (
     col1 INT,
@@ -509,7 +509,7 @@ mysql> SHOW CREATE TABLE tp8;
 +-------+-------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-//创建分区时，指定分区粒度
+-- 创建分区时，指定分区粒度
 CREATE TABLE tp9
 (
     col1 INT,
@@ -529,7 +529,7 @@ mysql> SHOW CREATE TABLE tp9;
 +-------+------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-//创建分区时，指定分区粒度和分区数量
+-- 创建分区时，指定分区粒度和分区数量
 CREATE TABLE tp10
 (
     col1 INT,
@@ -549,7 +549,7 @@ mysql> SHOW CREATE TABLE tp10;
 +-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-//创建分区时，使用主键列作为 HASH 分区
+-- 创建分区时，使用主键列作为 HASH 分区
 CREATE TABLE tp12 (col1 INT NOT NULL PRIMARY KEY, col2 DATE NOT NULL, col3 INT NOT NULL, col4 INT NOT NULL) PARTITION BY HASH(col1) PARTITIONS 4;
 
 mysql> SHOW CREATE TABLE tp12;
@@ -566,7 +566,7 @@ PRIMARY KEY (`col1`)
 +-------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-//创建 RANGE 分区，并划分分区范围
+-- 创建 RANGE 分区，并划分分区范围
 CREATE TABLE tp13 (id INT NOT NULL PRIMARY KEY, fname VARCHAR(30), lname VARCHAR(30), hired DATE NOT NULL DEFAULT '1970-01-01', separated DATE NOT NULL DEFAULT '9999-12-31', job_code INT NOT NULL, store_id INT NOT NULL) PARTITION BY RANGE (id) (PARTITION p0 VALUES LESS THAN (6), PARTITION p1 VALUES LESS THAN (11), PARTITION p2 VALUES LESS THAN (16), PARTITION p3 VALUES LESS THAN (21));
 
 mysql> SHOW CREATE TABLE tp13;
@@ -604,7 +604,7 @@ mysql> SHOW CREATE TABLE tp14;
 +-------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-//使用多列作为 RANGE 分区，并指定分区范围
+-- 使用多列作为 RANGE 分区，并指定分区范围
 CREATE TABLE tp15 (a INT NOT NULL, b INT NOT NULL) PARTITION BY RANGE COLUMNS(a,b) PARTITIONS 4 (PARTITION p0 VALUES LESS THAN (10,5), PARTITION p1 VALUES LESS THAN (20,10), PARTITION p2 VALUES LESS THAN (50,20), PARTITION p3 VALUES LESS THAN (65,30));
 
 mysql> SHOW CREATE TABLE tp15;
@@ -618,7 +618,7 @@ mysql> SHOW CREATE TABLE tp15;
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 
-//创建 LIST 分区
+-- 创建 LIST 分区
 CREATE TABLE tp16 (id   INT PRIMARY KEY, name VARCHAR(35), age INT unsigned) PARTITION BY LIST (id) (PARTITION r0 VALUES IN (1, 5, 9, 13, 17, 21), PARTITION r1 VALUES IN (2, 6, 10, 14, 18, 22), PARTITION r2 VALUES IN (3, 7, 11, 15, 19, 23), PARTITION r3 VALUES IN (4, 8, 12, 16, 20, 24));
 
 mysql> SHOW CREATE TABLE tp16;
@@ -648,7 +648,7 @@ mysql> SHOW CREATE TABLE tp17;
 +-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
 
-//使用多列作为 LIST 分区
+-- 使用多列作为 LIST 分区
 CREATE TABLE tp18 (a INT NULL,b INT NULL) PARTITION BY LIST COLUMNS(a,b) (PARTITION p0 VALUES IN( (0,0), (NULL,NULL) ), PARTITION p1 VALUES IN( (0,1), (0,2), (0,3), (1,1), (1,2) ), PARTITION p2 VALUES IN( (1,0), (2,0), (2,1), (3,0), (3,1) ), PARTITION p3 VALUES IN( (1,3), (2,2), (2,3), (3,2), (3,3) ));
 
 mysql> SHOW CREATE TABLE tp18;

@@ -15,13 +15,13 @@
 
 例如，在上一个[显式事务](explicit-transaction.md)结束后，继续对 *t1* 插入数据 (4,5,6)，即成为一个隐式事务。而该隐式事务是否立即提交，取决于 `AUTOCOMMIT` 参数的值：
 
-```
+```sql
 CREATE TABLE t1(a bigint, b varchar(10), c varchar(10));
 START TRANSACTION;
 INSERT INTO t1 values(1,2,3);
 COMMIT;
 
-//查看 AUTOCOMMIT 开关参数
+-- 查看 AUTOCOMMIT 开关参数
 mysql> SHOW VARIABLES LIKE 'AUTOCOMMIT';
 +---------------+-------+
 | Variable_name | Value |
@@ -29,10 +29,10 @@ mysql> SHOW VARIABLES LIKE 'AUTOCOMMIT';
 | autocommit    | 1     |
 +---------------+-------+
 1 row in set (0.00 sec)
-//此处开始一个隐式事务，在 AUTOCOMMIT=1 的情况下，每一条 DML 在执行后立即提交
+-- 此处开始一个隐式事务，在 AUTOCOMMIT=1 的情况下，每一条 DML 在执行后立即提交
 insert into t1 values(4,5,6);
 
-//隐式事务自动提交，表结构如下所示
+-- 隐式事务自动提交，表结构如下所示
 mysql> select * from t1;
 +------+------+------+
 | a    | b    | c    |
