@@ -93,7 +93,7 @@ docker run -d \
 
 执行完成后，即可在浏览器输入 `http://192.168.56.9` (跳板机 IP 地址）打开 Kuboard-Spray 的 Web 界面，输入用户名 `admin`，默认密码 `Kuboard123`，即可登录 Kuboard-Spray 界面，如下所示：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-1.png?raw=true)
+![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-1.png?raw=true)
 
 登录之后，即可开始部署 Kubernetes 集群。
 
@@ -109,19 +109,19 @@ docker run -d \
 
     下载 `spray-v2.19.0c_Kubernetes-v1.24.10_v2.9-amd64` 版本
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-2.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-2.png?raw=true)
 
 2. 点击**导入**后，选择**加载资源包**，选择合适的下载源，等待资源包下载完成。
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-3.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-3.png?raw=true)
 
 3. 此时会 `pull` 相关的镜像依赖：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-4.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-4.png?raw=true)
 
 4. 镜像资源包拉取成功后，返回 Kuboard-Spray 的 Web 界面，可以看到对应版本的资源包已经导入完成。
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-5.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-5.png?raw=true)
 
 #### **安装 Kubernetes 集群**
 
@@ -129,11 +129,11 @@ docker run -d \
 
 1. 选择**集群管理**，选择**添加集群安装计划**：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-6.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-6.png?raw=true)
 
 2. 在弹出的对话框中，定义集群的名称，选择刚刚导入的资源包的版本，再点击**确定**。如下图所示：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-7.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-7.png?raw=true)
 
 ##### **集群规划**
 
@@ -143,14 +143,14 @@ docker run -d \
 
 1. 选择对应节点的角色和名称：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-8.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-8.png?raw=true)
 
     - master 节点：选择 ETCD 和控制节点；名称填写 master0
     - worker 节点：仅选择工作节点；名称填写 node0
 
 2. 在每一个节点填写完角色和节点名称后，请在右侧填写对应节点的连接信息，如下图所示：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-9.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-9.png?raw=true)
 
 3. 填写完所有的角色之后，点击**保存**。接下里就可以准备安装 Kubernetes 集群了。
 
@@ -160,7 +160,7 @@ docker run -d \
 
 1. 如下图所示，点击**确定**，开始安装 Kubernetes 集群：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-10.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-10.png?raw=true)
 
 2. 安装 Kubernetes 集群时，会在对应节点上执行 `ansible` 脚本，安装 Kubernetes 集群。整体事件会根据机器配置和网络不同，需要等待的时间不同，一般情况下需要 5 ~ 10 分钟。
 
@@ -168,7 +168,7 @@ docker run -d \
 
 3. 安装完成后，到 Kubernetes 集群的 master 节点上执行 `kubectl get node`：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-11.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-11.png?raw=true)
 
 4. 命令结果如上图所示，即表示 Kubernetes 集群安装完成。
 
@@ -263,21 +263,27 @@ __Note:__ 本章节均是在 master0 节点操作。
 
 2. 安装并启动 MinIO 成功后，命令行显示如下所示：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-12.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-12.png?raw=true)
+
+    然后，执行下面的命令行，使 mo-log 连接至 9000 端口：
+
+    ```
+    nohup kubectl port-forward --address 0.0.0.0 pod-name -n mostorage 9000:9000 &
+    ```
 
 3. 启动后，使用 <http://> Kubernetes 集群任何一台机器的 ip:32001 即可登录 MinIO 的页面，创建对象存储的信息。如下图所示，账户密码即上述步骤中 `--set rootUser=rootuser,rootPassword=rootpass123` 设置的 rootUser 和 rootPassword：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-13.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-13.png?raw=true)
 
 4. 登录完成后，你需要创建对象存储相关的信息：
 
     a. 点击 **Bucket > Create Bucket**，在 **Bucket Name** 中填写 Bucket 的名称 **minio-mo**。填写完成后，点击右下方按钮 **Create Bucket**。
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-14.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-14.png?raw=true)
 
     b. 在当前 **minio-mo** 中，点击 **Choose or create a new path**，在 **New Folder Path** 中填写名称 **test**，填写完成后，点击 **Create**，即完成创建。
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/deploy-mo-cluster-15.png?raw=true)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-15.png?raw=true)
 
 ## **5. MatrixOne 集群部署**
 
@@ -290,9 +296,9 @@ __Note:__ 本章节均是在 master0 节点操作。
 使用如下命令行安装 matrixone-operator：
 
 ```
-wget https://github.com/matrixorigin/matrixone-operator/archive/refs/tags/0.7.0.zip
-unzip 0.7.0.zip
-cd matrixone-operator-0.7.0/charts/matrixone-operator
+wget https://github.com/matrixorigin/matrixone-operator/releases/download/0.7.0-alpha.1/matrixone-operator-0.7.0-alpha.1.tgz
+tar -xvf matrixone-operator-0.7.0-alpha.1.tgz
+cd /root/matrixone-operator/
 helm install --create-namespace --namespace mo-hn matrixone-operator ./ --dependency-update
 ```
 
