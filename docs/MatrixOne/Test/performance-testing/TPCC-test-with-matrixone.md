@@ -16,7 +16,7 @@ TPC-C 需要处理的交易事务有五种：NewOrder、Payment、OrderStatus、
 
 确保你已经完成了[单机部署 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
-### 克隆 mo-tpch 仓库到本地
+### 克隆 mo-tpcc 仓库到本地
 
 ```
 git clone https://github.com/matrixorigin/mo-tpcc.git
