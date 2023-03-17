@@ -11,7 +11,7 @@
     ```
 
 - 确认你已完成安装 MySQL 客户端。
-- 下载并安装[`Go-MySQL-Driver`](https://github.com/go-sql-driver/mysql) 工具。
+- 下载并安装 [`Go-MySQL-Driver`](https://github.com/go-sql-driver/mysql) 工具。
 
 ## 步骤
 
