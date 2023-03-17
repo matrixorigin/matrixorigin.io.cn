@@ -8,14 +8,14 @@ MatrixOne 支持 Golang 连接，并且支持 [`Go-MySQL-Driver`](https://github
 
 - 已完成[安装并启动 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
-- 已安装 [Golang 1.18 版本及以上](https://go.dev/dl/)，如果你没有安装，可以点击 [Golang 1.18 版本及以上](https://go.dev/dl/) 至官方网站进行下载安装；如果你已安装，可以使用下面的命令行检查版本：
+- 已安装 [Golang 1.18 版本及以上](https://go.dev/dl/)，如果你没有安装，可以点击 [Golang 1.18 版本及以上](https://go.dev/dl/)至官方网站进行下载安装；如果你已安装，可以使用下面的命令行检查版本：
 
 ```
 #检查 Golang 版本号，确认是否安装
 go version
 ```
 
-- 已安装 [MySQL 客户端](https://dev.mysql.com/downloads/mysql)，如果你没有安装，可以点击 [MySQL 客户端](https://dev.mysql.com/downloads/mysql) 至官方网站进行下载安装。。
+- 已安装 [MySQL 客户端](https://dev.mysql.com/downloads/mysql)，如果你没有安装，可以点击 [MySQL 客户端](https://dev.mysql.com/downloads/mysql)至官方网站进行下载安装。
 
 - 已安装 [Git](https://git-scm.com/downloads) 工具，如果你没有安装，可以点击 [Git](https://git-scm.com/downloads) 至官方网站进行下载安装。
 
@@ -73,4 +73,4 @@ go version
 
 ## 参考文档
 
-关于使用 Golang 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见 [构建一个 Golang CRUD 示例](../../Tutorial/develop-golang-crud-demo.md)。
+关于使用 Golang 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见[构建一个 Golang CRUD 示例](../../Tutorial/develop-golang-crud-demo.md)。
