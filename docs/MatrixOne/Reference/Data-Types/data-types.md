@@ -1,7 +1,7 @@
 # **数据类型**
 
 MatrixOne 的数据类型与 MySQL 数据类型的定义一致，可参考：
-<https:-- dev.mysql.com/doc/refman/8.0/en/data-types.html>
+<https://dev.mysql.com/doc/refman/8.0/en/data-types.html>
 
 ## **整数类型**
 
@@ -40,7 +40,7 @@ mysql> select * from inttable order by 2 asc;
 - SMALLINT 和 SMALLINT UNSIGNED
 
 ```sql
--- -- Create a table named "inttable" with 2 attributes of a "smallint", a "smallint unsigned",
+-- Create a table named "inttable" with 2 attributes of a "smallint", a "smallint unsigned",
 drop table inttable;
 create table inttable ( a smallint not null default 1, smallint16 smallint unsigned);
 insert into inttable (smallint16) values (0),(65535), (0xFFFE), (65534), (65533);
