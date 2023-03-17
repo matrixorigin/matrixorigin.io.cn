@@ -60,30 +60,6 @@ MatrixOne 支持以下注释格式：
 MatrixOne 也跟 MySQL 保持一致，支持 C 语言注释格式：
 
 ```sql
-mysql> select 100-99;   // 注释内容
-+----------+
-| 100 - 99 |
-+----------+
-|        1 |
-+----------+
-1 row in set (0.03 sec)
-```
-
-或：
-
-```sql
-mysql> // 注释内容
-    -> select 100-99;
-+----------+
-| 100 - 99 |
-+----------+
-|        1 |
-+----------+
-```
-
-或：
-
-```sql
 mysql> select 100 /*! Specific code */ -99;
 +----------+
 | 100 - 99 |
@@ -103,6 +79,32 @@ mysql> select 100 /*!50110 Specific code */ -99;
 |        1 |
 +----------+
 1 row in set (0.02 sec)
+```
+
+## MatrixOne 可执行的注释语法
+
+MatrixOne 还支持另一种 C 语言注释格式：
+
+```sql
+mysql> select 100-99;   // This comment continues to the end of line
++----------+
+| 100 - 99 |
++----------+
+|        1 |
++----------+
+1 row in set (0.03 sec)
+```
+
+Or:
+
+```sql
+mysql> // This comment continues to the line
+    -> select 100-99;
++----------+
+| 100 - 99 |
++----------+
+|        1 |
++----------+
 ```
 
 ## 限制
