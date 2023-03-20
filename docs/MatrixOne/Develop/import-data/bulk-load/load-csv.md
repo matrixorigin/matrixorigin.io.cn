@@ -13,7 +13,6 @@ INTO TABLE tbl_name
 [{FIELDS | COLUMNS}
 [TERMINATED BY 'string']
 [[OPTIONALLY] ENCLOSED BY 'char']
-[ESCAPED BY 'char']
 ]
 [LINES
 [STARTING BY 'string']
@@ -32,7 +31,6 @@ INTO TABLE tbl_name
 [{FIELDS | COLUMNS}
 [TERMINATED BY 'string']
 [[OPTIONALLY] ENCLOSED BY 'char']
-[ESCAPED BY 'char']
 ]
 [LINES
 [STARTING BY 'string']
