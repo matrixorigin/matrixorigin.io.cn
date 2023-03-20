@@ -27,7 +27,7 @@ MatrixOne 支持以下注释格式：
    +----------+
    1 row in set (0.01 sec)
    ```
-   
+
 - 注释内容使用 `/*` 开头，以 `*/` 结束，与 C 语言中使用方式一样。此语法使注释可以扩展到多行。
 
    ```sql
@@ -96,7 +96,7 @@ mysql> select 100-99;   // This comment continues to the end of line
 1 row in set (0.03 sec)
 ```
 
-Or:
+或：
 
 ```sql
 mysql> // This comment continues to the line
