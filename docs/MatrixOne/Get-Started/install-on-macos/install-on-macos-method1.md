@@ -118,7 +118,8 @@
       __Tips__: 如上述示例所示，使用命令 `ps aux | grep mo-service` 首先查找出 MatrixOne 运行的进程号为 `15277`，`kill -9 15277` 即表示停止进程号为 `15277` 的 MatrixOne。
 
       接下来你可以进行下一步 - 连接 MatrixOne。
-
+!!! info
+    如果切换分支构建运行后出现 panic，需要清理 data-dir 目录。
 ## 步骤 5：连接 MatrixOne
 
 ### 安装并配置 MySQL 客户端
