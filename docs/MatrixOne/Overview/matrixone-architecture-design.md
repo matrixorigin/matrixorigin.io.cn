@@ -88,7 +88,7 @@ Stream Engine 是一个新组件，用于简化从 OLTP 到 OLAP 的 ETL 处理�
 
 ## **MatrixOne 特性**
 
-在 MatrixOne 版本 0.6 中，具有如下特性，让你在使用 MatrixOne 的过程中更加高效：
+在 MatrixOne 版本 0.7 中，具有如下特性，让你在使用 MatrixOne 的过程中更加高效：
 
 ### **分布式架构**
 
