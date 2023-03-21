@@ -62,7 +62,7 @@ sql_mode 常见的模式如下，在 MatrixOne 中也是默认的模式：
 
    默认情况下，MatrixOne 不启用 IGNORE_SPACE 模式。如果需要启用该模式，可以在连接 MatrixOne 时使用 SQL 命令 SET sql_mode='IGNORE_SPACE' 来开启。
 
-- NO_AUTO_VALUE_ON_ZERO：NO_AUTO_VALUE_ON_ZERO 在 MatrixOne SQL 模式中被称为**禁止自动增量列为0（no auto value on zero）模式**。在 NO_AUTO_VALUE_ON_ZERO 模式下，当你向一个自动增量列插入值为 0 的数据时，MatrixOne 不会将该值视为自动增量值，而是将其视为普通的 0 值。这意味着，如果你向一个自动增量列插入值为0的数据，在 NO_AUTO_VALUE_ON_ZERO 模式下，该列的值不会自动增加，而是保持为 0。例如，以下 SQL 语句在 NO_AUTO_VALUE_ON_ZERO 模式下不会将 id 列自动增量：
+- NO_AUTO_VALUE_ON_ZERO：NO_AUTO_VALUE_ON_ZERO 在 MatrixOne SQL 模式中被称为**禁止自动增量列为 0（no auto value on zero）模式**。在 NO_AUTO_VALUE_ON_ZERO 模式下，当你向一个自动增量列插入值为 0 的数据时，MatrixOne 不会将该值视为自动增量值，而是将其视为普通的 0 值。这意味着，如果你向一个自动增量列插入值为0的数据，在 NO_AUTO_VALUE_ON_ZERO 模式下，该列的值不会自动增加，而是保持为 0。例如，以下 SQL 语句在 NO_AUTO_VALUE_ON_ZERO 模式下不会将 id 列自动增量：
 
    ```sql
    CREATE TABLE my_table (
@@ -76,7 +76,7 @@ sql_mode 常见的模式如下，在 MatrixOne 中也是默认的模式：
 
    在默认的 SQL 模式下，当你向一个自动增量列插入值为 0 的数据时，MatrixOne 会将该值视为自动增量值，自动将其增加为下一个可用的自动增量值。但是，在某些情况下，这可能不是你想要的行为，因此可以使用 NO_AUTO_VALUE_ON_ZERO 模式来禁止该行为。
 
-   需要注意的是，如果你使用 NO_AUTO_VALUE_ON_ZERO 模式，插入值为0的数据可能会导致主键重复或唯一键冲突的问题。因此，在插入数据时需要格外注意。
+   需要注意的是，如果你使用 NO_AUTO_VALUE_ON_ZERO 模式，插入值为 0 的数据可能会导致主键重复或唯一键冲突的问题。因此，在插入数据时需要格外注意。
 
 - NO_BACKSLASH_ESCAPES：NO_BACKSLASH_ESCAPES 在 MatrixOne SQL 模式中被称为**禁止反斜杠转义（no backslash escapes）模式**。在 NO_BACKSLASH_ESCAPES 模式下，MatrixOne 不会将反斜杠视为转义符号。这意味着，在 SQL 语句中，你不能使用反斜杠来转义特殊字符，例如引号或百分号。相反，如果你需要在 SQL 语句中使用这些特殊字符，需要使用其他方式来转义它们，例如使用单引号来表示字符串中的双引号。例如，在 NO_BACKSLASH_ESCAPES 模式下，以下 SQL 语句会导致语法错误：
 
@@ -88,7 +88,7 @@ sql_mode 常见的模式如下，在 MatrixOne 中也是默认的模式：
 
    需要注意的是，如果你使用 NO_BACKSLASH_ESCAPES 模式，需要使用其他方式来转义特殊字符，这可能会使 SQL 语句变得更加复杂和难以理解。因此，在使用该模式时需要仔细考虑。
 
-- NO_DIR_IN_CREATE：NO_DIR_IN_CREATE 在 MatrixOne SQL 模式中被称为**禁止在CREATE TABLE中使用目录路径（no directory in create）模式**。在 NO_DIR_IN_CREATE 模式下，当你在 CREATE TABLE 语句中使用目录路径时，MatrixOne 会报错。目录路径指的是在列定义中使用的包含文件名的路径，例如：
+- NO_DIR_IN_CREATE：NO_DIR_IN_CREATE 在 MatrixOne SQL 模式中被称为**禁止在 CREATE TABLE 中使用目录路径（no directory in create）模式**。在 NO_DIR_IN_CREATE 模式下，当你在 CREATE TABLE 语句中使用目录路径时，MatrixOne 会报错。目录路径指的是在列定义中使用的包含文件名的路径，例如：
 
    ```sql
    CREATE TABLE my_table (
@@ -127,7 +127,7 @@ sql_mode 常见的模式如下，在 MatrixOne 中也是默认的模式：
 
    需要注意的是，NO_UNSIGNED_SUBTRACTION 模式只影响使用减法运算符 (-) 进行减法运算的无符号整数，其他使用无符号整数的运算不受影响。如果你需要在 MatrixOne 中进行大量的无符号整数运算，建议在代码中使用合适的类型转换来避免潜在的错误。
 
-- PAD_CHAR_TO_FULL_LENGTH ：PAD_CHAR_TO_FULL_LENGTH 在 MatrixOne SQL 模式中被称为**使用全字符集填充 CHAR 列（pad CHAR to full length）模式**。
+- PAD_CHAR_TO_FULL_LENGTH：PAD_CHAR_TO_FULL_LENGTH 在 MatrixOne SQL 模式中被称为**使用全字符集填充 CHAR 列（pad CHAR to full length）模式**。
 
    在 PAD_CHAR_TO_FULL_LENGTH 模式下，当你定义 CHAR 类型的列时，MatrixOne 会在该列的值后面使用空格填充，以使该值的长度达到该列定义的长度。这是因为在 MatrixOne 中，CHAR 类型的列在存储时总是占用定义的长度，不足部分会使用空格填充。但是，在默认情况下，MatrixOne 使用的字符集可能是多字节字符集，因此如果填充的字符是空格，可能会导致长度计算错误。
 
