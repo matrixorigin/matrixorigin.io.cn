@@ -79,6 +79,7 @@ nav:
           - 使用 JDBC 连接器连接 MatrixOne: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md
           - 使用 Java ORMs 连接 MatrixOne: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm.md
         - Python 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
+        - Golang 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/connect-to-matrixone-with-go.md
       - 导入数据:
         - 单条导入: MatrixOne/Develop/import-data/insert-data.md
         - 批量导入:
@@ -114,6 +115,7 @@ nav:
       - 使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
       - 使用 Python 和 SQLAlchemy 构建一个 CRUD 示例: MatrixOne/Tutorial/sqlalchemy-python-crud-demo.md
       - 构建一个 Python CRUD 示例: MatrixOne/Tutorial/develop-python-crud-demo.md
+      - 构建一个 Golang CRUD 示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
     - 运维:
       - 备份与恢复: MatrixOne/Maintain/backup-restore.md
       - 数据挂载:
@@ -151,8 +153,16 @@ nav:
         - 权限管理操作: MatrixOne/Security/how-tos/user-guide.md
       - 应用场景: MatrixOne/Security/app-scenarios.md
     - 参考手册:
+      - 系统变量:
+        - 系统变量概述: MatrixOne/Reference/Variable/system-variables/system-variables-overview.md
+        - 系统变量参数:
+          - SQL 模式: MatrixOne/Reference/Variable/system-variables/sql-mode.md
+          - 保存查询结果支持: MatrixOne/Reference/Variable/system-variables/save_query_result.md
+          - 时区支持: MatrixOne/Reference/Variable/system-variables/timezone.md
+        - 自定义变量: MatrixOne/Reference/Variable/custom-variable.md
       - SQL 结构与语法:
         - 关键字: MatrixOne/Reference/Language-Structure/keywords.md
+        - 注释: MatrixOne/Reference/Language-Structure/comment.md
       - SQL 目录:
         - 数据定义语言（DDL）:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md
@@ -304,8 +314,6 @@ nav:
           - SLEEP: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/sleep.md
           - STDDEV_POP: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/stddev_pop.md
           - SUM: MatrixOne/Reference/SQL-Reference/Aggregate-Functions/sum.md
-        - 系统变量:
-          - 自定义变量: MatrixOne/Reference/Variable/custom-variable.md
       - 数据类型:
         - 数据类型概览: MatrixOne/Reference/Data-Types/data-types.md
         - 数据类型转换: MatrixOne/Reference/Data-Types/data-type-conversion.md
@@ -379,7 +387,6 @@ nav:
           - TRIM(): MatrixOne/Reference/Builtin-Functions/String/trim.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
-        - 时区配置: MatrixOne/Reference/System-Parameters/timezone.md
       - 系统表目录: MatrixOne/Reference/System-tables.md
       - 权限分类列表: MatrixOne/Reference/access-control-type.md
       - 使用限制:

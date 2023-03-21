@@ -1,4 +1,4 @@
-# 时区支持
+# time_zone 时区支持
 
 MatrixOne 使用的时区取决于三个系统变量：`global.time_zone`，`session.time_zone` 和 `global.system_time_zone`。
 
