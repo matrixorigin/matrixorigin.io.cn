@@ -62,7 +62,7 @@ sql_mode 常见的模式如下，在 MatrixOne 中也是默认的模式：
 
    默认情况下，MatrixOne 不启用 IGNORE_SPACE 模式。如果需要启用该模式，可以在连接 MatrixOne 时使用 SQL 命令 SET sql_mode='IGNORE_SPACE' 来开启。
 
-- NO_AUTO_VALUE_ON_ZERO：NO_AUTO_VALUE_ON_ZERO 在 MatrixOne SQL 模式中被称为**禁止自动增量列为 0（no auto value on zero）模式**。在 NO_AUTO_VALUE_ON_ZERO 模式下，当你向一个自动增量列插入值为 0 的数据时，MatrixOne 不会将该值视为自动增量值，而是将其视为普通的 0 值。这意味着，如果你向一个自动增量列插入值为0的数据，在 NO_AUTO_VALUE_ON_ZERO 模式下，该列的值不会自动增加，而是保持为 0。例如，以下 SQL 语句在 NO_AUTO_VALUE_ON_ZERO 模式下不会将 id 列自动增量：
+- NO_AUTO_VALUE_ON_ZERO：NO_AUTO_VALUE_ON_ZERO 在 MatrixOne SQL 模式中被称为**禁止自动增量列为 0（no auto value on zero）模式**。在 NO_AUTO_VALUE_ON_ZERO 模式下，当你向一个自动增量列插入值为 0 的数据时，MatrixOne 不会将该值视为自动增量值，而是将其视为普通的 0 值。这意味着，如果你向一个自动增量列插入值为 0 的数据，在 NO_AUTO_VALUE_ON_ZERO 模式下，该列的值不会自动增加，而是保持为 0。例如，以下 SQL 语句在 NO_AUTO_VALUE_ON_ZERO 模式下不会将 id 列自动增量：
 
    ```sql
    CREATE TABLE my_table (
