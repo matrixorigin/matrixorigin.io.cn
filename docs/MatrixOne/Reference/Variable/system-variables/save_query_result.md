@@ -84,7 +84,7 @@ select query_id from meta_scan(query_id) as u;
 | statement    | text      | 执行的 SQL 语句                        |
 | account_id   | uint32    | 账户 ID                                                      |
 | role_id      | uint32    | 角色 ID                                                       |
-| result_path  | text      | 保存查询结果的路径，默认为 matrixone 服务文件夹下 mo-data/s3 路径，如需修改默认路径，需修改配置文件中的 `data-dir = "mo-data/s3"`。如需查阅配置文件参数说明，参见[通用参数配置](../../System-Parameters/configuration-settings.md) |
+| result_path  | text      | 保存查询结果的路径，默认保存路径为 matrixone 文件夹 mo-data/s3，如需修改默认保存的路径，需修改配置文件中的 `data-dir = "mo-data/s3"`。如需查阅配置文件参数说明，参见[通用参数配置](../../System-Parameters/configuration-settings.md) |
 | created_time | timestamp | 创建时间                                                     |
 | result_size  | float     | 结果大小，单位为 MB。 |
 | tables       | text      | SQL 所用到的表                       |
@@ -109,9 +109,15 @@ MODUMP QUERY_RESULT query_id INTO s3_path
 
 - query_id：是 UUID 的字符串。
 
-- s3_path：是查询结果文件保存的路径。默认为 matrixone 服务文件夹下 mo-data/s3 路径，如需修改默认路径，需修改配置文件中的 `data-dir = "mo-data/s3"`。如需查阅配置文件参数说明，参见[通用参数配置](../../System-Parameters/configuration-settings.md)
+- s3_path：是查询结果文件保存的路径。默认保存路径为 matrixone 文件夹 mo-data/s3，如需修改默认保存路径，需修改配置文件中的 `data-dir = "mo-data/s3"`。如需查阅配置文件参数说明，参见[通用参数配置](../../System-Parameters/configuration-settings.md)
 
-   __Note:__ 如果需要导出 `csv` 文件。路径需要以 `etl:` 开头。
+   ```
+   root@rootMacBook-Pro 02matrixone % cd matrixone/mo-data
+   root@rootMacBook-Pro mo-data % ls
+   dn-data         etl             local           logservice-data s3
+   ```
+
+   __Note:__ 如果你需要导出 `csv` 文件。路径需要以 `etl:` 开头。
 
 - [FIELDS TERMINATED BY 'char']：可选参数。字段分割符号，默认为单引号 `'`。
 
@@ -169,7 +175,7 @@ mysql> select * from meta_scan('c187873e-c25d-11ed-aa5a-acde48001122') as t;
 1 row in set (0.00 sec)
 
 -- 将查询结果保存到本地
-MODUMP QUERY_RESULT c187873e-c25d-11ed-aa5a-acde48001122 INTO 'your_local_path';
+MODUMP QUERY_RESULT c187873e-c25d-11ed-aa5a-acde48001122 INTO 'etl:your_local_path';
 ```
 
 ## 限制
