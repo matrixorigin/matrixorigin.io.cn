@@ -25,9 +25,9 @@ SET time_zone = timezone;
 +-------------+-------------+--------------------+
 | @@time_zone | @@time_zone | @@system_time_zone |
 +-------------+-------------+--------------------+
-| timezone    | +08:00      |                    |
+| timezone    | +08:00      | CST                |
 +-------------+-------------+--------------------+
-1 row in set (0.00 sec)
+1 row in set (0.01 sec)
 ```
 
 设置 time_zone 的值的格式：
@@ -93,12 +93,11 @@ mysql> select * from t;
 +----------------------------+
 1 row in set (0.00 sec)
 
-
 > show variables like "%time_zone%";
 +------------------+--------+
 | Variable_name    | Value  |
 +------------------+--------+
-| system_time_zone |        |
+| system_time_zone | CST    |
 | time_zone        | SYSTEM |
 +------------------+--------+
 2 rows in set (0.00 sec)
