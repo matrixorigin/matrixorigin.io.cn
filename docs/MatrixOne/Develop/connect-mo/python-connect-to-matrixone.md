@@ -4,7 +4,7 @@ MatrixOne 支持 Python 连接，在 0.7.0 版本中，MatrixOne 支持 `pymysql
 
 本篇文档将指导你了解如何通过这两个 *python* 驱动程序连接 MatrixOne。
 
-## 前期准备
+## 开始前准备
 
 - 已完成[安装并启动 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
