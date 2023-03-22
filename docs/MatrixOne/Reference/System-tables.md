@@ -8,7 +8,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 `mo_catalog` 用于存储 MatrixOne 对象的元数据，如：数据库、表、列、系统变量、租户、用户和角色。
 
-由于 MatrixOne 0.6 引入了多租户的概念，默认的 `sys` 租户和其他租户的行为略有不同。服务于多租户管理的系统表 `mo_account` 仅对 `sys` 租户可见；其他租户看不到此表。
+从 MatrixOne 0.6 版本即引入了多租户的概念，默认的 `sys` 租户和其他租户的行为略有不同。服务于多租户管理的系统表 `mo_account` 仅对 `sys` 租户可见；其他租户看不到此表。
 
 ### mo_database table
 
