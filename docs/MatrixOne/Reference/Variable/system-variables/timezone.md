@@ -50,9 +50,9 @@ SET time_zone = timezone;
 +-------------+-------------+--------------------+
 | @@time_zone | @@time_zone | @@system_time_zone |
 +-------------+-------------+--------------------+
-| SYSTEM      | SYSTEM      |                    |
+| SYSTEM      | SYSTEM      | CST                |
 +-------------+-------------+--------------------+
-1 row in set (0.01 sec)
+1 row in set (0.00 sec)
 
 > create table t (ts timestamp, dt datetime);
 Query OK, 0 rows affected (0.02 sec)
@@ -120,5 +120,4 @@ set time_zone = '+08:00';
 
 ## 限制
 
-1. `system_time_zone` 值暂不存在。
-2. 仅支持 `(+/-)HH:MM` 格式和 `UTC` 来设置 `time_zone` 的值。
+MatrixOne 仅支持 `(+/-)HH:MM` 格式和 `UTC` 来设置 `time_zone` 的值。
