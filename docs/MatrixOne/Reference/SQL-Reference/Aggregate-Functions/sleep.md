@@ -67,7 +67,7 @@ SLEEP(duration)
 ## **示例**
 
 ```sql
-//without interruption
+-- without interruption
 mysql> SELECT SLEEP(1);
 +----------+
 | sleep(1) |
@@ -76,7 +76,7 @@ mysql> SELECT SLEEP(1);
 +----------+
 1 row in set (1.01 sec)
 
-//without interruption
+-- without interruption
 mysql> SELECT SLEEP(1000);
 +-------------+
 | sleep(1000) |

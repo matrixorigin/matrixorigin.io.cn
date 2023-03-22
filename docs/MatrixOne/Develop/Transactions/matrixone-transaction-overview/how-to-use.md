@@ -43,20 +43,23 @@ rollback;
 
 在 MatrixOne 中，有一个参数 `AUTOCOMMIT`，决定了没有 `START TRANSACTION` 或 `BEGIN` 的情况下，没有单条 SQL 语句的是否被当做独立事务自动提交。语法如下：
 
-```
-SET AUTOCOMMIT={on|off|0|1}  //设置该参数的值
+```sql
+-- 设置该参数的值
+SET AUTOCOMMIT={on|off|0|1}  
 SHOW VARIABLES LIKE 'AUTOCOMMIT';
 ```
 
 在该参数设置为 ON 或 1 的时候，意味着自动提交，所有不在 `START TRANSACTION` 或 `BEGIN` 中的单条 SQL 语句，都会在执行时自动提交。
 
-```
-insert into t1 values(1,2,3);   //此时自动提交
+```sql
+-- 此时自动提交
+insert into t1 values(1,2,3);   
 ```
 
 在该参数设置为 OFF 或 0 的时候，意味着非自动提交，所有不在 `START TRANSACTION` 或 `BEGIN` 中的 SQL 语句，需要用 `COMMIT` 或 `ROLLBACK` 来执行提交或回滚。
 
-```
+```sql
 insert into t1 values(1,2,3);
-COMMIT；  //此处需要手动提交
+-- 此处需要手动提交
+COMMIT；  
 ```

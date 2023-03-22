@@ -225,14 +225,14 @@ MatrixOne 当前仅支持 `SET column_name=nullif(column_name,expr)`。即，当
 
 **开启/关闭并行加载命令行示例**：
 
-```
-// 打开并行加载
+```sql
+--  打开并行加载
 load data infile 'file_name' into table tbl_name FIELDS TERMINATED BY '|' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES PARALLEL 'TRUE';
 
-// 关闭并行加载
+--  关闭并行加载
 load data infile 'file_name' into table tbl_name FIELDS TERMINATED BY '|' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES PARALLEL 'FALSE';
 
-// 默认关闭并行加载
+--  默认关闭并行加载
 load data infile 'file_name' into table tbl_name FIELDS TERMINATED BY '|' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES;
 ```
 

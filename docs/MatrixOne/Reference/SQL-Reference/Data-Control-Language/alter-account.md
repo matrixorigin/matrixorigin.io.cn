@@ -63,16 +63,16 @@ mysql> desc mo_catalog.mo_account;
 - 示例 1：修改租户信息
 
 ```sql
-//创建一个名为 "root1" 密码为 "111" 租户
+-- 创建一个名为 "root1" 密码为 "111" 租户
 mysql> create account acc1 admin_name "root1" identified by "111";
 Query OK, 0 rows affected (0.42 sec)
-//将租户的初始密码 "111" 修改为 "1234"
+-- 将租户的初始密码 "111" 修改为 "1234"
 mysql> alter account acc1 admin_name "root1" identified by "1234";
 Query OK, 0 rows affected (0.01 sec)
-//修改租户 "root1" 的备注
+-- 修改租户 "root1" 的备注
 mysql> alter account acc1 comment "new accout";
 Query OK, 0 rows affected (0.02 sec)
-//查看验证是否给租户 "root1" 增加了 "new accout" 的备注
+-- 查看验证是否给租户 "root1" 增加了 "new accout" 的备注
 mysql> show accounts;
 +--------------+------------+---------------------+--------+----------------+----------+-------------+-----------+-------+----------------+
 | account_name | admin_name | created             | status | suspended_time | db_count | table_count | row_count | size  | comment        |
@@ -86,13 +86,13 @@ mysql> show accounts;
 - 示例 2：修改租户状态
 
 ```sql
-//创建一个名为 "root1" 密码为 "111" 租户
+-- 创建一个名为 "root1" 密码为 "111" 租户
 mysql> create account accx admin_name "root1" identified by "111";
 Query OK, 0 rows affected (0.27 sec)
-//修改租户状态为 "suspend"，即暂停用户访问 MatrixOne
+-- 修改租户状态为 "suspend"，即暂停用户访问 MatrixOne
 mysql> alter account accx suspend;
 Query OK, 0 rows affected (0.01 sec)
-//查看一下是否修改状态成功
+-- 查看一下是否修改状态成功
 mysql> show accounts;
 +--------------+------------+---------------------+---------+---------------------+----------+-------------+-----------+-------+----------------+
 | account_name | admin_name | created             | status  | suspended_time      | db_count | table_count | row_count | size  | comment        |
