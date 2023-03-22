@@ -34,6 +34,7 @@ MatrixOne 的 SQL 语法兼容了 MySQL 8.0.23 版本。
 |   |   | 行分隔符 `LINES TERMINATED BY` 应该为 "\n" |
 |   |   | 支持 `SET`，但仅支持 `SET columns_name=nullif(expr1,expr2)` |
 |   |   | 不支持本地关键词 |
+|   |   | 不支持 `ESCAPED BY` |
 | | JOIN | 同 MySQL  |
 | | SUBQUERY | 暂不支持 `Non-scalar` 子查询，但可以作为过滤条件使用 |
 | 数据库管理语句  | SHOW | 部分支持  |
