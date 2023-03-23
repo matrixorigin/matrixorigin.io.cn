@@ -119,6 +119,9 @@
 
       接下来你可以进行下一步 - 连接 MatrixOne。
 
+!!! info
+    如果切换分支构建运行后出现 panic，需要清理 data-dir 目录。
+
 ## 步骤 5：连接 MatrixOne
 
 ### 安装并配置 MySQL 客户端
