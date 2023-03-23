@@ -202,4 +202,4 @@ sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,ONLY_FULL_GROUP_BY;
 
 ## 限制
 
-MatrixOne 为兼容 MySQL，当前对于本章节所介绍的 sql_mode 的所有模式仅实现语法支持。
+MatrixOne 为兼容 MySQL，除支持 `ONLY_FULL_GROUP_BY` 模式以外，sql_mode 其他模式仅实现语法支持。
