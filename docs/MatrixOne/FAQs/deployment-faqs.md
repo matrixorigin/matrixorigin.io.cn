@@ -21,13 +21,13 @@
 
 ## 硬件要求
 
-* **MatrixOne 对部署硬件的配置要求如何？**
+MatrixOne 对部署硬件的配置要求如何？**
 
 单机安装情况下，MatrixOne 当前可以运行在 Intel x86-64 架构的 64 位通用硬件服务器平台上。
 
 对于开发、测试和生产环境的服务器硬件配置要求和建议如下：
 
-* 开发和测试环境要求
+### 开发和测试环境要求
 
 | CPU     | 内存 | 本地存储   |
 | :------ | :----- | :-------------- |
@@ -35,7 +35,7 @@
 
 ARM 架构的 Macbook M1/M2 也适合开发环境。
 
-* 生产环境要求
+### 生产环境要求
 
 | CPU      | 内存 | 本地存储   |
 | :------- | :----- | :-------------- |
@@ -43,11 +43,11 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
 
 ## 安装和部署
 
-* **安装时需要更改什么设置吗？**
+### **安装时需要更改什么设置吗？**
 
 通常情况下，安装时，你无需更改任何设置。`launch.toml` 默认设置完全可以直接运行 MatrixOne。但是如果你需要自定义监听端口、IP 地址、存储数据文件路径，你可以修改相应的 [`cn.toml`](https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/cn.toml)、[`dn.toml`](https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/dn.toml) 或 [`log.toml`](https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/log.toml)，这些文件内参数配置详情可参考[通用参数配置](../Reference/System-Parameters/configuration-settings.md)
 
-* **当我安装完成 MySQL 客户端后，打开终端运行 `mysql` 产生报错 `command not found: mysql`，我该如何解决？**
+### **当我安装完成 MySQL 客户端后，打开终端运行 `mysql` 产生报错 `command not found: mysql`，我该如何解决？**
 
 产生这个报错是环境变量未设置的原因，打开一个新的终端，执行以下命令：
 
@@ -87,7 +87,7 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
 
      输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。继续输入 `source .bash_profile`，回车执行，运行环境变量。
 
-* **当我安装选择从源代码安装构建 MatrixOne 时，产生了以下错误或构建失败提示，我该如何继续？**
+### **当我安装选择从源代码安装构建 MatrixOne 时，产生了以下错误或构建失败提示，我该如何继续？**
 
 报错：`Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout`
 
@@ -103,13 +103,13 @@ go env -w GOPROXY=https://goproxy.cn,direct
 
 设置完成后，`make build` 应该很快就能完成。
 
-* **当我想将 MatrixOne 的数据目录保存到我指定的文件目录中，我应该如何操作？**
+### **当我想将 MatrixOne 的数据目录保存到我指定的文件目录中，我应该如何操作？**
 
 当你使用 Docker 启动 MatrixOne，你可以将你指定的数据目录挂载至 Docker 容器，参见[挂载目录到 Docker 容器](../Maintain/mount-data-by-docker.md)。
 
 当你使用源码或二进制包编译并启动 MatrixOne，你可以通过修改配置文件中的默认数据目录路径：打开 MatrixOne 源码文件目录 `matrixone/etc/launch-tae-CN-tae-DN`，修改 `cn.toml`、`dn.toml` 和 `log.toml` 三个文件内的配置参数 `data-dir = "./mo-data"` 为 `data-dir = "your_local_path"`，保存后重启 MatrixOne 即可生效。
 
-* **当我通过 MO-Tester 对 MatrixOne 进行测试时，我如何解决产生的 `too many open files` 错误？**
+### **当我通过 MO-Tester 对 MatrixOne 进行测试时，我如何解决产生的 `too many open files` 错误？**
 
 为了对 MatrixOne 进行测试，MO-Tester 会快速地打开和关闭许多 SQL 文件，于是很快就达到 Linux 和 MacOS 系统的最大打开文件限制，这就是导致 `too many open files` 错误的原因。
 
@@ -123,7 +123,7 @@ ulimit -n 65536
 
 设置完成后，将不会出现 `too many open files` 错误。
 
-* **我的 PC 是 M1 芯片，当我进行 SSB 测试时，发现无法编译成功 ssb-dbgen**
+### **我的 PC 是 M1 芯片，当我进行 SSB 测试时，发现无法编译成功 ssb-dbgen**
 
 硬件配置为 M1 芯片的 PC 在编译 `ssb-dbgen` 之前，还需要进行如下配置：
 
@@ -170,3 +170,20 @@ ulimit -n 65536
     ```
 
 7. 查看 *ssb-dbgen* 目录，生成 *dbgen* 可执行文件，表示编译成功。
+
+### **我先在 main 分支构建了 MatrixOne，现在切换到其他版本再进行构建出现 panic**
+
+如果你选择某个版本的代码并 `make build` 编译构建了 MatrixOne，则会产生 *mo-data* 的数据文件目录，此时如果你需要切换版本（即 `git checkout version-name`)，由于版本不兼容，你需要先清理 *mo-data* （即 `rm -rf mo-data`），再构建 MatrixOne。代码示例：
+
+```
+[root ~]# cd matrixone  // 进入 matrixone 文件目录
+[root ~]# git branch // 查看当前分支
+* main
+[root ~]# make build // 构建 matrixone
+...    // 此处省略构建过程代码。如果你此时想要切换到其他版本，例如 0.7.0 版本
+[root ~]# git checkout 0.7.0 // 切换到 0.7.0 版本
+[root ~]# rm -rf mo-data // 清理数据目录
+[root ~]# make build // 构建 matrixone
+...    // 此处省略构建过程代码
+[root ~]# ./mo-service --daemon --launch ./etc/quickstart/launch.toml &> test.log &   // 在终端的后台启动 MatrixOne 服务
+```
