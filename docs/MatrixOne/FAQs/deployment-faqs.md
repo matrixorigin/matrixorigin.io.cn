@@ -173,7 +173,7 @@ ulimit -n 65536
 
 ### **我先在 main 分支构建了 MatrixOne，现在切换到其他版本再进行构建出现 panic**
 
-如果你选择某个版本的代码并 `make build` 编译构建了 MatrixOne，则会产生 *mo-data* 的数据文件目录，此时如果你需要切换版本（即 `git checkout version-name`)，由于版本不兼容，你需要先清理 *mo-data* （即 `rm -rf mo-data`），再构建 MatrixOne。代码示例：
+如果你选择某个版本的代码并 `make build` 编译构建了 MatrixOne，则会产生 *mo-data* 的数据文件目录，此时如果你需要切换版本（即 `git checkout version-name`)，由于版本不兼容，你需要先清理 *mo-data*（即 `rm -rf mo-data`），再构建 MatrixOne。代码示例：
 
 ```
 [root ~]# cd matrixone  // 进入 matrixone 文件目录
