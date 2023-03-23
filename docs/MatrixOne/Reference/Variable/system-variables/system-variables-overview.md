@@ -102,4 +102,5 @@ __Note:__ `LIKE` 运算符是用来模糊匹配查询的字符串的，% 表示�
 
 ## 限制
 
-MatrixOne 为兼容 MySQL，当前对于本章节所介绍的系统变量仅实现语法支持。
+1. MatrixOne 为兼容 MySQL，当前对于本章节所介绍的系统变量仅实现语法支持。
+2. MatrixOne 为兼容 MySQL，除支持 `ONLY_FULL_GROUP_BY` 模式以外，sql_mode 其他模式仅实现语法支持。
