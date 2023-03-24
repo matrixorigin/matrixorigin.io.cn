@@ -291,6 +291,7 @@ nav:
             - SET ROLE: MatrixOne/Reference/SQL-Reference/Other/Set/set-role.md
           - USE:
             - USE DATABASE: MatrixOne/Reference/SQL-Reference/Other/use-database.md
+          - KILL: MatrixOne/Reference/SQL-Reference/Other/kill.md
           - Prepared:
             - Prepared 概述: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview.md
             - PREPARE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/prepare.md
