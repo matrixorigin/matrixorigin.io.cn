@@ -17,7 +17,6 @@
     [{FIELDS | COLUMNS}
         [TERMINATED BY 'string']
         [[OPTIONALLY] ENCLOSED BY 'char']
-        [ESCAPED BY 'char']
     ]
     [LINES
         [STARTING BY 'string']
@@ -58,7 +57,7 @@ LOAD DATA INFILE '/tmp/test.txt' INTO TABLE table1 IGNORE 1 LINES;
 
 对于 `LOAD DATA` 和 `SELECT ... INTO OUTFILE` 语句，`FIELDS` 和 `LINES` 子句的语法是相同的。这两个子句都是可选的，但如果两者都指定，则 `FIELDS` 必须在 `LINES` 之前。
 
-如果指定 `FIELDS` 子句，那么 `FIELDS` 的每个子句（`TERMINATED BY`、`[OPTIONALLY] ENCLOSED BY` 和 `ESCAPED BY`）也是可选的，除非你必须至少指定其中一个。
+如果指定 `FIELDS` 子句，那么 `FIELDS` 的每个子句（`TERMINATED BY`、`[OPTIONALLY] ENCLOSED BY`）也是可选的，除非你必须至少指定其中一个。
 
 `LOAD DATA` 也支持使用十六进制 `ASCII` 字符表达式或二进制 `ASCII` 字符表达式作为 `FIELDS ENCLOSED BY` 和 `FIELDS TERMINATED BY` 的参数。
 
@@ -112,33 +111,6 @@ LOAD DATA INFILE 'data.txt' INTO TABLE table1
 ```
 
 如果 `ENCLOSED BY` 前不加 `OPTIONALLY`，比如说，`ENCLOSED BY '"'` 就表示使用双引号把各个字段都括起来。
-
-**FIELDS ESCAPED BY**
-
-`FIELDS ESCAPED BY` 用于控制如何写入或读取特殊字符。`FIELDS ESCAPED BY` 值必须是单个字符。如果 `FIELDS ESCAPED BY` 字符不是空字符，则该字符将被去除，同时保留其后一个字符。
-
-一些例外的双字符序列，其中第一个字符作为转义字符。
-
-这些序列如下表所示（使用 \ 作为转义字符）。
-
-|  字符   | 转义序列  |
-|  ----  | ----  |
-| \0 | 	反转义成 0（0x00） |
-| \b | 	回车字符 |
-| \n | 	换行 (换行) 字符  |
-| \r | 	回车字符 |
-| \t | 	Tab 字符 |
-| \Z | 	ASCII 26 (Control+Z) |
-| \N | 	NULL |
-
-例如，如果某些输入值是特殊字符 “\”，则可以使用 `ESCAPE BY`：
-
-```
-LOAD DATA INFILE 'data.txt' INTO TABLE table1
-  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY '\\';
-```
-
-如果 `FIELDS ESCAPED BY` 字符为空，则不会进行转义序列。
 
 **LINES TERMINATED BY**
 
@@ -446,3 +418,4 @@ mysql> select * from t1;
 4. 文件的并行加载要求文件必须是非压缩格式，暂不支持并行加载压缩格式的文件。
 5. `LOAD DATA LOCAL` 暂不支持并行加载。
 6. 如果你需要用 `LOAD DATA LOCAL` 进行本地加载，则需要使用命令行连接 MatrixOne 服务主机：`mysql -h <mo-host -ip> -P 6001 -udump -p111 --local-infile`。
+7. MatrixOne 当前暂不支持 `ESCAPED BY`，写入或读取特殊字符与 MySQL 存在一定的差异。

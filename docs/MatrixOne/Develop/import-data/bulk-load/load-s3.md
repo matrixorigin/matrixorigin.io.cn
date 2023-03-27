@@ -24,7 +24,6 @@ LOAD DATA
     [{FIELDS | COLUMNS}
         [TERMINATED BY 'string']
         [[OPTIONALLY] ENCLOSED BY 'char']
-        [ESCAPED BY 'char']
     ]
     [IGNORE number {LINES | ROWS}]
     [PARALLEL {'TRUE' | 'FALSE'}]
@@ -143,7 +142,6 @@ create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"
 [{FIELDS | COLUMNS}
         [TERMINATED BY 'string']
         [[OPTIONALLY] ENCLOSED BY 'char']
-        [ESCAPED BY 'char']
 ]
 [IGNORE number {LINES | ROWS}];
 ```
