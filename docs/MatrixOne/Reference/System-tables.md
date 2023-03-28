@@ -258,7 +258,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 ## `information_schema` 数据库
 
-**Information Schema** 提供了一种 ANSI 标准方式，用于查看系统元数据的。MatrixOne 除了为 MySQL 兼容性而包含的表之外，还提供了许多自定义的 `information_schema` 表。
+**Information Schema** 提供了一种 ANSI 标准方式，用于查看系统的元数据。MatrixOne 除了为 MySQL 兼容性而包含的表之外，还提供了许多自定义的 `information_schema` 表。
 
 许多 `INFORMATION_SCHEMA` 表都有相应的 `SHOW` 命令。查询 `INFORMATION_SCHEMA` 可以在表之间进行连接。
 
