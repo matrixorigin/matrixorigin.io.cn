@@ -171,7 +171,6 @@ mysql> select json_extract(t1.a,'$[1].a') from t1 where t1.b=4;
 
 `JSON_QUOTE` 函数通常用于生成有效的 JSON 字符串，以包含在 JSON 文档中。
 
-
 **语法结构**：`select JSON_QUOTE(string_value);`
 
 `string_value` 是要转换为 JSON 字符串的字符串。该函数返回一个 JSON 格式的字符串，其中原始字符串已被引号包围并进行了适当的转义。
