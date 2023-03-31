@@ -208,7 +208,7 @@ mysql> SELECT JSON_QUOTE('hello world');
 
 `JSON_UNQUOTE()` 函数用于从一个 JSON 字符串中提取一个没有引号的 JSON 值，并将其作为字符串返回。
 
-具体来说，`JSON_UNQUOTE()` 函数需要一个 `JSON` 字符串作为输入，然后从中提取一个 `JSON` 值，并将其作为字符串返回。如果输入的 `JSON` 字符串不包含有效的 `JSON` 值或参数为 `NUL`L，则函数返回 `NULL`。如果参数为 NULL，则返回 NULL。 如果值以双引号开始和结束，但不是有效的 `JSON` 字符串文字，则会发生错误。
+具体来说，`JSON_UNQUOTE()` 函数需要一个 `JSON` 字符串作为输入，然后从中提取一个 `JSON` 值，并将其作为字符串返回。如果输入的 `JSON` 字符串不包含有效的 `JSON` 值或参数为 `NULL`，则函数返回 `NULL`。如果参数为 NULL，则返回 NULL。如果值以双引号开始和结束，但不是有效的 `JSON` 字符串文字，则会发生错误。
 
 **语法结构**：`select JSON_UNQUOTE(string_value);`
 
