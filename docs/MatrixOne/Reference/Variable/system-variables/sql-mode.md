@@ -1,8 +1,8 @@
 # SQL 模式
 
-sql_mode 是 MatrixOne 中的一个系统参数，用于指定 MatrixOne 执行查询和操作的模式。sql_mode 可以影响 MatrixOne 的语法和语义规则，从而改变 MatrixOne 查询 SQL 的行为。在本篇文章中，将为你介绍 sql_mode 的作用、常见模式以及如何设置 sql_mode。
+sql_mode 是 MatrixOne 中的一个系统参数，用于指定 MatrixOne 执行查询和操作的模式。sql_mode 可以影响 MatrixOne 的语法和语义规则，从而改变 MatrixOne 查询 SQL 的行为。在本篇文章中，将为你介绍 sql_mode 的作用、常见模式以及如何设置 SQL 模式。
 
-## 为什么要设置 sql_mode
+## 为什么要设置 SQL 模式
 
 sql_mode 可以控制 MatrixOne 的行为，包括如何处理 NULL 值、如何执行插入操作、如何排序和比较字符串等。它可以确保严格执行 SQL 标准，避免不符合标准的行为。此外，sql_mode 还可以帮助开发人员更好地排除 SQL 语句的错误和潜在问题。
 
