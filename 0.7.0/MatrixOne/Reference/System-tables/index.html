@@ -5610,7 +5610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Builtin-Functions/Datetime/date" class="md-nav__link">
+      <a href="../Builtin-Functions/Datetime/datediff/" class="md-nav__link">
         DATEDIFF()
       </a>
     </li>
@@ -5867,7 +5867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Builtin-Functions/String/concat-ws/" class="md-nav__link">
+      <a href="../Builtin-Functions/String/concat/" class="md-nav__link">
         CONCAT()
       </a>
     </li>
@@ -7457,7 +7457,7 @@
 <p>系统只能修改系统数据库和表，你仅能从中进行读取操作。</p>
 <h2 id="mo_catalog"><code>mo_catalog</code> 数据库</h2>
 <p><code>mo_catalog</code> 用于存储 MatrixOne 对象的元数据，如：数据库、表、列、系统变量、租户、用户和角色。</p>
-<p>由于 MatrixOne 0.6 引入了多租户的概念，默认的 <code>sys</code> 租户和其他租户的行为略有不同。服务于多租户管理的系统表 <code>mo_account</code> 仅对 <code>sys</code> 租户可见；其他租户看不到此表。</p>
+<p>从 MatrixOne 0.6 版本即引入了多租户的概念，默认的 <code>sys</code> 租户和其他租户的行为略有不同。服务于多租户管理的系统表 <code>mo_account</code> 仅对 <code>sys</code> 租户可见；其他租户看不到此表。</p>
 <h3 id="mo_database-table">mo_database table</h3>
 <table>
 <thead>
@@ -8345,7 +8345,7 @@
 </table>
 <p>其他 3 个表（<code>log_info</code>、<code>span_info</code> 和 <code>error_info</code>）是 <code>statement_info</code> 和 <code>rawlog</code> 表的视图。</p>
 <h2 id="information_schema"><code>information_schema</code> 数据库</h2>
-<p><strong>Information Schema</strong> 提供了一种 ANSI 标准方式，用于查看系统元数据的。MatrixOne 除了为 MySQL 兼容性而包含的表之外，还提供了许多自定义的 <code>information_schema</code> 表。</p>
+<p><strong>Information Schema</strong> 提供了一种 ANSI 标准方式，用于查看系统的元数据。MatrixOne 除了为 MySQL 兼容性而包含的表之外，还提供了许多自定义的 <code>information_schema</code> 表。</p>
 <p>许多 <code>INFORMATION_SCHEMA</code> 表都有相应的 <code>SHOW</code> 命令。查询 <code>INFORMATION_SCHEMA</code> 可以在表之间进行连接。</p>
 <h3 id="mysql">MySQL 兼容性表</h3>
 <table>

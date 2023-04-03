@@ -5608,7 +5608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/Datetime/date" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/Datetime/datediff/" class="md-nav__link">
         DATEDIFF()
       </a>
     </li>
@@ -5865,7 +5865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Builtin-Functions/String/concat-ws/" class="md-nav__link">
+      <a href="../../Reference/Builtin-Functions/String/concat/" class="md-nav__link">
         CONCAT()
       </a>
     </li>
@@ -7247,7 +7247,7 @@
 <span class="o">|</span><span class="w">                             </span><span class="mi">11</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">--------------------------------+</span>
 
-<span class="o">//</span><span class="err">验证一下是哪些表</span>
+<span class="c1">-- 验证一下是哪些表</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">mo_catalog</span><span class="p">;</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">tables</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">----------------------------+</span>
@@ -7270,21 +7270,21 @@
 <ul>
 <li><strong>示例 2</strong>：创建数据库，并创建了新的表，查询指定数据库下表的总数：</li>
 </ul>
-<div class="highlight"><pre><span></span><code>create database demo_1;
-use demo_1;
-//创建三个新的表
-CREATE TABLE t1(a bigint, b varchar(10), c varchar(10));
-CREATE TABLE t2(a bigint, b int);
-CREATE TABLE t3(a int, b varchar(10), c varchar(10));
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">demo_1</span><span class="p">;</span>
+<span class="n">use</span><span class="w"> </span><span class="n">demo_1</span><span class="p">;</span>
+<span class="c1">-- 创建三个新的表</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t3</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
 
-//查询出数据库 demo_1 中有三个表
-mysql&gt; show table_number from demo_1;
-+----------------------------+
-| Number of tables in demo_1 |
-+----------------------------+
-|                          3 |
-+----------------------------+
-1 row in set (0.01 sec)
+<span class="c1">-- 查询出数据库 demo_1 中有三个表</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">table_number</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">demo_1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="nb">Number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">tables</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">demo_1</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------------+</span>
+<span class="o">|</span><span class="w">                          </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="_3">查看表拥有的列数</h2>
 <p>通过该命令，可以查看指定表的总列数。</p>
@@ -7301,7 +7301,7 @@ mysql&gt; show table_number from demo_1;
 <span class="o">|</span><span class="w">                           </span><span class="mi">11</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------------------------------+</span>
 
-<span class="o">//</span><span class="err">或者使用下面的命令</span>
+<span class="c1">-- 或者使用下面的命令</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">column_number</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">mo_catalog</span><span class="p">.</span><span class="n">mo_user</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="nb">Number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">columns</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">mo_user</span><span class="w"> </span><span class="o">|</span>
@@ -7309,7 +7309,7 @@ mysql&gt; show table_number from demo_1;
 <span class="o">|</span><span class="w">                           </span><span class="mi">11</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------------------------------+</span>
 
-<span class="o">//</span><span class="err">查看验证有哪些列</span>
+<span class="c1">-- 查看验证有哪些列</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">desc</span><span class="w"> </span><span class="n">mo_catalog</span><span class="p">.</span><span class="n">mo_user</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-----------------------+--------------+------+------+---------+-------+---------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">Field</span><span class="w">                 </span><span class="o">|</span><span class="w"> </span><span class="k">Type</span><span class="w">         </span><span class="o">|</span><span class="w"> </span><span class="k">Null</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Key</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">Default</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Extra</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Comment</span><span class="w"> </span><span class="o">|</span>
@@ -7355,7 +7355,7 @@ mysql&gt; show table_number from demo_1;
 <div class="highlight"><pre><span></span><code>MO_TABLE_ROWS({DATABASE_NAME},{TABLE_NAME})
 </code></pre></div>
 <h3 id="_8">示例</h3>
-<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="err">查询数据库</span><span class="w"> </span><span class="n">mo_catalog</span><span class="w"> </span><span class="err">下表</span><span class="w"> </span><span class="n">mo_tables</span><span class="w"> </span><span class="err">的总行数</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 查询数据库 mo_catalog 下表 mo_tables 的总行数</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">mo_table_rows</span><span class="p">(</span><span class="s1">&#39;mo_catalog&#39;</span><span class="p">,</span><span class="s1">&#39;mo_tables&#39;</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">--------------------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">mo_table_rows</span><span class="p">(</span><span class="n">mo_catalog</span><span class="p">,</span><span class="w"> </span><span class="n">mo_tables</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
@@ -7369,7 +7369,7 @@ mysql&gt; show table_number from demo_1;
 <div class="highlight"><pre><span></span><code>MO_TABLE_SIZE({DATABASE_NAME},{TABLE_NAME})
 </code></pre></div>
 <h3 id="_10">示例</h3>
-<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="err">查询数据库</span><span class="w"> </span><span class="n">mo_catalog</span><span class="w"> </span><span class="err">下表</span><span class="w"> </span><span class="n">mo_tables</span><span class="w"> </span><span class="err">占用的存储空间</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 查询数据库 mo_catalog 下表 mo_tables 占用的存储空间</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">mo_table_size</span><span class="p">(</span><span class="s1">&#39;mo_catalog&#39;</span><span class="p">,</span><span class="s1">&#39;mo_tables&#39;</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">--------------------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">mo_table_size</span><span class="p">(</span><span class="n">mo_catalog</span><span class="p">,</span><span class="w"> </span><span class="n">mo_tables</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>

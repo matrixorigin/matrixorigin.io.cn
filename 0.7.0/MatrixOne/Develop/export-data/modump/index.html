@@ -5687,7 +5687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Builtin-Functions/Datetime/date" class="md-nav__link">
+      <a href="../../../Reference/Builtin-Functions/Datetime/datediff/" class="md-nav__link">
         DATEDIFF()
       </a>
     </li>
@@ -5944,7 +5944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Builtin-Functions/String/concat-ws/" class="md-nav__link">
+      <a href="../../../Reference/Builtin-Functions/String/concat/" class="md-nav__link">
         CONCAT()
       </a>
     </li>
@@ -7120,10 +7120,10 @@
 </ul>
 <p>本篇文档主要介绍如何使用 <code>mo-dump</code> 导出数据。</p>
 <h2 id="mo-dump_1">什么是 <code>mo-dump</code></h2>
-<p><code>mo-dump</code> 是 MatrixOne 的一个客户端实用工具，与 <code>mysqldump</code> 一样，它可以被用于通过导出<em>. sql</em> 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。</p>
+<p><code>mo-dump</code> 是 MatrixOne 的一个客户端实用工具，与 <code>mysqldump</code> 一样，它可以被用于通过导出 <code>.sql</code> 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。</p>
 <p>使用 <code>mo-dump</code> 工具，你必须能够访问运行 MatrixOne 实例的服务器。你还必须拥有导出的数据库的用户权限。</p>
 <h3 id="_1">语法结构</h3>
-<div class="highlight"><pre><span></span><code>./mo-dump -u ${user} -p ${password} -h ${host} -P ${port} -db ${database} [-tbl ${table}...] &gt; {dumpfilename.sql}
+<div class="highlight"><pre><span></span><code>./mo-dump -u ${user} -p ${password} -h ${host} -P ${port} -db ${database} [-tbl ${table}...] -net-buffer-length ${net-buffer-length} &gt; {dumpfilename.sql}
 </code></pre></div>
 <p><strong>参数释义</strong></p>
 <ul>
@@ -7143,11 +7143,14 @@
 <p><strong>-db [数据库名称]</strong>：必需参数。要备份的数据库的名称。</p>
 </li>
 <li>
+<p><strong>-net-buffer-length [数据包大小]</strong>：数据包大小，即 SQL 语句字符的总大小。数据包是 SQL 导出数据的基本单位，如果不设置参数，则默认 1048576 Byte（1M），最大可设置 16777216 Byte（16M）。假如这里的参数设置为 16777216 Byte（16M），那么，当要导出大于 16M 的数据时，会把数据拆分成多个 16M 的数据包，除最后一个数据包之外，其它数据包大小都为 16M。</p>
+</li>
+<li>
 <p><strong>-tbl [表名]</strong>：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中指定多个 <code>-tbl</code> 和表名。</p>
 </li>
 </ul>
 <h2 id="mo-dump_2">构建 mo-dump 二进制文件</h2>
-<p><code>mo-dump</code> 命令程序嵌入在 MatrixOne 源代码中，你首先需要从 MatrixOne 源代码构建二进制文件</p>
+<p><code>mo-dump</code> 命令程序嵌入在 MatrixOne 源代码中，你首先需要从 MatrixOne 源代码构建二进制文件。</p>
 <p><strong>Tips:</strong> 由于 <code>mo-dump</code> 是基于 Go 语言进行开发，所以你同时需要安装部署 <a href="https://go.dev/doc/install" target="_blank">Go</a> 语言。</p>
 <ol>
 <li>

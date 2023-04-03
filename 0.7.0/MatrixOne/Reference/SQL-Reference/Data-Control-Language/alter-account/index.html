@@ -5703,7 +5703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/Datetime/date" class="md-nav__link">
+      <a href="../../../Builtin-Functions/Datetime/datediff/" class="md-nav__link">
         DATEDIFF()
       </a>
     </li>
@@ -5960,7 +5960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Builtin-Functions/String/concat-ws/" class="md-nav__link">
+      <a href="../../../Builtin-Functions/String/concat/" class="md-nav__link">
         CONCAT()
       </a>
     </li>
@@ -7192,16 +7192,16 @@ OPEN
 <ul>
 <li>示例 1：修改租户信息</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="err">创建一个名为</span><span class="w"> </span><span class="ss">&quot;root1&quot;</span><span class="w"> </span><span class="err">密码为</span><span class="w"> </span><span class="ss">&quot;111&quot;</span><span class="w"> </span><span class="err">租户</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 创建一个名为 &quot;root1&quot; 密码为 &quot;111&quot; 租户</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="n">admin_name</span><span class="w"> </span><span class="ss">&quot;root1&quot;</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="ss">&quot;111&quot;</span><span class="p">;</span>
 <span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">42</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-<span class="o">//</span><span class="err">将租户的初始密码</span><span class="w"> </span><span class="ss">&quot;111&quot;</span><span class="w"> </span><span class="err">修改为</span><span class="w"> </span><span class="ss">&quot;1234&quot;</span>
+<span class="c1">-- 将租户的初始密码 &quot;111&quot; 修改为 &quot;1234&quot;</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">alter</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="n">admin_name</span><span class="w"> </span><span class="ss">&quot;root1&quot;</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="ss">&quot;1234&quot;</span><span class="p">;</span>
 <span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-<span class="o">//</span><span class="err">修改租户</span><span class="w"> </span><span class="ss">&quot;root1&quot;</span><span class="w"> </span><span class="err">的备注</span>
+<span class="c1">-- 修改租户 &quot;root1&quot; 的备注</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">alter</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="k">comment</span><span class="w"> </span><span class="ss">&quot;new accout&quot;</span><span class="p">;</span>
 <span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-<span class="o">//</span><span class="err">查看验证是否给租户</span><span class="w"> </span><span class="ss">&quot;root1&quot;</span><span class="w"> </span><span class="err">增加了</span><span class="w"> </span><span class="ss">&quot;new accout&quot;</span><span class="w"> </span><span class="err">的备注</span>
+<span class="c1">-- 查看验证是否给租户 &quot;root1&quot; 增加了 &quot;new accout&quot; 的备注</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">accounts</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">--------------+------------+---------------------+--------+----------------+----------+-------------+-----------+-------+----------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">account_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">admin_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">created</span><span class="w">             </span><span class="o">|</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">suspended_time</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">db_count</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">table_count</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">row_count</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">size</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">comment</span><span class="w">        </span><span class="o">|</span>
@@ -7214,13 +7214,13 @@ OPEN
 <ul>
 <li>示例 2：修改租户状态</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="err">创建一个名为</span><span class="w"> </span><span class="ss">&quot;root1&quot;</span><span class="w"> </span><span class="err">密码为</span><span class="w"> </span><span class="ss">&quot;111&quot;</span><span class="w"> </span><span class="err">租户</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 创建一个名为 &quot;root1&quot; 密码为 &quot;111&quot; 租户</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">accx</span><span class="w"> </span><span class="n">admin_name</span><span class="w"> </span><span class="ss">&quot;root1&quot;</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="ss">&quot;111&quot;</span><span class="p">;</span>
 <span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">27</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-<span class="o">//</span><span class="err">修改租户状态为</span><span class="w"> </span><span class="ss">&quot;suspend&quot;</span><span class="err">，即暂停用户访问</span><span class="w"> </span><span class="n">MatrixOne</span>
+<span class="c1">-- 修改租户状态为 &quot;suspend&quot;，即暂停用户访问 MatrixOne</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">alter</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">accx</span><span class="w"> </span><span class="n">suspend</span><span class="p">;</span>
 <span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-<span class="o">//</span><span class="err">查看一下是否修改状态成功</span>
+<span class="c1">-- 查看一下是否修改状态成功</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">accounts</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">--------------+------------+---------------------+---------+---------------------+----------+-------------+-----------+-------+----------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">account_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">admin_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">created</span><span class="w">             </span><span class="o">|</span><span class="w"> </span><span class="n">status</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">suspended_time</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="n">db_count</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">table_count</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">row_count</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">size</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">comment</span><span class="w">        </span><span class="o">|</span>

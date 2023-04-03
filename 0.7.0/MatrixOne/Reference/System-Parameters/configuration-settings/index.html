@@ -5610,7 +5610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Builtin-Functions/Datetime/date" class="md-nav__link">
+      <a href="../../Builtin-Functions/Datetime/datediff/" class="md-nav__link">
         DATEDIFF()
       </a>
     </li>
@@ -5867,7 +5867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Builtin-Functions/String/concat-ws/" class="md-nav__link">
+      <a href="../../Builtin-Functions/String/concat/" class="md-nav__link">
         CONCAT()
       </a>
     </li>
@@ -7133,7 +7133,7 @@
 <td></td>
 </tr>
 <tr>
-<td>name = "S3"</td>
+<td>name = "SHARED"</td>
 <td>fileservice 存储类型，S3</td>
 </tr>
 <tr>
@@ -7143,6 +7143,22 @@
 <tr>
 <td>data-dir = "mo-data/s3"</td>
 <td>s3 存储数据路径</td>
+</tr>
+<tr>
+<td>[fileservice.cache]</td>
+<td></td>
+</tr>
+<tr>
+<td>memory-capacity = "512MB"</td>
+<td>fileservice 使用的 cache 内存大小</td>
+</tr>
+<tr>
+<td>disk-capacity = "8GB"</td>
+<td>fileservice 使用的 cache 磁盘大小</td>
+</tr>
+<tr>
+<td>disk-path = "mo-data/file-service-cache"</td>
+<td>fileservice 的磁盘 cache 路径</td>
 </tr>
 <tr>
 <td>[[fileservice]]</td>
@@ -7244,7 +7260,7 @@
 <td></td>
 </tr>
 <tr>
-<td>name = "S3"</td>
+<td>name = "SHARED"</td>
 <td>fileservice 存储类型，S3</td>
 </tr>
 <tr>
@@ -7254,6 +7270,22 @@
 <tr>
 <td>data-dir = "mo-data/s3"</td>
 <td>s3 存储数据路径</td>
+</tr>
+<tr>
+<td>[fileservice.cache]</td>
+<td></td>
+</tr>
+<tr>
+<td>memory-capacity = "512MB"</td>
+<td>fileservice 使用的 cache 内存大小</td>
+</tr>
+<tr>
+<td>disk-capacity = "8GB"</td>
+<td>fileservice 使用的 cache 磁盘大小</td>
+</tr>
+<tr>
+<td>disk-path = "mo-data/file-service-cache"</td>
+<td>fileservice 的磁盘 cache 路径</td>
 </tr>
 <tr>
 <td>[[fileservice]]</td>
@@ -7308,8 +7340,44 @@
 <td>checkpoint 自增间隔</td>
 </tr>
 <tr>
-<td>global-interval = "100000s"</td>
-<td>全局 checkpoint 间隔</td>
+<td>global-min-count = 60</td>
+<td>全局最小的 dn checkpoint 个数</td>
+</tr>
+<tr>
+<td>[dn.LogtailServer]</td>
+<td></td>
+</tr>
+<tr>
+<td>listen-address = "0.0.0.0:32003"</td>
+<td>logtail 监听端口</td>
+</tr>
+<tr>
+<td>service-address = "127.0.0.1:32003"</td>
+<td>logtail 内部访问地址</td>
+</tr>
+<tr>
+<td>rpc-max-message-size = "16KiB"</td>
+<td>logtail 使用的最大 rpc 消息大小</td>
+</tr>
+<tr>
+<td>rpc-payload-copy-buffer-size = "16KiB"</td>
+<td>rpc 复制 buffer 的大小</td>
+</tr>
+<tr>
+<td>rpc-enable-checksum = true</td>
+<td>是否开启 rpc checksum</td>
+</tr>
+<tr>
+<td>logtail-collect-interval = "2ms"</td>
+<td>logtail 的统计收集时间间隔</td>
+</tr>
+<tr>
+<td>logtail-response-send-timeout = "10s"</td>
+<td>logtail 发送的超时时间</td>
+</tr>
+<tr>
+<td>max-logtail-fetch-failure = 5</td>
+<td>获取 logtail 允许的最大失败次数</td>
 </tr>
 </tbody>
 </table>
@@ -7348,10 +7416,22 @@
 </tr>
 <tr>
 <td>[[fileservice]]</td>
+<td>fileservice 配置，不建议更改</td>
+</tr>
+<tr>
+<td>name = "LOCAL"</td>
+<td>fileservice 存储类型，本地存储</td>
+</tr>
+<tr>
+<td>backend = "DISK"</td>
+<td>fileservice 后端介质，磁盘</td>
+</tr>
+<tr>
+<td>[[fileservice]]</td>
 <td></td>
 </tr>
 <tr>
-<td>name = "S3"</td>
+<td>name = "SHARED"</td>
 <td>fileservice 存储类型，S3</td>
 </tr>
 <tr>
@@ -7361,6 +7441,22 @@
 <tr>
 <td>data-dir = "mo-data/s3"</td>
 <td>s3 存储数据路径</td>
+</tr>
+<tr>
+<td>[fileservice.cache]</td>
+<td></td>
+</tr>
+<tr>
+<td>memory-capacity = "512MB"</td>
+<td>fileservice 使用的 cache 内存大小</td>
+</tr>
+<tr>
+<td>disk-capacity = "8GB"</td>
+<td>fileservice 使用的 cache 磁盘大小</td>
+</tr>
+<tr>
+<td>disk-path = "mo-data/file-service-cache"</td>
+<td>fileservice 的磁盘 cache 路径</td>
 </tr>
 <tr>
 <td>[[fileservice]]</td>

@@ -5676,7 +5676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/Datetime/date" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/Datetime/datediff/" class="md-nav__link">
         DATEDIFF()
       </a>
     </li>
@@ -5933,7 +5933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Builtin-Functions/String/concat-ws/" class="md-nav__link">
+      <a href="../../../../Reference/Builtin-Functions/String/concat/" class="md-nav__link">
         CONCAT()
       </a>
     </li>
@@ -7114,15 +7114,18 @@ rollback;
 </code></pre></div>
 <h2 id="_4">自动提交</h2>
 <p>在 MatrixOne 中，有一个参数 <code>AUTOCOMMIT</code>，决定了没有 <code>START TRANSACTION</code> 或 <code>BEGIN</code> 的情况下，没有单条 SQL 语句的是否被当做独立事务自动提交。语法如下：</p>
-<div class="highlight"><pre><span></span><code>SET AUTOCOMMIT={on|off|0|1}  //设置该参数的值
-SHOW VARIABLES LIKE &#39;AUTOCOMMIT&#39;;
+<div class="highlight"><pre><span></span><code><span class="c1">-- 设置该参数的值</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">AUTOCOMMIT</span><span class="o">=</span><span class="err">{</span><span class="k">on</span><span class="o">|</span><span class="k">off</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="mi">1</span><span class="err">}</span><span class="w">  </span>
+<span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;AUTOCOMMIT&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p>在该参数设置为 ON 或 1 的时候，意味着自动提交，所有不在 <code>START TRANSACTION</code> 或 <code>BEGIN</code> 中的单条 SQL 语句，都会在执行时自动提交。</p>
-<div class="highlight"><pre><span></span><code>insert into t1 values(1,2,3);   //此时自动提交
+<div class="highlight"><pre><span></span><code><span class="c1">-- 此时自动提交</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w">   </span>
 </code></pre></div>
 <p>在该参数设置为 OFF 或 0 的时候，意味着非自动提交，所有不在 <code>START TRANSACTION</code> 或 <code>BEGIN</code> 中的 SQL 语句，需要用 <code>COMMIT</code> 或 <code>ROLLBACK</code> 来执行提交或回滚。</p>
-<div class="highlight"><pre><span></span><code>insert into t1 values(1,2,3);
-COMMIT；  //此处需要手动提交
+<div class="highlight"><pre><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="c1">-- 此处需要手动提交</span>
+<span class="k">COMMIT</span><span class="err">；</span><span class="w">  </span>
 </code></pre></div>
 
               
