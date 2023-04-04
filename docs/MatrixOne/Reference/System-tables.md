@@ -364,7 +364,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 - `ROW_FORMAT`：行格式。该值当前为 `Compact`。
 - `TABLE_ROWS`：统计表中的行数。
 - `AVG_ROW_LENGTH`：表的平均行长。`AVG_ROW_LENGTH` = `DATA_LENGTH` / `TABLE_ROWS`。
-- `DATA_LENGTH`：数据长度。`DATA_LENGTH` = `TABLE_ROWS` * 元组中列的存储长度之和。不考虑 TiKV 的副本。
+- `DATA_LENGTH`：数据长度。`DATA_LENGTH` = `TABLE_ROWS` * 元组中列的存储长度之和。
 - `MAX_DATA_LENGTH`：最大数据长度。该值当前为 `0`，表示数据长度没有上限。
 - `INDEX_LENGTH`：索引长度。`INDEX_LENGTH` = `TABLE_ROWS` * 索引元组中列的长度总和。
 - `DATA_FREE`：数据片段。该值当前为 `0`。
