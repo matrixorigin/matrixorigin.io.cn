@@ -1,0 +1,69 @@
+---
+import { existsSync } from 'node:fs'
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
+
+import { parse } from 'yaml'
+
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { preWalk, transformCatalog } from '~/shared'
+import TOC from '~/components/TOC.astro'
+
+const mkdocsYaml = parse(
+  await readFile(join(process.cwd(), '../mkdocs.yml'), 'utf8')
+)
+
+const catalog = transformCatalog(mkdocsYaml.nav[0])
+
+const globTasks: Promise<Record<string, any>>[] = []
+
+for (const node of catalog) {
+  await preWalk(node, async ({ path }) => {
+    const absPath = join(process.cwd(), '../docs/MatrixOne', path)
+    const exists = existsSync(absPath)
+    if (path) {
+      /**
+       * The relative path to be passed to `import()`.
+       */
+      const url = '../../../docs/MatrixOne/' + path + (exists ? '' : 'x')
+      globTasks.push(import(url))
+    }
+  })
+}
+
+const posts = await Promise.all(globTasks)
+---
+
+<BaseLayout>
+  <article
+    class:list={[
+      'mx-auto',
+      'prose',
+      'prose-ul:list-none',
+      'prose-ul:pl-2',
+      'prose-h2:mt-0',
+    ]}
+  >
+    <TOC {...{ catalog }} />
+  </article>
+  {
+    posts.map(({ Content }) => (
+      <article
+        class:list={[
+          'mx-auto',
+          'prose',
+          'prose-h1:break-before-page',
+          'prose-headings:break-inside-avoid-page',
+          'prose-headings:break-after-avoid-page',
+          'prose-pre:break-inside-avoid-page',
+          'prose-code:break-inside-avoid-page',
+          'prose-pre:whitespace-pre',
+          'prose-code:whitespace-pre',
+          'prose-a:text-blue-600',
+        ]}
+      >
+        <Content />
+      </article>
+    ))
+  }
+</BaseLayout>

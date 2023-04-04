@@ -1,0 +1,10 @@
+---
+const dots = Array.from({ length: 80 }, () => '·').join(' ')
+---
+
+<div class="flex gap-1">
+  <slot />
+  <div class="flex-1 whitespace-nowrap overflow-hidden break-word">
+    {dots}
+  </div>
+</div>

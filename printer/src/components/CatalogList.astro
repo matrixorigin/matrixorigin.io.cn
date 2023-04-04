@@ -1,0 +1,53 @@
+---
+import { existsSync } from 'node:fs'
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
+
+import { extractMainTitle } from '~/shared'
+import type { PostNode } from '~/shared'
+import CatalogItem from './CatalogItem.astro'
+
+interface Props {
+  catalog: PostNode[]
+}
+
+const { catalog } = Astro.props
+---
+
+<!-- Recursive Component -->
+<ul>
+  {
+    Promise.all(
+      catalog.map(async (node) => {
+        if (!node.children.length) {
+          if (node.path) {
+            const path = join(process.cwd(), '../docs/MatrixOne', node.path)
+            const exists = existsSync(path)
+            const src = await readFile(`${path}${exists ? '' : 'x'}`, 'utf8')
+            const slug = extractMainTitle(src)
+            return (
+              <li>
+                <CatalogItem>
+                  <a href={`#${slug}`}>{node.title}</a>
+                </CatalogItem>
+              </li>
+            )
+          } else {
+            return <li>{node.title}</li>
+          }
+        } else {
+          return (
+            <>
+              <li>
+                <CatalogItem>{node.title}</CatalogItem>
+              </li>
+              <li>
+                <Astro.self catalog={node.children} />
+              </li>
+            </>
+          )
+        }
+      })
+    )
+  }
+</ul>

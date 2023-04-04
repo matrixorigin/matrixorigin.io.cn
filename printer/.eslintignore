@@ -1,0 +1,8 @@
+dist
+node_modules
+.github
+.astro
+src/env.d.ts
+vitest.config.ts
+target
+tests/*.md

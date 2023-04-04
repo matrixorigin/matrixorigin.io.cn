@@ -1,0 +1,15 @@
+---
+import type { PostNode } from '~/shared'
+import CatalogList from './CatalogList.astro'
+
+interface Props {
+  catalog: PostNode[]
+}
+
+const { catalog } = Astro.props
+---
+
+<nav class="break-inside-avoid-page break-after-avoid-page">
+  <h2>目录</h2>
+  <CatalogList {...{ catalog }} />
+</nav>
