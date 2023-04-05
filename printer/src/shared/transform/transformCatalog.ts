@@ -22,7 +22,12 @@ function transform(objs: NestedObject[]) {
     }
 
     if (typeof val === 'string') {
-      node.path = val.replace(/^\s*MatrixOne\//, '')
+      /** Edge case which should be resolve from `/docs/` */
+      if (val === 'README.md') {
+        node.path = '../README.md'
+      } else {
+        node.path = val.replace(/^\s*MatrixOne\//, '')
+      }
     } else {
       node.children = transform(val)
     }

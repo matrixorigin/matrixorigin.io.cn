@@ -77,7 +77,7 @@ const exampleObj = {
 const expected: PostNode[] = [
   {
     title: '主页',
-    path: 'README.md',
+    path: '../README.md',
     children: [],
   },
   {
