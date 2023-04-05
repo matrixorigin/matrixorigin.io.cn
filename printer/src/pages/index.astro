@@ -8,6 +8,7 @@ import { parse } from 'yaml'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { preWalk, transformCatalog } from '~/shared'
 import TOC from '~/components/TOC.astro'
+import '~/styles/prose.css'
 
 const mkdocsYaml = parse(
   await readFile(join(process.cwd(), '../mkdocs.yml'), 'utf8')
@@ -57,8 +58,8 @@ const posts = await Promise.all(globTasks)
           'prose-headings:break-after-avoid-page',
           'prose-pre:break-inside-avoid-page',
           'prose-code:break-inside-avoid-page',
-          'prose-pre:whitespace-pre',
-          'prose-code:whitespace-pre',
+          'prose-pre:whitespace-pre-line',
+          'prose-code:whitespace-pre-line',
           'prose-a:text-blue-600',
         ]}
       >
