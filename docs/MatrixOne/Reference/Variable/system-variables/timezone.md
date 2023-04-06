@@ -1,4 +1,4 @@
-# 时区支持
+# time_zone 时区支持
 
 MatrixOne 使用的时区取决于三个系统变量：`global.time_zone`，`session.time_zone` 和 `global.system_time_zone`。
 
@@ -25,9 +25,9 @@ SET time_zone = timezone;
 +-------------+-------------+--------------------+
 | @@time_zone | @@time_zone | @@system_time_zone |
 +-------------+-------------+--------------------+
-| timezone    | +08:00      |                    |
+| timezone    | +08:00      | CST                |
 +-------------+-------------+--------------------+
-1 row in set (0.00 sec)
+1 row in set (0.01 sec)
 ```
 
 设置 time_zone 的值的格式：
@@ -50,9 +50,9 @@ SET time_zone = timezone;
 +-------------+-------------+--------------------+
 | @@time_zone | @@time_zone | @@system_time_zone |
 +-------------+-------------+--------------------+
-| SYSTEM      | SYSTEM      |                    |
+| SYSTEM      | SYSTEM      | CST                |
 +-------------+-------------+--------------------+
-1 row in set (0.01 sec)
+1 row in set (0.00 sec)
 
 > create table t (ts timestamp, dt datetime);
 Query OK, 0 rows affected (0.02 sec)
@@ -93,12 +93,11 @@ mysql> select * from t;
 +----------------------------+
 1 row in set (0.00 sec)
 
-
 > show variables like "%time_zone%";
 +------------------+--------+
 | Variable_name    | Value  |
 +------------------+--------+
-| system_time_zone |        |
+| system_time_zone | CST    |
 | time_zone        | SYSTEM |
 +------------------+--------+
 2 rows in set (0.00 sec)
@@ -120,5 +119,4 @@ set time_zone = '+08:00';
 
 ## 限制
 
-1. `system_time_zone` 值暂不存在。
-2. 仅支持 `(+/-)HH:MM` 格式和 `UTC` 来设置 `time_zone` 的值。
+MatrixOne 仅支持 `(+/-)HH:MM` 格式和 `UTC` 来设置 `time_zone` 的值。
