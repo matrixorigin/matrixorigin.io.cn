@@ -49,7 +49,9 @@ test('Should print the document as PDF', async ({ page }) => {
         justify-content: center;
         align-items: center;
         font-size: 10px;">
-        <div class="pageNumber"></div>
+        <span class="pageNumber"></span>
+        &nbsp;/&nbsp;
+        <span class="totalPages"></span>
       </div>`,
 
       /**
