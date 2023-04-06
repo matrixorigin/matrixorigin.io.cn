@@ -327,8 +327,8 @@ MatrixOne 加载 *CSV* 格式符合 RFC4180 标准，规定 *CSV* 格式如下�
 6. 包含换行符（CRLF）、双引号和逗号的字段应该用双引号引起来。例如：
 
     ```
-    "aaa"，"b CRLF
-    bb"，"ccc" CRLF
+    "aaa","b CRLF
+    bb","ccc" CRLF
     zzz,yyy,xxx
     ```
 
