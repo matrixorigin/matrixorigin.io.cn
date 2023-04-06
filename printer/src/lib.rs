@@ -86,8 +86,23 @@ fn replace_admonitions(src: &str) -> Result<(bool, String), Box<dyn Error>> {
     }
 
     let after = adm_re.replace_all(&src, |caps: &Captures| {
-        let adm_type = caps.get(1).map(|m| m.as_str()).unwrap_or("info");
-        let adm_title = caps.get(2).map(|m| m.as_str()).unwrap_or("注意");
+        let adm_type = caps
+            .get(1)
+            .map(|m| m.as_str())
+            .unwrap_or("info")
+            .to_lowercase();
+        let adm_title = caps
+            .get(2)
+            .map(|m| m.as_str())
+            .unwrap_or(if adm_type == "info" {
+                "说明"
+            } else if adm_type == "note" {
+                "注意"
+            } else if adm_type == "warn" {
+                "警告"
+            } else {
+                "未知"
+            });
         let adm_content = &caps[3];
         format!(":::{}[{}]{}\r\n:::", adm_type, adm_title, adm_content)
     });
