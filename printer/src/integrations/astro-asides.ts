@@ -12,7 +12,7 @@ import type { TupleToUnion } from '../shared'
 import { constructComponentNode, isMDXFile } from './utils'
 
 const ASIDE_TAG_NAME = 'AutoImportAside'
-export const ASIDE_VARIANTS = ['note', 'info'] as const
+export const ASIDE_VARIANTS = ['info', 'note', 'warn'] as const
 export type AsideVariant = TupleToUnion<typeof ASIDE_VARIANTS>
 
 export const asideAutoImport: Record<string, [string, string][]> = {
