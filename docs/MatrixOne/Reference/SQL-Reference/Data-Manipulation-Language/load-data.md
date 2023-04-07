@@ -359,14 +359,6 @@ MatrixOne 加载 *CSV* 格式符合 RFC4180 标准，规定 *CSV* 格式如下�
     "aaa",b""bb,"ccc"
     ```
 
-    导入到表内如下所示：
-
-    +---------+---------+---------+
-    | col1    | col2    | col3    |
-    +---------+---------+---------+
-    | aaa     |  b""bb  | ccc     |
-    +---------+---------+---------+
-
 ## **示例**
 
 你可以在 SSB 测试中了解 `LOAD DATA` 语句的用法，参见[完成 SSB 测试](../../../Test/performance-testing/SSB-test-with-matrixone.md)。
