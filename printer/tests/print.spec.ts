@@ -71,7 +71,7 @@ test('Should print the document as PDF', async ({ page }) => {
         /**
          * Top margin, accepts values labeled with units. Defaults to `0`.
          */
-        top: 36,
+        top: 54,
 
         /**
          * Right margin, accepts values labeled with units. Defaults to `0`.
