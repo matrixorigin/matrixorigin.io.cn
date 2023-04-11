@@ -14,6 +14,10 @@
   | Explicit Transactions| 显式事务，即是一种指定的事务，这种事务需要由你自己决定哪批工作必须成功完成，否则所有部分都不完成。可以使用 `BEGIN TRANSACTION` 和 `ROLLBACK TRANSACTION` 或 `COMMIT TRANSACTION` 关键字进行控制。|
   |I|  |
   | Implicit transactions| 隐式事务，即自动提交事务。 |
+  |O||
+  |Optimistic transaction| 乐观事务，乐观事务即事务开始时，不会做冲突检测或锁，会将当前相关数据缓存至对应内存区域，并对该数据进行增删改。|
+  |P||
+  |Pessimistic transaction|悲观事务，MatrixOne 默认的事务模式，即事务开始时，会假定事务相关的表处于一个会发生写冲突的状态，提前对相应的数据表或数据行上锁，完成上锁动作后，把对数据的插入、修改或删除缓存在内存中，在提交或回滚后，数据完成落盘并释放锁。|
   | S  |  |
   | Snapshot Isolation (SI) | Snapshot Isolation 是一种在实践中广泛应用的多版本并发控制技术，MatrixOne 支持 Snapshot 隔离级别的分布式事务。|
 
@@ -42,5 +46,6 @@
 | SIMD instruction | SIMD 是 Single Instruction/Multiple Data 的简写，即单指令多数据流，SIMD 操作一般指一种使用一条指令即可处理多条数据的计算方法。 |
 | T  |  |
 | Transaction |  在数据库中执行的一系列满足 ACID 基本要求的操作。|
+|TAE| 全称 Transactional Analytic Engine，存储引擎。存储引擎是存储层的主要公开接口，它可以同时支持行和列存储以及事务处理能力。|
 | V  |  |
 | Vectorized Execution  |通过有效利用 CPU 的缓存，向量化执行提高了分析查询引擎的速度。Arrow 的列式格式可以使用轻量级的架构，如 dictionary encoding，bit packing 以及 run length encoding，这都进一步了提升了查询效率。|
