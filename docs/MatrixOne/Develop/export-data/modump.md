@@ -1,6 +1,6 @@
 # 使用 `mo-dump` 导出数据
 
-MatrixOne 支持以下两种方式导入数据：
+MatrixOne 支持以下两种方式导出数据：
 
 - `SELECT INTO...OUTFILE`
 - `mo-dump`
