@@ -13,8 +13,6 @@ MatrixOne 事务遵循数据库事务的标准定义与基本特征 (ACID)。它
 
 这两大类事务的分类彼此不受对方限制，一个显式事务可以是乐观事务或悲观事务，同时一个悲观事务可能是显式事务也可能是隐式事务。
 
-__Note__: MatrixOne 暂不支持悲观事务。
-
 ## [显式事务](explicit-transaction.md)
 
 在 MatrixOne 中，一个事务以 `START TRANSACTION` 显式声明，即成为一个显式事务。
@@ -27,7 +25,24 @@ __Note__: MatrixOne 暂不支持悲观事务。
 
 在乐观事务开始时，会假定事务相关的表处于一个不会发生写冲突的状态，把对数据的插入、修改或删除缓存在内存中，在这一阶段不会对数据加锁，而在数据提交时对相应的数据表或数据行上锁，在完成提交后解锁。
 
-## [MatrixOne 的事务隔离级别](snapshot-isolation.md)
+## [悲观事务](pessimistic-transaction.md)
+
+MatrixOne 默认悲观事务。在悲观事务开始时，会假定事务相关的表处于一个会发生写冲突的状态，提前对相应的数据表或数据行上锁，完成上锁动作后，把对数据的插入、修改或删除缓存在内存中，在提交或回滚后，数据完成落盘并释放锁。
+
+## MatrixOne 的事务隔离级别
+
+MatrixOne 支持**读已提交（Read Committed）**和**快照隔离**两种隔离级别，默认隔离级别是**读已提交（Read Committed）**。
+
+### 读已提交
+
+读已提交（Read Committed）是 MatrixOne 在 0.8 版本之后的默认隔离级别，也是 SQL 标准中的四个隔离级别之一。它最显著的特点是：
+
+- 在不同的事务之间，只能读到其他事务已经提交的数据，对于未提交状态的数据，无法查看。
+- 读已提交的隔离级别，能够有效防止脏写和脏读，但是不能避免不可重复读与幻读。
+
+|Isolation Level|P0 Dirty Write|P1 Dirty Read|P4C Cursor Lost Update|P4 Lost Update|
+|---|---|---|---|---|
+|READ COMMITTED|Not Possible|Not Possible|Possible|Possible|
 
 ### 快照隔离
 
