@@ -16,7 +16,7 @@ MatrixOne 的访问控制权限分为**系统权限**和**对象权限**，在�
 
 ## 对象权限
 
-对象权限可以按照赋权的对象细分为**租户权限**、**用户权限**、**角色权限**、**数据库权限**、**表权限**。
+对象权限可以按照赋权的对象细分为**租户权限**、**用户权限**、**角色权限**、**数据库权限**、**表权限**、**发布订阅权限**。
 
 ### 租户权限
 
@@ -92,3 +92,30 @@ MatrixOne 的访问控制权限分为**系统权限**和**对象权限**，在�
 |权限 | 含义|
 |---|---|
 |EXECUTE|允许执行函数或存储过程的权限|
+
+### 发布订阅权限
+
+在 MatrixOne 中，发布订阅是对 MatrixOne 中指定数据库发起的数据共享访问。
+
+__Note:__ 当前 MatrixOne 中仅支持 *moadmin* 和 *accountadmin* 角色才可以进行发布订阅操作。
+
+- **发布端**
+
+发布端，即发布需共享、同步的数据的一方。
+
+|权限 | 含义|
+|---|---|
+|CREATE PUBLICATION|创建发布|
+|ALTER PUBLICATION|修改发布|
+|DROP PUBLICATION|删除发布|
+|SHOW PUBLICATION|查看发布|
+|SHOW CREATE PUBLICATION|查看创建发布语句|
+
+- **订阅端**
+
+订阅端，即获取已共享、同步数据的一方。
+
+|权限 | 含义|
+|---|---|
+|CREATE DATABASE db_name FROM account_name PUBLICATION|创建订阅|
+|SHOW SUBSCRIPTIONS|查看订阅|

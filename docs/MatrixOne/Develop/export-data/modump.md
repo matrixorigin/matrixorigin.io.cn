@@ -16,7 +16,7 @@ MatrixOne 支持以下两种方式导出数据：
 ### 语法结构
 
 ```
-./mo-dump -u ${user} -p ${password} -h ${host} -P ${port} -db ${database} [-tbl ${table}...] -net-buffer-length ${net-buffer-length} > {dumpfilename.sql}
+./mo-dump -u ${user} -p ${password} -h ${host} -P ${port} -db ${database} [--local-infile=true] [-csv] [-tbl ${table}...] -net-buffer-length ${net-buffer-length} > {dumpfilename.sql}
 ```
 
 **参数释义**
@@ -32,6 +32,10 @@ MatrixOne 支持以下两种方式导出数据：
 - **-db [数据库名称]**：必需参数。要备份的数据库的名称。
 
 - **-net-buffer-length [数据包大小]**：数据包大小，即 SQL 语句字符的总大小。数据包是 SQL 导出数据的基本单位，如果不设置参数，则默认 1048576 Byte（1M），最大可设置 16777216 Byte（16M）。假如这里的参数设置为 16777216 Byte（16M），那么，当要导出大于 16M 的数据时，会把数据拆分成多个 16M 的数据包，除最后一个数据包之外，其它数据包大小都为 16M。
+
+- **-csv**：默认值为 false。当设置为 true 时表示导出的数据为 *CSV* 格式。
+
+- **--local-infile**：默认值为 true，仅在参数 **-csv** 设置为 true 时生效。表示支持本地导出 *CSV* 文件。
 
 - **-tbl [表名]**：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中指定多个 `-tbl` 和表名。
 
@@ -56,7 +60,7 @@ __Tips:__ 由于 `mo-dump` 是基于 Go 语言进行开发，所以你同时需�
 
 ## 如何使用 `mo-dump` 导出 MatrixOne 数据库
 
-`mo-dump` 在命令行中非常易用。参见以下步骤，导出*. sql* 文件格式完整数据库：
+`mo-dump` 在命令行中非常易用。参见以下步骤，导出 *sql* 文件格式完整数据库：
 
 在你本地计算机上打开终端窗口，输入以下命令，连接到 MatrixOne，并且导出数据库：
 
@@ -68,6 +72,12 @@ __Tips:__ 由于 `mo-dump` 是基于 Go 语言进行开发，所以你同时需�
 
 ```
 ./mo-dump -u dump -p 111 -h 127.0.0.1 -P 6001 -db t > t.sql
+```
+
+如果你想将数据库 *t* 内的表导出为 *CSV* 格式，参考使用下面的命令：
+
+```
+./mo-dump -u dump -p 111  -db t -csv --local-infile=false > ttt.sql
 ```
 
 如果要在数据库中生成单个表的备份，可以运行以下命令。该命令将生成命名为 *t* 的数据库的 *t1* 表的备份，其中包含 *t.sql* 文件中的结构和数据。

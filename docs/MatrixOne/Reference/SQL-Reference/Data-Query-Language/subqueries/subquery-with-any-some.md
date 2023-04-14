@@ -66,7 +66,3 @@ mysql> select * from t3 where a = any (select b from t2);
 mysql> select a,b from t6 where a >  any ( select a ,b from t4 where a>3);
 ERROR 1105 (HY000): subquery should return 1 column
 ```
-
-## **限制**
-
-MatrixOne 暂不支持选择多列进行子查询。

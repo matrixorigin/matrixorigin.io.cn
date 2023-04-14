@@ -47,23 +47,12 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
 ## 通过 Navicat 连接 MatrixOne 服务
 
-1. 由于 MatrixOne 0.7 不能完全兼容 MySQL 8.0，我们将 MatrixOne 服务器版本重置为 0.7.0 以适配 Navicat 连接。
-
-    在启动 MatrixOne 之前，进入 MatrixOne 文件夹中的 *etc/launch-tae-CN-tae-DN/cn.toml* 文件，将 `[cn.frontend]` 行命令插入到文件中，再启动 MatrixOne。`[cn.frontend]` 行命令如下：
-
-    ```
-    [cn.frontend]
-    ServerVersionPrefix = " "
-    ```
-
-    插入完成后保存文件，打开一个新的终端窗口，输入以下命令，启动 MatrixOne：
+1. 打开一个新的终端窗口，输入以下命令，启动 MatrixOne：
 
     ```
     #Launch MatrixOne (Source code method)
     ./mo-service -launch ./etc/quickstart/launch.toml
     ```
-
-    __Note__: 如果你使用 Docker 的方式安装启动的 MatrixOne，并且你需要修改这个配置文件，请参考[挂载目录到 Docker 容器](../../Maintain/mount-data-by-docker.md).
 
 2. 下载安装 [Navicat](https://www.navicat.com/en/products)。
 
