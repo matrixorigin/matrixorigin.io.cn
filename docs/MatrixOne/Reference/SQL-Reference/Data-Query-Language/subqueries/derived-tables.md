@@ -141,7 +141,3 @@ mysql> select * from (select city,libname1,count(libname1) as a from t3 join t1 
 +----------+--------------------+------+
 4 rows in set (0.00 sec)
 ```
-
-## **限制**
-
-MatrixOne 暂不支持选择多列进行子查询。

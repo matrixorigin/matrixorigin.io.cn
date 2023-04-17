@@ -24,6 +24,7 @@ LOAD DATA
     [{FIELDS | COLUMNS}
         [TERMINATED BY 'string']
         [[OPTIONALLY] ENCLOSED BY 'char']
+        [ESCAPED BY 'char']
     ]
     [IGNORE number {LINES | ROWS}]
     [PARALLEL {'TRUE' | 'FALSE'}]
@@ -57,6 +58,9 @@ LOAD DATA URL s3option{"endpoint"='oss-cn-shanghai.aliyuncs.com', "access_key_id
 # LOAD a csv file from Tencent Cloud COS Shanghai region, test-1252279971 bucket, without bz2 compression
 LOAD DATA URL s3option{"endpoint"='cos.ap-shanghai.myqcloud.com', "access_key_id"='XXXXXX', "secret_access_key"='XXXXXX', "bucket"='test-1252279971', "filepath"='test.csv.bz2', "region"='ap-shanghai', "compression"='bz2'} INTO TABLE t1 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';
 ```
+
+!!! note
+    MatrixOne 提供了 S3 验证信息的安全保证，例如 `access_key_id` 和 `secret_access_key` 敏感信息在系统表（statement_info）记录里将被隐藏，保证你的账户安全。
 
 ### 教程：从 AWS S3 加载文件
 
@@ -142,6 +146,7 @@ create external table t(...) URL s3option{"endpoint"='<string>', "access_key_id"
 [{FIELDS | COLUMNS}
         [TERMINATED BY 'string']
         [[OPTIONALLY] ENCLOSED BY 'char']
+        [ESCAPED BY 'char']
 ]
 [IGNORE number {LINES | ROWS}];
 ```

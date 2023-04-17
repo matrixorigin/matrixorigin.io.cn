@@ -208,6 +208,9 @@ load data infile 'file_name' into table tbl_name FIELDS TERMINATED BY '|' ENCLOS
 load data infile 'file_name' into table tbl_name FIELDS TERMINATED BY '|' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES;
 ```
 
+!!! note
+    `[PARALLEL {'TRUE' | 'FALSE'}]` 内字段当前仅支持 `TRUE` 或 `FALSE`，且大小写不敏感。
+
 __Note:__ `LOAD` 语句中如果不加 `PARALLEL` 字段，对于 *CSV* 文件，是默认关闭并行加载；对于 *JSONLines* 文件，默认开启并行加载。如果 *CSV* 文件中有行结束符，比如 '\n'，否则有可能会导致文件加载时数据出错，如果文件过大，建议从换行符为起止点手动拆分文件后再开启并行加载。
 
 ## 支持的文件格式
