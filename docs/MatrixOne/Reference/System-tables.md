@@ -90,7 +90,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | created_time | timestamp    | 创建时间                   |
 | comment     | text         | 注释                      |
 
-### **mo_user** table
+### mo_user table
 
 | 列属性               | 类型        | 描述            |
 | --------------------- | ------------ | ------------------- |
@@ -141,6 +141,70 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | granted_time      | timestamp       | 授权时间                                 |
 | with_grant_option | bool            | 是否允许授权|
 
+### mo_user_defined_function table
+
+| 列属性            | 类型             | 描述               |
+| -----------------| --------------- | ----------------- |
+| function_id          | INT(32)       | 函数的 ID，主键    |
+| name                 | VARCHAR(100)  |  函数的名称        |
+| creator              | INT UNSIGNED(32) | 函数的创建用户 ID  |
+| args                 | TEXT(0)       |函数的参数列表       |
+| rettype              | VARCHAR(20)   | 函数的返回类型 |
+| body                 | TEXT(0)       |函数的函数体     |
+| language             | VARCHAR(20)   |  函数所使用的语言      |
+| db                   | VARCHAR(100)  | 函数所在的数据库    |
+| definer              | VARCHAR(50)   | 定义函数的用户名称     |
+| modified_time        | TIMESTAMP(0)  | 函数最后一次修改的时间  |
+| created_time         | TIMESTAMP(0)  | 函数的创建时间    |
+| type                 | VARCHAR(10)   |函数的类型，默认 FUNCTION   |
+| security_type        | VARCHAR(10)   | 安全处理方式，统一值 DEFINER  |
+| comment              | VARCHAR(5000) | 创建函数的注释 |
+| character_set_client | VARCHAR(64)   | 客户端字符集：utf8mb4  |
+| collation_connection | VARCHAR(64)   | 连接排序：utf8mb4_0900_ai_ci   |
+| database_collation   | VARCHAR(64)   | 数据库连接排序：utf8mb4_0900_ai_ci  |
+
+### mo_mysql_compatbility_mode table
+
+| 列属性            | 类型             | 描述               |
+| -----------------| --------------- | ----------------- |
+| configuration_id | INT(32)       | 配置项 id，自增列，作为主键区分不同的配置 |
+| account_name     | VARCHAR(300)  | 配置所在的租户名称  |
+| dat_name         | VARCHAR(5000) | 配置所在的数据库名称  |
+| configuration    | JSON(0)       | 配置内容，以 JSON 形式保存   |
+
+### mo_pubs table
+
+| 列属性            | 类型             | 描述               |
+| -----------------| --------------- | ----------------- |
+| pub_name      | VARCHAR(64)         | 发布名称|
+| database_name | VARCHAR(5000)       |  发布数据的名称 |
+| database_id   | BIGINT UNSIGNED(64) | 发布数据库的 ID，与 mo_database 表中的 dat_id 对应  |
+| all_table     | BOOL(0)             | 发布库是否包含 database_id 对应数据库内的所有表 |
+| all_account   | BOOL(0)             | 是否所有 account 都可以订阅该发布库 |
+| table_list    | TEXT(0)             | 在非 all table 时，发布库内包含的表清单，表名与database_id对应数据库下的表一一对应|
+| account_list  | TEXT(0)             |在非 all account 时，允许订阅该发布库的 account 清单|
+| created_time  | TIMESTAMP(0)        |创建发布库的时间   |
+| owner         | INT UNSIGNED(32)    | 创建发布库对应的角色 ID |
+| creator       | INT UNSIGNED(32)    |  创建发布库对应的用户 ID  |
+| comment       | TEXT(0)             | 创建发布库的备注信息  |
+
+### mo_indexes table
+
+| 列属性            | 类型             | 描述               |
+| -----------------| --------------- | ----------------- |
+| id               | BIGINT UNSIGNED(64) |    索引 ID            |
+| table_id         | BIGINT UNSIGNED(64) |    索引所在表的 ID            |
+| database_id      | BIGINT UNSIGNED(64) |    索引所在数据库的 ID            |
+| name             | VARCHAR(64)         |  索引的名字              |
+| type             | VARCHAR(11)         |  索引的类型，包括主键索引（PRIMARY），唯一索引（UNIQUE），次级索引（MULTIPLE）     |
+| is_visible       | TINYINT(8)          | 索引是否可见 ， 1 为可见， 0 不可见 （目前 MatrixOne 的索引全部为可见索引）  |
+| hidden           | TINYINT(8)          | 索引是否为隐藏索引， 1 为隐藏索引，0 为非隐藏索引|
+| comment          | VARCHAR(2048)       |  索引的注释信息     |
+| column_name      | VARCHAR(256)        | 索引的组成列的列名  |
+| ordinal_position | INT UNSIGNED(32)    | 索引中的列序号，从 1 开始    |
+| options          | TEXT(0)             | 索引的 options 选项信息   |
+| index_table_name | VARCHAR(5000)       |  该索引对应的索引表的表名，目前只有唯一索引含有索引表    |
+
 ## `system_metrics` 数据库
 
 `system_metrics` 收集 SQL 语句、CPU 和内存资源使用的状态和统计信息。
@@ -169,24 +233,25 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | node        | VARCHAR(36)  | MatrixOne 节点 uuid                                                    |
 | role        | VARCHAR(32)  | MatrixOne 节点角色                                                   |
 | account     | VARCHAR(128) | 租户名称，默认 `sys`                             |
-| 类型       | VARCHAR(32)  | SQL 类型，例如：INSERT，SELECT，UPDATE     |
+| type       | VARCHAR(32)  | SQL 类型，例如：INSERT，SELECT，UPDATE     |
 
 以下表为 `metric` 表的视图：
 
-* `process_cpu_percent` 表：CPU 进程繁忙百分比。
-* `process_open_fs` 表：打开的文件描述符的数量。
-* `process_resident_memory_bytes` 表：驻留内存量，单位为字节。
-* `server_connection` 表：服务器连接数。
-* `sql_statement_errors` 表：执行错误的 SQL 语句的计数器。
 * `sql_statement_total` 表：执行 SQL 语句的计数器。
-* `sql_transaction_errors` 表：错误执行的事务性语句的计数器。
+* `sql_statement_errors` 表：执行错误的 SQL 语句的计数器。
 * `sql_transaction_total` 表：事务性 SQL 语句的计数器。
-* `sys_cpu_combined_percent` 表：系统 CPU 繁忙百分比，所有逻辑核的平均值。
+* `sql_transaction_errors` 表：错误执行的事务性语句的计数器。
+* `server_connection` 表：服务器连接数。
+* `server_storage_usage`：服务器存储使用情况。
+* `process_cpu_percent` 表：CPU 进程繁忙百分比。
+* `process_resident_memory_bytes` 表：驻留内存量，单位为字节。
+* `process_open_fds` 表：打开的文件描述符的数量。
 * `sys_cpu_seconds_total` 表：系统 CPU 时间，以秒为单位，由核数标准化
+* `sys_cpu_combined_percent` 表：系统 CPU 繁忙百分比，所有逻辑核的平均值。
+* `sys_memory_used` 表：以字节为单位已使用的系统内存。
+* `sys_memory_available` 表：以字节为单位的可用系统内存。
 * `sys_disk_read_bytes` 表：以字节为单位读取系统盘。
 * `sys_disk_write_bytes` 表：以字节为单位写入系统盘。
-* `sys_memory_available` 表：以字节为单位的可用系统内存。
-* `sys_memory_used` 表：以字节为单位已使用的系统内存。
 * `sys_net_recv_bytes` 表：以字节为单位接收的系统网络。
 * `sys_net_sent_bytes` 表：以字节为单位发送的系统网络。
 
@@ -218,14 +283,15 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | status                | VARCHAR(32)   | SQL 语句执行状态：Running, Success, Failed |
 | err_code              | VARCHAR(1024) | 错误码                                                 |
 | error                 | TEXT          | 错误信息                                                |
-| exec_plan             | JSON          | 语句执行计划                                   |
+| exec_plan             | JSON          | 语句执行计划                            |
 | rows_read             | BIGINT        | 读取总行数                                              |
 | bytes_scan            | BIGINT        | 扫描总字节数                                           |
-| stats                 | JSON          | global stats info in exec_plan                                              |
-| statement_type        | VARCHAR(1024) | statement type, val in [Insert, Delete, Update, Drop Table, Drop User, ...] |
-| query_type            | VARCHAR(1024) | query type, val in [DQL, DDL, DML, DCL, TCL]                                |
-| role_id               | BIGINT        | role id                                                                     |
-| sql_source_type       | TEXT          | sql statement source type                                                   |
+| stats                 | JSON          | exec_plan 中的全局统计信息                                              |
+| statement_type        | VARCHAR(1024) | 语句类型，[Insert, Delete, Update, Drop Table, Drop User, ...] |
+| query_type            | VARCHAR(1024) | 查询类型，[DQL, DDL, DML, DCL, TCL]                                |
+| role_id               | BIGINT        | 角色 ID                                                                     |
+| sql_source_type       | TEXT          | SQL语句源类型                                                   |
+| result_count          | BIGINT(64)    | 统计sql执行结果的行数    |  
 
 ### `rawlog` 表
 
@@ -273,8 +339,13 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | PROCESSLIST      | 提供了与执行命令 `SHOW PROCESSLIST` 类似的信息。 |
 | SCHEMATA         | 提供了与执行 `SHOW DATABASES` 类似的信息。      |
 | TABLES           | 提供了当前用户可以查看的表列表。类似于执行`SHOW TABLES`。 |
-| TRIGGERS         | 提供了与执行 `SHOW TRIGGERS` 类似的信息。Provides similar information to `SHOW TRIGGERS`.             |
+| TRIGGERS         | 提供了与执行 `SHOW TRIGGERS` 类似的信息。   |
 | USER_PRIVILEGES  | 列举了与当前用户关联的权限。  |
+| PROFILING | 提供 SQL 语句执行时一些分析信息。|
+| ROUTINES  |提供有关存储存储过程的一些信息。|
+| PARAMETERS| 表提供了存储过程的参数和返回值的信息。|
+| VIEWS   |提供有关数据库中视图的信息。|
+| KEYWORDS | 提供有关数据库中关键字信息，详情参见[关键字](Language-Structure/keywords.md)。|
 
 ### `CHARACTER_SETS` 表
 
@@ -358,12 +429,12 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 - `TABLE_CATALOG`：表所属目录的名称。该值始终为 `def`。
 - `TABLE_SCHEMA`：表所属的模式的名称。
 - `TABLE_NAME`：表的名称。
-- `TABLE_TYPE`：表的类型。
+- `TABLE_TYPE`：表的类型。基本表类型为 `BASE TABLE`，视图表类型为 `VIEW`，`INFORMATION_SCHEMA` 表类型为 `SYSTEM VIEW`。
 - `ENGINE`：存储引擎的类型。
 - `VERSION`：版本。默认值为 `10`。
-- `ROW_FORMAT`：行格式。该值当前为 `Compact`。
-- `TABLE_ROWS`：统计表中的行数。
-- `AVG_ROW_LENGTH`：表的平均行长。`AVG_ROW_LENGTH` = `DATA_LENGTH` / `TABLE_ROWS`。
+- `ROW_FORMAT`：行存储格式。值为 `Fixed`，`Dynamic`，`Compressed`，`Redundant`，`Compact`。
+- `TABLE_ROWS`：统计表中的行数。对于 `INFORMATION_SCHEMA` 表，`TABLE_ROWS` 为 `NULL`。
+- `AVG_ROW_LENGTH`：表的平均行长度。`AVG_ROW_LENGTH` = `DATA_LENGTH` / `TABLE_ROWS`。
 - `DATA_LENGTH`：数据长度。`DATA_LENGTH` = `TABLE_ROWS` * 元组中列的存储长度之和。
 - `MAX_DATA_LENGTH`：最大数据长度。该值当前为 `0`，表示数据长度没有上限。
 - `INDEX_LENGTH`：索引长度。`INDEX_LENGTH` = `TABLE_ROWS` * 索引元组中列的长度总和。
@@ -387,6 +458,19 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 - `TABLE_CATALOG`：表所属的目录的名称。值为 `def`。
 - `PRIVILEGE_TYPE`：要授予的权限类型。每行只显示一种权限类型。
 - `IS_GRANTABLE`：如果你有 `GRANT OPTION` 权限，该值为 `YES`，没有 `GRANT OPTION` 权限，该值为 `NO`。
+
+### `VIEW` 表
+
+- `TABLE_CATALOG`：视图所属目录的名称。值为 `def`。
+- `TABLE_SCHEMA`：视图所属的数据库的名称。
+- `TABLE_NAME`：视图的名称。
+- `VIEW_DEFINITION`：提供视图定义的 `SELECT` 语句。包含了在 `SHOW Create VIEW` 生成的**创建表**列中看到的大部分内容。
+- `CHECK_OPTION`：`CHECK_OPTION` 属性的值。值为 `NONE`、`CASCADE` 或 `LOCAL`。
+- `IS_UPDATABLE`：在 `CREATE VIEW` 时设置一个名为视图可更新性标志的标志，如果 UPDATE 和 DELETE（以及类似的操作）对视图合法，则标志设置为 `YES（true）`。否则，标志设置为 `NO（false）`。
+- `DEFINER`：创建视图的用户的帐户，格式为 `username@hostname`。
+- `SECURITY_TYPE`：视图 `SQL SECURITY` 特性。值为 `DEFINER` 或 `INVOKER`。
+- `CHARACTER_SET_CLIENT`：创建视图时 `character_set_client` 系统变量的会话值。
+- `COLLATION_CONNECTION`：创建视图时，`collation_connection` 系统变量的会话值。
 
 ## `mysql` 数据库
 

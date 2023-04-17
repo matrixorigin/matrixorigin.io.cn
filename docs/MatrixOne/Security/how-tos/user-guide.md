@@ -228,7 +228,7 @@ grant <privilege> on <object_type> <object_name> to <role_name>
 |<object_name>|对象名称|
 |<role_name>|被赋予权限的角色|
 
-更多信息，参见 [DRANT PRIVILEGES](../../Reference/SQL-Reference/Data-Control-Language/grant-privileges.md)。
+更多信息，参见 [DRANT PRIVILEGES](../../Reference/SQL-Reference/Data-Control-Language/grant.md)。
 
 ### 向角色授予某类对象权限
 
@@ -255,7 +255,7 @@ grant <privilege> on table *.* to <role_name>;
 !!! note
     该操作虽然在授权多个相同类别对象时比较简便，但也很容易发生权限泄漏，请谨慎使用。
 
-更多信息，参见 [DRANT PRIVILEGES](../../Reference/SQL-Reference/Data-Control-Language/grant-privileges.md)。
+更多信息，参见 [DRANT PRIVILEGES](../../Reference/SQL-Reference/Data-Control-Language/grant.md)。
 
 ### 向用户授予角色
 
@@ -278,7 +278,7 @@ grant <role_name> to <user_name>;
 |<role_name>|被赋予权限的角色|
 |<user_name>|被赋予权限的用户|
 
-更多信息，参见 [DRANT ROLE](../../Reference/SQL-Reference/Data-Control-Language/grant-role.md)。
+更多信息，参见 [DRANT ROLE](../../Reference/SQL-Reference/Data-Control-Language/grant.md)。
 
 ### 让一个角色继承另一个角色的权限
 
@@ -297,7 +297,7 @@ grant <role_a> to <role_b>;
 !!! note
     该权限继承为动态继承，若 role_a 的权限发生改变，则 role_b 所继承的权限也会动态更改。MatrixOne 不允许角色环继承，即 role1 继承 role2，role2 继承 role3，但是 role3 继承不能继承 role1。
 
-更多信息，参见 [DRANT ROLE](../../Reference/SQL-Reference/Data-Control-Language/grant-role.md)。
+更多信息，参见 [DRANT ROLE](../../Reference/SQL-Reference/Data-Control-Language/grant.md)。
 
 ### 查看某一用户所拥有的权限
 

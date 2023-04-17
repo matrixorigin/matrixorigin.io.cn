@@ -21,11 +21,11 @@ show grants for 'root'@'localhost';
 ## **示例**
 
 ```sql
-> create role role1;
-> grant all on table *.* to role1;
-> grant create table, drop table on database *.* to role1;
-> create user user1 identified by 'pass1';
-> grant role1 to user1;
+create role role1;
+grant all on table *.* to role1;
+grant create table, drop table on database *.* to role1;
+create user user1 identified by 'pass1';
+grant role1 to user1;
 > show grants for 'user1'@'localhost';
 +--------------------------------------------------------+
 | Grants for user1@localhost                             |
@@ -36,8 +36,14 @@ show grants for 'root'@'localhost';
 | GRANT drop table ON database *.* `user1`@`localhost`   |
 +--------------------------------------------------------+
 4 rows in set (0.00 sec)
+
+mysql> show grants for ROLE role1;
++--------------------------------------------+
+| Grants for role1                           |
++--------------------------------------------+
+| GRANT table all ON table *.* `role1`       |
+| GRANT create table ON database *.* `role1` |
+| GRANT drop table ON database *.* `role1`   |
++--------------------------------------------+
+3 rows in set (0.00 sec)
 ```
-
-## **限制**
-
-当前 MatrixOne 还不支持查看角色权限，即暂不支持 `SHOW GRANTS FOR {rolename}`。
