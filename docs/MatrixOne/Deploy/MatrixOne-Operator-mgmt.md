@@ -14,7 +14,7 @@
 
 ### 集群管理
 
-MatrixOne Operator 通过 MatrixOneCluster 资源为用户提供了声明式的集群管理能力。具体而言，在 Kubernetes 上部署 MatrixOne 集群时，用户可以使用 YAML 格式声明一个 MatrixOneCluster 对象来描述集群，该 operator 的控制器会根据该描述实现集群的编排，并将集群状态更新到 MatrixOneCluster 对象的 .status 字段中。
+MatrixOne Operator 通过 MatrixOneCluster 资源为用户提供了声明式的集群管理能力。具体而言，在 Kubernetes 上部署 MatrixOne 集群时，用户可以使用 YAML 格式声明一个 MatrixOneCluster 对象来描述集群，该 operator 的控制器会根据该描述实现集群的编排，并将集群状态更新到 MatrixOneCluster 对象的 `.status` 字段中。
 
 MatrixOneCluster 集群由多个组件（如 Compute Node（CN）、Database Node（DN）和 Log Service）构成，这些组件对应于 CNSet、DNSet 和 LogSet 等子资源。因此，MatrixOneCluster 资源的控制器会编排这些子资源，并依赖这些子资源的控制器来完成它们的编排。
 
@@ -76,7 +76,7 @@ TEST SUITE: None
 在升级 Matrixone-Operator 之后，会在 `mo-hn` 命名空间下先重新生成一个新的 `matrixone-operator-xxxx-xxx` 的 Pod，之后会把旧的 Pod 删除。
 
 !!! note
-    升级完成后，假如 Matrixone-Operator 升级所带来的变更也会更新默认 `.spec` ，那么有可能会滚动更新 MatrixOne 集群相关服务或配置，因此 MatrixOne 服务可能会被重启。你可以通过命令监控升级过程：`watch -e "kubectl get pod -nmo-hn -owide"`。
+    升级完成后，假如 Matrixone-Operator 升级所带来的变更也会更新默认 `.spec`，那么有可能会滚动更新 MatrixOne 集群相关服务或配置，因此 MatrixOne 服务可能会被重启。你可以通过命令监控升级过程：`watch -e "kubectl get pod -nmo-hn -owide"`。
 
 ### 扩缩容
 
