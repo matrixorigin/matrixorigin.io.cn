@@ -37,15 +37,15 @@
 对于集群环境，需要做如下准备：
 
 - 3 台 VirtualBox 虚拟机
-- 操作系统使用 Ubuntu 20.04 (默认不允许 root 账号远程登入，请预先修改 `sshd` 的配置文件，允许 root 远程登入)：其中两台作为部署 Kubernetes 以及 MatrixOne 相关依赖环境的机器，另外一台作为跳板机，来搭建 Kubernetes 集群。
+- 操作系统使用 CentOS 7.9 (需要允许 root 远程登入)：其中两台作为部署 Kubernetes 以及 MatrixOne 相关依赖环境的机器，另外一台作为跳板机，来搭建 Kubernetes 集群。
 
 各个机器情况分布具体如下所示：
 
-| **host** | **IP** | **mem** | **cpu** | **disk** | **role** |
-| --- | --- | --- | --- | --- | --- |
-| kuboardspray | 192.168.56.9 | 2G | 1C | 50G | 跳板机 |
-| master0 | 192.168.56.10 | 4G | 2C | 50G | master etcd |
-| node0 | 192.168.56.11 | 4G | 2C | 50G | worker |
+| **host**     | **IP**        | **mem** | **cpu** | **disk** | **role**    |
+| ------------ | ------------- | ------- | ------- | -------- | ----------- |
+| kuboardspray | 192.168.56.9  | 2G      | 1C      | 50G      | 跳板机      |
+| master0      | 192.168.56.10 | 4G      | 2C      | 50G      | master etcd |
+| node0        | 192.168.56.11 | 4G      | 2C      | 50G      | worker      |
 
 ### **跳板机部署 Kuboard Spray**
 
@@ -58,7 +58,9 @@ Kuboard-Spray 是用来可视化部署 Kubernetes 集群的一个工具。它会
 由于会使用到 Docker，因此需要具备 Docker 的环境。使用以下命令在跳板机安装并启动 Docker：
 
 ```
-sudo apt-get update && sudo apt-get install -y docker.io
+curl -sSL https://get.docker.io/ | sh
+#如果在国内的网络受限环境下，可以换以下国内镜像地址
+curl -sSL https://get.daocloud.io/docker | sh
 ```
 
 环境准备完成后，即可部署 Kuboard-Spray。
@@ -69,12 +71,12 @@ sudo apt-get update && sudo apt-get install -y docker.io
 
 ```
 docker run -d \
-  --privileged \
-  --restart=unless-stopped \
-  --name=kuboard-spray \
-  -p 80:80/tcp \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v ~/kuboard-spray-data:/data \
+  --privileged \
+  --restart=unless-stopped \
+  --name=kuboard-spray \
+  -p 80:80/tcp \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ~/kuboard-spray-data:/data \
   eipwork/kuboard-spray:v1.2.2-amd64
 ```
 
@@ -82,12 +84,12 @@ docker run -d \
 
 ```
 docker run -d \
-  --privileged \
-  --restart=unless-stopped \
-  --name=kuboard-spray \
-  -p 80:80/tcp \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v ~/kuboard-spray-data:/data \
+  --privileged \
+  --restart=unless-stopped \
+  --name=kuboard-spray \
+  -p 80:80/tcp \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ~/kuboard-spray-data:/data \
   swr.cn-east-2.myhuaweicloud.com/kuboard/kuboard-spray:latest-amd64
 ```
 
@@ -181,7 +183,9 @@ __Note:__ 本章节均是在 master0 节点操作。
 1. 下载 helm 安装包：
 
     ```
-    wget https://get.helm.sh/helm-v3.10.2-linux-amd64.tar.gz
+    wget https://get.helm.sh/helm-v3.10.2-linux-amd64.tar.gz
+    #如果在国内的网络受限环境下，可以换以下国内镜像地址
+    wget https://mirrors.huaweicloud.com/helm/v3.10.2/helm-v3.10.2-linux-amd64.tar.gz
     ```
 
     如果由于网络问题造成下载缓慢，你可以到官网下载最新的二进制安装包，上传到服务器。
@@ -258,32 +262,29 @@ __Note:__ 本章节均是在 master0 节点操作。
 
     !!! note
          - `--set resources.requests.memory=512Mi` 设置了 MinIO 的内存最低消耗
-         - `--set persistence.size=1G` 设置了 MinIO 的存储大小为 1G
-         - `--set rootUser=rootuser,rootPassword=rootpass123` 这里的 rootUser 和 rootPassword 设置的参数，在后续创建 Kubernetes 集群的 scrects 文件时，需要用到，因此使用一个能记住的信息。
+              - `--set persistence.size=1G` 设置了 MinIO 的存储大小为 1G
+              - `--set rootUser=rootuser,rootPassword=rootpass123` 这里的 rootUser 和 rootPassword 设置的参数，在后续创建 Kubernetes 集群的 scrects 文件时，需要用到，因此使用一个能记住的信息。
 
 2. 安装并启动 MinIO 成功后，命令行显示如下所示：
 
     ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-12.png?raw=true)
 
-    然后，执行下面的命令行，使 mo-log 连接至 9000 端口：
+    然后，执行下面的命令行，设置 POD_NAME 变量，并使 mostorage 连接至 9000 端口：
 
     ```
+    export POD_NAME=$(kubectl get pods --namespace mostorage -l "release=minio" -o jsonpath="{.items[0].metadata.name}")
     nohup kubectl port-forward --address 0.0.0.0 pod-name -n mostorage 9000:9000 &
     ```
 
-3. 启动后，使用 <http://> Kubernetes 集群任何一台机器的 ip:32001 即可登录 MinIO 的页面，创建对象存储的信息。如下图所示，账户密码即上述步骤中 `--set rootUser=rootuser,rootPassword=rootpass123` 设置的 rootUser 和 rootPassword：
+3. 启动后，使用 <http://192.168.56.10:32001> 即可登录 MinIO 的页面，创建对象存储的信息。如下图所示，账户密码即上述步骤中 `--set rootUser=rootuser,rootPassword=rootpass123` 设置的 rootUser 和 rootPassword：
 
     ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-13.png?raw=true)
 
 4. 登录完成后，你需要创建对象存储相关的信息：
 
-    a. 点击 **Bucket > Create Bucket**，在 **Bucket Name** 中填写 Bucket 的名称 **minio-mo**。填写完成后，点击右下方按钮 **Create Bucket**。
+    点击 **Bucket > Create Bucket**，在 **Bucket Name** 中填写 Bucket 的名称 **minio-mo**。填写完成后，点击右下方按钮 **Create Bucket**。
 
     ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-14.png?raw=true)
-
-    b. 在当前 **minio-mo** 中，点击 **Choose or create a new path**，在 **New Folder Path** 中填写名称 **test**，填写完成后，点击 **Create**，即完成创建。
-
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-15.png?raw=true)
 
 ## **5. MatrixOne 集群部署**
 
@@ -291,13 +292,15 @@ __Note:__ 本章节均是在 master0 节点操作。
 
 __Note:__ 本章节均是在 master0 节点操作。
 
-### **安装 matrixone-operator**
+### **安装 MatrixOne-Operator**
 
-使用如下命令行安装 matrixone-operator：
+[MatrixOne Operator](https://github.com/matrixorigin/matrixone-operator) 是一个独立的在 Kubernetes 上部署和管理 MatrixOne 集群的软件工具。在项目的 [Release 列表](https://github.com/matrixorigin/matrixone-operator/releases)中，始终选择最新的 operator release 安装包进行安装。
+
+使用如下命令行在 master0 上安装 matrixone-operator：
 
 ```
-wget https://github.com/matrixorigin/matrixone-operator/releases/download/0.7.0-alpha.1/matrixone-operator-0.7.0-alpha.1.tgz
-tar -xvf matrixone-operator-0.7.0-alpha.1.tgz
+wget https://github.com/matrixorigin/matrixone-operator/releases/download/0.7.0-alpha.4/matrixone-operator-0.7.0-alpha.4.tgz
+tar -xvf matrixone-operator-0.7.0-alpha.4.tgz
 cd /root/matrixone-operator/
 helm install --create-namespace --namespace mo-hn matrixone-operator ./ --dependency-update
 ```
@@ -346,7 +349,7 @@ matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
         sharedStorage:
           s3:
             type: minio
-            path: minio
+            path: minio-io #之前定义的minio存储bucket的路径
             endpoint: http://minio.mostorage:9000
             secretRef:
               name: minio
@@ -360,6 +363,7 @@ matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
           max-size = 512
       tp:
         serviceType: NodePort
+        nodePort: 31474 #转发到外网的固定端口，K8s默认端口范围在30000-32767内
         config: |
           [cn.Engine]
           type = "distributed-tae"
@@ -367,8 +371,8 @@ matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
           level = "debug"
           format = "json"
           max-size = 512
-        replicas: 1
-      version: nightly-556de418
+        replicas: 1 #CN的个数
+      version: 0.7.0 #MatrixOne的镜像版本，来源于Dockerhub上的镜像号码
       imageRepository: matrixorigin/matrixone
       imagePullPolicy: Always
     ```
@@ -384,7 +388,7 @@ matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
 3. 使用如下命令行部署 MatrixOne 集群：
 
     ```
-    kubectl apply -f mo.yaml
+    kubectl apply -f mo.yaml
     ```
 
 4. 需等待 10 来分钟，如发生 pod 重启，请继续等待。直到如下显示表示部署成功：
