@@ -110,6 +110,10 @@ nav:
           - MatrixOne 中的事务应用场景: MatrixOne/Develop/Transactions/matrixone-transaction-overview/scenario.md
     - 部署指南:
       - MatrixOne 分布式集群部署: MatrixOne/Deploy/deploy-MatrixOne-cluster.md
+      - MatrixOne Operator 管理: MatrixOne/Deploy/MatrixOne-Operator-mgmt.md
+      - 运维指南:
+        - MatrixOne 分布式集群升级: MatrixOne/Deploy/update-MatrixOne-cluster.md
+        - MatrixOne 分布式集群扩缩容: MatrixOne/Deploy/MatrixOne-cluster-Scale.md
     - 教程:
       - 构建一个 Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
       - 使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
