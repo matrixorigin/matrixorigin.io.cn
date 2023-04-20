@@ -108,7 +108,7 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
     kubectl top node ${NODE}
     ```
 
-    ![img](https://wdcdn.qpic.cn/MTY4ODg1NzQyNDQ2MjA3NQ_26882_o0_zGd-Bas_79VSn_1681273662?w=1136&h=424)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/scale-1.png?raw=true)
 
 3. 查看 MatrixOne 集群所有节点的资源使用情况：
 
@@ -116,7 +116,7 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
     kubectl top node
     ```
 
-    ![img](https://wdcdn.qpic.cn/MTY4ODg1NzQyNDQ2MjA3NQ_262920_-FbamlYNvfA3MZ_Q_1681274050?w=1222&h=176)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/scale-2.png?raw=true)
 
 ### Pod 监控
 
@@ -134,7 +134,7 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
     kubectl top pod ${POD} -n${NS}
     ```
 
-    ![img](https://wdcdn.qpic.cn/MTY4ODg1NzQyNDQ2MjA3NQ_868871_vHRDl2Xto4ZMN6S4_1681273933?w=1372&h=594)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/scale-3.png?raw=true)
 
 3. 使用如下命令查看 MatrixOne 所有组件的资源使用情况：
 
@@ -142,4 +142,4 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
     kubectl top pod -n${NS}
     ```
 
-    ![img](https://wdcdn.qpic.cn/MTY4ODg1NzQyNDQ2MjA3NQ_855850_Otf-sCx5KPZhaprO_1681274035?w=1274&h=384)
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/scale-4.png?raw=true)
