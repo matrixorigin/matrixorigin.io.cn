@@ -113,6 +113,7 @@ nav:
       - MatrixOne Operator 管理: MatrixOne/Deploy/MatrixOne-Operator-mgmt.md
       - 运维指南:
         - MatrixOne 分布式集群升级: MatrixOne/Deploy/update-MatrixOne-cluster.md
+        - MatrixOne 分布式集群启停: MatrixOne/Deploy/MatrixOne-start-stop.md
         - MatrixOne 分布式集群扩缩容: MatrixOne/Deploy/MatrixOne-cluster-Scale.md
     - 教程:
       - 构建一个 Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
@@ -200,6 +201,8 @@ nav:
           - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/update.md
           - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data.md
           - Information Functions:
+            - CURRENT_USER(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_user.md
+            - CURRENT_ROLE(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_role.md
             - LAST_QUERY_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id.md
             - LAST_INSERT_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-insert-id.md
         - 数据查询语言（DQL）:
@@ -248,6 +251,7 @@ nav:
             - SHOW COLUMNS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-columns.md
             - SHOW FUNCTION STATUS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-function-status.md
             - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-grants.md
+            - SHOW ROLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-roles.md
             - SHOW SEQUENCES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-sequences.md
             - SHOW VARIABLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-variables.md
           - SET:
