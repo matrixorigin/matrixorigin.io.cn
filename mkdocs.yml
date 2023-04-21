@@ -234,6 +234,7 @@ nav:
           - ALTER ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Control-Language/alter-account.md
           - CREATE ROLE: MatrixOne/Reference/SQL-Reference/Data-Control-Language/create-role.md
           - CREATE USER: MatrixOne/Reference/SQL-Reference/Data-Control-Language/create-user.md
+          - ALTER USER: MatrixOne/Reference/SQL-Reference/Data-Control-Language/alter-user.md
           - DROP ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Control-Language/drop-account.md
           - DROP USER: MatrixOne/Reference/SQL-Reference/Data-Control-Language/drop-user.md
           - DROP ROLE: MatrixOne/Reference/SQL-Reference/Data-Control-Language/drop-role.md
