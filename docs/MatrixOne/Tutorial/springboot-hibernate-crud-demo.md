@@ -578,7 +578,7 @@ public class JpademoApplication {
 当出现下面的消息时，表示应用程序已经正常启动，你可以使用 Postman 调用 REST 端口。
 
 ```
-2022-10-27 11:16:16.793  INFO 93488 --- [           main] com.example.jpademo.JpademoApplication   : Starting JpademoApplication on nandeng-macbookpro.local with PID 93488 (/Users/nandeng/IdeaProjects/jpademo/target/classes started by nandeng in /Users/nandeng/IdeaProjects/jpademo)
+2022-10-27 11:16:16.793  INFO 93488 --- [           main] com.example.jpademo.JpademoApplication   : Starting JpademoApplication on username-macbookpro.local with PID 93488 (/Users/username/IdeaProjects/jpademo/target/classes started by username in /Users/username/IdeaProjects/jpademo)
 2022-10-27 11:16:16.796  INFO 93488 --- [           main] com.example.jpademo.JpademoApplication   : No active profile set, falling back to default profiles: default
 2022-10-27 11:16:18.022  INFO 93488 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2022-10-27 11:16:18.093  INFO 93488 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50ms. Found 0 JPA repository interfaces.

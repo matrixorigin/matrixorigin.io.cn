@@ -18,7 +18,7 @@ MatrixOne Operator 通过 MatrixOneCluster 资源为用户提供了声明式的�
 
 MatrixOneCluster 集群由多个组件（如 Compute Node（CN）、Database Node（DN）和 Log Service）构成，这些组件对应于 CNSet、DNSet 和 LogSet 等子资源。因此，MatrixOneCluster 资源的控制器会编排这些子资源，并依赖这些子资源的控制器来完成它们的编排。
 
-![image-operator](/Users/nandeng/工作/MO工作/文档/0.7版本文档/image-operator.png)
+![image-operator](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-operator.png?raw=true)
 
 ## 部署与运维
 

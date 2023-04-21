@@ -479,10 +479,10 @@ public class MyBatisDemoApplication {
 
 ![image-20221026161226923](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161226923.png?raw=true)
 
-当出现下面的消息时，表示应用程序已经正常启动，你可以打开浏览器并发送 HTTP 请求。
+当出现下面的消息示例时，表示应用程序已经正常启动，你可以打开浏览器并发送 HTTP 请求。
 
 ```
-2022-10-26 16:13:24.030  INFO 60253 --- [           main] c.e.mybatisdemo.MyBatisDemoApplication   : Starting MyBatisDemoApplication on nandeng-macbookpro.local with PID 60253 (/Users/nandeng/IdeaProjects/MyBatisDemo/target/classes started by nandeng in /Users/nandeng/IdeaProjects/MyBatisDemo)
+2022-10-26 16:13:24.030  INFO 60253 --- [           main] c.e.mybatisdemo.MyBatisDemoApplication   : Starting MyBatisDemoApplication on username-macbookpro.local with PID 60253 (/Users/username/IdeaProjects/MyBatisDemo/target/classes started by username in /Users/username/IdeaProjects/MyBatisDemo)
 2022-10-26 16:13:24.035  INFO 60253 --- [           main] c.e.mybatisdemo.MyBatisDemoApplication   : No active profile set, falling back to default profiles: default
 2022-10-26 16:13:25.415  INFO 60253 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2022-10-26 16:13:25.421  INFO 60253 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
