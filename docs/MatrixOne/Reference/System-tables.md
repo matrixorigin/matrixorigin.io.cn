@@ -14,20 +14,21 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 | 列属性          | 类型           | 描述                                |
 | ---------------- | --------------- | --------------------------------------- |
-| dat_id           | bigint unsigned | 主键                             |
+| dat_id           | bigint unsigned | 主键 ID                            |
 | datname          | varchar(100)    | 数据库名称                           |
 | dat_catalog_name | varchar(100)    | 数据库 catalog 名称，默认`def` |
 | dat_createsql    | varchar(100)    | 创建数据库 SQL 语句         |
-| owner            | int unsigned    | 角色 ID ID                                 |
-| creator          | int unsigned    | 用户 ID ID                                 |
+| owner            | int unsigned    | 角色 ID                               |
+| creator          | int unsigned    | 用户 ID                              |
 | created_time     | timestamp       | 创建时间                             |
-| account_id       | int unsigned    | 租户 ID ID                               |
+| account_id       | int unsigned    | 租户 ID                              |
+| dat_type         | varchar(23)     | 数据库类型，普通库或订阅库                 |
 
 ### mo_tables table
 
 | 列属性        | 类型           | 描述                                                     |
-| -------------- | --------------- | ------------------------------------------------------------ |
-| rel_id         | bigint unsigned | 主键                                                  |
+| -------------- | --------------- | ---------------------------------------------------- |
+| rel_id         | bigint unsigned | 主键，表 ID                                 |
 | relname        | varchar(100)    | 表、索引、视图等的名称                         |
 | reldatabase    | varchar(100)    | 包含此关系的数据库，参考 mo_database.datname |
 | reldatabase_id | bigint unsigned | 包含此关系的数据库 ID，参考 mo_database.datid |
@@ -40,7 +41,9 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | owner          | int unsigned    | 创建者的默认角色 ID                                 |
 | account_id     | int unsigned    | 租户 id                                                    |
 | partitioned    | blob            | 按语句分区                                       |
+| partition_info    | blob            | 分区信息                                       |
 | viewdef        | blob            | 视图定义语句                                   |
+| constraint        | varchar(5000)            | 与表相关的约束                       |
 
 ### mo_columns table
 
@@ -67,23 +70,25 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 | att_is_hidden         | tinyint(1)      | 是否隐藏                                                |
 | attr_has_update       | tinyint(1)      | 此列含有更新表达式                           |
 | attr_update           | varchar(1024)   | 更新表达式                                            |
+| attr_is_clusterby     | tinyint(1)      | 此列是否作为 cluster by 关键字来建表   |
 
 ### mo_account table (仅 `sys` 租户可见)
 
 | 列属性      | 类型        | 描述     |
 | ------------ | ------------ | ------------ |
-| account_id   | int unsigned | 租户 ID  |
+| account_id   | int unsigned | 租户 ID，主键  |
 | account_name | varchar(100) | 租户名  |
 | status       | varchar(100) | 开启/暂停 |
 | created_time | timestamp    | 创建时间  |
 | comment     | varchar(256)  | 注释      |
 | suspended_time | TIMESTAMP    | 修改租户状态的时间|
+| version | bigint unsigned    | 当前租户版本状态|
 
 ### mo_role table
 
 | 列属性      | 类型        | 描述                      |
 | ------------ | ------------ | ----------------------------- |
-| role_id      | int unsigned | 角色 ID                  |
+| role_id      | int unsigned | 角色 ID，主键                  |
 | role_name    | varchar(100) | 角色名称                     |
 | creator      | int unsigned | 用户 ID                     |
 | owner        | int unsigned | MatrixOne 管理员/租户管理员拥有者 ID |
@@ -94,7 +99,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 | 列属性               | 类型        | 描述            |
 | --------------------- | ------------ | ------------------- |
-| user_id               | int          | 用户 ID                |
+| user_id               | int          | 用户 ID，主键         |
 | user_host             | varchar(100) |   用户主机地址                  |
 | user_name             | varchar(100) |    用户名                 |
 | authentication_string | varchar(100) |  密码加密的认证字符串     |
@@ -110,33 +115,33 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 | 列属性           | 类型        | 描述                            |
 | ----------------- | ------------ | ----------------------------------- |
-| role_id           | int unsigned | 角色 ID                         |
-| user_id           | int unsigned | 用户 ID               |
+| role_id           | int unsigned | 被授权角色 ID，联合主键        |
+| user_id           | int unsigned | 获得授权角色的用户 ID，联合主键   |
 | granted_time      | timestamp    | 授权时间                       |
-| with_grant_option | bool         | 是否允许授权 |
+| with_grant_option | bool         | 是否允许获得授权用户再授权给其他用户或角色 |
 
 ### mo_role_grant table
 
 | 列属性           | 类型        | 描述                            |
 | ----------------- | ------------ | ----------------------------------- |
-| granted_id        | int        | 被授予的角色 ID            |
-| grantee_id        | int        | 要授予其他角色的角色 ID           |
+| granted_id        | int        | 被授予的角色 ID，联合主键             |
+| grantee_id        | int        | 要授予其他角色的角色 ID，联合主键            |
 | operation_role_id | int        | 操作角色 ID                   |
 | operation_user_id | int        | 操作用户 ID                  |
 | granted_time      | timestamp    | 授权时间                      |
-| with_grant_option | bool         | 是否允许授权 |
+| with_grant_option | bool         | 是否允许获得授权角色再授权给其他用户或角色 |
 
 ### mo_role_privs table
 
 | 列属性           | 类型           | 描述                            |
 | ----------------- | --------------- | ----------------------------------- |
-| role_id           | int unsigned    | 角色 ID                         |
+| role_id           | int unsigned    | 角色 ID，联合主键                   |
 | role_name         | varchar(100)    | 角色名：accountadmin/public                           |
-| obj_type          | varchar(16)     | 对象类型：account/database/table                         |
-| obj_id            | bigint unsigned | 对象 ID                        |
-| privilege_id      | int             | 权限 ID                      |
+| obj_type          | varchar(16)     | 对象类型：account/database/table，联合主键                         |
+| obj_id            | bigint unsigned | 对象 ID，联合主键                        |
+| privilege_id      | int             | 权限 ID ，联合主键                     |
 | privilege_name    | varchar(100)    | 权限名：权限列表                                   |
-| privilege_level   | varchar(100)    | 权限级别                                    |
+| privilege_level   | varchar(100)    | 权限级别，联合主键                                   |
 | operation_user_id | int unsigned    | 操作用户 ID                             |
 | granted_time      | timestamp       | 授权时间                                 |
 | with_grant_option | bool            | 是否允许授权|
