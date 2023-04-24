@@ -66,6 +66,7 @@ nav:
         - 概述: MatrixOne/Develop/schema-design/overview.md
         - 创建数据库: MatrixOne/Develop/schema-design/create-database.md
         - 创建表: MatrixOne/Develop/schema-design/create-table.md
+        - 创建次级索引: MatrixOne/Develop/schema-design/create-secondary-index.md
         - 数据完整性:
           - 数据完整性约束概述: MatrixOne/Develop/schema-design/data-integrity/overview-of-integrity-constraint-types.md
           - NOT NULL 完整性约束: MatrixOne/Develop/schema-design/data-integrity/not-null-constraints.md
