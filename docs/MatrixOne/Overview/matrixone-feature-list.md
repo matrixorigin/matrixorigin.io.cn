@@ -10,7 +10,7 @@
 | DROP DATABASE                 | Y    |
 | RENAME DATABASE               | N    |
 | CREATE TABLE                  | Y    |
-| ALTER TABLE                   | N    |
+| ALTER TABLE                   | Y    |
 | RENAME TABLE                  | N    |
 | DROP TABLE                    | Y    |
 | CREATE INDEX                  | Y    |
@@ -20,9 +20,10 @@
 | CREATE VIEW                   | Y    |
 | ALTER VIEW                    | Y    |
 | DROP VIEW                     | Y    |
-| CREATE OR REPLACE VIEW        | N    |
+| CREATE                        | Y    |
+| REPLACE VIEW                  | N    |
 | TRUNCATE                      | Y    |
-| SEQUENCE                      | N    |
+| SEQUENCE                      | Y    |
 | AUTO_INCREMENT                | Y    |
 | Temporary tables              | Y    |
 
@@ -35,7 +36,7 @@
 | UPDATE                              | Y    |
 | DELETE                              | Y    |
 | REPLACE                             | N    |
-| INSERT ON DUPLICATE KEY             | N    |
+| INSERT ON DUPLICATE KEY             | Y    |
 | LOAD DATA INFILE                    | Y    |
 | SELECT INTO OUTFILE                 | Y    |
 | INNER/LEFT/RIGHT/OUTER JOIN         | Y    |
@@ -68,7 +69,10 @@
 |                      | DOUBLE            | Y    |
 | 字符串类型         | CHAR              | Y    |
 |                      | VARCHAR           | Y    |
+|                      | BINARY           | Y    |
+|                      | VARBINARY           | Y    |
 |                      | TINYTEXT/TEXT/MEDIUMTEXT/LONGTEXT             | Y    |
+|                      | ENUM         | Y    |
 | 二进制类型         | TINYBLOB/BLOB/MEDIUMBLOB/LONGBLOB         | Y    |
 | 时间与日期  | Date              | Y    |
 |                      | Time              | Y    |
@@ -96,7 +100,7 @@
 | 事务             | 支持（Y）/不支持（N）  |
 | ------------------------ | ---- |
 | 1PC                      | Y    |
-| 悲观事务 | N    |
+| 悲观事务 | Y    |
 | 乐观事务  | Y    |
 | 分布式事务  | Y    |
 | 隔离级别       | Y    |
@@ -105,83 +109,81 @@
 
 | 函数与操作符 | 名称                |
 | ---------------------------------- | ------------------- |
-| 聚合函数                             | AVG()              |
-|                                    | COUNT()             |
-|                                    | MAX()               |
-|                                    | MIN()               |
-|                                    | Median()            |
-|                                    | SUM()               |
-|                                    | ANY_VALUE()         |
-|                                    | BIT_OR()            |
+| 聚合函数                            | ANY_VALUE()         |
+|                                    | AVG()              |
 |                                    | BIT_AND()           |
+|                                    | BIT_OR()            |
 |                                    | BIT_XOR()           |
-|                                    | STD()               |
-|                                    | VARIANCE()          |
+|                                    | COUNT()             |
 |                                    | GROUP_CONCAT()      |
+|                                    | MAX()               |
+|                                    | MEDIAN()            |
+|                                    | MIN()               |
 |                                    | SLEEP()             |
+|                                    | STD()               |
+|                                    | SUM()               |
 | 数学类                              | ABS()               |
-|                                    | SIN()               |
-|                                    | COS()               |
-|                                    | TAN()               |
-|                                    | COT()               |
 |                                    | ACOS()              |
 |                                    | ATAN()              |
-|                                    | SINH()              |
-|                                    | FLOOR()             |
-|                                    | ROUND()             |
 |                                    | CEIL()              |
-|                                    | POWER()             |
-|                                    | PI()                |
-|                                    | LOG()               |
-|                                    | LN()                |
-|                                    | UUID()              |
+|                                    | COS()               |
+|                                    | COT()               |
 |                                    | EXP()               |
-| 日期时间类                           | DATE_FORMAT()       |
-|                                    | YEAR()              |
-|                                    | MONTH()             |
+|                                    | FLOOR()             |
+|                                    | LN()                |
+|                                    | LOG()               |
+|                                    | PI()                |
+|                                    | POWER()             |
+|                                    | ROUND()             |
+|                                    | SIN()               |
+|                                    | SINH()              |
+|                                    | TAN()               |
+|                                    | UUID()              |
+| 日期时间类                           | CURDATE()           |
+|                                    | CURRENT_TIMESTAMP() |
 |                                    | DATE()              |
-|                                    | WEEKDAY()           |
-|                                    | TIMESTAMP()         |
+|                                    | DATE_ADD()          |
+|                                    | DATE_FORMAT()       |
+|                                    | DATE_SUB()          |
+|                                    | DATEDIFF()          |
+|                                    | DAY()               |
 |                                    | DAYOFYEAR()         |
 |                                    | EXTRACT()           |
-|                                    | DATE_ADD()          |
-|                                    | DATE_SUB()          |
-|                                    | TO_DATE()           |
-|                                    | DAY()               |
-|                                    | UNIX_TIMESTAMP()    |
 |                                    | FROM_UNIXTIME()     |
-|                                    | UTC_TIMESTAMP()     |
+|                                    | MONTH()             |
 |                                    | NOW()               |
-|                                    | CURRENT_TIMESTAMP() |
-|                                    | DATEDIFF()          |
 |                                    | TIMEDIFF()          |
-|                                    | CURDATE()           |
+|                                    | TIMESTAMP()         |
+|                                    | TO_DATE()           |
+|                                    | UNIX_TIMESTAMP()    |
+|                                    | UTC_TIMESTAMP()     |
+|                                    | WEEKDAY()           |
+|                                    | YEAR()              |
 | 字符串类                             | BIN()               |
 |                                    | BIT_LENGTH()        |
-|                                    | HEX()               |
+|                                    | CHAR_LENGTH()       |
 |                                    | CONCAT()            |
 |                                    | CONCAT_WS()         |
+|                                    | EMPTY()             |
+|                                    | ENDSWITH()          |
+|                                    | FIELD()             |
 |                                    | FIND_IN_SET()       |
 |                                    | FORMAT()            |
-|                                    | OCT()               |
-|                                    | EMPTY()             |
-|                                    | LENGTH()            |
-|                                    | BIT_LENGTH()        |
-|                                    | LENGTHUTF8()        |
-|                                    | CHAR_LENGTH()       |
+|                                    | HEX()               |
 |                                    | LEFT()              |
-|                                    | TRIM()              |
-|                                    | LTRIM()             |
-|                                    | RTRIM()             |
+|                                    | LENGTH()            |
+|                                    | LENGTHUTF8()        |
 |                                    | LPAD()              |
-|                                    | RPAD()              |
-|                                    | STARTSWITH()        |
-|                                    | ENDSWITH()          |
-|                                    | SUBSTRING()         |
-|                                    | SPACE()             |
+|                                    | LTRIM()             |
+|                                    | OCT()               |
 |                                    | REVERSE()           |
+|                                    | RPAD()              |
+|                                    | RTRIM()             |
+|                                    | SPACE()             |
+|                                    | STARTSWITH()        |
+|                                    | SUBSTRING()         |
 |                                    | SUBSTRING_INDEX()   |
-|                                    | FIELD()             |
+|                                    | TRIM()              |
 | 操作符                              | %, MOD              |
 |                                    | *                   |
 |                                    | +                   |
