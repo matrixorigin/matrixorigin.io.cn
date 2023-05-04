@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.2.8">
     
     
       
@@ -1555,6 +1555,95 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deploy/MatrixOne-Operator-mgmt/" class="md-nav__link">
+        MatrixOne Operator 管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5_3" type="checkbox" id="__nav_1_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5_3">
+          运维指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="运维指南" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          运维指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deploy/update-MatrixOne-cluster/" class="md-nav__link">
+        MatrixOne 分布式集群升级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deploy/MatrixOne-start-stop/" class="md-nav__link">
+        MatrixOne 分布式集群启停
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deploy/MatrixOne-cluster-Scale/" class="md-nav__link">
+        MatrixOne 分布式集群扩缩容
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2630,7 +2719,14 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    示例
+    简单示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    MySQL 兼容性
   </a>
   
 </li>
@@ -3219,6 +3315,34 @@
           Information Functions
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/information-functions/current_user/" class="md-nav__link">
+        CURRENT_USER()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/information-functions/current_role/" class="md-nav__link">
+        CURRENT_ROLE()
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -4019,6 +4143,20 @@
     <li class="md-nav__item">
       <a href="../../SQL-Reference/Other/SHOW-Statements/show-grants/" class="md-nav__link">
         SHOW GRANT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-roles/" class="md-nav__link">
+        SHOW ROLES
       </a>
     </li>
   
@@ -7344,7 +7482,14 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    示例
+    简单示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    MySQL 兼容性
   </a>
   
 </li>
@@ -7368,10 +7513,30 @@
 
 
 <h1 id="_1">自定义变量</h1>
-<p>在 MatrixOne 中，你可以通过 <code>SET</code> 命令进行变量的自定义，并且在 SQL 中使用。具体语法如下：</p>
-<div class="highlight"><pre><span></span><code><span class="k">SET</span><span class="w"> </span><span class="k">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expr</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="p">..,]</span>
+<p>在 MatrixOne 中，自定义变量是一种用于存储和操作值的机制。自定义变量可以通过 <code>SET</code> 语句设置，并且可以在整个会话期间保持值不变。你可以通过 <code>SET</code> 命令进行变量的自定义，并且在 SQL 中使用。具体语法如下：</p>
+<div class="highlight"><pre><span></span><code><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">variable_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="_2">示例</h2>
+<p><code>@variable_name</code> 是自定义变量的名称，<code>value</code> 是要分配给该变量的值。一旦定义了变量，可以在 SQL 语句中使用它来代替实际的值。</p>
+<p>例如，以下语句将定义一个名为 <code>@max_salary</code> 的变量，并将其设置为 100000：</p>
+<div class="highlight"><pre><span></span><code><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">max_salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100000</span><span class="p">;</span>
+<span class="c1">-- 查看 @max_salary 变量设置的值</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">@</span><span class="n">max_salary</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="o">@</span><span class="n">max_salary</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+</span>
+<span class="o">|</span><span class="w">      </span><span class="mi">100000</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<p>在使用自定义变量时，可以将其包含在 SQL 语句中，使用 <code>@variable_name</code> 的形式引用。例如，以下语句将返回所有薪水小于 <code>@max_salary</code> 的员工记录：</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">@</span><span class="n">max_salary</span><span class="p">;</span>
+</code></pre></div>
+<p>可以通过更改自定义变量的值来影响 SQL 查询的结果。例如，以下语句将更改 <code>@max_salary</code> 的值，并返回新的查询结果：</p>
+<div class="highlight"><pre><span></span><code><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">max_salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">80000</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">@</span><span class="n">max_salary</span><span class="p">;</span>
+</code></pre></div>
+<p>需要注意的是，自定义变量只在当前会话中保持有效，当会话结束时，变量将被删除并释放。此外，变量名必须以 <code>@</code> 符号开头，并且大小写敏感。</p>
+<h2 id="_2">简单示例</h2>
 <p>现在以定义两个变量 a 和 b 为例：</p>
 <div class="highlight"><pre><span></span><code>&gt; SET  @a=2, @b=3;
 Query OK, 0 rows affected (0.00 sec)
@@ -7411,6 +7576,8 @@ Query OK, 1 row affected (0.02 sec)
 <p class="admonition-title">Note</p>
 <p>变量 a 和 b 在此处都是 int 数据类型，如果想要一个字符串的 2 或 3，建议使用 <code>SET  @a='2', @b='3';</code>。</p>
 </div>
+<h2 id="mysql">MySQL 兼容性</h2>
+<p>MatrixOne 支持会话级别，与 MySQL 支持情况相同。</p>
 
               
             </article>

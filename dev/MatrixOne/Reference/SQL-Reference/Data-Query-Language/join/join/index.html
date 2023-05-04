@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.2.8">
     
     
       
@@ -1550,6 +1550,95 @@
       <a href="../../../../../Deploy/deploy-MatrixOne-cluster/" class="md-nav__link">
         MatrixOne 分布式集群部署
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Deploy/MatrixOne-Operator-mgmt/" class="md-nav__link">
+        MatrixOne Operator 管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5_3" type="checkbox" id="__nav_1_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5_3">
+          运维指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="运维指南" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          运维指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Deploy/update-MatrixOne-cluster/" class="md-nav__link">
+        MatrixOne 分布式集群升级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Deploy/MatrixOne-start-stop/" class="md-nav__link">
+        MatrixOne 分布式集群启停
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Deploy/MatrixOne-cluster-Scale/" class="md-nav__link">
+        MatrixOne 分布式集群扩缩容
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -3185,6 +3274,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Data-Manipulation-Language/information-functions/current_user/" class="md-nav__link">
+        CURRENT_USER()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Data-Manipulation-Language/information-functions/current_role/" class="md-nav__link">
+        CURRENT_ROLE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Data-Manipulation-Language/information-functions/last-query-id/" class="md-nav__link">
         LAST_QUERY_ID()
       </a>
@@ -4023,6 +4140,20 @@
     <li class="md-nav__item">
       <a href="../../../Other/SHOW-Statements/show-grants/" class="md-nav__link">
         SHOW GRANT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/SHOW-Statements/show-roles/" class="md-nav__link">
+        SHOW ROLES
       </a>
     </li>
   
@@ -7381,13 +7512,13 @@
 <table>
 <thead>
 <tr>
-<th>SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key</th>
+<th>SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key</th>
 <th><img alt="leftjoin" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/left_join.png?raw=true" /></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL</td>
+<td>SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL</td>
 <td><img alt="leftjoinwhere" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/left_join_where.png?raw=true" /></td>
 </tr>
 </tbody>
@@ -7398,13 +7529,13 @@
 <table>
 <thead>
 <tr>
-<th>SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key</th>
+<th>SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key</th>
 <th><img alt="leftjoinwhere" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/right_join.png?raw=true" /></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL</td>
+<td>SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL</td>
 <td><img alt="leftjoinwhere" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/right_join_where.png?raw=true" /></td>
 </tr>
 </tbody>
@@ -7415,7 +7546,7 @@
 <table>
 <thead>
 <tr>
-<th>SELECT <select_list> FROM TableA A INNER JOIN TableB B ON A.Key=B.Key</th>
+<th>SELECT [select_list] FROM TableA A INNER JOIN TableB B ON A.Key=B.Key</th>
 <th><img alt="innerjoin" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/inner_join.png?raw=true" /></th>
 </tr>
 </thead>
@@ -7432,13 +7563,13 @@
 <table>
 <thead>
 <tr>
-<th>SELECT <select_list> FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key</th>
+<th>SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key</th>
 <th><img alt="leftjoin" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/full_join.png?raw=true" /></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>SELECT <select_list> FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL OR B.Key IS NULL</td>
+<td>SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL OR B.Key IS NULL</td>
 <td><img alt="fulljoinwhere" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/full_join_where.png?raw=true" /></td>
 </tr>
 </tbody>

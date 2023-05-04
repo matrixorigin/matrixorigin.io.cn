@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.2.8">
     
     
       
@@ -1628,6 +1628,95 @@
       <a href="../../Deploy/deploy-MatrixOne-cluster/" class="md-nav__link">
         MatrixOne 分布式集群部署
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/MatrixOne-Operator-mgmt/" class="md-nav__link">
+        MatrixOne Operator 管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5_3" type="checkbox" id="__nav_1_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5_3">
+          运维指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="运维指南" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          运维指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/update-MatrixOne-cluster/" class="md-nav__link">
+        MatrixOne 分布式集群升级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/MatrixOne-start-stop/" class="md-nav__link">
+        MatrixOne 分布式集群启停
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/MatrixOne-cluster-Scale/" class="md-nav__link">
+        MatrixOne 分布式集群扩缩容
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -3259,6 +3348,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_user/" class="md-nav__link">
+        CURRENT_USER()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_role/" class="md-nav__link">
+        CURRENT_ROLE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id/" class="md-nav__link">
         LAST_QUERY_ID()
       </a>
@@ -4052,6 +4169,20 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-grants/" class="md-nav__link">
         SHOW GRANT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-roles/" class="md-nav__link">
+        SHOW ROLES
       </a>
     </li>
   
@@ -7464,7 +7595,7 @@
 </tr>
 <tr>
 <td>ALTER TABLE</td>
-<td>N</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>RENAME TABLE</td>
@@ -7503,7 +7634,11 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>CREATE OR REPLACE VIEW</td>
+<td>CREATE</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>REPLACE VIEW</td>
 <td>N</td>
 </tr>
 <tr>
@@ -7512,7 +7647,7 @@
 </tr>
 <tr>
 <td>SEQUENCE</td>
-<td>N</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>AUTO_INCREMENT</td>
@@ -7555,7 +7690,7 @@
 </tr>
 <tr>
 <td>INSERT ON DUPLICATE KEY</td>
-<td>N</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>LOAD DATA INFILE</td>
@@ -7691,7 +7826,22 @@
 </tr>
 <tr>
 <td></td>
+<td>BINARY</td>
+<td>Y</td>
+</tr>
+<tr>
+<td></td>
+<td>VARBINARY</td>
+<td>Y</td>
+</tr>
+<tr>
+<td></td>
 <td>TINYTEXT/TEXT/MEDIUMTEXT/LONGTEXT</td>
+<td>Y</td>
+</tr>
+<tr>
+<td></td>
+<td>ENUM</td>
 <td>Y</td>
 </tr>
 <tr>
@@ -7794,7 +7944,7 @@
 </tr>
 <tr>
 <td>悲观事务</td>
-<td>N</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>乐观事务</td>
@@ -7821,35 +7971,11 @@
 <tbody>
 <tr>
 <td>聚合函数</td>
-<td>AVG()</td>
-</tr>
-<tr>
-<td></td>
-<td>COUNT()</td>
-</tr>
-<tr>
-<td></td>
-<td>MAX()</td>
-</tr>
-<tr>
-<td></td>
-<td>MIN()</td>
-</tr>
-<tr>
-<td></td>
-<td>Median()</td>
-</tr>
-<tr>
-<td></td>
-<td>SUM()</td>
-</tr>
-<tr>
-<td></td>
 <td>ANY_VALUE()</td>
 </tr>
 <tr>
 <td></td>
-<td>BIT_OR()</td>
+<td>AVG()</td>
 </tr>
 <tr>
 <td></td>
@@ -7857,15 +7983,15 @@
 </tr>
 <tr>
 <td></td>
+<td>BIT_OR()</td>
+</tr>
+<tr>
+<td></td>
 <td>BIT_XOR()</td>
 </tr>
 <tr>
 <td></td>
-<td>STD()</td>
-</tr>
-<tr>
-<td></td>
-<td>VARIANCE()</td>
+<td>COUNT()</td>
 </tr>
 <tr>
 <td></td>
@@ -7873,27 +7999,31 @@
 </tr>
 <tr>
 <td></td>
+<td>MAX()</td>
+</tr>
+<tr>
+<td></td>
+<td>MEDIAN()</td>
+</tr>
+<tr>
+<td></td>
+<td>MIN()</td>
+</tr>
+<tr>
+<td></td>
 <td>SLEEP()</td>
+</tr>
+<tr>
+<td></td>
+<td>STD()</td>
+</tr>
+<tr>
+<td></td>
+<td>SUM()</td>
 </tr>
 <tr>
 <td>数学类</td>
 <td>ABS()</td>
-</tr>
-<tr>
-<td></td>
-<td>SIN()</td>
-</tr>
-<tr>
-<td></td>
-<td>COS()</td>
-</tr>
-<tr>
-<td></td>
-<td>TAN()</td>
-</tr>
-<tr>
-<td></td>
-<td>COT()</td>
 </tr>
 <tr>
 <td></td>
@@ -7905,7 +8035,19 @@
 </tr>
 <tr>
 <td></td>
-<td>SINH()</td>
+<td>CEIL()</td>
+</tr>
+<tr>
+<td></td>
+<td>COS()</td>
+</tr>
+<tr>
+<td></td>
+<td>COT()</td>
+</tr>
+<tr>
+<td></td>
+<td>EXP()</td>
 </tr>
 <tr>
 <td></td>
@@ -7913,19 +8055,7 @@
 </tr>
 <tr>
 <td></td>
-<td>ROUND()</td>
-</tr>
-<tr>
-<td></td>
-<td>CEIL()</td>
-</tr>
-<tr>
-<td></td>
-<td>POWER()</td>
-</tr>
-<tr>
-<td></td>
-<td>PI()</td>
+<td>LN()</td>
 </tr>
 <tr>
 <td></td>
@@ -7933,27 +8063,39 @@
 </tr>
 <tr>
 <td></td>
-<td>LN()</td>
+<td>PI()</td>
+</tr>
+<tr>
+<td></td>
+<td>POWER()</td>
+</tr>
+<tr>
+<td></td>
+<td>ROUND()</td>
+</tr>
+<tr>
+<td></td>
+<td>SIN()</td>
+</tr>
+<tr>
+<td></td>
+<td>SINH()</td>
+</tr>
+<tr>
+<td></td>
+<td>TAN()</td>
 </tr>
 <tr>
 <td></td>
 <td>UUID()</td>
 </tr>
 <tr>
-<td></td>
-<td>EXP()</td>
-</tr>
-<tr>
 <td>日期时间类</td>
-<td>DATE_FORMAT()</td>
+<td>CURDATE()</td>
 </tr>
 <tr>
 <td></td>
-<td>YEAR()</td>
-</tr>
-<tr>
-<td></td>
-<td>MONTH()</td>
+<td>CURRENT_TIMESTAMP()</td>
 </tr>
 <tr>
 <td></td>
@@ -7961,11 +8103,23 @@
 </tr>
 <tr>
 <td></td>
-<td>WEEKDAY()</td>
+<td>DATE_ADD()</td>
 </tr>
 <tr>
 <td></td>
-<td>TIMESTAMP()</td>
+<td>DATE_FORMAT()</td>
+</tr>
+<tr>
+<td></td>
+<td>DATE_SUB()</td>
+</tr>
+<tr>
+<td></td>
+<td>DATEDIFF()</td>
+</tr>
+<tr>
+<td></td>
+<td>DAY()</td>
 </tr>
 <tr>
 <td></td>
@@ -7977,31 +8131,11 @@
 </tr>
 <tr>
 <td></td>
-<td>DATE_ADD()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATE_SUB()</td>
-</tr>
-<tr>
-<td></td>
-<td>TO_DATE()</td>
-</tr>
-<tr>
-<td></td>
-<td>DAY()</td>
-</tr>
-<tr>
-<td></td>
-<td>UNIX_TIMESTAMP()</td>
-</tr>
-<tr>
-<td></td>
 <td>FROM_UNIXTIME()</td>
 </tr>
 <tr>
 <td></td>
-<td>UTC_TIMESTAMP()</td>
+<td>MONTH()</td>
 </tr>
 <tr>
 <td></td>
@@ -8009,19 +8143,31 @@
 </tr>
 <tr>
 <td></td>
-<td>CURRENT_TIMESTAMP()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATEDIFF()</td>
-</tr>
-<tr>
-<td></td>
 <td>TIMEDIFF()</td>
 </tr>
 <tr>
 <td></td>
-<td>CURDATE()</td>
+<td>TIMESTAMP()</td>
+</tr>
+<tr>
+<td></td>
+<td>TO_DATE()</td>
+</tr>
+<tr>
+<td></td>
+<td>UNIX_TIMESTAMP()</td>
+</tr>
+<tr>
+<td></td>
+<td>UTC_TIMESTAMP()</td>
+</tr>
+<tr>
+<td></td>
+<td>WEEKDAY()</td>
+</tr>
+<tr>
+<td></td>
+<td>YEAR()</td>
 </tr>
 <tr>
 <td>字符串类</td>
@@ -8033,7 +8179,7 @@
 </tr>
 <tr>
 <td></td>
-<td>HEX()</td>
+<td>CHAR_LENGTH()</td>
 </tr>
 <tr>
 <td></td>
@@ -8045,6 +8191,18 @@
 </tr>
 <tr>
 <td></td>
+<td>EMPTY()</td>
+</tr>
+<tr>
+<td></td>
+<td>ENDSWITH()</td>
+</tr>
+<tr>
+<td></td>
+<td>FIELD()</td>
+</tr>
+<tr>
+<td></td>
 <td>FIND_IN_SET()</td>
 </tr>
 <tr>
@@ -8053,27 +8211,7 @@
 </tr>
 <tr>
 <td></td>
-<td>OCT()</td>
-</tr>
-<tr>
-<td></td>
-<td>EMPTY()</td>
-</tr>
-<tr>
-<td></td>
-<td>LENGTH()</td>
-</tr>
-<tr>
-<td></td>
-<td>BIT_LENGTH()</td>
-</tr>
-<tr>
-<td></td>
-<td>LENGTHUTF8()</td>
-</tr>
-<tr>
-<td></td>
-<td>CHAR_LENGTH()</td>
+<td>HEX()</td>
 </tr>
 <tr>
 <td></td>
@@ -8081,15 +8219,11 @@
 </tr>
 <tr>
 <td></td>
-<td>TRIM()</td>
+<td>LENGTH()</td>
 </tr>
 <tr>
 <td></td>
-<td>LTRIM()</td>
-</tr>
-<tr>
-<td></td>
-<td>RTRIM()</td>
+<td>LENGTHUTF8()</td>
 </tr>
 <tr>
 <td></td>
@@ -8097,23 +8231,11 @@
 </tr>
 <tr>
 <td></td>
-<td>RPAD()</td>
+<td>LTRIM()</td>
 </tr>
 <tr>
 <td></td>
-<td>STARTSWITH()</td>
-</tr>
-<tr>
-<td></td>
-<td>ENDSWITH()</td>
-</tr>
-<tr>
-<td></td>
-<td>SUBSTRING()</td>
-</tr>
-<tr>
-<td></td>
-<td>SPACE()</td>
+<td>OCT()</td>
 </tr>
 <tr>
 <td></td>
@@ -8121,11 +8243,31 @@
 </tr>
 <tr>
 <td></td>
+<td>RPAD()</td>
+</tr>
+<tr>
+<td></td>
+<td>RTRIM()</td>
+</tr>
+<tr>
+<td></td>
+<td>SPACE()</td>
+</tr>
+<tr>
+<td></td>
+<td>STARTSWITH()</td>
+</tr>
+<tr>
+<td></td>
+<td>SUBSTRING()</td>
+</tr>
+<tr>
+<td></td>
 <td>SUBSTRING_INDEX()</td>
 </tr>
 <tr>
 <td></td>
-<td>FIELD()</td>
+<td>TRIM()</td>
 </tr>
 <tr>
 <td>操作符</td>

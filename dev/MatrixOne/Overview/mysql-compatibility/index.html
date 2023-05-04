@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.2.8">
     
     
       
@@ -1562,6 +1562,95 @@
       <a href="../../Deploy/deploy-MatrixOne-cluster/" class="md-nav__link">
         MatrixOne 分布式集群部署
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/MatrixOne-Operator-mgmt/" class="md-nav__link">
+        MatrixOne Operator 管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5_3" type="checkbox" id="__nav_1_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5_3">
+          运维指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="运维指南" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          运维指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/update-MatrixOne-cluster/" class="md-nav__link">
+        MatrixOne 分布式集群升级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/MatrixOne-start-stop/" class="md-nav__link">
+        MatrixOne 分布式集群启停
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/MatrixOne-cluster-Scale/" class="md-nav__link">
+        MatrixOne 分布式集群扩缩容
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -3193,6 +3282,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_user/" class="md-nav__link">
+        CURRENT_USER()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_role/" class="md-nav__link">
+        CURRENT_ROLE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id/" class="md-nav__link">
         LAST_QUERY_ID()
       </a>
@@ -3986,6 +4103,20 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-grants/" class="md-nav__link">
         SHOW GRANT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-roles/" class="md-nav__link">
+        SHOW ROLES
       </a>
     </li>
   
@@ -7373,7 +7504,7 @@
 <tr>
 <td></td>
 <td>ALTER</td>
-<td>暂不支持</td>
+<td>仅部分支持 <code>ALTER TABLE</code></td>
 </tr>
 <tr>
 <td></td>
@@ -7383,12 +7514,27 @@
 <tr>
 <td></td>
 <td>DROP TABLE</td>
-<td>同 MySQL.</td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
 <td>CREAT VIEW</td>
 <td>不支持 with check option 子句</td>
+</tr>
+<tr>
+<td></td>
+<td>DROP VIEW</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
+<td>CREAT SEQUENCE</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
+<td>DROP SEQUENCE</td>
+<td>同 MySQL</td>
 </tr>
 <tr>
 <td>数据操作语言（Data Manipulation Language，DML)</td>
@@ -7418,11 +7564,6 @@
 <tr>
 <td></td>
 <td></td>
-<td>暂不支持 <code>ON DUPLICATE KEY UPDATE</code></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
 <td>暂不支持 <code>DELAYED</code></td>
 </tr>
 <tr>
@@ -7439,6 +7580,11 @@
 <td></td>
 <td>SELECT</td>
 <td>在 <code>GROUP BY</code> 中不支持表别名</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>部分支持 Distinct</td>
 </tr>
 <tr>
 <td></td>
@@ -7496,19 +7642,79 @@
 <td>暂不支持 <code>Non-scalar</code> 子查询，但可以作为过滤条件使用</td>
 </tr>
 <tr>
+<td>数据控制语言（Data Control Language，DCL)</td>
+<td>CREATE ACCOUNT</td>
+<td>MatrixOne 创建集群租户，语法同 MySQL，租户资源隔离逻辑与 MySQL 有差异</td>
+</tr>
+<tr>
+<td></td>
+<td>CREATE ROLE</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
+<td>CREATE USER</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
+<td>ALTER ACCOUNT</td>
+<td>语法同 MySQL，当前仅支持修改密码与暂停恢复租户操作</td>
+</tr>
+<tr>
+<td></td>
+<td>ALTER USER</td>
+<td>同 MySQL，当前仅支持租户管理员或系统管理员修改用户密码，且一次只能修改一个用户的密码</td>
+</tr>
+<tr>
+<td></td>
+<td>DROP ACCOUNT</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
+<td>DROP ROLE</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
+<td>DROP USER</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
+<td>GRANT</td>
+<td>语法同 MySQL，授权逻辑与 MySQL 有差异</td>
+</tr>
+<tr>
+<td></td>
+<td>ROVOKE</td>
+<td>语法同 MySQL，回收权限逻辑与 MySQL 有差异</td>
+</tr>
+<tr>
 <td>数据库管理语句</td>
 <td>SHOW</td>
-<td>部分支持</td>
+<td>部分支持，当前支持 <code>SHOW ACCOUNTS</code>、<code>SHOW DATABASES</code>、<code>SHOW CREATE TABLE</code>、<code>SHOW CREATE VIEW</code>、<code>SHOW TABLES</code>、<code>SHOW INDEX</code>、<code>SHOW COLLATION</code>、<code>SHOW COLUMNS</code>、<code>SHOW FUNCTION STATUS</code>、<code>SHOW GRANT</code>、<code>SHOW ROLES</code>、<code>SHOW SEQUENCE</code>、<code>SHOW VARIABLES</code>、<code>SHOW NODE LIST</code></td>
+</tr>
+<tr>
+<td></td>
+<td>SHOW GRANTS FOR USERS</td>
+<td>目前只能看到直接授权的角色所具有的权限，继承角色的权限不能显示</td>
 </tr>
 <tr>
 <td>工具类语句</td>
-<td>Explain</td>
+<td>EXPLAIN</td>
 <td>分析的结果与 MySQL 有所不同</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>不支持 json 类型的输出</td>
+<td>不支持 JSON 类型的输出</td>
+</tr>
+<tr>
+<td></td>
+<td>PREPARED</td>
+<td>支持 <code>PREPARE</code>、<code>EXCUTE</code>、<code>DEALLOCATE</code></td>
 </tr>
 <tr>
 <td></td>
@@ -7517,22 +7723,22 @@
 </tr>
 <tr>
 <td>数据类型</td>
-<td>Boolean</td>
+<td>BOOLEAN</td>
 <td>与 MySQL 的布尔值类型 int 不同，MatrixOne 的布尔值是一个新的类型，它的值只能是 true 或 false。</td>
 </tr>
 <tr>
 <td></td>
-<td>Int/Bigint/Smallint/Tinyint</td>
+<td>INT/BIGINT/SMALLINT/TINYINT/INT UNSIGNED/BIGINT UNSIGNED</td>
 <td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
-<td>char/varchar</td>
+<td>CHAR/VARCHAR/BINARY/VARBINARY/TEXT/BLOB/ENUM</td>
 <td>同 MySQL</td>
 </tr>
 <tr>
 <td></td>
-<td>Float/double</td>
+<td>FLOAT/DOUBLE</td>
 <td>与 MySQL 的精度有所不同</td>
 </tr>
 <tr>
@@ -7542,17 +7748,22 @@
 </tr>
 <tr>
 <td></td>
-<td>Date</td>
+<td>DATE</td>
 <td>只支持 <code>YYYY-MM-DD</code> 与 <code>YYYYMMDD</code> 形式</td>
 </tr>
 <tr>
 <td></td>
-<td>Datetime</td>
+<td>DATETIME</td>
 <td>只支持 <code>YYYY-MM-DD hh:mi:ssssss</code> 与 <code>YYYYMMDD hh:mi:ssssss</code> 形式</td>
 </tr>
 <tr>
 <td></td>
-<td>Timestamp</td>
+<td>TIMESTAMP</td>
+<td>同 MySQL</td>
+</tr>
+<tr>
+<td></td>
+<td>JSON</td>
 <td>同 MySQL</td>
 </tr>
 <tr>
@@ -7597,8 +7808,8 @@
 </tr>
 <tr>
 <td></td>
-<td>any_value</td>
-<td><code>Any_value</code> 是 MatrixOne 中的一个聚合函数。不能在 <code>GROUP</code> 或过滤条件中使用。</td>
+<td>ANY_VALUE</td>
+<td><code>ANY_VALUE</code> 是 MatrixOne 中的一个聚合函数。不能在 <code>GROUP</code> 或过滤条件中使用。</td>
 </tr>
 <tr>
 <td></td>
@@ -7607,13 +7818,13 @@
 </tr>
 <tr>
 <td></td>
-<td>to_date</td>
+<td>TO_DATE</td>
 <td>对于日期的入参仅支持常量</td>
 </tr>
 <tr>
 <td>系统命令</td>
-<td>SHOW GRANTS FOR USERS</td>
-<td>目前只能看到直接授权的角色所具有的权限，继承角色的权限不能显示</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>

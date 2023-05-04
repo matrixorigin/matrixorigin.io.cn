@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.2.8">
     
     
       
@@ -1734,7 +1734,7 @@
         
           <li class="md-nav__item">
   <a href="#matrixone-operator" class="md-nav__link">
-    安装 matrixone-operator
+    安装 MatrixOne-Operator
   </a>
   
 </li>
@@ -1762,6 +1762,95 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MatrixOne-Operator-mgmt/" class="md-nav__link">
+        MatrixOne Operator 管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5_3" type="checkbox" id="__nav_1_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5_3">
+          运维指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="运维指南" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          运维指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update-MatrixOne-cluster/" class="md-nav__link">
+        MatrixOne 分布式集群升级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MatrixOne-start-stop/" class="md-nav__link">
+        MatrixOne 分布式集群启停
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MatrixOne-cluster-Scale/" class="md-nav__link">
+        MatrixOne 分布式集群扩缩容
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -3393,6 +3482,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_user/" class="md-nav__link">
+        CURRENT_USER()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_role/" class="md-nav__link">
+        CURRENT_ROLE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id/" class="md-nav__link">
         LAST_QUERY_ID()
       </a>
@@ -4186,6 +4303,20 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-grants/" class="md-nav__link">
         SHOW GRANT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-roles/" class="md-nav__link">
+        SHOW ROLES
       </a>
     </li>
   
@@ -7661,7 +7792,7 @@
         
           <li class="md-nav__item">
   <a href="#matrixone-operator" class="md-nav__link">
-    安装 matrixone-operator
+    安装 MatrixOne-Operator
   </a>
   
 </li>
@@ -7735,7 +7866,7 @@
 <p>对于集群环境，需要做如下准备：</p>
 <ul>
 <li>3 台 VirtualBox 虚拟机</li>
-<li>操作系统使用 Ubuntu 20.04 (默认不允许 root 账号远程登入，请预先修改 <code>sshd</code> 的配置文件，允许 root 远程登入)：其中两台作为部署 Kubernetes 以及 MatrixOne 相关依赖环境的机器，另外一台作为跳板机，来搭建 Kubernetes 集群。</li>
+<li>操作系统使用 CentOS 7.9 (需要允许 root 远程登入)：其中两台作为部署 Kubernetes 以及 MatrixOne 相关依赖环境的机器，另外一台作为跳板机，来搭建 Kubernetes 集群。</li>
 </ul>
 <p>各个机器情况分布具体如下所示：</p>
 <table>
@@ -7783,28 +7914,30 @@
 <li>安装 Docker</li>
 </ul>
 <p>由于会使用到 Docker，因此需要具备 Docker 的环境。使用以下命令在跳板机安装并启动 Docker：</p>
-<div class="highlight"><pre><span></span><code>sudo apt-get update &amp;&amp; sudo apt-get install -y docker.io
+<div class="highlight"><pre><span></span><code>curl -sSL https://get.docker.io/ | sh
+#如果在国内的网络受限环境下，可以换以下国内镜像地址
+curl -sSL https://get.daocloud.io/docker | sh
 </code></pre></div>
 <p>环境准备完成后，即可部署 Kuboard-Spray。</p>
 <h4 id="kuboard-spray_1"><strong>部署 Kuboard-Spray</strong></h4>
 <p>执行以下命令安装 Kuboard-Spray：</p>
 <div class="highlight"><pre><span></span><code>docker run -d \
-  --privileged \
-  --restart=unless-stopped \
-  --name=kuboard-spray \
-  -p 80:80/tcp \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v ~/kuboard-spray-data:/data \
+  --privileged \
+  --restart=unless-stopped \
+  --name=kuboard-spray \
+  -p 80:80/tcp \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ~/kuboard-spray-data:/data \
   eipwork/kuboard-spray:v1.2.2-amd64
 </code></pre></div>
 <p>如果由于网络问题导致镜像拉取失败，可以使用下面的备用地址：</p>
 <div class="highlight"><pre><span></span><code>docker run -d \
-  --privileged \
-  --restart=unless-stopped \
-  --name=kuboard-spray \
-  -p 80:80/tcp \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v ~/kuboard-spray-data:/data \
+  --privileged \
+  --restart=unless-stopped \
+  --name=kuboard-spray \
+  -p 80:80/tcp \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ~/kuboard-spray-data:/data \
   swr.cn-east-2.myhuaweicloud.com/kuboard/kuboard-spray:latest-amd64
 </code></pre></div>
 <p>执行完成后，即可在浏览器输入 <code>http://192.168.56.9</code> (跳板机 IP 地址）打开 Kuboard-Spray 的 Web 界面，输入用户名 <code>admin</code>，默认密码 <code>Kuboard123</code>，即可登录 Kuboard-Spray 界面，如下所示：</p>
@@ -7890,7 +8023,9 @@
 <ol>
 <li>
 <p>下载 helm 安装包：</p>
-<div class="highlight"><pre><span></span><code>wget https://get.helm.sh/helm-v3.10.2-linux-amd64.tar.gz
+<div class="highlight"><pre><span></span><code>wget https://get.helm.sh/helm-v3.10.2-linux-amd64.tar.gz
+#如果在国内的网络受限环境下，可以换以下国内镜像地址
+wget https://mirrors.huaweicloud.com/helm/v3.10.2/helm-v3.10.2-linux-amd64.tar.gz
 </code></pre></div>
 <p>如果由于网络问题造成下载缓慢，你可以到官网下载最新的二进制安装包，上传到服务器。</p>
 </li>
@@ -7954,38 +8089,40 @@ helm install --create-namespace --namespace mostorage --set resources.requests.m
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><code>--set resources.requests.memory=512Mi</code> 设置了 MinIO 的内存最低消耗</li>
+<li><code>--set resources.requests.memory=512Mi</code> 设置了 MinIO 的内存最低消耗<ul>
 <li><code>--set persistence.size=1G</code> 设置了 MinIO 的存储大小为 1G</li>
 <li><code>--set rootUser=rootuser,rootPassword=rootpass123</code> 这里的 rootUser 和 rootPassword 设置的参数，在后续创建 Kubernetes 集群的 scrects 文件时，需要用到，因此使用一个能记住的信息。</li>
+</ul>
+</li>
 </ul>
 </div>
 </li>
 <li>
 <p>安装并启动 MinIO 成功后，命令行显示如下所示：</p>
 <p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-12.png?raw=true" /></p>
-<p>然后，执行下面的命令行，使 mo-log 连接至 9000 端口：</p>
-<div class="highlight"><pre><span></span><code>nohup kubectl port-forward --address 0.0.0.0 pod-name -n mostorage 9000:9000 &amp;
+<p>然后，执行下面的命令行，设置 POD_NAME 变量，并使 mostorage 连接至 9000 端口：</p>
+<div class="highlight"><pre><span></span><code>export POD_NAME=$(kubectl get pods --namespace mostorage -l &quot;release=minio&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
+nohup kubectl port-forward --address 0.0.0.0 pod-name -n mostorage 9000:9000 &amp;
 </code></pre></div>
 </li>
 <li>
-<p>启动后，使用 <a href="http://">http://</a> Kubernetes 集群任何一台机器的 ip:32001 即可登录 MinIO 的页面，创建对象存储的信息。如下图所示，账户密码即上述步骤中 <code>--set rootUser=rootuser,rootPassword=rootpass123</code> 设置的 rootUser 和 rootPassword：</p>
+<p>启动后，使用 <a href="http://192.168.56.10:32001">http://192.168.56.10:32001</a> 即可登录 MinIO 的页面，创建对象存储的信息。如下图所示，账户密码即上述步骤中 <code>--set rootUser=rootuser,rootPassword=rootpass123</code> 设置的 rootUser 和 rootPassword：</p>
 <p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-13.png?raw=true" /></p>
 </li>
 <li>
 <p>登录完成后，你需要创建对象存储相关的信息：</p>
-<p>a. 点击 <strong>Bucket &gt; Create Bucket</strong>，在 <strong>Bucket Name</strong> 中填写 Bucket 的名称 <strong>minio-mo</strong>。填写完成后，点击右下方按钮 <strong>Create Bucket</strong>。</p>
+<p>点击 <strong>Bucket &gt; Create Bucket</strong>，在 <strong>Bucket Name</strong> 中填写 Bucket 的名称 <strong>minio-mo</strong>。填写完成后，点击右下方按钮 <strong>Create Bucket</strong>。</p>
 <p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-14.png?raw=true" /></p>
-<p>b. 在当前 <strong>minio-mo</strong> 中，点击 <strong>Choose or create a new path</strong>，在 <strong>New Folder Path</strong> 中填写名称 <strong>test</strong>，填写完成后，点击 <strong>Create</strong>，即完成创建。</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-15.png?raw=true" /></p>
 </li>
 </ol>
 <h2 id="5-matrixone"><strong>5. MatrixOne 集群部署</strong></h2>
 <p>本章节将指导你部署 MatrixOne 集群。</p>
 <p><strong>Note:</strong> 本章节均是在 master0 节点操作。</p>
-<h3 id="matrixone-operator"><strong>安装 matrixone-operator</strong></h3>
-<p>使用如下命令行安装 matrixone-operator：</p>
-<div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/matrixone-operator/releases/download/0.7.0-alpha.1/matrixone-operator-0.7.0-alpha.1.tgz
-tar -xvf matrixone-operator-0.7.0-alpha.1.tgz
+<h3 id="matrixone-operator"><strong>安装 MatrixOne-Operator</strong></h3>
+<p><a href="https://github.com/matrixorigin/matrixone-operator">MatrixOne Operator</a> 是一个独立的在 Kubernetes 上部署和管理 MatrixOne 集群的软件工具。在项目的 <a href="https://github.com/matrixorigin/matrixone-operator/releases">Release 列表</a>中，始终选择最新的 operator release 安装包进行安装。</p>
+<p>使用如下命令行在 master0 上安装 matrixone-operator：</p>
+<div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/matrixone-operator/releases/download/0.7.0-alpha.4/matrixone-operator-0.7.0-alpha.4.tgz
+tar -xvf matrixone-operator-0.7.0-alpha.4.tgz
 cd /root/matrixone-operator/
 helm install --create-namespace --namespace mo-hn matrixone-operator ./ --dependency-update
 </code></pre></div>
@@ -8027,7 +8164,7 @@ spec:
     sharedStorage:
       s3:
         type: minio
-        path: minio
+        path: minio-io #之前定义的minio存储bucket的路径
         endpoint: http://minio.mostorage:9000
         secretRef:
           name: minio
@@ -8041,6 +8178,7 @@ spec:
       max-size = 512
   tp:
     serviceType: NodePort
+    nodePort: 31474 #转发到外网的固定端口，K8s默认端口范围在30000-32767内
     config: |
       [cn.Engine]
       type = &quot;distributed-tae&quot;
@@ -8048,8 +8186,8 @@ spec:
       level = &quot;debug&quot;
       format = &quot;json&quot;
       max-size = 512
-    replicas: 1
-  version: nightly-556de418
+    replicas: 1 #CN的个数
+  version: 0.7.0 #MatrixOne的镜像版本，来源于Dockerhub上的镜像号码
   imageRepository: matrixorigin/matrixone
   imagePullPolicy: Always
 </code></pre></div>
@@ -8062,7 +8200,7 @@ spec:
 </li>
 <li>
 <p>使用如下命令行部署 MatrixOne 集群：</p>
-<div class="highlight"><pre><span></span><code>kubectl apply -f mo.yaml
+<div class="highlight"><pre><span></span><code>kubectl apply -f mo.yaml
 </code></pre></div>
 </li>
 <li>
@@ -8137,13 +8275,13 @@ mysql&gt;
       
       
         
-        <a href="../../Tutorial/develop-java-crud-demo/" class="md-footer__link md-footer__link--next" aria-label="Next: 构建一个 Java CRUD 示例" rel="next">
+        <a href="../MatrixOne-Operator-mgmt/" class="md-footer__link md-footer__link--next" aria-label="Next: MatrixOne Operator 管理" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              构建一个 Java CRUD 示例
+              MatrixOne Operator 管理
             </div>
           </div>
           <div class="md-footer__button md-icon">
