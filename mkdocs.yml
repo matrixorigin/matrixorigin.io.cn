@@ -189,12 +189,16 @@ nav:
           - CREATE INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index.md
           - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table.md
           - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-external-table.md
+          - CREATE PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-publication.md
           - CREATE SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-sequence.md
+          - CREATE...FROM...PUBLICATION...: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-subscription.md
           - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-view.md
+          - ALTER PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-publication.md
           - ALTER VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-view.md
           - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-database.md
           - DROP INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-index.md
           - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-table.md
+          - DROP PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-publication.md
           - DROP SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-sequence.md
           - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-view.md
           - TRUNCATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/truncate-table.md
@@ -251,14 +255,17 @@ nav:
             - SHOW DATABASES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-databases.md
             - SHOW CREATE TABLE: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-create-table.md
             - SHOW CREATE VIEW: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-create-view.md
+            - SHOW CREATE PUBLICATION: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-create-publication.md
             - SHOW TABLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-tables.md
             - SHOW INDEX: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-index.md
             - SHOW COLLATION: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-collation.md
             - SHOW COLUMNS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-columns.md
             - SHOW FUNCTION STATUS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-function-status.md
             - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-grants.md
+            - SHOW PUBLICATIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-publications.md
             - SHOW ROLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-roles.md
             - SHOW SEQUENCES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-sequences.md
+            - SHOW SUBSCRIPTIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-subscriptions.md
             - SHOW VARIABLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-variables.md
           - SET:
             - SET ROLE: MatrixOne/Reference/SQL-Reference/Other/Set/set-role.md
