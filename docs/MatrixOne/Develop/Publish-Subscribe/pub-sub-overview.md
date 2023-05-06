@@ -24,7 +24,7 @@
 
 ![](https://github.com/matrixorigin/artwork/blob/main/docs/develop/pub-sub/example-zh.png?raw=true)
 
-本章节将给出一个示例，介绍当前在 MatrixOne 集群中，存在 3 个租户，sys、acc1与acc2，按照操作顺序对三个租户进行操作：
+本章节将给出一个示例，介绍当前在 MatrixOne 集群中，存在 3 个租户，sys、acc1 与 acc2，按照操作顺序对三个租户进行操作：
 
 1. **发布者**：sys 租户创建数据库 sub1 与表 t1，并发布 pub1：
 
@@ -107,7 +107,7 @@
     alter publication pub2 account all;
     ```
 
-8. **订阅者**：acc2 都创建订阅库 syssub2 成功，得到共享的数据表 t1：
+8. **订阅者**：acc2 创建订阅库 syssub2 成功，得到共享的数据表 t1：
 
     ```sql
     create database syssub2 from sys publication pub2;
