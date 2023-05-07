@@ -1,6 +1,8 @@
 # 从本地 Minio 导入数据到 MatrixOne
 
-在分布式 MatrixOne 集群中，除了本地导入数据和从公有云对象存储导入数据到 MatrixOne，还可以通过本地 Minio 组件导入数据。如果遇到没有公网访问或导入文件过大超出本地磁盘空间等情况，这种方式也是导入数据到 MatrixOne 的一个可行方法。
+在 MatrixOne 分布式集群中，除了本地导入数据和从公有云对象存储 S3 导入数据到 MatrixOne，还可以通过本地 Minio 组件导入数据。
+
+通过本地 Minio 组件导入数据到 MatrixOne 适用于：遇到没有公网访问或导入文件过大超出本地磁盘空间等情况。
 
 本篇文章将指导您如何使用本地 Minio 导入 CSV 文件。并且本篇文档所介绍到的环境将基于 [MatrixOne 分布式集群部署](deploy-MatrixOne-cluster.md)的环境，请确保整个 MatrixOne 已经安装完毕。
 
