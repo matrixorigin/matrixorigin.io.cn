@@ -1,6 +1,6 @@
 # 从本地 Minio 导入数据到 MatrixOne
 
-除了本地导入数据和从公有云对象存储 S3 导入数据到 MatrixOne，还可以通过本地 Minio 组件导入数据。
+在分布式的 MatrixOne 集群中，除了本地导入数据和从公有云对象存储 S3 导入数据到 MatrixOne，还可以通过本地 Minio 组件导入数据。
 
 通过本地 Minio 组件导入数据到 MatrixOne 适用于：遇到没有公网访问或导入文件过大超出本地磁盘空间等情况。
 
@@ -18,7 +18,7 @@
 
 ![Load From Minio](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/import/load-from-minio.png?raw=true)
 
-### 获取 Minio 的 Endpoint
+### 获取 Minio 的 endpoint
 
 从本地 Minio 里加载数据到 MatrixOne 集群的原理与[从公有云的对象存储 S3 中加载数据方式](../Develop/import-data/bulk-load/load-s3.md)完全相同，他们的语法结构一样。但是公有云方式其中的参数会有公有云厂商给出，而本地 Minio 中的参数需要自行设置。
 
