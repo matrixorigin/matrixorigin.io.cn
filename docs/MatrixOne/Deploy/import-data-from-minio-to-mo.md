@@ -1,6 +1,6 @@
 # 从本地 Minio 导入数据到 MatrixOne
 
-在分布式的 MatrixOne 集群中，除了本地导入数据和从公有云对象存储导入数据到 MatrixOne，还可以通过本地 Minio 组件导入数据。如果遇到没有公网访问或导入文件过大超出本地磁盘空间等情况，这种方式也是导入数据到 MatrixOne 的一个可行方法。
+在分布式 MatrixOne 集群中，除了本地导入数据和从公有云对象存储导入数据到 MatrixOne，还可以通过本地 Minio 组件导入数据。如果遇到没有公网访问或导入文件过大超出本地磁盘空间等情况，这种方式也是导入数据到 MatrixOne 的一个可行方法。
 
 本篇文章将指导您如何使用本地 Minio 导入 CSV 文件。并且本篇文档所介绍到的环境将基于 [MatrixOne 分布式集群部署](deploy-MatrixOne-cluster.md)的环境，请确保整个 MatrixOne 已经安装完毕。
 
@@ -75,7 +75,7 @@ minio1-console   100.92.250.195:9090,100.92.250.200:9090,100.92.250.201:9090 + 1
 minio1-hl        100.92.250.195:9000,100.92.250.200:9000,100.92.250.201:9000 + 1 more...   127d
 ```
 
-SVC 的访问地址是在 `Load` 语句中需要添加的终端地址。要构建 SVC 地址，可以使用 `${service_name}.{namespace}.svc.cluster.local` 的方式（后三位可省略）。以下命令的结果表明，minio1-hl 的 SVC 使用 9000 作为对外转发端口，minio 的 SVC 使用 80 作为对外转发端口。因此，连接 Mostorage 的 Minio 的最终 endpoint 为：<http://minio1-hl.mostorage:9000>或者<http://minio.mostorage:80>。
+SVC 的访问地址是在 `Load` 语句中需要添加的终端地址。要构建 SVC 地址，可以使用 `${service_name}.{namespace}.svc.cluster.local` 的方式（后三位可省略）。以下命令的结果表明，minio1-hl 的 SVC 使用 9000 作为对外转发端口，minio 的 SVC 使用 80 作为对外转发端口。因此，连接 Mostorage 的 Minio 的最终 endpoint 为：<http://minio1-hl.mostorage:9000> 或者 <http://minio.mostorage:80>。
 
 ### 构建并执行 Load 语句
 
