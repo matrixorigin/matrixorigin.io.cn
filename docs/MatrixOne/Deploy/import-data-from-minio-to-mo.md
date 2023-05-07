@@ -8,7 +8,7 @@
 
 ### 导入数据
 
-你可以通过访问 http://192.168.56.10:32001 来登录 Minio 的图形化界面。账户和密码可以参考 [MatrixOne 分布式集群部署](deploy-MatrixOne-cluster.md)章节中安装和部署 Minio 过程中创建的 rootUser 和 rootPassword。登录后，你需要创建一个专属的存储桶 `load-from-minio`，并将相应的 CSV 文件上传到该存储桶中。
+你可以通过访问 <http://192.168.56.10:32001> 来登录 Minio 的图形化界面。账户和密码可以参考 [MatrixOne 分布式集群部署](deploy-MatrixOne-cluster.md)章节中安装和部署 Minio 过程中创建的 rootUser 和 rootPassword。登录后，你需要创建一个专属的存储桶 `load-from-minio`，并将相应的 CSV 文件上传到该存储桶中。
 
 ![Create Bucket](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/import/minio-create-bucket.png?raw=true)
 
