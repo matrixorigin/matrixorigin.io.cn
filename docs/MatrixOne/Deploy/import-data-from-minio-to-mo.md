@@ -1,6 +1,6 @@
 # 从本地 Minio 导入数据到 MatrixOne
 
-在分布式的 MatrixOne 集群中，除了本地导入数据和从公有云对象存储 S3 导入数据到 MatrixOne，还可以通过本地 Minio 组件导入数据。
+在 MatrixOne 分布式集群中，除了本地导入数据和从公有云对象存储 S3 导入数据到 MatrixOne，还可以通过本地 Minio 组件导入数据。
 
 通过本地 Minio 组件导入数据到 MatrixOne 适用于：遇到没有公网访问或导入文件过大超出本地磁盘空间等情况。
 
@@ -90,7 +90,7 @@ SVC 的访问地址是在 `Load` 语句中需要添加的终端地址。要构�
 2. 参照 Load S3 的语法结构，将参数信息填入 `Load` 语句中其中：
 
     - endpoint，access_key_id：为 minio 的登录账号
-    - secret_access_key：为 minio 的登录密码）
+    - secret_access_key：为 minio 的登录密码
     - bucket：存储桶的名称
     - filepath：为导入文件的路径
 
