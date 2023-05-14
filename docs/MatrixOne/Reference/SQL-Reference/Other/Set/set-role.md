@@ -65,17 +65,17 @@ SET ROLE role
 > create role use_role_1,use_role_2,use_role_3,use_role_4,use_role_5;
 > create database use_db_1;
 > create user use_user_1 identified by '123456' default role use_role_1;
-#把所有表的 select，insert 和 update 权限授权给 use_role_1
+-- 把所有表的 select，insert 和 update 权限授权给 use_role_1
 > grant select ,insert ,update on table *.* to use_role_1;
-#把数据库的所有权限授权给 use_role_2
+-- 把数据库的所有权限授权给 use_role_2
 > grant all on database * to use_role_2;
-#把角色 use_role_2 分配给用户 use_user_1
+-- 把角色 use_role_2 分配给用户 use_user_1
 > grant use_role_2 to use_user_1;
-#创建表 use_table_1
+-- 创建表 use_table_1
 > create table use_db_1.use_table_1(a int,b varchar(20),c double );
-#设置用户 use_user_1 主要角色和次要角色全部可用
+-- 设置用户 use_user_1 主要角色和次要角色全部可用
 > set secondary role all;
-#查看用户 use_user_1 现在拥有的权限
+-- 查看用户 use_user_1 现在拥有的权限
 > show grants for 'use_user_1'@'localhost';
 +-----------------------------------------------------------+
 | Grants for use_user_1@localhost                           |
@@ -87,5 +87,5 @@ SET ROLE role
 | GRANT database all ON database * `use_user_1`@`localhost` |
 +-----------------------------------------------------------+
 5 rows in set (0.01 sec)
-#可以看到，用户 use_user_1 拥有默认的连接 MatrixOne 的权限 connect；也拥有对所有表的 select，insert 和 update 权限，同时也拥有对数据库的全部权限
+-- 可以看到，用户 use_user_1 拥有默认的连接 MatrixOne 的权限 connect；也拥有对所有表的 select，insert 和 update 权限，同时也拥有对数据库的全部权限
 ```
