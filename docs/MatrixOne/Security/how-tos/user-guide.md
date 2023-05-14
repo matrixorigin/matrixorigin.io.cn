@@ -23,9 +23,9 @@ create account <account_name> admin_name='<user_name>' identified by '<password>
 
 |参数 | 参数解释|
 |---|---|
-|<account_name>|新建租户的名称|
-|<user_name>|新建租户的管理员用户名，其会被自动授予租户的最高权限角色，即 `ACCOUNTADMIN`|
-|<password>|新建的租户管理员密码|
+|account_name|新建租户的名称|
+|user_name|新建租户的管理员用户名，其会被自动授予租户的最高权限角色，即 `ACCOUNTADMIN`|
+|password|新建的租户管理员密码|
 
 更多信息，参见 [CREATE ACCOUNT](../../Reference/SQL-Reference/Data-Control-Language/create-account.md)。
 
@@ -42,14 +42,14 @@ select * from mo_catalog.mo_account;
 **SQL 语法**
 
 ```
-drop account if exists <account_name>;
+drop account if exists account_name>;
 ```
 
 **参数解释**
 
 |参数 | 参数解释|
 |---|---|
-|<account_name>|需要删除的租户名称|
+|account_name|需要删除的租户名称|
 
 !!! note
     删除租户后则无法恢复，包括租户账号下的所有数据，请谨慎使用。
@@ -76,8 +76,8 @@ create user <user_name> identified by '<password>';
 
 |参数 | 参数解释|
 |---|---|
-|<user_name>|新建用户的名称|
-|<password>|新建的用户密码|
+|user_name|新建用户的名称|
+|password|新建的用户密码|
 
 更多信息，参见 [CREATE USER](../../Reference/SQL-Reference/Data-Control-Language/create-user.md)。
 
@@ -113,7 +113,7 @@ drop user if exist <user_name>;
 
 |参数 | 参数解释|
 |---|---|
-|<user_name>|新建用户的名称|
+|user_name|新建用户的名称|
 
 !!! note
     删除用户时，需要先停止用户当前存在的会话，否则删除失败。
@@ -140,7 +140,7 @@ create role <role_name>;
 
 |参数 | 参数解释|
 |---|---|
-|<role_name>|新建角色的名称|
+|role_name|新建角色的名称|
 
 更多信息，参见 [CREATE ROLE](../../Reference/SQL-Reference/Data-Control-Language/create-role.md)。
 
@@ -174,7 +174,7 @@ set role <role_name>;
 
 |参数 | 参数解释|
 |---|---|
-|<role_name>|角色的名称|
+|role_name|角色的名称|
 
 更多信息，参见 [SET ROLE](../../Reference/SQL-Reference/Other/Set/set-role.md)。
 
@@ -196,7 +196,7 @@ drop role if exists <role_name>;
 
 |参数 | 参数解释|
 |---|---|
-|<role_name>|需要删除的角色的名称|
+|role_name|需要删除的角色的名称|
 
 !!! note
     删除某个指定角色时，会同时回收已经被授权的用户的角色。
@@ -223,10 +223,10 @@ grant <privilege> on <object_type> <object_name> to <role_name>
 
 |参数 | 参数解释|
 |---|---|
-|<privilege>|权限|
-|<object_type>|对象类型|
-|<object_name>|对象名称|
-|<role_name>|被赋予权限的角色|
+|privilege|权限|
+|object_type|对象类型|
+|object_name|对象名称|
+|role_name|被赋予权限的角色|
 
 更多信息，参见 [DRANT PRIVILEGES](../../Reference/SQL-Reference/Data-Control-Language/grant.md)。
 
@@ -249,8 +249,8 @@ grant <privilege> on table *.* to <role_name>;
 
 |参数 | 参数解释|
 |---|---|
-|<privilege>|权限名称|
-|<role_name>|被赋予权限的角色名称|
+|privilege|权限名称|
+|role_name|被赋予权限的角色名称|
 
 !!! note
     该操作虽然在授权多个相同类别对象时比较简便，但也很容易发生权限泄漏，请谨慎使用。
@@ -275,8 +275,8 @@ grant <role_name> to <user_name>;
 
 |参数 | 参数解释|
 |---|---|
-|<role_name>|被赋予权限的角色|
-|<user_name>|被赋予权限的用户|
+|role_name|被赋予权限的角色|
+|user_name|被赋予权限的用户|
 
 更多信息，参见 [DRANT ROLE](../../Reference/SQL-Reference/Data-Control-Language/grant.md)。
 
@@ -317,7 +317,7 @@ show grants for <user_name>@<localhost>
 
 |参数 | 参数解释|
 |---|---|
-|<user_name>|被赋予权限的用户|
+|user_name|被赋予权限的用户|
 
 更多信息，参见 [SHOW GRANTS](../../Reference/SQL-Reference/Other/SHOW-Statements/show-grants.md)。
 
@@ -339,8 +339,8 @@ revoke <role_name> from <user_name>
 
 |参数 | 参数解释|
 |---|---|
-|<role_name>|被赋予权限的角色|
-|<user_name>|被赋予权限的用户|
+|role_name|被赋予权限的角色|
+|user_name|被赋予权限的用户|
 
 更多信息，参见 [REVOKE](../../Reference/SQL-Reference/Data-Control-Language/revoke.md)。
 
@@ -362,9 +362,9 @@ revoke <privilege> on <object_type> <object_name> to <role_name>;
 
 |参数 | 参数解释|
 |---|---|
-|<privilege>|权限名称|
-|<object_type>|对象类型|
-|<object_name>|对象名称|
-|<role_name>|被赋予权限的角色|
+|privilege|权限名称|
+|object_type|对象类型|
+|object_name|对象名称|
+|role_name|被赋予权限的角色|
 
 更多信息，参见 [REVOKE](../../Reference/SQL-Reference/Data-Control-Language/revoke.md)。
