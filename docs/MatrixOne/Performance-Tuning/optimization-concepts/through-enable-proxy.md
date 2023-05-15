@@ -1,6 +1,6 @@
 # 通过配置 Proxy 提升性能
 
-本篇文档将指导你完成如何快速配置 Proxy 以实现 SQL 分发。
+本篇文档将指导你完成如何快速配置 MatrixOne 分布式集群场景下的 Proxy 以实现 SQL 分发。
 
 配置 Proxy 以后，你无需关心集群架构、节点个数，Proxy 作为 MatrixOne 的组件，在计算大数据量时，承担负载均衡与 SQL 请求分发，从而实现会话级别的 SQL 路由功能，从而适配多种场景。
 
@@ -17,7 +17,7 @@ MatrixOne 的本地文件目录 *etc/launch-with-proxy* 路径下所有 *cn.toml
     proxy-enabled = true
     ```
 
-__Note:__ MatrixOne 默认已配置此参数，你只需要在启动 MatrixOne 时启动 Proxy 进程即可，操作如下：
+__Note:__ MatrixOne 配置文件中默认已配置此参数，你只需要在启动 MatrixOne 集群时启动 Proxy 进程即可，操作如下：
 
 - 如果所有的服务都在同一个进程中，启动 MatrixOne 时需要增加 `-with-proxy` 参数，启动指令如下：
 
