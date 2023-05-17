@@ -1,6 +1,6 @@
 # MatrixOne 的 SQL 基本操作
 
-MatrixOne 兼容 MySQL，你可以使用 MySQL 客户端或其他方式连接 MatrixOne。参加 [MySQL 兼容性](../Overview/mysql-compatibility.md)和[客户端连接 MatrixOne 服务](../Develop/connect-mo/database-client-tools.md)。
+MatrixOne 兼容 MySQL，你可以使用 MySQL 客户端或其他方式连接 MatrixOne。参加 [MySQL 兼容性](../Overview/feature/mysql-compatibility.md)和[客户端连接 MatrixOne 服务](../Develop/connect-mo/database-client-tools.md)。
 
 ## 什么是 SQL 语言？
 

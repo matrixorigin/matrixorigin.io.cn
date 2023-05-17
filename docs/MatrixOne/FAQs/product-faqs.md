@@ -12,7 +12,7 @@ MatrixOne 是一款面向未来的超融合异构云原生数据库，通过超�
 * **MatrixOne 是基于 MySQL 或者其他数据库开发的吗？**
 
  MatrixOne 是一个从零打造的全新数据库。MatrixOne 兼容 MySQL 的部分语法与语义，并且在未来将会产生更多与 MySQL 不同的语义，以便我们将之打造为一款更强大的超融合数据库。
- 关于与 MySQL 的兼容性，您可参见 [MySQL 兼容性](../Overview/mysql-compatibility.md)。
+ 关于与 MySQL 的兼容性，您可参见 [MySQL 兼容性](../Overview/feature/mysql-compatibility.md)。
 
 * **MatrixOne 使用什么编程语言开发的？**
 
