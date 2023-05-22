@@ -37,7 +37,15 @@
     watch -e "kubectl get pod -n${mo_ns}"
     ```
 
-    ![image-20230407094943685](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-20230407094943685.png?raw=true)
+    ```
+    NAME                                 READY   STATUS    RESTARTS      AGE
+    matrixone-operator-f8496ff5c-fp6zm   1/1     Running   0             24h
+    mo-dn-0                              1/1     Running   1 (51s ago)   18h
+    mo-log-0                             1/1     Running   0             18h
+    mo-log-1                             1/1     Running   1 (5s ago)    18h
+    mo-log-2                             1/1     Running   1 (53s ago)   18h
+    mo-tp-cn-0                           1/1     Running   1 (53s ago)   18h
+    ```
 
     如果发生 error、crashbackoff 等情况，可以通过查看组件的日志来进一步排查问题。
 
@@ -76,6 +84,14 @@
 
 5. 滚动更新可能因为错误的配置而暂停（比如在升级时指定了不存在的版本）。此时，需重新修改 operator 动态配置，重置 version 号，回滚变更，已经失败的 Pod 将被重新更新。
 
+6. 你可以通过以下命令查看当前 MatrixOne 部署的版本号：
+
+    ```
+    [root@master0 matrixone-operator]# kubectl get matrixoneclusters -n mo-hn -o yaml | grep version
+            {"apiVersion":"core.matrixorigin.io/v1alpha1","kind":"MatrixOneCluster","metadata":{"annotations":{},"name":"mo","namespace":"mo-hn"},"spec":{"dn":{"cacheVolume":{"size":"5Gi","storageClassName":"local-path"},"config":"[dn.Txn.Storage]\nbackend = \"TAE\"\nlog-backend = \"logservice\"\n[dn.Ckp]\nflush-interval = \"60s\"\nmin-count = 100\nscan-interval = \"5s\"\nincremental-interval = \"60s\"\nglobal-interval = \"100000s\"\n[log]\nlevel = \"error\"\nformat = \"json\"\nmax-size = 512\n","replicas":1,"resources":{"limits":{"cpu":"200m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"500Mi"}}},"imagePullPolicy":"IfNotPresent","imageRepository":"matrixorigin/matrixone","logService":{"config":"[log]\nlevel = \"error\"\nformat = \"json\"\nmax-size = 512\n","pvcRetentionPolicy":"Retain","replicas":3,"resources":{"limits":{"cpu":"200m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"500Mi"}},"sharedStorage":{"s3":{"endpoint":"http://minio.mostorage:9000","path":"minio-mo","secretRef":{"name":"minio"},"type":"minio"}},"volume":{"size":"1Gi"}},"tp":{"cacheVolume":{"size":"5Gi","storageClassName":"local-path"},"config":"[cn.Engine]\ntype = \"distributed-tae\"\n[log]\nlevel = \"debug\"\nformat = \"json\"\nmax-size = 512\n","nodePort":31429,"replicas":1,"resources":{"limits":{"cpu":"200m","memory":"2Gi"},"requests":{"cpu":"100m","memory":"500Mi"}},"serviceType":"NodePort"},"version":"nightly-54b5e8c"}}
+        version: nightly-54b5e8c
+    ```
+
 ## 重装升级
 
 重装升级，意味着 MatrixOne 集群被全部删除，数据会被舍弃，即重新进行安装。
@@ -96,7 +112,7 @@
 
 ```
 # 方式1：通过部署时mo集群的yaml文件删除，例如：
-kubectl delete -f /root/deploy/mo-796d73d6.yaml
+kubectl delete -f /root/deploy/mo.yaml
 # 方式2：通过删除matrixonecluster对象，其中mo是名字
 kubectl delete matrixonecluster.core.matrixorigin.io mo -nmo-hn
 ```

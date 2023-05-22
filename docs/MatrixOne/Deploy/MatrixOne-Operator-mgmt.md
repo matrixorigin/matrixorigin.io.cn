@@ -35,30 +35,29 @@ MatrixOneCluster 集群由多个组件（如 Compute Node（CN）、Database Nod
 我们采用了 Helm 工具对 MatrixOne Operator 进行部署。[Helm](https://helm.sh/zh/docs/intro/using_helm/) 是 Kubernetes 应用包管理的工具，用于管理 chart，预先配置好的安装包资源，类似于 Ubuntu 的 APT 和 CentOS 中的 YUM。使用 `helm list` 命令可以查看 Operator 的部署状态。
 
 ```
-NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                                   APP VERSION
-matrixone-operator      mo-hn           1               2023-04-04 16:37:10.517301608 +0800 CST deployed        matrixone-operator-0.7.0-alpha.1        0.1.0 
+[root@master0 ~]# NS="matrixone-operator"
+[root@master0 ~]# helm list -n${NS}
+NAME                    NAMESPACE               REVISION        UPDATED                                 STATUS          CHART                                   APP VERSION
+matrixone-operator      matrixone-operator      1               2023-05-09 15:19:38.363683192 +0800 CST deployed        matrixone-operator-0.8.0-alpha.2        0.1.0
 ```
 
 ### 升级
 
-MatrixOne-Operator 项目是长期维护更新的项目，请更新至最新版本。你可以在 [Github](https://github.com/matrixorigin/matrixone-operator/releases) 上下载新版本的 Operator，例如：`matrixone-operator-0.7.0-alpha.4`。
+MatrixOne-Operator 项目是长期维护更新的项目，请更新至最新版本。你可以在 [Github](https://github.com/matrixorigin/matrixone-operator/releases) 上下载新版本的 Operator，例如：`matrixone-operator-0.8.0-alpha.2`
 
 使用如下命令解压文件：
 
 ```
-tar xvf ./matrixone-operator-0.7.0-alpha.4.tgz
+tar xvf ./matrixone-operator-0.8.0-alpha.2.tgz
 cd matrixone-operator
 ```
 
-你可以使用 `helm upgrade` 命令来升级 Matrixone-Operator，但需要注意指定 operator 镜像的版本。你可以使用以下命令获取镜像版本：
+你可以使用 `helm upgrade` 命令来升级 Matrixone-Operator。你可以使用以下命令获取镜像版本：
 
 ```
-#获取镜像版本
-kubectl get pod -nmo-hn `kubectl get pod -nmo-hn  | grep operator | head -1 | awk '{print $1}'` -ojsonpath='{.spec.containers[0].image}'
-matrixorigin/matrixone-operator:sha-eea8d16
-#指定设置镜像版本
-IMAGE_TAG="sha-65d111e"
-helm upgrade -n mo-hn matrixone-operator ./ --dependency-update --set image.tag=sha-65d111e
+cd matrixone-operator
+NS="matrixone-operator"
+helm upgrade -n "${NS}" matrixone-operator ./ --dependency-update
 ```
 
 升级成功后，代码展示如下所示：
@@ -66,17 +65,36 @@ helm upgrade -n mo-hn matrixone-operator ./ --dependency-update --set image.tag=
 ```
 Release "matrixone-operator" has been upgraded. Happy Helming!
 NAME: matrixone-operator
-LAST DEPLOYED: Thu Apr  6 18:02:08 2023
-NAMESPACE: mo-hn
+LAST DEPLOYED: Tue May  9 17:59:06 2023
+NAMESPACE: matrixone-operator
 STATUS: deployed
-REVISION: 3
+REVISION: 2
 TEST SUITE: None
 ```
 
-在升级 Matrixone-Operator 之后，会在 `mo-hn` 命名空间下先重新生成一个新的 `matrixone-operator-xxxx-xxx` 的 Pod，之后会把旧的 Pod 删除。
+升级完成，可以通过以下命令查看当前版本：
+
+```
+#获取镜像版本
+NS="matrixone-operator"
+kubectl get pod -n${NS} `kubectl get pod -n${NS}  | grep operator | head -1 | awk '{print $1}'` -ojsonpath='{.spec.containers[0].image}'
+matrixorigin/matrixone-operator:0.8.0-alpha.2
+```
+
+在升级 Matrixone-Operator 之后，会在 `matrixone-operator` 命名空间下先重新生成一个新的 `matrixone-operator-xxxx-xxx` 的 Pod，之后会把旧的 Pod 删除。
 
 !!! note
     升级完成后，假如 Matrixone-Operator 升级所带来的变更也会更新默认 `.spec`，那么有可能会滚动更新 MatrixOne 集群相关服务或配置，因此 MatrixOne 服务可能会被重启。你可以通过命令监控升级过程：`watch -e "kubectl get pod -nmo-hn -owide"`。
+
+    ```
+    NS="matrixone-operator"
+    watch -e "kubectl get pod -n${NS} -owide"
+    ```
+
+    ```
+    NAME                                 READY   STATUS    RESTARTS   AGE    IP              NODE    NOMINATED NODE   READINESS GATES
+    matrixone-operator-f8496ff5c-s2lr6   1/1     Running   0          164m   10.234.168.43   node1   <none>           <none>
+    ```
 
 ### 扩缩容
 
@@ -85,25 +103,23 @@ TEST SUITE: None
 在进行扩容之前，我们可以使用以下命令查看 Operator 的数量：
 
 ```
-watch -e "kubectl get pod -nmo-hn -owide"
-NAME                                  READY   STATUS    RESTARTS      AGE    IP              NODE     NOMINATED NODE   READINESS GATES
-matrixone-operator-5bdf6f8db6-7dwtj   1/1     Running   0             6m2s   10.234.60.101   node0    <none>           <none>
-mo-dn-0                               1/1     Running   0             40h    10.234.60.93    node0    <none>           2/2
-mo-log-0                              1/1     Running   0             40h    10.234.60.95    node0    <none>           2/2
-mo-log-1                              1/1     Running   0             40h    10.234.60.92    node0    <none>           2/2
-mo-log-2                              1/1     Running   0             40h    10.234.60.88    node0    <none>           2/2
-mo-tp-cn-0                            1/1     Running   0             39h    10.234.60.97    node0    <none>           2/2
-mo-tp-cn-1                            1/1     Running   3 (19h ago)   39h    10.234.60.96    node0    <none>           2/2
-mo-tp-cn-2                            1/1     Running   2 (19h ago)   39h    10.234.60.98    node0    <none>           2/2
+NS="matrixone-operator"
+watch -e "kubectl get pod -n${NS} -owide"
+```
+
+```
+NAME                                 READY   STATUS    RESTARTS   AGE    IP              NODE    NOMINATED NODE   READINESS GATES
+matrixone-operator-f8496ff5c-s2lr6   1/1     Running   0          164m   10.234.168.43   node1   <none>           <none>
 ```
 
 - **扩容**：使用下面的命令行进行扩容：
 
 ```
 # 副本数
-NUM=2
 cd matrixone-operator
-helm upgrade -n mo-hn matrixone-operator ./ --dependency-update --set image.tag=sha-65d111e --set replicaCount=${NUM}
+NUM=2
+NS="matrixone-operator"
+helm upgrade -n${NS} matrixone-operator ./ --dependency-update --set replicaCount=${NUM}
 ```
 
 扩容成功，打印代码示例如下：
@@ -111,10 +127,10 @@ helm upgrade -n mo-hn matrixone-operator ./ --dependency-update --set image.tag=
 ```
 Release "matrixone-operator" has been upgraded. Happy Helming!
 NAME: matrixone-operator
-LAST DEPLOYED: Thu Apr  6 18:42:45 2023
-NAMESPACE: mo-hn
+LAST DEPLOYED: Tue May  9 18:07:03 2023
+NAMESPACE: matrixone-operator
 STATUS: deployed
-REVISION: 4
+REVISION: 3
 TEST SUITE: None
 ```
 
@@ -122,16 +138,9 @@ TEST SUITE: None
 
 ```
 watch -e "kubectl get pod -nmo-hn -owide"
-NAME                                  READY   STATUS    RESTARTS      AGE     IP              NODE     NOMINATED NODE   READINESS GATES
-matrixone-operator-5bdf6f8db6-7dwtj   1/1     Running   0             11m     10.234.60.101   node0    <none>           <none>
-matrixone-operator-5bdf6f8db6-82mh2   1/1     Running   0             6m55s   10.234.60.106   node0    <none>           <none>
-mo-dn-0                               1/1     Running   0             40h     10.234.60.93    node0    <none>           2/2
-mo-log-0                              1/1     Running   0             40h     10.234.60.95    node0    <none>           2/2
-mo-log-1                              1/1     Running   0             40h     10.234.60.92    node0    <none>           2/2
-mo-log-2                              1/1     Running   0             40h     10.234.60.88    node0    <none>           2/2
-mo-tp-cn-0                            1/1     Running   0             40h     10.234.60.97    node0    <none>           2/2
-mo-tp-cn-1                            1/1     Running   3 (19h ago)   40h     10.234.60.96    node0    <none>           2/2
-mo-tp-cn-2                            1/1     Running   2 (19h ago)   39h     10.234.60.98    node0    <none>           2/2
+NAME                                 READY   STATUS    RESTARTS   AGE    IP              NODE    NOMINATED NODE   READINESS GATES
+matrixone-operator-f8496ff5c-nt8qs   1/1     Running   0          9s     10.234.60.126   node0   <none>           <none>
+matrixone-operator-f8496ff5c-s2lr6   1/1     Running   0          167m   10.234.168.43   node1   <none>           <none>
 ```
 
 如果需要水平缩容，可以通过 `helm upgrade` 降低 `replicaCount` 数量来完成 operator 副本数的缩容。
