@@ -1,3 +1,3 @@
 .prose :not(pre) > code {
-  @apply inline-block rounded bg-gray-100 py-[1px] px-1 !font-light !text-gray-600 before:!content-none after:!content-none;
+  @apply inline-block rounded bg-gray-100 px-1 py-[1px] !font-light !text-gray-600 before:!content-none after:!content-none;
 }

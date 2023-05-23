@@ -1,9 +1,12 @@
 {
   "extends": "astro/tsconfigs/strictest",
-  "include": ["vitest.config.ts"],
+  "include": ["vitest.config.ts", "src/**/*.ts", "tests/**/*.ts"],
   "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
+    "verbatimModuleSyntax": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]

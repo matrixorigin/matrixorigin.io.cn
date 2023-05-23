@@ -1,6 +1,6 @@
 import { assert, test } from 'vitest'
 
-import { type PostNode, preWalk, transformCatalog } from '../src/shared'
+import { type PostNode, preWalk, transformCatalog, genTOC } from '../src/shared'
 
 const exampleObj = {
   MatrixOne: [
@@ -74,7 +74,7 @@ const exampleObj = {
   ],
 }
 
-const expected: PostNode[] = [
+const nodeTree: PostNode[] = [
   {
     title: '主页',
     path: '../README.md',
@@ -180,13 +180,13 @@ const expected: PostNode[] = [
 test('Should generate the catalog', () => {
   const result = transformCatalog(exampleObj)
 
-  assert.deepEqual(result, expected)
+  assert.deepEqual(result, nodeTree)
 })
 
 test('Should traverse the tree in preorder', async () => {
   const result: string[] = []
 
-  for (const node of expected) {
+  for (const node of nodeTree) {
     await preWalk(node, async ({ title }) => {
       result.push(title)
     })
@@ -213,4 +213,32 @@ test('Should traverse the tree in preorder', async () => {
     '使用 Docker 部署',
     'SQL 的基本操作',
   ])
+})
+
+test('Should generate the toc file', () => {
+  const output = genTOC(nodeTree)
+
+  assert.equal(
+    output,
+    `"主页" $$
+"关于 MatrixOne"
+    "MatrixOne 简介" $$
+    "MatrixOne 功能列表" $$
+    "MatrixOne 技术架构" $$
+    "MySQL 兼容性" $$
+    "最新动态" $$
+"快速开始"
+    "单机部署 MatrixOne"
+        "单机部署 MatrixOne 概述" $$
+        "在 macOS 上部署"
+            "使用源代码部署" $$
+            "使用二进制包部署" $$
+            "使用 Docker 部署" $$
+        "在 Linux 上部署"
+            "使用源代码部署" $$
+            "使用二进制包部署" $$
+            "使用 Docker 部署" $$
+    "SQL 的基本操作" $$
+`
+  )
 })

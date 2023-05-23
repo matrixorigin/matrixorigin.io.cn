@@ -1,0 +1,19 @@
+[[heading]]
+# 最新发布
+level = 1
+greedy = true
+font.name = "Unnamed-T3"
+font.size = 18.015138626098633
+# font.size_tolerance = 1e-5
+# font.color = 0x111726
+# font.superscript = false
+# font.italic = false
+# font.serif = false
+# font.monospace = false
+# font.bold = false
+# bbox.left = 133.5888214111328
+# bbox.top = 40.629150390625
+# bbox.right = 205.6493682861328
+# bbox.bottom = 58.779727935791016
+# bbox.tolerance = 1e-5
+

@@ -1,12 +1,12 @@
 ---
 import { existsSync } from 'node:fs'
-import { readFile } from 'node:fs/promises'
+import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
 import { parse } from 'yaml'
 
 import BaseLayout from '../layouts/BaseLayout.astro'
-import { preWalk, transformCatalog } from '~/shared'
+import { preWalk, transformCatalog, genTOC } from '~/shared'
 import TOC from '~/components/TOC.astro'
 import '~/styles/prose.css'
 
@@ -15,6 +15,10 @@ const mkdocsYaml = parse(
 )
 
 const catalog = transformCatalog(mkdocsYaml.nav[0])
+
+/** Generate the `toc` file to cooperate with `pdftocgen`. */
+const tocStr = genTOC(catalog)
+await writeFile(join(process.cwd(), 'toc-titles'), tocStr, 'utf8')
 
 const globTasks: Promise<Record<string, any>>[] = []
 

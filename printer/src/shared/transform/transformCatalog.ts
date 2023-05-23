@@ -1,5 +1,9 @@
 import type { PostNode, NestedObject } from './types'
 
+/**
+ * Transform catalog object to post nodes.
+ * @param obj Catalog object.
+ */
 export function transformCatalog(obj: object) {
   const rootRawFolder = obj['MatrixOne'] as NestedObject[]
 

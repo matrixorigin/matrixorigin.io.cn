@@ -1,0 +1,309 @@
+"MatrixOne ⽂档" 15
+"MatrixOne 简介" 16
+"MatrixOne 功能列表" 19
+"MatrixOne 架构设计" 28
+"MySQL 兼容性" 34
+"最新发布" 37
+"单机部署 MatrixOne" 38
+"使⽤源代码部署" 40
+"使⽤⼆进制包部署" 46
+"使⽤ Docker 部署" 52
+"使⽤源代码部署" 56
+"使⽤⼆进制包部署" 62
+"使⽤ Docker 部署" 67
+"MatrixOne 的 SQL 基本操作" 71
+"数据库模式设计概述" 78
+"创建数据库" 80
+"创建表" 82
+"数据完整性约束概述" 89
+"NOT NULL 完整性约束" 90
+"UNIQUE KEY 完整性约束" 91
+"PRIMARY KEY 完整性约束" 92
+"FOREIGN KEY 完整性约束" 94
+"如何配置 MatrixOne SSL 连接" 96
+"客户端⼯具连接 MatrixOne 服务" 99
+"使⽤ JDBC 连接 MatrixOne" 106
+"使⽤ Java ORMs 连接 MatrixOne" 111
+"Python 连接 MatrixOne 服务" 115
+"插⼊数据" 118
+"批量导⼊概述" 124
+"导⼊ csv 格式数据" 125
+"导⼊ JSONLines 数据" 131
+"从 S3 对象存储服务读取数据并导⼊ MatrixOne" 138
+"使⽤ SELECT INTO...OUTFILE 导出数据" 152
+"使⽤ mo-dump 导出数据" 155
+"单表查询" 158
+"多表连接查询" 164
+"⼦查询" 177
+"视图" 184
+"公共表表达式 (CTE)" 187
+"事务通⽤概念" 189
+"MatrixOne 的事务概述" 195
+"MatrixOne 的显式事务" 197
+"隐式事务" 198
+"MatrixOne 的乐观事务" 200
+"如何使⽤ MatrixOne 事务" 202
+"MatrixOne 快照隔离" 204
+"MVCC" 206
+"MatrixOne 中的事务应⽤场景" 207
+"MatrixOne 分布式集群部署" 208
+"Java CRUD 示例" 225
+"使⽤ SpringBoot 和 Spring Data JPA 构 建⼀个 CRUD 示例" 237
+"使⽤ SpringBoot 和 MyBatis 构建⼀个 CRUD 示例" 262
+"使⽤ Python 和 SQLAlchemy 构建⼀个 CRUD 示例" 285
+"构建⼀个 Python CRUD 示例" 300
+"备份与恢复" 310
+"挂载⽬录到 Docker 容器" 313
+"将数据从 MySQL 迁移⾄ MatrixOne" 315
+"完成 SSB 测试" 318
+"完成 TPCH 测试" 392
+"完成 TPC-C 测试" 469
+"MO-Tester 简介" 482
+"使⽤ MO-Tester" 483
+"MO-Tester 规范要求" 492
+"SQL 性能调优⽅法概述" 495
+"MatrixOne 执⾏计划概述" 496
+"使⽤ EXPLAIN 解读执⾏计划" 498
+"⽤ EXPLAIN 查看 JOIN 查询的执⾏计划" 502
+"⽤ EXPLAIN 查看⼦查询的执⾏计划" 507
+"⽤ EXPLAIN 查看聚合查询执⾏计划" 514
+"⽤ EXPLAIN 查看带视图的 SQL 执⾏计划" 516
+"使⽤ Cluster by 语句调优" 520
+"TLS 安全连接" 523
+"关于 MatrixOne 权限管理" 529
+"最佳实践" 538
+"快速开始：创建租户，验证资源隔离" 539
+"快速开始：创建新租户，并由新租户创建 ⽤户、创建⻆⾊和授权" 542
+"权限管理操作" 550
+"应⽤场景" 560
+"关键字" 565
+"CREATE DATABASE" 582
+"CREATE INDEX" 584
+"CREATE TABLE" 587
+"CREATE EXTERNAL TABLE" 611
+"CREATE VIEW" 614
+"ALTER VIEW" 620
+"DROP DATABASE" 622
+"DROP INDEX" 623
+"DROP TABLE" 626
+"DROP VIEW" 627
+"TRUNCATE TABLE" 628
+"INSERT" 630
+"INSERT INTO SELECT" 633
+"DELETE" 634
+"UPDATE" 637
+"LOAD DATA" 641
+"INTERVAL" 654
+"LAST_QUERY_ID()" 662
+"LAST_INSERT_ID()" 664
+"运算符概述" 669
+"运算符的优先级" 672
+"算数运算符概述" 673
+"%,MOD" 674
+"*****" 676
+"+" 678
+"-" 680
+"-" 682
+"/" 683
+"DIV" 685
+"=" 687
+"⼆进制运算符" 688
+"&" 689
+">>" 691
+"<<" 693
+"^" 695
+"|" 698
+"~" 700
+"强制转换函数和运算符概述" 702
+"CAST" 703
+"CONVERT" 705
+"⽐较函数和运算符概述" 707
+">" 708
+">=" 710
+"<" 712
+"<>,!=" 714
+"<=" 716
+"=" 718
+"BETWEEN … AND …" 720
+"IN" 722
+"IS" 724
+"IS NOT" 726
+"IS NOT NULL" 727
+"IS NULL" 729
+"LIKE" 731
+"NOT BETWEEN … AND …" 733
+"NOT LIKE" 735
+"COALESCE()" 737
+"控制流函数概述" 743
+"CASE WHEN" 744
+"IF" 746
+"逻辑运算符概述" 749
+"AND,&&" 750
+"NOT,!" 752
+"OR" 754
+"XOR" 757
+"SELECT" 760
+"⼦查询" 764
+"Derived Tables" 766
+"⼦查询与⽐较操作符的使⽤" 772
+"Subqueries with ANY or SOME" 774
+"Subqueries with ALL" 777
+"Subqueries with EXISTS or NOT EXISTS" 781
+"Subqueries with IN" 783
+"JOIN" 787
+"INNER JOIN" 791
+"LEFT JOIN" 794
+"RIGHT JOIN" 797
+"FULL JOIN" 800
+"OUTER JOIN" 803
+"示例" 804
+"NATURAL JOIN" 805
+"WITH (Common Table Expressions)" 806
+"组合查询 (UNION, INTERSECT, MINUS)" 808
+"UNION" 810
+"INTERSECT" 813
+"MINUS" 815
+"CREATE ACCOUNT" 817
+"ALTER ACCOUNT" 818
+"CREATE ROLE" 822
+"CREATE USER" 823
+"DROP ACCOUNT" 825
+"DROP USER" 826
+"DROP ROLE" 827
+"GRANT" 828
+"REVOKE" 832
+"SHOW ACCOUNTS" 834
+"SHOW DATABASES" 836
+"SHOW CREATE TABLE" 837
+"SHOW CREATE VIEW" 839
+"SHOW TABLES" 840
+"SHOW INDEX" 841
+"SHOW COLLATION" 844
+"SHOW COLUMNS" 846
+"SHOW GRANTS" 847
+"SHOW VARIABLES" 849
+"SET ROLE" 852
+"USE" 855
+"Prepared 语句概述" 856
+"PREPARE" 857
+"EXECUTE" 862
+"DEALLOCATE PREPARE" 864
+"EXPLAIN" 866
+"EXPLAIN 输出格式" 875
+"通过 EXPLAIN ANALYZE 获取信息" 880
+"ANY_VALUE" 884
+"AVG" 886
+"BIT_AND" 888
+"BIT_OR" 889
+"BIT_XOR" 890
+"COUNT" 891
+"GROUP_CONCAT" 893
+"MAX" 895
+"MEDIAN()" 897
+"MIN" 900
+"SLEEP()" 902
+"STDDEV_POP" 905
+"SUM" 907
+"⾃定义变量" 909
+"数据类型" 911
+"数据类型转换" 922
+"TIMESTAMP 和 DATETIME 的⾃动初始 化和更新" 924
+"JSON 数据类型" 927
+"BLOB 和 TEXT 数据类型" 929
+"精确数值类型-Decimal 类型" 930
+"ABS()" 931
+"ACOS()" 932
+"ATAN()" 933
+"CEIL()" 934
+"COS()" 937
+"COT()" 938
+"EXP()" 940
+"FLOOR()" 941
+"LN()" 944
+"LOG()" 945
+"PI()" 946
+"POWER()" 948
+"ROUND()" 950
+"SIN()" 953
+"SINH()" 954
+"TAN()" 955
+"UUID()" 956
+"CURDATE()" 958
+"CURRENT_TIMESTAMP()" 960
+"DATE()" 962
+"DATE_ADD()" 964
+"DATE_FORMAT()" 966
+"DATE_SUB()" 973
+"DATEDIFF()" 975
+"DAY()" 977
+"DAYOFYEAR()" 979
+"EXTRACT()" 982
+"FROM_UNIXTIME()" 984
+"MONTH()" 986
+"TIMEDIFF()" 989
+"TIMESTAMP()" 992
+"TO_DATE()" 994
+"UNIX_TIMESTAMP()" 996
+"UTC_TIMESTAMP()" 999
+"WEEKDAY()" 1004
+"YEAR()" 1007
+"BIN()" 1009
+"BIT_LENGTH()" 1010
+"CHAR_LENGTH()" 1011
+"CONCAT()" 1012
+"CONCAT_WS()" 1014
+"EMPTY()" 1016
+"ENDSWITH()" 1017
+"FIELD()" 1019
+"FIND_IN_SET()" 1023
+"FORMAT()" 1024
+"HEX()" 1027
+"LEFT()" 1029
+"LENGTH()" 1032
+"LPAD()" 1033
+"LTRIM()" 1036
+"OCT(N)" 1037
+"REVERSE()" 1038
+"RPAD()" 1040
+"RTRIM()" 1043
+"SPACE()" 1044
+"STARTSWITH()" 1046
+"SUBSTRING()" 1048
+"SUBSTRING_INDEX()" 1051
+"TRIM()" 1054
+"通⽤参数配置" 1057
+"时区⽀持" 1063
+"MatrixOne 系统数据库和表" 1068
+"MatrixOne 权限分类" 1085
+"MatrixOne 的 JDBC 功能⽀持列表" 1088
+"MatrixOne DDL 语句分区⽀持的说明" 1097
+"MatrixOne ⽬录结构" 1103
+"慢查询" 1105
+"常⽤统计数据查询" 1111
+"MatrixOne 数据库统计信息" 1115
+"审计" 1121
+"错误码" 1126
+"产品常⻅问题" 1132
+"部署常⻅问题" 1134
+"SQL 常⻅问题" 1141
+"MatrixOne 版本发布历史记录" 1143
+"MatrixOne v0.7.0 发布报告" 1144
+"MatrixOne v0.6.0 发布报告" 1147
+"MatrixOne v0.5.1 发布报告" 1151
+"MatrixOne v0.5.0 发布报告" 1152
+"MatrixOne v0.4.0 发布报告" 1155
+"MatrixOne v0.3.0 发布报告" 1158
+"MatrixOne v0.2.0 发布报告" 1161
+"MatrixOne v0.1.0 Release Notes" 1164
+"术语表" 1167
+"快速贡献" 1169
+"贡献类型" 1174
+"准备⼯作" 1176
+"提出问题" 1180
+"代码贡献" 1183
+"审阅与评论" 1186
+"⽂档贡献指南" 1188
+"提交设计⽅案" 1192
+"MatrixOne ⾏为守则" 1193
+"代码注释规范" 1195
+"提交信息&PR 规范" 1199

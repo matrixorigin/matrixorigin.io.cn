@@ -1,0 +1,422 @@
+"主页" $$
+"关于 MatrixOne" $$
+    "MatrixOne 简介" $$
+    "MatrixOne 功能列表" $$
+    "MatrixOne 技术架构" $$
+        "架构概述" $$
+        "功能特性" $$
+    "MySQL 兼容性" $$
+    "最新动态" $$
+"快速开始" $$
+    "单机部署 MatrixOne" $$
+        "单机部署 MatrixOne 概述" $$
+        "在 macOS 上部署" $$
+            "使用源代码部署" $$
+            "使用二进制包部署" $$
+            "使用 Docker 部署" $$
+        "在 Linux 上部署" $$
+            "使用源代码部署" $$
+            "使用二进制包部署" $$
+            "使用 Docker 部署" $$
+    "SQL 的基本操作" $$
+"开发指南" $$
+    "数据库模式设计" $$
+        "概述" $$
+        "创建数据库" $$
+        "创建表" $$
+        "创建次级索引" $$
+        "数据完整性" $$
+            "数据完整性约束概述" $$
+            "NOT NULL 完整性约束" $$
+            "UNIQUE KEY 完整性约束" $$
+            "PRIMARY KEY 完整性约束" $$
+            "FOREIGN KEY 完整性约束" $$
+    "连接 MatrixOne" $$
+        "配置 MatrixOne SSL 连接" $$
+        "客户端工具连接 MatrixOne 服务" $$
+        "Java 连接 MatrixOne 服务" $$
+            "使用 JDBC 连接器连接 MatrixOne" $$
+            "使用 Java ORMs 连接 MatrixOne" $$
+        "Python 连接 MatrixOne 服务" $$
+        "Golang 连接 MatrixOne 服务" $$
+    "导入数据" $$
+        "单条导入" $$
+        "批量导入" $$
+            "批量导入概述" $$
+            "导入 csv 文件" $$
+            "导入 jsonlines 文件" $$
+            "从 S3 读取数据并导入至 MatrixOne" $$
+    "导出数据" $$
+        "使用 `SELECT INTO...OUTFILE` 导出数据" $$
+        "使用 `modump` 导出数据" $$
+    "数据读取" $$
+        "单表读取" $$
+        "多表连接查询" $$
+        "子查询" $$
+        "视图" $$
+        "公共表表达式" $$
+    "发布订阅" $$
+    "事务" $$
+        "事务通用概念" $$
+        "MatrixOne 的事务" $$
+            "MatrixOne 的事务概述" $$
+            "MatrixOne 的显式事务" $$
+            "MatrixOne 的隐式事务" $$
+            "MatrixOne 的悲观事务" $$
+            "MatrixOne 的乐观事务" $$
+            "如何使用 MatrixOne 事务" $$
+            "MatrixOne 的事务隔离级别" $$
+            "MVCC" $$
+            "MatrixOne 中的事务应用场景" $$
+"部署指南" $$
+    "MatrixOne 分布式集群部署" $$
+    "MatrixOne Operator 管理" $$
+    "运维指南" $$
+        "MatrixOne 分布式集群升级" $$
+        "MatrixOne 分布式集群启停" $$
+        "MatrixOne 分布式集群扩缩容" $$
+        "从本地 Minio 导入数据到 MatrixOne 分布式集群" $$
+"教程" $$
+    "构建一个 Java CRUD 示例" $$
+    "使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例" $$
+    "使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例" $$
+    "使用 Python 和 SQLAlchemy 构建一个 CRUD 示例" $$
+    "构建一个 Python CRUD 示例" $$
+    "构建一个 Golang CRUD 示例" $$
+"运维" $$
+    "备份与恢复" $$
+    "数据挂载" $$
+        "挂载目录到 Docker 容器" $$
+"数据迁移" $$
+    "将数据从 MySQL 迁移至 MatrixOne" $$
+"测试" $$
+    "性能测试" $$
+        "SSB 测试" $$
+        "TPCH 测试" $$
+        "TPCC 测试" $$
+    "测试工具" $$
+        "MO-Tester" $$
+        "MO-Tester 规范要求" $$
+"性能调优" $$
+    "SQL 性能调优方法概述" $$
+    "MatrixOne 执行计划" $$
+        "MatrixOne 执行计划概述" $$
+        "使用 EXPLAIN 理解执行计划" $$
+        "JOIN 查询的执行计划" $$
+        "子查询的执行计划" $$
+        "聚合查询的执行计划" $$
+        "视图的执行计划" $$
+    "性能调优最佳实践" $$
+        "使用 Cluster by 语句调优" $$
+        "通过扩展 CN 提升性能" $$
+        "使用分区表调优" $$
+        "Optimizer Hints" $$
+"权限" $$
+    "TLS 安全连接" $$
+    "什么是权限管理" $$
+        "关于 MatrixOne 权限管理" $$
+        "最佳实践" $$
+    "操作指南" $$
+        "快速开始" $$
+            "创建租户，验证资源隔离" $$
+            "新租户创建用户、创建角色和授权" $$
+        "权限管理操作" $$
+    "应用场景" $$
+"参考手册" $$
+    "系统变量" $$
+        "系统变量概述" $$
+        "系统变量参数" $$
+            "SQL 模式" $$
+            "保存查询结果支持" $$
+            "时区支持" $$
+            "大小写敏感支持" $$
+        "自定义变量" $$
+    "SQL 结构与语法" $$
+        "关键字" $$
+        "注释" $$
+    "数据类型" $$
+        "数据类型概览" $$
+        "数据类型转换" $$
+        "TIMESTAMP 和 DATETIME 的自动初始化和更新" $$
+        "ENUM 数据类型" $$
+        "JSON 数据类型" $$
+        "BLOB 和 TEXT 数据类型" $$
+        "精确数值类型-DECIMAL" $$
+    "SQL 目录" $$
+        "数据定义语言（DDL）" $$
+            "CREATE DATABASE" $$
+            "CREATE INDEX" $$
+            "CREATE TABLE" $$
+            "CREATE EXTERNAL TABLE" $$
+            "CREATE PUBLICATION" $$
+            "CREATE SEQUENCE" $$
+            "CREATE...FROM...PUBLICATION..." $$
+            "CREATE VIEW" $$
+            "ALTER PUBLICATION" $$
+            "ALTER VIEW" $$
+            "DROP DATABASE" $$
+            "DROP INDEX" $$
+            "DROP TABLE" $$
+            "DROP PUBLICATION" $$
+            "DROP SEQUENCE" $$
+            "DROP VIEW" $$
+            "TRUNCATE TABLE" $$
+        "数据修改语言（DML）" $$
+            "INSERT" $$
+            "INSERT INTO SELECT" $$
+            "INSERT ON DUPLICATE KEY UPDATE" $$
+            "DELETE" $$
+            "UPDATE" $$
+            "LOAD DATA" $$
+            "Information Functions" $$
+                "CURRENT_USER()" $$
+                "CURRENT_ROLE()" $$
+                "LAST_QUERY_ID()" $$
+                "LAST_INSERT_ID()" $$
+        "数据查询语言（DQL）" $$
+            "SELECT" $$
+            "SUBQUERY" $$
+                "SUBQUERY 概述" $$
+                "Derived Tables" $$
+                "子查询与比较操作符的使用" $$
+                "SUBQUERY with ANY or SOME" $$
+                "SUBQUERY with ALL" $$
+                "SUBQUERY with EXISTS" $$
+                "SUBQUERY with IN" $$
+            "JOIN" $$
+                "JOIN 概述" $$
+                "INNER JOIN" $$
+                "LEFT JOIN" $$
+                "RIGHT JOIN" $$
+                "FULL JOIN" $$
+                "OUTER JOIN" $$
+                "NATURAL JOIN" $$
+            "With CTE" $$
+            "联合查询" $$
+                "联合查询概述" $$
+                "UNION" $$
+                "INTERSECT" $$
+                "MINUS" $$
+        "数据控制语言（DCL）" $$
+            "CREATE ACCOUNT" $$
+            "ALTER ACCOUNT" $$
+            "CREATE ROLE" $$
+            "CREATE USER" $$
+            "ALTER USER" $$
+            "DROP ACCOUNT" $$
+            "DROP USER" $$
+            "DROP ROLE" $$
+            "GRANT" $$
+            "REVOKE" $$
+        "其他" $$
+            "SHOW" $$
+                "SHOW ACCOUNTS" $$
+                "SHOW DATABASES" $$
+                "SHOW CREATE TABLE" $$
+                "SHOW CREATE VIEW" $$
+                "SHOW CREATE PUBLICATION" $$
+                "SHOW TABLES" $$
+                "SHOW INDEX" $$
+                "SHOW COLLATION" $$
+                "SHOW COLUMNS" $$
+                "SHOW FUNCTION STATUS" $$
+                "SHOW GRANT" $$
+                "SHOW PUBLICATIONS" $$
+                "SHOW ROLES" $$
+                "SHOW SEQUENCES" $$
+                "SHOW SUBSCRIPTIONS" $$
+                "SHOW VARIABLES" $$
+            "SET" $$
+                "SET ROLE" $$
+            "USE" $$
+                "USE DATABASE" $$
+            "KILL" $$
+            "Prepared" $$
+                "Prepared 概述" $$
+                "PREPARE" $$
+                "EXECUTE" $$
+                "DEALLOCATE" $$
+            "Explain" $$
+                "EXPLAIN" $$
+                "EXPLAIN Output Format" $$
+                "Explain Analyze" $$
+    "函数与操作符" $$
+        "运算符" $$
+            "INTERVAL" $$
+            "Operators" $$
+                "运算符概述" $$
+                "运算符的优先级" $$
+                "算数运算符" $$
+                    "算数运算符概述" $$
+                    "%,MOD" $$
+                    "*" $$
+                    "+" $$
+                    "-" $$
+                    "-" $$
+                    "/" $$
+                    "DIV" $$
+                "赋值运算符" $$
+                    "赋值运算符概述" $$
+                    "=" $$
+                "二进制运算符" $$
+                    "二进制运算符概述" $$
+                    "&" $$
+                    ">>" $$
+                    "<<" $$
+                    "^" $$
+                    "|" $$
+                    "~" $$
+                "强制转换函数和运算符" $$
+                    "强制转换函数和运算符概述" $$
+                    "CAST" $$
+                    "CONVERT" $$
+                "比较函数和运算符" $$
+                    "比较函数和运算符概述" $$
+                    ">" $$
+                    ">=" $$
+                    "<" $$
+                    "<>,!=" $$
+                    "<=" $$
+                    "=" $$
+                    "BETWEEN ... AND ..." $$
+                    "IN" $$
+                    "IS" $$
+                    "IS NOT" $$
+                    "IS NOT NULL" $$
+                    "IS NULL" $$
+                    "LIKE" $$
+                    "NOT BETWEEN ... AND ..." $$
+                    "NOT LIKE" $$
+                    "COALESCE" $$
+                "控制流函数" $$
+                    "控制流函数概述" $$
+                    "CASE WHEN" $$
+                    "IF" $$
+                "逻辑运算符" $$
+                    "逻辑运算符概述" $$
+                    "AND,&&" $$
+                    "NOT,!" $$
+                    "OR" $$
+                    "XOR" $$
+        "函数" $$
+            "聚合函数" $$
+                "ANY_VALUE" $$
+                "AVG" $$
+                "BIT_AND" $$
+                "BIT_OR" $$
+                "BIT_XOR" $$
+                "COUNT" $$
+                "GROUP_CONCAT" $$
+                "MAX" $$
+                "MEDIAN" $$
+                "MIN" $$
+                "SLEEP" $$
+                "STDDEV_POP" $$
+                "SUM" $$
+            "日期时间类" $$
+                "CURDATE()" $$
+                "CURRENT_TIMESTAMP()" $$
+                "DATE()" $$
+                "DATE_ADD()" $$
+                "DATE_FORMAT()" $$
+                "DATE_SUB()" $$
+                "DATEDIFF()" $$
+                "DAY()" $$
+                "DAYOFYEAR()" $$
+                "EXTRACT()" $$
+                "FROM_UNIXTIME" $$
+                "MONTH()" $$
+                "TIMEDIFF()" $$
+                "TIMESTAMP()" $$
+                "TO_DATE()" $$
+                "UNIX_TIMESTAMP" $$
+                "UTC_TIMESTAMP()" $$
+                "WEEKDAY()" $$
+                "YEAR()" $$
+            "数学类" $$
+                "ABS()" $$
+                "ACOS()" $$
+                "ATAN()" $$
+                "CEIL()" $$
+                "COS()" $$
+                "COT()" $$
+                "EXP()" $$
+                "FLOOR()" $$
+                "LN()" $$
+                "LOG()" $$
+                "PI()" $$
+                "POWER()" $$
+                "ROUND()" $$
+                "SIN()" $$
+                "SINH()" $$
+                "TAN()" $$
+                "UUID()" $$
+            "字符串类" $$
+                "BIN()" $$
+                "BIT_LENGTH()" $$
+                "CHAR_LENGTH()" $$
+                "CONCAT()" $$
+                "CONCAT_WS()" $$
+                "EMPTY()" $$
+                "ENDSWITH()" $$
+                "FIELD()" $$
+                "FIND_IN_SET()" $$
+                "FORMAT()" $$
+                "HEX()" $$
+                "LEFT()" $$
+                "LENGTH()" $$
+                "LPAD()" $$
+                "LTRIM()" $$
+                "OCT()" $$
+                "REVERSE()" $$
+                "RPAD()" $$
+                "RTRIM()" $$
+                "SPACE()" $$
+                "STARTSWITH()" $$
+                "SUBSTRING()" $$
+                "SUBSTRING_INDEX()" $$
+                "TRIM()" $$
+            "JSON 函数" $$
+    "系统配置" $$
+        "通用参数配置" $$
+    "系统表目录" $$
+    "权限分类列表" $$
+    "使用限制" $$
+        "MatrixOne 的 JDBC 功能支持列表" $$
+        "MatrixOne DDL 语句分区支持的说明" $$
+    "MatrixOne  文件目录结构" $$
+"故障诊断" $$
+    "慢查询" $$
+    "常用统计数据查询" $$
+    "数据库统计信息" $$
+    "审计" $$
+    "错误码" $$
+"常见问题解答" $$
+    "产品常见问题" $$
+    "部署常见问题" $$
+    "SQL 常见问题" $$
+"版本发布纪要" $$
+    "版本发布历史记录" $$
+    "v0.7.0" $$
+    "v0.6.0" $$
+    "v0.5.1" $$
+    "v0.5.0" $$
+    "v0.4.0" $$
+    "v0.3.0" $$
+    "v0.2.0" $$
+    "v0.1.0" $$
+"名词术语表" $$
+"社区贡献指南" $$
+    "快速贡献" $$
+    "贡献指南" $$
+        "有哪些贡献类型" $$
+        "贡献准备" $$
+        "报告 Issue" $$
+        "贡献代码" $$
+        "审核修改" $$
+        "文档贡献" $$
+        "提出设计草案" $$
+    "代码规范" $$
+        "编码规范" $$
+        "注释规范" $$
+        "提交规范" $$
