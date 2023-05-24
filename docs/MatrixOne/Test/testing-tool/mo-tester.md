@@ -1,8 +1,8 @@
+# MO-Tester 简介
+
 从 0.5.0 版本开始，MatrixOne 引入了一个自动测试框架 [MO-Tester](https://github.com/matrixorigin/mo-tester)。
 
 MO-Tester 测试框架，也可以称作为测试器，是通过 SQL 测试 MatrixOne 或其他数据库功能的。
-
-# MO-Tester 简介
 
 MO-Tester 是基于 Java 语言进行开发，用于 MatrixOne 的测试套件。MO-Tester 构建了一整套完整的工具链来进行 SQL 自动测试。它包含测试用例和运行结果。MO-Tester 启动后，MO-Tester 将使用 MatrixOne 运行所有 SQL 测试用例，并将所有输出 SQL 测试结果与预期结果进行比较。所有案例的结果无论成功或者失败，都将记录在报告中。
 
@@ -16,9 +16,9 @@ MO-Tester 相关用例、结果和报告的放在 [MatrixOne](https://github.com
 
 测试用例和测试结果一一对应。如需添加新的测试用例和测试结果请进入右侧所示 MatrixOne 仓库路径中进行添加：<https://github.com/matrixorigin/matrixone/tree/main/test>
 
-# 使用 MO-Tester
+## 使用 MO-Tester
 
-## 1. 准备测试环境
+### 1. 准备测试环境
 
 * 请先确认已安装 jdk8。
 
@@ -36,7 +36,7 @@ MO-Tester 相关用例、结果和报告的放在 [MatrixOne](https://github.com
    git clone https://github.com/matrixorigin/matrixone.git
    ```
 
-## 2. 配置 MO-Tester
+### 2. 配置 MO-Tester
 
 MO-tester 基于 Java 语言进行开发，因此 Mo-tester 所依赖的 Java 数据库连接（JDBC，Java Database Connectivity）驱动程序需要配置 *mo.yml* 文件里的参数信息：进入到 *mo-tester* 本地仓库，打开 *mo.yml* 文件，配置服务器地址、默认的数据库名称、用户名和密码等。
 
@@ -66,7 +66,7 @@ MO-tester 基于 Java 语言进行开发，因此 Mo-tester 所依赖的 Java �
     passwrod: "111"
   ```
 
-## 3. 运行 MO-Tester
+### 3. 运行 MO-Tester
 
 运行以下所示命令行，SQL 所有测试用例将自动运行，并将报告和错误消息生成至 *report/report.txt* 和 *report/error.txt* 文件中。
 
@@ -99,7 +99,7 @@ MO-tester 基于 Java 语言进行开发，因此 Mo-tester 所依赖的 Java �
 !!! note
     每次运行 `./run.sh` 都会覆盖 *mo-tester* 仓库内 *report/* 路径下 *error.txt*、*report.txt* 和 *success.txt* 报告文件。
 
-## 4. 查看测试报告
+### 4. 查看测试报告
 
 测试完成后，*mo-tester* 仓库内将生成 *error.txt*、*report.txt* 和 *success.txt* 报告文件。
 
@@ -137,9 +137,9 @@ c	d
 1	1
 ```
 
-## 5. 测试示例
+### 5. 测试示例
 
-### 示例 1
+#### 示例 1
 
 **示例描述**：运行 *matrixone* 仓库内的 *test/cases* 路径下的所有测试用例。
 
@@ -161,7 +161,7 @@ c	d
 
 3. 在 *MO-Tester* 仓库内 *report/* 路径下的 *error.txt*、*report.txt* 和 *success.txt* 报告文件中查看运行结果。
 
-### 示例 2
+#### 示例 2
 
 **示例描述**：运行 *matrixone* 仓库内 */cases/transaction/* 路径下的测试用例。
 
@@ -195,7 +195,7 @@ c	d
    [{path_name}/matrixone/test/cases/transaction/isolation_1.sql] COST : 1.512s, TOTAL :217, SUCCESS :217, FAILED :0, IGNORED :0, ABNORAML :0, SUCCESS RATE : 100%
    ```
 
-### 示例 3
+#### 示例 3
 
 **示例描述**：运行 *matrixone* 仓库内 *cases/transaction/atomicity.sql* 单个测试用例。
 
@@ -222,7 +222,7 @@ c	d
    [{path_name}/matrixone/test/cases/transaction/atomicity.sql] COST : 0.56s, TOTAL :66, SUCCESS :66, FAILED :0, IGNORED :0, ABNORAML :0, SUCCESS RATE : 100%
    ```
 
-### <h3><a name="new_test_scenario">示例 4</a></h3>
+#### <h3><a name="new_test_scenario">示例 4</a></h3>
 
 **示例描述**：
 
