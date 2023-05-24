@@ -6,12 +6,12 @@
 
 1. 点击 <a href="https://go.dev/doc/install" target="_blank">Go Download and install</a> 入到 **Go** 的官方文档，按照官方指导安装步骤完成 **Go** 语言的安装。
 
-    __Note__: 建议 Go 语言版本为 1.19 版本。
+    __Note__: 建议 Go 语言版本为 1.20 版本。
 
 2. 验证 **Go** 是否安装，请执行代码 `go version`，安装成功代码行示例如下：
 
     ```
-    go version go1.19 darwin/arm64
+    go version go1.20 darwin/arm64
     ```
 
 ## 步骤 2：安装 GCC
