@@ -90,6 +90,7 @@ nav:
           - 导入 csv 文件: MatrixOne/Develop/import-data/bulk-load/load-csv.md
           - 导入 jsonlines 文件: MatrixOne/Develop/import-data/bulk-load/load-jsonline.md
           - 从 S3 读取数据并导入至 MatrixOne: MatrixOne/Develop/import-data/bulk-load/load-s3.md
+          - 使用 source 命令批量导入数据: MatrixOne/Develop/import-data/bulk-load/using-source.md
       - 导出数据:
         - 使用 `SELECT INTO...OUTFILE` 导出数据: MatrixOne/Develop/export-data/select-into-outfile.md
         - 使用 `modump` 导出数据: MatrixOne/Develop/export-data/modump.md
