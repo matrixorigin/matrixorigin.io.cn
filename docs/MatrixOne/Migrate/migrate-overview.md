@@ -16,7 +16,7 @@
 
 在 MatrixOne 中，也可以使用 SOURCE 命令将数据和表结构迁移到目标数据库中。
 
-具体操作，请参考[示例：使用 `source` 命令将数据从 MySQL 迁移至 MatrixOne](migrate-from-mysql-to-matrixone-by-source.md)。
+具体操作，请参考[示例：使用 `source` 命令将数据从 MySQL 迁移至 MatrixOne](../Develop/import-data/bulk-load/using-source.md)。
 
 ## 参考文档
 
