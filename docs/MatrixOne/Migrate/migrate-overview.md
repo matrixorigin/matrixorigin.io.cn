@@ -12,9 +12,11 @@
 
 具体操作，请参考[批量导入](../Develop/import-data/bulk-load/bulk-load-overview.md)。
 
-### CN 直接写 S3
+### SOURCE
 
-在 MatrixOne 中，当事务大小超过一定阈值（约 10MB）时，事务内的数据将不再被写入预写日志并直接写入 S3 中，从而极大地提高数据写入性能。在数据迁移至 MatrixOne 时，用户可以利用这一特性快速完成数据的写入。这一特性在后续的迁移中也会得到体现。
+在 MatrixOne 中，也可以使用 SOURCE 命令将数据和表结构迁移到目标数据库中。
+
+具体操作，请参考[批量导入](migrate-from-mysql-to-matrixone-by-source.md)。
 
 ## 参考文档
 
