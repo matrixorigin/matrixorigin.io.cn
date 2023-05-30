@@ -1,4 +1,4 @@
-# 示例：将数据从 MySQL 迁移至 MatrixOne
+# 示例：使用 `source` 命令将数据从 MySQL 迁移至 MatrixOne
 
 本篇文档将指导你如何将数据从 MySQL 迁移至 MatrixOne。
 
