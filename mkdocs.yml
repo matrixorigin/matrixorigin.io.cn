@@ -135,9 +135,7 @@ nav:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:
       - 将数据迁移至 MatrixOne 概述: MatrixOne/Migrate/migrate-overview.md
-      - 将数据从 MySQL 迁移至 MatrixOne:
-        - 教程: MatrixOne/Migrate/migrate-from-mysql-to-matrixone.md
-        - 示例: MatrixOne/Migrate/migrate-from-mysql-to-matrixone-by-command.md
+      - 将数据从 MySQL 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-mysql-to-matrixone.md
       - 将数据从 Oracle 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-oracle-to-matrixone.md
       - 将数据从 SQL Server 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-sqlserver-to-matrixone.md
     - 测试:
