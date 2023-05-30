@@ -20,6 +20,10 @@
 
    Storage Class，简称 **SC**，用于标记存储资源的特性和性能，管理员可以将存储资源定义为某种类别，正如存储设备对于自身的配置描述（Profile）。根据 SC 的描述可以直观的得知各种存储资源的特性，就可以根据应用对存储资源的需求去申请存储资源了。
 
+- CSI
+
+   Kubernetes 提供了 **CSI** 接口（Container Storage Interface，容器存储接口），基于 CSI 这套接口，可以开发定制出 CSI 插件，从而支持特定的存储，达到解耦的目的。
+
 - PersistentVolume
 
    PersistentVolume，简称 **PV**，PV 作为存储资源，主要包括存储能力、访问模式、存储类型、回收策略、后端存储类型等关键信息的设置。
@@ -27,6 +31,60 @@
 - PersistentVolumeClaim
 
    PersistentVolumeClaim，简称 **PVC**，作为用户对存储资源的需求申请, 主要包括存储空间请求、访问模式、PV 选择条件和存储类别等信息的设置。
+
+- Service
+
+   也叫做 **SVC**，通过标签选择的方式匹配一组 Pod 对外访问服务的一种机制, 每一个 svc 可以理解为一个微服务。
+
+- Operator
+
+   Kubernetes Operator 是一种封装、部署和管理 Kubernetes 应用的方法。我们使用 Kubernetes API（应用编程接口）和 kubectl 工具在 Kubernetes 上部署并管理 Kubernetes 应用。
+
+## 部署架构
+
+### 依赖组件
+
+MatrixOne 分布式系统依赖于以下组件：
+
+- Kubernetes：作为整个 MatrixOne 集群的资源管理平台，包括 Logservice、CN、DN 等组件，都在由 Kubernetes 管理的 Pod 中运行。如果发生故障，Kubernetes 将负责剔除故障的 Pod 并启动新的 Pod 进行替换。
+
+- Minio：为整个 MatrixOne 集群提供对象存储服务，MatrixOne 的所有数据存储在由 Minio 提供的对象存储中。
+
+此外，为了在 Kubernetes 上进行容器管理和编排，我们需要以下插件：
+
+- Helm：Helm 是一个用于管理 Kubernetes 应用程序的包管理工具，类似于 Ubuntu 的 APT 和 CentOS 的 YUM。它用于管理预先配置的安装包资源，称为 Chart。
+
+- local-path-provisioner：作为 Kubernetes 中实现了 CSI（Container Storage Interface）接口的插件，local-path-provisioner 负责为 MatrixOne 各组件的 Pod 和 Minio 创建持久化卷（PV），以便实现数据的持久化存储。
+
+### 整体架构
+
+整体的部署架构如下图所示：
+
+![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-arch-overall.png?raw=true)
+
+整体架构由以下组件组成：
+
+- 底层是三个服务器节点：第一台作为安装 Kubernetes 跳板机的 host1，第二台是 Kubernetes 的主节点（master），第三台是 Kubernetes 的工作节点（node）。
+
+- 上层是已安装的 Kubernetes 和 Docker 环境，构成云原生平台层。
+
+- 基于 Helm 进行管理的 Kubernetes 插件层，包括实现 CSI 接口的 local-path-storage 插件、Minio 和 MatrixOne Operator。
+
+- 最顶层是由这些组件配置生成的多个 Pod 和 Service。
+
+### MatrixOne 的 Pod 及存储架构
+
+MatrixOne 根据 Operator 的规则创建一系列的 Kubernetes 对象，这些对象根据组件分类并归类到资源组中，分别为 CNSet、DNSet 和 LogSet。
+
+- Service：每个资源组中的服务需要通过 Service 进行对外提供。Service 承载了对外连接的功能，确保在 Pod 崩溃或被替换时仍能提供服务。外部应用程序通过 Service 的公开端口连接，而 Service 则通过内部转发规则将连接转发到相应的 Pod。
+
+- Pod：MatrixOne 组件的容器化实例，其中运行着 MatrixOne 的核心内核代码。
+
+- PVC：每个 Pod 都通过 PVC（Persistent Volume Claim）声明自己所需的存储资源。在我们的架构中，CN 和 DN 需要申请一块存储资源作为缓存，而 LogService 则需要相应的 S3 资源。这些需求通过 PVC 进行声明。
+
+- PV：PV（Persistent Volume）是存储介质的抽象表示，可以看作是存储单元。在 PVC 的申请后，通过实现 CSI 接口的软件创建 PV，并将其与申请资源的 PVC 进行绑定。
+
+![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-arch-pod.png?raw=true)
 
 ## **1. 部署 Kubernetes 集群**
 
@@ -36,32 +94,56 @@
 
 对于集群环境，需要做如下准备：
 
-- 3 台 VirtualBox 虚拟机
+- 3 台虚拟机
 - 操作系统使用 CentOS 7.9 (需要允许 root 远程登入)：其中两台作为部署 Kubernetes 以及 MatrixOne 相关依赖环境的机器，另外一台作为跳板机，来搭建 Kubernetes 集群。
+- 外网访问条件。3 台服务器都需要进行外网镜像拉取。
 
 各个机器情况分布具体如下所示：
 
-| **host**     | **IP**        | **mem** | **cpu** | **disk** | **role**    |
-| ------------ | ------------- | ------- | ------- | -------- | ----------- |
-| kuboardspray | 192.168.56.9  | 2G      | 1C      | 50G      | 跳板机      |
-| master0      | 192.168.56.10 | 4G      | 2C      | 50G      | master etcd |
-| node0        | 192.168.56.11 | 4G      | 2C      | 50G      | worker      |
+| **Host**     | **内网 IP**        | **外网 IP**      | **mem** | **CPU** | **Disk** | **Role**    |
+| ------------ | ------------- | --------------- | ------- | ------- | -------- | ----------- |
+| kuboardspray | 10.206.0.6    | 1.13.2.100      | 2G      | 2C      | 50G      | 跳板机      |
+| master0      | 10.206.134.8  | 118.195.255.252 | 8G      | 2C      | 50G      | master etcd |
+| node0        | 10.206.134.14 | 1.13.13.199     | 8G      | 2C      | 50G      | worker      |
 
-### **跳板机部署 Kuboard Spray**
+#### **跳板机部署 Kuboard Spray**
 
 Kuboard-Spray 是用来可视化部署 Kubernetes 集群的一个工具。它会使用 Docker 快速拉起一个能够可视化部署 Kubernetes 集群的 Web 应用。Kubernetes 集群环境部署完成后，可以将该 Docker 应用停掉。
 
-#### **跳板机环境准备**
+##### **跳板机环境准备**
 
-- 安装 Docker
+1. 安装 Docker：由于会使用到 Docker，因此需要具备 Docker 的环境。使用以下命令在跳板机安装并启动 Docker：
 
-由于会使用到 Docker，因此需要具备 Docker 的环境。使用以下命令在跳板机安装并启动 Docker：
+    ```
+    curl -sSL https://get.docker.io/ | sh
+    #如果在国内的网络受限环境下，可以换以下国内镜像地址
+    curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+    ```
 
-```
-curl -sSL https://get.docker.io/ | sh
-#如果在国内的网络受限环境下，可以换以下国内镜像地址
-curl -sSL https://get.daocloud.io/docker | sh
-```
+2. 启动 Docker：
+
+    ```
+    [root@VM-0-6-centos ~]# systemctl start docker
+    [root@VM-0-6-centos ~]# systemctl status docker
+    ● docker.service - Docker Application Container Engine
+       Loaded: loaded (/usr/lib/systemd/system/docker.service; disabled; vendor preset: disabled)
+       Active: active (running) since Sun 2023-05-07 11:48:06 CST; 15s ago
+         Docs: https://docs.docker.com
+     Main PID: 5845 (dockerd)
+        Tasks: 8
+       Memory: 27.8M
+       CGroup: /system.slice/docker.service
+               └─5845 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+    May 07 11:48:06 VM-0-6-centos systemd[1]: Starting Docker Application Container Engine...
+    May 07 11:48:06 VM-0-6-centos dockerd[5845]: time="2023-05-07T11:48:06.391166236+08:00" level=info msg="Starting up"
+    May 07 11:48:06 VM-0-6-centos dockerd[5845]: time="2023-05-07T11:48:06.421736631+08:00" level=info msg="Loading containers: start."
+    May 07 11:48:06 VM-0-6-centos dockerd[5845]: time="2023-05-07T11:48:06.531022702+08:00" level=info msg="Loading containers: done."
+    May 07 11:48:06 VM-0-6-centos dockerd[5845]: time="2023-05-07T11:48:06.544715135+08:00" level=info msg="Docker daemon" commit=94d3ad6 graphdriver=overlay2 version=23.0.5
+    May 07 11:48:06 VM-0-6-centos dockerd[5845]: time="2023-05-07T11:48:06.544798391+08:00" level=info msg="Daemon has completed initialization"
+    May 07 11:48:06 VM-0-6-centos systemd[1]: Started Docker Application Container Engine.
+    May 07 11:48:06 VM-0-6-centos dockerd[5845]: time="2023-05-07T11:48:06.569274215+08:00" level=info msg="API listen on /run/docker.sock"
+    ```
 
 环境准备完成后，即可部署 Kuboard-Spray。
 
@@ -77,7 +159,7 @@ docker run -d \
   -p 80:80/tcp \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ~/kuboard-spray-data:/data \
-  eipwork/kuboard-spray:v1.2.2-amd64
+  eipwork/kuboard-spray:latest-amd64
 ```
 
 如果由于网络问题导致镜像拉取失败，可以使用下面的备用地址：
@@ -93,7 +175,7 @@ docker run -d \
   swr.cn-east-2.myhuaweicloud.com/kuboard/kuboard-spray:latest-amd64
 ```
 
-执行完成后，即可在浏览器输入 `http://192.168.56.9` (跳板机 IP 地址）打开 Kuboard-Spray 的 Web 界面，输入用户名 `admin`，默认密码 `Kuboard123`，即可登录 Kuboard-Spray 界面，如下所示：
+执行完成后，即可在浏览器输入 `http://1.13.2.100` (跳板机 IP 地址）打开 Kuboard-Spray 的 Web 界面，输入用户名 `admin`，默认密码 `Kuboard123`，即可登录 Kuboard-Spray 界面，如下所示：
 
 ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-1.png?raw=true)
 
@@ -109,7 +191,7 @@ docker run -d \
 
 1. 点击**资源包管理**，选择对应版本的 Kubernetes 资源包下载：
 
-    下载 `spray-v2.19.0c_Kubernetes-v1.24.10_v2.9-amd64` 版本
+    下载 `spray-v2.18.0b-2_k8s-v1.23.17_v1.24-amd64` 版本
 
     ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-2.png?raw=true)
 
@@ -147,12 +229,14 @@ docker run -d \
 
     ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-8.png?raw=true)
 
-    - master 节点：选择 ETCD 和控制节点；名称填写 master0
-    - worker 节点：仅选择工作节点；名称填写 node0
+    - master 节点：选择 ETCD 和控制节点，并将其命名为 master0。（如果希望主节点也参与工作，可以同时选中工作节点。这种方式可以提高资源利用率，但会降低 Kubernetes 的高可用性。）
+    - worker 节点：仅选择工作节点，并将其命名为 node0。
 
 2. 在每一个节点填写完角色和节点名称后，请在右侧填写对应节点的连接信息，如下图所示：
 
     ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-9.png?raw=true)
+
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-9-1.png?raw=true)
 
 3. 填写完所有的角色之后，点击**保存**。接下里就可以准备安装 Kubernetes 集群了。
 
@@ -170,13 +254,28 @@ docker run -d \
 
 3. 安装完成后，到 Kubernetes 集群的 master 节点上执行 `kubectl get node`：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-11.png?raw=true)
+    ```
+    [root@master0 ~]# kubectl get node
+    NAME      STATUS   ROLES                  AGE   VERSION
+    master0   Ready    control-plane,master   52m   v1.23.17
+    node0     Ready    <none>                 52m   v1.23.17
+    ```
 
 4. 命令结果如上图所示，即表示 Kubernetes 集群安装完成。
 
+5. 在 Kubernetes 的每个节点上调整 DNS 路由表。请在每台机器上执行以下命令，查找包含 `169.254.25.10` 的 nameserver，并删除该记录。（该记录可能影响各个 Pod 之间的通信效率）
+
+    ```
+    vim
+    ```
+
+    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-10-1.png?raw=true)
+
 ## **2. 部署 helm**
 
-Operator 的安装依赖于 helm，因此需要先安装 helm。
+Helm 是一个用于管理 Kubernetes 应用程序的包管理工具。它通过使用 chart（预先配置的安装包资源）来简化应用程序的部署和管理过程。类似于 Ubuntu 的 APT 和 CentOS 的 YUM，Helm 提供了一种便捷的方式来安装、升级和管理 Kubernetes 应用程序。
+
+在安装 Minio 之前，我们需要先安装 Helm，因为 Minio 的安装过程依赖于 Helm。以下是安装 Helm 的步骤：
 
 __Note:__ 本章节均是在 master0 节点操作。
 
@@ -187,8 +286,6 @@ __Note:__ 本章节均是在 master0 节点操作。
     #如果在国内的网络受限环境下，可以换以下国内镜像地址
     wget https://mirrors.huaweicloud.com/helm/v3.10.2/helm-v3.10.2-linux-amd64.tar.gz
     ```
-
-    如果由于网络问题造成下载缓慢，你可以到官网下载最新的二进制安装包，上传到服务器。
 
 2. 解压并安装：
 
@@ -257,26 +354,79 @@ __Note:__ 本章节均是在 master0 节点操作。
 
     ```
     helm repo add minio https://charts.min.io/
-    helm install --create-namespace --namespace mostorage --set resources.requests.memory=512Mi --set replicas=1 --set persistence.size=10G --set mode=standalone --set rootUser=rootuser,rootPassword=rootpass123 --set consoleService.type=NodePort minio minio/minio
+    mkdir minio_ins && cd minio_ins
+    helm fetch minio/minio
+    ls -lth
+    tar minio-5.0.9.tgz # 这个版本可能会变，以实际下载到的为准
+    cd ./minio/
+
+    kubectl create ns mostorage
+
+    helm install minio \
+    --namespace mostorage \
+    --set resources.requests.memory=512Mi \
+    --set replicas=1 \
+    --set persistence.size=10G \
+    --set mode=standalone \
+    --set rootUser=rootuser,rootPassword=rootpass123 \
+    --set consoleService.type=NodePort \
+    --set image.repository=minio/minio \
+    --set image.tag=latest \
+    --set mcImage.repository=minio/mc \
+    --set mcImage.tag=latest \
+    -f values.yaml minio/minio
     ```
 
     !!! note
          - `--set resources.requests.memory=512Mi` 设置了 MinIO 的内存最低消耗
               - `--set persistence.size=1G` 设置了 MinIO 的存储大小为 1G
               - `--set rootUser=rootuser,rootPassword=rootpass123` 这里的 rootUser 和 rootPassword 设置的参数，在后续创建 Kubernetes 集群的 scrects 文件时，需要用到，因此使用一个能记住的信息。
+         - 如果由于网络或其他原因多次反复执行，需要先卸载：
+
+             ```
+             helm uninstall minio --namespace mostorage
+             ```
 
 2. 安装并启动 MinIO 成功后，命令行显示如下所示：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-12.png?raw=true)
+    ```
+    NAME: minio
+    LAST DEPLOYED: Sun May  7 14:17:18 2023
+    NAMESPACE: mostorage
+    STATUS: deployed
+    REVISION: 1
+    TEST SUITE: None
+    NOTES:
+    MinIO can be accessed via port 9000 on the following DNS name from within your cluster:
+    minio.mostorage.svc.cluster.local
 
-    然后，执行下面的命令行，设置 POD_NAME 变量，并使 mostorage 连接至 9000 端口：
+    To access MinIO from localhost, run the below commands:
+
+      1. export POD_NAME=$(kubectl get pods --namespace mostorage -l "release=minio" -o jsonpath="{.items[0].metadata.name}")
+
+      2. kubectl port-forward $POD_NAME 9000 --namespace mostorage
+
+    Read more about port forwarding here: http://kubernetes.io/docs/user-guide/kubectl/kubectl_port-forward/
+
+    You can now access MinIO server on http://localhost:9000. Follow the below steps to connect to MinIO server with mc client:
+
+      1. Download the MinIO mc client - https://min.io/docs/minio/linux/reference/minio-mc.html#quickstart
+
+      2. export MC_HOST_minio-local=http://$(kubectl get secret --namespace mostorage minio -o jsonpath="{.data.rootUser}" | base64 --decode):$(kubectl get secret --namespace mostorage minio -o jsonpath="{.data.rootPassword}" | base64 --decode)@localhost:9000
+
+      3. mc ls minio-local
+    ```
+
+    目前为止，Minio 已经成功安装完毕。在后续的 MatrixOne 安装过程中，MatrixOne 将直接通过 Kubernetes 的 Service（SVC）与 Minio 进行通信，无需进行额外的配置。
+
+    然而，如果您希望从 `localhost` 连接到 Minio，可以执行以下命令行来设置 `POD_NAME` 变量，并将 `mostorage` 连接到 9000 端口：
 
     ```
     export POD_NAME=$(kubectl get pods --namespace mostorage -l "release=minio" -o jsonpath="{.items[0].metadata.name}")
-    nohup kubectl port-forward --address 0.0.0.0 pod-name -n mostorage 9000:9000 &
+    nohup kubectl port-forward --address 0.0.0.0 $POD_NAME -n mostorage 9000:9000 &
     ```
 
-3. 启动后，使用 <http://192.168.56.10:32001> 即可登录 MinIO 的页面，创建对象存储的信息。如下图所示，账户密码即上述步骤中 `--set rootUser=rootuser,rootPassword=rootpass123` 设置的 rootUser 和 rootPassword：
+3. 启动后，使用 <http://118.195.255.252:32001/> 即可登录 MinIO 的页面，创建对象存储的信息。如下图所示，账户密码即上述步骤中 `--set rootUser=rootuser,rootPassword=rootpass123` 设置的 rootUser 和 rootPassword：
 
     ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-13.png?raw=true)
 
@@ -292,34 +442,63 @@ __Note:__ 本章节均是在 master0 节点操作。
 
 __Note:__ 本章节均是在 master0 节点操作。
 
-### **安装 MatrixOne-Operator**
+#### **安装 MatrixOne-Operator**
 
-[MatrixOne Operator](https://github.com/matrixorigin/matrixone-operator) 是一个独立的在 Kubernetes 上部署和管理 MatrixOne 集群的软件工具。在项目的 [Release 列表](https://github.com/matrixorigin/matrixone-operator/releases)中，始终选择最新的 operator release 安装包进行安装。
+[MatrixOne Operator](https://github.com/matrixorigin/matrixone-operator) 是一个在 Kubernetes 上部署和管理 MatrixOne 集群的独立软件工具。你可以从项目的 [Release 列表](https://github.com/matrixorigin/matrixone-operator/releases)中选择最新的 Operator Release 安装包进行安装。
 
-使用如下命令行在 master0 上安装 matrixone-operator：
+按照以下步骤在 master0 上安装 MatrixOne Operator。我们将为 Operator 创建一个独立的命名空间 `matrixone-operator`。
 
-```
-wget https://github.com/matrixorigin/matrixone-operator/releases/download/0.7.0-alpha.4/matrixone-operator-0.7.0-alpha.4.tgz
-tar -xvf matrixone-operator-0.7.0-alpha.4.tgz
-cd /root/matrixone-operator/
-helm install --create-namespace --namespace mo-hn matrixone-operator ./ --dependency-update
-```
+1. 下载最新的 MatrixOne Operator 安装包：
 
-安装成功后，使用如下命令行进行再次确认：
+    ```
+    wget https://github.com/matrixorigin/matrixone-operator/releases/download/chart-0.8.0-alpha.2/matrixone-operator-0.8.0-alpha.2.tgz
+    ```
 
-```
-root@master0:~# kubectl get pod -n mo-hn
-NAME                                  READY   STATUS    RESTARTS   AGE
-matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
-```
+2. 解压安装包：
+
+    ```
+    tar -xvf matrixone-operator-0.8.0-alpha.2.tgz
+    cd /root/matrixone-operator/
+    ```
+
+3. 定义命名空间变量：
+
+    ```
+    NS="matrixone-operator"
+    ```
+
+4. 使用 Helm 安装 MatrixOne Operator，并创建命名空间：
+
+    ```
+    helm install --create-namespace --namespace ${NS} matrixone-operator ./ --dependency-update
+    ```
+
+5. 安装成功后，使用以下命令确认安装状态：
+
+    ```
+    kubectl get pod -n matrixone-operator
+    ```
+
+    确保上述命令输出中的所有 Pod 状态都为 Running。
+
+    ```
+    [root@master0 matrixone-operator]# kubectl get pod -n matrixone-operator
+    NAME                                 READY   STATUS    RESTARTS   AGE
+    matrixone-operator-f8496ff5c-fp6zm   1/1     Running   0          3m26s
+    ```
 
 如上上代码行所示，对应 Pod 状态均正常。
 
 ### **创建 MatrixOne 集群**
 
-自定义 MatrixOne 集群的 `yaml` 文件，示例如下：
+1. 首先创建 MatrixOne 的命名空间：
 
-1. 编写如下 `mo.yaml` 的文件：
+    ```
+    NS="mo-hn"
+    kubectl create ns ${NS}
+    ```
+
+2. 自定义 MatrixOne 集群的 `yaml` 文件，编写如下 `mo.yaml` 的文件：
 
     ```
     apiVersion: core.matrixorigin.io/v1alpha1
@@ -328,8 +507,19 @@ matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
       name: mo
       namespace: mo-hn
     spec:
+      # 1. 配置 dn
       dn:
-        config: |
+        cacheVolume: # dn的磁盘缓存
+          size: 5Gi # 根据实际磁盘大小和需求修改
+          storageClassName: local-path # 如果不写，会用系统默认的storage class
+        resources:
+          requests:
+            cpu: 100m #1000m=1c
+            memory: 500Mi # 1024Mi
+          limits: # 注意limits不能低于requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置limits和requests一致即可
+            cpu: 200m
+            memory: 1Gi
+        config: |  # dn的配置
           [dn.Txn.Storage]
           backend = "TAE"
           log-backend = "logservice"
@@ -343,93 +533,112 @@ matrixone-operator-66b896bbdd-qdfrp   1/1     Running   0          2m28s
           level = "error"
           format = "json"
           max-size = 512
-        replicas: 1
+        replicas: 1 # dn的副本数
+      # 2. 配置 logservice
       logService:
-        replicas: 3
-        sharedStorage:
+        replicas: 3 # logservice的副本数
+        resources:
+          requests:
+            cpu: 100m #1000m=1c
+            memory: 500Mi # 1024Mi
+          limits: # 注意limits不能低于requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置limits和requests一致即可
+            cpu: 200m
+            memory: 1Gi
+        sharedStorage: # 配置 logservice 对接的 s3 存储
           s3:
-            type: minio
-            path: minio-io #之前定义的minio存储bucket的路径
-            endpoint: http://minio.mostorage:9000
-            secretRef:
+            type: minio # 所对接的 s3 存储类型为 minio
+            path: minio-mo # 给 mo 用的 minio 桶的路径，此前通过控制台或 mc 命令创建
+            endpoint: http://minio.mostorage:9000 # 此处为 minio 服务的 svc 地址和端口
+            secretRef: # 配置访问 minio 的密钥即 secret，名称为 minio
               name: minio
-        pvcRetentionPolicy: Retain
+        pvcRetentionPolicy: Retain # 配置集群销毁后，S3 桶的周期策略，Retain 为保留，Delete 为删除
         volume:
-          size: 1Gi
-        config: |
+          size: 1Gi # 配置 S3 对象存储的大小，根据实际磁盘大小和需求修改
+        config: | # logservice 的配置
           [log]
           level = "error"
           format = "json"
           max-size = 512
+      # 3. 配置 cn
       tp:
-        serviceType: NodePort
-        nodePort: 31474 #转发到外网的固定端口，K8s默认端口范围在30000-32767内
-        config: |
+        cacheVolume: # cn 的磁盘缓存
+          size: 5Gi # 根据实际磁盘大小和需求修改
+          storageClassName: local-path # 如果不写，会用系统默认的 storage class
+        resources:
+          requests:
+            cpu: 100m #1000m=1c
+            memory: 500Mi # 1024Mi
+          limits: # 注意limits不能低于requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置limits和requests一致即可
+            cpu: 200m
+            memory: 2Gi
+        serviceType: NodePort # cn 需要对外提供访问入口，其 svc 设置为 NodePort
+        nodePort: 31429 # nodePort 端口设置
+        config: | # cn 的配置
           [cn.Engine]
           type = "distributed-tae"
           [log]
           level = "debug"
           format = "json"
           max-size = 512
-        replicas: 1 #CN的个数
-      version: 0.7.0 #MatrixOne的镜像版本，来源于Dockerhub上的镜像号码
-      imageRepository: matrixorigin/matrixone
-      imagePullPolicy: Always
+        replicas: 1
+      version: nightly-54b5e8c # 此处为 MO 镜像的版本，可通过 dockerhub 查阅，一般 cn、dn、logservice 为同一个镜像打包，所以用同一个字段指定即可，也支持单独在各自部分中指定，但无特殊情况请用统一的镜像版本
+      # https://hub.docker.com/r/matrixorigin/matrixone/tags
+      imageRepository: matrixorigin/matrixone # 镜像仓库地址，如果本地拉取后，有修改过 tag，那么可以调整这个配置项
+      imagePullPolicy: IfNotPresent # 镜像拉取策略，与 k8s 官方可配置值一致
     ```
 
-2. 定义 MatrixOne 访问 MinIO 的 secret 服务：
+3. 执行以下命令，在命名空间 `mo-hn` 中创建用于访问 MinIO 的 Secret 服务：
 
     ```
     kubectl -n mo-hn create secret generic minio --from-literal=AWS_ACCESS_KEY_ID=rootuser --from-literal=AWS_SECRET_ACCESS_KEY=rootpass123
     ```
 
-    用户名和密码使用创建 MinIO 集群时设定的 rootUser 和 rootPassword。
+    其中，用户名和密码使用在创建 MinIO 集群时设置的 `rootUser` 和 `rootPassword`。
 
-3. 使用如下命令行部署 MatrixOne 集群：
+4. 执行以下命令，部署 MatrixOne 集群：
 
     ```
     kubectl apply -f mo.yaml
     ```
 
-4. 需等待 10 来分钟，如发生 pod 重启，请继续等待。直到如下显示表示部署成功：
+5. 请耐心等待大约 10 分钟，如果出现 Pod 重启，请继续等待。直到你看到以下信息表示部署成功：
 
     ```
-    root@k8s-master0:~# kubectl get pods -n mo-hn
-    NAME                                  READY   STATUS    RESTARTS      AGE
-    matrixone-operator-66b896bbdd-qdfrp   1/1     Running   1 (99m ago)   10h
-    mo-dn-0                               1/1     Running   0             46m
-    mo-log-0                              1/1     Running   0             47m
-    mo-log-1                              1/1     Running   0             47m
-    mo-log-2                              1/1     Running   0             47m
-    mo-tp-cn-0                            1/1     Running   1 (45m ago)   46m
+    [root@master0 mo]# kubectl get pods -n mo-hn      
+    NAME                                 READY   STATUS    RESTARTS      AGE
+    mo-dn-0                              1/1     Running   0             74s
+    mo-log-0                             1/1     Running   1 (25s ago)   2m2s
+    mo-log-1                             1/1     Running   1 (24s ago)   2m2s
+    mo-log-2                             1/1     Running   1 (22s ago)   2m2s
+    mo-tp-cn-0                           1/1     Running   0             50s
     ```
 
 ## **6. 连接 Matrix0ne 集群**
 
-由于提供对外访问的 CN 的 pod id 不是 node ip，因此，你需要将对应服务的端口映射到 MatrixOne 节点上。本章节将指导你使用 `kubectl port-forward` 连接 MatrixOne 集群。
+为了连接 MatrixOne 集群，您需要将对应服务的端口映射到 MatrixOne 节点上。以下是使用 `kubectl port-forward` 连接 MatrixOne 集群的指导：
 
 - 只允许本地访问：
 
    ```
-   nohup kubectl  port-forward svc/mo-tp-cn 6001:6001 &
+   nohup kubectl  port-forward -nmo-hn svc/mo-tp-cn 6001:6001 &
    ```
 
 - 指定某台机器或者所有机器访问：
 
    ```
-   nohup kubectl  port-forward --address 0.0.0.0 svc/mo-tp-cn 6001:6001 &
+   nohup kubectl  port-forward -nmo-hn --address 0.0.0.0 svc/mo-tp-cn 6001:6001 &
    ```
 
-指定**允许本地访问**或**指定某台机器或者所有机器访问**后，使用 MySQL 客户端连接 MatrixOne：
+在指定**允许本地访问**或**指定某台机器或者所有机器访问**后，你可以使用 MySQL 客户端连接 MatrixOne：
 
 ```
 mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P 6001 -udump -p111
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 1004
-Server version: 638358 MatrixOne
+Your MySQL connection id is 163
+Server version: 8.0.30-MatrixOne-v0.7.0 MatrixOne
 
-Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
