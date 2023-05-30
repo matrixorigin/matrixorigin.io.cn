@@ -10,13 +10,11 @@
 
 与 MySQL 类似，MatrixOne 提供了 LOAD DATA 功能，允许用户将外部的 CSV 文件或 JSON 文件快速并行地导入到与表结构匹配的表中。
 
-具体操作，请参考[批量导入](../Develop/import-data/bulk-load/bulk-load-overview.md)。
-
 ### SOURCE
 
 在 MatrixOne 中，也可以使用 SOURCE 命令将数据和表结构迁移到目标数据库中。
 
-具体操作，请参考[示例：使用 `source` 命令将数据从 MySQL 迁移至 MatrixOne](../Develop/import-data/bulk-load/using-source.md)。
+更多关于使用 LOAD DATA 或 SOURCE 进行批量导入的文档，参见[批量导入](../Develop/import-data/bulk-load/bulk-load-overview.md)。
 
 ## 参考文档
 
