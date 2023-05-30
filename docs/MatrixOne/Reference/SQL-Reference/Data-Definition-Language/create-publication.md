@@ -8,8 +8,9 @@
 
 ```
 CREATE PUBLICATION pubname
-    DATABASE database_name 
-    [ ACCOUNT account_name] [, ... ] ]
+    DATABASE database_name ACCOUNT
+    [ { ALL
+    | account_name, [, ... ] }]
     [ COMMENT 'string']
 ```
 
