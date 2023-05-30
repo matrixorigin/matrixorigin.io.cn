@@ -1,8 +1,26 @@
-# 示例：使用 `source` 命令将数据从 MySQL 迁移至 MatrixOne
+# 使用 `source` 命令批量导入数据
 
-本篇文档将指导你如何将数据从 MySQL 迁移至 MatrixOne。
+本篇文档将指导你使用 `source` 命令批量导入数据至 MatrixOne。
 
-## 1. MySQL 数据转储
+## 语法结构
+
+```
+SOURCE /path/to/your/sql_script.sql;
+```
+
+`/path/to/your/sql_script.sql` 是 SQL 脚本文件的绝对路径。当执行此命令时，客户端会读取指定的 SQL 脚本文件，并执行其中包含的所有 SQL 语句。
+
+## 教程示例
+
+在本教程中将指导你如何使用 `source` 命令将数据从 MySQL 迁移至 MatrixOne。
+
+### 开始前准备
+
+已完成[单机部署 MatrixOne](../../../Get-Started/install-standalone-matrixone.md)。
+
+### 步骤
+
+#### 1. MySQL 数据转储
 
 你需要拥有对 MySQL 实例的完全访问权限。
 
@@ -18,7 +36,7 @@ mysqldump -h IP_ADDRESS -uUSERNAME -pPASSWORD -d DB_NAME1 DB_NAME2 ... OUTPUT_FI
 mysqldump -h 127.0.0.1 -uroot -proot -d test > a.sql
 ```
 
-## 2. 修改 *sql* 文件
+#### 2. 修改 *sql* 文件
 
 从 MySQL 转储的 SQL 文件还不完全兼容 MatrixOne。你需要删除和修改几个元素，以使 SQL 文件适应 MatrixOne 的格式。
 
@@ -60,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `tool` (
 ) COMMENT='tool table';
 ```
 
-### 3. 导入至 MatrixOne
+#### 3. 导入至 MatrixOne
 
 转储的 *sql* 文件修改完成之后，就可以将整个表结构和数据导入到 MatrixOne 中。
 
@@ -76,4 +94,12 @@ mysql> source '/YOUR_PATH/a.sql'
 
 ```
 nohup mysql -h 127.0.0.1 -P 6001 -udump -p111 -e 'source /YOUR_PATH/a.sql' &
+```
+
+#### 4. 检查数据
+
+导入成功后，使用如下 SQL 语句查看导入结果：
+
+```sql
+select * from tool;
 ```
