@@ -31,7 +31,6 @@ alter_option: {
   | DROP {INDEX | KEY} index_name
   | DROP FOREIGN KEY fk_symbol
    | ORDER BY col_name [, col_name] ...  
-  | RENAME {INDEX | KEY} old_index_name TO new_index_name
   | RENAME [TO | AS] new_tbl_name
 }
 
@@ -64,10 +63,9 @@ table_option: {
     - `DROP {INDEX | KEY} index_name`：删除一个索引。
     - `DROP FOREIGN KEY fk_symbol`：删除一个 FOREIGN KEY 约束。
     - `ORDER BY col_name [, col_name] ...`：按指定列重新排序表中的行。
-    - `RENAME {INDEX | KEY} old_index_name TO new_index_name`：重命名一个索引。
     - `RENAME [TO | AS] new_tbl_name`：重命名整个表。
 
-3. `key_part`：表示索引的组成部分，可以是列名（可选的长度）或表达式，以及可选的升序（ASC）或降序（DESC）排序。
+3. `key_part`：表示索引的组成部分，可以使用列名（在创建一个文本列的索引时，你可以为索引指定一个长度，字符长度可变）。
 4. `index_option`：表示索引的选项，例如注释（COMMENT）。
 5. `table_options`：表示表的选项，如表的注释（COMMENT）。
 6. `table_option`：具体的表选项，例如注释（COMMENT）。
