@@ -22,15 +22,11 @@ alter_option: {
   | ADD [CONSTRAINT] FOREIGN KEY
         [index_name] (col_name,...)
         reference_definition
-  | ALTER [COLUMN] col_name {
-        SET DEFAULT {literal | (expr)}
-      | DROP DEFAULT
     }
   | ALTER INDEX index_name {VISIBLE | INVISIBLE}
   | DROP [COLUMN] col_name
   | DROP {INDEX | KEY} index_name
   | DROP FOREIGN KEY fk_symbol
-   | ORDER BY col_name [, col_name] ...  
   | RENAME [TO | AS] new_tbl_name
 }
 
@@ -57,12 +53,10 @@ table_option: {
     - `ADD {[INDEX | KEY] [index_name] [index_option] ...`：添加一个索引，可以指定索引名和索引选项（例如，注释）。
     - `ADD [CONSTRAINT] UNIQUE [INDEX | KEY] [index_name][index_option] ...`：添加一个 UNIQUE 约束或 UNIQUE 索引。
     - `ADD [CONSTRAINT] FOREIGN KEY [index_name] (col_name,...) reference_definition`：添加一个 FOREIGN KEY 约束。
-    - `ALTER [COLUMN] col_name {SET DEFAULT {literal | (expr)} | DROP DEFAULT}`：更改列的默认值或删除默认值。
     - `ALTER INDEX index_name {VISIBLE | INVISIBLE}`：更改索引的可见性。
     - `DROP [COLUMN] col_name`：删除一个列。
     - `DROP {INDEX | KEY} index_name`：删除一个索引。
     - `DROP FOREIGN KEY fk_symbol`：删除一个 FOREIGN KEY 约束。
-    - `ORDER BY col_name [, col_name] ...`：按指定列重新排序表中的行。
     - `RENAME [TO | AS] new_tbl_name`：重命名整个表。
 
 3. `key_part`：表示索引的组成部分，可以使用列名（在创建一个文本列的索引时，你可以为索引指定一个长度，字符长度可变。如果您在创建索引时使用列名且不指定长度，索引将会使用整个列的值作为索引组成部分。这在某些情况下可能导致性能降低，特别是在处理较大文本列或二进制数据列时。对于较小的数据类型，例如整数或日期，通常不需要指定长度。）。
@@ -110,4 +104,4 @@ mysql> select ca, cb from c1 order by ca;
 
 ## 限制
 
-MatrixOne 当前仅支持 `ORDER BY col_name [, col_name] ...` 语法，不会更改表的实际顺序。
+MatrixOne 当前仅支持 `ALTER INDEX index_name {VISIBLE | INVISIBLE}` 语法。
