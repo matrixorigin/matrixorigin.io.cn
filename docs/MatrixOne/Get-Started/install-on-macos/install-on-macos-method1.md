@@ -6,12 +6,12 @@
 
 1. 点击 <a href="https://go.dev/doc/install" target="_blank">Go Download and install</a> 入到 **Go** 的官方文档，按照官方指导安装步骤完成 **Go** 语言的安装。
 
-    __Note__: 建议 Go 语言版本为 1.19 版本。
+    __Note__: 建议 Go 语言版本为 1.20 版本。
 
 2. 验证 **Go** 是否安装，请执行代码 `go version`，安装成功代码行示例如下：
 
     ```
-    go version go1.19 darwin/arm64
+    go version go1.20 darwin/arm64
     ```
 
 ## 步骤 2：安装 GCC
@@ -79,9 +79,6 @@
          ```
 
          __Tips__: 你也可以运行`make debug`与`make clean`或者其他任何`Makefile`支持的命令；`make debug` 可以用来调试构建进程，`make clean` 可以清除构建进程。如果在 `make build` 时产生 `Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout` 报错，参见[安装和部署常见问题](../../FAQs/deployment-faqs.md)进行解决。
-
-!!! info
-     ARM 芯片硬件配置下，MatrixOne 仅支持通过源代码方式进行安装部署；如果你使用的是 MacOS 系统 M1 及以上版本，请参见本篇文档进行安装部署 MatrixOne。
 
 ## 步骤 4：启动 MatrixOne 服务
 
