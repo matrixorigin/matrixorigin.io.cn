@@ -4,13 +4,13 @@
 
 ### 1. Make sure your golang environment
 
-To build MatrixOne locally, golang 1.19 is required. You can follow these steps to make sure your golang whether is ready.
+To build MatrixOne locally, golang 1.20 is required. You can follow these steps to make sure your golang whether is ready.
 
 ```
 $ go version
 ```
 
-If the result is like `'go version go1.19 xxxxxx'`, you can skip step 2 and build your MatrixOne. If lower than go 1.19 or no golang, your can follow step 2 to configure your own golang 1.19 environment locally.
+If the result is like `'go version go1.20 xxxxxx'`, you can skip step 2 and build your MatrixOne. If lower than go 1.20 or no golang, your can follow step 2 to configure your own golang 1.20 environment locally.
 
 ### 2. Configure your golang environment
 
@@ -20,8 +20,8 @@ After installation, use step 1 to make sure again.
 If your OS is Linux, still download golang package and modify your profile. Here is a sampe as following. The path can be modified as your preferred.
 
 ```
-$ wget https://go.dev/dl/go1.19.1.linux-amd64.tar.gz
-$ sudo tar -zxvf go1.19.1.linux-amd64.tar.gz -C /usr/local
+$ wget https://go.dev/dl/go1.20.1.linux-amd64.tar.gz
+$ sudo tar -zxvf go1.20.1.linux-amd64.tar.gz -C /usr/local
 $ cat >> /etc/profile << EOF
 export GOROOT=/usr/local/go  
 export PATH=$GOROOT/bin:$PATH

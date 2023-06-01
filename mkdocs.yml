@@ -45,11 +45,14 @@ nav:
     - 主页: README.md
     - 关于 MatrixOne:
       - MatrixOne 简介: MatrixOne/Overview/matrixone-introduction.md
-      - MatrixOne 功能列表: MatrixOne/Overview/matrixone-feature-list.md
+      - MatrixOne 功能概述:
+        - 功能特性: MatrixOne/Overview/feature/feature-overview.md
+        - MatrixOne 的 HTAP 特性: MatrixOne/Overview/feature/key-feature-htap.md
+        - MatrixOne 的多租户特性: MatrixOne/Overview/feature/key-feature-multi-accounts.md
+        - 功能列表: MatrixOne/Overview/feature/matrixone-feature-list.md
+        - MySQL 兼容性: MatrixOne/Overview/feature/mysql-compatibility.md
       - MatrixOne 技术架构:
-        - 架构概述: MatrixOne/Overview/matrixone-architecture-design.md
-        - 功能特性: MatrixOne/Overview/architecture-details.md
-      - MySQL 兼容性: MatrixOne/Overview/mysql-compatibility.md
+        - 架构概述: MatrixOne/Overview/architecture/matrixone-architecture-design.md
       - 最新动态: MatrixOne/Overview/whats-new.md
     - 快速开始:
       - 单机部署 MatrixOne:
@@ -159,7 +162,6 @@ nav:
         - 使用 Cluster by 语句调优: MatrixOne/Performance-Tuning/optimization-concepts/through-cluster-by.md
         - 通过扩展 CN 提升性能: MatrixOne/Performance-Tuning/optimization-concepts/through-CN-extensions.md
         - 使用分区表调优: MatrixOne/Performance-Tuning/optimization-concepts/through-partition-by.md
-        - 通过配置 Proxy 实现 SQL 分发: MatrixOne/Performance-Tuning/optimization-concepts/through-enable-proxy.md
         - Optimizer Hints: MatrixOne/Performance-Tuning/control-execution-plan/optimizer-hints.md
     - 权限:
       - TLS 安全连接: MatrixOne/Security/TLS-introduction.md

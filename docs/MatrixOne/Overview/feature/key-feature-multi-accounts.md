@@ -1,4 +1,4 @@
-# 多租户功能
+# MatrixOne 的多租户特性
 
 MatrixOne 的设计采用了单一集群多租户的方式。在这个设计中，租户（Account）是一个逻辑概念，作为资源分配和数据库管理的单位。MatrixOne 的多租户模式能够为不同的租户提供独立的数据库实例，并采用逻辑隔离的方式确保各租户数据的安全性和独立性，有效防止数据泄露和篡改的风险。
 
@@ -98,5 +98,5 @@ MatrixOne 的多租户能力可以很好地解决数据库共享/隔离的困境
 
 更多关于多租户的文档可以参见：
 
-- [多租户应用场景](../Security/app-scenarios.md)
-- [快速开始：创建租户，验证资源隔离](../Security/how-tos/quick-start-create-account.md)
+- [多租户应用场景](../../Security/app-scenarios.md)
+- [快速开始：创建租户，验证资源隔离](../../Security/how-tos/quick-start-create-account.md)
