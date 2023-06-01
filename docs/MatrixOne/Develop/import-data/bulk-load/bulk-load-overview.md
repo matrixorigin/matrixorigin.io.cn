@@ -25,3 +25,8 @@ MatrixOne 支持使用 `LOAD DATA` 命令从本地文件系统或 *S3 对象存�
 MatrixOne 支持使用 `SOURCE` 命令从外部 SQL 脚本文件执行 SQL 语句导入整个数据库结构（包括表结构和数据）。`SOURCE` 命令在处理大量数据时可能没有 `LOAD DATA` 命令性能高，因为它需要解析和执行每个 SQL 语句。
 
 - [使用 source 命令批量导入数据](using-source.md)
+
+## 更多导入能力
+
+- MatrixOne 支持并行加载数据文件：数据文件较大时，为了提升加载速度，MatrixOne 也支持并行加载，可参见 `LOAD DATA` 导入数据的参数说明。
+- 在 MatrixOne 分布式集群中，除了本地导入数据和从公有云对象存储 S3 导入数据到 MatrixOne，还可以通过本地 Minio 组件导入数据，操作详情，参见[从本地 Minio 导入数据到 MatrixOne](../../../Deploy/import-data-from-minio-to-mo.md)
