@@ -93,6 +93,7 @@ nav:
           - 导入 csv 文件: MatrixOne/Develop/import-data/bulk-load/load-csv.md
           - 导入 jsonlines 文件: MatrixOne/Develop/import-data/bulk-load/load-jsonline.md
           - 从 S3 读取数据并导入至 MatrixOne: MatrixOne/Develop/import-data/bulk-load/load-s3.md
+          - 使用 source 命令批量导入数据: MatrixOne/Develop/import-data/bulk-load/using-source.md
       - 导出数据:
         - 使用 `SELECT INTO...OUTFILE` 导出数据: MatrixOne/Develop/export-data/select-into-outfile.md
         - 使用 `modump` 导出数据: MatrixOne/Develop/export-data/modump.md
@@ -122,6 +123,7 @@ nav:
         - MatrixOne 分布式集群升级: MatrixOne/Deploy/update-MatrixOne-cluster.md
         - MatrixOne 分布式集群启停: MatrixOne/Deploy/MatrixOne-start-stop.md
         - MatrixOne 分布式集群扩缩容: MatrixOne/Deploy/MatrixOne-cluster-Scale.md
+        - 健康检查与资源监控: MatrixOne/Deploy/health-check-resource-monitoring.md
         - 从本地 Minio 导入数据到 MatrixOne 分布式集群: MatrixOne/Deploy/import-data-from-minio-to-mo.md
     - 教程:
       - 构建一个 Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
@@ -135,7 +137,10 @@ nav:
       - 数据挂载:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:
+      - 将数据迁移至 MatrixOne 概述: MatrixOne/Migrate/migrate-overview.md
       - 将数据从 MySQL 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-mysql-to-matrixone.md
+      - 将数据从 Oracle 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-oracle-to-matrixone.md
+      - 将数据从 SQL Server 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-sqlserver-to-matrixone.md
     - 测试:
       - 性能测试:
         - SSB 测试: MatrixOne/Test/performance-testing/SSB-test-with-matrixone.md
@@ -199,6 +204,7 @@ nav:
           - CREATE SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-sequence.md
           - CREATE...FROM...PUBLICATION...: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-subscription.md
           - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-view.md
+          - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
           - ALTER PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-publication.md
           - ALTER VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-view.md
           - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-database.md
@@ -423,6 +429,8 @@ nav:
             - SUBSTRING(): MatrixOne/Reference/Functions-and-Operators/String/substring.md
             - SUBSTRING_INDEX(): MatrixOne/Reference/Functions-and-Operators/String/substring-index.md
             - TRIM(): MatrixOne/Reference/Functions-and-Operators/String/trim.md
+          - 表函数:
+            - UNNEST(): MatrixOne/Reference/Functions-and-Operators/Table/unnest.md
           - JSON 函数: MatrixOne/Reference/Functions-and-Operators/Json/json-functions.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
