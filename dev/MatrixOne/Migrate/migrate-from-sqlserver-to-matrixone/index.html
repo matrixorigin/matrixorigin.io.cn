@@ -13,7 +13,7 @@
     
     
       
-        <title>MatrixOne 技术架构 - MatrixOne 中文文档</title>
+        <title>将数据从 SQL Server 迁移至 MatrixOne - MatrixOne 中文文档</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#matrixone" class="md-skip">
+        <a href="#sql-server-matrixone" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MatrixOne 技术架构
+              将数据从 SQL Server 迁移至 MatrixOne
             
           </span>
         </div>
@@ -305,14 +305,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
       
       
       
@@ -335,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../matrixone-introduction/" class="md-nav__link">
+      <a href="../../Overview/matrixone-introduction/" class="md-nav__link">
         MatrixOne 简介
       </a>
     </li>
@@ -348,202 +346,36 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../matrixone-feature-list/" class="md-nav__link">
-        MatrixOne 功能列表
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2" type="checkbox" id="__nav_1_2_2" >
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          MatrixOne 技术架构
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_2">
+          MatrixOne 功能概述
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        MatrixOne 技术架构
+      <nav class="md-nav" aria-label="MatrixOne 功能概述" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          MatrixOne 功能概述
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/feature/feature-overview/" class="md-nav__link">
+        功能特性
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#matrixone_1" class="md-nav__link">
-    MatrixOne 概述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matrixone_2" class="md-nav__link">
-    MatrixOne 架构
-  </a>
-  
-    <nav class="md-nav" aria-label="MatrixOne 架构">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    集群管理层
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serverless" class="md-nav__link">
-    Serverless 层
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    日志层
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    存储层
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    存储供应层
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matrixone_3" class="md-nav__link">
-    MatrixOne 系统组件
-  </a>
-  
-    <nav class="md-nav" aria-label="MatrixOne 系统组件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#file-service" class="md-nav__link">
-    File Service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#log-service" class="md-nav__link">
-    Log Service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-node" class="md-nav__link">
-    Database Node
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#computing-node" class="md-nav__link">
-    Computing Node
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stream-engine" class="md-nav__link">
-    Stream Engine
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matrixone_4" class="md-nav__link">
-    MatrixOne 特性
-  </a>
-  
-    <nav class="md-nav" aria-label="MatrixOne 特性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    分布式架构
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    事务与隔离
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    云原生
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    相关信息
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -555,7 +387,49 @@
   
   
     <li class="md-nav__item">
-      <a href="../mysql-compatibility/" class="md-nav__link">
+      <a href="../../Overview/feature/key-feature-htap/" class="md-nav__link">
+        MatrixOne 的 HTAP 特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/feature/key-feature-multi-accounts/" class="md-nav__link">
+        MatrixOne 的多租户特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/feature/matrixone-feature-list/" class="md-nav__link">
+        功能列表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/feature/mysql-compatibility/" class="md-nav__link">
         MySQL 兼容性
       </a>
     </li>
@@ -563,13 +437,67 @@
 
             
           
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_3" type="checkbox" id="__nav_1_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_3">
+          MatrixOne 技术架构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MatrixOne 技术架构" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          MatrixOne 技术架构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
   
   
   
     <li class="md-nav__item">
-      <a href="../whats-new/" class="md-nav__link">
+      <a href="../../Overview/architecture/matrixone-architecture-design/" class="md-nav__link">
+        架构概述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/whats-new/" class="md-nav__link">
         最新动态
       </a>
     </li>
@@ -927,22 +855,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../Develop/schema-design/create-secondary-index/" class="md-nav__link">
+        创建次级索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1_4" type="checkbox" id="__nav_1_4_1_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1_5" type="checkbox" id="__nav_1_4_1_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_4_1_4">
+        <label class="md-nav__link" for="__nav_1_4_1_5">
           数据完整性
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="数据完整性" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_4_1_4">
+        <label class="md-nav__title" for="__nav_1_4_1_5">
           <span class="md-nav__icon md-icon"></span>
           数据完整性
         </label>
@@ -1304,6 +1246,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/bulk-load/using-source.md" class="md-nav__link">
+        使用 source 命令批量导入数据
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1487,22 +1443,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        发布订阅
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_6" type="checkbox" id="__nav_1_4_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_7" type="checkbox" id="__nav_1_4_7" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_4_6">
+        <label class="md-nav__link" for="__nav_1_4_7">
           事务
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="事务" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_4_6">
+        <label class="md-nav__title" for="__nav_1_4_7">
           <span class="md-nav__icon md-icon"></span>
           事务
         </label>
@@ -1531,18 +1501,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_6_2" type="checkbox" id="__nav_1_4_6_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_7_2" type="checkbox" id="__nav_1_4_7_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_4_6_2">
+        <label class="md-nav__link" for="__nav_1_4_7_2">
           MatrixOne 的事务
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="MatrixOne 的事务" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_4_6_2">
+        <label class="md-nav__title" for="__nav_1_4_7_2">
           <span class="md-nav__icon md-icon"></span>
           MatrixOne 的事务
         </label>
@@ -1817,6 +1787,34 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/health-check-resource-monitoring/" class="md-nav__link">
+        健康检查与资源监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/import-data-from-minio-to-mo/" class="md-nav__link">
+        从本地 Minio 导入数据到 MatrixOne 分布式集群
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2046,12 +2044,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" checked>
       
       
       
@@ -2074,9 +2074,187 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Migrate/migrate-from-mysql-to-matrixone/" class="md-nav__link">
+      <a href="../migrate-overview/" class="md-nav__link">
+        将数据迁移至 MatrixOne 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrate-from-mysql-to-matrixone/" class="md-nav__link">
         将数据从 MySQL 迁移至 MatrixOne
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrate-from-oracle-to-matrixone/" class="md-nav__link">
+        将数据从 Oracle 迁移至 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          将数据从 SQL Server 迁移至 MatrixOne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        将数据从 SQL Server 迁移至 MatrixOne
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    数据类型差异
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    在线迁移
+  </a>
+  
+    <nav class="md-nav" aria-label="在线迁移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    准备工作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    第一步：迁移表结构和表数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    第二步：检查数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    离线迁移
+  </a>
+  
+    <nav class="md-nav" aria-label="离线迁移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    准备工作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    第一步：迁移表结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    第二步：迁移数据
+  </a>
+  
+    <nav class="md-nav" aria-label="第二步：迁移数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-data" class="md-nav__link">
+    LOAD DATA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    INSERT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    第三步：检查数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2449,6 +2627,48 @@
     <li class="md-nav__item">
       <a href="../../Performance-Tuning/optimization-concepts/through-cluster-by/" class="md-nav__link">
         使用 Cluster by 语句调优
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Performance-Tuning/optimization-concepts/through-CN-extensions/" class="md-nav__link">
+        通过扩展 CN 提升性能
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Performance-Tuning/optimization-concepts/through-partition-by/" class="md-nav__link">
+        使用分区表调优
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Performance-Tuning/control-execution-plan/optimizer-hints/" class="md-nav__link">
+        Optimizer Hints
       </a>
     </li>
   
@@ -3181,6 +3401,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-publication/" class="md-nav__link">
+        CREATE PUBLICATION
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-sequence/" class="md-nav__link">
         CREATE SEQUENCE
       </a>
@@ -3195,8 +3429,50 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-subscription/" class="md-nav__link">
+        CREATE...FROM...PUBLICATION...
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-view/" class="md-nav__link">
         CREATE VIEW
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/alter-table/" class="md-nav__link">
+        ALTER TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/alter-publication/" class="md-nav__link">
+        ALTER PUBLICATION
       </a>
     </li>
   
@@ -3253,6 +3529,20 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Definition-Language/drop-table/" class="md-nav__link">
         DROP TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/drop-publication/" class="md-nav__link">
+        DROP PUBLICATION
       </a>
     </li>
   
@@ -4014,6 +4304,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Control-Language/alter-user/" class="md-nav__link">
+        ALTER USER
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Control-Language/drop-account/" class="md-nav__link">
         DROP ACCOUNT
       </a>
@@ -4199,6 +4503,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-create-publication/" class="md-nav__link">
+        SHOW CREATE PUBLICATION
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-tables/" class="md-nav__link">
         SHOW TABLES
       </a>
@@ -4283,6 +4601,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-publications/" class="md-nav__link">
+        SHOW PUBLICATIONS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-roles/" class="md-nav__link">
         SHOW ROLES
       </a>
@@ -4299,6 +4631,20 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-sequences/" class="md-nav__link">
         SHOW SEQUENCES
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-subscriptions/" class="md-nav__link">
+        SHOW SUBSCRIPTIONS
       </a>
     </li>
   
@@ -6792,6 +7138,53 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_5_2_5" type="checkbox" id="__nav_1_12_5_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_5_2_5">
+          表函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="表函数" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_5_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          表函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Functions-and-Operators/Table/unnest/" class="md-nav__link">
+        UNNEST()
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../Reference/Functions-and-Operators/Json/json-functions/" class="md-nav__link">
         JSON 函数
@@ -7609,133 +8002,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#matrixone_1" class="md-nav__link">
-    MatrixOne 概述
+  <a href="#_1" class="md-nav__link">
+    数据类型差异
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#matrixone_2" class="md-nav__link">
-    MatrixOne 架构
+  <a href="#_2" class="md-nav__link">
+    在线迁移
   </a>
   
-    <nav class="md-nav" aria-label="MatrixOne 架构">
+    <nav class="md-nav" aria-label="在线迁移">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    集群管理层
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serverless" class="md-nav__link">
-    Serverless 层
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    日志层
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    存储层
+    准备工作
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    存储供应层
+    第一步：迁移表结构和表数据
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matrixone_3" class="md-nav__link">
-    MatrixOne 系统组件
-  </a>
-  
-    <nav class="md-nav" aria-label="MatrixOne 系统组件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#file-service" class="md-nav__link">
-    File Service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#log-service" class="md-nav__link">
-    Log Service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-node" class="md-nav__link">
-    Database Node
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#computing-node" class="md-nav__link">
-    Computing Node
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stream-engine" class="md-nav__link">
-    Stream Engine
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matrixone_4" class="md-nav__link">
-    MatrixOne 特性
-  </a>
-  
-    <nav class="md-nav" aria-label="MatrixOne 特性">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    分布式架构
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    事务与隔离
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    云原生
+    第二步：检查数据
   </a>
   
 </li>
@@ -7746,9 +8043,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    相关信息
+  <a href="#_6" class="md-nav__link">
+    离线迁移
   </a>
+  
+    <nav class="md-nav" aria-label="离线迁移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    准备工作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    第一步：迁移表结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    第二步：迁移数据
+  </a>
+  
+    <nav class="md-nav" aria-label="第二步：迁移数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-data" class="md-nav__link">
+    LOAD DATA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    INSERT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    第三步：检查数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7764,91 +8115,209 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Overview/matrixone-architecture-design.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Migrate/migrate-from-sqlserver-to-matrixone.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="matrixone"><strong>MatrixOne 架构设计</strong></h1>
-<h2 id="matrixone_1"><strong>MatrixOne 概述</strong></h2>
-<p>MatrixOne 是一款面向未来的超融合异构云原生数据库，通过简化的分布式数据库引擎，跨多个数据中心、云、边缘和其他异构基础设施，同时支持事务性（OLTP）、分析性（OLAP）和流式工作（Sreaming）负载，这种多种引擎的融合，称为 HSTAP。</p>
-<p>MatrixOne HSTAP 数据库对 HTAP 数据库进行了重新定义，HSTAP 旨在满足单一数据库内事务处理（TP）和分析处理（AP）的所有需求。与传统的 HTAP 相比，HSTAP 强调其内置的用于连接 TP 和 AP 表数据流处理能力，为用户提供了数据库可以像大数据平台一样灵活的使用体验。也恰恰得益于大数据的繁荣，很多用户已经熟悉了这种体验。用户使用 MatrixOne 只需要少量的集成工作，即可以获得覆盖整个 TP 和 AP 场景的一站式体验，同时可以摆脱传统大数据平台的臃肿架构及各种限制。</p>
-<h2 id="matrixone_2"><strong>MatrixOne 架构</strong></h2>
-<p>MatrixOne 架构如下如所示：</p>
-<p><img alt="MatrixOne Architecture" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/matrixone_new_arch.png?raw=true" /></p>
-<p>参照上面的图示，MatrixOne 的体系结构分为五层，以下内容是从上至下对每层的介绍：</p>
-<h3 id="_1"><strong>集群管理层</strong></h3>
-<p>这一层负责集群管理，在云原生环境中与 Kubernetes 交互动态获取资源；在本地部署时，根据配置获取资源。集群状态持续监控，根据资源信息分配每个节点的任务。提供系统维护服务以确保所有系统组件在偶尔出现节点和网络故障的情况下正常运行，并在必要时重新平衡节点上的负载。集群管理层的主要组件是：</p>
+<h1 id="sql-server-matrixone">将数据从 SQL Server 迁移至 MatrixOne</h1>
+<p>本篇文档将指导你如何将数据从 SQL Server 迁移至 MatrixOne。</p>
+<p>SQLServer 作为一款成熟的商业数据库，在各个行业内均有着广泛地使用，并且其功能与性能都非常出众。作为一款关系型数据库，MatrixOne 同样支持多种从 SQLServer 而来的数据库迁移模式。</p>
+<h2 id="_1">数据类型差异</h2>
+<p>MatrixOne 与 SQL Server 存在着诸多类型上的差异，这些差异有些可以通过其他类型来替换，有些则暂时无法支持，具体列表如下：</p>
+<table>
+<thead>
+<tr>
+<th>SQLServer</th>
+<th>MatrixOne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>real</td>
+<td>使用 double 替换</td>
+</tr>
+<tr>
+<td>money, smallmoney</td>
+<td>使用 decimal 替换</td>
+</tr>
+<tr>
+<td>datetimeoffset</td>
+<td>使用 timestmap 与时区替换</td>
+</tr>
+<tr>
+<td>nchar/nvarchar/ntext</td>
+<td>使用 char/varchar/text 替换</td>
+</tr>
+<tr>
+<td>image</td>
+<td>使用 blob 替换</td>
+</tr>
+<tr>
+<td>uniqueidentifier</td>
+<td>使用 uuid 替换</td>
+</tr>
+<tr>
+<td>bit</td>
+<td>暂不支持</td>
+</tr>
+<tr>
+<td>rowversion</td>
+<td>暂不支持</td>
+</tr>
+<tr>
+<td>hierarchyid</td>
+<td>暂不支持</td>
+</tr>
+<tr>
+<td>sql_variant</td>
+<td>暂不支持</td>
+</tr>
+<tr>
+<td>xml</td>
+<td>暂不支持</td>
+</tr>
+<tr>
+<td>geometry</td>
+<td>暂不支持</td>
+</tr>
+<tr>
+<td>geography</td>
+<td>暂不支持</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">在线迁移</h2>
+<p>本章节将指导你使用第三方工具，将数据从 SQL Server 迁移至 MatrixOne。</p>
 <ul>
-<li>Prophet 调度：提供负载均衡和节点 Keep-alive。</li>
-<li>资源管理：提供物理资源。</li>
+<li>适用场景：数据量较小（建议小于 1GB），对迁移的速度不敏感的场景。</li>
 </ul>
-<h3 id="serverless"><strong>Serverless 层</strong></h3>
-<p>Serverless 层是一系列无状态节点的总称，整体上包含三类：</p>
+<h3 id="_3">准备工作</h3>
 <ul>
-<li>后台任务：最主要的功能是 Offload Worker，负责卸载成本高的压缩任务，以及将数据刷新到 S3 存储。</li>
-<li>SQL 计算节点：负责执行 SQL 请求，这里分为写节点和读节点，写节点还提供读取最新数据的能力。</li>
-<li>流任务处理节点：负责执行流处理请求。</li>
+<li>带图形界面的跳板机：可连接 SQL Server 源端，也可连接 MatrixOne 目标端。</li>
+<li>数据迁移工具：在跳板机上<a href="https://dbeaver.io/download/">下载 DBeaver</a>。</li>
 </ul>
-<h3 id="_2"><strong>日志层</strong></h3>
-<p>作为 MatrixOne 的单一数据源 (即 Single source of truth)，数据一旦写入日志层，则将永久地存储在 MatrixOne 中。它建立在我们世界级的复制状态机模型的专业知识之上，以保证我们的数据具有最先进的高吞吐量、高可用性和强一致性。它本身遵循完全模块化和分解的设计，也帮助解耦存储和计算层的核心组件，与传统的 NewSQL 架构相比，我们的架构具有更高的弹性。</p>
-<h3 id="_3"><strong>存储层</strong></h3>
-<p>存储层将来自日志层的传入数据转换为有效的形式，以供将来对数据进行处理和存储。包括为快速访问已写入 S3 的数据进行的缓存维护等。</p>
-<p>在 MatrixOne 中，<strong>TAE（即 Transactional Analytic Engine）</strong>存储引擎是存储层的主要公开接口，它可以同时支持行和列存储以及事务处理能力。此外，存储层还包括其他内部使用的存储功能，例如流媒体的中间存储。</p>
-<h3 id="_4"><strong>存储供应层</strong></h3>
-<p>作为与基础架构解耦的 DBMS，MatrixOne 可以将数据存储在 S3/HDFS、本地磁盘、本地服务器、混合云或其他各类型云，以及智能设备的共享存储中。存储供应层通过为上层提供一个统一的接口来访问这些多样化的存储资源，并且不向上层暴露存储的复杂性。</p>
-<h2 id="matrixone_3"><strong>MatrixOne 系统组件</strong></h2>
-<p><img alt="MatrixOne Component" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/mo-component.png?raw=true" /></p>
-<p>在 MatrixOne 中，为实现分布式与多引擎的融合，构建了多种不同的系统组件用于完成架构相关的层级的功能：</p>
-<h3 id="file-service"><strong>File Service</strong></h3>
-<p>File Service 是 MatrixOne 负责所有存储介质读写的组件。存储介质包括内存、磁盘、对象存储等，它提供了如下特性：</p>
+<h3 id="_4">第一步：迁移表结构和表数据</h3>
+<p>在这里以 TPCH 数据集为例，将 TPCH 数据集的 8 张表从 SQL Server 迁移至 MatrixOne。</p>
+<ol>
+<li>
+<p>打开 DBeaver，从 SQL Server 中选择待迁移的表，鼠标右键点击<strong>导出数据</strong>：</p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-2.png?raw=true" /></p>
+</li>
+<li>
+<p>在<strong>转化目标 &gt; 导出目标</strong>窗口选择<strong>数据库</strong>，点击<strong>下一步</strong>；在<strong>表映射</strong>窗口选择<strong>目标容器</strong>，目标容器选择 MatrixOne 的数据库 <em>tpch</em>：</p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-3.png?raw=true" /></p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-4.png?raw=true" /></p>
+</li>
+<li>
+<p>在<strong>抽取设置</strong>和<strong>数据加载设置</strong>窗口，设置选择抽取和插入的数量，为了触发 MatrixOne 的直接写 S3 策略，建议填写 5000：</p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-5.png?raw=true" /></p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-6.png?raw=true" /></p>
+</li>
+<li>
+<p>完成设置后，DBeaver 开始对数据进行迁移，在完成后 DBeaver 将会提示迁移成功。</p>
+</li>
+</ol>
+<h3 id="_5">第二步：检查数据</h3>
+<p>完成迁移之后，可以采用如下方式检查数据：</p>
 <ul>
-<li>File Service 提供了一个统一的接口，使不同介质的读写，可以使用相同的接口。</li>
-<li>接口的设计，遵循了数据不可变的理念。文件写入之后，就不允许再更新。数据的更新，通过产生新的文件来实现。</li>
-<li>这样的设计，简化了数据的缓存、迁移、校验等操作，有利于提高数据操作的并发能力。</li>
-<li>基于统一的读写接口，File Service 提供了分级的缓存，提供了灵活的缓存策略，以平衡读写速度和容量。</li>
+<li>
+<p>通过 <code>select count(*) from &lt;table_name&gt;</code> 来确认源库与目标库的数据量是否一致。</p>
+</li>
+<li>
+<p>通过相关的查询对比结果，你也可以参见<a href="../../Test/performance-testing/TPCH-test-with-matrixone/">完成 TPCH 测试</a>查询示例，进行结果对比。</p>
+</li>
 </ul>
-<h3 id="log-service"><strong>Log Service</strong></h3>
-<p>Log Service 是 MatrixOne 中专门用于处理事务日志的组件，它具有如下功能特性：</p>
+<h2 id="_6">离线迁移</h2>
+<p>本章节将指导你通过离线文件导入到 MatrixOne。</p>
 <ul>
-<li>采用 Raft 协议来保证一致性，采用多副本方式确保可用性。</li>
-<li>保存并处理 MatrixOne 中所有的事务日志，在事务提交前确保 Log Service 的日志读写正常，在实例重启时，检查并回放日志内容。</li>
-<li>在完成事务的提交与落盘后，对 Log Service 内容做截断，从而控制 Log Service 的大小，截断后仍然保留在 Log Service 中的内容，称为 Logtail。</li>
-<li>如果多个 Log Service 副本同时出现宕机，那么整个 MatrixOne 将会发生宕机。</li>
+<li>适用场景：数据量较大（大于 1GB），对迁移的速度较为敏感的场景。</li>
 </ul>
-<h3 id="database-node"><strong>Database Node</strong></h3>
-<p>Database Node（DN)，是用来运行 MatrixOne 的分布式存储引擎 TAE 的载体，它提供了如下特性：</p>
+<h3 id="_7">准备工作</h3>
 <ul>
-<li>管理 MatrixOne 中的元数据信息以及 Log Service 中保存的事务日志内容。</li>
-<li>接收 Computing Node（CN) 发来的分布式事务请求，对分布式事务的读写请求进行裁决，将事务裁决结果推给 CN，将事务内容推给 Log Service，确保事务的 ACID 特性。</li>
-<li>在事务中根据检查点生成快照，确保事务的快照隔离性，在事务结束后将快照信息释放。</li>
+<li>带图形界面的跳板机：可连接 SQL Server 源端，也可连接 MatrixOne 目标端的。</li>
+<li>数据迁移工具：在跳板机上<a href="https://dbeaver.io/download/">下载 DBeaver</a>。</li>
 </ul>
-<h3 id="computing-node"><strong>Computing Node</strong></h3>
-<p>Computing Node（CN)，是 Matrixone 接收用户请求并处理 SQL 的组件，具体包括以下模块：</p>
+<h3 id="_8">第一步：迁移表结构</h3>
+<p>在这里以 TPCH 数据集为例，将 TPCH 数据集的 8 张表从 SQL Server 迁移至 MatrixOne。</p>
+<ol>
+<li>
+<p>打开 DBeaver，从 SQL Server 中选择待迁移的表，鼠标右键点击后选择<strong>生成 SQL &gt; DDL &gt; 复制</strong>，先将这段 SQL 复制到一个文本编辑器内，给文本编辑器命名为 <em>sqlserver_ddl.sql</em>，保存到跳板机本地。</p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-1.png?raw=true" /></p>
+</li>
+<li>
+<p>连接到 MatrixOne，在 MatrixOne 中创建新的数据库和表：</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">tpch</span><span class="p">;</span>
+<span class="n">use</span><span class="w"> </span><span class="n">tpch</span><span class="p">;</span>
+<span class="k">source</span><span class="w"> </span><span class="s1">&#39;/YOUR_PATH/sqlserver_ddl.sql&#39;</span>
+</code></pre></div>
+</li>
+</ol>
+<h3 id="_9">第二步：迁移数据</h3>
+<p>在 MatrixOne 中，有两种数据迁移方式可供选择：<code>INSERT</code> 和 <code>LOAD DATA</code>。当数据量大于 1GB 时，首先推荐使用 <code>LOAD DATA</code>，其次可以选择使用 <code>INSERT</code>。</p>
+<h4 id="load-data">LOAD DATA</h4>
+<p>使用 <code>LOAD DATA</code> 先将 SQL Server 的数据表导出为 CSV 格式，并使用 MatrixOne 的并行 LOAD 功能将数据迁移至 MatrixOne：</p>
+<ol>
+<li>
+<p>打开 DBeaver，中选择待迁移的表，鼠标右键点击后选择<strong>导出数据</strong>，将 SQL Server 数据表导出为 CSV 格式文件：</p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-2.png?raw=true" /></p>
+</li>
+<li>
+<p>在<strong>转化目标 &gt; 导出目标</strong>窗口选择 <strong>CSV</strong>，点击<strong>下一步</strong>：</p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-7.png?raw=true" /></p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-8.png?raw=true" /></p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-9.png?raw=true" /></p>
+</li>
+<li>
+<p>连接到 MatrixOne，将导出的 CSV 数据导入至 MatrixOne：</p>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;/{filepath}/lineitem.txt&#39;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">lineitem</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;/{filepath}/nation.txt&#39;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nation</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;/{filepath}/part.txt&#39;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;/{filepath}/customer.txt&#39;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;/{filepath}/orders.txt&#39;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;/{filepath}/supplier.txt&#39;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;/{filepath}/region.txt&#39;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;/{filepath}/partsupp.txt&#39;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">partsupp</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">;</span>
+</code></pre></div>
+</li>
+</ol>
+<p>更多关于 <code>LOAD DATA</code> 的操作示例，参见<a href="../../Develop/import-data/bulk-load/bulk-load-overview/">批量导入</a>。</p>
+<h4 id="insert">INSERT</h4>
+<p><code>INSERT</code> 语句需要使用 DBeaver 先将逻辑语句导出，再导入到 MatrixOne：</p>
+<ol>
+<li>
+<p>使用 DBeaver 导出数据：打开 DBeaver，从 SQL Server 中选择待迁移的表，鼠标右键点击后选择<strong>导出数据 &gt; SQL</strong>，为了确保插入时触发 MatrixOne 的直接写 S3，建议批量插入参数<strong>每条语句的数据行数</strong>设置为 5000：</p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-10.png?raw=true" /></p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-11.png?raw=true" /></p>
+<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/migrate/mysql-12.png?raw=true" /></p>
+</li>
+<li>
+<p>使用下面的命令替换 <em>sqlserver_ddl.sql</em> 文件内 MatrixOne 不支持的关键字：</p>
+<div class="highlight"><pre><span></span><code># Linux系统执行的命令如下：
+sed -i &#39;s/,N/,/g&#39; mssql_data.sql
+
+#MacOS 系统则使用的命令如下：
+sed -i &#39;&#39; &#39;s/,N/,/g&#39; mssql_data.sql
+</code></pre></div>
+</li>
+<li>
+<p>在 MatrixOne 端，执行该 SQL 文件：</p>
+<div class="highlight"><pre><span></span><code>ues tpch;
+source &#39;/YOUR_PATH/sqlserver_ddl.sql&#39;
+</code></pre></div>
+</li>
+</ol>
+<p>更多关于 <code>INSERT</code> 的操作示例，参见<a href="../../Develop/import-data/insert-data/">插入数据</a>。</p>
+<h3 id="_10">第三步：检查数据</h3>
+<p>完成迁移之后，可以采用如下方式检查数据：</p>
 <ul>
-<li>Frontend，处理客户端 SQL 协议，接受客户端发送的 SQL 报文，然后解析得到 MatrixOne 可执行的 SQL，调用其他模块执行 SQL 后将查询结果组织成报文返回给客户端。</li>
-<li>Plan，解析 Frontend 处理后的 SQL，并根据 MatrixOne 的计算引擎生成逻辑执行计划发送给 Pipeline。</li>
-<li>Pipeline，解析逻辑计划，将逻辑计划转成实际的执行计划，然后 Pipeline 运行执行计划。</li>
-<li>Disttae，负责具体的读写任务，既包含了从 DN 同步 Logtail 和从 S3 读取数据，也会把写入的数据发送给 DN。</li>
-</ul>
-<h3 id="stream-engine"><strong>Stream Engine</strong></h3>
-<p>Stream Engine 是一个新组件，用于简化从 OLTP 到 OLAP 的 ETL 处理过程。Stream Engine 还处在 MatrixOne 开发过程中，暂尚未实现。</p>
-<h2 id="matrixone_4"><strong>MatrixOne 特性</strong></h2>
-<p>在 MatrixOne 版本 0.7 中，具有如下特性，让你在使用 MatrixOne 的过程中更加高效：</p>
-<h3 id="_5"><strong>分布式架构</strong></h3>
-<p>在 MatrixOne 中，采用了的分布式存算分离的分布式架构，存储层、数据层、计算层的分离，使得 MatrixOne 在遇到系统资源瓶颈时，能够灵活实现节点的扩容。同时，多节点的架构下，资源可以进行更加有效率地分配，一定程度上避免了热点与资源征用。</p>
-<h3 id="_6"><strong>事务与隔离</strong></h3>
-<p>在 MatrixOne 中，事务采用了乐观事务与快照隔离。</p>
-<p>在分布式架构下，乐观事务可以通过较少的冲突获得更优的性能。同时在实现方式上，能够实现隔离级别更高的快照隔离。为了保证事务的 ACID 四个要素，MatrixOne 目前支持且仅支持快照隔离一种隔离级别。该隔离级别较常见的读已提交相比，隔离级别更加严格，既可以有效防止脏读，又能够更好地适配分布式乐观事务。</p>
-<h3 id="_7"><strong>云原生</strong></h3>
-<p>MatrixOne 是一款云原生的数据库，从存储层，适配本地磁盘、AWS S3、NFS 等多种存储方式，通过 File service 实现了对多种不同类型存储的无感知管理。MatrixOne 集群可以在多种基础设施环境下稳定运行，既可以适配企业私有云，又可以在不同的公有云厂商环境下提供服务。</p>
-<h2 id="_8"><strong>相关信息</strong></h2>
-<p>本节介绍了 MatrixOne 的整体架构概览。其他信息可参见：</p>
-<ul>
-<li><a href="../../Get-Started/install-standalone-matrixone/">安装单机版 MatrixOne</a></li>
-<li><a href="../mysql-compatibility/">MySQL 兼容性</a></li>
-<li><a href="../whats-new/">最新发布信息</a></li>
+<li>
+<p>通过 <code>select count(*) from &lt;table_name&gt;</code> 来确认源库与目标库的数据量是否一致。</p>
+</li>
+<li>
+<p>通过相关的查询对比结果，你也可以参见<a href="../../Test/performance-testing/TPCH-test-with-matrixone/">完成 TPCH 测试</a>查询示例，进行结果对比。</p>
+</li>
 </ul>
 
               
@@ -7863,7 +8332,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../matrixone-feature-list/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MatrixOne 功能列表" rel="prev">
+        <a href="../migrate-from-oracle-to-matrixone/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 将数据从 Oracle 迁移至 MatrixOne" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -7872,20 +8341,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              MatrixOne 功能列表
+              将数据从 Oracle 迁移至 MatrixOne
             </div>
           </div>
         </a>
       
       
         
-        <a href="../mysql-compatibility/" class="md-footer__link md-footer__link--next" aria-label="Next: MySQL 兼容性" rel="next">
+        <a href="../../Test/performance-testing/SSB-test-with-matrixone/" class="md-footer__link md-footer__link--next" aria-label="Next: SSB 测试" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              MySQL 兼容性
+              SSB 测试
             </div>
           </div>
           <div class="md-footer__button md-icon">

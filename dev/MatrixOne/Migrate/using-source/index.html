@@ -13,7 +13,7 @@
     
     
       
-        <title>MatrixOne 功能列表 - MatrixOne 中文文档</title>
+        <title>使用 `source` 命令批量导入数据 - MatrixOne 中文文档</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#matrixone" class="md-skip">
+        <a href="#source" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MatrixOne 功能列表
+              使用 `source` 命令批量导入数据
             
           </span>
         </div>
@@ -193,15 +193,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link">
         MatrixOne
       </a>
     </li>
@@ -263,14 +261,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
       
       
       
@@ -305,14 +301,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
       
       
       
@@ -335,7 +329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../matrixone-introduction/" class="md-nav__link">
+      <a href="../../Overview/matrixone-introduction/" class="md-nav__link">
         MatrixOne 简介
       </a>
     </li>
@@ -347,91 +341,27 @@
               
   
   
+  
     
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2" type="checkbox" id="__nav_1_2_2" >
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          MatrixOne 功能列表
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_2">
+          MatrixOne 功能概述
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        MatrixOne 功能列表
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#data-definition-language-ddl" class="md-nav__link">
-    数据定义语言（Data definition language, DDL）
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sql" class="md-nav__link">
-    SQL 语句
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    数据类型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    索引与约束
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    事务
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    函数与操作符
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
+      <nav class="md-nav" aria-label="MatrixOne 功能概述" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          MatrixOne 功能概述
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -439,8 +369,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../matrixone-architecture-design/" class="md-nav__link">
-        MatrixOne 技术架构
+      <a href="../../Overview/feature/feature-overview/" class="md-nav__link">
+        功能特性
       </a>
     </li>
   
@@ -453,7 +383,49 @@
   
   
     <li class="md-nav__item">
-      <a href="../mysql-compatibility/" class="md-nav__link">
+      <a href="../../Overview/feature/key-feature-htap/" class="md-nav__link">
+        MatrixOne 的 HTAP 特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/feature/key-feature-multi-accounts/" class="md-nav__link">
+        MatrixOne 的多租户特性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/feature/matrixone-feature-list/" class="md-nav__link">
+        功能列表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/feature/mysql-compatibility/" class="md-nav__link">
         MySQL 兼容性
       </a>
     </li>
@@ -461,13 +433,67 @@
 
             
           
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_3" type="checkbox" id="__nav_1_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_3">
+          MatrixOne 技术架构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MatrixOne 技术架构" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          MatrixOne 技术架构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
   
   
   
     <li class="md-nav__item">
-      <a href="../whats-new/" class="md-nav__link">
+      <a href="../../Overview/architecture/matrixone-architecture-design/" class="md-nav__link">
+        架构概述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/whats-new/" class="md-nav__link">
         最新动态
       </a>
     </li>
@@ -825,22 +851,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../Develop/schema-design/create-secondary-index/" class="md-nav__link">
+        创建次级索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1_4" type="checkbox" id="__nav_1_4_1_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1_5" type="checkbox" id="__nav_1_4_1_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_4_1_4">
+        <label class="md-nav__link" for="__nav_1_4_1_5">
           数据完整性
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="数据完整性" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_4_1_4">
+        <label class="md-nav__title" for="__nav_1_4_1_5">
           <span class="md-nav__icon md-icon"></span>
           数据完整性
         </label>
@@ -1202,6 +1242,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/bulk-load/using-source.md" class="md-nav__link">
+        使用 source 命令批量导入数据
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1385,22 +1439,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        发布订阅
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_6" type="checkbox" id="__nav_1_4_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_7" type="checkbox" id="__nav_1_4_7" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_4_6">
+        <label class="md-nav__link" for="__nav_1_4_7">
           事务
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="事务" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_4_6">
+        <label class="md-nav__title" for="__nav_1_4_7">
           <span class="md-nav__icon md-icon"></span>
           事务
         </label>
@@ -1429,18 +1497,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_6_2" type="checkbox" id="__nav_1_4_6_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_7_2" type="checkbox" id="__nav_1_4_7_2" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_4_6_2">
+        <label class="md-nav__link" for="__nav_1_4_7_2">
           MatrixOne 的事务
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="MatrixOne 的事务" data-md-level="4">
-        <label class="md-nav__title" for="__nav_1_4_6_2">
+        <label class="md-nav__title" for="__nav_1_4_7_2">
           <span class="md-nav__icon md-icon"></span>
           MatrixOne 的事务
         </label>
@@ -1715,6 +1783,34 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/health-check-resource-monitoring/" class="md-nav__link">
+        健康检查与资源监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/import-data-from-minio-to-mo/" class="md-nav__link">
+        从本地 Minio 导入数据到 MatrixOne 分布式集群
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1972,8 +2068,50 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Migrate/migrate-from-mysql-to-matrixone/" class="md-nav__link">
+      <a href="../migrate-overview/" class="md-nav__link">
+        将数据迁移至 MatrixOne 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrate-from-mysql-to-matrixone/" class="md-nav__link">
         将数据从 MySQL 迁移至 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrate-from-oracle-to-matrixone/" class="md-nav__link">
+        将数据从 Oracle 迁移至 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrate-from-sqlserver-to-matrixone/" class="md-nav__link">
+        将数据从 SQL Server 迁移至 MatrixOne
       </a>
     </li>
   
@@ -2347,6 +2485,48 @@
     <li class="md-nav__item">
       <a href="../../Performance-Tuning/optimization-concepts/through-cluster-by/" class="md-nav__link">
         使用 Cluster by 语句调优
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Performance-Tuning/optimization-concepts/through-CN-extensions/" class="md-nav__link">
+        通过扩展 CN 提升性能
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Performance-Tuning/optimization-concepts/through-partition-by/" class="md-nav__link">
+        使用分区表调优
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Performance-Tuning/control-execution-plan/optimizer-hints/" class="md-nav__link">
+        Optimizer Hints
       </a>
     </li>
   
@@ -3079,6 +3259,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-publication/" class="md-nav__link">
+        CREATE PUBLICATION
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-sequence/" class="md-nav__link">
         CREATE SEQUENCE
       </a>
@@ -3093,8 +3287,50 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-subscription/" class="md-nav__link">
+        CREATE...FROM...PUBLICATION...
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-view/" class="md-nav__link">
         CREATE VIEW
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/alter-table/" class="md-nav__link">
+        ALTER TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/alter-publication/" class="md-nav__link">
+        ALTER PUBLICATION
       </a>
     </li>
   
@@ -3151,6 +3387,20 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Definition-Language/drop-table/" class="md-nav__link">
         DROP TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/drop-publication/" class="md-nav__link">
+        DROP PUBLICATION
       </a>
     </li>
   
@@ -3912,6 +4162,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Control-Language/alter-user/" class="md-nav__link">
+        ALTER USER
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Control-Language/drop-account/" class="md-nav__link">
         DROP ACCOUNT
       </a>
@@ -4097,6 +4361,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-create-publication/" class="md-nav__link">
+        SHOW CREATE PUBLICATION
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-tables/" class="md-nav__link">
         SHOW TABLES
       </a>
@@ -4181,6 +4459,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-publications/" class="md-nav__link">
+        SHOW PUBLICATIONS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-roles/" class="md-nav__link">
         SHOW ROLES
       </a>
@@ -4197,6 +4489,20 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-sequences/" class="md-nav__link">
         SHOW SEQUENCES
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Other/SHOW-Statements/show-subscriptions/" class="md-nav__link">
+        SHOW SUBSCRIPTIONS
       </a>
     </li>
   
@@ -6690,6 +6996,53 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_5_2_5" type="checkbox" id="__nav_1_12_5_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_5_2_5">
+          表函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="表函数" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_5_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          表函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Functions-and-Operators/Table/unnest/" class="md-nav__link">
+        UNNEST()
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../Reference/Functions-and-Operators/Json/json-functions/" class="md-nav__link">
         JSON 函数
@@ -7507,44 +7860,70 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#data-definition-language-ddl" class="md-nav__link">
-    数据定义语言（Data definition language, DDL）
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sql" class="md-nav__link">
-    SQL 语句
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    数据类型
+    语法结构
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    索引与约束
+    教程示例
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="教程示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    事务
+    开始前准备
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    函数与操作符
+    步骤
   </a>
+  
+    <nav class="md-nav" aria-label="步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-mysql" class="md-nav__link">
+    1. MySQL 数据转储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sql" class="md-nav__link">
+    2. 修改 sql 文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-matrixone" class="md-nav__link">
+    3. 导入至 MatrixOne
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 检查数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7560,861 +7939,88 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Overview/matrixone-feature-list.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Migrate/using-source.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="matrixone">MatrixOne 功能列表</h1>
-<p>本文档列出了 MatrixOne 最新版本所支持的功能。</p>
-<h2 id="data-definition-language-ddl">数据定义语言（Data definition language, DDL）</h2>
-<table>
-<thead>
-<tr>
-<th>数据定义语言 (DDL)</th>
-<th>支持（Y）/不支持（N）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CREATE DATABASE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>DROP DATABASE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>RENAME DATABASE</td>
-<td>N</td>
-</tr>
-<tr>
-<td>CREATE TABLE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>ALTER TABLE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>RENAME TABLE</td>
-<td>N</td>
-</tr>
-<tr>
-<td>DROP TABLE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>CREATE INDEX</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>DROP INDEX</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>MODIFY COLUMN</td>
-<td>N</td>
-</tr>
-<tr>
-<td>PRIMARY KEY</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>CREATE VIEW</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>ALTER VIEW</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>DROP VIEW</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>CREATE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>REPLACE VIEW</td>
-<td>N</td>
-</tr>
-<tr>
-<td>TRUNCATE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>SEQUENCE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>AUTO_INCREMENT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Temporary tables</td>
-<td>Y</td>
-</tr>
-</tbody>
-</table>
-<h2 id="sql">SQL 语句</h2>
-<table>
-<thead>
-<tr>
-<th>SQL 语句</th>
-<th>支持（Y）/不支持（N）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SELECT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>INSERT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>UPDATE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>REPLACE</td>
-<td>N</td>
-</tr>
-<tr>
-<td>INSERT ON DUPLICATE KEY</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>LOAD DATA INFILE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>SELECT INTO OUTFILE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>INNER/LEFT/RIGHT/OUTER JOIN</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>UNION, UNION ALL</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>EXCEPT, INTERSECT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>GROUP BY, ORDER BY</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Common Table Expressions(CTE)</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>START TRANSACTION, COMMIT, ROLLBACK</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>EXPLAIN</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>EXPLAIN ANALYZE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Stored Procedure</td>
-<td>N</td>
-</tr>
-<tr>
-<td>Trigger</td>
-<td>N</td>
-</tr>
-<tr>
-<td>Event Scheduler</td>
-<td>N</td>
-</tr>
-<tr>
-<td>PARTITION BY</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>LOCK TABLE</td>
-<td>N</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_1">数据类型</h2>
-<table>
-<thead>
-<tr>
-<th>数据类型分类</th>
-<th>数据类型</th>
-<th>支持（Y）/不支持（N）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>整数类型</td>
-<td>TINYINT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>SMALLINT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>INT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>BIGINT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>TINYINT UNSIGNED</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>SMALLINT UNSIGNED</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>INT UNSIGNED</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>BIGINT UNSIGNED</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>浮点类型</td>
-<td>FLOAT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>DOUBLE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>字符串类型</td>
-<td>CHAR</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>VARCHAR</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>BINARY</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>VARBINARY</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>TINYTEXT/TEXT/MEDIUMTEXT/LONGTEXT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>ENUM</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>二进制类型</td>
-<td>TINYBLOB/BLOB/MEDIUMBLOB/LONGBLOB</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>时间与日期</td>
-<td>Date</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>Time</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>DateTime</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>Timestamp</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Boolean</td>
-<td>BOOL</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>定点类型</td>
-<td>DECIMAL</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>JSON 类型</td>
-<td>JSON</td>
-<td>Y</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_2">索引与约束</h2>
-<table>
-<thead>
-<tr>
-<th>索引与约束</th>
-<th>支持（Y）/不支持（N）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>主键约束</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>复合主键</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>唯一约束</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Secondary KEY</td>
-<td>Y，仅语法实现</td>
-</tr>
-<tr>
-<td>外键约束</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>无效数据强制约束</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>ENUM 和 SET 约束</td>
-<td>N</td>
-</tr>
-<tr>
-<td>非空约束</td>
-<td>Y</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_3">事务</h2>
-<table>
-<thead>
-<tr>
-<th>事务</th>
-<th>支持（Y）/不支持（N）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1PC</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>悲观事务</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>乐观事务</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>分布式事务</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>隔离级别</td>
-<td>Y</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_4">函数与操作符</h2>
-<table>
-<thead>
-<tr>
-<th>函数与操作符</th>
-<th>名称</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>聚合函数</td>
-<td>ANY_VALUE()</td>
-</tr>
-<tr>
-<td></td>
-<td>AVG()</td>
-</tr>
-<tr>
-<td></td>
-<td>BIT_AND()</td>
-</tr>
-<tr>
-<td></td>
-<td>BIT_OR()</td>
-</tr>
-<tr>
-<td></td>
-<td>BIT_XOR()</td>
-</tr>
-<tr>
-<td></td>
-<td>COUNT()</td>
-</tr>
-<tr>
-<td></td>
-<td>GROUP_CONCAT()</td>
-</tr>
-<tr>
-<td></td>
-<td>MAX()</td>
-</tr>
-<tr>
-<td></td>
-<td>MEDIAN()</td>
-</tr>
-<tr>
-<td></td>
-<td>MIN()</td>
-</tr>
-<tr>
-<td></td>
-<td>SLEEP()</td>
-</tr>
-<tr>
-<td></td>
-<td>STD()</td>
-</tr>
-<tr>
-<td></td>
-<td>SUM()</td>
-</tr>
-<tr>
-<td>数学类</td>
-<td>ABS()</td>
-</tr>
-<tr>
-<td></td>
-<td>ACOS()</td>
-</tr>
-<tr>
-<td></td>
-<td>ATAN()</td>
-</tr>
-<tr>
-<td></td>
-<td>CEIL()</td>
-</tr>
-<tr>
-<td></td>
-<td>COS()</td>
-</tr>
-<tr>
-<td></td>
-<td>COT()</td>
-</tr>
-<tr>
-<td></td>
-<td>EXP()</td>
-</tr>
-<tr>
-<td></td>
-<td>FLOOR()</td>
-</tr>
-<tr>
-<td></td>
-<td>LN()</td>
-</tr>
-<tr>
-<td></td>
-<td>LOG()</td>
-</tr>
-<tr>
-<td></td>
-<td>PI()</td>
-</tr>
-<tr>
-<td></td>
-<td>POWER()</td>
-</tr>
-<tr>
-<td></td>
-<td>ROUND()</td>
-</tr>
-<tr>
-<td></td>
-<td>SIN()</td>
-</tr>
-<tr>
-<td></td>
-<td>SINH()</td>
-</tr>
-<tr>
-<td></td>
-<td>TAN()</td>
-</tr>
-<tr>
-<td></td>
-<td>UUID()</td>
-</tr>
-<tr>
-<td>日期时间类</td>
-<td>CURDATE()</td>
-</tr>
-<tr>
-<td></td>
-<td>CURRENT_TIMESTAMP()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATE()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATE_ADD()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATE_FORMAT()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATE_SUB()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATEDIFF()</td>
-</tr>
-<tr>
-<td></td>
-<td>DAY()</td>
-</tr>
-<tr>
-<td></td>
-<td>DAYOFYEAR()</td>
-</tr>
-<tr>
-<td></td>
-<td>EXTRACT()</td>
-</tr>
-<tr>
-<td></td>
-<td>FROM_UNIXTIME()</td>
-</tr>
-<tr>
-<td></td>
-<td>MONTH()</td>
-</tr>
-<tr>
-<td></td>
-<td>NOW()</td>
-</tr>
-<tr>
-<td></td>
-<td>TIMEDIFF()</td>
-</tr>
-<tr>
-<td></td>
-<td>TIMESTAMP()</td>
-</tr>
-<tr>
-<td></td>
-<td>TO_DATE()</td>
-</tr>
-<tr>
-<td></td>
-<td>UNIX_TIMESTAMP()</td>
-</tr>
-<tr>
-<td></td>
-<td>UTC_TIMESTAMP()</td>
-</tr>
-<tr>
-<td></td>
-<td>WEEKDAY()</td>
-</tr>
-<tr>
-<td></td>
-<td>YEAR()</td>
-</tr>
-<tr>
-<td>字符串类</td>
-<td>BIN()</td>
-</tr>
-<tr>
-<td></td>
-<td>BIT_LENGTH()</td>
-</tr>
-<tr>
-<td></td>
-<td>CHAR_LENGTH()</td>
-</tr>
-<tr>
-<td></td>
-<td>CONCAT()</td>
-</tr>
-<tr>
-<td></td>
-<td>CONCAT_WS()</td>
-</tr>
-<tr>
-<td></td>
-<td>EMPTY()</td>
-</tr>
-<tr>
-<td></td>
-<td>ENDSWITH()</td>
-</tr>
-<tr>
-<td></td>
-<td>FIELD()</td>
-</tr>
-<tr>
-<td></td>
-<td>FIND_IN_SET()</td>
-</tr>
-<tr>
-<td></td>
-<td>FORMAT()</td>
-</tr>
-<tr>
-<td></td>
-<td>HEX()</td>
-</tr>
-<tr>
-<td></td>
-<td>LEFT()</td>
-</tr>
-<tr>
-<td></td>
-<td>LENGTH()</td>
-</tr>
-<tr>
-<td></td>
-<td>LENGTHUTF8()</td>
-</tr>
-<tr>
-<td></td>
-<td>LPAD()</td>
-</tr>
-<tr>
-<td></td>
-<td>LTRIM()</td>
-</tr>
-<tr>
-<td></td>
-<td>OCT()</td>
-</tr>
-<tr>
-<td></td>
-<td>REVERSE()</td>
-</tr>
-<tr>
-<td></td>
-<td>RPAD()</td>
-</tr>
-<tr>
-<td></td>
-<td>RTRIM()</td>
-</tr>
-<tr>
-<td></td>
-<td>SPACE()</td>
-</tr>
-<tr>
-<td></td>
-<td>STARTSWITH()</td>
-</tr>
-<tr>
-<td></td>
-<td>SUBSTRING()</td>
-</tr>
-<tr>
-<td></td>
-<td>SUBSTRING_INDEX()</td>
-</tr>
-<tr>
-<td></td>
-<td>TRIM()</td>
-</tr>
-<tr>
-<td>操作符</td>
-<td>%, MOD</td>
-</tr>
-<tr>
-<td></td>
-<td>*</td>
-</tr>
-<tr>
-<td></td>
-<td>+</td>
-</tr>
-<tr>
-<td></td>
-<td>-</td>
-</tr>
-<tr>
-<td></td>
-<td>/</td>
-</tr>
-<tr>
-<td></td>
-<td>Div</td>
-</tr>
-<tr>
-<td></td>
-<td>=</td>
-</tr>
-<tr>
-<td></td>
-<td>&amp;</td>
-</tr>
-<tr>
-<td></td>
-<td>&gt;&gt;</td>
-</tr>
-<tr>
-<td></td>
-<td>&lt;&lt;</td>
-</tr>
-<tr>
-<td></td>
-<td>^</td>
-</tr>
-<tr>
-<td></td>
-<td>|</td>
-</tr>
-<tr>
-<td></td>
-<td>~</td>
-</tr>
-<tr>
-<td></td>
-<td>CAST()</td>
-</tr>
-<tr>
-<td></td>
-<td>CONVERT()</td>
-</tr>
-<tr>
-<td></td>
-<td>&gt;</td>
-</tr>
-<tr>
-<td></td>
-<td>&gt;=</td>
-</tr>
-<tr>
-<td></td>
-<td>&lt;</td>
-</tr>
-<tr>
-<td></td>
-<td>&lt;&gt;, !=</td>
-</tr>
-<tr>
-<td></td>
-<td>&lt;=</td>
-</tr>
-<tr>
-<td></td>
-<td>=</td>
-</tr>
-<tr>
-<td></td>
-<td>LIKE</td>
-</tr>
-<tr>
-<td></td>
-<td>BETWEEN ... AND ...</td>
-</tr>
-<tr>
-<td></td>
-<td>IN()</td>
-</tr>
-<tr>
-<td></td>
-<td>IS/IS NOT</td>
-</tr>
-<tr>
-<td></td>
-<td>IS/IS NOT NULL</td>
-</tr>
-<tr>
-<td></td>
-<td>NOT BETWEEN ... AND ...</td>
-</tr>
-<tr>
-<td></td>
-<td>LIKE</td>
-</tr>
-<tr>
-<td></td>
-<td>NOT LIKE</td>
-</tr>
-<tr>
-<td></td>
-<td>COALESCE()</td>
-</tr>
-<tr>
-<td></td>
-<td>CASE...WHEN</td>
-</tr>
-<tr>
-<td></td>
-<td>IF</td>
-</tr>
-<tr>
-<td></td>
-<td>AND</td>
-</tr>
-<tr>
-<td></td>
-<td>OR</td>
-</tr>
-<tr>
-<td></td>
-<td>XOR</td>
-</tr>
-<tr>
-<td></td>
-<td>NOT</td>
-</tr>
-</tbody>
-</table>
+<h1 id="source">使用 <code>source</code> 命令批量导入数据</h1>
+<p>本篇文档将指导你使用 <code>source</code> 命令批量导入数据至 MatrixOne。</p>
+<h2 id="_1">语法结构</h2>
+<div class="highlight"><pre><span></span><code>SOURCE /path/to/your/sql_script.sql;
+</code></pre></div>
+<p><code>/path/to/your/sql_script.sql</code> 是 SQL 脚本文件的绝对路径。当执行此命令时，客户端会读取指定的 SQL 脚本文件，并执行其中包含的所有 SQL 语句。</p>
+<h2 id="_2">教程示例</h2>
+<p>在本教程中将指导你如何使用 <code>source</code> 命令将数据从 MySQL 迁移至 MatrixOne。</p>
+<h3 id="_3">开始前准备</h3>
+<p>已完成<a href="../../../Get-Started/install-standalone-matrixone.md">单机部署 MatrixOne</a>。</p>
+<h3 id="_4">步骤</h3>
+<h4 id="1-mysql">1. MySQL 数据转储</h4>
+<p>你需要拥有对 MySQL 实例的完全访问权限。</p>
+<p>首先，使用 <code>mysqldump</code> 将 MySQL 表结构和数据通过以下命令转储到一个文件中。如果你不熟悉如何使用 <code>mysqldump</code>，可参见 <a href="https://simplebackups.com/blog/the-complete-mysqldump-guide-with-examples/">mysqldump 教程</a>。</p>
+<div class="highlight"><pre><span></span><code>mysqldump -h IP_ADDRESS -uUSERNAME -pPASSWORD -d DB_NAME1 DB_NAME2 ... OUTPUT_FILE_NAME.SQL
+</code></pre></div>
+<p>示例如下，使用命令将一个命名为 <em>test</em> 数据库的所有表结构和数据转储到一个名为 <em>a.sql</em> 的文件中。</p>
+<div class="highlight"><pre><span></span><code>mysqldump -h 127.0.0.1 -uroot -proot -d test &gt; a.sql
+</code></pre></div>
+<h4 id="2-sql">2. 修改 <em>sql</em> 文件</h4>
+<p>从 MySQL 转储的 SQL 文件还不完全兼容 MatrixOne。你需要删除和修改几个元素，以使 SQL 文件适应 MatrixOne 的格式。</p>
+<ul>
+<li>
+<p>需要删除不支持的语法或功能：<code>CHARACTER SET/CHARSET</code>、<code>COLLATE</code>、<code>ROW_FORMAT</code>、<code>USING BTREE</code>、<code>LOCK TABLE</code> <code>SET SYSTEM_VARIABLE</code>、<code>ENGINE</code>。</p>
+</li>
+<li>
+<p>需要修改不支持的数据类型：如果你使用 BINARY 类型，你可以将其修改为 BLOB 类型。</p>
+</li>
+</ul>
+<p>下面示例是一个典型的 <code>mysqldump</code> 表：</p>
+<div class="highlight"><pre><span></span><code>DROP TABLE IF EXISTS `tool`;
+CREATE TABLE IF NOT EXISTS `tool` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `tool_id` bigint DEFAULT NULL COMMENT &#39;id&#39;,
+  `operation_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT &#39;type&#39;,
+  `remark` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT &#39;remark&#39;,
+  `create_user` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT &#39;create user&#39;,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT &#39;create time&#39;,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `tool_id_IDX` (`tool_id`) USING BTREE,
+  KEY `operation_type_IDX` (`operation_type`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1913 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT=&#39;tool table&#39;;
+</code></pre></div>
+<p>在 MatrixOne 中成功创建这个表，它需要被修改为：</p>
+<div class="highlight"><pre><span></span><code>DROP TABLE IF EXISTS `tool`;
+CREATE TABLE IF NOT EXISTS `tool` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `tool_id` bigint DEFAULT NULL COMMENT &#39;id&#39;,
+  `operation_type` varchar(50) DEFAULT NULL COMMENT &#39;type&#39;,
+  `remark` varchar(100) DEFAULT NULL COMMENT &#39;remark&#39;,
+  `create_user` varchar(20) DEFAULT NULL COMMENT &#39;create user&#39;,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT &#39;create time&#39;,
+  PRIMARY KEY (`id`),
+  KEY `tool_id_IDX` (`tool_id`),
+  KEY `operation_type_IDX` (`operation_type`)
+) COMMENT=&#39;tool table&#39;;
+</code></pre></div>
+<h4 id="3-matrixone">3. 导入至 MatrixOne</h4>
+<p>转储的 <em>sql</em> 文件修改完成之后，就可以将整个表结构和数据导入到 MatrixOne 中。</p>
+<ol>
+<li>
+<p>打开 MySQL 终端并连接到 MatrixOne。</p>
+</li>
+<li>
+<p>通过 <code>source</code> 命令将 <em>sql</em> 文件导入 MatrixOne。</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>mysql&gt; source &#39;/YOUR_PATH/a.sql&#39;
+</code></pre></div>
+<p>如果 <em>sql</em> 文件较大，可以使用如下命令在后台运行导入任务：</p>
+<div class="highlight"><pre><span></span><code>nohup mysql -h 127.0.0.1 -P 6001 -udump -p111 -e &#39;source /YOUR_PATH/a.sql&#39; &amp;
+</code></pre></div>
+<h4 id="4">4. 检查数据</h4>
+<p>导入成功后，使用如下 SQL 语句查看导入结果：</p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tool</span><span class="p">;</span>
+</code></pre></div>
 
               
             </article>
@@ -8424,41 +8030,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../matrixone-introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MatrixOne 简介" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              MatrixOne 简介
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../matrixone-architecture-design/" class="md-footer__link md-footer__link--next" aria-label="Next: MatrixOne 技术架构" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              MatrixOne 技术架构
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
