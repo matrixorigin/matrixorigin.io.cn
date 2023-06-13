@@ -187,3 +187,6 @@ ulimit -n 65536
 ...    // 此处省略构建过程代码
 [root ~]# ./mo-service --daemon --launch ./etc/quickstart/launch.toml &> test.log &   // 在终端的后台启动 MatrixOne 服务
 ```
+
+!!! note
+    MatrixOne 0.8.0 版本兼容旧版本存储格式。如果你使用的是 0.8.0 版本或更高版本，执行切换至其他分支并构建时，则无需再清理数据文件目录。
