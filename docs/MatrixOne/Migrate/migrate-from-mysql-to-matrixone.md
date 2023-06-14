@@ -168,4 +168,4 @@ MatrixOne 中，数据类型在保持与 MySQL 命名一致的情况下，在精
 
 #### 参考示例
 
-如果你是新手，想尝试迁移小数据量的数据，可参见[示例：将数据从 MySQL 迁移至 MatrixOne](migrate-from-mysql-to-matrixone-by-command.md)。
+如果你是新手，想尝试迁移小数据量的数据，可参见[使用 `source` 命令批量导入数据](../Develop/import-data/bulk-load/using-source.md)。

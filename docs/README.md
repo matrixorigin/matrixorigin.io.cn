@@ -19,7 +19,7 @@
 |  概述   | 快速上手  | 操作指南 | 参考文档   |
 |  ----  | ----  |  ----  | ----  |
 | [MatrixOne 简介](MatrixOne/Overview/matrixone-introduction.md)  | [单机 MatrixOne 安装](MatrixOne/Get-Started/install-standalone-matrixone.md) | [教程](MatrixOne/Tutorial/develop-java-crud-demo.md)	|[SQL 参考指南](MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md)|
-| [MatrixOne 架构](MatrixOne/Overview/matrixone-architecture-design.md)  | [SQL 的基本操作](MatrixOne/Get-Started/basic-sql.md) |[开发者指南]( MatrixOne/Develop/schema-design/overview.md)|[MatrixOne 系统数据库和表](MatrixOne/Reference/System-tables.md)|
+| [MatrixOne 架构](MatrixOne/Overview/architecture/matrixone-architecture-design.md)  | [SQL 的基本操作](MatrixOne/Get-Started/basic-sql.md) |[开发者指南]( MatrixOne/Develop/schema-design/overview.md)|[MatrixOne 系统数据库和表](MatrixOne/Reference/System-tables.md)|
 
 ## **持续改进**
 
