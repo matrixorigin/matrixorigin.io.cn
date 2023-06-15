@@ -72,7 +72,7 @@
 |                      | BINARY           | Y    |
 |                      | VARBINARY           | Y    |
 |                      | TINYTEXT/TEXT/MEDIUMTEXT/LONGTEXT             | Y    |
-|                      | ENUM         | Y    |
+|                      | ENUM         | N    |
 | 二进制类型         | TINYBLOB/BLOB/MEDIUMBLOB/LONGBLOB         | Y    |
 | 时间与日期  | Date              | Y    |
 |                      | Time              | Y    |
