@@ -2,7 +2,7 @@
 
 ## **函数说明**
 
-SUBSTR() 是 SUBSTRING() 的同义词。
+`SUBSTR()` 和 `MID()` 都是 `SUBSTRING()` 的同义词。
 不带 len 参数的写法会返回一个从 pos 位置开始的子字符串。带 len 参数的写法会返回一个从 pos 位置开始的长度为 len 的子字符串。
 
 ## **语法**
@@ -33,7 +33,7 @@ no_of_branch int NOT NULL DEFAULT 0,
 estd date NOT NULL DEFAULT '2000-01-01'
 );
 
-> INSERT INTO t3 (pub_id, pub_name, pub_city, country, country_office, no_of_branch, estd) VALUES
+> INSERT INTO t1 (pub_id, pub_name, pub_city, country, country_office, no_of_branch, estd) VALUES
 ('P001', 'Jex Max Publication', 'New York', 'USA', 'New York', 15, '1969-12-25'),
 ('P002', 'BPP Publication', 'Mumbai', 'India', 'New Delhi', 10, '1985-10-01'),
 ('P003', 'New Harrold Publication', 'Adelaide', 'Australia', 'Sydney', 6, '1975-09-05'),
@@ -63,7 +63,3 @@ estd date NOT NULL DEFAULT '2000-01-01'
 +--------------------------+----------------------+
 3 rows in set (0.03 sec)
 ```
-
-## **限制**
-
-Substring 函数目前不支持在函数中使用 FROM 与 FOR 操作符。
