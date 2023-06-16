@@ -435,6 +435,7 @@ nav:
             - RPAD(): MatrixOne/Reference/Functions-and-Operators/String/rpad.md
             - RTRIM(): MatrixOne/Reference/Functions-and-Operators/String/rtrim.md
             - SPACE(): MatrixOne/Reference/Functions-and-Operators/String/space.md
+            - SPLIT_PART(): MatrixOne/Reference/Functions-and-Operators/String/split_part.md
             - STARTSWITH(): MatrixOne/Reference/Functions-and-Operators/String/startswith.md
             - SUBSTRING(): MatrixOne/Reference/Functions-and-Operators/String/substring.md
             - SUBSTRING_INDEX(): MatrixOne/Reference/Functions-and-Operators/String/substring-index.md
