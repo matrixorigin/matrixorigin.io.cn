@@ -442,6 +442,11 @@ nav:
             - TRIM(): MatrixOne/Reference/Functions-and-Operators/String/trim.md
           - 表函数:
             - UNNEST(): MatrixOne/Reference/Functions-and-Operators/Table/unnest.md
+          - 窗口函数:
+            - 窗口函数概述: MatrixOne/Reference/Functions-and-Operators/Window-Functions/window-functions-overview.md
+            - DENSE_RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/dense_rank.md
+            - RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/rank.md
+            - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
           - JSON 函数: MatrixOne/Reference/Functions-and-Operators/Json/json-functions.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
