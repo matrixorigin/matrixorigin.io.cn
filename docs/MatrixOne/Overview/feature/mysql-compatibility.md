@@ -58,7 +58,7 @@ MatrixOne 的 SQL 语法兼容了 MySQL 8.0.23 版本。
 |   | Other statements | 暂不支持  |
 | 数据类型 | BOOLEAN | 与 MySQL 的布尔值类型 int 不同，MatrixOne 的布尔值是一个新的类型，它的值只能是 true 或 false。|
 |   | INT/BIGINT/SMALLINT/TINYINT/INT UNSIGNED/BIGINT UNSIGNED | 同 MySQL  |
-|   | CHAR/VARCHAR/BINARY/VARBINARY/TEXT/BLOB/ENUM | 同 MySQL  |
+|   | CHAR/VARCHAR/BINARY/VARBINARY/TEXT/BLOB | 同 MySQL  |
 |   | FLOAT/DOUBLE | 与 MySQL 的精度有所不同  |
 | | DECIMAL | 最大精度为 38 位。|
 |   | DATE | 只支持 `YYYY-MM-DD` 与 `YYYYMMDD` 形式  |
