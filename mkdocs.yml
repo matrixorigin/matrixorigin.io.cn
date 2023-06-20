@@ -50,6 +50,7 @@ nav:
         - MatrixOne 的 HTAP 特性: MatrixOne/Overview/feature/key-feature-htap.md
         - MatrixOne 的多租户特性: MatrixOne/Overview/feature/key-feature-multi-accounts.md
         - 高性价比: MatrixOne/Overview/feature/cost-effective.md
+        - 高可用: MatrixOne/Overview/feature/high-availability.md
         - 功能列表: MatrixOne/Overview/feature/matrixone-feature-list.md
         - MySQL 兼容性: MatrixOne/Overview/feature/mysql-compatibility.md
       - MatrixOne 技术架构:
@@ -199,7 +200,6 @@ nav:
         - 数据类型概览: MatrixOne/Reference/Data-Types/data-types.md
         - 数据类型转换: MatrixOne/Reference/Data-Types/data-type-conversion.md
         - TIMESTAMP 和 DATETIME 的自动初始化和更新: MatrixOne/Reference/Data-Types/timestamp-initialization.md
-        - ENUM 数据类型: MatrixOne/Reference/Data-Types/enum-type.md
         - JSON 数据类型: MatrixOne/Reference/Data-Types/json-type.md
         - BLOB 和 TEXT 数据类型: MatrixOne/Reference/Data-Types/blob-text-type.md
         - 精确数值类型-DECIMAL: MatrixOne/Reference/Data-Types/fixed-point-types.md
@@ -425,6 +425,7 @@ nav:
             - FIND_IN_SET(): MatrixOne/Reference/Functions-and-Operators/String/find-in-set.md
             - FORMAT(): MatrixOne/Reference/Functions-and-Operators/String/format.md
             - HEX(): MatrixOne/Reference/Functions-and-Operators/String/hex.md
+            - INSTR():  MatrixOne/Reference/Functions-and-Operators/String/instr.md
             - LEFT(): MatrixOne/Reference/Functions-and-Operators/String/left.md
             - LENGTH(): MatrixOne/Reference/Functions-and-Operators/String/length.md
             - LPAD(): MatrixOne/Reference/Functions-and-Operators/String/lpad.md
@@ -434,12 +435,18 @@ nav:
             - RPAD(): MatrixOne/Reference/Functions-and-Operators/String/rpad.md
             - RTRIM(): MatrixOne/Reference/Functions-and-Operators/String/rtrim.md
             - SPACE(): MatrixOne/Reference/Functions-and-Operators/String/space.md
+            - SPLIT_PART(): MatrixOne/Reference/Functions-and-Operators/String/split_part.md
             - STARTSWITH(): MatrixOne/Reference/Functions-and-Operators/String/startswith.md
             - SUBSTRING(): MatrixOne/Reference/Functions-and-Operators/String/substring.md
             - SUBSTRING_INDEX(): MatrixOne/Reference/Functions-and-Operators/String/substring-index.md
             - TRIM(): MatrixOne/Reference/Functions-and-Operators/String/trim.md
           - 表函数:
             - UNNEST(): MatrixOne/Reference/Functions-and-Operators/Table/unnest.md
+          - 窗口函数:
+            - 窗口函数概述: MatrixOne/Reference/Functions-and-Operators/Window-Functions/window-functions-overview.md
+            - DENSE_RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/dense_rank.md
+            - RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/rank.md
+            - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
           - JSON 函数: MatrixOne/Reference/Functions-and-Operators/Json/json-functions.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
