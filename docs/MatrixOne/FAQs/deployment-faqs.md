@@ -173,7 +173,11 @@ ulimit -n 65536
 
 ### **我先在 main 分支构建了 MatrixOne，现在切换到其他版本再进行构建出现 panic**
 
-MatrixOne 0.7.0 及以前的版本存储格式互不兼容，如果你使用的是 0.7.0 及以前的旧版本，`make build` 后将会自动生成一个数据目录文件 *mo-data*。如果接下里你需要切换到其他分支并再次 `make build` 编译构建 MatrixOne，则会产生 panic，那么你需要清理 *mo-data*（即 `rm -rf mo-data`），再构建 MatrixOne。代码示例：
+MatrixOne 版本 0.7.0 以及之前的版本之间的存储格式并不相互兼容。这意味着在执行 `make build` 后，系统会自动生成一个名为 *mo-data* 的数据目录文件，用于存放数据。
+
+如果在未来你需要切换到其他分支并重新进行 `make build` 以构建MatrixOne，可能会导致 panic 情况发生。在这种情况下，你需要先清理 *mo-data* 数据目录（即执行 `rm -rf mo-data` 命令），然后再重新构建 MatrixOne。
+
+参考代码示例：
 
 ```
 [root ~]# cd matrixone  // 进入 matrixone 文件目录
