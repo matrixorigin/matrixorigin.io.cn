@@ -409,6 +409,7 @@ nav:
             - PI(): MatrixOne/Reference/Functions-and-Operators/Mathematical/pi.md
             - POWER(): MatrixOne/Reference/Functions-and-Operators/Mathematical/power.md
             - ROUND(): MatrixOne/Reference/Functions-and-Operators/Mathematical/round.md
+            - RAND(): MatrixOne/Reference/Functions-and-Operators/Mathematical/rand.md
             - SIN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/sin.md
             - SINH(): MatrixOne/Reference/Functions-and-Operators/Mathematical/sinh.md
             - TAN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/tan.md
