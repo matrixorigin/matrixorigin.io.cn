@@ -173,17 +173,24 @@ ulimit -n 65536
 
 ### **我先在 main 分支构建了 MatrixOne，现在切换到其他版本再进行构建出现 panic**
 
-如果你选择某个版本的代码并 `make build` 编译构建了 MatrixOne，则会产生 *mo-data* 的数据文件目录，此时如果你需要切换版本（即 `git checkout version-name`)，由于版本不兼容，你需要先清理 *mo-data*（即 `rm -rf mo-data`），再构建 MatrixOne。代码示例：
+MatrixOne 版本 0.7.0 以及之前的版本之间的存储格式并不相互兼容。这意味着在执行 `make build` 后，系统会自动生成一个名为 *mo-data* 的数据目录文件，用于存放数据。
+
+如果在未来你需要切换到其他分支并重新进行 `make build` 以构建 MatrixOne，可能会导致 panic 情况发生。在这种情况下，你需要先清理 *mo-data* 数据目录（即执行 `rm -rf mo-data` 命令），然后再重新构建 MatrixOne。
+
+参考代码示例：
 
 ```
 [root ~]# cd matrixone  // 进入 matrixone 文件目录
 [root ~]# git branch // 查看当前分支
-* main
+* 0.7.0
 [root ~]# make build // 构建 matrixone
-...    // 此处省略构建过程代码。如果你此时想要切换到其他版本，例如 0.7.0 版本
-[root ~]# git checkout 0.7.0 // 切换到 0.7.0 版本
+...    // 此处省略构建过程代码。如果你此时想要切换到其他版本，例如 0.6.0 版本
+[root ~]# git checkout 0.6.0 // 切换到 0.6.0 版本
 [root ~]# rm -rf mo-data // 清理数据目录
 [root ~]# make build // 构建 matrixone
 ...    // 此处省略构建过程代码
 [root ~]# ./mo-service --daemon --launch ./etc/quickstart/launch.toml &> test.log &   // 在终端的后台启动 MatrixOne 服务
 ```
+
+!!! note
+    MatrixOne 0.8.0 版本兼容旧版本存储格式。如果你使用的是 0.8.0 版本或更高版本，执行切换至其他分支并构建时，则无需再清理数据文件目录。
