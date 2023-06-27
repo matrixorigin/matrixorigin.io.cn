@@ -373,9 +373,9 @@ nav:
             - MAX: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/max.md
             - MEDIAN: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/median.md
             - MIN: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/min.md
-            - SLEEP: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/sleep.md
             - STDDEV_POP: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/stddev_pop.md
             - SUM: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/sum.md
+            - VARIANCE: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/var.md
           - 日期时间类:
             - CURDATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/curdate.md
             - CURRENT_TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/current-timestamp.md
@@ -457,6 +457,8 @@ nav:
             - RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/rank.md
             - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
           - JSON 函数: MatrixOne/Reference/Functions-and-Operators/Json/json-functions.md
+          - 其他函数:
+            - SLEEP: MatrixOne/Reference/Functions-and-Operators/Other/sleep.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
       - 系统表目录: MatrixOne/Reference/System-tables.md
