@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `tool` (
 2. 通过 `source` 命令将 *sql* 文件导入 MatrixOne。
 
 ```
-mysql> source '/YOUR_PATH/a.sql'
+mysql> source /YOUR_PATH/a.sql
 ```
 
 如果 *sql* 文件较大，可以使用如下命令在后台运行导入任务：
