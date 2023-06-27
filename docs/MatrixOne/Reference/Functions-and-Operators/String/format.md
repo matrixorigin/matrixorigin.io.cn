@@ -16,7 +16,7 @@
 |  ----  | ----  |
 | X | 必要参数。X 是要格式化的数字。如果 X 是 NULL，函数将返回 NULL。|
 | D | 必要参数。D 是要舍入小数位数 <br>如果 D 是 0，则结果没有小数点或没有小数部分。 <br>如果 D 为 NULL，函数返回 NULL。|
-| [,locale] |  可选参数。可选参数 [,locale] 指定要使用的语言环境，并且用于确定千个分隔符和分隔符之间的分组。如果 [locale] 设置为 NULL 或未指定，则默认语言环境为 'en_US'。 |
+| [,locale] | 可选参数。可选参数 [,locale] 指定要使用的语言环境，并且用于确定千个分隔符和分隔符之间的分组。如果 [locale] 设置为 NULL 或未指定，则默认语言环境为 'en_US'。`[,locale]` 支持语言环境参数与 MySQL 一致，参见[MySQL Server Locale Support](https://dev.mysql.com/doc/refman/8.0/en/locale-support.html)。 |
 
 ## **示例**
 
