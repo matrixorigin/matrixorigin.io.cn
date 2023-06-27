@@ -409,6 +409,7 @@ nav:
             - PI(): MatrixOne/Reference/Functions-and-Operators/Mathematical/pi.md
             - POWER(): MatrixOne/Reference/Functions-and-Operators/Mathematical/power.md
             - ROUND(): MatrixOne/Reference/Functions-and-Operators/Mathematical/round.md
+            - RAND(): MatrixOne/Reference/Functions-and-Operators/Mathematical/rand.md
             - SIN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/sin.md
             - SINH(): MatrixOne/Reference/Functions-and-Operators/Mathematical/sinh.md
             - TAN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/tan.md
@@ -440,6 +441,13 @@ nav:
             - SUBSTRING(): MatrixOne/Reference/Functions-and-Operators/String/substring.md
             - SUBSTRING_INDEX(): MatrixOne/Reference/Functions-and-Operators/String/substring-index.md
             - TRIM(): MatrixOne/Reference/Functions-and-Operators/String/trim.md
+            - 正则表达式:
+              - 正则表达式概述: MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/Regular-Expression-Functions-Overview.md
+              - NOT REGEXP: MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/not-regexp.md
+              - REGEXP_INSTR(): MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/regexp-instr.md
+              - REGEXP_LIKE(): MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/regexp-like.md
+              - REGEXP_REPLACE(): MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/regexp-replace.md
+              - REGEXP_SUBSTR(): MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/regexp-substr.md
           - 表函数:
             - UNNEST(): MatrixOne/Reference/Functions-and-Operators/Table/unnest.md
           - 窗口函数:
