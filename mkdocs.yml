@@ -51,6 +51,7 @@ nav:
         - MatrixOne 的多租户特性: MatrixOne/Overview/feature/key-feature-multi-accounts.md
         - 高性价比: MatrixOne/Overview/feature/cost-effective.md
         - 高可用: MatrixOne/Overview/feature/high-availability.md
+        - 高扩展性: MatrixOne/Overview/feature/scalability.md
         - 功能列表: MatrixOne/Overview/feature/matrixone-feature-list.md
         - MySQL 兼容性: MatrixOne/Overview/feature/mysql-compatibility.md
       - MatrixOne 技术架构:
