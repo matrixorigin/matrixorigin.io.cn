@@ -1,25 +1,25 @@
-# **MatrixOne 文档**
+![image](https://github.com/dengn/matrixorigin.io.cn/assets/4965857/b4378aaf-8b8c-4a82-b6c0-81e556f696df)# **MatrixOne 文档**
 
 欢迎来到 MatrixOne 官方文档网站！
 
-这个官方文档网站提供了各种主题、教程、指南和参考资料，以帮助您使用 MatrixOne。
+这个官方文档网站提供了相关概念及技术架构介绍、产品特性、使用指南和参考手册，以帮助您使用 MatrixOne。
 
 ## **推荐阅读 👉**
 
 从下面的文章中选择一篇，开始您的 MatrixOne 之旅。如果您：
 
-- 对 MatrixOne 还不熟悉，请从**概述**开始，了解关键功能和架构。
+- 对 MatrixOne 还不熟悉，请从**概述**开始，了解 MatrixOne 的基本概念，关键功能和技术架构。
 
-- 想要直接从快速入门开始搭建一个单机版 MatrixOne 并了解基本 SQL 知识，请从**快速上手**开始。
+- 如果您想要快速搭建 MatrixOne 并开始体验基本功能，请从**快速上手**开始。
 
-- 想要尝试使用 MatrixOne，请选择**操作指南**进行教程和开发指南。
+- 如果您是一个应用开发者，想要尝试使用 MatrixOne 作为底层数据库，请选择**开发指南**开始。
 
-- 如果您是一位经验丰富的 MatrixOne 开发者，寻找 SQL 语句目录，请至**参考文档**。
+- 如果您是一位经验丰富的 MatrixOne 开发者，想寻找详细的 SQL 语句，数据类型或者函数的细节参数，请至**参考文档**。
 
-|  概述   | 快速上手  | 操作指南 | 参考文档   |
+|  概述   | 快速上手  | 开发指南 | 参考文档   |
 |  ----  | ----  |  ----  | ----  |
-| [MatrixOne 简介](MatrixOne/Overview/matrixone-introduction.md)  | [单机 MatrixOne 安装](MatrixOne/Get-Started/install-standalone-matrixone.md) | [教程](MatrixOne/Tutorial/develop-java-crud-demo.md)	|[SQL 参考指南](MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md)|
-| [MatrixOne 架构](MatrixOne/Overview/architecture/matrixone-architecture-design.md)  | [SQL 的基本操作](MatrixOne/Get-Started/basic-sql.md) |[开发者指南]( MatrixOne/Develop/schema-design/overview.md)|[MatrixOne 系统数据库和表](MatrixOne/Reference/System-tables.md)|
+| [MatrixOne 简介](MatrixOne/Overview/matrixone-introduction.md)  | [单机 MatrixOne 安装](MatrixOne/Get-Started/install-standalone-matrixone.md) | [Java开发教程](MatrixOne/Tutorial/develop-java-crud-demo.md)	|[SQL 参考指南](MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md)|
+| [MatrixOne 架构](MatrixOne/Overview/architecture/matrixone-architecture-design.md)  | [SQL 的基本操作](MatrixOne/Get-Started/basic-sql.md) |[Python开发教程]( MatrixOne/Tutorial/develop-python-crud-demo.md)|[数据类型参考指南](MatrixOne/Reference/Data-Types/data-types.md)|
 
 ## **持续改进**
 
@@ -38,4 +38,4 @@
 
 [GitHub](https://github.com/matrixorigin/matrixone) 上的 MatrixOne 社区充满活力、热情且知识渊博。参与讨论，表达您的观点，提出功能建议，并深入研究代码。
 
-一个同样热情洋溢的社区在 [MatrixOne Slack](https://matrixoneworkspace.slack.com/) 频道等待着您。
+一个同样热情洋溢的社区在 [MatrixOne Slack](https://matrixoneworkspace.slack.com/) 频道 及 [MatrixOne 官网](https://www.matrixorigin.cn/tutorials)等待着您。
