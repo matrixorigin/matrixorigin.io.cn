@@ -155,7 +155,7 @@ mysql -h 127.0.0.1 -P 6001 -uroot -p111 --ssl-mode=PREFFERED
 ```
 
 !!! info
-    上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见 [密码管理](password-mgmt.md)。
+    上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](password-mgmt.md)。
 
 ssl mode 取值类型如下：
 
