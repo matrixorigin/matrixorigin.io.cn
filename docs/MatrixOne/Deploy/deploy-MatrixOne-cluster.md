@@ -658,4 +658,4 @@ mysql>
 显式 `mysql>` 后，分布式的 MatrixOne 集群搭建连接完成。
 
 !!! info
-    上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见 [密码管理](../Security/password-mgmt.md)。
+    上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../Security/password-mgmt.md)。
