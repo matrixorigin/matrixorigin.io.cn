@@ -15,7 +15,7 @@
 - 租户：拥有仅次于系统管理员的权限。可以修改租户自己的密码以及租户所创建的的普通用户的密码。
 - 其他普通用户：仅可以修改普通用户自己的密码。
 
-有关权限级别的更多信息，可参考[MatrixOne 权限分类](../Reference/access-control-type.md)。
+有关权限级别的更多信息，可参考 [MatrixOne 权限分类](../Reference/access-control-type.md)。
 
 ## 修改密码教程
 
