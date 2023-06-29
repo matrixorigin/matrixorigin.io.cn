@@ -163,4 +163,4 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 目前，MatrixOne 只支持 TCP 监听。
 
 !!! note
-    上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见 [密码管理](../../Security/password-mgmt.md)。
+    上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../Security/password-mgmt.md)。
