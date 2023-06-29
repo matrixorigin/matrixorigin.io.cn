@@ -97,7 +97,7 @@ nohup mysql -h 127.0.0.1 -P 6001 -uroot -p111 -e 'source /YOUR_PATH/a.sql' &
 ```
 
 !!! note
-       上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见 [密码管理](../../../Security/password-mgmt.md)。
+       上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../../Security/password-mgmt.md)。
 
 #### 4. 检查数据
 
