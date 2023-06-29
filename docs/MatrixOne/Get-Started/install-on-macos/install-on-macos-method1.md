@@ -63,12 +63,12 @@
 
 === "通过 MatrixOne (稳定版本) 代码搭建"
 
-     1. 如果您想获得 MatrixOne 发布的最新稳定版本代码，请先从 **main** 切换选择至 **0.7.0** 版本分支。
+     1. 如果您想获得 MatrixOne 发布的最新稳定版本代码，请先从 **main** 切换选择至 **0.8.0** 版本分支。
 
          ```
          git clone https://github.com/matrixorigin/matrixone.git
          cd matrixone         
-         git checkout 0.7.0
+         git checkout 0.8.0
          ```
 
      2. 运行 `make config` 和 `make build` 编译文件：
