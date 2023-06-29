@@ -89,7 +89,7 @@
     ```
 
     !!! note
-        上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见 [密码管理](../Security/password-mgmt.md)。
+        上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../Security/password-mgmt.md)。
 
 5. 滚动更新可能因为错误的配置而暂停（比如在升级时指定了不存在的版本）。此时，需重新修改 operator 动态配置，重置 version 号，回滚变更，已经失败的 Pod 将被重新更新。
 
