@@ -1,4 +1,4 @@
-![image](https://github.com/dengn/matrixorigin.io.cn/assets/4965857/b4378aaf-8b8c-4a82-b6c0-81e556f696df)# **MatrixOne 文档**
+**MatrixOne 文档**
 
 欢迎来到 MatrixOne 官方文档网站！
 
@@ -38,4 +38,4 @@
 
 [GitHub](https://github.com/matrixorigin/matrixone) 上的 MatrixOne 社区充满活力、热情且知识渊博。参与讨论，表达您的观点，提出功能建议，并深入研究代码。
 
-一个同样热情洋溢的社区在 [MatrixOne Slack](https://matrixoneworkspace.slack.com/) 频道 及 [MatrixOne 官网](https://www.matrixorigin.cn/tutorials)等待着您。
+一个同样热情洋溢的社区在 [MatrixOne Slack](https://matrixoneworkspace.slack.com/) 频道及 [MatrixOne 官网](https://www.matrixorigin.cn/tutorials)等待着您。
