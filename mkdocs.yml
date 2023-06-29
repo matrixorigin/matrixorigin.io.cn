@@ -45,16 +45,17 @@ nav:
     - 主页: README.md
     - 关于 MatrixOne:
       - MatrixOne 简介: MatrixOne/Overview/matrixone-introduction.md
+      - MatrixOne 功能清单: MatrixOne/Overview/matrixone-feature-list.md
       - MatrixOne 功能概述:
-        - 功能特性: MatrixOne/Overview/feature/feature-overview.md
-        - MatrixOne 的 HTAP 特性: MatrixOne/Overview/feature/key-feature-htap.md
-        - MatrixOne 的多租户特性: MatrixOne/Overview/feature/key-feature-multi-accounts.md
+        - 功能概述: MatrixOne/Overview/feature/feature-overview.md
+        - 混合负载 HTAP: MatrixOne/Overview/feature/key-feature-htap.md
+        - 多租户: MatrixOne/Overview/feature/key-feature-multi-accounts.md
+        - 极致扩展性: MatrixOne/Overview/feature/scalability.md
         - 高性价比: MatrixOne/Overview/feature/cost-effective.md
         - 高可用: MatrixOne/Overview/feature/high-availability.md
-        - 功能列表: MatrixOne/Overview/feature/matrixone-feature-list.md
         - MySQL 兼容性: MatrixOne/Overview/feature/mysql-compatibility.md
       - MatrixOne 技术架构:
-        - 架构概述: MatrixOne/Overview/architecture/matrixone-architecture-design.md
+        - 整体架构概述: MatrixOne/Overview/architecture/matrixone-architecture-design.md
         - Logservice 架构详解: MatrixOne/Overview/architecture/architecture-logservice.md
         - Proxy 架构详解: MatrixOne/Overview/architecture/architecture-proxy.md
         - 数据缓存及冷热数据分离架构详解: MatrixOne/Overview/architecture/architecture-cold-hot-data-separation.md
@@ -76,6 +77,8 @@ nav:
         - 概述: MatrixOne/Develop/schema-design/overview.md
         - 创建数据库: MatrixOne/Develop/schema-design/create-database.md
         - 创建表: MatrixOne/Develop/schema-design/create-table.md
+        - 创建视图: MatrixOne/Develop/schema-design/create-view.md
+        - 创建临时表: MatrixOne/Develop/schema-design/create-temporary-table.md
         - 创建次级索引: MatrixOne/Develop/schema-design/create-secondary-index.md
         - 数据完整性:
           - 数据完整性约束概述: MatrixOne/Develop/schema-design/data-integrity/overview-of-integrity-constraint-types.md
@@ -175,6 +178,7 @@ nav:
         - Optimizer Hints: MatrixOne/Performance-Tuning/control-execution-plan/optimizer-hints.md
     - 权限:
       - TLS 安全连接: MatrixOne/Security/TLS-introduction.md
+      - 密码管理: MatrixOne/Security/password-mgmt.md
       - 什么是权限管理:
         - 关于 MatrixOne 权限管理: MatrixOne/Security/about-privilege-management.md
         - 最佳实践: MatrixOne/Security/best-practice.md
@@ -372,9 +376,9 @@ nav:
             - MAX: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/max.md
             - MEDIAN: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/median.md
             - MIN: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/min.md
-            - SLEEP: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/sleep.md
             - STDDEV_POP: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/stddev_pop.md
             - SUM: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/sum.md
+            - VARIANCE: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/variance.md
           - 日期时间类:
             - CURDATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/curdate.md
             - CURRENT_TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/current-timestamp.md
@@ -456,6 +460,8 @@ nav:
             - RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/rank.md
             - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
           - JSON 函数: MatrixOne/Reference/Functions-and-Operators/Json/json-functions.md
+          - 其他函数:
+            - SLEEP: MatrixOne/Reference/Functions-and-Operators/Other/sleep.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
       - 系统表目录: MatrixOne/Reference/System-tables.md
