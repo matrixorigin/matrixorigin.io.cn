@@ -5,7 +5,9 @@
 修改租户信息。
 
 !!! note
-    仅被授权 moadmin 角色的集群管理员（即 sysaccount 用户）可以执行**暂停（SUSPEND）**和**恢复（OPEN）**租户的操作。
+    1. 集群管理员（即 root 用户）可以修改它所创建的租户的密码。
+    2. 租户本身可以修改自己的密码。
+    2. 仅集群管理员（即 root 用户）可以执行**暂停（SUSPEND）**和**恢复（OPEN）**租户的操作。
 
 ## **语法结构**
 
@@ -67,7 +69,7 @@ mysql> desc mo_catalog.mo_account;
 mysql> create account acc1 admin_name "root1" identified by "111";
 Query OK, 0 rows affected (0.42 sec)
 -- 将租户的初始密码 "111" 修改为 "1234"
-mysql> alter account acc1 admin_name "root1" identified by "1234";
+mysql> alter account acc1 admin_name "root1" identified by "Abcd_1234@1234";
 Query OK, 0 rows affected (0.01 sec)
 -- 修改租户 "root1" 的备注
 mysql> alter account acc1 comment "new accout";

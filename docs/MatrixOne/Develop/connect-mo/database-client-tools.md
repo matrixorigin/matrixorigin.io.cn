@@ -24,13 +24,16 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
     此处以内置帐号作为示例：
 
-    - user: dump
+    - user: root
     - password: 111
 
     ```
-    mysql -h 127.0.0.1 -P 6001 -udump -p
+    mysql -h 127.0.0.1 -P 6001 -uroot -p
     Enter password:
     ```
+
+    !!! note
+        上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见 [密码管理](../../Security/password-mgmt.md)。
 
 3. 连接成功提示如下：
 

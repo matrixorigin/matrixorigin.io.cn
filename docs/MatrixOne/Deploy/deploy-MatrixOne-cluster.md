@@ -632,7 +632,13 @@ __Note:__ 本章节均是在 master0 节点操作。
 在指定**允许本地访问**或**指定某台机器或者所有机器访问**后，你可以使用 MySQL 客户端连接 MatrixOne：
 
 ```
-mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P 6001 -udump -p111
+# 使用 'mysql' 命令行工具连接到MySQL服务
+# 使用 'kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}' ' 获取Kubernetes集群中服务的集群IP地址
+# '-h' 参数指定了MySQL服务的主机名或IP地址
+# '-P' 参数指定了MySQL服务的端口号，这里是6001
+# '-uroot' 表示用root用户登录
+# '-p111' 表示初始密码是111
+mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P 6001 -uroot -p111
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 163
@@ -650,3 +656,6 @@ mysql>
 ```
 
 显式 `mysql>` 后，分布式的 MatrixOne 集群搭建连接完成。
+
+!!! info
+    上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见 [密码管理](../Security/password-mgmt.md)。

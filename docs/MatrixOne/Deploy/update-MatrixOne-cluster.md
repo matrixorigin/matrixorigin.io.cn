@@ -59,7 +59,13 @@
 4. 当 MatrixOne 集群中的组件均 `Restart` 完成后，可以用 MySQL Client 连接集群，如果连接成功且用户数据均完整，则说明升级成功。
 
     ```
-    root@master0 ~]# mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P 6001 -udump -p111
+    # 使用 'mysql' 命令行工具连接到MySQL服务
+    # 使用 'kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}' ' 获取Kubernetes集群中服务的集群IP地址
+    # '-h' 参数指定了MySQL服务的主机名或IP地址
+    # '-P' 参数指定了MySQL服务的端口号，这里是6001
+    # '-uroot' 表示用root用户登录
+    # '-p111' 表示初始密码是111
+    root@master0 ~]# mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P 6001 -uroot -p111
     Welcome to the MariaDB monitor.  Commands end with ; or \g.
     Your MySQL connection id is 1005
     Server version: 8.0.30-MatrixOne-v0.7.0 MatrixOne
@@ -81,6 +87,9 @@
     +--------------------+
     7 rows in set (0.01 sec)
     ```
+
+    !!! note
+        上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见 [密码管理](../Security/password-mgmt.md)。
 
 5. 滚动更新可能因为错误的配置而暂停（比如在升级时指定了不存在的版本）。此时，需重新修改 operator 动态配置，重置 version 号，回滚变更，已经失败的 Pod 将被重新更新。
 
