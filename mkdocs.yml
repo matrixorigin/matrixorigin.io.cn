@@ -178,6 +178,7 @@ nav:
         - Optimizer Hints: MatrixOne/Performance-Tuning/control-execution-plan/optimizer-hints.md
     - 权限:
       - TLS 安全连接: MatrixOne/Security/TLS-introduction.md
+      - 密码管理: MatrixOne/Security/password-mgmt.md
       - 什么是权限管理:
         - 关于 MatrixOne 权限管理: MatrixOne/Security/about-privilege-management.md
         - 最佳实践: MatrixOne/Security/best-practice.md
