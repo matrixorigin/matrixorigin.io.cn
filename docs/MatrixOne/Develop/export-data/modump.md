@@ -1,4 +1,4 @@
-# 使用 `mo-dump` 导出数据
+# MODUMP 工具写出
 
 MatrixOne 支持以下两种方式导出数据：
 

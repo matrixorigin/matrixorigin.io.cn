@@ -1,4 +1,4 @@
-# Java CRUD 示例
+# Java 基础示例
 
 !!! note
     本篇文档所介绍的演示程序的源代码下载地址为：[Java CRUD 示例](https://github.com/matrixorigin/matrixone_java_crud_example)。

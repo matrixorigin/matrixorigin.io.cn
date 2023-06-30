@@ -1,4 +1,4 @@
-# MatrixOne Operator 管理
+# Operator 管理
 
 ## MatrixOne Operator 概述
 

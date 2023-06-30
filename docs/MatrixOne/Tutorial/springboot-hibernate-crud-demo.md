@@ -1,4 +1,4 @@
-# 使用 SpringBoot 和 Spring Data JPA 构建一个 CRUD 示例
+# SpringBoot 和 JPA 基础示例
 
 本篇文档将指导你如何使用 **SpringBoot**、**Spring Data JPA** 和 **Intellij IDEA** 构建一个简单的应用程序，并实现 CRUD（创建、读取、更新、删除）功能。
 
@@ -575,7 +575,7 @@ public class JpademoApplication {
 
 ![image-20221027110133726](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/hibernate/image-20221027110133726.png?raw=true)
 
-当出现下面的消息时，表示应用程序已经正常启动，你可以使用 Postman 调用 REST 端口。
+当出现下面的消息示例时，表示应用程序已经正常启动，你可以使用 Postman 调用 REST 端口。
 
 ```
 2022-10-27 11:16:16.793  INFO 93488 --- [           main] com.example.jpademo.JpademoApplication   : Starting JpademoApplication on username-macbookpro.local with PID 93488 (/Users/username/IdeaProjects/jpademo/target/classes started by username in /Users/username/IdeaProjects/jpademo)

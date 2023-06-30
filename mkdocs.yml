@@ -73,6 +73,14 @@ nav:
           - 使用 Docker 部署: MatrixOne/Get-Started/install-on-linux/install-on-linux-method3.md
       - SQL 的基本操作: MatrixOne/Get-Started/basic-sql.md
     - 开发指南:
+      - 连接到 MatrixOne:
+        - 客户端工具连接: MatrixOne/Develop/connect-mo/database-client-tools.md
+        - Java 连接:
+          - JDBC 连接: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md
+          - Java ORMs 连接: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm.md
+        - Python 连接: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
+        - Golang 连接: MatrixOne/Develop/connect-mo/connect-to-matrixone-with-go.md
+        - 配置 MatrixOne SSL: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
       - 数据库模式设计:
         - 概述: MatrixOne/Develop/schema-design/overview.md
         - 创建数据库: MatrixOne/Develop/schema-design/create-database.md
@@ -80,71 +88,66 @@ nav:
         - 创建视图: MatrixOne/Develop/schema-design/create-view.md
         - 创建临时表: MatrixOne/Develop/schema-design/create-temporary-table.md
         - 创建次级索引: MatrixOne/Develop/schema-design/create-secondary-index.md
-        - 数据完整性:
-          - 数据完整性约束概述: MatrixOne/Develop/schema-design/data-integrity/overview-of-integrity-constraint-types.md
-          - NOT NULL 完整性约束: MatrixOne/Develop/schema-design/data-integrity/not-null-constraints.md
-          - UNIQUE KEY 完整性约束: MatrixOne/Develop/schema-design/data-integrity/unique-key-constraints.md
-          - PRIMARY KEY 完整性约束: MatrixOne/Develop/schema-design/data-integrity/primary-key-constraints.md
-          - FOREIGN KEY 完整性约束: MatrixOne/Develop/schema-design/data-integrity/foreign-key-constraints.md
-      - 连接 MatrixOne:
-        - 配置 MatrixOne SSL 连接: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
-        - 客户端工具连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/database-client-tools.md
-        - Java 连接 MatrixOne 服务:
-          - 使用 JDBC 连接器连接 MatrixOne: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md
-          - 使用 Java ORMs 连接 MatrixOne: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm.md
-        - Python 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
-        - Golang 连接 MatrixOne 服务: MatrixOne/Develop/connect-mo/connect-to-matrixone-with-go.md
-      - 导入数据:
-        - 单条导入: MatrixOne/Develop/import-data/insert-data.md
-        - 批量导入:
-          - 批量导入概述: MatrixOne/Develop/import-data/bulk-load/bulk-load-overview.md
-          - 导入 csv 文件: MatrixOne/Develop/import-data/bulk-load/load-csv.md
-          - 导入 jsonlines 文件: MatrixOne/Develop/import-data/bulk-load/load-jsonline.md
-          - 从 S3 读取数据并导入至 MatrixOne: MatrixOne/Develop/import-data/bulk-load/load-s3.md
-          - 使用 source 命令批量导入数据: MatrixOne/Develop/import-data/bulk-load/using-source.md
-      - 导出数据:
-        - 使用 `SELECT INTO...OUTFILE` 导出数据: MatrixOne/Develop/export-data/select-into-outfile.md
-        - 使用 `modump` 导出数据: MatrixOne/Develop/export-data/modump.md
+        - 创建约束:
+          - 约束概述: MatrixOne/Develop/schema-design/data-integrity/overview-of-integrity-constraint-types.md
+          - NOT NULL 非空约束: MatrixOne/Develop/schema-design/data-integrity/not-null-constraints.md
+          - UNIQUE KEY 唯一约束: MatrixOne/Develop/schema-design/data-integrity/unique-key-constraints.md
+          - PRIMARY KEY 主键约束: MatrixOne/Develop/schema-design/data-integrity/primary-key-constraints.md
+          - FOREIGN KEY 外键约束: MatrixOne/Develop/schema-design/data-integrity/foreign-key-constraints.md
+      - 数据写入:
+        - 插入数据:
+          - INSERT 插入: MatrixOne/Develop/import-data/insert-data.md
+          - 批量插入:
+            - 批量插入概述: MatrixOne/Develop/import-data/bulk-load/bulk-load-overview.md
+            - 插入 csv 文件: MatrixOne/Develop/import-data/bulk-load/load-csv.md
+            - 插入 jsonlines 文件: MatrixOne/Develop/import-data/bulk-load/load-jsonline.md
+            - 从对象存储导入文件: MatrixOne/Develop/import-data/bulk-load/load-s3.md
+            - Source 插入: MatrixOne/Develop/import-data/bulk-load/using-source.md
+      - 数据写出:
+        - SELECT INTO 写出: MatrixOne/Develop/export-data/select-into-outfile.md
+        - MODUMP 工具写出: MatrixOne/Develop/export-data/modump.md
       - 数据读取:
         - 单表读取: MatrixOne/Develop/read-data/query-data-single-table.md
         - 多表连接查询: MatrixOne/Develop/read-data/multitable-join-query.md
         - 子查询: MatrixOne/Develop/read-data/subquery.md
         - 视图: MatrixOne/Develop/read-data/views.md
         - 公共表表达式: MatrixOne/Develop/read-data/cte.md
-      - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
+      - 租户设计:
+        - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
       - 事务:
         - 事务通用概念: MatrixOne/Develop/Transactions/common-transaction-overview.md
         - MatrixOne 的事务:
-          - MatrixOne 的事务概述: MatrixOne/Develop/Transactions/matrixone-transaction-overview/overview.md
-          - MatrixOne 的显式事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/explicit-transaction.md
-          - MatrixOne 的隐式事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/implicit-transaction.md
-          - MatrixOne 的悲观事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/pessimistic-transaction.md
-          - MatrixOne 的乐观事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/optimistic-transaction.md
-          - 如何使用 MatrixOne 事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/how-to-use.md
-          - MatrixOne 的事务隔离级别: MatrixOne/Develop/Transactions/matrixone-transaction-overview/isolation-level.md
+          - 概述: MatrixOne/Develop/Transactions/matrixone-transaction-overview/overview.md
+          - 显式事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/explicit-transaction.md
+          - 隐式事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/implicit-transaction.md
+          - 悲观事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/pessimistic-transaction.md
+          - 乐观事务: MatrixOne/Develop/Transactions/matrixone-transaction-overview/optimistic-transaction.md
+          - 隔离级别: MatrixOne/Develop/Transactions/matrixone-transaction-overview/isolation-level.md
           - MVCC: MatrixOne/Develop/Transactions/matrixone-transaction-overview/mvcc.md
-          - MatrixOne 中的事务应用场景: MatrixOne/Develop/Transactions/matrixone-transaction-overview/scenario.md
+          - 如何使用 MatrixOne 事务:
+            - 使用指南: MatrixOne/Develop/Transactions/matrixone-transaction-overview/how-to-use.md
+            - 应用场景: MatrixOne/Develop/Transactions/matrixone-transaction-overview/scenario.md
+      - 应用开发实例:
+        - Java 基础示例: MatrixOne/Tutorial/develop-java-crud-demo.md
+        - SpringBoot 和 JPA 基础示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
+        - SpringBoot 和 MyBatis 基础示例: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
+        - Python 基础示例: MatrixOne/Tutorial/develop-python-crud-demo.md
+        - SQLAlchemy 基础示例: MatrixOne/Tutorial/sqlalchemy-python-crud-demo.md
+        - Golang 基础示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
     - 部署指南:
-      - 规划集群拓扑:
-        - 体验环境部署规划: MatrixOne/Deploy/deployment-topology/experience-deployment-topology.md
-        - 最小生产环境部署规划: MatrixOne/Deploy/deployment-topology/minimal-deployment-topology.md
-        - 推荐生产环境部署规划: MatrixOne/Deploy/deployment-topology/recommended-prd-deployment-topology.md
-      - MatrixOne 分布式集群部署: MatrixOne/Deploy/deploy-MatrixOne-cluster.md
-      - MatrixOne Operator 管理: MatrixOne/Deploy/MatrixOne-Operator-mgmt.md
-      - 运维指南:
-        - MatrixOne 分布式集群升级: MatrixOne/Deploy/update-MatrixOne-cluster.md
-        - MatrixOne 分布式集群启停: MatrixOne/Deploy/MatrixOne-start-stop.md
-        - MatrixOne 分布式集群扩缩容: MatrixOne/Deploy/MatrixOne-cluster-Scale.md
-        - 使用 Proxy 管理 CN 组: MatrixOne/Deploy/mgmt-cn-group-using-proxy.md
+      - 集群拓扑规划:
+        - 体验环境: MatrixOne/Deploy/deployment-topology/experience-deployment-topology.md
+        - 最小生产环境: MatrixOne/Deploy/deployment-topology/minimal-deployment-topology.md
+        - 推荐生产环境: MatrixOne/Deploy/deployment-topology/recommended-prd-deployment-topology.md
+      - 集群部署指南: MatrixOne/Deploy/deploy-MatrixOne-cluster.md
+      - 集群运维管理:
+        - 启动与停服下线: MatrixOne/Deploy/MatrixOne-start-stop.md
+        - 版本升级: MatrixOne/Deploy/update-MatrixOne-cluster.md
         - 健康检查与资源监控: MatrixOne/Deploy/health-check-resource-monitoring.md
-        - 从本地 Minio 导入数据到 MatrixOne 分布式集群: MatrixOne/Deploy/import-data-from-minio-to-mo.md
-    - 教程:
-      - 构建一个 Java CRUD 示例: MatrixOne/Tutorial/develop-java-crud-demo.md
-      - 使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
-      - 使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
-      - 使用 Python 和 SQLAlchemy 构建一个 CRUD 示例: MatrixOne/Tutorial/sqlalchemy-python-crud-demo.md
-      - 构建一个 Python CRUD 示例: MatrixOne/Tutorial/develop-python-crud-demo.md
-      - 构建一个 Golang CRUD 示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
+        - 集群扩缩容: MatrixOne/Deploy/MatrixOne-cluster-Scale.md
+        - 负载与租户隔离: MatrixOne/Deploy/mgmt-cn-group-using-proxy.md
+        - 本地对象存储导入数据: MatrixOne/Deploy/import-data-from-minio-to-mo.md
+        - Operator 管理: MatrixOne/Deploy/MatrixOne-Operator-mgmt.md
     - 运维:
       - 备份与恢复: MatrixOne/Maintain/backup-restore.md
       - 数据挂载:

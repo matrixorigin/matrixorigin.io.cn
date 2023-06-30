@@ -18,8 +18,8 @@
 
 |  概述   | 快速上手  | 开发指南 | 参考文档   |
 |  ----  | ----  |  ----  | ----  |
-| [MatrixOne 简介](MatrixOne/Overview/matrixone-introduction.md)  | [单机 MatrixOne 安装](MatrixOne/Get-Started/install-standalone-matrixone.md) | [Java开发教程](MatrixOne/Tutorial/develop-java-crud-demo.md)	|[SQL 参考指南](MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md)|
-| [MatrixOne 架构](MatrixOne/Overview/architecture/matrixone-architecture-design.md)  | [SQL 的基本操作](MatrixOne/Get-Started/basic-sql.md) |[Python开发教程]( MatrixOne/Tutorial/develop-python-crud-demo.md)|[数据类型参考指南](MatrixOne/Reference/Data-Types/data-types.md)|
+| [MatrixOne 简介](MatrixOne/Overview/matrixone-introduction.md)  | [单机 MatrixOne 安装](MatrixOne/Get-Started/install-standalone-matrixone.md) | [Java 基础示例](MatrixOne/Tutorial/develop-java-crud-demo.md)	|[SQL 参考指南](MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md)|
+| [MatrixOne 架构](MatrixOne/Overview/architecture/matrixone-architecture-design.md)  | [SQL 的基本操作](MatrixOne/Get-Started/basic-sql.md) |[Python 基础示例]( MatrixOne/Tutorial/develop-python-crud-demo.md)|[数据类型参考指南](MatrixOne/Reference/Data-Types/data-types.md)|
 
 ## **持续改进**
 

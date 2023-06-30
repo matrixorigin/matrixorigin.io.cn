@@ -1,4 +1,4 @@
-# PRIMARY KEY 完整性约束
+# PRIMARY KEY 主键约束
 
 PRIMARY KEY 约束可用于确保表内的每一数据行都可以由某一个键值唯一地确定。
 并且每个数据库表上最多只能定义一个 `PRIMARY KEY` 约束。
@@ -37,4 +37,4 @@ Query OK, 1 row affected (0.01 sec)
 
 ## 限制
 
-MatrixOne 暂不支持 `alter table`，所以也不支持删除 `PRIMARY KEY` 约束。
+MatrixOne 暂不支持删除 `PRIMARY KEY` 约束。

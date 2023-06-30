@@ -1,4 +1,4 @@
-# 客户端工具连接 MatrixOne 服务
+# 客户端工具连接
 
 MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 MatrixOne 服务：
 

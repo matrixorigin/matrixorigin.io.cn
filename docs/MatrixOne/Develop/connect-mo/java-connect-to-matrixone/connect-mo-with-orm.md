@@ -1,4 +1,4 @@
-# 使用 Java ORMs 连接 MatrixOne
+# 使用 Java ORMs 连接
 
 除了使用 JDBC 连接 MatrixOne 之外，我们还可以使用对象关系映射 (ORM) 框架连接到 MySQL 数据库。在本篇文档中，介绍了如何使用 Spring Data JPA 和 MyBatis 连接到 MatrixOne。
 

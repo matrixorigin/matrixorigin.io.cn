@@ -1,4 +1,4 @@
-# 使用 Python 和 SQLAlchemy 构建一个 CRUD 示例
+# SQLAlchemy 基础示例
 
 本篇文档将指导你如何使用 **Python** 和 **SQLAlchemy** 构建一个简单的应用程序，并实现 CRUD（创建、读取、更新、删除）功能。
 

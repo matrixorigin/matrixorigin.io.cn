@@ -1,4 +1,4 @@
-# 如何配置 MatrixOne SSL 连接
+# 配置 MatrixOne SSL
 
 ## 概述
 
