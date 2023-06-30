@@ -24,4 +24,4 @@ ERROR 20307 (HY000): Duplicate entry '1' for key '__mo_index_idx_col'
 
 ## 限制
 
-MatrixOne 暂不支持 `alter table`，所以也不支持删除 `UNIQUE KEY` 约束。
+MatrixOne 暂不支持删除 `UNIQUE KEY` 约束。
