@@ -146,7 +146,7 @@ nav:
         - 健康检查与资源监控: MatrixOne/Deploy/health-check-resource-monitoring.md
         - 集群扩缩容: MatrixOne/Deploy/MatrixOne-cluster-Scale.md
         - 负载与租户隔离: MatrixOne/Deploy/mgmt-cn-group-using-proxy.md
-        - 本地对象存储导入导入数据: MatrixOne/Deploy/import-data-from-minio-to-mo.md
+        - 本地对象存储导入数据: MatrixOne/Deploy/import-data-from-minio-to-mo.md
         - Operator 管理: MatrixOne/Deploy/MatrixOne-Operator-mgmt.md
     - 运维:
       - 备份与恢复: MatrixOne/Maintain/backup-restore.md
