@@ -84,10 +84,10 @@ MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加�
 
 3. 验证 MatrixOne 的 SSL 是否启用。
 
-    ① 使用 MySQL 客户端连接 MatrixOne：
+    ① 使用 MySQL 客户端连接 MatrixOne，此处以初始账号和密码为例：
 
     ```
-    mysql -h 127.0.0.1 -P 6001 -udump -p111
+    mysql -h 127.0.0.1 -P 6001 -uroot -p111
 
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
     ```
@@ -151,8 +151,11 @@ MatrixOne 默认采用非加密连接，也支持启用基于 TLS 协议的加�
 MySQL 客户端连接 MatrixOne Server 时，需要通过 `--ssl-mode` 参数指定加密连接行为，如：
 
 ```sql
-mysql -h 127.0.0.1 -P 6001 -udump -p111 --ssl-mode=PREFFERED
+mysql -h 127.0.0.1 -P 6001 -uroot -p111 --ssl-mode=PREFFERED
 ```
+
+!!! info
+    上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](password-mgmt.md)。
 
 ssl mode 取值类型如下：
 
