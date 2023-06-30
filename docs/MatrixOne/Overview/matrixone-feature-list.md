@@ -1,4 +1,4 @@
-# MatrixOne 功能列表
+# MatrixOne 功能清单
 
 本文档列出了 MatrixOne 最新版本所支持的功能。
 
