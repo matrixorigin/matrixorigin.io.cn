@@ -1,4 +1,4 @@
-# Golang 连接 MatrixOne 服务
+# Golang 连接
 
 MatrixOne 支持 Golang 连接，并且支持 [`Go-MySQL-Driver`](https://github.com/go-sql-driver/mysql)。
 

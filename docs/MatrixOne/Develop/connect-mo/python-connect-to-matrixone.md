@@ -1,4 +1,4 @@
-# Python 连接 MatrixOne 服务
+# Python 连接
 
 MatrixOne 支持 Python 连接，支持 `pymysql` 和 `sqlalchemy` 两种驱动程序。
 

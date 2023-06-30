@@ -1,4 +1,4 @@
-# 使用 `source` 命令批量导入数据
+# Source 插入
 
 本篇文档将指导你使用 `source` 命令批量导入数据至 MatrixOne。
 

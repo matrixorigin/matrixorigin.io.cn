@@ -1,4 +1,4 @@
-# 插入数据
+# INSERT 插入
 
 本文档介绍如何使用 SQL 语句在 MatrixOne 中插入数据。
 

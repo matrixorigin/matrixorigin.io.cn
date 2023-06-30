@@ -1,4 +1,4 @@
-# 导入 JSONLines 数据
+# 插入 jsonlines 文件
 
 本篇文档将指导你如何将 JSONLines 格式数据（即 *jl* 或 *jsonl* 文件）导入 MatrixOne。
 

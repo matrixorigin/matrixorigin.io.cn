@@ -1,4 +1,4 @@
-# 使用 `SELECT INTO...OUTFILE` 导出数据
+# SELECT INTO 写出
 
 MatrixOne 支持以下两种方式导出数据：
 

@@ -1,4 +1,4 @@
-# 构建一个 Golang CRUD 示例
+# Golang 基础示例
 
 ## 配置环境
 

@@ -1,4 +1,4 @@
-# MatrixOne 集群的扩缩容
+# 集群扩缩容
 
 本篇文档将介绍 MatrixOne 集群如何进行扩缩容，并包括 Kubernetes 集群本身的扩缩容与 MatrixOne 的各个服务的扩缩容。
 

@@ -1,4 +1,4 @@
-# 使用 Proxy 管理 CN 组
+# 负载与租户隔离
 
 Proxy 是 MatrixOne 在 0.8 版本中引进的新系统组件，它可以通过流量代理和转发的方式实现租户、负载隔离等功能。关于 Proxy 的技术设计，可以参考 [Proxy 架构详解](../Overview/architecture/architecture-proxy.md)。
 

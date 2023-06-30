@@ -1,4 +1,4 @@
-# NOT NULL 完整性约束
+# NOT NULL 非空约束
 
 NOT NULL 约束可用于限制一个列中不能包含 NULL 值。
 
