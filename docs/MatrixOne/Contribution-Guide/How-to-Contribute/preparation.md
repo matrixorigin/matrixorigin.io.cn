@@ -15,8 +15,8 @@
 
 ### 建设情况
 
-目前，MatrixOne v0.7.0 已经发布了，您可以通过[版本发布指南](./../../Release-Notes/v0.7.0.md)来了解最新的发布信息，其中包含了最新的修改与优化。
-同时，我们当前正在开发 v0.8.0 版本，对应的工作任务在 GitHub 的 Milestone [0.8.0](https://github.com/matrixorigin/matrixone/milestone/10) 中列出。
+目前，MatrixOne v0.8.0 已经发布了，您可以通过[版本发布指南](./../../Release-Notes/v0.8.0.md)来了解最新的发布信息，其中包含了最新的修改与优化。
+同时，我们当前正在开发 v1.0.0 版本，对应的工作任务在 GitHub 的 Milestone [1.0.0](https://github.com/matrixorigin/matrixone/milestone/11) 中列出。
 关于长期的项目规划，请参阅 [MatrixOne Roadmap](https://github.com/matrixorigin/matrixone/issues/613)。
 
 ## **你可以做些什么？**
@@ -68,7 +68,7 @@
 
 MO 主要由 Go 语言编写，因此需要提前安装部署好相关的开发环境，简要的示例流程如下：
 
-1. 安装版本为 1.19 的 Go，您可以通过 [Download Go](https://go.dev/dl/) 与 [Installation instructions](https://go.dev/doc/install) 教程来完成整个过程。
+1. 安装版本为 1.20 的 Go，您可以通过 [Download Go](https://go.dev/dl/) 与 [Installation instructions](https://go.dev/doc/install) 教程来完成整个过程。
 2. 定义环境变量并修改路径，您可以遵循以下示例流程：
 
 ```sh
