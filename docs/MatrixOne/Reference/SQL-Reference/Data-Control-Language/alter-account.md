@@ -68,7 +68,7 @@ mysql> desc mo_catalog.mo_account;
 -- 创建一个名为 "root1" 密码为 "111" 租户
 mysql> create account acc1 admin_name "root1" identified by "111";
 Query OK, 0 rows affected (0.42 sec)
--- 将租户的初始密码 "111" 修改为 "1234"
+-- 将租户的初始密码 "111" 修改为 "Abcd_1234@1234"
 mysql> alter account acc1 admin_name "root1" identified by "Abcd_1234@1234";
 Query OK, 0 rows affected (0.01 sec)
 -- 修改租户 "root1" 的备注
