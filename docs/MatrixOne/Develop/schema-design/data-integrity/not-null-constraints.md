@@ -26,4 +26,4 @@ ERROR 3819 (HY000): constraint violation: Column 'a' cannot be null
 
 ## 限制
 
-MatrixOne 暂不支持 `alter table`，所以也不支持删除 `NOT NULL` 约束。
+MatrixOne 暂不支持删除 `NOT NULL` 约束。
