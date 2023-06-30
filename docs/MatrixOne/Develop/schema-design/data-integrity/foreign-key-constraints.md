@@ -55,4 +55,4 @@ ERROR 20101 (HY000): internal error: Cannot add or update a child row: a foreign
 
 ## 限制
 
-MatrixOne 暂不支持删除 `FOREIGN KEY` 约束。
+MatrixOne 暂不支持使用 `ALTER TABLE` 删除 `FOREIGN KEY` 约束。
