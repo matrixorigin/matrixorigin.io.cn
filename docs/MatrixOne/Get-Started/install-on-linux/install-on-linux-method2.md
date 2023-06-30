@@ -51,14 +51,14 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
 === "**下载方式一：`wget` 工具下载安装二进制包**"
 
-     通用安装包：
+     x86 架构系统安装包：
 
      ```bash
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
      unzip mo-v0.8.0-linux-amd64.zip
      ```
 
-     ARM 系统安装包：
+     ARM 架构系统安装包：
 
      ```bash
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
@@ -67,14 +67,14 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
 === "**下载方式二：`curl` 工具下载二进制包**"
 
-     通用安装包：
+     x86 架构系统安装包：
 
      ```bash
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
      unzip mo-v0.8.0-linux-amd64.zip
      ```
 
-     ARM 系统安装包：
+     ARM 架构系统安装包：
 
      ```bash
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
