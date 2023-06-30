@@ -51,21 +51,39 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
 === "**下载方式一：`wget` 工具下载安装二进制包**"
 
+     x86 架构系统安装包：
+
      ```bash
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
      unzip mo-v0.8.0-linux-amd64.zip
      ```
 
+     ARM 架构系统安装包：
+
+     ```bash
+     wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
+     unzip mo-v0.8.0-linux-arm64.zip
+     ```
+
 === "**下载方式二：`curl` 工具下载二进制包**"
+
+     x86 架构系统安装包：
 
      ```bash
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
      unzip mo-v0.8.0-linux-amd64.zip
      ```
 
+     ARM 架构系统安装包：
+
+     ```bash
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
+     unzip mo-v0.8.0-linux-arm64.zip
+     ```
+
 === "**下载方式三：页面下载**"
 
-     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 0.8.0](https://github.com/matrixorigin/matrixone/releases/tag/v0.8.0)，下拉找到 **Assets** 栏，点击安装包 *mo-v0.8.0-linux-amd64.zip* 下载即可。
+     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 0.8.0](https://github.com/matrixorigin/matrixone/releases/tag/v0.8.0)，下拉找到 **Assets** 栏，点击安装包 *mo-v0.8.0-linux-amd64.zip* 或者 *mo-v0.8.0-linux-arm64.zip* 下载即可。
 
 ## 步骤 3：启动 MatrixOne 服务
 
