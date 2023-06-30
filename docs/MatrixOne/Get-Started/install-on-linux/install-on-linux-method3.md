@@ -48,6 +48,13 @@
       docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:0.8.0
       ```
 
+      如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 稳定版本镜像：
+
+      ```bash
+      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:0.8.0
+      docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:0.8.0
+      ```
+
 === "开发版本的镜像"
 
       获取最新开发版本的镜像，参见[Docker Hub](https://hub.docker.com/r/matrixorigin/matrixone/tags)，找到最新Tag，拉取镜像。拉取镜像代码示例如下：
@@ -55,6 +62,13 @@
       ```bash
       docker pull matrixorigin/matrixone:nightly-commitnumber
       docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:nightly-commitnumber
+      ```
+
+      如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 开发版本镜像：
+
+      ```bash
+      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:nightly-commitnumber
+      docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:nightly-commitnumber
       ```
 
       __Note__: 如上面代码所示，*nightly* 为标识的 Tag 版本每天都进行更新，请注意获取最新的镜像。
