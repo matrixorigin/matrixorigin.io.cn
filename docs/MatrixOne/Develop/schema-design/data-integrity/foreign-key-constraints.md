@@ -52,7 +52,3 @@ ERROR 20101 (HY000): internal error: Cannot add or update a child row: a foreign
 ```
 
 **示例解释**：在上述示例中，t2 的 c 列只能引用 t1 中 a 列的值或空值，因此插入 t2 的前 3 行操作都能够成功插入，但是第 4 行中的 103 并不是 t1 中 a 列的某个值，违反了外键约束，因此插入失败。
-
-## 限制
-
-MatrixOne 暂不支持使用 `ALTER TABLE` 删除 `FOREIGN KEY` 约束。
