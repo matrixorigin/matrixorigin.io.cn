@@ -62,8 +62,6 @@ __Note__: *csv*（逗号分隔值）文件是一种特殊的文件类型，可�
     mysql -h 127.0.0.1 -P 6001 -uroot -p111
     ```
 
-    __Note:__ 如果你的数据文件与 MatrixOne 服务器在不同的机器上，即数据文件在你所使用的客户端机器上时，那么你连接 MatrixOne 服务主机需要使用命令行：`mysql -h <mo-host-ip> -P 6001 -udump -p111 --local-infile`。
-
     !!! note
         上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../../Security/password-mgmt.md)。
 
