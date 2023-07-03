@@ -73,6 +73,7 @@ nav:
           - 使用 Docker 部署: MatrixOne/Get-Started/install-on-linux/install-on-linux-method3.md
       - SQL 的基本操作: MatrixOne/Get-Started/basic-sql.md
     - 开发指南:
+      - 概述: MatrixOne/Develop/develop-overview.md
       - 连接到 MatrixOne:
         - 客户端工具连接: MatrixOne/Develop/connect-mo/database-client-tools.md
         - Java 连接:
