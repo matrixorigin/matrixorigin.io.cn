@@ -10,7 +10,7 @@ MatrixOne 支持以下 JSON 函数：
 
 ## JSON_EXTRACT() 函数
 
-`JSON EXTREACT` 是一个 JSON 查询函数，可用于查询 JSON 文档。
+`JSON EXTRACT` 是一个 JSON 查询函数，可用于查询 JSON 文档。
 
 **语法结构**：`select json_extract(jsonDoc, pathExpression);`
 
