@@ -93,7 +93,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
       ```
       # Start mo-service in the frontend
-      ./mo-service -launch ./etc/quickstart/launch.toml
+      ./mo-service -launch ./etc/launch-tae-CN-tae-DN/launch.toml
       ```
       在前台启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne。
 
@@ -103,7 +103,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
       ```
       # Start mo-service in the backend
-      ./mo-service --daemon --launch ./etc/quickstart/launch.toml &> test.log &
+      ./mo-service --daemon --launch ./etc/launch-tae-CN-tae-DN/launch.toml &> test.log &
 
       # Find mo-service PID
       ps aux | grep mo-service
@@ -119,6 +119,9 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
       __Tips__: 如上述示例所示，使用命令 `ps aux | grep mo-service` 首先查找出 MatrixOne 运行的进程号为 `15277`，`kill -9 15277` 即表示停止进程号为 `15277` 的 MatrixOne。
 
       接下来你可以进行下一步 - 连接 MatrixOne。
+
+!!! note
+    首次启动 MatrixOne 大致需要花费 20 至 30 秒的时间，在稍作等待后，你便可以使用 MySQL 客户端连接至 MatrixOne。
 
 ## 步骤 4：连接 MatrixOne
 

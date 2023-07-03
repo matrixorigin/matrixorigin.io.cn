@@ -117,6 +117,9 @@
 
       接下来你可以进行下一步 - 连接 MatrixOne。
 
+!!! note
+    首次启动 MatrixOne 大致需要花费 20 至 30 秒的时间，在稍作等待后，你便可以使用 MySQL 客户端连接至 MatrixOne。
+
 ## 步骤 5：连接 MatrixOne
 
 ### 安装并配置 MySQL 客户端
