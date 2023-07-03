@@ -2823,34 +2823,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/optimization-concepts/through-partition-by/" class="md-nav__link">
-        使用分区表调优
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/control-execution-plan/optimizer-hints/" class="md-nav__link">
-        Optimizer Hints
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -7650,8 +7622,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#json_extreact" class="md-nav__link">
-    JSON_EXTREACT() 函数
+  <a href="#json_extract" class="md-nav__link">
+    JSON_EXTRACT() 函数
   </a>
   
 </li>
@@ -8534,8 +8506,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#json_extreact" class="md-nav__link">
-    JSON_EXTREACT() 函数
+  <a href="#json_extract" class="md-nav__link">
+    JSON_EXTRACT() 函数
   </a>
   
 </li>
@@ -8583,7 +8555,7 @@
 </thead>
 <tbody>
 <tr>
-<td>JSON_EXTREACT()</td>
+<td>JSON_EXTRACT()</td>
 <td>从 JSON 文档返回数据</td>
 </tr>
 <tr>
@@ -8596,8 +8568,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="json_extreact">JSON_EXTREACT() 函数</h2>
-<p><code>JSON EXTREACT</code> 是一个 JSON 查询函数，可用于查询 JSON 文档。</p>
+<h2 id="json_extract">JSON_EXTRACT() 函数</h2>
+<p><code>JSON EXTRACT</code> 是一个 JSON 查询函数，可用于查询 JSON 文档。</p>
 <p><strong>语法结构</strong>：<code>select json_extract(jsonDoc, pathExpression);</code></p>
 <p><code>pathExpression</code> 是 JSON 路径表达式，即在 JSON 文档中选择一个值。</p>
 <p>路径表达式对于提取部分 JSON 文档或修改 JSON 文档的函数很有用，指定在该文档中的哪个位置进行操作。例如，以下查询从 JSON 文档中提取具有 name 键的成员的值：</p>

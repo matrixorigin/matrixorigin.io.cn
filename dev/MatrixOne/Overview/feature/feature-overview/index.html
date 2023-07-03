@@ -2964,34 +2964,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/optimization-concepts/through-partition-by/" class="md-nav__link">
-        使用分区表调优
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/control-execution-plan/optimizer-hints/" class="md-nav__link">
-        Optimizer Hints
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -8738,7 +8710,7 @@
 <h2 id="matrixone_1">MatrixOne 特性</h2>
 <p>在 MatrixOne 版本 0.8.0 中，具有如下特性，让你在使用 MatrixOne 的过程中更加高效：</p>
 <h3 id="_1">分布式架构</h3>
-<p>在 MatrixOne 中，采用了的分布式存算分离的分布式架构，存储层、数据层、计算层的分离，使得 MatrixOne 在遇到系统资源瓶颈时，能够灵活实现节点的扩容。同时，多节点的架构下，资源可以进行更加有效率地分配，一定程度上避免了热点与资源征用。</p>
+<p>在 MatrixOne 中，采用了分布式存算分离的分布式架构，存储层、数据层、计算层的分离，使得 MatrixOne 在遇到系统资源瓶颈时，能够灵活实现节点的扩容。同时，多节点的架构下，资源可以进行更加有效率地分配，一定程度上避免了热点与资源征用。</p>
 <h3 id="_2">事务与隔离</h3>
 <p>在 MatrixOne 中，事务采用了乐观事务与快照隔离。</p>
 <p>在分布式架构下，乐观事务可以通过较少的冲突获得更优的性能。同时在实现方式上，能够实现隔离级别更高的快照隔离。为了保证事务的 ACID 四个要素，MatrixOne 目前支持且仅支持快照隔离一种隔离级别。该隔离级别较常见的读已提交相比，隔离级别更加严格，既可以有效防止脏读，又能够更好地适配分布式乐观事务。</p>

@@ -2911,34 +2911,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/optimization-concepts/through-partition-by/" class="md-nav__link">
-        使用分区表调优
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/control-execution-plan/optimizer-hints/" class="md-nav__link">
-        Optimizer Hints
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -8693,14 +8665,14 @@ unzip<span class="w"> </span>mo-v0.8.0-darwin-arm64.zip
 <div class="tabbed-block">
 <p>该启动方式会在终端的前台运行 <code>mo-service</code> 进行，实时打印系统日志。如果你想停止 MatrixOne 服务器，只需按 CTRL+C 或关闭当前终端。</p>
 <p><div class="highlight"><pre><span></span><code># Start mo-service in the frontend
-./mo-service -launch ./etc/quickstart/launch.toml
+./mo-service -launch ./etc/launch-tae-CN-tae-DN/launch.toml
 </code></pre></div>
   在前台启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne。</p>
 </div>
 <div class="tabbed-block">
 <p>该启动方法会在后台运行 <code>mo-service</code> 进程，系统日志将重定向到 <code>test.log</code> 文件中。如果你想停止 MatrixOne 服务器，你需要通过以下命令查找出它的 <code>PID</code> 进程号并消除进程。下面是整个过程的完整示例。</p>
 <div class="highlight"><pre><span></span><code># Start mo-service in the backend
-./mo-service --daemon --launch ./etc/quickstart/launch.toml &amp;&gt; test.log &amp;
+./mo-service --daemon --launch ./etc/launch-tae-CN-tae-DN/launch.toml &amp;&gt; test.log &amp;
 
 # Find mo-service PID
 ps aux | grep mo-service
@@ -8716,6 +8688,10 @@ kill -9 15277
 <p>接下来你可以进行下一步 - 连接 MatrixOne。</p>
 </div>
 </div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>首次启动 MatrixOne 大致需要花费 20 至 30 秒的时间，在稍作等待后，你便可以使用 MySQL 客户端连接至 MatrixOne。</p>
 </div>
 <h2 id="4-matrixone">步骤 4：连接 MatrixOne</h2>
 <h3 id="mysql">安装并配置 MySQL 客户端</h3>
