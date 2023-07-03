@@ -4,11 +4,11 @@ MatrixOne 支持以下 JSON 函数：
 
 |名称|描述|
 |---|---|
-|JSON_EXTREACT()|从 JSON 文档返回数据|
+|JSON_EXTRACT()|从 JSON 文档返回数据|
 |JSON_QUOTE()	|引用 JSON 文档|
 |JSON_UNQUOTE()	|取消引用 JSON 值|
 
-## JSON_EXTREACT() 函数
+## JSON_EXTRACT() 函数
 
 `JSON EXTREACT` 是一个 JSON 查询函数，可用于查询 JSON 文档。
 
