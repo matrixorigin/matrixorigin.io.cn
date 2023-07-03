@@ -178,8 +178,6 @@ nav:
       - 性能调优最佳实践:
         - 使用 Cluster by 语句调优: MatrixOne/Performance-Tuning/optimization-concepts/through-cluster-by.md
         - 通过扩展 CN 提升性能: MatrixOne/Performance-Tuning/optimization-concepts/through-CN-extensions.md
-        - 使用分区表调优: MatrixOne/Performance-Tuning/optimization-concepts/through-partition-by.md
-        - Optimizer Hints: MatrixOne/Performance-Tuning/control-execution-plan/optimizer-hints.md
     - 权限:
       - TLS 安全连接: MatrixOne/Security/TLS-introduction.md
       - 密码管理: MatrixOne/Security/password-mgmt.md
