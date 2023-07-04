@@ -13,7 +13,6 @@
 | Red Hat Enterprise Linux | 9.0 or later releases |
 | Oracle Enterprise Linux  | 9.0 or later releases |
 
-
 - MatrixOne 也支持 macOS 操作系统，当前仅建议在测试和开发环境运行。
 
 | macOS | 版本                |
