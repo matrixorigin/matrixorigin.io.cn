@@ -387,20 +387,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Overview/feature/feature-overview/" class="md-nav__link">
-        功能概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Overview/feature/key-feature-htap/" class="md-nav__link">
         混合负载 HTAP
       </a>
@@ -7878,34 +7864,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#range-partitioning" class="md-nav__link">
-    RANGE Partitioning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#range-columns-partitioning" class="md-nav__link">
-    RANGE COLUMNS partitioning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-partitioning" class="md-nav__link">
-    LIST Partitioning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-columns-partitioning" class="md-nav__link">
-    LIST COLUMNS partitioning
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -8653,34 +8611,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#range-partitioning" class="md-nav__link">
-    RANGE Partitioning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#range-columns-partitioning" class="md-nav__link">
-    RANGE COLUMNS partitioning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-partitioning" class="md-nav__link">
-    LIST Partitioning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-columns-partitioning" class="md-nav__link">
-    LIST COLUMNS partitioning
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -8710,10 +8640,6 @@
 <ul>
 <li>KEY Partitioning</li>
 <li>HASH Partitioning</li>
-<li>RANGE Partitioning</li>
-<li>RANGE COLUMNS partitioning</li>
-<li>LIST Partitioning</li>
-<li>LIST COLUMNS partitioning</li>
 </ul>
 <p>目前支持子分区（Subpartitioning）语法，但是不支持计划构建。</p>
 <h2 id="2">2. 关于分区键的说明</h2>
@@ -8816,67 +8742,6 @@
 <span class="p">)</span>
 <span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">LINEAR</span><span class="w"> </span><span class="n">HASH</span><span class="p">(</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="n">col3</span><span class="p">))</span>
 <span class="n">PARTITIONS</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
-</code></pre></div>
-<h3 id="range-partitioning">RANGE Partitioning</h3>
-<p>​RANGE 分区会根据分区函数，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 MySQL 语法，需要执行器报错：<code>Table has no partition for value xxx</code>。</p>
-<p>SQL 示例如下：</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">fname</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
-<span class="w">    </span><span class="n">lname</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
-<span class="w">    </span><span class="n">hired</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;1970-01-01&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">separated</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;9999-12-31&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">job_code</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">store_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
-<span class="p">)</span>
-<span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RANGE</span><span class="w"> </span><span class="p">(</span><span class="n">store_id</span><span class="p">)</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p0</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">11</span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="k">MAXVALUE</span>
-<span class="p">);</span>
-</code></pre></div>
-<h3 id="range-columns-partitioning">RANGE COLUMNS partitioning</h3>
-<p>​RANGE COLUMNS 分区会根据键列表，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 M 有 SQL 语法，需要执行器报错：<code>Table has no partition for value xxx</code>。</p>
-<p>SQL 示例如下：</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">rc</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
-<span class="p">)</span>
-<span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RANGE</span><span class="w"> </span><span class="n">COLUMNS</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p0</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Data for LESS THAN (10,5)&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Data for LESS THAN (20,10)&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="k">MAXVALUE</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Data for LESS THAN (50,MAXVALUE)&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">65</span><span class="p">,</span><span class="k">MAXVALUE</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Data for LESS THAN (65,MAXVALUE)&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p4</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="k">MAXVALUE</span><span class="p">,</span><span class="k">MAXVALUE</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Data for LESS THAN (MAXVALUE,MAXVALUE)&#39;</span>
-<span class="p">);</span>
-</code></pre></div>
-<h3 id="list-partitioning">LIST Partitioning</h3>
-<p>​LIST 分区会根据分区键，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 MySQL 语法，需要执行器报错：<code>Table has no partition for value xxx</code>。</p>
-<p>SQL 示例如下：</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">client_firms</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">id</span><span class="w">   </span><span class="nb">INT</span><span class="p">,</span>
-<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">LIST</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">r0</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">)</span>
-<span class="p">);</span>
-</code></pre></div>
-<h3 id="list-columns-partitioning">LIST COLUMNS partitioning</h3>
-<p>​LIST COLUMNS 分区会根据分区键列表，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 M 有 SQL 语法，需要执行器报错：<code>Table has no partition for value xxx</code>。</p>
-<p>SQL 示例如下：</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">lc</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NULL</span>
-<span class="p">)</span>
-<span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">LIST</span><span class="w"> </span><span class="n">COLUMNS</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p0</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
-<span class="p">);</span>
 </code></pre></div>
 
               

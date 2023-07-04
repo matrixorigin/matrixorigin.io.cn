@@ -387,20 +387,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Overview/feature/feature-overview/" class="md-nav__link">
-        功能概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Overview/feature/key-feature-htap/" class="md-nav__link">
         混合负载 HTAP
       </a>
@@ -7997,6 +7983,19 @@
     操作系统要求
   </a>
   
+    <nav class="md-nav" aria-label="操作系统要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matrixone" class="md-nav__link">
+    部署 MatrixOne 所需的操作系统版本是什么？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -8006,6 +8005,13 @@
   
     <nav class="md-nav" aria-label="硬件要求">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matrixone_1" class="md-nav__link">
+    MatrixOne 对部署硬件的配置要求如何？
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
@@ -8049,14 +8055,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#matrixone" class="md-nav__link">
+  <a href="#matrixone_2" class="md-nav__link">
     当我安装选择从源代码安装构建 MatrixOne 时，产生了以下错误或构建失败提示，我该如何继续？
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#matrixone_1" class="md-nav__link">
+  <a href="#matrixone_3" class="md-nav__link">
     当我想将 MatrixOne 的数据目录保存到我指定的文件目录中，我应该如何操作？
   </a>
   
@@ -8581,6 +8587,19 @@
     操作系统要求
   </a>
   
+    <nav class="md-nav" aria-label="操作系统要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matrixone" class="md-nav__link">
+    部署 MatrixOne 所需的操作系统版本是什么？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -8590,6 +8609,13 @@
   
     <nav class="md-nav" aria-label="硬件要求">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matrixone_1" class="md-nav__link">
+    MatrixOne 对部署硬件的配置要求如何？
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
@@ -8633,14 +8659,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#matrixone" class="md-nav__link">
+  <a href="#matrixone_2" class="md-nav__link">
     当我安装选择从源代码安装构建 MatrixOne 时，产生了以下错误或构建失败提示，我该如何继续？
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#matrixone_1" class="md-nav__link">
+  <a href="#matrixone_3" class="md-nav__link">
     当我想将 MatrixOne 的数据目录保存到我指定的文件目录中，我应该如何操作？
   </a>
   
@@ -8692,13 +8718,9 @@
 
 <h1 id="_1">部署常见问题</h1>
 <h2 id="_2">操作系统要求</h2>
+<h3 id="matrixone"><strong>部署 MatrixOne 所需的操作系统版本是什么？</strong></h3>
 <ul>
-<li>
-<p><strong>部署 MatrixOne 所需的操作系统版本是什么？</strong></p>
-</li>
-<li>
-<p>单机推荐配置：MatrixOne 当前支持下表中操作系统。</p>
-</li>
+<li>MatrixOne 当前支持下表中操作系统。</li>
 </ul>
 <table>
 <thead>
@@ -8709,20 +8731,20 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">Red Hat Enterprise Linux</td>
-<td align="left">7.3 or later 7.x releases</td>
-</tr>
-<tr>
-<td align="left">CentOS</td>
-<td align="left">7.3 or later 7.x releases</td>
-</tr>
-<tr>
-<td align="left">Oracle Enterprise Linux</td>
-<td align="left">7.3 or later 7.x releases</td>
+<td align="left">Debian</td>
+<td align="left">11.0 or later</td>
 </tr>
 <tr>
 <td align="left">Ubuntu LTS</td>
-<td align="left">22.04 or later</td>
+<td align="left">20.04 or later</td>
+</tr>
+<tr>
+<td align="left">Red Hat Enterprise Linux</td>
+<td align="left">9.0 or later releases</td>
+</tr>
+<tr>
+<td align="left">Oracle Enterprise Linux</td>
+<td align="left">9.0 or later releases</td>
 </tr>
 </tbody>
 </table>
@@ -8744,8 +8766,8 @@
 </tbody>
 </table>
 <h2 id="_3">硬件要求</h2>
-<p>MatrixOne 对部署硬件的配置要求如何？**</p>
-<p>单机安装情况下，MatrixOne 当前可以运行在 Intel x86-64 架构的 64 位通用硬件服务器平台上。</p>
+<h3 id="matrixone_1"><strong>MatrixOne 对部署硬件的配置要求如何？</strong></h3>
+<p>单机安装情况下，MatrixOne 当前可以运行在 Intel x86-64 和 ARM 架构的 64 位通用硬件服务器平台上。</p>
 <p>对于开发、测试和生产环境的服务器硬件配置要求和建议如下：</p>
 <h3 id="_4">开发和测试环境要求</h3>
 <table>
@@ -8782,6 +8804,7 @@
 </tr>
 </tbody>
 </table>
+<p>分布式安装情况下，MatrixOne 对于开发、测试和生产环境的服务器硬件配置要求和建议可以参考<a href="../../Deploy/deployment-topology/experience-deployment-topology/">分布式部署的拓扑文档</a>。</p>
 <h2 id="_6">安装和部署</h2>
 <h3 id="_7"><strong>安装时需要更改什么设置吗？</strong></h3>
 <p>通常情况下，安装时，你无需更改任何设置。<code>launch.toml</code> 默认设置完全可以直接运行 MatrixOne。但是如果你需要自定义监听端口、IP 地址、存储数据文件路径，你可以修改相应的 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/cn.toml"><code>cn.toml</code></a>、<a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/dn.toml"><code>dn.toml</code></a> 或 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/log.toml"><code>log.toml</code></a>，这些文件内参数配置详情可参考<a href="../../Reference/System-Parameters/configuration-settings/">通用参数配置</a></p>
@@ -8813,7 +8836,7 @@ Password:
 </div>
 </div>
 </div>
-<h3 id="matrixone"><strong>当我安装选择从源代码安装构建 MatrixOne 时，产生了以下错误或构建失败提示，我该如何继续？</strong></h3>
+<h3 id="matrixone_2"><strong>当我安装选择从源代码安装构建 MatrixOne 时，产生了以下错误或构建失败提示，我该如何继续？</strong></h3>
 <p>报错：<code>Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout</code></p>
 <p>由于 MatrixOne 需要许多 GO 库作为依赖项，所以它在构建时，会同时下载 GO 库。上述所示的报错是下载超时的错误，主要原因是网络问题。</p>
 <ul>
@@ -8827,7 +8850,7 @@ Password:
 <div class="highlight"><pre><span></span><code>go env -w GOPROXY=https://goproxy.cn,direct
 </code></pre></div>
 <p>设置完成后，<code>make build</code> 应该很快就能完成。</p>
-<h3 id="matrixone_1"><strong>当我想将 MatrixOne 的数据目录保存到我指定的文件目录中，我应该如何操作？</strong></h3>
+<h3 id="matrixone_3"><strong>当我想将 MatrixOne 的数据目录保存到我指定的文件目录中，我应该如何操作？</strong></h3>
 <p>当你使用 Docker 启动 MatrixOne，你可以将你指定的数据目录挂载至 Docker 容器，参见<a href="../../Maintain/mount-data-by-docker/">挂载目录到 Docker 容器</a>。</p>
 <p>当你使用源码或二进制包编译并启动 MatrixOne，你可以通过修改配置文件中的默认数据目录路径：打开 MatrixOne 源码文件目录 <code>matrixone/etc/launch-tae-CN-tae-DN</code>，修改 <code>cn.toml</code>、<code>dn.toml</code> 和 <code>log.toml</code> 三个文件内的配置参数 <code>data-dir = "./mo-data"</code> 为 <code>data-dir = "your_local_path"</code>，保存后重启 MatrixOne 即可生效。</p>
 <h3 id="mo-tester-matrixone-too-many-open-files"><strong>当我通过 MO-Tester 对 MatrixOne 进行测试时，我如何解决产生的 <code>too many open files</code> 错误？</strong></h3>
@@ -8896,15 +8919,15 @@ make
 </li>
 </ol>
 <h3 id="main-matrixone-panic"><strong>我先在 main 分支构建了 MatrixOne，现在切换到其他版本再进行构建出现 panic</strong></h3>
-<p>MatrixOne 版本 0.7.0 以及之前的版本之间的存储格式并不相互兼容。这意味着在执行 <code>make build</code> 后，系统会自动生成一个名为 <em>mo-data</em> 的数据目录文件，用于存放数据。</p>
+<p>MatrixOne 版本 0.8.0 以及之前的版本之间的存储格式并不相互兼容。这意味着在执行 <code>make build</code> 后，系统会自动生成一个名为 <em>mo-data</em> 的数据目录文件，用于存放数据。</p>
 <p>如果在未来你需要切换到其他分支并重新进行 <code>make build</code> 以构建 MatrixOne，可能会导致 panic 情况发生。在这种情况下，你需要先清理 <em>mo-data</em> 数据目录（即执行 <code>rm -rf mo-data</code> 命令），然后再重新构建 MatrixOne。</p>
 <p>参考代码示例：</p>
 <div class="highlight"><pre><span></span><code>[root ~]# cd matrixone  // 进入 matrixone 文件目录
 [root ~]# git branch // 查看当前分支
-* 0.7.0
+* 0.8.0
 [root ~]# make build // 构建 matrixone
-...    // 此处省略构建过程代码。如果你此时想要切换到其他版本，例如 0.6.0 版本
-[root ~]# git checkout 0.6.0 // 切换到 0.6.0 版本
+...    // 此处省略构建过程代码。如果你此时想要切换到其他版本，例如 0.7.0 版本
+[root ~]# git checkout 0.7.0 // 切换到 0.7.0 版本
 [root ~]# rm -rf mo-data // 清理数据目录
 [root ~]# make build // 构建 matrixone
 ...    // 此处省略构建过程代码
