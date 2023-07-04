@@ -47,7 +47,6 @@ nav:
       - MatrixOne 简介: MatrixOne/Overview/matrixone-introduction.md
       - MatrixOne 功能清单: MatrixOne/Overview/matrixone-feature-list.md
       - MatrixOne 功能概述:
-        - 功能概述: MatrixOne/Overview/feature/feature-overview.md
         - 混合负载 HTAP: MatrixOne/Overview/feature/key-feature-htap.md
         - 多租户: MatrixOne/Overview/feature/key-feature-multi-accounts.md
         - 极致扩展性: MatrixOne/Overview/feature/scalability.md
