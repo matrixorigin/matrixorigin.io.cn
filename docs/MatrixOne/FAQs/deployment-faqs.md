@@ -2,16 +2,17 @@
 
 ## 操作系统要求
 
-* **部署 MatrixOne 所需的操作系统版本是什么？**
+### **部署 MatrixOne 所需的操作系统版本是什么？**
 
-- 单机推荐配置：MatrixOne 当前支持下表中操作系统。
+- MatrixOne 当前支持下表中操作系统。
 
 | Linux OS                 | 版本                   |
 | :----------------------- | :------------------------ |
-| Red Hat Enterprise Linux | 7.3 or later 7.x releases |
-| CentOS                   | 7.3 or later 7.x releases |
-| Oracle Enterprise Linux  | 7.3 or later 7.x releases |
-| Ubuntu LTS               | 22.04 or later            |
+| Debian              | 11.0 or later            |
+| Ubuntu LTS               | 20.04 or later            |
+| Red Hat Enterprise Linux | 9.0 or later releases |
+| Oracle Enterprise Linux  | 9.0 or later releases |
+
 
 - MatrixOne 也支持 macOS 操作系统，当前仅建议在测试和开发环境运行。
 
@@ -21,9 +22,9 @@
 
 ## 硬件要求
 
-MatrixOne 对部署硬件的配置要求如何？**
+### **MatrixOne 对部署硬件的配置要求如何？**
 
-单机安装情况下，MatrixOne 当前可以运行在 Intel x86-64 架构的 64 位通用硬件服务器平台上。
+单机安装情况下，MatrixOne 当前可以运行在 Intel x86-64 和 ARM 架构的 64 位通用硬件服务器平台上。
 
 对于开发、测试和生产环境的服务器硬件配置要求和建议如下：
 
@@ -40,6 +41,8 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
 | CPU      | 内存 | 本地存储   |
 | :------- | :----- | :-------------- |
 | 16 core+ | 64 GB+ | SSD/HDD 500 GB+ |
+
+分布式安装情况下，MatrixOne对于开发、测试和生产环境的服务器硬件配置要求和建议可以参考[分布式部署的拓扑文档](../Deploy/deployment-topology/experience-deployment-topology.md)。
 
 ## 安装和部署
 
@@ -173,7 +176,7 @@ ulimit -n 65536
 
 ### **我先在 main 分支构建了 MatrixOne，现在切换到其他版本再进行构建出现 panic**
 
-MatrixOne 版本 0.7.0 以及之前的版本之间的存储格式并不相互兼容。这意味着在执行 `make build` 后，系统会自动生成一个名为 *mo-data* 的数据目录文件，用于存放数据。
+MatrixOne 版本 0.8.0 以及之前的版本之间的存储格式并不相互兼容。这意味着在执行 `make build` 后，系统会自动生成一个名为 *mo-data* 的数据目录文件，用于存放数据。
 
 如果在未来你需要切换到其他分支并重新进行 `make build` 以构建 MatrixOne，可能会导致 panic 情况发生。在这种情况下，你需要先清理 *mo-data* 数据目录（即执行 `rm -rf mo-data` 命令），然后再重新构建 MatrixOne。
 
@@ -182,10 +185,10 @@ MatrixOne 版本 0.7.0 以及之前的版本之间的存储格式并不相互兼
 ```
 [root ~]# cd matrixone  // 进入 matrixone 文件目录
 [root ~]# git branch // 查看当前分支
-* 0.7.0
+* 0.8.0
 [root ~]# make build // 构建 matrixone
-...    // 此处省略构建过程代码。如果你此时想要切换到其他版本，例如 0.6.0 版本
-[root ~]# git checkout 0.6.0 // 切换到 0.6.0 版本
+...    // 此处省略构建过程代码。如果你此时想要切换到其他版本，例如 0.7.0 版本
+[root ~]# git checkout 0.7.0 // 切换到 0.7.0 版本
 [root ~]# rm -rf mo-data // 清理数据目录
 [root ~]# make build // 构建 matrixone
 ...    // 此处省略构建过程代码
