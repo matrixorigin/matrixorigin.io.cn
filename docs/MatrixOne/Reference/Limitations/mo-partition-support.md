@@ -6,10 +6,6 @@
 
 - KEY Partitioning
 - HASH Partitioning
-- RANGE Partitioning
-- RANGE COLUMNS partitioning
-- LIST Partitioning
-- LIST COLUMNS partitioning
 
 目前支持子分区（Subpartitioning）语法，但是不支持计划构建。
 
@@ -136,85 +132,4 @@ CREATE TABLE t1 (
 )
 PARTITION BY LINEAR HASH( YEAR(col3))
 PARTITIONS 6;
-```
-
-### RANGE Partitioning
-
-​RANGE 分区会根据分区函数，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 MySQL 语法，需要执行器报错：`Table has no partition for value xxx`。
-
-SQL 示例如下：
-
-```sql
-CREATE TABLE employees (
-	id INT NOT NULL,
-	fname VARCHAR(30),
-	lname VARCHAR(30),
-	hired DATE NOT NULL DEFAULT '1970-01-01',
-	separated DATE NOT NULL DEFAULT '9999-12-31',
-	job_code INT NOT NULL,
-	store_id INT NOT NULL
-)
-PARTITION BY RANGE (store_id) (
-	PARTITION p0 VALUES LESS THAN (6),
-	PARTITION p1 VALUES LESS THAN (11),
-	PARTITION p2 VALUES LESS THAN (16),
-	PARTITION p3 VALUES LESS THAN MAXVALUE
-);
-```
-
-### RANGE COLUMNS partitioning
-
-​RANGE COLUMNS 分区会根据键列表，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 M 有 SQL 语法，需要执行器报错：`Table has no partition for value xxx`。
-
-SQL 示例如下：
-
-```sql
-CREATE TABLE rc (
-	a INT NOT NULL,
-	b INT NOT NULL
-)
-PARTITION BY RANGE COLUMNS(a,b) (
-	PARTITION p0 VALUES LESS THAN (10,5) COMMENT = 'Data for LESS THAN (10,5)',
-	PARTITION p1 VALUES LESS THAN (20,10) COMMENT = 'Data for LESS THAN (20,10)',
-	PARTITION p2 VALUES LESS THAN (50,MAXVALUE) COMMENT = 'Data for LESS THAN (50,MAXVALUE)',
-	PARTITION p3 VALUES LESS THAN (65,MAXVALUE) COMMENT = 'Data for LESS THAN (65,MAXVALUE)',
-	PARTITION p4 VALUES LESS THAN (MAXVALUE,MAXVALUE) COMMENT = 'Data for LESS THAN (MAXVALUE,MAXVALUE)'
-);
-```
-
-### LIST Partitioning
-
-​LIST 分区会根据分区键，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 MySQL 语法，需要执行器报错：`Table has no partition for value xxx`。
-
-SQL 示例如下：
-
-```sql
-CREATE TABLE client_firms (
-	id   INT,
-	name VARCHAR(35)
-)
-PARTITION BY LIST (id) (
-	PARTITION r0 VALUES IN (1, 5, 9, 13, 17, 21),
-	PARTITION r1 VALUES IN (2, 6, 10, 14, 18, 22),
-	PARTITION r2 VALUES IN (3, 7, 11, 15, 19, 23),
-	PARTITION r3 VALUES IN (4, 8, 12, 16, 20, 24)
-);
-```
-
-### LIST COLUMNS partitioning
-
-​LIST COLUMNS 分区会根据分区键列表，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 M 有 SQL 语法，需要执行器报错：`Table has no partition for value xxx`。
-
-SQL 示例如下：
-
-```sql
-CREATE TABLE lc (
-	a INT NULL,
-	b INT NULL
-)
-PARTITION BY LIST COLUMNS(a,b) (
-	PARTITION p0 VALUES IN( (0,0), (NULL,NULL) ),
-	PARTITION p1 VALUES IN( (0,1), (0,2) ),
-	PARTITION p2 VALUES IN( (1,0), (2,0) )
-);
 ```
