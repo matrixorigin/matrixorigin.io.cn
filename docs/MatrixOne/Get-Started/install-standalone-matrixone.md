@@ -1,15 +1,16 @@
 # **单机部署 MatrixOne**
 
-单机版 MatrixOne 适用场景即是使用单台服务器，体验 MatrixOne 最小的完整拓扑，并模拟开发环境下的部署步骤。
-
+单机版 MatrixOne 适用场景即是使用单台开发机器部署 MatrixOne ，体验 MatrixOne 的基本功能，与单机版使用一个 MySQL 基本相同。
+ 
 **推荐安装环境**：
 
 作为一款开源数据库，MatrixOne 目前支持主流的 **Linux** 和 **MacOS** 系统。为了快速上手，本文档中优先推荐如下硬件规格：
 
 |操作系统 |操作系统版本 | CPU     | 内存 |
 | :------ |:------ | :------ | :----- |
-|CentOS| 7.3 及以上 | x86 CPU；4 核 | 32 GB |
-|macOS| Monterey 12.3 及以上 | - x86 CPU；4 核<br>- ARM；4 核 | 32 GB |
+|Debian| 11 以上 | x86 / ARM CPU；4 核 | 16 GB |
+|Ubuntu| 20.04 及以上 | x86 / ARM CPU；4 核 | 16 GB |
+|macOS| Monterey 12.3 及以上 | - x86 / ARM CPU；4 核 | 16 GB |
 
 你也可以查阅[硬件与操作系统要求](../FAQs/deployment-faqs.md)，查看更多关于硬件规格推荐，选用合适的硬件环境。
 
