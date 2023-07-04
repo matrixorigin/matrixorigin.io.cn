@@ -1,6 +1,6 @@
 # **单机部署 MatrixOne**
 
-单机版 MatrixOne 适用场景即是使用单台开发机器部署 MatrixOne ，体验 MatrixOne 的基本功能，与单机版使用一个 MySQL 基本相同。
+单机版 MatrixOne 适用场景即是使用单台开发机器部署 MatrixOne，体验 MatrixOne 的基本功能，与单机版使用一个 MySQL 基本相同。
 
 **推荐安装环境**：
 

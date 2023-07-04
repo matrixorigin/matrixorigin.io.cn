@@ -41,7 +41,7 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
 | :------- | :----- | :-------------- |
 | 16 core+ | 64 GB+ | SSD/HDD 500 GB+ |
 
-分布式安装情况下，MatrixOne对于开发、测试和生产环境的服务器硬件配置要求和建议可以参考[分布式部署的拓扑文档](../Deploy/deployment-topology/experience-deployment-topology.md)。
+分布式安装情况下，MatrixOne 对于开发、测试和生产环境的服务器硬件配置要求和建议可以参考[分布式部署的拓扑文档](../Deploy/deployment-topology/experience-deployment-topology.md)。
 
 ## 安装和部署
 
