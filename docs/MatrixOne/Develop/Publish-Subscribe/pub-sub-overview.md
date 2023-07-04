@@ -20,7 +20,24 @@
 
 <!--- 通知和提醒：发布订阅功能可以用来向不同的用户或系统发送通知和提醒。例如，当一个电子商务网站需要通知顾客有新产品上线时，发布订阅功能可以用来将新产品信息发布到顾客的订阅列表中，以便顾客及时了解到新产品信息。-->
 
-## 发布订阅示例
+## 发布订阅范围说明
+
+### 可发布/可订阅权限范围
+
+- **发布端**只有 ACCOUNTADMIN 或 MOADMIN 角色可以创建发布与订阅。
+- **订阅端**由 ACCOUNTADMIN 或 MOADMIN 角色操作访问订阅数据权限。
+
+### 发布/订阅数据范围
+
+- 一个**发布**只关联一个数据库。
+- 发布和订阅仅实现数据库级别，暂不支持直接发布订阅表级别。
+- 订阅端对于**订阅库**的权限为只读。
+- **发布端**修改发布端的分享范围，不在新范围里的租户如果已经创建订阅库，该**订阅库**访问无效。
+- **发布端**删除**发布端**的库，如果这个库已发布，则删除失败。
+- **发布端**删除**发布端**的发布，但是订阅库中对应的对象仍然存在，但是**订阅端**访问这个对象时报错，需要**订阅端**删除**订阅**。
+- **发布端**删除**发布对象**，订阅库中的**订阅对象**仍然存在，但是**订阅端**访问这个对象时报错，需要**订阅端**删除**订阅对象**。
+
+### 发布订阅示例
 
 ![](https://github.com/matrixorigin/artwork/blob/main/docs/develop/pub-sub/example-zh.png?raw=true)
 
@@ -174,8 +191,3 @@
 
 - [CREATE...FROM...PUBLICATION...](../../Reference/SQL-Reference/Data-Definition-Language/create-subscription.md)
 - [SHOW SUBSCRIPTIONS](../../Reference/SQL-Reference/Other/SHOW-Statements/show-subscriptions.md)
-
-## 限制
-
-- 发布端只有 ACCOUNTADMIN 或 MOADMIN 角色可以创建发布与订阅。
-- 订阅端由 ACCOUNTADMIN 或 MOADMIN 角色控制访问订阅数据权限。
