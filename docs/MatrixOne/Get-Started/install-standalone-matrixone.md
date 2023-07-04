@@ -10,7 +10,7 @@
 | :------ |:------ | :------ | :----- |
 |Debian| 11 以上 | x86 / ARM CPU；4 核 | 16 GB |
 |Ubuntu| 20.04 及以上 | x86 / ARM CPU；4 核 | 16 GB |
-|macOS| Monterey 12.3 及以上 | - x86 / ARM CPU；4 核 | 16 GB |
+|macOS| Monterey 12.3 及以上 | x86 / ARM CPU；4 核 | 16 GB |
 
 你也可以查阅[硬件与操作系统要求](../FAQs/deployment-faqs.md)，查看更多关于硬件规格推荐，选用合适的硬件环境。
 
