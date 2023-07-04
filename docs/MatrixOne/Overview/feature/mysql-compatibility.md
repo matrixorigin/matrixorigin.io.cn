@@ -193,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `tool` (
 
 ### CAST 函数
 
-* 类型转换规则与 MySQL 差异较大，请参考[CAST](../../Reference/Operators/operators/cast-functions-and-operators/cast.md)。
+* 类型转换规则与 MySQL 差异较大，请参考 [CAST](../../Reference/Operators/operators/cast-functions-and-operators/cast.md)。
 
 ### 窗口函数
 
