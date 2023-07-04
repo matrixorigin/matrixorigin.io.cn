@@ -397,6 +397,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    高级 SQL 功能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     数据类型
   </a>
@@ -420,6 +427,48 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     函数与操作符
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    分区
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    数据导入和导出
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    安全与访问控制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    备份和恢复
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    管理工具
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    部署方式
   </a>
   
 </li>
@@ -458,20 +507,6 @@
           MatrixOne 功能概述
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../feature/feature-overview/" class="md-nav__link">
-        功能概述
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -8537,6 +8572,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    高级 SQL 功能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     数据类型
   </a>
@@ -8564,6 +8606,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    分区
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    数据导入和导出
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    安全与访问控制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    备份和恢复
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    管理工具
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    部署方式
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -8583,95 +8667,99 @@
 
 
 <h1 id="matrixone">MatrixOne 功能清单</h1>
-<p>本文档列出了 MatrixOne 最新版本所支持的功能。</p>
+<p>本文档列出了 MatrixOne 最新版本所支持的功能清单，针对常见以及在 MatrixOne 的路线图中的功能但是目前不支持的功能也将列出。</p>
 <h2 id="data-definition-language-ddl">数据定义语言（Data definition language, DDL）</h2>
 <table>
 <thead>
 <tr>
 <th>数据定义语言 (DDL)</th>
-<th>支持（Y）/不支持（N）</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>CREATE DATABASE</td>
+<td>创建数据库CREATE DATABASE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>DROP DATABASE</td>
+<td>删除数据库DROP DATABASE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>RENAME DATABASE</td>
+<td>修改数据库ALTER DATABASE</td>
 <td>N</td>
 </tr>
 <tr>
-<td>CREATE TABLE</td>
+<td>创建表CREATE TABLE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>ALTER TABLE</td>
+<td>修改表ALTER TABLE</td>
+<td>E，支持修改表名，增删列，不支持修改列</td>
+</tr>
+<tr>
+<td>修改表名RENAME TABLE</td>
+<td>N，可用ALTER TABLE tbl RENAME TO new_tbl替代</td>
+</tr>
+<tr>
+<td>删除表DROP TABLE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>RENAME TABLE</td>
+<td>创建约束CREATE INDEX</td>
+<td>Y，次级索引没有加速作用</td>
+</tr>
+<tr>
+<td>删除约束DROP INDEX</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>修改列MODIFY COLUMN</td>
 <td>N</td>
 </tr>
 <tr>
-<td>DROP TABLE</td>
+<td>主键PRIMARY KEY</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>CREATE INDEX</td>
+<td>创建视图CREATE VIEW</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>DROP INDEX</td>
+<td>修改视图ALTER VIEW</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>MODIFY COLUMN</td>
+<td>删除视图DROP VIEW</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>清空表TRUNCATE TABLE</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>自增列AUTO_INCREMENT</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>序列SEQUENCE</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>临时表TEMPORARY TABLE</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>流式表CREATE STREAM</td>
 <td>N</td>
 </tr>
 <tr>
-<td>PRIMARY KEY</td>
-<td>Y</td>
+<td>分区表PARTITION BY</td>
+<td>E，部分类型支持</td>
 </tr>
 <tr>
-<td>CREATE VIEW</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>ALTER VIEW</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>DROP VIEW</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>CREATE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>REPLACE VIEW</td>
-<td>N</td>
-</tr>
-<tr>
-<td>TRUNCATE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>SEQUENCE</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>AUTO_INCREMENT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Temporary tables</td>
-<td>Y</td>
+<td>字符集和排序顺序CHARSET，COLLATION</td>
+<td>N，仅默认支持UTF8</td>
 </tr>
 </tbody>
 </table>
@@ -8680,7 +8768,7 @@
 <thead>
 <tr>
 <th>SQL 语句</th>
-<th>支持（Y）/不支持（N）</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
 </tr>
 </thead>
 <tbody>
@@ -8705,23 +8793,23 @@
 <td>N</td>
 </tr>
 <tr>
-<td>INSERT ON DUPLICATE KEY</td>
+<td>INSERT ON DUPLICATE KEY UPDATE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>LOAD DATA INFILE</td>
+<td>导入数据 LOAD DATA</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>SELECT INTO OUTFILE</td>
+<td>导出数据 SELECT INTO</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>INNER/LEFT/RIGHT/OUTER JOIN</td>
+<td>连接 INNER/LEFT/RIGHT/OUTER JOIN</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>UNION, UNION ALL</td>
+<td>联合 UNION, UNION ALL</td>
 <td>Y</td>
 </tr>
 <tr>
@@ -8733,11 +8821,19 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>Common Table Expressions(CTE)</td>
+<td>预排序 CLUSTER BY</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>START TRANSACTION, COMMIT, ROLLBACK</td>
+<td>子查询 SUBQUERY</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>公共表表达式(Common Table Expressions，CTE)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>事务语句 BEGIN/START TRANSACTION, COMMIT, ROLLBACK</td>
 <td>Y</td>
 </tr>
 <tr>
@@ -8749,23 +8845,46 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>Stored Procedure</td>
+<td>表级锁 LOCK/UNLOCK TABLE</td>
 <td>N</td>
 </tr>
 <tr>
-<td>Trigger</td>
-<td>N</td>
+<td>用户自定义变量</td>
+<td>Y</td>
 </tr>
+</tbody>
+</table>
+<h2 id="sql_1">高级 SQL 功能</h2>
+<table>
+<thead>
 <tr>
-<td>Event Scheduler</td>
-<td>N</td>
+<th>高级 SQL 功能</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td>PARTITION BY</td>
+<td>预处理PREPARE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>LOCK TABLE</td>
+<td>存储过程 STORED PROCEDURE</td>
+<td>N</td>
+</tr>
+<tr>
+<td>触发器 TRIGGER</td>
+<td>N</td>
+</tr>
+<tr>
+<td>时间调度器EVENT SCHEDULER</td>
+<td>N</td>
+</tr>
+<tr>
+<td>自定义函数UDF</td>
+<td>N</td>
+</tr>
+<tr>
+<td>增量物化视图Materialized VIEW</td>
 <td>N</td>
 </tr>
 </tbody>
@@ -8776,49 +8895,19 @@
 <tr>
 <th>数据类型分类</th>
 <th>数据类型</th>
-<th>支持（Y）/不支持（N）</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>整数类型</td>
-<td>TINYINT</td>
+<td>TINYINT/SMALLINT/INT/BIGINT (UNSIGNED)</td>
 <td>Y</td>
 </tr>
 <tr>
 <td></td>
-<td>SMALLINT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>INT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>BIGINT</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>TINYINT UNSIGNED</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>SMALLINT UNSIGNED</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>INT UNSIGNED</td>
-<td>Y</td>
-</tr>
-<tr>
-<td></td>
-<td>BIGINT UNSIGNED</td>
-<td>Y</td>
+<td>BIT</td>
+<td>N</td>
 </tr>
 <tr>
 <td>浮点类型</td>
@@ -8858,6 +8947,11 @@
 <tr>
 <td></td>
 <td>ENUM</td>
+<td>N，可用VARCHAR代替</td>
+</tr>
+<tr>
+<td></td>
+<td>SET</td>
 <td>N</td>
 </tr>
 <tr>
@@ -8867,23 +8961,28 @@
 </tr>
 <tr>
 <td>时间与日期</td>
-<td>Date</td>
+<td>DATE</td>
 <td>Y</td>
 </tr>
 <tr>
 <td></td>
-<td>Time</td>
+<td>TIME</td>
 <td>Y</td>
 </tr>
 <tr>
 <td></td>
-<td>DateTime</td>
+<td>DATETIME</td>
 <td>Y</td>
 </tr>
 <tr>
 <td></td>
-<td>Timestamp</td>
+<td>TIMESTAMP</td>
 <td>Y</td>
+</tr>
+<tr>
+<td></td>
+<td>YEAR</td>
+<td>N</td>
 </tr>
 <tr>
 <td>Boolean</td>
@@ -8893,12 +8992,22 @@
 <tr>
 <td>定点类型</td>
 <td>DECIMAL</td>
-<td>Y</td>
+<td>Y，最高到38位</td>
 </tr>
 <tr>
 <td>JSON 类型</td>
 <td>JSON</td>
 <td>Y</td>
+</tr>
+<tr>
+<td>向量类型</td>
+<td>VECTOR</td>
+<td>N</td>
+</tr>
+<tr>
+<td>空间类型</td>
+<td>SPATIAL</td>
+<td>N</td>
 </tr>
 </tbody>
 </table>
@@ -8907,7 +9016,7 @@
 <thead>
 <tr>
 <th>索引与约束</th>
-<th>支持（Y）/不支持（N）</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
 </tr>
 </thead>
 <tbody>
@@ -8924,8 +9033,8 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>Secondary KEY</td>
-<td>Y，仅语法实现</td>
+<td>次级索引</td>
+<td>Y，仅语法实现，没有加速效果</td>
 </tr>
 <tr>
 <td>外键约束</td>
@@ -8943,6 +9052,10 @@
 <td>非空约束</td>
 <td>Y</td>
 </tr>
+<tr>
+<td>自增约束</td>
+<td>Y</td>
+</tr>
 </tbody>
 </table>
 <h2 id="_3">事务</h2>
@@ -8950,17 +9063,13 @@
 <thead>
 <tr>
 <th>事务</th>
-<th>支持（Y）/不支持（N）</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1PC</td>
-<td>Y</td>
-</tr>
-<tr>
 <td>悲观事务</td>
-<td>Y</td>
+<td>E</td>
 </tr>
 <tr>
 <td>乐观事务</td>
@@ -8971,8 +9080,12 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>隔离级别</td>
+<td>可重复读隔离（快照SI隔离）</td>
 <td>Y</td>
+</tr>
+<tr>
+<td>读已提交RC隔离</td>
+<td>E</td>
 </tr>
 </tbody>
 </table>
@@ -8981,453 +9094,243 @@
 <thead>
 <tr>
 <th>函数与操作符</th>
-<th>名称</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>聚合函数</td>
-<td>ANY_VALUE()</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>AVG()</td>
+<td>数值类函数</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>BIT_AND()</td>
+<td>时间日期类函数</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>BIT_OR()</td>
+<td>字符串函数</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>BIT_XOR()</td>
+<td>Cast函数</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>COUNT()</td>
+<td>流程控制函数</td>
+<td>E</td>
 </tr>
 <tr>
-<td></td>
-<td>GROUP_CONCAT()</td>
+<td>窗口函数</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>MAX()</td>
+<td>JSON函数</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>MEDIAN()</td>
-</tr>
-<tr>
-<td></td>
-<td>MIN()</td>
-</tr>
-<tr>
-<td></td>
-<td>SLEEP()</td>
-</tr>
-<tr>
-<td></td>
-<td>STD()</td>
-</tr>
-<tr>
-<td></td>
-<td>SUM()</td>
-</tr>
-<tr>
-<td>数学类</td>
-<td>ABS()</td>
-</tr>
-<tr>
-<td></td>
-<td>ACOS()</td>
-</tr>
-<tr>
-<td></td>
-<td>ATAN()</td>
-</tr>
-<tr>
-<td></td>
-<td>CEIL()</td>
-</tr>
-<tr>
-<td></td>
-<td>COS()</td>
-</tr>
-<tr>
-<td></td>
-<td>COT()</td>
-</tr>
-<tr>
-<td></td>
-<td>EXP()</td>
-</tr>
-<tr>
-<td></td>
-<td>FLOOR()</td>
-</tr>
-<tr>
-<td></td>
-<td>LN()</td>
-</tr>
-<tr>
-<td></td>
-<td>LOG()</td>
-</tr>
-<tr>
-<td></td>
-<td>PI()</td>
-</tr>
-<tr>
-<td></td>
-<td>POWER()</td>
-</tr>
-<tr>
-<td></td>
-<td>ROUND()</td>
-</tr>
-<tr>
-<td></td>
-<td>SIN()</td>
-</tr>
-<tr>
-<td></td>
-<td>SINH()</td>
-</tr>
-<tr>
-<td></td>
-<td>TAN()</td>
-</tr>
-<tr>
-<td></td>
-<td>UUID()</td>
-</tr>
-<tr>
-<td>日期时间类</td>
-<td>CURDATE()</td>
-</tr>
-<tr>
-<td></td>
-<td>CURRENT_TIMESTAMP()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATE()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATE_ADD()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATE_FORMAT()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATE_SUB()</td>
-</tr>
-<tr>
-<td></td>
-<td>DATEDIFF()</td>
-</tr>
-<tr>
-<td></td>
-<td>DAY()</td>
-</tr>
-<tr>
-<td></td>
-<td>DAYOFYEAR()</td>
-</tr>
-<tr>
-<td></td>
-<td>EXTRACT()</td>
-</tr>
-<tr>
-<td></td>
-<td>FROM_UNIXTIME()</td>
-</tr>
-<tr>
-<td></td>
-<td>MONTH()</td>
-</tr>
-<tr>
-<td></td>
-<td>NOW()</td>
-</tr>
-<tr>
-<td></td>
-<td>TIMEDIFF()</td>
-</tr>
-<tr>
-<td></td>
-<td>TIMESTAMP()</td>
-</tr>
-<tr>
-<td></td>
-<td>TO_DATE()</td>
-</tr>
-<tr>
-<td></td>
-<td>UNIX_TIMESTAMP()</td>
-</tr>
-<tr>
-<td></td>
-<td>UTC_TIMESTAMP()</td>
-</tr>
-<tr>
-<td></td>
-<td>WEEKDAY()</td>
-</tr>
-<tr>
-<td></td>
-<td>YEAR()</td>
-</tr>
-<tr>
-<td>字符串类</td>
-<td>BIN()</td>
-</tr>
-<tr>
-<td></td>
-<td>BIT_LENGTH()</td>
-</tr>
-<tr>
-<td></td>
-<td>CHAR_LENGTH()</td>
-</tr>
-<tr>
-<td></td>
-<td>CONCAT()</td>
-</tr>
-<tr>
-<td></td>
-<td>CONCAT_WS()</td>
-</tr>
-<tr>
-<td></td>
-<td>EMPTY()</td>
-</tr>
-<tr>
-<td></td>
-<td>ENDSWITH()</td>
-</tr>
-<tr>
-<td></td>
-<td>FIELD()</td>
-</tr>
-<tr>
-<td></td>
-<td>FIND_IN_SET()</td>
-</tr>
-<tr>
-<td></td>
-<td>FORMAT()</td>
-</tr>
-<tr>
-<td></td>
-<td>HEX()</td>
-</tr>
-<tr>
-<td></td>
-<td>LEFT()</td>
-</tr>
-<tr>
-<td></td>
-<td>LENGTH()</td>
-</tr>
-<tr>
-<td></td>
-<td>LENGTHUTF8()</td>
-</tr>
-<tr>
-<td></td>
-<td>LPAD()</td>
-</tr>
-<tr>
-<td></td>
-<td>LTRIM()</td>
-</tr>
-<tr>
-<td></td>
-<td>OCT()</td>
-</tr>
-<tr>
-<td></td>
-<td>REVERSE()</td>
-</tr>
-<tr>
-<td></td>
-<td>RPAD()</td>
-</tr>
-<tr>
-<td></td>
-<td>RTRIM()</td>
-</tr>
-<tr>
-<td></td>
-<td>SPACE()</td>
-</tr>
-<tr>
-<td></td>
-<td>STARTSWITH()</td>
-</tr>
-<tr>
-<td></td>
-<td>SUBSTRING()</td>
-</tr>
-<tr>
-<td></td>
-<td>SUBSTRING_INDEX()</td>
-</tr>
-<tr>
-<td></td>
-<td>TRIM()</td>
+<td>其他函数</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>操作符</td>
-<td>%, MOD</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">分区</h2>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KEY 分区</td>
+<td>E</td>
 </tr>
 <tr>
-<td></td>
-<td>*</td>
+<td>HASH 分区</td>
+<td>E</td>
 </tr>
 <tr>
-<td></td>
-<td>+</td>
+<td>RANGE 分区</td>
+<td>N</td>
 </tr>
 <tr>
-<td></td>
-<td>-</td>
+<td>RANGE COLUMNS分区</td>
+<td>N</td>
 </tr>
 <tr>
-<td></td>
-<td>/</td>
+<td>LIST 分区</td>
+<td>N</td>
 </tr>
 <tr>
-<td></td>
-<td>Div</td>
+<td>LIST COLUMNS 分区</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">数据导入和导出</h2>
+<table>
+<thead>
+<tr>
+<th>数据导入和导出</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件导入LOAD DATA</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>=</td>
+<td>SQL导入SOURCE</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>&amp;</td>
+<td>从对象存储导入</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>&gt;&gt;</td>
+<td>modump工具导出SQL</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>&lt;&lt;</td>
+<td>mysqldump原生工具</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">安全与访问控制</h2>
+<table>
+<thead>
+<tr>
+<th>安全</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传输层加密TLS</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>^</td>
+<td>静态加密</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>|</td>
+<td>从对象存储导入</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>~</td>
+<td>基于角色的访问控制（RBAC）</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>CAST()</td>
+<td>多租户</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">备份和恢复</h2>
+<table>
+<thead>
+<tr>
+<th>备份和恢复</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>逻辑备份恢复</td>
+<td>Y，仅支持modump工具</td>
 </tr>
 <tr>
-<td></td>
-<td>CONVERT()</td>
+<td>物理备份恢复</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_9">管理工具</h2>
+<table>
+<thead>
+<tr>
+<th>管理工具</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单机mo_ctl部署管理</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>&gt;</td>
+<td>分布式mo_ctl部署管理</td>
+<td>E，仅企业版</td>
 </tr>
 <tr>
-<td></td>
-<td>&gt;=</td>
+<td>可视化管理平台</td>
+<td>E，仅公有云版本</td>
 </tr>
 <tr>
-<td></td>
-<td>&lt;</td>
+<td>系统日志记录</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>&lt;&gt;, !=</td>
+<td>系统指标监控</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>&lt;=</td>
+<td>慢查询日志</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>=</td>
+<td>SQL记录</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>LIKE</td>
+<td>Kubernetes operator</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">部署方式</h2>
+<table>
+<thead>
+<tr>
+<th>部署方式</th>
+<th>支持（Y）/不支持（N）/实验特性 (E)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单机环境私有化部署</td>
+<td>Y</td>
 </tr>
 <tr>
-<td></td>
-<td>BETWEEN ... AND ...</td>
+<td>分布式环境私有化部署</td>
+<td>Y，自建Kubernetes与minIO对象存储</td>
 </tr>
 <tr>
-<td></td>
-<td>IN()</td>
+<td>阿里云分布式自建部署</td>
+<td>Y，ACK+OSS</td>
 </tr>
 <tr>
-<td></td>
-<td>IS/IS NOT</td>
+<td>腾讯云分布式自建部署</td>
+<td>Y，TKE+COS</td>
 </tr>
 <tr>
-<td></td>
-<td>IS/IS NOT NULL</td>
+<td>AWS分布式自建部署</td>
+<td>Y，EKS+S3</td>
 </tr>
 <tr>
-<td></td>
-<td>NOT BETWEEN ... AND ...</td>
-</tr>
-<tr>
-<td></td>
-<td>LIKE</td>
-</tr>
-<tr>
-<td></td>
-<td>NOT LIKE</td>
-</tr>
-<tr>
-<td></td>
-<td>COALESCE()</td>
-</tr>
-<tr>
-<td></td>
-<td>CASE...WHEN</td>
-</tr>
-<tr>
-<td></td>
-<td>IF</td>
-</tr>
-<tr>
-<td></td>
-<td>AND</td>
-</tr>
-<tr>
-<td></td>
-<td>OR</td>
-</tr>
-<tr>
-<td></td>
-<td>XOR</td>
-</tr>
-<tr>
-<td></td>
-<td>NOT</td>
+<td>公有云Serverless</td>
+<td>Y，MatrixOne Cloud，支持AWS，阿里云</td>
 </tr>
 </tbody>
 </table>
@@ -9460,13 +9363,13 @@
       
       
         
-        <a href="../feature/feature-overview/" class="md-footer__link md-footer__link--next" aria-label="Next: 功能概述" rel="next">
+        <a href="../feature/key-feature-htap/" class="md-footer__link md-footer__link--next" aria-label="Next: 混合负载 HTAP" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              功能概述
+              混合负载 HTAP
             </div>
           </div>
           <div class="md-footer__button md-icon">
