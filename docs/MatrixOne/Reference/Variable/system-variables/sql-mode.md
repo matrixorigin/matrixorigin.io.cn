@@ -12,8 +12,8 @@ sql_mode 常见的模式如下，在 MatrixOne 中也是默认的模式：
 
 - `ONLY_FULL_GROUP_BY`：`GROUP BY` 子句用于对查询结果进行分组，并对每个组执行聚合计算，例如 `COUNT`、`SUM`、`AVG` 等。在 `GROUP BY` 子句中，指定的列是用于分组的列。而在 `SELECT` 列表中，可以指定其他列，这些列可以是聚合函数或非聚合函数列。在没有 `ONLY_FULL_GROUP_BY` 模式的情况下，如果在 `SELECT` 列表中指定了非聚合函数列，MatrixOne 会默认选择任意一个与 `GROUP BY` 列匹配的值，并将其用于计算聚合函数。
 
-   !!! note
-       如果你的表结构复杂，为了便于查询，你可以选择将 `ONLY_FULL_GROUP_BY` 模式关闭。
+!!! note
+    如果你的表结构复杂，为了便于查询，你可以选择将 `ONLY_FULL_GROUP_BY` 模式关闭。
 
 - `STRICT_TRANS_TABLES`：在执行 `INSERT` 和 `UPDATE` 语句时，如果数据不符合表定义的规则，则会报错。
 
