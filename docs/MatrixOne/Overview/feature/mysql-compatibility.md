@@ -95,6 +95,7 @@ CREATE TABLE IF NOT EXISTS `tool` (
 * 不支持 YEAR 类型。
 * 不支持空间 Spatial 类型。
 * 不支持 BIT，ENUM，SET 类型。
+* 不支持 MEDIUMINT 类型。
 
 ## DCL 语句
 
