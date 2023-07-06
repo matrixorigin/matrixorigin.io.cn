@@ -463,6 +463,8 @@ nav:
           - JSON 函数: MatrixOne/Reference/Functions-and-Operators/Json/json-functions.md
           - 其他函数:
             - SLEEP: MatrixOne/Reference/Functions-and-Operators/Other/sleep.md
+          - 系统运维函数:
+            - PURGE_LOG(): MatrixOne/Reference/Functions-and-Operators/sys-ops/purge_log.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
       - 系统表目录: MatrixOne/Reference/System-tables.md
