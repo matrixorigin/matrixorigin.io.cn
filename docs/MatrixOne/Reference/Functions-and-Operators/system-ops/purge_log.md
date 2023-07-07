@@ -5,20 +5,20 @@
 `PURGE_LOG()` 用于删除日志。
 
 !!! note
-    目前，仅有 sys 用户（即集群管理员）拥有执行 `PURGE_LOG()` 函数以进行日志删除操作的权限。
+    目前，仅有 root 用户（即集群管理员，具有 `MOADMIN` 权限）拥有执行 `PURGE_LOG()` 函数以进行日志删除操作的权限。
 
 ## **函数语法**
 
 ```
-> PURGE_LOG('sys_table_name', 'datetime')
+> PURGE_LOG('sys_table_name', 'date')
 ```
 
 ## **参数释义**
 
 |  参数  | 说明 |
 |  ----  | ----  |
-| 'sys_table_name' | 当前可进行删除的系统表仅三个：metric，raw_log，statement_info。<br> __Note:__ 'sys_table_name' 必须用单引号包裹。|
-| 'datetime'  | 选择日期，删除该日期之前产生的日志。<br> __Note:__ 'datetime' 必须用单引号包裹。|
+| 'sys_table_name' | 当前可进行删除的系统表仅三个：metric，rawlog，statement_info。<br> __Note:__ 'sys_table_name' 必须用引号包裹。|
+| 'date'  | 选择日期，删除该日期之前产生的日志。<br> __Note:__ 'date' 必须用单引号包裹。|
 
 ## **示例**
 
