@@ -61,7 +61,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      ARM 架构系统安装包：
 
      ```bash
-     wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
      unzip mo-v0.8.0-darwin-arm64.zip
      ```
 
@@ -77,7 +77,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
     ARM 架构系统安装包：
 
     ```bash
-    curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
+    curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
     unzip mo-v0.8.0-darwin-arm64.zip
     ```
 
