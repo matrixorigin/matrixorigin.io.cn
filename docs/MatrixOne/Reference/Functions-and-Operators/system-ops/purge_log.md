@@ -43,27 +43,28 @@ mysql> select date(collecttime), count(1) from system_metrics.metric group by da
 +-------------------+----------+
 | date(collecttime) | count(1) |
 +-------------------+----------+
-| 2023-07-04        |    74991 |
-| 2023-07-03        |    38608 |
-| 2023-07-05        |      378 |
+| 2023-07-07        |    20067 |
+| 2023-07-06        |    30246 |
+| 2023-07-05        |    27759 |
 +-------------------+----------+
 3 rows in set (0.04 sec)
 
--- 删除 2023-07-04 这一天之前的 rawlog，statement_info，和 metric 三种类型的日志
-mysql> select purge_log('rawlog,statement_info,metric', '2023-07-04');
-+-----------------------------------------------------+
-| purge_log(rawlog,statement_info,metric, 2023-07-04) |
-+-----------------------------------------------------+
-|                                                   0 |
-+-----------------------------------------------------+
-1 row in set (0.03 sec)
+-- 删除 2023-07-06 这一天之前的 rawlog，statement_info，和 metric 三种类型的日志
+mysql> select purge_log('rawlog, statement_info, metric', '2023-07-06');
++-------------------------------------------------------+
+| purge_log(rawlog, statement_info, metric, 2023-07-06) |
++-------------------------------------------------------+
+|                                                     0 |
++-------------------------------------------------------+
+1 row in set (0.33 sec)
 
--- 再次查询 2023-07-04，2023-07-03 和 2023-07-05 这三天的 metric 日志数量
+-- 再次查询 2023-07-05，2023-07-06 和 2023-07-07 这三天的 metric 日志数量
 mysql> select date(collecttime), count(1) from system_metrics.metric group by date(collecttime);
 +-------------------+----------+
 | date(collecttime) | count(1) |
 +-------------------+----------+
-| 2023-07-05        |      598 |
+| 2023-07-06        |    30246 |
+| 2023-07-07        |    20121 |
 +-------------------+----------+
-1 rows in set (0.01 sec)
+2 rows in set (0.01 sec)
 ```
