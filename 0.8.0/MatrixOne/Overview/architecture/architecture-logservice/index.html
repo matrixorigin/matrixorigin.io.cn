@@ -8681,7 +8681,7 @@
 <p>Logservice 使用基于 Raft 协议的 dragonboat 库（multi-raft group 的 Go 语言开源实现），通常使用本地磁盘以多副本的方式存储日志，类似于对 WAL（Write-Ahead Log）的管理。事务的提交只需要写入 Logservice 中，而无需将数据写入 S3。另外的组件会异步地将数据批量写入 S3 上。这样的设计保证了事务提交时的低延迟，并且多个副本确保了数据的高可靠性。</p>
 <h2 id="logservice_1">Logservice 架构</h2>
 <p>Logservice 的架构由客户端和服务端两部分组成。服务端包括 handler、dragonboat 和 RSM（Replicated State Machine）等模块，而客户端则包含多个关键接口。它们之间的协作关系如下图所示：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/logservice/logserviece-arch.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/logserviece-arch.png" /></p>
 <h3 id="_1">客户端</h3>
 <p>Logservice 客户端主要由 DN（数据节点）调用，并提供以下关键接口：</p>
 <ul>
@@ -8718,7 +8718,7 @@
 <li>在心跳返回时，从 HAKeeper 中获取需要副本执行的命令。</li>
 </ol>
 <p>Logservice 的心跳流程如下图所示，CN 和 DN 的流程类似。</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/logservice/heartbeat.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/heartbeat.png" /></p>
 <p>默认情况下，心跳每秒执行一次，其原理如下：</p>
 <ol>
 <li>在存储级别生成该存储上所有分片副本的心跳信息，包括分片 ID、节点信息、term、leader 等。</li>
@@ -8751,7 +8751,7 @@
 <li>当状态机操作完成后，将结果返回给客户端。</li>
 <li>Follower 节点在接收到来自 leader 的提交索引后，各自执行自己的状态机操作。</li>
 </ol>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/logservice/write.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/write.png" /></p>
 <h4 id="_5">读流程</h4>
 <p>读取数据分为两种情况：</p>
 <ul>
@@ -8765,7 +8765,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/logservice/read.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/read.png" /></p>
 <ul>
 <li>
 <p>从日志数据库（log db）中读取日志条目。</p>
@@ -8777,12 +8777,12 @@
 </ul>
 </li>
 </ul>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/logservice/logdb-read.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/logdb-read.png" /></p>
 <h3 id="truncation">截断（Truncation）</h3>
 <p>当 logservice 的日志条目在 log db 中不断增长时，会导致磁盘空间不足。因此，需要定期释放磁盘空间，这通过截断（truncation）来完成。</p>
 <p>logservice 使用基于内存的状态机，状态机中只记录了一些元数据和状态信息，例如 tick、state 和 LSN 等，并没有记录用户数据，这些数据由数据节点（DN）自己记录。可以将其理解为在主从架构中，状态机是分离的，DN 和 logservice 分别维护各自的状态机。</p>
 <p>在这种状态机分离的设计下，简单的快照（snapshot）机制会导致问题：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/logservice/truncation-1.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/truncation-1.png" /></p>
 <ol>
 <li>当 DN 发送一个截断请求时，截断索引（truncate index）设为 100，但此时 logservice 状态机的应用索引（applied index）是 200，即会删除 200 之前的日志，并在该位置生成快照。注意：截断索引不等于应用索引。</li>
 <li>集群重启。</li>
@@ -8790,7 +8790,7 @@
 <li>DN 从 logservice 读取日志条目，起始位置为 100，但无法读取，因为 200 之前的日志已被删除，出现错误。</li>
 </ol>
 <p>为解决上述问题，当前的截断工作流程如下：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/logservice/truncation-2.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/truncation-2.png" /></p>
 <ol>
 <li>DN 发送截断请求，更新 logservice 状态机中的截断 LSN（truncateLsn），此时仅更新该值，不执行快照/截断操作。</li>
 <li>每个 logservice 服务器内部启动一个截断工作器（truncation worker），定期发送截断请求（Truncate Request）。需要注意的是，该请求中的参数 Exported 设置为 true，表示该快照对系统不可见，仅将快照导出到指定目录下。</li>

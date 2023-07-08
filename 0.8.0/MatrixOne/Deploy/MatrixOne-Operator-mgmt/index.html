@@ -8640,7 +8640,7 @@
 <h3 id="_1">集群管理</h3>
 <p>MatrixOne Operator 通过 MatrixOneCluster 资源为用户提供了声明式的集群管理能力。具体而言，在 Kubernetes 上部署 MatrixOne 集群时，用户可以使用 YAML 格式声明一个 MatrixOneCluster 对象来描述集群，该 operator 的控制器会根据该描述实现集群的编排，并将集群状态更新到 MatrixOneCluster 对象的 <code>.status</code> 字段中。</p>
 <p>MatrixOneCluster 集群由多个组件（如 Compute Node（CN）、Database Node（DN）和 Log Service）构成，这些组件对应于 CNSet、DNSet 和 LogSet 等子资源。因此，MatrixOneCluster 资源的控制器会编排这些子资源，并依赖这些子资源的控制器来完成它们的编排。</p>
-<p><img alt="image-operator" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-operator.png?raw=true" /></p>
+<p><img alt="image-operator" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-operator.png" /></p>
 <h2 id="_2">部署与运维</h2>
 <p>本章节所介绍到的部署与运维环境将基于 <a href="../deploy-MatrixOne-cluster/">MatrixOne 分布式集群部署</a>的环境。</p>
 <p>以下操作均在 master0 节点进行。</p>

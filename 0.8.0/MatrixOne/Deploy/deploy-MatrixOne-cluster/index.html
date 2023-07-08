@@ -8976,7 +8976,7 @@
 </ul>
 <h3 id="_6">整体架构</h3>
 <p>整体的部署架构如下图所示：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-arch-overall.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-overall.png" /></p>
 <p>整体架构由以下组件组成：</p>
 <ul>
 <li>
@@ -9008,7 +9008,7 @@
 <p>PV：PV（Persistent Volume）是存储介质的抽象表示，可以看作是存储单元。在 PVC 的申请后，通过实现 CSI 接口的软件创建 PV，并将其与申请资源的 PVC 进行绑定。</p>
 </li>
 </ul>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-arch-pod.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-pod.png" /></p>
 <h2 id="1-kubernetes"><strong>1. 部署 Kubernetes 集群</strong></h2>
 <p>由于 MatrixOne 的分布式部署依赖于 Kubernetes 集群，因此我们需要一个 Kubernetes 集群。本篇文章将指导你通过使用 <strong>Kuboard-Spray</strong> 的方式搭建一个 Kubernetes 集群。</p>
 <h3 id="_7"><strong>准备集群环境</strong></h3>
@@ -9120,7 +9120,7 @@ May 07 11:48:06 VM-0-6-centos dockerd[5845]: time=&quot;2023-05-07T11:48:06.5692
   swr.cn-east-2.myhuaweicloud.com/kuboard/kuboard-spray:latest-amd64
 </code></pre></div>
 <p>执行完成后，即可在浏览器输入 <code>http://1.13.2.100</code> (跳板机 IP 地址）打开 Kuboard-Spray 的 Web 界面，输入用户名 <code>admin</code>，默认密码 <code>Kuboard123</code>，即可登录 Kuboard-Spray 界面，如下所示：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-1.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-1.png" /></p>
 <p>登录之后，即可开始部署 Kubernetes 集群。</p>
 <h3 id="kubernetes"><strong>可视化部署 Kubernetes 集群</strong></h3>
 <p>登录 Kuboard-Spray 界面之后，即可开始可视化部署 Kubernetes 集群。</p>
@@ -9130,19 +9130,19 @@ May 07 11:48:06 VM-0-6-centos dockerd[5845]: time=&quot;2023-05-07T11:48:06.5692
 <li>
 <p>点击<strong>资源包管理</strong>，选择对应版本的 Kubernetes 资源包下载：</p>
 <p>下载 <code>spray-v2.18.0b-2_k8s-v1.23.17_v1.24-amd64</code> 版本</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-2.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-2.png" /></p>
 </li>
 <li>
 <p>点击<strong>导入</strong>后，选择<strong>加载资源包</strong>，选择合适的下载源，等待资源包下载完成。</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-3.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-3.png" /></p>
 </li>
 <li>
 <p>此时会 <code>pull</code> 相关的镜像依赖：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-4.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-4.png" /></p>
 </li>
 <li>
 <p>镜像资源包拉取成功后，返回 Kuboard-Spray 的 Web 界面，可以看到对应版本的资源包已经导入完成。</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-5.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-5.png" /></p>
 </li>
 </ol>
 <h4 id="kubernetes_2"><strong>安装 Kubernetes 集群</strong></h4>
@@ -9150,11 +9150,11 @@ May 07 11:48:06 VM-0-6-centos dockerd[5845]: time=&quot;2023-05-07T11:48:06.5692
 <ol>
 <li>
 <p>选择<strong>集群管理</strong>，选择<strong>添加集群安装计划</strong>：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-6.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-6.png" /></p>
 </li>
 <li>
 <p>在弹出的对话框中，定义集群的名称，选择刚刚导入的资源包的版本，再点击<strong>确定</strong>。如下图所示：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-7.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-7.png" /></p>
 </li>
 </ol>
 <h5 id="_9"><strong>集群规划</strong></h5>
@@ -9163,7 +9163,7 @@ May 07 11:48:06 VM-0-6-centos dockerd[5845]: time=&quot;2023-05-07T11:48:06.5692
 <ol>
 <li>
 <p>选择对应节点的角色和名称：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-8.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-8.png" /></p>
 <ul>
 <li>master 节点：选择 ETCD 和控制节点，并将其命名为 master0。（如果希望主节点也参与工作，可以同时选中工作节点。这种方式可以提高资源利用率，但会降低 Kubernetes 的高可用性。）</li>
 <li>worker 节点：仅选择工作节点，并将其命名为 node0。</li>
@@ -9171,8 +9171,8 @@ May 07 11:48:06 VM-0-6-centos dockerd[5845]: time=&quot;2023-05-07T11:48:06.5692
 </li>
 <li>
 <p>在每一个节点填写完角色和节点名称后，请在右侧填写对应节点的连接信息，如下图所示：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-9.png?raw=true" /></p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-9-1.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-9.png" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-9-1.png" /></p>
 </li>
 <li>
 <p>填写完所有的角色之后，点击<strong>保存</strong>。接下里就可以准备安装 Kubernetes 集群了。</p>
@@ -9183,7 +9183,7 @@ May 07 11:48:06 VM-0-6-centos dockerd[5845]: time=&quot;2023-05-07T11:48:06.5692
 <ol>
 <li>
 <p>如下图所示，点击<strong>确定</strong>，开始安装 Kubernetes 集群：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-10.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-10.png" /></p>
 </li>
 <li>
 <p>安装 Kubernetes 集群时，会在对应节点上执行 <code>ansible</code> 脚本，安装 Kubernetes 集群。整体事件会根据机器配置和网络不同，需要等待的时间不同，一般情况下需要 5 ~ 10 分钟。</p>
@@ -9204,7 +9204,7 @@ node0     Ready    &lt;none&gt;                 52m   v1.23.17
 <p>在 Kubernetes 的每个节点上调整 DNS 路由表。请在每台机器上执行以下命令，查找包含 <code>169.254.25.10</code> 的 nameserver，并删除该记录。（该记录可能影响各个 Pod 之间的通信效率）</p>
 <div class="highlight"><pre><span></span><code>vim
 </code></pre></div>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-10-1.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-10-1.png" /></p>
 </li>
 </ol>
 <h2 id="2-helm"><strong>2. 部署 helm</strong></h2>
@@ -9348,12 +9348,12 @@ nohup kubectl port-forward --address 0.0.0.0 $POD_NAME -n mostorage 9000:9000 &a
 </li>
 <li>
 <p>启动后，使用 <a href="http://118.195.255.252:32001/">http://118.195.255.252:32001/</a> 即可登录 MinIO 的页面，创建对象存储的信息。如下图所示，账户密码即上述步骤中 <code>--set rootUser=rootuser,rootPassword=rootpass123</code> 设置的 rootUser 和 rootPassword：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-13.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-13.png" /></p>
 </li>
 <li>
 <p>登录完成后，你需要创建对象存储相关的信息：</p>
 <p>点击 <strong>Bucket &gt; Create Bucket</strong>，在 <strong>Bucket Name</strong> 中填写 Bucket 的名称 <strong>minio-mo</strong>。填写完成后，点击右下方按钮 <strong>Create Bucket</strong>。</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-14.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-14.png" /></p>
 </li>
 </ol>
 <h2 id="5-matrixone"><strong>5. MatrixOne 集群部署</strong></h2>

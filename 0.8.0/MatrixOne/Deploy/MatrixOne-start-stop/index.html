@@ -8664,7 +8664,7 @@
 # kubectl describe node ${NODE_NAME}
 </code></pre></div>
 <p>以下是状态代码图示示例：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-1.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-1.png" /></p>
 <h3 id="minio">检查 MinIO 状态</h3>
 <p>在操作 k8s 的 master0 节点上，可以检查 MinIO 的状态。</p>
 <p>硬件启动后，MinIO 也会自动恢复，可以使用以下命令检查 MinIO 状态：</p>
@@ -8672,7 +8672,7 @@
 kubectl get pod -n${NS}
 </code></pre></div>
 <p>以下是状态代码图示示例：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-2.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-2.png" /></p>
 <h3 id="matrixone">检查 MatrixOne 集群及组件状态</h3>
 <h4 id="matrixonecluster">检查 MatrixOneCluster 状态</h4>
 <p>首先，要检查 MatrixOne 集群是否正常。MatrixOne 集群对应自定义资源类型 MatrixOneCluster。可以使用以下命令来检查 MatrixOneCluster 的状态：</p>
@@ -8681,13 +8681,13 @@ NS=&quot;mo-hn&quot;
 kubectl get matrixonecluster -n${NS} ${MO_NAME}
 </code></pre></div>
 <p>正常情况下，状态应该为 Ready。如果状态为 NotReady，则需要进一步排查问题。以下是状态图示例：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-3.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-3.png" /></p>
 <h5 id="matrixone_1">查看 MatrixOne 集群状态详细信息</h5>
 <p>如果 MatrixOne 集群状态不正常，可以使用以下命令来查看详细信息：</p>
 <div class="highlight"><pre><span></span><code>kubectl describe matrixonecluster -n${NS} ${MO_NAME}
 </code></pre></div>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-4.png?raw=true" /></p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-5.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-4.png" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-5.png" /></p>
 <h4 id="dnsetcnsetlogset">检查 DNSet/CNSet/LogSet 状态</h4>
 <p>当前 MatrixOne 集群的组件主要有：DN、CN、Log Service，分别对应的自定义资源类型 DNSet、CNSet、LogSet。这些对象均由 MatrixOneCluster 控制器生成。</p>
 <p>可以使用以下命令来检查各组件的状态，以 DN 为例：</p>
@@ -8696,14 +8696,14 @@ NS=&quot;mo-hn&quot;
 kubectl get ${SET_TYPE} -n${NS}
 </code></pre></div>
 <p>以下是状态代码图示示例：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-6.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-6.png" /></p>
 <h4 id="pod">检查 Pod 状态</h4>
 <p>可以直接检查 MO 集群中生成的原生 k8s 对象，来确认集群的健康程度。一般情况下，通过对 Pod 的状态确认即可：</p>
 <div class="highlight"><pre><span></span><code>NS=&quot;mo-hn&quot;
 kubectl get pod -n${NS}
 </code></pre></div>
 <p>以下是状态代码图示示例：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-7.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-7.png" /></p>
 <p>一般来说，Running 状态即为正常状态。但也有少数例外的情况，例如状态为 Running，但 MO 集群实际上不正常，例如无法通过 MySQL Client 连接 MO 集群。此时，可以进一步排查 Pod 的日志是否有异常信息输出：</p>
 <div class="highlight"><pre><span></span><code>NS=&quot;mo-hn&quot;
 POD_NAME=&quot;[上述返回pod的名称]&quot; # 例如mo-tp-cn-3
@@ -8713,7 +8713,7 @@ kubectl logs ${POD_NAME} -n${NS}
 <div class="highlight"><pre><span></span><code>kubectl describe pod ${POD_NAME} -n${NS}
 </code></pre></div>
 <p>以下是状态代码图示示例：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-8.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-8.png" /></p>
 
               
             </article>

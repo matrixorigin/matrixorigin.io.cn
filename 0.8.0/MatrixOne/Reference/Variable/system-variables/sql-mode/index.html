@@ -8567,8 +8567,10 @@
 <ul>
 <li><code>ONLY_FULL_GROUP_BY</code>：<code>GROUP BY</code> 子句用于对查询结果进行分组，并对每个组执行聚合计算，例如 <code>COUNT</code>、<code>SUM</code>、<code>AVG</code> 等。在 <code>GROUP BY</code> 子句中，指定的列是用于分组的列。而在 <code>SELECT</code> 列表中，可以指定其他列，这些列可以是聚合函数或非聚合函数列。在没有 <code>ONLY_FULL_GROUP_BY</code> 模式的情况下，如果在 <code>SELECT</code> 列表中指定了非聚合函数列，MatrixOne 会默认选择任意一个与 <code>GROUP BY</code> 列匹配的值，并将其用于计算聚合函数。</li>
 </ul>
-<p>!!! note
-       如果你的表结构复杂，为了便于查询，你可以选择将 <code>ONLY_FULL_GROUP_BY</code> 模式关闭。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果你的表结构复杂，为了便于查询，你可以选择将 <code>ONLY_FULL_GROUP_BY</code> 模式关闭。</p>
+</div>
 <ul>
 <li>
 <p><code>STRICT_TRANS_TABLES</code>：在执行 <code>INSERT</code> 和 <code>UPDATE</code> 语句时，如果数据不符合表定义的规则，则会报错。</p>

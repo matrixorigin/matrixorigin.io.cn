@@ -8613,16 +8613,16 @@
 <li>根据你的系统环境选择 <a href="https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html">JDK 8+ version</a> 版本进行下载安装。</li>
 <li><a href="https://dev.mysql.com/downloads/connector/j/">MySQL JDBC connector 8.0+ version</a>：推荐下载平台独立版本，并解压下载文件。</li>
 </ul>
-<p><img alt="image-20220927102516885" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_download.png?raw=true" /></p>
+<p><img alt="image-20220927102516885" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_download.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>我们使用 IDEA 作为一个 IDE 示例来演示这个过程，你可以自由地选择 Eclipse 或其他 IDE 工具实践。</p>
 </div>
 <h2 id="java_1">初始化一个新的 Java 项目</h2>
 <p>启动 IDEA，并创建一个新的 Java 项目，如下所示：</p>
-<p><img alt="image-20220927104740221" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_create_project.png?raw=true" /></p>
+<p><img alt="image-20220927104740221" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_create_project.png" /></p>
 <p>进入菜单 <strong>Project Setting &gt; Libraries</strong>，导入 <em>mysql-connector-java-8.0.30.jar</em> 文件。</p>
-<p><img alt="image-20220927104904770" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_import_library.png?raw=true" /></p>
+<p><img alt="image-20220927104904770" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_import_library.png" /></p>
 <h2 id="java-matrixone">编写 Java 代码连接 MatrixOne</h2>
 <p>首先，创建一个名为 <em>JDBCUtils</em> 的 Java 类作为连接实用程序。这个类将作为连接 MatrixOne 和执行 SQL 查询的工具。</p>
 <p>在 <em>src</em> 目录下，创建一个名为 <code>JDBCUtils.java</code> 的文件，并使用以下代码编辑该文件：</p>
@@ -8849,7 +8849,7 @@ public class Select {
 }
 </code></pre></div>
 <p>运行结果：</p>
-<p><img alt="image-20220927113440917" src="https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_select.png?raw=true" /></p>
+<p><img alt="image-20220927113440917" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_select.png" /></p>
 
               
             </article>
