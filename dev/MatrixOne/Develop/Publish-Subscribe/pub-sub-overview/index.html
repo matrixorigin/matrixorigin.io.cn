@@ -1661,29 +1661,43 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    发布订阅示例
+    名词解释
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    参考文档
+    发布订阅范围说明
   </a>
   
-    <nav class="md-nav" aria-label="参考文档">
+    <nav class="md-nav" aria-label="发布订阅范围说明">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    发布者参考文档
+    发布/订阅应用范围
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    订阅者参考文档
+    可发布/可订阅权限范围
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    发布/订阅数据范围
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    发布订阅示例
   </a>
   
 </li>
@@ -1694,9 +1708,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    限制
+  <a href="#_9" class="md-nav__link">
+    参考文档
   </a>
+  
+    <nav class="md-nav" aria-label="参考文档">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    发布者参考文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    订阅者参考文档
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -8525,29 +8559,43 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    发布订阅示例
+    名词解释
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    参考文档
+    发布订阅范围说明
   </a>
   
-    <nav class="md-nav" aria-label="参考文档">
+    <nav class="md-nav" aria-label="发布订阅范围说明">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    发布者参考文档
+    发布/订阅应用范围
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    订阅者参考文档
+    可发布/可订阅权限范围
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    发布/订阅数据范围
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    发布订阅示例
   </a>
   
 </li>
@@ -8558,9 +8606,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    限制
+  <a href="#_9" class="md-nav__link">
+    参考文档
   </a>
+  
+    <nav class="md-nav" aria-label="参考文档">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    发布者参考文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    订阅者参考文档
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -8604,8 +8672,51 @@
 </ul>
 <!--- 通知和提醒：发布订阅功能可以用来向不同的用户或系统发送通知和提醒。例如，当一个电子商务网站需要通知顾客有新产品上线时，发布订阅功能可以用来将新产品信息发布到顾客的订阅列表中，以便顾客及时了解到新产品信息。-->
 
-<h2 id="_3">发布订阅示例</h2>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/develop/pub-sub/example-zh.png?raw=true" /></p>
+<h2 id="_3">名词解释</h2>
+<ul>
+<li>
+<p><strong>发布</strong>：在数据库中，发布通常指的是将一个数据库对象设置为可供其他租户访问的状态。这是数据共享和复制的一个重要步骤，发布的对象可以被其他租户订阅并获取数据。</p>
+</li>
+<li>
+<p><strong>订阅</strong>：订阅是指一个数据库选择接收和复制发布的数据库对象的数据。</p>
+</li>
+<li>
+<p><strong>发布端（Pub）</strong>：发布端是执行发布操作的数据库。发布端负责创建和管理发布的对象，以及管理订阅该发布对象的数据库的访问权限。</p>
+</li>
+<li>
+<p><strong>订阅端（Sub）</strong>：订阅端是订阅发布对象的租户。</p>
+</li>
+<li>
+<p><strong>发布对象</strong>：发布对象是在发布端创建并设置为可发布的数据库对象，即数据库。这些对象的数据可以被订阅端访问和复制。</p>
+</li>
+<li>
+<p><strong>订阅对象</strong>：订阅对象是在订阅端复制和存储的发布对象。订阅对象的数据会根据发布端的数据进行更新。</p>
+</li>
+</ul>
+<h2 id="_4">发布订阅范围说明</h2>
+<h3 id="_5">发布/订阅应用范围</h3>
+<p><strong>发布端（Pub）</strong>和<strong>订阅端（Sub）</strong>均为 MatrixOne 的租户。</p>
+<h3 id="_6">可发布/可订阅权限范围</h3>
+<ul>
+<li><strong>发布端（Pub）</strong>只有 ACCOUNTADMIN 或 MOADMIN 角色可以创建发布与订阅。</li>
+<li><strong>订阅端（Sub）</strong>由 ACCOUNTADMIN 或 MOADMIN 角色操作访问订阅数据权限。</li>
+</ul>
+<h3 id="_7">发布/订阅数据范围</h3>
+<ul>
+<li>一个<strong>发布</strong>只能与单一数据库关联。</li>
+<li>发布和订阅只在数据库级别实现，目前还不支持直接进行表级别的发布和订阅。</li>
+<li>
+<p><strong>订阅端</strong>对<strong>订阅库</strong>只具备读取权限。</p>
+</li>
+<li>
+<p>若<strong>发布端（Pub）</strong>调整了发布的分享范围，那些不在新范围内的<strong>订阅端（Sub）</strong>如果已经创建了订阅库，那么对这个<strong>订阅库</strong>的访问将无效。</p>
+</li>
+<li>若<strong>发布端（Pub）</strong>尝试删除已经发布的数据库，那么此次删除将不会成功。</li>
+<li>若<strong>发布端（Pub）</strong>删除了<strong>发布</strong>，但订阅库中的对应对象仍存在，此时<strong>订阅端（Sub）</strong>访问这个对象会触发错误，需要由<strong>订阅端（Sub）</strong>删除对应的<strong>订阅</strong>。</li>
+<li>若<strong>发布端（Pub）</strong>删除了<strong>发布对象</strong>，但在订阅库中的对应对象仍然存在，此时<strong>订阅端（Sub）</strong>访问这个对象会触发错误，需要由<strong>订阅端（Sub）</strong>删除对应的<strong>订阅对象</strong>。</li>
+</ul>
+<h3 id="_8">发布订阅示例</h3>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/pub-sub/example-zh.png" /></p>
 <p>本章节将给出一个示例，介绍当前在 MatrixOne 集群中，存在 3 个租户，sys、acc1 与 acc2，按照操作顺序对三个租户进行操作：</p>
 <ol>
 <li>
@@ -8730,8 +8841,8 @@
 </code></pre></div>
 </li>
 </ol>
-<h2 id="_4">参考文档</h2>
-<h3 id="_5">发布者参考文档</h3>
+<h2 id="_9">参考文档</h2>
+<h3 id="_10">发布者参考文档</h3>
 <ul>
 <li><a href="../../../Reference/SQL-Reference/Data-Definition-Language/create-publication/">CREATE PUBLICATION</a></li>
 <li><a href="../../../Reference/SQL-Reference/Data-Definition-Language/alter-publication/">ALTER PUBLICATION</a></li>
@@ -8739,15 +8850,10 @@
 <li><a href="../../../Reference/SQL-Reference/Other/SHOW-Statements/show-publications/">SHOW PUBLICATIONS</a></li>
 <li><a href="../../../Reference/SQL-Reference/Other/SHOW-Statements/show-create-publication/">SHOW CREATE PUBLICATION</a></li>
 </ul>
-<h3 id="_6">订阅者参考文档</h3>
+<h3 id="_11">订阅者参考文档</h3>
 <ul>
 <li><a href="../../../Reference/SQL-Reference/Data-Definition-Language/create-subscription/">CREATE...FROM...PUBLICATION...</a></li>
 <li><a href="../../../Reference/SQL-Reference/Other/SHOW-Statements/show-subscriptions/">SHOW SUBSCRIPTIONS</a></li>
-</ul>
-<h2 id="_7">限制</h2>
-<ul>
-<li>发布端只有 ACCOUNTADMIN 或 MOADMIN 角色可以创建发布与订阅。</li>
-<li>订阅端由 ACCOUNTADMIN 或 MOADMIN 角色控制访问订阅数据权限。</li>
 </ul>
 
               

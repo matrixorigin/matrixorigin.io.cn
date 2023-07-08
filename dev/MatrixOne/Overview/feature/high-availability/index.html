@@ -8646,7 +8646,7 @@
 <p>MatrixOne 通过纠删码进行数据冗余校验，同步事务日志采用 Raft 协议，只有多数派写入成功，事务才能提交，这确保了数据的强一致性，即使少数副本发生故障也不影响数据的可用性。MatrixOne 的高可用性满足金融行业 4 级标准（RPO=0，RTO&lt;30min）。</p>
 <h2 id="_4">技术架构</h2>
 <p>MatrixOne 的整体技术架构如下图所示，我们会根据不同的组件模块，分别介绍它们的高可用性。</p>
-<p><img alt="high-availability" src="https://github.com/matrixorigin/artwork/blob/main/docs/overview/high-availability.png?raw=true" /></p>
+<p><img alt="high-availability" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-availability.png" /></p>
 <h3 id="_5">资源调度层</h3>
 <p>MatrixOne 的技术架构是完全云原生化的，所有的技术组件都以容器化的形式运行在 Kubernetes 上。通过采用多主多从的部署方案，Kubernetes 集群可以保证连续可用性。具体的部署拓扑及方案可参考 <a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/ha-topology/">Kubernetes 官方方案</a>。</p>
 <h3 id="_6">存储层</h3>

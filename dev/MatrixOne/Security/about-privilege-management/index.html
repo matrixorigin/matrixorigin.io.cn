@@ -8779,18 +8779,18 @@ MatrixOne 也可以通过权限管理实现多租户方案。在 MatrixOne 中�
 <ul>
 <li><strong>基于角色的访问控制（RBAC）</strong>：将权限分配给角色，再将角色分配给用户。</li>
 </ul>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/security/basic-concepts-1.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/basic-concepts-1.png" /></p>
 <ul>
 <li><strong>自主访问控制（DAC）</strong>：每个对象都有一个所有者，所有者可以设置和授予对该对象的访问权限。</li>
 </ul>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/security/dac.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/dac.png" /></p>
 <h2 id="_1">关键概念</h2>
 <h3 id="_2">对象</h3>
 <p>在 MatrixOne 中，为了方便管理多种操作权限，于是便把权限封装在一个实体内，这个实体就是<strong>对象</strong>。</p>
 <p>例如，<code>Select</code>，<code>Insert</code>，<code>Update</code> 等操作权限，便封装在了 Table 对象内。更多关于对象权限的信息请参考 <a href="../../Reference/access-control-type/">MatrixOne 权限分类</a>。</p>
 <h4 id="_3">对象与对象之间的关系</h4>
 <p>如下图中所示，从上之下，高层级对象可以创建（或删除）低层级对象。</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/security/object-1.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/object-1.png" /></p>
 <p>上图中的层级关系均为 1：n 的关系，即，一个集群中可以创建多个租户（Account），一个租户下可以创建多个用户和角色，一个数据库中可以创建多个表和视图。</p>
 <p>在 MatrixOne 中，尽管每个对象中的操作权限是相互独立的（例如 Database 对象中的 <code>SHOW TABLES</code> 权限和 Table 对象中的 <code>SELECT</code> 权限并没有直接关系），但对象之间的创建仍具有一定关联，例如 Database 对象中的 <code>CREAT TABLE</code> 权限可以创建 Table 对象，这便形成了对象之间的层级关系，</p>
 <p>那么，由于高层级对象可以创建低层级对象，那么较高层级的对象就是<strong>对象的创建者 (Owner)</strong>。</p>
@@ -8800,7 +8800,7 @@ MatrixOne 也可以通过权限管理实现多租户方案。在 MatrixOne 中�
 <p>由于权限、角色和用户之间的传递性，你可以把对象的创建者（以下称为对象 Owner）理解为一个角色。</p>
 <p><strong>如何理解对象的创建者是一个角色呢？</strong></p>
 <p>一个用户可以同时拥有多个角色，比如 User A 拥有 Role 1 和 Role 2，还有 Role 3 这三个角色，每个角色拥有的权限不同，如下图所示，帮助你快速理解这一行为：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/security/example.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/example.png" /></p>
 <p>假如 User A 当前正在使用的角色为 Role 1，User A 需要创建一个新的用户 New user B，可是当前 Role 1 这个角色没有创建新用户的权限，Role 2 拥有创建新用户的权限，那么 User A 需要切换到 Role 2 这个角色，然后再创建新的用户。那么，New user B 的 Owner 是 Role 2，其他角色 Role 1 和 Role 3 并不能拥有 New user B 的所有权。</p>
 <p><strong>对象的 Owner 要点</strong></p>
 <ul>

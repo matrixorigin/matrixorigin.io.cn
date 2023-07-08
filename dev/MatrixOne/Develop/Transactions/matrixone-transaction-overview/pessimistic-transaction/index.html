@@ -8568,7 +8568,7 @@
 <h3 id="_4">死锁</h3>
 <p>在悲观事务中，有可能出现一种情况，即两个或两个以上事务互相锁住了对方所需要的资源时，令每个事务都无法进行下去的状态，这种情况被称之为死锁（Deadlock）。只有通过人为干预其中某个事务，例如，通过手动 <code>Kill</code> 会话的方式，才能立即结束死锁，否则只能等事务超出最长等待时间。</p>
 <p>死锁示例如下图所示：</p>
-<p><img alt="image-20221026152318567" src="https://github.com/matrixorigin/artwork/blob/main/docs/distributed-transaction/deadlocked-zh.png?raw=true" /></p>
+<p><img alt="image-20221026152318567" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/distributed-transaction/deadlocked-zh.png" /></p>
 <h3 id="_5">模型示例</h3>
 <p>下面为悲观并发的示例，将为你展示 MatrixOne 如何解决并发冲突。</p>
 <ol>

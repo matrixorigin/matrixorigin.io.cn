@@ -8601,9 +8601,9 @@
 <h2 id="_2">步骤</h2>
 <h3 id="_3">导入数据</h3>
 <p>你可以通过访问 <a href="http://192.168.56.10:32001">http://192.168.56.10:32001</a> 来登录 Minio 的图形化界面。账户和密码可以参考 <a href="../deploy-MatrixOne-cluster/">MatrixOne 分布式集群部署</a>章节中安装和部署 Minio 过程中创建的 rootUser 和 rootPassword。登录后，你需要创建一个专属的存储桶 <code>load-from-minio</code>，并将相应的 CSV 文件上传到该存储桶中。</p>
-<p><img alt="Create Bucket" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/import/minio-create-bucket.png?raw=true" /></p>
+<p><img alt="Create Bucket" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/import/minio-create-bucket.png" /></p>
 <p>这里我们使用的案例为一个仅包含 6 行数据的简单 <code>addresses.csv</code> 案例。</p>
-<p><img alt="Load From Minio" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/import/load-from-minio.png?raw=true" /></p>
+<p><img alt="Load From Minio" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/import/load-from-minio.png" /></p>
 <h3 id="minio-endpoint">获取 Minio 的 endpoint</h3>
 <p>从本地 Minio 里加载数据到 MatrixOne 集群的原理与<a href="../../Develop/import-data/bulk-load/load-s3/">从公有云的对象存储 S3 中加载数据方式</a>完全相同，他们的语法结构一样。但是公有云方式其中的参数会有公有云厂商给出，而本地 Minio 中的参数需要自行设置。</p>
 <div class="highlight"><pre><span></span><code>LOAD DATA
@@ -8620,9 +8620,9 @@
 <p>要从本地 Minio 加载数据，首先需要找到 Minio 的 endpoint。在实际操作之前，我们先了解一下整个调用链路的架构。</p>
 <h4 id="minio">Minio 访问架构</h4>
 <p>逻辑上来说，MatrixOne 通过 Minio 的访问端口 endpoint 与 Minio 通信，并从中获取数据，如下图所示：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/import/minio-logical-call.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/import/minio-logical-call.png" /></p>
 <p>实际上，Minio 在 Kubernetes（K8s）中被纳管，对外提供服务必须通过 K8s 的 Service（SVC）访问。任务的实际执行是在 K8s Pod 中完成的。SVC 可以保证不管 Pod 如何变化，对外部应用来说始终保持统一端口。SVC 与 Pod 的关联需要通过 K8s 中的 Endpoint（EP）来建立规则。因此，MatrixOne 实际上是通过 SVC 与 Minio 服务连接的，具体架构如下图所示：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/import/minio-real-call.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/import/minio-real-call.png" /></p>
 <h4 id="_4">实际命令</h4>
 <p>我们在安装 Minio 的时候创建了名为 mostorage 的命名空间，我们可以通过以下几条 K8s 命令来找出这个 endpoint。</p>
 <ul>

@@ -8660,8 +8660,8 @@ kubectl edit matrixonecluster ${mo_cluster_name} -n${mo_ns}
 <p>${REPO_URL}：是 Matrixone 公开镜像仓库，默认为 matrixorigin/matrixone。假如目标版本在 MatrixOne 的公开镜像仓库不存在，则需要同时修改镜像仓库的 URL 为实际的仓库：</p>
 </li>
 </ul>
-<p><img alt="image-20230407094237806" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-20230407094237806.png?raw=true" /></p>
-<p><img alt="image-20230407094251938" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-20230407094251938.png?raw=true" /></p>
+<p><img alt="image-20230407094237806" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094237806.png" /></p>
+<p><img alt="image-20230407094251938" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094251938.png" /></p>
 </li>
 <li>
 <p>修改完成后，按 <code>:wq</code> 保存即可，MatrixOne Operator 会自动拉取新版本的镜像，并重启组件服务，包括 Log Service，DN 和 CN，你也可以通过以下命令观察其运行状态。</p>
@@ -8759,13 +8759,13 @@ kubectl delete pvc mo-data-mo-log-2 -nmo-hn
 </code></pre></div>
 <h4 id="2">2. 清空桶数据</h4>
 <p>在 MinIO 管控页面，删除 MO 使用的 MinIO 使用的桶里面的数据，包括 mo-data、etl 等子目录。</p>
-<p><img alt="image-minio-delete-bucket" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-minio-delete-bucket.png?raw=true" /></p>
+<p><img alt="image-minio-delete-bucket" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-minio-delete-bucket.png" /></p>
 <p>或者通过 MinIO 客户端 mc 来操作：</p>
 <div class="highlight"><pre><span></span><code>mc rb --force  minio/minio-mo/data/
 mc rb --force  minio/minio-mo/etl
 </code></pre></div>
 <p>另外，如果不想删除旧数据，也可以新建一个 MinIO 的桶，然后在部署 MatrixOne 集群的 yaml 文件制定新的桶名即可。</p>
-<p><img alt="image-minio-new-bucket" src="https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-minio-new-bucket.png?raw=true" /></p>
+<p><img alt="image-minio-new-bucket" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-minio-new-bucket.png" /></p>
 <h4 id="3">3. 部署新版本集群</h4>
 <p>编辑定义 MO 集群的 yaml 文件，参考<strong>滚动升级</strong>章节，修改 <code>.spec.version</code> 字段为最新版本，重新部署 MatrixOne 集群：</p>
 <div class="highlight"><pre><span></span><code>vi mo.yaml
