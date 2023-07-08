@@ -80,7 +80,6 @@ nav:
           - Java ORMs 连接: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm.md
         - Python 连接: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
         - Golang 连接: MatrixOne/Develop/connect-mo/connect-to-matrixone-with-go.md
-        - 配置 MatrixOne SSL: MatrixOne/Develop/connect-mo/configure-mo-ssl-connection.md
       - 数据库模式设计:
         - 概述: MatrixOne/Develop/schema-design/overview.md
         - 创建数据库: MatrixOne/Develop/schema-design/create-database.md
