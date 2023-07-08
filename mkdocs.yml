@@ -188,6 +188,7 @@ nav:
           - 创建租户，验证资源隔离: MatrixOne/Security/how-tos/quick-start-create-account.md
           - 新租户创建用户、创建角色和授权: MatrixOne/Security/how-tos/quick-start-create-user.md
         - 权限管理操作: MatrixOne/Security/how-tos/user-guide.md
+      - 安全审计: MatrixOne/Security/audit.md
       - 应用场景: MatrixOne/Security/app-scenarios.md
     - 参考手册:
       - 系统变量:
@@ -475,7 +476,6 @@ nav:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
       - 数据库统计信息: MatrixOne/Troubleshooting/query-table-statistics.md
-      - 审计: MatrixOne/Troubleshooting/audit.md
       - 错误码: MatrixOne/Troubleshooting/error-code.md
     - 常见问题解答:
       - 产品常见问题: MatrixOne/FAQs/product-faqs.md
