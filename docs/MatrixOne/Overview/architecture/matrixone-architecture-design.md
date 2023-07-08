@@ -10,13 +10,13 @@ MatrixOne HSTAP 数据库对 HTAP 数据库进行了重新定义，HSTAP 旨在�
 
 MatrixOne 实现了三个独立的层级，每个层级都有自己的对象单元和分工。不同类型的节点可以自由伸缩，不再受到其他层的制约。这三个层级是：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/architecture/architecture-1.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/architecture-1.png)
 
 - 计算层：以计算节点 Compute Node (简称 CN) 为单位，实现了计算和事务处理的 Serverless 化，具备自己的缓存，可以任意重启和扩缩容。
 - 事务层：以数据库节点 Database Node 和日志节点 Log Service 为单位，提供完整的日志服务和元数据信息，内置 Logtail 用于保存最近的数据。
 - 存储层：全量数据保存在对象存储中，以 S3 为代表，实现了低成本的无线伸缩存储方式。统一的文件操作服务 File Service 实现了不同节点对底层存储的无感知操作。
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/architecture/architecture-2.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/architecture-2.png)
 
 在确定了 TAE 作为唯一存储引擎之后，对融合后的 TAE 引擎进行了多项设计上的调整，才有了后来的 TAE 存储引擎。这个引擎具有如下优势：
 
@@ -24,7 +24,7 @@ MatrixOne 实现了三个独立的层级，每个层级都有自己的对象单�
 - 事务处理：共享日志和 DN 节点共同完成对计算节点的事务支持。
 - 冷热分离：使用 S3 对象存储作为目标的 File Service，每个计算节点都有自己的缓存。
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/architecture/architecture-3.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/architecture-3.png)
 
 计算引擎基于兼容 MySQL 的根本目标，对于节点调度、执行计划和 SQL 能力有着更高的要求。高性能计算引擎既具备实验架构中计算引擎的 MPP：
 
@@ -37,7 +37,7 @@ MatrixOne 实现了三个独立的层级，每个层级都有自己的对象单�
 
 MatrixOne 架构如下如所示：
 
-![MatrixOne Architecture](https://github.com/matrixorigin/artwork/blob/main/docs/overview/matrixone_new_arch.png?raw=true)
+![MatrixOne Architecture](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/matrixone_new_arch.png)
 
 参照上面的图示，MatrixOne 的体系结构分为五层，以下内容是从上至下对每层的介绍：
 
@@ -72,7 +72,7 @@ Serverless 层是一系列无状态节点的总称，整体上包含三类：
 
 ## **MatrixOne 系统组件**
 
-![MatrixOne Component](https://github.com/matrixorigin/artwork/blob/main/docs/overview/mo-component.png?raw=true)
+![MatrixOne Component](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/mo-component.png)
 
 在 MatrixOne 中，为实现分布式与多引擎的融合，构建了多种不同的系统组件用于完成架构相关的层级的功能：
 

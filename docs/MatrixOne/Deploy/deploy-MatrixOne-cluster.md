@@ -60,7 +60,7 @@ MatrixOne 分布式系统依赖于以下组件：
 
 整体的部署架构如下图所示：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-arch-overall.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-overall.png)
 
 整体架构由以下组件组成：
 
@@ -84,7 +84,7 @@ MatrixOne 根据 Operator 的规则创建一系列的 Kubernetes 对象，这些
 
 - PV：PV（Persistent Volume）是存储介质的抽象表示，可以看作是存储单元。在 PVC 的申请后，通过实现 CSI 接口的软件创建 PV，并将其与申请资源的 PVC 进行绑定。
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-arch-pod.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-pod.png)
 
 ## **1. 部署 Kubernetes 集群**
 
@@ -177,7 +177,7 @@ docker run -d \
 
 执行完成后，即可在浏览器输入 `http://1.13.2.100` (跳板机 IP 地址）打开 Kuboard-Spray 的 Web 界面，输入用户名 `admin`，默认密码 `Kuboard123`，即可登录 Kuboard-Spray 界面，如下所示：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-1.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-1.png)
 
 登录之后，即可开始部署 Kubernetes 集群。
 
@@ -193,19 +193,19 @@ docker run -d \
 
     下载 `spray-v2.18.0b-2_k8s-v1.23.17_v1.24-amd64` 版本
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-2.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-2.png)
 
 2. 点击**导入**后，选择**加载资源包**，选择合适的下载源，等待资源包下载完成。
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-3.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-3.png)
 
 3. 此时会 `pull` 相关的镜像依赖：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-4.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-4.png)
 
 4. 镜像资源包拉取成功后，返回 Kuboard-Spray 的 Web 界面，可以看到对应版本的资源包已经导入完成。
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-5.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-5.png)
 
 #### **安装 Kubernetes 集群**
 
@@ -213,11 +213,11 @@ docker run -d \
 
 1. 选择**集群管理**，选择**添加集群安装计划**：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-6.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-6.png)
 
 2. 在弹出的对话框中，定义集群的名称，选择刚刚导入的资源包的版本，再点击**确定**。如下图所示：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-7.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-7.png)
 
 ##### **集群规划**
 
@@ -227,16 +227,16 @@ docker run -d \
 
 1. 选择对应节点的角色和名称：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-8.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-8.png)
 
     - master 节点：选择 ETCD 和控制节点，并将其命名为 master0。（如果希望主节点也参与工作，可以同时选中工作节点。这种方式可以提高资源利用率，但会降低 Kubernetes 的高可用性。）
     - worker 节点：仅选择工作节点，并将其命名为 node0。
 
 2. 在每一个节点填写完角色和节点名称后，请在右侧填写对应节点的连接信息，如下图所示：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-9.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-9.png)
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-9-1.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-9-1.png)
 
 3. 填写完所有的角色之后，点击**保存**。接下里就可以准备安装 Kubernetes 集群了。
 
@@ -246,7 +246,7 @@ docker run -d \
 
 1. 如下图所示，点击**确定**，开始安装 Kubernetes 集群：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-10.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-10.png)
 
 2. 安装 Kubernetes 集群时，会在对应节点上执行 `ansible` 脚本，安装 Kubernetes 集群。整体事件会根据机器配置和网络不同，需要等待的时间不同，一般情况下需要 5 ~ 10 分钟。
 
@@ -269,7 +269,7 @@ docker run -d \
     vim
     ```
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-10-1.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-10-1.png)
 
 ## **2. 部署 helm**
 
@@ -428,13 +428,13 @@ __Note:__ 本章节均是在 master0 节点操作。
 
 3. 启动后，使用 <http://118.195.255.252:32001/> 即可登录 MinIO 的页面，创建对象存储的信息。如下图所示，账户密码即上述步骤中 `--set rootUser=rootuser,rootPassword=rootpass123` 设置的 rootUser 和 rootPassword：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-13.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-13.png)
 
 4. 登录完成后，你需要创建对象存储相关的信息：
 
     点击 **Bucket > Create Bucket**，在 **Bucket Name** 中填写 Bucket 的名称 **minio-mo**。填写完成后，点击右下方按钮 **Create Bucket**。
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/deploy-mo-cluster-14.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-14.png)
 
 ## **5. MatrixOne 集群部署**
 

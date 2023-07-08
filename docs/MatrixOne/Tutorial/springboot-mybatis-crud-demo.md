@@ -28,7 +28,7 @@ mysql> create database test;
 
 选择 **Spring Initializer**，按需命名项目名称。
 
-![image-20221026152318567](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026152318567.png?raw=true)
+![image-20221026152318567](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026152318567.png)
 
 选择如下依赖项：
 
@@ -37,7 +37,7 @@ mysql> create database test;
 - **JDBC API**
 - **MySQL Driver**
 
-![image-20221026152447954](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026152447954.png?raw=true)
+![image-20221026152447954](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026152447954.png)
 
 点击 **Create** 创建项目。依赖项列在 *pom.xml* 文件中。通常你无需修改任何东西。
 
@@ -173,7 +173,7 @@ server.port=8080
 
 我们将为这个演示应用程序编写创建、更新、插入、删除和选择操作。
 
-![image-20221026155656694](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026155656694.png?raw=true)
+![image-20221026155656694](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026155656694.png)
 
 ### 1. UserController.java
 
@@ -477,7 +477,7 @@ public class MyBatisDemoApplication {
 
 构建并启动这个项目。
 
-![image-20221026161226923](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161226923.png?raw=true)
+![image-20221026161226923](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026161226923.png)
 
 当出现下面的消息示例时，表示应用程序已经正常启动，你可以打开浏览器并发送 HTTP 请求。
 
@@ -498,7 +498,7 @@ public class MyBatisDemoApplication {
 
 打开你的的浏览器并输入网址：`http://localhost:8080/test/create`
 
-![image-20221026161929338](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026161929338.png?raw=true)
+![image-20221026161929338](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026161929338.png)
 
 在 MySQL 客户端中，验证表是否已成功创建。
 
@@ -535,7 +535,7 @@ PRIMARY KEY (`id`)
 
 打开你的浏览器并输入网址：`http://localhost:8080/test/add?username=tom&password=123456&address=shanghai`
 
-![image-20221026162317800](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162317800.png?raw=true)
+![image-20221026162317800](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162317800.png)
 
 在 MySQL 客户端中，使用如下命令验证是否成功添加记录：
 
@@ -553,7 +553,7 @@ mysql> select * from user;
 
 打开你的浏览器并输入网址：`http://localhost:8080/test/selectUserByid?id=1`
 
-![image-20221026162455058](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162455058.png?raw=true)
+![image-20221026162455058](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162455058.png)
 
 你可以直接从浏览器中获取查询结果。
 
@@ -561,7 +561,7 @@ mysql> select * from user;
 
 打开你的浏览器并输入网址：`http://localhost:8080/test/update/username=tom&password=654321&address=beijing`
 
-![image-20221026162613066](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162613066.png?raw=true)
+![image-20221026162613066](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162613066.png)
 
 在 MySQL 客户端中，使用如下命令验证是否成功更新记录：
 
@@ -579,7 +579,7 @@ mysql> select * from user;
 
 打开你的浏览器并输入网址：`http://localhost:8080/test/delete?id=1`
 
-![image-20221026162756460](https://github.com/matrixorigin/artwork/blob/main/docs/tutorial/mybatis/image-20221026162756460.png?raw=true)
+![image-20221026162756460](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162756460.png)
 
 在 MySQL 客户端中，使用如下命令验证是否成功删除记录：
 

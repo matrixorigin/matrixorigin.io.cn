@@ -28,7 +28,7 @@ kubectl get node
 
 以下是状态代码图示示例：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-1.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-1.png)
 
 ### 检查 MinIO 状态
 
@@ -43,7 +43,7 @@ kubectl get pod -n${NS}
 
 以下是状态代码图示示例：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-2.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-2.png)
 
 ### 检查 MatrixOne 集群及组件状态
 
@@ -59,7 +59,7 @@ kubectl get matrixonecluster -n${NS} ${MO_NAME}
 
 正常情况下，状态应该为 Ready。如果状态为 NotReady，则需要进一步排查问题。以下是状态图示例：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-3.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-3.png)
 
 ##### 查看 MatrixOne 集群状态详细信息
 
@@ -69,9 +69,9 @@ kubectl get matrixonecluster -n${NS} ${MO_NAME}
 kubectl describe matrixonecluster -n${NS} ${MO_NAME}
 ```
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-4.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-4.png)
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-5.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-5.png)
 
 #### 检查 DNSet/CNSet/LogSet 状态
 
@@ -87,7 +87,7 @@ kubectl get ${SET_TYPE} -n${NS}
 
 以下是状态代码图示示例：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-6.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-6.png)
 
 #### 检查 Pod 状态
 
@@ -100,7 +100,7 @@ kubectl get pod -n${NS}
 
 以下是状态代码图示示例：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-7.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-7.png)
 
 一般来说，Running 状态即为正常状态。但也有少数例外的情况，例如状态为 Running，但 MO 集群实际上不正常，例如无法通过 MySQL Client 连接 MO 集群。此时，可以进一步排查 Pod 的日志是否有异常信息输出：
 
@@ -118,4 +118,4 @@ kubectl describe pod ${POD_NAME} -n${NS}
 
 以下是状态代码图示示例：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/start-stop-8.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-8.png)

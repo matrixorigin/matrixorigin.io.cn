@@ -26,12 +26,12 @@ MatrixOne 社区欢迎所有开发者的加入和贡献！本章节旨在帮助�
 
 首先前往 Github 上的 [matrixorigin/matrixone](https://github.com/matrixorigin/matrixone) 仓库。
 在页面右上角处，点击 `Fork` 按键，创建主库的分叉，并作为您之后主要工作的仓库。  
-![Fork our repo](https://github.com/matrixorigin/artwork/blob/main/docs/contribution-guide/contribution-guide-fork.png?raw=true)
+![Fork our repo](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/contribution-guide/contribution-guide-fork.png)
 
 ### **步骤 2：将仓库克隆至本地**
 
 前往刚才您创建的 Fork 仓库，点击 `Code`，然后再点击**复制**图标，将库的网址复制到剪贴板。
-![Clone your fork](https://github.com/matrixorigin/artwork/blob/main/docs/contribution-guide/contribution-guide-clone.png?raw=true)
+![Clone your fork](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/contribution-guide/contribution-guide-clone.png)
 然后，在您本地挑选一个合适的工作目录，打开命令行输入以下 Git 命令将文件克隆至您本地的目录：
 
 ```
@@ -106,8 +106,8 @@ git push origin main:NEW_BRANCH
 !!! Note 注意
     建议按照 PR 中所给出的模板要求，撰写相关信息，如此可以准确表达您的问题以及所做的修改，从而提高审查效率。
 
-![Pull Request](https://github.com/matrixorigin/artwork/blob/main/docs/contribution-guide/contribution-guide-pr.png?raw=true)
-![Pull Request Template](https://github.com/matrixorigin/artwork/blob/main/docs/contribution-guide/contribution-guide-pr-template.png?raw=true)
+![Pull Request](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/contribution-guide/contribution-guide-pr.png)
+![Pull Request Template](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/contribution-guide/contribution-guide-pr-template.png)
 
 您的 PR 一旦创建，就有社区资深的开发人员审核您的代码，他将会检查您做的修改并且进行回复，请及时与您沟通，然后按照要求进行修改。
 

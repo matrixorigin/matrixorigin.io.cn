@@ -25,7 +25,7 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
 | node0        | 10.206.134.14 | 1.13.13.199     | 8G      | 2C      | 50G      | worker      |
 | node1        | 10.206.134.16 | 129.211.211.29  | 8G      | 2C      | 50G      | worker      |
 
-![image-20230509113818093](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/scale-1.png?raw=true)
+![image-20230509113818093](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/scale-1.png)
 
 ## MatrixOne 各服务的扩缩容
 

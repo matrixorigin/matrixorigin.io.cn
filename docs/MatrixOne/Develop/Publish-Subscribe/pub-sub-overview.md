@@ -58,7 +58,7 @@
 
 ### 发布订阅示例
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/develop/pub-sub/example-zh.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/pub-sub/example-zh.png)
 
 本章节将给出一个示例，介绍当前在 MatrixOne 集群中，存在 3 个租户，sys、acc1 与 acc2，按照操作顺序对三个租户进行操作：
 

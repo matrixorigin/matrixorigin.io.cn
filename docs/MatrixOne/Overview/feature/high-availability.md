@@ -22,7 +22,7 @@ MatrixOne 通过纠删码进行数据冗余校验，同步事务日志采用 Raf
 
 MatrixOne 的整体技术架构如下图所示，我们会根据不同的组件模块，分别介绍它们的高可用性。
 
-![high-availability](https://github.com/matrixorigin/artwork/blob/main/docs/overview/high-availability.png?raw=true)
+![high-availability](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-availability.png)
 
 ### 资源调度层
 

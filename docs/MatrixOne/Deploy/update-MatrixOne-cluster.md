@@ -27,9 +27,9 @@
 
     - ${REPO_URL}：是 Matrixone 公开镜像仓库，默认为 matrixorigin/matrixone。假如目标版本在 MatrixOne 的公开镜像仓库不存在，则需要同时修改镜像仓库的 URL 为实际的仓库：
 
-    ![image-20230407094237806](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-20230407094237806.png?raw=true)
+    ![image-20230407094237806](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094237806.png)
 
-    ![image-20230407094251938](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-20230407094251938.png?raw=true)
+    ![image-20230407094251938](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094251938.png)
 
 3. 修改完成后，按 `:wq` 保存即可，MatrixOne Operator 会自动拉取新版本的镜像，并重启组件服务，包括 Log Service，DN 和 CN，你也可以通过以下命令观察其运行状态。
 
@@ -146,7 +146,7 @@ kubectl delete pvc mo-data-mo-log-2 -nmo-hn
 
 在 MinIO 管控页面，删除 MO 使用的 MinIO 使用的桶里面的数据，包括 mo-data、etl 等子目录。
 
-![image-minio-delete-bucket](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-minio-delete-bucket.png?raw=true)
+![image-minio-delete-bucket](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-minio-delete-bucket.png)
 
 或者通过 MinIO 客户端 mc 来操作：
 
@@ -157,7 +157,7 @@ mc rb --force  minio/minio-mo/etl
 
 另外，如果不想删除旧数据，也可以新建一个 MinIO 的桶，然后在部署 MatrixOne 集群的 yaml 文件制定新的桶名即可。
 
-![image-minio-new-bucket](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/image-minio-new-bucket.png?raw=true)
+![image-minio-new-bucket](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-minio-new-bucket.png)
 
 #### 3. 部署新版本集群
 

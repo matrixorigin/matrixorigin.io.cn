@@ -17,7 +17,7 @@ mysql> create database test;
 * 根据你的系统环境选择 [JDK 8+ version](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html) 版本进行下载安装。
 * [MySQL JDBC connector 8.0+ version](https://dev.mysql.com/downloads/connector/j/)：推荐下载平台独立版本，并解压下载文件。
 
-![image-20220927102516885](https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_download.png?raw=true)
+![image-20220927102516885](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_download.png)
 
 !!! note
      我们使用 IDEA 作为一个 IDE 示例来演示这个过程，你可以自由地选择 Eclipse 或其他 IDE 工具实践。
@@ -26,11 +26,11 @@ mysql> create database test;
 
 启动 IDEA，并创建一个新的 Java 项目，如下所示：
 
-![image-20220927104740221](https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_create_project.png?raw=true)
+![image-20220927104740221](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_create_project.png)
 
 进入菜单 **Project Setting > Libraries**，导入 *mysql-connector-java-8.0.30.jar* 文件。
 
-![image-20220927104904770](https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_import_library.png?raw=true)
+![image-20220927104904770](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_import_library.png)
 
 ## 编写 Java 代码连接 MatrixOne
 
@@ -288,4 +288,4 @@ public class Select {
 
 运行结果：
 
-![image-20220927113440917](https://github.com/matrixorigin/artwork/blob/main/docs/reference/jdbc_select.png?raw=true)
+![image-20220927113440917](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_select.png)

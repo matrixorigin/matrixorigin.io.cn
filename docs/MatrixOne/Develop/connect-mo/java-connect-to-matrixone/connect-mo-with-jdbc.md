@@ -27,17 +27,17 @@
 
 2. 在 IDEA 中新建 Java 名称为 **testJDBC** 的项目并选择在 **Build System** 中选择 **Maven** 作为构建系统，点击 **Create**。
 
-    ![JDBC create project](https://github.com/matrixorigin/artwork/blob/main/docs/develop/JDBC_connect/JDBC-create-project.png?raw=true)
+    ![JDBC create project](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-create-project.png)
 
 3. 点击 **File > Project Structure**，进入到 **Project Setting**，点选 **Library**，并点击 **+** 按钮，添加 **From Maven**。
 
-    ![JDBC project structure](https://github.com/matrixorigin/artwork/blob/main/docs/develop/JDBC_connect/JDBC-project-structure.png?raw=true)
+    ![JDBC project structure](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-project-structure.png)
 
-    ![JDBC add library](https://github.com/matrixorigin/artwork/blob/main/docs/develop/JDBC_connect/JDBC-from-maven.png?raw=true)
+    ![JDBC add library](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-from-maven.png)
 
 4. 输入框中输入 **mysql-connector-java** 搜索整个库，选择 **mysql:mysql-connector-java:8.0.30**，应用到本项目中。
 
-    ![JDBC add driver](https://github.com/matrixorigin/artwork/blob/main/docs/develop/JDBC_connect/JDBC-add-driver.png?raw=true)
+    ![JDBC add driver](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-add-driver.png)
 
 5. 修改 **src/main/java/org/example/Main.java** 中的默认 Java 源代码。如下面的代码示例种所示，这段代码使用连接地址和凭据创建连接。连接到 MatrixOne 后，你可以使用 Java 语言对 MatrixOne 数据库和表进行操作。
 

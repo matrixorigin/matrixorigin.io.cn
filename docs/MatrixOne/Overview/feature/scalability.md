@@ -19,7 +19,7 @@ MatrixOne 是一款超级整合异构云原生数据库，其整体基于存储�
 
 MatrixOne 全面采用云原生架构，所有的组件都以容器形式存在，由 Kubernetes 进行统一管理。Kubernetes 本身具有强大的容器编排和管理能力，在 MatrixOne 中，手动扩展仅需要修改 Kubernetes 的配置。
 
-![scalability](https://github.com/matrixorigin/artwork/blob/main/docs/overview/scalability.png)
+![scalability](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/scalability.png)
 
 ## 功能优势
 
