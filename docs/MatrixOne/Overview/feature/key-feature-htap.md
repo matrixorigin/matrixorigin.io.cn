@@ -20,7 +20,7 @@ MatrixOne 通过模块化的存储、计算和事务架构，多级存储体系�
 
 MatrixOne 的整体技术架构采用完全的存储和计算分离架构。通过模块化设计，将数据库的计算、存储、事务处理分离为单独的模块，从而组建出一套各组件都具有独立伸缩能力的数据库系统。如下图所示，MatrixOne 由三个独立层级构成：
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/mp-htap-arch.png)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/mo-htap-arch.png)
 
 - **计算层**，以计算节点 Compute Node 为单位，实现计算和事务处理的无服务器化，并有自己的 Cache，支持随意重启和扩缩容；多个 Compute Node 可以并行计算，提升查询效率。
 - **事务层**，由数据库节点 Database Node 和日志节点 Log Service 组成，提供完整的日志服务以及元数据信息，内置 Logtail 用于保存最近写入的新数据。
