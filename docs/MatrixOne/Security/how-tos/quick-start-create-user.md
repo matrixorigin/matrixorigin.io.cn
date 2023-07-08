@@ -149,7 +149,7 @@
 
     此时，新建的用户、角色、对象权限关系如下图所示：
 
-    ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/role-user.png?raw=true)
+    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/role-user.png)
 
 ### 步骤三：验证授权生效
 

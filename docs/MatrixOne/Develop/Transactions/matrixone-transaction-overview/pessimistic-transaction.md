@@ -22,7 +22,7 @@ MatrixOne 默认悲观事务。
 
 死锁示例如下图所示：
 
-![image-20221026152318567](https://github.com/matrixorigin/artwork/blob/main/docs/distributed-transaction/deadlocked-zh.png?raw=true)
+![image-20221026152318567](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/distributed-transaction/deadlocked-zh.png)
 
 ### 模型示例
 

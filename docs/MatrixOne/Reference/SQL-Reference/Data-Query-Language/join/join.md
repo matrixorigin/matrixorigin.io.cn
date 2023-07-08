@@ -8,26 +8,26 @@
 
 - ``LEFT JOIN``
 
-|SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key|![leftjoin](https://github.com/matrixorigin/artwork/blob/main/docs/reference/left_join.png?raw=true)|
+|SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key|![leftjoin](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join.png)|
 |---|---|
-|SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL|![leftjoinwhere](https://github.com/matrixorigin/artwork/blob/main/docs/reference/left_join_where.png?raw=true)|
+|SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL|![leftjoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join_where.png)|
 
 - ``RIGHT JOIN``
 
-|SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key|![leftjoinwhere](https://github.com/matrixorigin/artwork/blob/main/docs/reference/right_join.png?raw=true)|
+|SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key|![leftjoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join.png)|
 |---|---|
-|SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL|![leftjoinwhere](https://github.com/matrixorigin/artwork/blob/main/docs/reference/right_join_where.png?raw=true)|
+|SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL|![leftjoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join_where.png)|
 
 - ``INNER JOIN``
 
-|SELECT [select_list] FROM TableA A INNER JOIN TableB B ON A.Key=B.Key|![innerjoin](https://github.com/matrixorigin/artwork/blob/main/docs/reference/inner_join.png?raw=true)|
+|SELECT [select_list] FROM TableA A INNER JOIN TableB B ON A.Key=B.Key|![innerjoin](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/inner_join.png)|
 |---|---|
 
 - ``FULL JOIN``
 
-|SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key|![leftjoin](https://github.com/matrixorigin/artwork/blob/main/docs/reference/full_join.png?raw=true)|
+|SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key|![leftjoin](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/full_join.png)|
 |---|---|
-|SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL OR B.Key IS NULL|![fulljoinwhere](https://github.com/matrixorigin/artwork/blob/main/docs/reference/full_join_where.png?raw=true)|
+|SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL OR B.Key IS NULL|![fulljoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/full_join_where.png)|
 
 更多信息，参考：
 

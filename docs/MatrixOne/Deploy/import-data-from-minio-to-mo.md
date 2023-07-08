@@ -12,11 +12,11 @@
 
 你可以通过访问 <http://192.168.56.10:32001> 来登录 Minio 的图形化界面。账户和密码可以参考 [MatrixOne 分布式集群部署](deploy-MatrixOne-cluster.md)章节中安装和部署 Minio 过程中创建的 rootUser 和 rootPassword。登录后，你需要创建一个专属的存储桶 `load-from-minio`，并将相应的 CSV 文件上传到该存储桶中。
 
-![Create Bucket](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/import/minio-create-bucket.png?raw=true)
+![Create Bucket](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/import/minio-create-bucket.png)
 
 这里我们使用的案例为一个仅包含 6 行数据的简单 `addresses.csv` 案例。
 
-![Load From Minio](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/import/load-from-minio.png?raw=true)
+![Load From Minio](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/import/load-from-minio.png)
 
 ### 获取 Minio 的 endpoint
 
@@ -41,11 +41,11 @@ LOAD DATA
 
 逻辑上来说，MatrixOne 通过 Minio 的访问端口 endpoint 与 Minio 通信，并从中获取数据，如下图所示：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/import/minio-logical-call.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/import/minio-logical-call.png)
 
 实际上，Minio 在 Kubernetes（K8s）中被纳管，对外提供服务必须通过 K8s 的 Service（SVC）访问。任务的实际执行是在 K8s Pod 中完成的。SVC 可以保证不管 Pod 如何变化，对外部应用来说始终保持统一端口。SVC 与 Pod 的关联需要通过 K8s 中的 Endpoint（EP）来建立规则。因此，MatrixOne 实际上是通过 SVC 与 Minio 服务连接的，具体架构如下图所示：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/import/minio-real-call.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/import/minio-real-call.png)
 
 #### 实际命令
 

@@ -11,11 +11,11 @@ MatrixOne 的权限管理是结合了基于角色的访问控制 (RBAC，Role-ba
 
 - **基于角色的访问控制（RBAC）**：将权限分配给角色，再将角色分配给用户。
 
-   ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/basic-concepts-1.png?raw=true)
+   ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/basic-concepts-1.png)
 
 - **自主访问控制（DAC）**：每个对象都有一个所有者，所有者可以设置和授予对该对象的访问权限。
 
-   ![](https://github.com/matrixorigin/artwork/blob/main/docs/security/dac.png?raw=true)
+   ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/dac.png)
 
 ## 关键概念
 
@@ -29,7 +29,7 @@ MatrixOne 的权限管理是结合了基于角色的访问控制 (RBAC，Role-ba
 
 如下图中所示，从上之下，高层级对象可以创建（或删除）低层级对象。
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/security/object-1.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/object-1.png)
 
 上图中的层级关系均为 1：n 的关系，即，一个集群中可以创建多个租户（Account），一个租户下可以创建多个用户和角色，一个数据库中可以创建多个表和视图。
 
@@ -49,7 +49,7 @@ MatrixOne 的权限管理是结合了基于角色的访问控制 (RBAC，Role-ba
 
 一个用户可以同时拥有多个角色，比如 User A 拥有 Role 1 和 Role 2，还有 Role 3 这三个角色，每个角色拥有的权限不同，如下图所示，帮助你快速理解这一行为：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/security/example.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/example.png)
 
 假如 User A 当前正在使用的角色为 Role 1，User A 需要创建一个新的用户 New user B，可是当前 Role 1 这个角色没有创建新用户的权限，Role 2 拥有创建新用户的权限，那么 User A 需要切换到 Role 2 这个角色，然后再创建新的用户。那么，New user B 的 Owner 是 Role 2，其他角色 Role 1 和 Role 3 并不能拥有 New user B 的所有权。
 

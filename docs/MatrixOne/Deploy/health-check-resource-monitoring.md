@@ -16,7 +16,7 @@
 
 MinIO 自带了一个管理界面，通过该界面我们可以以可视化的方式监控其容量使用情况，包括剩余空间的数量等。有关详细信息，请参考[官方文档](https://min.io/docs/minio/linux/operations/monitoring.html)。
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/health-monitoring-1.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/health-monitoring-1.png)
 
 ### Node/Pod 资源监控
 
@@ -875,4 +875,4 @@ kubectl logs ${POD_NAME} -n${NS}
 kubectl describe pod ${POD_NAME} -n${NS}
 ```
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/deploy/health-monitoring-2.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/health-monitoring-2.png)
