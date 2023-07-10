@@ -94,13 +94,13 @@ git version 2.40.0
 
 [mo_ctl](https://github.com/matrixorigin/mo_ctl_standalone) 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。
 
-1. 先安装 `wget` 下载工具：进入到<a href="https://brew.sh/" target="_blank">Homebrew</a>页面按照步骤提示，先安装 **Homebrew**，再安装 `wget`。 验证 `wget` 是否安装成功可以使用如下命令行：
+1. 先安装 `wget` 下载工具：进入到 <a href="https://brew.sh/" target="_blank">Homebrew</a> 页面按照步骤提示，先安装 **Homebrew**，再安装 `wget`。验证 `wget` 是否安装成功可以使用如下命令行：
 
      ```
      wget -V
      ```
 
-     安装成功结果(仅展示一部分代码)如下：
+     安装成功结果（仅展示一部分代码）如下：
 
      ```
      GNU Wget 1.21.3 在 darwin21.3.0 上编译。
