@@ -48,6 +48,9 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
 更多关于安装部署的问题，参见[部署常见问题](../../FAQs/deployment-faqs.md)。
 
+!!! note
+    MatrixOne 与客户端默认是非加密传输，如果需要开启加密传输请参见[数据传输加密](../../Security/TLS-introduction.md)。
+
 ## 通过 Navicat 连接 MatrixOne 服务
 
 1. 打开一个新的终端窗口，输入以下命令，启动 MatrixOne：
