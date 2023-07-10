@@ -86,7 +86,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      ```bash
      mkdir /root/matrixone & cd /root/
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
-     unzip -d  matrixone/mo-v0.8.0-linux-amd64.zip
+     unzip -d  matrixone/ mo-v0.8.0-linux-amd64.zip
      ```
 
      ARM 架构系统安装包：
@@ -94,7 +94,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      ```bash
      mkdir /root/matrixone & cd /root/
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-arm64.zip
-     unzip -d  matrixone/mo-v0.8.0-linux-arm64.zip
+     unzip -d  matrixone/ mo-v0.8.0-linux-arm64.zip
      ```
 
 === "**下载方式二：`curl` 工具下载二进制包**"
@@ -104,7 +104,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      ```bash
      mkdir /root/matrixone & cd /root/
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
-     unzip -d  matrixone/mo-v0.8.0-linux-amd64.zip
+     unzip -d  matrixone/ mo-v0.8.0-linux-amd64.zip
      ```
 
      ARM 架构系统安装包：
@@ -112,7 +112,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      ```bash
      mkdir /root/matrixone & cd /root/
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-arm64.zip
-     unzip -d  matrixone/mo-v0.8.0-linux-arm64.zip
+     unzip -d  matrixone/ mo-v0.8.0-linux-arm64.zip
      ```
 
 === "**下载方式三：页面下载**"
@@ -187,4 +187,4 @@ mysql>
 ```
 
 !!! note
-    上述的连接和登录账号为初始账号 `root` 和密码 `111`，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](https://docs.matrixorigin.cn/0.8.0/MatrixOne/Security/password-mgmt/)。修改登录用户名或密码后重新登录同样需要通过 `mo_ctl set_conf` 的方式设置新的用户名和密码，详情可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。
+    上述的连接和登录账号为初始账号 `root` 和密码 `111`，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../Security/password-mgmt/)。修改登录用户名或密码后重新登录同样需要通过 `mo_ctl set_conf` 的方式设置新的用户名和密码，详情可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。
