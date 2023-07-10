@@ -1,12 +1,25 @@
-# **使用源代码部署**
+# **Linux 使用源代码部署**
 
-本篇文档将指导你使用源代码部署单机版 MatrixOne。
+本篇文档将指导你使用源代码在 Linux 环境中部署单机版 MatrixOne。我们将采用 [mo_ctl](https://github.com/matrixorigin/mo_ctl_standalone) 工具帮助我们进行部署与管理 MatrixOne。
 
-## 步骤 1：安装部署 Go 语言
+MatrixOne 支持 x86 及 ARM 的 Linux 系统。本文以 Debian11.1 x86 架构为例，展示如何完成全流程。如果使用 Ubuntu 系统，需要注意的是默认没有 root 权限，建议全流程命令都加 `sudo` 进行。
+
+## 前置依赖参考
+
+通过源码安装及使用单机版 MatrixOne，需要依赖于以下一些软件包。
+
+| 依赖软件     | 版本                          |
+| ------------ | ----------------------------- |
+| golang       | 1.20 及以上                    |
+| gcc/clang    | gcc8.5 及以上, clang13.0 及以上 |
+| git          | 2.20 及以上                    |
+| MySQL Client | 8.0 及以上                     |
+
+## 步骤 1: 安装依赖
+
+### 1. 安装部署 Go 语言
 
 1. 点击 <a href="https://go.dev/doc/install" target="_blank">Go Download and install</a> 入到 **Go** 的官方文档，按照官方指导安装步骤完成 **Go** 语言的安装。
-
-    __Note__: 建议 Go 语言版本为 1.20 版本。
 
 2. 验证 **Go** 是否安装，请执行代码 `go version`，安装成功代码行示例如下：
 
@@ -14,22 +27,20 @@
     go version go1.20.4 linux/amd64
     ```
 
-## 步骤 2：安装 GCC
+### 2. 安装 GCC/Clang
 
-1. 验证 GCC 环境是否需要安装：
+1. Debian11.1 中一般已经自带 9.0 以上版本的 GCC，可以先用以下命令验证 GCC 环境是否需要安装。
 
     ```
     gcc -v
     bash: gcc: command not found
     ```
 
-    如代码所示，未显示 GCC 的版本，则表示 **GCC** 的环境需要安装。
+    如代码所示，未显示 GCC 或 Clang 的版本，则表示 **GCC/Clang** 的环境需要安装。
 
 2. 点击 <a href="https://gcc.gnu.org/install/" target="_blank">GCC Download and install</a> 入到 **GCC** 的官方文档，按照官方指导安装步骤完成 **GCC** 的安装。
 
-    __Note__: 建议 GCC 版本为 8.5 版本及以上。
-
-3. 验证 **GCC** 是否安装，请执行代码 `gcc -v`，安装成功代码行示例如下（只展示部分代码）：
+3. 验证 **GCC/Clang** 是否安装，请执行代码 `gcc -v`，安装成功代码行示例如下（只展示部分代码）：
 
     ```
     Using built-in specs.
@@ -39,147 +50,201 @@
     gcc version 9.3.1 20200408 (Red Hat 9.3.1-2) (GCC)
     ```
 
-## 步骤 3：获取 MatrixOne 源代码
+### 3. 安装 Git
 
-根据您的需要，选择您所获取的代码永远保持最新，还是获得稳定版本的代码。
+1. 检查 Git 是否已支持。如代码所示，未显示 git 的版本，则表示 **git** 需要安装。
 
-=== "通过 MatrixOne (开发版本) 代码搭建"
+    ```
+    git version
+    -bash: git: command not found
+    ```
+
+2. 通过以下命令安装 Git。
+
+    ```
+    sudo apt install git
+    ```
+
+3. 验证 **Git** 是否安装，请执行代码 `git version`，安装成功代码行示例如下：
+
+    ```
+    git version
+    git version 2.40.0
+    ```
+
+### 4. 安装 MySQL Client
+
+Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安装。
+
+1. 安装 `wget` 下载工具：进入到 <a href="https://brew.sh/" target="_blank">Homebrew</a> 页面按照步骤提示，先安装 **Homebrew**，再安装 `wget`。验证 `wget` 是否安装成功可以使用如下命令行：
+
+     ```
+     wget -V
+     ```
+
+     安装成功结果（仅展示一部分代码）如下：
+
+     ```
+     GNU Wget 1.21.3 built on linux-gnu.
+     ...
+     Copyright (C) 2015 Free Software Foundation, Inc.
+     ...
+     ```
+
+2. 依次执行以下命令：
+
+    ```
+    wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+    sudo dpkg -i ./mysql-apt-config_0.8.22-1_all.deb
+    sudo apt update
+    sudo apt install mysql-client
+    ```
+
+3. 执行命令 `mysql --version` 测试 MySQL 是否可用，安装成功结果如下：
+
+    ```
+    mysql --version
+    mysql  Ver 8.0.33 for Linux on x86_64 (MySQL Community Server - GPL)
+    ```
+
+## 步骤 2: 安装 mo_ctl 工具
+
+[mo_ctl](https://github.com/matrixorigin/mo_ctl_standalone) 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。
+
+### 1. 一键安装 mo_ctl 工具
+
+通过以下命令可以一键安装 mo_ctl 工具：
+
+```
+wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh && bash +x ./install.sh
+```
+
+安装完成以后，通过 `mo_ctl` 命令验证是否安装成功：
+
+```
+root@VM-16-2-debian:~# mo_ctl
+Usage             : mo_ctl [option_1] [option_2]
+
+[option_1]        : available: help | precheck | deploy | status | start | stop | restart | connect | get_cid | set_conf | get_conf | pprof | ddl_convert
+  0) help         : print help information
+  1) precheck     : check pre-requisites for mo_ctl
+  2) deploy       : deploy mo onto the path configured
+  3) status       : check if there's any mo process running on this machine
+  4) start        : start mo-service from the path configured
+  5) stop         : stop all mo-service processes found on this machine
+  6) restart      : start mo-service from the path configured
+  7) connect      : connect to mo via mysql client using connection info configured
+  8) get_cid      : print mo commit id from the path configured
+  9) pprof        : collect pprof information
+  10) set_conf    : set configurations
+  11) get_conf    : get configurations
+  12) ddl_convert : convert ddl file to mo format from other types of database
+  e.g.            : mo_ctl status
+
+[option_2]        : Use " mo_ctl [option_1] help " to get more info
+  e.g.            : mo_ctl deploy help
+```
+
+### 2. 设置 mo_ctl 的配置参数（选做）
+
+mo_ctl 工具中有部分参数可能需要你进行调整设置，通过 `mo_ctl get_conf` 可以查看所有当前参数。
+
+```
+root@VM-16-2-debian:~# mo_ctl get_conf
+2023-07-07_10:09:09    [INFO]    Below are all configurations set in conf file /data/mo_ctl/conf/env.sh
+MO_PATH="/data/mo/"
+MO_LOG_PATH="${MO_PATH}/logs"
+MO_HOST="127.0.0.1"
+MO_PORT="6001"
+MO_USER="root"
+MO_PW="111"
+CHECK_LIST=("go" "gcc" "git" "mysql")
+GCC_VERSION="8.5.0"
+GO_VERSION="1.20"
+MO_GIT_URL="https://github.com/matrixorigin/matrixone.git"
+MO_DEFAULT_VERSION="0.8.0"
+GOPROXY="https://goproxy.cn,direct"
+STOP_INTERVAL="5"
+START_INTERVAL="2"
+MO_DEBUG_PORT="9876"
+MO_CONF_FILE="${MO_PATH}/matrixone/etc/launch-tae-CN-tae-DN/launch.toml"
+RESTART_INTERVAL="2"
+PPROF_OUT_PATH="/tmp/pprof-test/"
+PPROF_PROFILE_DURATION="30"
+```
+
+一般可能会需要调整的参数如下：
+
+```
+mo_ctl set_conf MO_PATH="/data/mo/matrixone" # 设置自定义的MatrixOne下载路径
+mo_ctl set_conf MO_PATH="https://ghproxy.com/https://github.com/matrixorigin/matrixone.git" #针对github原地址下载过慢问题，设置代理下载地址
+mo_ctl set_conf MO_DEFAULT_VERSION="0.8.0" # 设置所下载的MatrixOne版本
+```
+
+## 步骤 3：一键安装 MatrixOne
+
+根据您的需要，选择最新的开发版本，还是获得稳定版本的代码。
+
+=== "通过 MatrixOne (开发版本) 代码安装"
 
       **main** 分支是默认分支，主分支上的代码总是最新的，但不够稳定。
 
-     1. 获取 MatrixOne(开发版本) 代码方法如下：
+      ```
+      mo_ctl deploy main
+      ```
 
-         ```shell
-         git clone https://github.com/matrixorigin/matrixone.git
-         cd matrixone
-         ```
+=== "通过 MatrixOne (稳定版本) 代码安装"
 
-     2. 运行 `make build` 编译文件：
-
-         ```
-         make build
-         ```
-
-         __Tips__: 你也可以运行`make debug`与`make clean`或者其他任何`Makefile`支持的命令；`make debug` 可以用来调试构建进程，`make clean` 可以清除构建进程。如果在 `make build` 时产生 `Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout` 报错，参见[安装和部署常见问题](../../FAQs/deployment-faqs.md)进行解决。
-
-=== "通过 MatrixOne (稳定版本) 代码搭建"
-
-     1. 如果您想获得 MatrixOne 发布的最新稳定版本代码，请先从 **main** 切换选择至 **0.8.0** 版本分支。
-
-         ```
-         git clone https://github.com/matrixorigin/matrixone.git
-         cd matrixone         
-         git checkout 0.8.0
-         ```
-
-     2. 运行 `make config` 和 `make build` 编译文件：
-
-         ```
-         make config
-         make build
-         ```
-
-         __Tips__: 你也可以运行`make debug`与`make clean`或者其他任何`Makefile`支持的命令；`make debug` 可以用来调试构建进程，`make clean` 可以清除构建进程。如果在 `make build` 时产生 `Get "https://proxy.golang.org/........": dial tcp 142.251.43.17:443: i/o timeout` 报错，参见[安装和部署常见问题](../../FAQs/deployment-faqs.md)进行解决。
+     ```
+     mo_ctl deploy 0.8.0
+     ```
 
 ## 步骤 4：启动 MatrixOne 服务
 
-=== "**在终端的前台启动 MatrixOne 服务**"
+通过 `mo_ctl start` 命令一键启动 MatrixOne 服务。
 
-      该启动方式会在终端的前台运行 `mo-service` 进行，实时打印系统日志。如果你想停止 MatrixOne 服务器，只需按 CTRL+C 或关闭当前终端。
+如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 `/data/mo/logs/` 中。
 
-      ```
-      # Start mo-service in the frontend
-      ./mo-service -launch ./etc/quickstart/launch.toml
-      ```
-
-      在前台启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne。
-
-=== "**推荐使用：在终端的后台启动 MatrixOne 服务**"
-
-      该启动方法会在后台运行 `mo-service` 进程，系统日志将重定向到 `test.log` 文件中。如果你想停止 MatrixOne 服务器，你需要通过以下命令查找出它的 `PID` 进程号并消除进程。下面是整个过程的完整示例。
-
-      ```
-      # Start mo-service in the backend
-      ./mo-service --daemon --launch ./etc/quickstart/launch.toml &> test.log &
-
-      # Find mo-service PID
-      ps aux | grep mo-service
-
-      [root@VM-0-10-centos ~]# ps aux | grep mo-service
-      root       15277  2.8 16.6 8870276 5338016 ?     Sl   Nov25 156:59 ./mo-service -launch ./etc/quickstart/launch.toml
-      root      836740  0.0  0.0  12136  1040 pts/0    S+   10:39   0:00 grep --color=auto mo-service
-
-      # Kill the mo-service process
-      kill -9 15277
-      ```
-
-      __Tips__: 如上述示例所示，使用命令 `ps aux | grep mo-service` 首先查找出 MatrixOne 运行的进程号为 `15277`，`kill -9 15277` 即表示停止进程号为 `15277` 的 MatrixOne。
-
-      接下来你可以进行下一步 - 连接 MatrixOne。
+```
+root@VM-16-2-debian:~# mo_ctl start
+2023-07-07_09:55:01    [INFO]    No mo-service is running
+2023-07-07_09:55:01    [INFO]    Starting mo-service: cd /data/mo//matrixone/ && /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-DN/launch.toml >/data/mo//logs/stdout-20230707_095501.log 2>/data/mo//logs/stderr-20230707_095501.log
+2023-07-07_09:55:01    [INFO]    Wait for 2 seconds
+2023-07-07_09:55:03    [INFO]    At least one mo-service is running. Process info:
+2023-07-07_09:55:03    [INFO]    root      748128       1  2 09:55 ?        00:00:00 /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-DN/launch.toml
+2023-07-07_09:55:03    [INFO]    Pids:
+2023-07-07_09:55:03    [INFO]    748128
+2023-07-07_09:55:03    [INFO]    Start succeeded
+```
 
 !!! note
-    首次启动 MatrixOne 大致需要花费 20 至 30 秒的时间，在稍作等待后，你便可以使用 MySQL 客户端连接至 MatrixOne。
+    首次启动 MatrixOne 大致需要花费 20 至 30 秒的时间，在稍作等待后，你便可以连接至 MatrixOne。
 
-## 步骤 5：连接 MatrixOne
+## 步骤 5：连接 MatrixOne 服务
 
-### 安装并配置 MySQL 客户端
+通过 `mo_ctl connect` 命令一键连接 MatrixOne 服务。
 
-1. 点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 **Select Operating System**，再下拉选择 **Select OS Version**，按需选择下载安装包进行安装。
+这条命令将调用 MySQL Client 工具自动连接到 MatrixOne 服务。
 
-    __Note__: 建议 MySQL 客户端版本为 8.0.30 版本及以上。
+```
+root@VM-16-2-debian:~# mo_ctl connect
+2023-07-07_10:30:20    [INFO]    Checking connectivity
+2023-07-07_10:30:20    [INFO]    Ok, connecting for user ...
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.30-MatrixOne-v0.8.0 MatrixOne
 
-2. 配置 MySQL 客户端环境变量：
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
-     1. 打开一个新的终端，输入如下命令：
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
 
-         ```
-         cd ~
-         sudo vim /etc/profile
-         ```
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-     2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
-
-     3. 输入/跳过 root 密码后，即进入了*. bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
-
-        ```
-        export PATH=/software/mysql/bin:$PATH
-        ```
-
-     4. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
-
-     5. 输入命令 `source  /etc/profile`，回车执行，运行环境变量。
-
-     6. 测试 MySQL 是否可用：
-
-         - 方式一：输入命令 `mysql -u root -p`，回车执行，需要 root 用户密码，显示 `mysql>` 即表示 MySQL 客户端已开启。
-
-         - 方式二：执行命令 `mysql --version`，安装成功提示：`mysql  Ver 8.0.31 for Linux on x86_64 (Source distribution)`
-
-     7. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
-
-    __Tips__: 目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
-
-### 连接 MatrixOne
-
-- 你可以使用 MySQL 命令行客户端来连接 MatrixOne。打开一个新的终端，直接输入以下指令：
-
-       ```
-       mysql -h IP -P PORT -uUsername -p
-       ```
-
-       输入完成上述命令后，终端会提示你提供用户名和密码。你可以使用我们提供的的初始帐号和密码：
-
-        · user: root
-        · password: 111
-
-- 你也可以使用 MySQL 客户端下述命令行，输入密码，来连接 MatrixOne 服务：
-
-       ```
-       mysql -h 127.0.0.1 -P 6001 -uroot -p
-       Enter password:
-       ```
-
-目前，MatrixOne 只支持 TCP 监听。
+mysql>
+```
 
 !!! note
-    上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../Security/password-mgmt.md)。
+    上述的连接和登录账号为初始账号 `root` 和密码 `111`，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../Security/password-mgmt/)。修改登录用户名或密码后重新登录同样需要通过 `mo_ctl set_conf` 的方式设置新的用户名和密码，详情可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。

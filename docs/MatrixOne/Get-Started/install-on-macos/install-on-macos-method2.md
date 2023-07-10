@@ -1,10 +1,51 @@
-# **使用二进制包部署**
+# **macOS 使用二进制包部署**
 
-本篇文档将指导你使用二进制包部署单机版 MatrixOne。
+本篇文档将指导你使用二进制包在 macOS 环境中部署单机版 MatrixOne，这种安装方案无需安装前置依赖和编译源码包，可以直接通过 [mo_ctl](https://github.com/matrixorigin/mo_ctl_standalone) 工具帮助我们进行部署与管理 MatrixOne。
 
-## 步骤 1：安装下载工具
+MatrixOne 支持 x86 及 ARM 两种架构的 macOS 系统，本文以 Macbook M1 ARM 版本为例展示整个部署过程。
 
-我们提供**下载二进制包**的方式安装 MatrixOne，如果你喜欢通过命令行进行操作，那么你可以提前准备安装好 `wget` 或 `curl`。
+## 前置依赖参考
+
+通过二进制包部署和安装 MatrixOne，仅需安装 `MySQL Client` 工具。
+
+| 依赖软件     | 版本                          |
+| ------------ | ----------------------------- |
+| MySQL Client | 8.0 及以上                     |
+
+## 步骤 1：安装依赖
+
+### 安装 MySQL Client
+
+1. 点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 **Select Operating System > macOS**，再下拉选择 **Select OS Version**，按需选择下载安装包进行安装。
+
+2. 配置 MySQL 客户端环境变量：
+
+    1. 打开一个新的终端，输入如下命令：
+
+       ```
+       cd ~
+       sudo vim .bash_profile
+       ```
+
+    2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
+
+    3. 输入/跳过 root 密码后，即进入了 *bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+
+       ```
+       export PATH=${PATH}:/usr/local/mysql/bin
+       ```
+
+3. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
+
+4. 执行命令 `source .bash_profile`，回车执行，运行环境变量。
+
+5. 测试 MySQL 是否可用：
+
+    执行命令 `mysql --version`，安装成功提示：`mysql  Ver 8.0.31 for macos12 on arm64 (MySQL Community Server - GPL)`。
+
+## 步骤 2：下载二进制包并解压
+
+### 1. 安装下载工具
 
 __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续通过命令行下载二进制包。
 
@@ -45,24 +86,26 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      ...
      ```
 
-## 步骤 2：下载二进制包并解压
+### 2. 下载二进制包并解压
 
-**下载方式一**和**下载方式二**需要先安装下载工具 `wget` 货 `curl`，如果你未安装，请先安装下载工具。
+**下载方式一**和**下载方式二**需要先安装下载工具 `wget` 或 `curl`，如果你未安装，请先自行安装下载工具。
 
 === "**下载方式一：`wget` 工具下载安装二进制包**"
 
      x86 架构系统安装包：
 
      ```bash
+     mkdir /User/username/mo/matrixone & cd /User/username/mo
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
-     unzip mo-v0.8.0-darwin-x86_64.zip
+     unzip -d matrixone/ mo-v0.8.0-darwin-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
+     mkdir /User/username/mo/matrixone & cd /User/username/mo
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
-     unzip mo-v0.8.0-darwin-arm64.zip
+     unzip -d matrixone/ mo-v0.8.0-darwin-arm64.zip
      ```
 
 === "**下载方式二：`curl` 工具下载二进制包**"
@@ -70,119 +113,89 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      x86 架构系统安装包：
 
      ```bash
+     mkdir /User/username/mo/matrixone & cd /User/username/mo
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
-     unzip mo-v0.8.0-darwin-x86_64.zip
+     unzip -d matrixone/ mo-v0.8.0-darwin-x86_64.zip
      ```
 
-    ARM 架构系统安装包：
+     ARM 架构系统安装包：
 
-    ```bash
-    curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
-    unzip mo-v0.8.0-darwin-arm64.zip
-    ```
+     ```bash
+     mkdir /User/username/mo/matrixone & cd /User/username/mo
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
+     unzip -d matrixone/ mo-v0.8.0-darwin-arm64.zip
+     ```
 
 === "**下载方式三：页面下载**"
 
      如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 0.8.0](https://github.com/matrixorigin/matrixone/releases/tag/v0.8.0)，下拉找到 **Assets** 栏，点击安装包 *mo-v0.8.0-darwin-x86_64.zip* 或 *mo-v0.8.0-darwin-arm64.zip* 下载即可。
 
-## 步骤 3：启动 MatrixOne 服务
+## 步骤 3：安装 mo_ctl 工具
 
-=== "**在终端的前台启动 MatrixOne 服务**"
+[mo_ctl](https://github.com/matrixorigin/mo_ctl_standalone) 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。
 
-      该启动方式会在终端的前台运行 `mo-service` 进行，实时打印系统日志。如果你想停止 MatrixOne 服务器，只需按 CTRL+C 或关闭当前终端。
+### 1. 一键安装 mo_ctl 工具
 
-      ```
-      # Start mo-service in the frontend
-      ./mo-service -launch ./etc/launch-tae-CN-tae-DN/launch.toml
-      ```
-      在前台启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne。
+通过以下命令可以一键安装 mo_ctl 工具。
 
-=== "**推荐使用：在终端的后台启动 MatrixOne 服务**"
+```
+wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh && sudo -u $(whoami) bash +x ./install.sh
+```
 
-      该启动方法会在后台运行 `mo-service` 进程，系统日志将重定向到 `test.log` 文件中。如果你想停止 MatrixOne 服务器，你需要通过以下命令查找出它的 `PID` 进程号并消除进程。下面是整个过程的完整示例。
+### 2. 设置 mo_ctl 的配置参数
 
-      ```
-      # Start mo-service in the backend
-      ./mo-service --daemon --launch ./etc/launch-tae-CN-tae-DN/launch.toml &> test.log &
+通过以下命令将 MatrixOne 的二进制解压文件目录设置到 mo_ctl 的 `MO_PATH` 参数上。mo_ctl 会自动寻找位于 `MO_PATH` 中的 `matrixone` 文件夹。
 
-      # Find mo-service PID
-      ps aux | grep mo-service
+```
+mo_ctl set_conf MO_PATH="/User/username/mo/"
+```
 
-      [root@VM-0-10-centos ~]# ps aux | grep mo-service
-      root       15277  2.8 16.6 8870276 5338016 ?     Sl   Nov25 156:59 ./mo-service -launch ./etc/quickstart/launch.toml
-      root      836740  0.0  0.0  12136  1040 pts/0    S+   10:39   0:00 grep --color=auto mo-service
+## 步骤 4：启动 MatrixOne 服务
 
-      # Kill the mo-service process
-      kill -9 15277
-      ```
+通过 `mo_ctl start` 命令一键启动 MatrixOne 服务。
 
-      __Tips__: 如上述示例所示，使用命令 `ps aux | grep mo-service` 首先查找出 MatrixOne 运行的进程号为 `15277`，`kill -9 15277` 即表示停止进程号为 `15277` 的 MatrixOne。
+如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 `/data/mo/logs/` 中。
 
-      接下来你可以进行下一步 - 连接 MatrixOne。
+```
+> mo_ctl start
+2023-07-07_15:33:45    [INFO]    No mo-service is running
+2023-07-07_15:33:45    [INFO]    Starting mo-service: cd /Users/username/mo/matrixone/matrixone/ && /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-DN/launch.toml >/Users/username/mo/matrixone/matrixone/logs/stdout-20230707_153345.log 2>/Users/username/mo/matrixone/matrixone/logs/stderr-20230707_153345.log
+2023-07-07_15:33:45    [INFO]    Wait for 2 seconds
+2023-07-07_15:33:48    [INFO]    At least one mo-service is running. Process info:
+2023-07-07_15:33:48    [INFO]      501 66932     1   0  3:33PM ??         0:00.27 /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-DN/launch.toml
+2023-07-07_15:33:48    [INFO]    Pids:
+2023-07-07_15:33:48    [INFO]    66932
+2023-07-07_15:33:48    [INFO]    Start succeeded
+```
 
 !!! note
     首次启动 MatrixOne 大致需要花费 20 至 30 秒的时间，在稍作等待后，你便可以使用 MySQL 客户端连接至 MatrixOne。
 
-## 步骤 4：连接 MatrixOne
+## 步骤 5：连接 MatrixOne 服务
 
-### 安装并配置 MySQL 客户端
+通过 `mo_ctl connect` 命令一键连接 MatrixOne 服务。
 
-1. 点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 **Select Operating System > macOS**，再下拉选择 **Select OS Version**，按需选择下载安装包进行安装。
+这条命令将调用 MySQL Client 工具自动连接到 MatrixOne 服务。
 
-    __Note__: 建议 MySQL 客户端版本为 8.0.30 版本及以上。
+```
+> mo_ctl connect
+2023-07-07_10:30:20    [INFO]    Checking connectivity
+2023-07-07_10:30:20    [INFO]    Ok, connecting for user ...
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.30-MatrixOne-v0.8.0 MatrixOne
 
-2. 配置 MySQL 客户端环境变量：
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
-     1. 打开一个新的终端，输入如下命令：
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
 
-         ```
-         cd ~
-         sudo vim .bash_profile
-         ```
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-     2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
-
-     3. 输入/跳过 root 密码后，即进入了*. bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
-
-        ```
-        export PATH=${PATH}:/usr/local/mysql/bin
-        ```
-
-     4. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
-
-     5. 输入命令 `source .bash_profile`，回车执行，运行环境变量。
-
-     6. 测试 MySQL 是否可用：
-
-         - 方式一：输入命令 `mysql -u root -p`，回车执行，需要 root 用户密码，显示 `mysql>` 即表示 MySQL 客户端已开启。
-
-         - 方式二：执行命令 `mysql --version`，安装成功提示：`mysql  Ver 8.0.31 for macos12 on arm64 (MySQL Community Server - GPL)`
-
-     7. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
-
-    __Tips__: 目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
-
-### 连接 MatrixOne
-
-- 你可以使用 MySQL 命令行客户端来连接 MatrixOne。打开一个新的终端，直接输入以下指令：
-
-       ```
-       mysql -h IP -P PORT -uUsername -p
-       ```
-
-       输入完成上述命令后，终端会提示你提供用户名和密码。你可以使用我们提供的的初始帐号和密码：
-
-        · user: root
-        · password: 111
-
-- 你也可以使用 MySQL 客户端下述命令行，输入密码，来连接 MatrixOne 服务：
-
-       ```
-       mysql -h 127.0.0.1 -P 6001 -uroot -p
-       Enter password:
-       ```
-
-目前，MatrixOne 只支持 TCP 监听。
+mysql>
+```
 
 !!! note
-    上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../Security/password-mgmt.md)。
+    上述的连接和登录账号为初始账号 `root` 和密码 `111`，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../Security/password-mgmt/)。修改登录用户名或密码后重新登录同样需要通过 `mo_ctl set_conf` 的方式设置新的用户名和密码，详情可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。

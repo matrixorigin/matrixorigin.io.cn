@@ -149,6 +149,7 @@ nav:
         - Operator 管理: MatrixOne/Deploy/MatrixOne-Operator-mgmt.md
     - 运维:
       - 备份与恢复: MatrixOne/Maintain/backup-restore.md
+      - 脚本工具指南: MatrixOne/Maintain/mo_ctl.md
       - 数据挂载:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:

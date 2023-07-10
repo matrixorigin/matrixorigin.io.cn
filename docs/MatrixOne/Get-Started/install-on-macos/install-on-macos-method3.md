@@ -88,7 +88,7 @@
 
      4. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
 
-     5. 输入命令 `source .bash_profile`，回车执行，运行环境变量。
+     5. 执行命令 `source .bash_profile`，回车执行，运行环境变量。
 
      6. 测试 MySQL 是否可用：
 
