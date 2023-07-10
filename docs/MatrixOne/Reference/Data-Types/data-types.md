@@ -403,3 +403,37 @@ mysql> select * from decimalTest;
 +---------+---------------------------+
 1 row in set (0.01 sec)
 ```
+
+## **UUID 类型**
+
+|UUID 类型 | 解释 |
+|---|---|
+|[UUID](uuid-type.md) | 由 32 个 16 进制数字和4个连字符 ‘-’ 组成 UUID 值，形式为 8-4-4-4-12，标准的UUID示例：`a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11`。|
+
+### **示例**
+
+```sql
+-- 创建一个名为 't1' 的新表，并设置 'a' 列为 UUID 类型，同时将 'a' 列设置为主键
+create table t1(a uuid primary key);
+
+-- 向 't1' 表的 'a' 列插入一个新的 UUID 值
+insert into t1 values (uuid());
+
+-- 查询 't1' 表中 'a' 列的值转换为字符串后的长度
+mysql> select length(cast(a as varchar)) from t1;
++----------------------------+
+| length(cast(a as varchar)) |
++----------------------------+
+|                         36 |
++----------------------------+
+1 row in set (0.01 sec)
+
+-- 查询 t1 表中的所有记录，其值是一个 UUID
+mysql> select * from t1;
++--------------------------------------+
+| a                                    |
++--------------------------------------+
+| 948d8e4e-1b00-11ee-b656-5ad2460dea50 |
++--------------------------------------+
+1 row in set (0.00 sec)
+```

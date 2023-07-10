@@ -207,6 +207,7 @@ nav:
         - TIMESTAMP 和 DATETIME 的自动初始化和更新: MatrixOne/Reference/Data-Types/timestamp-initialization.md
         - JSON 数据类型: MatrixOne/Reference/Data-Types/json-type.md
         - BLOB 和 TEXT 数据类型: MatrixOne/Reference/Data-Types/blob-text-type.md
+        - UUID 数据类型: MatrixOne/Reference/Data-Types/uuid-type.md
         - 精确数值类型-DECIMAL: MatrixOne/Reference/Data-Types/fixed-point-types.md
       - SQL 目录:
         - 数据定义语言（DDL）:
@@ -418,7 +419,6 @@ nav:
             - SIN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/sin.md
             - SINH(): MatrixOne/Reference/Functions-and-Operators/Mathematical/sinh.md
             - TAN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/tan.md
-            - UUID(): MatrixOne/Reference/Functions-and-Operators/Mathematical/uuid.md
           - 字符串类:
             - BIN(): MatrixOne/Reference/Functions-and-Operators/String/bin.md
             - BIT_LENGTH(): MatrixOne/Reference/Functions-and-Operators/String/bit-length.md
@@ -463,6 +463,9 @@ nav:
           - JSON 函数: MatrixOne/Reference/Functions-and-Operators/Json/json-functions.md
           - 其他函数:
             - SLEEP: MatrixOne/Reference/Functions-and-Operators/Other/sleep.md
+            - UUID(): MatrixOne/Reference/Functions-and-Operators/Other/uuid.md
+          - 系统运维函数:
+            - PURGE_LOG(): MatrixOne/Reference/Functions-and-Operators/sys-ops/purge_log.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
       - 系统表目录: MatrixOne/Reference/System-tables.md
@@ -483,6 +486,7 @@ nav:
       - SQL 常见问题: MatrixOne/FAQs/sql-faqs.md
     - 版本发布纪要:
       - 版本发布历史记录: MatrixOne/Release-Notes/release-timeline.md
+      - v0.8.0: MatrixOne/Release-Notes/v0.8.0.md
       - v0.7.0: MatrixOne/Release-Notes/v0.7.0.md
       - v0.6.0: MatrixOne/Release-Notes/v0.6.0.md
       - v0.5.1: MatrixOne/Release-Notes/v0.5.1.md
