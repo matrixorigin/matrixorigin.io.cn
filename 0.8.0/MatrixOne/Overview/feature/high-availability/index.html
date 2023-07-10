@@ -1102,20 +1102,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Develop/connect-mo/configure-mo-ssl-connection/" class="md-nav__link">
-        配置 MatrixOne SSL
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -2398,22 +2384,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../Maintain/mo_ctl/" class="md-nav__link">
+        脚本工具指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_2" type="checkbox" id="__nav_1_6_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_3" type="checkbox" id="__nav_1_6_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_6_2">
+        <label class="md-nav__link" for="__nav_1_6_3">
           数据挂载
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="数据挂载" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_6_2">
+        <label class="md-nav__title" for="__nav_1_6_3">
           <span class="md-nav__icon md-icon"></span>
           数据挂载
         </label>
@@ -3159,6 +3159,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Security/audit/" class="md-nav__link">
+        安全审计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Security/app-scenarios/" class="md-nav__link">
         应用场景
       </a>
@@ -3501,6 +3515,20 @@
     <li class="md-nav__item">
       <a href="../../../Reference/Data-Types/blob-text-type/" class="md-nav__link">
         BLOB 和 TEXT 数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Data-Types/uuid-type/" class="md-nav__link">
+        UUID 数据类型
       </a>
     </li>
   
@@ -6998,20 +7026,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Mathematical/uuid/" class="md-nav__link">
-        UUID()
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -7723,6 +7737,67 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Functions-and-Operators/Other/uuid/" class="md-nav__link">
+        UUID()
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_5_2_9" type="checkbox" id="__nav_1_11_5_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_5_2_9">
+          系统运维函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统运维函数" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_11_5_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          系统运维函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Functions-and-Operators/sys-ops/purge_log.md" class="md-nav__link">
+        PURGE_LOG()
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -7975,20 +8050,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Troubleshooting/audit/" class="md-nav__link">
-        审计
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Troubleshooting/error-code/" class="md-nav__link">
         错误码
       </a>
@@ -8113,6 +8174,20 @@
     <li class="md-nav__item">
       <a href="../../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
+        v0.8.0
       </a>
     </li>
   
@@ -8650,8 +8725,7 @@
 <h3 id="_5">资源调度层</h3>
 <p>MatrixOne 的技术架构是完全云原生化的，所有的技术组件都以容器化的形式运行在 Kubernetes 上。通过采用多主多从的部署方案，Kubernetes 集群可以保证连续可用性。具体的部署拓扑及方案可参考 <a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/ha-topology/">Kubernetes 官方方案</a>。</p>
 <h3 id="_6">存储层</h3>
-<p>在存储层，</p>
-<p>MatrixOne 采用对象存储，推荐使用 Minio 进行部署。MinIO 作为一款成熟的分布式对象存储方案，需要保证数据服务的高可用性和数据文件的完整一致性。MinIO 集群的架构是分布式的，将数据存储在多个节点上，提供高可用性和容错性。同时，MinIO 集群使用 Erasure Coding 技术保证数据的可靠性和可用性。当某个节点发生故障时，其他节点可以使用这些编码副本恢复丢失的数据。</p>
+<p>在存储层，MatrixOne 采用对象存储，推荐使用 Minio 进行部署。MinIO 作为一款成熟的分布式对象存储方案，需要保证数据服务的高可用性和数据文件的完整一致性。MinIO 集群的架构是分布式的，将数据存储在多个节点上，提供高可用性和容错性。同时，MinIO 集群使用 Erasure Coding 技术保证数据的可靠性和可用性。当某个节点发生故障时，其他节点可以使用这些编码副本恢复丢失的数据。</p>
 <h3 id="_7">共享日志</h3>
 <p>共享日志组件 LogService 是 MatrixOne 中唯一拥有分布式事务状态的组件。这是一个由三个节点组成，遵循 Raft 协议的架构，即使一个节点失效，也能正常工作。它负责对整个 MatrixOne 集群的服务进行最终一致性的保障。</p>
 <h3 id="_8">事务层</h3>

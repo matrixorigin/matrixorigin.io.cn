@@ -997,20 +997,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../connect-mo/configure-mo-ssl-connection/" class="md-nav__link">
-        配置 MatrixOne SSL
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -2345,22 +2331,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../Maintain/mo_ctl/" class="md-nav__link">
+        脚本工具指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_2" type="checkbox" id="__nav_1_6_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_3" type="checkbox" id="__nav_1_6_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_6_2">
+        <label class="md-nav__link" for="__nav_1_6_3">
           数据挂载
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="数据挂载" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_6_2">
+        <label class="md-nav__title" for="__nav_1_6_3">
           <span class="md-nav__icon md-icon"></span>
           数据挂载
         </label>
@@ -3106,6 +3106,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Security/audit/" class="md-nav__link">
+        安全审计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Security/app-scenarios/" class="md-nav__link">
         应用场景
       </a>
@@ -3448,6 +3462,20 @@
     <li class="md-nav__item">
       <a href="../../../../Reference/Data-Types/blob-text-type/" class="md-nav__link">
         BLOB 和 TEXT 数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Data-Types/uuid-type/" class="md-nav__link">
+        UUID 数据类型
       </a>
     </li>
   
@@ -6945,20 +6973,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Reference/Functions-and-Operators/Mathematical/uuid/" class="md-nav__link">
-        UUID()
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -7670,6 +7684,67 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/Other/uuid/" class="md-nav__link">
+        UUID()
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_5_2_9" type="checkbox" id="__nav_1_11_5_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_5_2_9">
+          系统运维函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统运维函数" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_11_5_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          系统运维函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/sys-ops/purge_log.md" class="md-nav__link">
+        PURGE_LOG()
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -7922,20 +7997,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Troubleshooting/audit/" class="md-nav__link">
-        审计
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../Troubleshooting/error-code/" class="md-nav__link">
         错误码
       </a>
@@ -8060,6 +8121,20 @@
     <li class="md-nav__item">
       <a href="../../../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v0.8.0/" class="md-nav__link">
+        v0.8.0
       </a>
     </li>
   
@@ -8520,7 +8595,7 @@
 <p>在 MatrixOne 的事务类别中，显式事务还遵循以下规则：</p>
 <h2 id="_2">显式事务规则</h2>
 <ul>
-<li>显式事务是指以 <code>BEGIN...END</code> 或 <code>START TRANSACTIONS...COMMIT</code> 或 <code>ROLLBACK</code> 作为起始结束。</li>
+<li>显式事务是指以 <code>BEGIN...END</code> 或 <code>START TRANSACTION...COMMIT</code> 或 <code>ROLLBACK</code> 作为起始结束。</li>
 <li>在显式事务中，DML（Data Manipulation Language，数据操纵语言）与 DDL（Data Definition Language，数据库定义语言）可以同时存在，支持所有对象类型的 DDL。</li>
 <li>显式事务中，无法嵌套其他显式事务，例如 <code>START TRANSACTIONS</code> 之后再遇到 <code>START TRANSACTIONS</code>，两个 <code>START TRANSACTIONS</code> 之间的所有语句都会强制提交，无论 <code>AUTOCOMMIT</code> 的值是 1 或 0。</li>
 <li>显式事务中，只能包含 DML 与 DDL，不能带有修改参数配置或管理命令，如 <code>set [parameter] = [value]</code>，<code>create user</code> 等等。</li>

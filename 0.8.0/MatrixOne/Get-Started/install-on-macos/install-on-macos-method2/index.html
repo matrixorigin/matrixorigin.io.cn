@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#macos" class="md-skip">
           Skip to content
         </a>
       
@@ -734,9 +734,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    步骤 1：安装下载工具
+  <a href="#_1" class="md-nav__link">
+    前置依赖参考
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    步骤 1：安装依赖
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 1：安装依赖">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql-client" class="md-nav__link">
+    安装 MySQL Client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -745,39 +765,66 @@
     步骤 2：下载二进制包并解压
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-matrixone" class="md-nav__link">
-    步骤 3：启动 MatrixOne 服务
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-matrixone" class="md-nav__link">
-    步骤 4：连接 MatrixOne
-  </a>
-  
-    <nav class="md-nav" aria-label="步骤 4：连接 MatrixOne">
+    <nav class="md-nav" aria-label="步骤 2：下载二进制包并解压">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    安装并配置 MySQL 客户端
+  <a href="#1_1" class="md-nav__link">
+    1. 安装下载工具
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#matrixone" class="md-nav__link">
-    连接 MatrixOne
+  <a href="#2_1" class="md-nav__link">
+    2. 下载二进制包并解压
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mo_ctl" class="md-nav__link">
+    步骤 3：安装 mo_ctl 工具
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 3：安装 mo_ctl 工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-mo_ctl" class="md-nav__link">
+    1. 一键安装 mo_ctl 工具
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mo_ctl" class="md-nav__link">
+    2. 设置 mo_ctl 的配置参数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-matrixone" class="md-nav__link">
+    步骤 4：启动 MatrixOne 服务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-matrixone" class="md-nav__link">
+    步骤 5：连接 MatrixOne 服务
+  </a>
   
 </li>
       
@@ -1077,20 +1124,6 @@
     <li class="md-nav__item">
       <a href="../../../Develop/connect-mo/connect-to-matrixone-with-go/" class="md-nav__link">
         Golang 连接
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Develop/connect-mo/configure-mo-ssl-connection/" class="md-nav__link">
-        配置 MatrixOne SSL
       </a>
     </li>
   
@@ -2379,22 +2412,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../Maintain/mo_ctl/" class="md-nav__link">
+        脚本工具指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_2" type="checkbox" id="__nav_1_6_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6_3" type="checkbox" id="__nav_1_6_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_1_6_2">
+        <label class="md-nav__link" for="__nav_1_6_3">
           数据挂载
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="数据挂载" data-md-level="3">
-        <label class="md-nav__title" for="__nav_1_6_2">
+        <label class="md-nav__title" for="__nav_1_6_3">
           <span class="md-nav__icon md-icon"></span>
           数据挂载
         </label>
@@ -3140,6 +3187,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Security/audit/" class="md-nav__link">
+        安全审计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Security/app-scenarios/" class="md-nav__link">
         应用场景
       </a>
@@ -3482,6 +3543,20 @@
     <li class="md-nav__item">
       <a href="../../../Reference/Data-Types/blob-text-type/" class="md-nav__link">
         BLOB 和 TEXT 数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Data-Types/uuid-type/" class="md-nav__link">
+        UUID 数据类型
       </a>
     </li>
   
@@ -6979,20 +7054,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Mathematical/uuid/" class="md-nav__link">
-        UUID()
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -7704,6 +7765,67 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Functions-and-Operators/Other/uuid/" class="md-nav__link">
+        UUID()
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_5_2_9" type="checkbox" id="__nav_1_11_5_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_5_2_9">
+          系统运维函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统运维函数" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_11_5_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          系统运维函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Functions-and-Operators/sys-ops/purge_log.md" class="md-nav__link">
+        PURGE_LOG()
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -7956,20 +8078,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Troubleshooting/audit/" class="md-nav__link">
-        审计
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Troubleshooting/error-code/" class="md-nav__link">
         错误码
       </a>
@@ -8094,6 +8202,20 @@
     <li class="md-nav__item">
       <a href="../../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
+        v0.8.0
       </a>
     </li>
   
@@ -8519,9 +8641,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    步骤 1：安装下载工具
+  <a href="#_1" class="md-nav__link">
+    前置依赖参考
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    步骤 1：安装依赖
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 1：安装依赖">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql-client" class="md-nav__link">
+    安装 MySQL Client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -8530,39 +8672,66 @@
     步骤 2：下载二进制包并解压
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-matrixone" class="md-nav__link">
-    步骤 3：启动 MatrixOne 服务
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-matrixone" class="md-nav__link">
-    步骤 4：连接 MatrixOne
-  </a>
-  
-    <nav class="md-nav" aria-label="步骤 4：连接 MatrixOne">
+    <nav class="md-nav" aria-label="步骤 2：下载二进制包并解压">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    安装并配置 MySQL 客户端
+  <a href="#1_1" class="md-nav__link">
+    1. 安装下载工具
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#matrixone" class="md-nav__link">
-    连接 MatrixOne
+  <a href="#2_1" class="md-nav__link">
+    2. 下载二进制包并解压
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mo_ctl" class="md-nav__link">
+    步骤 3：安装 mo_ctl 工具
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 3：安装 mo_ctl 工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-mo_ctl" class="md-nav__link">
+    1. 一键安装 mo_ctl 工具
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mo_ctl" class="md-nav__link">
+    2. 设置 mo_ctl 的配置参数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-matrixone" class="md-nav__link">
+    步骤 4：启动 MatrixOne 服务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-matrixone" class="md-nav__link">
+    步骤 5：连接 MatrixOne 服务
+  </a>
   
 </li>
       
@@ -8584,10 +8753,63 @@
 
 
 
-<h1 id="_1"><strong>使用二进制包部署</strong></h1>
-<p>本篇文档将指导你使用二进制包部署单机版 MatrixOne。</p>
-<h2 id="1">步骤 1：安装下载工具</h2>
-<p>我们提供<strong>下载二进制包</strong>的方式安装 MatrixOne，如果你喜欢通过命令行进行操作，那么你可以提前准备安装好 <code>wget</code> 或 <code>curl</code>。</p>
+<h1 id="macos"><strong>macOS 使用二进制包部署</strong></h1>
+<p>本篇文档将指导你使用二进制包在 macOS 环境中部署单机版 MatrixOne，这种安装方案无需安装前置依赖和编译源码包，可以直接通过 <a href="https://github.com/matrixorigin/mo_ctl_standalone">mo_ctl</a> 工具帮助我们进行部署与管理 MatrixOne。</p>
+<p>MatrixOne 支持 x86 及 ARM 两种架构的 macOS 系统，本文以 Macbook M1 ARM 版本为例展示整个部署过程。</p>
+<h2 id="_1">前置依赖参考</h2>
+<p>通过二进制包部署和安装 MatrixOne，仅需安装 <code>MySQL Client</code> 工具。</p>
+<table>
+<thead>
+<tr>
+<th>依赖软件</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MySQL Client</td>
+<td>8.0 及以上</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1">步骤 1：安装依赖</h2>
+<h3 id="mysql-client">安装 MySQL Client</h3>
+<ol>
+<li>
+<p>点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 <strong>Select Operating System &gt; macOS</strong>，再下拉选择 <strong>Select OS Version</strong>，按需选择下载安装包进行安装。</p>
+</li>
+<li>
+<p>配置 MySQL 客户端环境变量：</p>
+<ol>
+<li>打开一个新的终端，输入如下命令：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>cd ~
+sudo vim .bash_profile
+</code></pre></div>
+<ol>
+<li>
+<p>回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。</p>
+</li>
+<li>
+<p>输入/跳过 root 密码后，即进入了 <em>bash_profile</em>，点击键盘上的 <em>i</em> 进入 insert 状态，即可在文件下方输入如下命令：</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>export PATH=${PATH}:/usr/local/mysql/bin
+</code></pre></div>
+</li>
+<li>
+<p>输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 <code>:wq</code> 保存退出。</p>
+</li>
+<li>
+<p>执行命令 <code>source .bash_profile</code>，回车执行，运行环境变量。</p>
+</li>
+<li>
+<p>测试 MySQL 是否可用：</p>
+<p>执行命令 <code>mysql --version</code>，安装成功提示：<code>mysql  Ver 8.0.31 for macos12 on arm64 (MySQL Community Server - GPL)</code>。</p>
+</li>
+</ol>
+<h2 id="2">步骤 2：下载二进制包并解压</h2>
+<h3 id="1_1">1. 安装下载工具</h3>
 <p><strong>Tips</strong>: 建议你下载安装这两个下载工具其中之一，方便后续通过命令行下载二进制包。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">安装 <code>wget</code></label><label for="__tabbed_1_2">安装 <code>curl</code></label></div>
 <div class="tabbed-content">
@@ -8616,28 +8838,32 @@ Release-Date: 2022-06-27
 </div>
 </div>
 </div>
-<h2 id="2">步骤 2：下载二进制包并解压</h2>
-<p><strong>下载方式一</strong>和<strong>下载方式二</strong>需要先安装下载工具 <code>wget</code> 货 <code>curl</code>，如果你未安装，请先安装下载工具。</p>
+<h3 id="2_1">2. 下载二进制包并解压</h3>
+<p><strong>下载方式一</strong>和<strong>下载方式二</strong>需要先安装下载工具 <code>wget</code> 或 <code>curl</code>，如果你未安装，请先自行安装下载工具。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><strong>下载方式一：<code>wget</code> 工具下载安装二进制包</strong></label><label for="__tabbed_2_2"><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></label><label for="__tabbed_2_3"><strong>下载方式三：页面下载</strong></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>x86 架构系统安装包：</p>
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
-unzip<span class="w"> </span>mo-v0.8.0-darwin-x86_64.zip
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/User/username/mo/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/User/username/mo
+wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v0.8.0-darwin-x86_64.zip
 </code></pre></div>
 <p>ARM 架构系统安装包：</p>
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
-unzip<span class="w"> </span>mo-v0.8.0-darwin-arm64.zip
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/User/username/mo/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/User/username/mo
+wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v0.8.0-darwin-arm64.zip
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>x86 架构系统安装包：</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
-unzip<span class="w"> </span>mo-v0.8.0-darwin-x86_64.zip
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/User/username/mo/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/User/username/mo
+curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v0.8.0-darwin-x86_64.zip
 </code></pre></div>
 <p>ARM 架构系统安装包：</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
-unzip<span class="w"> </span>mo-v0.8.0-darwin-arm64.zip
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/User/username/mo/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/User/username/mo
+curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v0.8.0-darwin-arm64.zip
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -8645,110 +8871,57 @@ unzip<span class="w"> </span>mo-v0.8.0-darwin-arm64.zip
 </div>
 </div>
 </div>
-<h2 id="3-matrixone">步骤 3：启动 MatrixOne 服务</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><strong>在终端的前台启动 MatrixOne 服务</strong></label><label for="__tabbed_3_2"><strong>推荐使用：在终端的后台启动 MatrixOne 服务</strong></label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>该启动方式会在终端的前台运行 <code>mo-service</code> 进行，实时打印系统日志。如果你想停止 MatrixOne 服务器，只需按 CTRL+C 或关闭当前终端。</p>
-<p><div class="highlight"><pre><span></span><code># Start mo-service in the frontend
-./mo-service -launch ./etc/launch-tae-CN-tae-DN/launch.toml
+<h2 id="3-mo_ctl">步骤 3：安装 mo_ctl 工具</h2>
+<p><a href="https://github.com/matrixorigin/mo_ctl_standalone">mo_ctl</a> 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 <a href="../../../Maintain/mo_ctl/">mo_ctl 工具指南</a>。</p>
+<h3 id="1-mo_ctl">1. 一键安装 mo_ctl 工具</h3>
+<p>通过以下命令可以一键安装 mo_ctl 工具。</p>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh &amp;&amp; sudo -u $(whoami) bash +x ./install.sh
 </code></pre></div>
-  在前台启动模式下，产生很多日志，接下来你可以启动新的终端，连接 MatrixOne。</p>
-</div>
-<div class="tabbed-block">
-<p>该启动方法会在后台运行 <code>mo-service</code> 进程，系统日志将重定向到 <code>test.log</code> 文件中。如果你想停止 MatrixOne 服务器，你需要通过以下命令查找出它的 <code>PID</code> 进程号并消除进程。下面是整个过程的完整示例。</p>
-<div class="highlight"><pre><span></span><code># Start mo-service in the backend
-./mo-service --daemon --launch ./etc/launch-tae-CN-tae-DN/launch.toml &amp;&gt; test.log &amp;
-
-# Find mo-service PID
-ps aux | grep mo-service
-
-[root@VM-0-10-centos ~]# ps aux | grep mo-service
-root       15277  2.8 16.6 8870276 5338016 ?     Sl   Nov25 156:59 ./mo-service -launch ./etc/quickstart/launch.toml
-root      836740  0.0  0.0  12136  1040 pts/0    S+   10:39   0:00 grep --color=auto mo-service
-
-# Kill the mo-service process
-kill -9 15277
+<h3 id="2-mo_ctl">2. 设置 mo_ctl 的配置参数</h3>
+<p>通过以下命令将 MatrixOne 的二进制解压文件目录设置到 mo_ctl 的 <code>MO_PATH</code> 参数上。mo_ctl 会自动寻找位于 <code>MO_PATH</code> 中的 <code>matrixone</code> 文件夹。</p>
+<div class="highlight"><pre><span></span><code>mo_ctl set_conf MO_PATH=&quot;/User/username/mo/&quot;
 </code></pre></div>
-<p><strong>Tips</strong>: 如上述示例所示，使用命令 <code>ps aux | grep mo-service</code> 首先查找出 MatrixOne 运行的进程号为 <code>15277</code>，<code>kill -9 15277</code> 即表示停止进程号为 <code>15277</code> 的 MatrixOne。</p>
-<p>接下来你可以进行下一步 - 连接 MatrixOne。</p>
-</div>
-</div>
-</div>
+<h2 id="4-matrixone">步骤 4：启动 MatrixOne 服务</h2>
+<p>通过 <code>mo_ctl start</code> 命令一键启动 MatrixOne 服务。</p>
+<p>如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 <code>/data/mo/logs/</code> 中。</p>
+<div class="highlight"><pre><span></span><code>&gt; mo_ctl start
+2023-07-07_15:33:45    [INFO]    No mo-service is running
+2023-07-07_15:33:45    [INFO]    Starting mo-service: cd /Users/username/mo/matrixone/matrixone/ &amp;&amp; /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-DN/launch.toml &gt;/Users/username/mo/matrixone/matrixone/logs/stdout-20230707_153345.log 2&gt;/Users/username/mo/matrixone/matrixone/logs/stderr-20230707_153345.log
+2023-07-07_15:33:45    [INFO]    Wait for 2 seconds
+2023-07-07_15:33:48    [INFO]    At least one mo-service is running. Process info:
+2023-07-07_15:33:48    [INFO]      501 66932     1   0  3:33PM ??         0:00.27 /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-DN/launch.toml
+2023-07-07_15:33:48    [INFO]    Pids:
+2023-07-07_15:33:48    [INFO]    66932
+2023-07-07_15:33:48    [INFO]    Start succeeded
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>首次启动 MatrixOne 大致需要花费 20 至 30 秒的时间，在稍作等待后，你便可以使用 MySQL 客户端连接至 MatrixOne。</p>
 </div>
-<h2 id="4-matrixone">步骤 4：连接 MatrixOne</h2>
-<h3 id="mysql">安装并配置 MySQL 客户端</h3>
-<ol>
-<li>
-<p>点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 <strong>Select Operating System &gt; macOS</strong>，再下拉选择 <strong>Select OS Version</strong>，按需选择下载安装包进行安装。</p>
-<p><strong>Note</strong>: 建议 MySQL 客户端版本为 8.0.30 版本及以上。</p>
-</li>
-<li>
-<p>配置 MySQL 客户端环境变量：</p>
-<ol>
-<li>
-<p>打开一个新的终端，输入如下命令：</p>
-<div class="highlight"><pre><span></span><code>cd ~
-sudo vim .bash_profile
+<h2 id="5-matrixone">步骤 5：连接 MatrixOne 服务</h2>
+<p>通过 <code>mo_ctl connect</code> 命令一键连接 MatrixOne 服务。</p>
+<p>这条命令将调用 MySQL Client 工具自动连接到 MatrixOne 服务。</p>
+<div class="highlight"><pre><span></span><code>&gt; mo_ctl connect
+2023-07-07_10:30:20    [INFO]    Checking connectivity
+2023-07-07_10:30:20    [INFO]    Ok, connecting for user ...
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.30-MatrixOne-v0.8.0 MatrixOne
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt;
 </code></pre></div>
-</li>
-<li>
-<p>回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。</p>
-</li>
-<li>
-<p>输入/跳过 root 密码后，即进入了<em>. bash_profile</em>，点击键盘上的 <em>i</em> 进入 insert 状态，即可在文件下方输入如下命令：</p>
-<div class="highlight"><pre><span></span><code>export PATH=${PATH}:/usr/local/mysql/bin
-</code></pre></div>
-</li>
-<li>
-<p>输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 <code>:wq</code> 保存退出。</p>
-</li>
-<li>
-<p>输入命令 <code>source .bash_profile</code>，回车执行，运行环境变量。</p>
-</li>
-<li>
-<p>测试 MySQL 是否可用：</p>
-<ul>
-<li>
-<p>方式一：输入命令 <code>mysql -u root -p</code>，回车执行，需要 root 用户密码，显示 <code>mysql&gt;</code> 即表示 MySQL 客户端已开启。</p>
-</li>
-<li>
-<p>方式二：执行命令 <code>mysql --version</code>，安装成功提示：<code>mysql  Ver 8.0.31 for macos12 on arm64 (MySQL Community Server - GPL)</code></p>
-</li>
-</ul>
-</li>
-<li>
-<p>MySQL 如可用，关闭当前终端，继续浏览下一章节<strong>连接 MatrixOne 服务</strong>。</p>
-</li>
-</ol>
-<p><strong>Tips</strong>: 目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。</p>
-</li>
-</ol>
-<h3 id="matrixone">连接 MatrixOne</h3>
-<ul>
-<li>
-<p>你可以使用 MySQL 命令行客户端来连接 MatrixOne。打开一个新的终端，直接输入以下指令：</p>
-<div class="highlight"><pre><span></span><code>mysql -h IP -P PORT -uUsername -p
-</code></pre></div>
-<p>输入完成上述命令后，终端会提示你提供用户名和密码。你可以使用我们提供的的初始帐号和密码：</p>
-<pre><code>· user: root
-· password: 111
-</code></pre>
-</li>
-<li>
-<p>你也可以使用 MySQL 客户端下述命令行，输入密码，来连接 MatrixOne 服务：</p>
-<div class="highlight"><pre><span></span><code>mysql -h 127.0.0.1 -P 6001 -uroot -p
-Enter password:
-</code></pre></div>
-</li>
-</ul>
-<p>目前，MatrixOne 只支持 TCP 监听。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见<a href="../../../Security/password-mgmt/">密码管理</a>。</p>
+<p>上述的连接和登录账号为初始账号 <code>root</code> 和密码 <code>111</code>，请在登录 MatrixOne 后及时修改初始密码，参见<a href="../../Security/password-mgmt/">密码管理</a>。修改登录用户名或密码后重新登录同样需要通过 <code>mo_ctl set_conf</code> 的方式设置新的用户名和密码，详情可以参考 <a href="../../../Maintain/mo_ctl/">mo_ctl 工具指南</a>。</p>
 </div>
 
               
