@@ -20,6 +20,9 @@
 | 'sys_table_name' | 当前可进行删除的系统表仅三个：metric，rawlog，statement_info。<br> __Note:__ 'sys_table_name' 必须用引号包裹。|
 | 'date'  | 选择日期，删除该日期之前产生的日志。<br> __Note:__ 'date' 必须用单引号包裹。|
 
+!!! note
+    MatrixOne 有且仅有 metric，rawlog，statement_info 三张系统日志表，有关这三张表的详细信息请参考 [MatrixOne 系统数据库和表](../../System-tables.md)。
+
 ## **示例**
 
 - 示例 1：
