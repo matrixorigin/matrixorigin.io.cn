@@ -177,19 +177,20 @@ nav:
       - 性能调优最佳实践:
         - 使用 Cluster by 语句调优: MatrixOne/Performance-Tuning/optimization-concepts/through-cluster-by.md
         - 通过扩展 CN 提升性能: MatrixOne/Performance-Tuning/optimization-concepts/through-CN-extensions.md
-    - 权限:
-      - TLS 安全连接: MatrixOne/Security/TLS-introduction.md
+    - 安全与权限:
+      - 安全权限概览: MatrixOne/Security/introduction.md
+      - 身份鉴别与认证: MatrixOne/Security/authentication.md
       - 密码管理: MatrixOne/Security/password-mgmt.md
-      - 什么是权限管理:
-        - 关于 MatrixOne 权限管理: MatrixOne/Security/about-privilege-management.md
-        - 最佳实践: MatrixOne/Security/best-practice.md
-      - 操作指南:
-        - 快速开始:
+      - 数据加密传输: MatrixOne/Security/TLS-introduction.md
+      - 权限管理:
+        - 权限管理概述: MatrixOne/Security/role-priviledge-management/about-privilege-management.md
+        - 场景案例: MatrixOne/Security/role-priviledge-management/app-scenarios.md
+        - 最佳实践: MatrixOne/Security/role-priviledge-management/best-practice.md
+        - 操作指南:
+          - 权限管理操作概述: MatrixOne/Security/how-tos/user-guide.md
           - 创建租户，验证资源隔离: MatrixOne/Security/how-tos/quick-start-create-account.md
           - 新租户创建用户、创建角色和授权: MatrixOne/Security/how-tos/quick-start-create-user.md
-        - 权限管理操作: MatrixOne/Security/how-tos/user-guide.md
       - 安全审计: MatrixOne/Security/audit.md
-      - 应用场景: MatrixOne/Security/app-scenarios.md
     - 参考手册:
       - 系统变量:
         - 系统变量概述: MatrixOne/Reference/Variable/system-variables/system-variables-overview.md
