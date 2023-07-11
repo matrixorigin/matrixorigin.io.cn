@@ -58,7 +58,7 @@ USE dbdemo;
 SHOW TABLES FROM dbdemo;
 ```
 
-- 除数据库，使用 `DROP DATABASE` 语句：
+- 删除数据库，使用 `DROP DATABASE` 语句：
 
 ```sql
 DROP DATABASE dbdemo;
