@@ -102,5 +102,5 @@ MatrixOne 的多租户能力可以很好地解决数据库共享/隔离的困境
 
 更多关于多租户的文档可以参见：
 
-- [多租户应用场景](../../Security/app-scenarios.md)
+- [多租户应用场景](../../Security/role-priviledge-management/app-scenarios.md)
 - [快速开始：创建租户，验证资源隔离](../../Security/how-tos/quick-start-create-account.md)

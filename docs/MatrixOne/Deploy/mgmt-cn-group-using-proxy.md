@@ -152,7 +152,7 @@ CN 组的标签设置非常灵活，但是一般最常见的还是用在租户�
 
 #### 实现租户隔离
 
-MatrixOne 0.7 版本已实现对[多租户](../Security/about-privilege-management.md)数据隔离的支持。若要实现租户负载隔离，则需通过配置 Proxy 和 CN 组来完成。
+MatrixOne 0.7 版本已实现对[多租户](../Security/role-priviledge-management/about-privilege-management.md)数据隔离的支持。若要实现租户负载隔离，则需通过配置 Proxy 和 CN 组来完成。
 
 ##### 普通租户
 
