@@ -96,7 +96,7 @@
 
      2. 回车执行上面的命令后，非 Linux root 用户需要输入当前 Linux 用户的密码。
 
-     3. 输入密码后回车，即进入了*profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+     3. 输入密码后回车，即进入了 *profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
 
         ```
         export PATH=/software/mysql/bin:$PATH
