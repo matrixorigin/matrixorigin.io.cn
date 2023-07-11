@@ -19,7 +19,7 @@ MatrixOne 支持 x86 及 ARM 的 macOS 系统，本文以 Macbook M1 ARM 版本�
 
 ### 1. 安装部署 Go 语言
 
-1. 点击 <a href="https://go.dev/doc/install" target="_blank">Go Download and install</a> 入到 **Go** 的官方文档，按照官方指导安装步骤完成 **Go** 语言的安装。
+1. 点击 <a href="https://go.dev/doc/install" target="_blank">Go Download and install</a> 进入到 **Go** 的官方文档，按照官方指导安装步骤完成 **Go** 语言的安装。
 
 2. 验证 **Go** 是否安装，请执行代码 `go version`，安装成功代码行示例如下：
 
