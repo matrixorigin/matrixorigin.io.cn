@@ -23,7 +23,7 @@ MatrixOne 的权限管理是结合了基于角色的访问控制 (RBAC，Role-ba
 
 在 MatrixOne 中，为了方便管理多种操作权限，于是便把权限封装在一个实体内，这个实体就是**对象**。
 
-例如，`Select`，`Insert`，`Update` 等操作权限，便封装在了 Table 对象内。更多关于对象权限的信息请参考 [MatrixOne 权限分类](../Reference/access-control-type.md)。
+例如，`Select`，`Insert`，`Update` 等操作权限，便封装在了 Table 对象内。更多关于对象权限的信息请参考 [MatrixOne 权限分类](../../Reference/access-control-type.md)。
 
 #### 对象与对象之间的关系
 
@@ -135,7 +135,7 @@ A 公司购买了 MatrixOne 集群，并且完成了部署。由于 A 公司规�
     - *BusinessAccount* 内的数据资源主要用于开发应用程序 *BusinessApp*。
     - *ElseAccount* 内的数据资源可以用于其他业务目的。
 
-关于资源隔离的具体实操，可以参见[快速开始：验证资源隔离](how-tos/quick-start-create-account.md)。
+关于资源隔离的具体实操，可以参见[快速开始：验证资源隔离](../how-tos/quick-start-create-account.md)。
 
 ### 用户创建和授权场景介绍
 
@@ -148,7 +148,7 @@ A 公司购买了 MatrixOne 集群，并且完成了部署。由于 A 公司规�
 3. *Robert* 又给角色 *Appdeveloper* 授予了 *ALL ON DATABASE* 的权限。
 4. *Joe* 就可以使用 *Joe_G* 这个账号登录到 MatrixOne，并且全权操作数据库进行开发了。
 
-关于用户创建和授权的具体实操，可以参见[快速开始：创建新租户，并由新租户创建用户、创建角色和授权](how-tos/quick-start-create-user.md)。
+关于用户创建和授权的具体实操，可以参见[快速开始：创建新租户，并由新租户创建用户、创建角色和授权](../how-tos/quick-start-create-user.md)。
 
 ## 初始化访问
 
@@ -163,6 +163,6 @@ A 公司购买了 MatrixOne 集群，并且完成了部署。由于 A 公司规�
 
 ## 马上开始
 
-- [快速开始：创建租户，验证资源隔离](how-tos/quick-start-create-account.md)
-- [快速开始：创建租户，并由新租户创建用户、创建角色和授权](how-tos/quick-start-create-user.md)
+- [快速开始：创建租户，验证资源隔离](../how-tos/quick-start-create-account.md)
+- [快速开始：创建租户，并由新租户创建用户、创建角色和授权](../how-tos/quick-start-create-user.md)
 - 快速了解：典型的[应用场景](app-scenarios.md)

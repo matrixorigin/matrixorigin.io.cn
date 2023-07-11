@@ -243,4 +243,4 @@ Query OK, 0 rows affected (0.03 sec)
 DROP USER mouser;
 ```
 
-权限管理是数据库中体系庞大但是非常有用的功能，如果你想了解更多，参见[权限管理](../Security/about-privilege-management.md)。
+权限管理是数据库中体系庞大但是非常有用的功能，如果你想了解更多，参见[权限管理](../Security/role-priviledge-management/about-privilege-management.md)。

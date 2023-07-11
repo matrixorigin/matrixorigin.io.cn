@@ -149,7 +149,6 @@ nav:
         - Operator 管理: MatrixOne/Deploy/MatrixOne-Operator-mgmt.md
     - 运维:
       - 备份与恢复: MatrixOne/Maintain/backup-restore.md
-      - 脚本工具指南: MatrixOne/Maintain/mo_ctl.md
       - 数据挂载:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:
@@ -178,11 +177,10 @@ nav:
         - 使用 Cluster by 语句调优: MatrixOne/Performance-Tuning/optimization-concepts/through-cluster-by.md
         - 通过扩展 CN 提升性能: MatrixOne/Performance-Tuning/optimization-concepts/through-CN-extensions.md
     - 安全与权限:
-      - 安全权限概览: MatrixOne/Security/introduction.md
-      - 身份鉴别与认证: MatrixOne/Security/authentication.md
+      - 安全与权限概览: MatrixOne/Security/Security-Permission-Overview.md
+      - 身份鉴别与认证: MatrixOne/Security/Authentication.md
       - 密码管理: MatrixOne/Security/password-mgmt.md
-      - 数据加密传输: MatrixOne/Security/TLS-introduction.md
-      - 权限管理:
+      - 访问控制:
         - 权限管理概述: MatrixOne/Security/role-priviledge-management/about-privilege-management.md
         - 场景案例: MatrixOne/Security/role-priviledge-management/app-scenarios.md
         - 最佳实践: MatrixOne/Security/role-priviledge-management/best-practice.md
@@ -190,6 +188,7 @@ nav:
           - 权限管理操作概述: MatrixOne/Security/how-tos/user-guide.md
           - 创建租户，验证资源隔离: MatrixOne/Security/how-tos/quick-start-create-account.md
           - 新租户创建用户、创建角色和授权: MatrixOne/Security/how-tos/quick-start-create-user.md
+      - 数据加密传输: MatrixOne/Security/TLS-introduction.md
       - 安全审计: MatrixOne/Security/audit.md
     - 参考手册:
       - 系统变量:
@@ -467,7 +466,7 @@ nav:
             - SLEEP: MatrixOne/Reference/Functions-and-Operators/Other/sleep.md
             - UUID(): MatrixOne/Reference/Functions-and-Operators/Other/uuid.md
           - 系统运维函数:
-            - PURGE_LOG(): MatrixOne/Reference/Functions-and-Operators/sys-ops/purge_log.md
+            - PURGE_LOG(): MatrixOne/Reference/Functions-and-Operators/system-ops/purge_log.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
       - 系统表目录: MatrixOne/Reference/System-tables.md
@@ -476,6 +475,8 @@ nav:
         - MatrixOne 的 JDBC 功能支持列表: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
         - MatrixOne DDL 语句分区支持的说明: MatrixOne/Reference/Limitations/mo-partition-support.md
       - MatrixOne  文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
+      - MatrixOne 工具:
+        - mo_ctl 工具: MatrixOne/Maintain/mo_ctl.md
     - 故障诊断:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
