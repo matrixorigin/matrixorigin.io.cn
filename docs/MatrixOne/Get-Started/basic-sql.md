@@ -58,7 +58,7 @@ USE dbdemo;
 SHOW TABLES FROM dbdemo;
 ```
 
-- 删除数据库，使用 `DROP DATABASE` 语句：
+- 除数据库，使用 `DROP DATABASE` 语句：
 
 ```sql
 DROP DATABASE dbdemo;
@@ -109,7 +109,7 @@ SHOW CREATE table person;
 DROP TABLE person;
 ```
 
-## 增加、删出、修改表记录
+## 增加、删除、修改表记录
 
 通用的 DML 即增删改表记录，基本的语句为 `INSERT`，`UPDATE` 和 `DELETE`。
 
