@@ -109,7 +109,7 @@ SHOW CREATE table person;
 DROP TABLE person;
 ```
 
-## 增价、删出、修改表记录
+## 增加、删除、修改表记录
 
 通用的 DML 即增删改表记录，基本的语句为 `INSERT`，`UPDATE` 和 `DELETE`。
 
