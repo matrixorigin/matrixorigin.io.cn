@@ -76,7 +76,7 @@ MatrixOne 支持 x86 及 ARM 的 Linux 系统。本文以 Debian11.1 x86 架构�
 
 Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安装。
 
-1. 安装 MySQL Client 需要用到 `wget` 下载工具， `wget` 是用来从指定的 URL 下载文件。依次执行下面的命令安装 `wget`：
+1. 安装 MySQL Client 需要用到 `wget` 下载工具，`wget` 是用来从指定的 URL 下载文件。依次执行下面的命令安装 `wget`：
 
     ```
     ## 更新软件源列表缓存
@@ -91,7 +91,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
     wget -V
     ```
 
-    安装成功结果(仅展示一部分代码)如下：
+    安装成功结果（仅展示一部分代码）如下：
 
     ```
     GNU Wget 1.21.3 built on linux-gnu.
