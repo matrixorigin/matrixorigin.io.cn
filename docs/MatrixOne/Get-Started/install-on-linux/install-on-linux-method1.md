@@ -99,7 +99,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
     Copyright (C) 2015 Free Software Foundation, Inc.
     ...
     ```
-     
+
 2. 依次执行以下命令安装 MySQL Client：
 
     ```
