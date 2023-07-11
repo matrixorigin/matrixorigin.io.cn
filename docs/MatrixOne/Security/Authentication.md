@@ -21,7 +21,7 @@ mysql -h host -p password -u accountname:username -P port
 ```
 
 !!! note
-    对于单机版 MatrixOne，可以通过参数配置将连接字符串简化到 [mo_ctl 工具](../Maintain/mo_ctl.md) 中，以简化登录操作。
+    对于单机版 MatrixOne，可以通过参数配置将连接字符串简化到 [mo_ctl 工具](../Maintain/mo_ctl.md)中，以简化登录操作。
 
 ## 查询当前用户
 
