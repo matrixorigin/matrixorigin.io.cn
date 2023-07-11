@@ -109,7 +109,7 @@ go env -w GOPROXY=https://goproxy.cn,direct
 
 当你使用 Docker 启动 MatrixOne，你可以将你指定的数据目录挂载至 Docker 容器，参见[挂载目录到 Docker 容器](../Maintain/mount-data-by-docker.md)。
 
-当你使用源码或二进制包编译并启动 MatrixOne，你可以通过修改配置文件中的默认数据目录路径：打开 MatrixOne 源码文件目录 `matrixone/etc/launch-tae-CN-tae-DN`，修改 `cn.toml`、`dn.toml` 和 `log.toml` 三个文件内的配置参数 `data-dir = "./mo-data"` 为 `data-dir = "your_local_path"`，保存后重启 MatrixOne 即可生效。
+当你使用源码或二进制包编译并启动 MatrixOne，你可以通过修改配置文件中的默认数据目录路径：打开 MatrixOne 配置文件目录 `matrixone/etc/launch-tae-CN-tae-DN`，修改 `cn.toml`、`dn.toml` 和 `log.toml` 三个文件内的配置参数 `data-dir = "./mo-data"` 为 `data-dir = "your_local_path"`，保存后重启 MatrixOne 即可生效。
 
 ### **当我通过 MO-Tester 对 MatrixOne 进行测试时，我如何解决产生的 `too many open files` 错误？**
 
