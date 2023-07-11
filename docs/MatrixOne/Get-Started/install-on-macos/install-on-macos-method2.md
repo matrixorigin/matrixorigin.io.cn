@@ -23,13 +23,10 @@ MatrixOne 支持 x86 及 ARM 两种架构的 macOS 系统，本文以 Macbook M1
     1. 打开一个新的终端，输入如下命令：
 
        ```
-       cd ~
-       sudo vim .bash_profile
+       vim ~/.bash_profile
        ```
 
-    2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
-
-    3. 输入/跳过 root 密码后，即进入了 *bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+    2. 回车执行上面的命令后，即进入了 *bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
 
        ```
        export PATH=${PATH}:/usr/local/mysql/bin
@@ -37,7 +34,7 @@ MatrixOne 支持 x86 及 ARM 两种架构的 macOS 系统，本文以 Macbook M1
 
 3. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
 
-4. 执行命令 `source .bash_profile`，回车执行，运行环境变量。
+4. 执行命令 `source ~/.bash_profile`，回车执行，运行环境变量。
 
 5. 测试 MySQL 是否可用：
 
