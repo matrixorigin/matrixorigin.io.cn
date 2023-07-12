@@ -32,7 +32,7 @@ mysql> SHOW VARIABLES LIKE 'AUTOCOMMIT';
 -- 此处开始一个隐式事务，在 AUTOCOMMIT=1 的情况下，每一条 DML 在执行后立即提交
 insert into t1 values(4,5,6);
 
--- 隐式事务自动提交，表结构如下所示
+-- 隐式事务自动提交，表数据如下所示
 mysql> select * from t1;
 +------+------+------+
 | a    | b    | c    |
