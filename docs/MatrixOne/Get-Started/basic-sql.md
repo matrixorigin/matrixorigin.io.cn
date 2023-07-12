@@ -20,7 +20,7 @@ SQL 语言通常按照功能划分成以下的 6 个部分：
 
 - DCL (Data Control Language)：数据控制语言，用来分配与回收资源，创建和阐述用户与角色，授权和回收权限。例如，`CREATET ACCOUNT`，`DROP ACCOUNT`，或 `GRANT` 等。
 
-- 其他：其他类型的管理语言在 MatrixOne 中，与数据没有直接关联，对数据库参数、资源分配的获取与修改的总称。例如，`SHOW`，`SET variable`，或 `KILL` 等。
+- 其他：在 MatrixOne 中，其他类型的管理语言是指与数据没有直接关联，对数据库参数、资源分配的获取与修改的总称。例如，`SHOW`，`SET variable`，或 `KILL` 等。
 
 ## 查看、创建和删除数据库
 
