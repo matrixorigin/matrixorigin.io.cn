@@ -44,7 +44,7 @@
 2. 如果 Docker 内还没有正在运行的 MatrixOne，请先启动：
 
     ```
-    docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:0.8.0
+    docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:0.8.0
     ```
 
 3. 查看 Docker 已经启动 MatrixOne 的 containerID，并将配置文件目录拷贝到本地目录内：
