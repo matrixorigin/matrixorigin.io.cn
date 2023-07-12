@@ -20,7 +20,7 @@ MinIO 自带了一个管理界面，通过该界面我们可以以可视化的�
 
 ### Node/Pod 资源监控
 
-为了确定 MatrixOne 服务是否需要扩缩容，用户往往需要针对 MatrixOne 集群所在 Node 和组件对应 Pod 所使用的资进行监控。
+为了确定 MatrixOne 服务是否需要扩缩容，用户往往需要针对 MatrixOne 集群所在 Node 和组件对应 Pod 所使用的资源进行监控。
 
 你可以使用 `kubectl top` 命令完成，详细的命令可以参考对应版本的 [Kubernetes 官网文档](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)。
 
