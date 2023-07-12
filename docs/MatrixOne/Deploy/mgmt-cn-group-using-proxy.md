@@ -193,7 +193,7 @@ MatrixOne 0.7 版本已实现对[多租户](../Security/role-priviledge-manageme
     +     values: ["acc2"]  
     ```
 
-3. Log in with `acc1` and `acc2`, respectively, and after logging in, you can use `show backend servers` to check which CN groups are used for the actual login. The following logs show that different accounts have logged in and used their corresponding CN groups.
+3.分别使用`acc1`和`acc2`登录,登录后，您可以使用`show backend servers` 检查实际登录使用了哪些CN组。以下日志显示不同的帐户已登录并使用了相应的CN组。
 
 ```sql
 -- acc1 租户登录 MatrixOne
