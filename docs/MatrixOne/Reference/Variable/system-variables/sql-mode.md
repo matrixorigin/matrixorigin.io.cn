@@ -23,7 +23,7 @@ sql_mode 常见的模式如下，在 MatrixOne 中也是默认的模式：
 
 - `ERROR_FOR_DIVISION_BY_ZERO`：在执行除零操作时抛出错误。
 
-- `NO_ENGINE_SUBSTITUTION`：该模式在执行 `ALTER TABLE` 或 `CREATE TABLE` 语句时，如果指定的存储引擎不可用或不存在，则会报错，而不是自动替换为另一个可用的存储引擎。该模式的作用是强制要求使用指定的存储引擎，防止出现数据不一致或性能问题。如果需要允许自动替换存储引擎，可以将该模式从 sql_mode 中移除或设置为其他支持的 sql_mode 模式。需要注意的是，该模式只对 `ALTER TABLE` 或 `CREATE TABLE` 语句有效，对于已经存在的表，其存储引擎不受 sql_mode 的影响。
+- `NO_ENGINE_SUBSTITUTION`：该模式在执行 `ALTER TABLE` 或 `CREATE TABLE` 语句时，如果指定的存储引擎不可用或不存在，则会报错，而不是自动替换为另一个可用的存储引擎。该模式的作用是强制要求使用指定的存储引擎，防止出现数据不一致或性能问题。如果需要允许自动替换存储引擎，可以将该模式从 sql_mode 中移除或设置为其他支持的 sql_mode 模式。需要注意的是，该模式只对 `ALTER TABLE` 和 `CREATE TABLE` 语句有效，对于已经存在的表，其存储引擎不受 sql_mode 的影响。
 
 ## sql_mode 的可选模式
 
@@ -31,7 +31,7 @@ sql_mode 常见的模式如下，在 MatrixOne 中也是默认的模式：
 
 - ALLOW_INVALID_DATES：ALLOW_INVALID_DATES 在 MatrixOne SQL 模式中被称为**宽松模式（loose mode）**。在 ALLOW_INVALID_DATES 模式下，MatrixOne 允许插入一些在标准日期格式中是无效的日期，如 '0000-00-00' 或 '2000-00-00'。此模式是为了兼容一些早期版本的 MySQL 和非标准的日期格式而存在的。需要注意的是，在 ALLOW_INVALID_DATES 模式下插入无效日期可能会导致一些意外的行为，因为无效的日期不会被正确地处理。因此，建议始终使用标准日期格式。
 
-- ANSI_QUOTES：ANSI_QUOTES 是 SQL 模式中的**严格模式（strict mode）**，用于更加严格地执行 SQL 标准。在 ANSI_QUOTES 模式下，MatrixOne 将双引号视为标识符引号，而不是字符串引号。这意味着，如果你想使用双引号引用一个标识符（如表名或列名），你必须使用双引号，而不是单引号。例如，以下 SQL 语句是在 ANSI_QUOTES 模式下正确的：
+- ANSI_QUOTES：ANSI_QUOTES 是 SQL 模式中的**严格模式（strict mode）**，用于更加严格地执行 SQL 标准。在 ANSI_QUOTES 模式下，MatrixOne 将双引号视为标识符引号，而不是字符串引号。这意味着，如果你想使用双引号引用一个标识符（如表名或列名），你必须使用双引号，而不是单引号。例如，以下 SQL 语句在 ANSI_QUOTES 模式下是正确的：
 
    ```sql
    SELECT "column_name" FROM "table_name";
@@ -78,7 +78,7 @@ sql_mode 常见的模式如下，在 MatrixOne 中也是默认的模式：
 
    需要注意的是，如果你使用 NO_AUTO_VALUE_ON_ZERO 模式，插入值为 0 的数据可能会导致主键重复或唯一键冲突的问题。因此，在插入数据时需要格外注意。
 
-- NO_BACKSLASH_ESCAPES：NO_BACKSLASH_ESCAPES 在 MatrixOne SQL 模式中被称为**禁止反斜杠转义（no backslash escapes）模式**。在 NO_BACKSLASH_ESCAPES 模式下，MatrixOne 不会将反斜杠视为转义符号。这意味着，在 SQL 语句中，你不能使用反斜杠来转义特殊字符，例如引号或百分号。相反，如果你需要在 SQL 语句中使用这些特殊字符，需要使用其他方式来转义它们，例如使用单引号来表示字符串中的双引号。例如，在 NO_BACKSLASH_ESCAPES 模式下，以下 SQL 语句会导致语法错误：
+- NO_BACKSLASH_ESCAPES：NO_BACKSLASH_ESCAPES 在 MatrixOne SQL 模式中被称为**禁止反斜杠转义（no backslash escapes）模式**。在 NO_BACKSLASH_ESCAPES 模式下，MatrixOne 不会将反斜杠视为转义符号。这意味着，在 SQL 语句中，你不能使用反斜杠来转义特殊字符，例如引号或百分号。相反，如果你需要在 SQL 语句中使用这些特殊字符，那就需要使用其他方式来转义它们，例如使用单引号来表示字符串中的双引号。例如，在 NO_BACKSLASH_ESCAPES 模式下，以下 SQL 语句会导致语法错误：
 
    ```sql
    SELECT 'It's a nice day' FROM my_table;
@@ -86,7 +86,7 @@ sql_mode 常见的模式如下，在 MatrixOne 中也是默认的模式：
 
    在默认的 SQL 模式下，MatrixOne 允许使用反斜杠来转义特殊字符，因此可以在 SQL 语句中使用反斜杠来转义引号、百分号等字符。但是，在某些情况下，使用反斜杠转义可能会导致混淆或错误的结果，因此可以使用 NO_BACKSLASH_ESCAPES 模式来禁止该行为。
 
-   需要注意的是，如果你使用 NO_BACKSLASH_ESCAPES 模式，需要使用其他方式来转义特殊字符，这可能会使 SQL 语句变得更加复杂和难以理解。因此，在使用该模式时需要仔细考虑。
+   需要注意的是，如果你使用 NO_BACKSLASH_ESCAPES 模式，那就需要使用其他方式来转义特殊字符，这可能会使 SQL 语句变得更加复杂和难以理解。因此，在使用该模式时需要仔细考虑。
 
 - NO_DIR_IN_CREATE：NO_DIR_IN_CREATE 在 MatrixOne SQL 模式中被称为**禁止在 CREATE TABLE 中使用目录路径（no directory in create）模式**。在 NO_DIR_IN_CREATE 模式下，当你在 CREATE TABLE 语句中使用目录路径时，MatrixOne 会报错。目录路径指的是在列定义中使用的包含文件名的路径，例如：
 
