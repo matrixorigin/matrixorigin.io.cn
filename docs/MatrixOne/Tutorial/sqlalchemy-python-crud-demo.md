@@ -452,7 +452,7 @@ New Jameshaven, SD 89585
 --------------------------
 ```
 
-你可以使用 MySQL 客户端验证表种的记录是否删除成功：
+你可以使用 MySQL 客户端验证表中的记录是否删除成功：
 
 ```
 mysql> select * from `Customer`;
