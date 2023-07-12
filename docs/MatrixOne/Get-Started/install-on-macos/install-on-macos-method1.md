@@ -39,7 +39,7 @@ MatrixOne 支持 x86 及 ARM 的 macOS 系统，本文以 Macbook M1 ARM 版本�
 
     如代码所示，未显示 GCC 或 Clang 的版本，则表示 **GCC/Clang** 的环境需要安装。
 
-2. 你可以选择点击 <a href="https://gcc.gnu.org/install/" target="_blank">GCC Download and install</a> 入到 **GCC** 的官方文档，按照官方指导安装步骤完成 **GCC** 的安装。或者也可以通过 Apple 官方的 [Xcode](https://www.ics.uci.edu/~pattis/common/handouts/macclion/clang.html) 进行 Clang 的安装。
+2. 你可以选择点击 <a href="https://gcc.gnu.org/install/" target="_blank">GCC Download and install</a> 进入到 **GCC** 的官方文档，按照官方指导安装步骤完成 **GCC** 的安装。或者也可以通过 Apple 官方的 [Xcode](https://www.ics.uci.edu/~pattis/common/handouts/macclion/clang.html) 进行 Clang 的安装。
 
 3. 验证 **GCC/Clang** 是否安装，请执行代码 `gcc -v`，无论显示的是 Clang 或者 GCC 版本均说明安装成功，示例如下：
 
