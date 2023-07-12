@@ -8,7 +8,7 @@
 
 * MyBatis：MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。我们只需要关注项目中的 SQL 本身。
 
-* Intellij IDEA：IntelliJ IDEA 是一种商业化销售的 Java 集成开发环境（Integrated Development Environment，IDE）工具软件。它所拥有诸多插件，可以提高我们的工作效率。
+* Intellij IDEA：IntelliJ IDEA 是一种商业化销售的 Java 集成开发环境（Integrated Development Environment，IDE）工具软件。它所拥有的诸多插件，可以提高我们的工作效率。
 
 * Maven：Maven 是 Java 中功能强大的项目管理工具，可以根据 *pom.xml* 文件中的配置自动下载和导入 *Jar* 文件。这个特性减少了不同版本 Jar 文件之间的冲突。
 
@@ -169,7 +169,7 @@ server.port=8080
 
 完成环境配置后，我们编写代码来实现一个简单的 CRUD 应用程序。
 
-在完成编写编码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。
+在完成编写代码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。
 
 我们将为这个演示应用程序编写创建、更新、插入、删除和选择操作。
 
@@ -559,7 +559,7 @@ mysql> select * from user;
 
 ### 4. 测试更新用户
 
-打开你的浏览器并输入网址：`http://localhost:8080/test/update/username=tom&password=654321&address=beijing`
+打开你的浏览器并输入网址：`http://localhost:8080/test/update?id=1&username=tom&password=654321&address=beijing`
 
 ![image-20221026162613066](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162613066.png)
 
