@@ -6,13 +6,13 @@
 
 ## 滚动升级
 
-滚动升级，是一种在线升级方式，即 MatrixOne 集群在保证在部分或全部服务可用的情况下完成软件的升级。
+滚动升级，是一种在线升级方式，即 MatrixOne 集群在保证部分或全部服务可用的情况下完成软件的升级。
 
 [MatrixOne 分布式集群部署](deploy-MatrixOne-cluster.md)中介绍，安装 MatrixOne 分布式集群基于 Kubernetes 和 MatrixOne Operator，因此滚动升级 MatrixOne 就是通过动态修改 MatrixOne Operator 中的 MatrixOne 镜像版本号来实现自动的版本更新。
 
 ### 操作步骤
 
-1. 在 master0 节点上终端上执行以下命令，进入动态修改 operator 使用的 `yaml` 配置文件的界面。
+1. 在 master0 节点的终端上执行以下命令，进入动态修改 operator 使用的 `yaml` 配置文件的界面。
 
     ```
     mo_ns="mo-hn" #matrixone集群的namespace
@@ -155,7 +155,7 @@ mc rb --force  minio/minio-mo/data/
 mc rb --force  minio/minio-mo/etl
 ```
 
-另外，如果不想删除旧数据，也可以新建一个 MinIO 的桶，然后在部署 MatrixOne 集群的 yaml 文件制定新的桶名即可。
+另外，如果不想删除旧数据，也可以新建一个 MinIO 的桶，然后在部署 MatrixOne 集群的 yaml 文件指定新的桶名即可。
 
 ![image-minio-new-bucket](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-minio-new-bucket.png)
 
@@ -173,7 +173,7 @@ kubectl apply -f mo.yaml
 
 可以通过以下命令检查 MatrixOne 是否成功启动。
 
-如下面代码示例所示，当 Log Service, DN, CN 都正常运行，则 MatrixOne 集群成功启动。你也可以通过 MySQL Client 连接检查是否数据库功能正常。
+如下面代码示例所示，当 Log Service, DN, CN 都正常运行，则 MatrixOne 集群成功启动。你也可以通过 MySQL Client 连接检查数据库功能是否正常。
 
 ```
 [root@master0 ~]# kubectl get pods -n mo-hn      
