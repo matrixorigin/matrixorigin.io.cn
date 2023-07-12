@@ -8936,7 +8936,7 @@ partition_definition:
 <ul>
 <li><strong>HASH(expr)</strong></li>
 </ul>
-<p>在实际工作中经常遇到像会员表的没有明显可以分区的特征字段的大表。为了把这类的数据进行分区打散，MatrixOne 提供了 <code>HASH</code> 分区。基于给定的分区个数，将数据分配到不同的分区，<code>HASH</code> 分区只能针对整数进行 <code>HASH</code>，对于非整形的字段则通过表达式将其转换成整数。</p>
+<p>在实际工作中，经常会遇到像会员表这种没有明显可以分区的特征字段的大表。为了把这类的数据进行分区打散，MatrixOne 提供了 <code>HASH</code> 分区。基于给定的分区个数，将数据分配到不同的分区，<code>HASH</code> 分区只能针对整数进行 <code>HASH</code>，对于非整形的字段则通过表达式将其转换成整数。</p>
 <p>· HASH 分区，基于给定的分区个数，把数据分配到不同的分区。</p>
 <p>· Expr 是使用一个或多个表列的表达式。</p>
 <p>示例如下：</p>
