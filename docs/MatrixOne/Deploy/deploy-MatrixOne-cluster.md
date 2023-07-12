@@ -14,7 +14,7 @@
 
 - Pod
 
-   Pod 是 Kubernetes 中最小的资源管理组件，Pod 也是最小化运行容器化应用的资源对象。一个 Pod 代表着集群中运行的一个进程。简单理解，我们可以把一组提供特定功能的应用成为一个 pod，它会包含一个或者多个容器对象，共同对外提供服务。
+   Pod 是 Kubernetes 中最小的资源管理组件，Pod 也是最小化运行容器化应用的资源对象。一个 Pod 代表着集群中运行的一个进程。简单理解，我们可以把一组提供特定功能的应用称为一个 pod，它会包含一个或者多个容器对象，共同对外提供服务。
 
 - Storage Class
 
@@ -223,7 +223,7 @@ docker run -d \
 
 按照事先定义好的角色分类，Kubernetes 集群采用 `1 master + 1 worker +1 etcd` 的模式进行部署。
 
-在上一步定义完成集群名称，并选择完成资源包版本，点击**确定**之后，接下里可以直接接入到集群规划阶段。
+在上一步定义完成集群名称，并选择完成资源包版本，点击**确定**之后，接下来可以直接进入到集群规划阶段。
 
 1. 选择对应节点的角色和名称：
 
@@ -238,7 +238,7 @@ docker run -d \
 
     ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-9-1.png)
 
-3. 填写完所有的角色之后，点击**保存**。接下里就可以准备安装 Kubernetes 集群了。
+3. 填写完所有的角色之后，点击**保存**。接下来就可以准备安装 Kubernetes 集群了。
 
 #### **开始安装 Kubernetes 集群**
 
@@ -487,7 +487,7 @@ __Note:__ 本章节均是在 master0 节点操作。
     matrixone-operator-f8496ff5c-fp6zm   1/1     Running   0          3m26s
     ```
 
-如上上代码行所示，对应 Pod 状态均正常。
+如上代码行所示，对应 Pod 状态均正常。
 
 ### **创建 MatrixOne 集群**
 
