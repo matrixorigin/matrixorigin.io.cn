@@ -192,7 +192,7 @@ mysql> INSERT INTO `book` (`id`, `author`, `category`, `name`, `pages`, `price`,
 
 完成环境配置后，我们编写代码来实现一个简单的 CRUD 应用程序。
 
-在完成编写编码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。
+在完成编写代码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。
 
 我们将为这个演示应用程序编写创建、更新、插入、删除和选择操作。
 
@@ -604,7 +604,7 @@ public class JpademoApplication {
 2022-10-27 11:16:40.249  INFO 93488 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 66 ms
 ```
 
-### 1. 获取 Book 列表，使用 GET 请求调用以下端口
+### 1. 获取 Book 列表，使用 GET 请求调用以下接口
 
 ```
 http://localhost:8080/bookservice/books
@@ -612,7 +612,7 @@ http://localhost:8080/bookservice/books
 
 ![image-20221027112426189](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027112426189.png)
 
-### 2. 创建一个新 Book，使用 POST 请求调用以下端口
+### 2. 创建一个新 Book，使用 POST 请求调用以下接口
 
 ```
 http://localhost:8080/bookservice/books
@@ -633,7 +633,7 @@ http://localhost:8080/bookservice/books
 
 ![image-20221027115733788](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115733788.png)
 
-### 3. 如需获取特定 Book，使用 GET 请求调用以下端口
+### 3. 如需获取特定 Book，使用 GET 请求调用以下接口
 
 ```
   http://localhost:8080/bookservice/books/<id>
@@ -641,15 +641,11 @@ http://localhost:8080/bookservice/books
 
 ![image-20221027115844378](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115844378.png)
 
-### 4. 在数据库中升级 Book，使用 PUT 请求调用以下端口
+### 4. 在数据库中升级 Book，使用 PUT 请求调用以下接口
 
 ```
 	http://localhost:8080/bookservice/books/<id>
 ```
-
-#### set content type as in header as `application/json`
-
-#### set request body as raw with JSON payload
 
 - 将 Header 中的内容类型设置为 `application/json`。
 
@@ -668,7 +664,7 @@ http://localhost:8080/bookservice/books
 
 ![image-20221027120144112](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120144112.png)
 
-### 5. 如需从数据库中删除特定的 Book，使用 DELETE 请求调用以下端口
+### 5. 如需从数据库中删除特定的 Book，使用 DELETE 请求调用以下接口
 
 ```
   http://localhost:8080/bookservice/books/<id>
