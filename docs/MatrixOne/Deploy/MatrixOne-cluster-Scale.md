@@ -43,7 +43,7 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
 
 水平扩缩容，指的是服务的副本数增加或减少。可通过修改 MatrixOne Operator 启动 yaml 文件中的 `.spec.[component].replicas` 字段的值，完成服务副本数的更改。
 
-1. 使用如下命令启动 yaml 文件中的 `.spec.[component].replicas` 字段的值：
+1. 使用如下命令修改 yaml 文件中的 `.spec.[component].replicas` 字段的值：
 
     ```
     kubectl edit matrixonecluster ${mo_cluster_name} -n${mo_ns}
