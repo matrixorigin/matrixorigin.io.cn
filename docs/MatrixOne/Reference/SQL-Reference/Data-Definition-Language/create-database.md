@@ -2,7 +2,7 @@
 
 ## **语法说明**
 
-`CREATE DATABASE` 语句同于创建一个数据库。
+`CREATE DATABASE` 语句用于创建一个数据库。
 
 ## **语法结构**
 
