@@ -8700,10 +8700,7 @@
 <span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="_4"><strong>限制</strong></h2>
-<ol>
-<li><code>INSERT ... ON DUPLICATE KEY UPDATE</code> 仅支持 1 个唯一约束，暂不支持多个唯一约束。</li>
-<li><code>INSERT ... ON DUPLICATE KEY UPDATE</code> 当前还不支持唯一键（Unique key），由于唯一键可以为 <code>NULL</code>，可能会导致一些未知错误。</li>
-</ol>
+<p><code>INSERT ... ON DUPLICATE KEY UPDATE</code> 当前还不支持唯一键（Unique key），由于唯一键可以为 <code>NULL</code>，可能会导致一些未知错误。</p>
 
               
             </article>

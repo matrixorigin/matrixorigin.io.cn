@@ -2058,55 +2058,35 @@
         
           <li class="md-nav__item">
   <a href="#1-book-get" class="md-nav__link">
-    1. 获取 Book 列表，使用 GET 请求调用以下端口
+    1. 获取 Book 列表，使用 GET 请求调用以下接口
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2-book-post" class="md-nav__link">
-    2. 创建一个新 Book，使用 POST 请求调用以下端口
+    2. 创建一个新 Book，使用 POST 请求调用以下接口
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#3-book-get" class="md-nav__link">
-    3. 如需获取特定 Book，使用 GET 请求调用以下端口
+    3. 如需获取特定 Book，使用 GET 请求调用以下接口
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#4-book-put" class="md-nav__link">
-    4. 在数据库中升级 Book，使用 PUT 请求调用以下端口
+    4. 在数据库中升级 Book，使用 PUT 请求调用以下接口
   </a>
-  
-    <nav class="md-nav" aria-label="4. 在数据库中升级 Book，使用 PUT 请求调用以下端口">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#set-content-type-as-in-header-as-applicationjson" class="md-nav__link">
-    set content type as in header as application/json
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set-request-body-as-raw-with-json-payload" class="md-nav__link">
-    set request body as raw with JSON payload
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#5-book-delete" class="md-nav__link">
-    5. 如需从数据库中删除特定的 Book，使用 DELETE 请求调用以下端口
+    5. 如需从数据库中删除特定的 Book，使用 DELETE 请求调用以下接口
   </a>
   
 </li>
@@ -8869,55 +8849,35 @@
         
           <li class="md-nav__item">
   <a href="#1-book-get" class="md-nav__link">
-    1. 获取 Book 列表，使用 GET 请求调用以下端口
+    1. 获取 Book 列表，使用 GET 请求调用以下接口
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2-book-post" class="md-nav__link">
-    2. 创建一个新 Book，使用 POST 请求调用以下端口
+    2. 创建一个新 Book，使用 POST 请求调用以下接口
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#3-book-get" class="md-nav__link">
-    3. 如需获取特定 Book，使用 GET 请求调用以下端口
+    3. 如需获取特定 Book，使用 GET 请求调用以下接口
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#4-book-put" class="md-nav__link">
-    4. 在数据库中升级 Book，使用 PUT 请求调用以下端口
+    4. 在数据库中升级 Book，使用 PUT 请求调用以下接口
   </a>
-  
-    <nav class="md-nav" aria-label="4. 在数据库中升级 Book，使用 PUT 请求调用以下端口">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#set-content-type-as-in-header-as-applicationjson" class="md-nav__link">
-    set content type as in header as application/json
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set-request-body-as-raw-with-json-payload" class="md-nav__link">
-    set request body as raw with JSON payload
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#5-book-delete" class="md-nav__link">
-    5. 如需从数据库中删除特定的 Book，使用 DELETE 请求调用以下端口
+    5. 如需从数据库中删除特定的 Book，使用 DELETE 请求调用以下接口
   </a>
   
 </li>
@@ -9120,7 +9080,7 @@ mysql&gt; INSERT INTO `book` (`id`, `author`, `category`, `name`, `pages`, `pric
 </code></pre></div>
 <h2 id="_3">编写代码</h2>
 <p>完成环境配置后，我们编写代码来实现一个简单的 CRUD 应用程序。</p>
-<p>在完成编写编码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。</p>
+<p>在完成编写代码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。</p>
 <p>我们将为这个演示应用程序编写创建、更新、插入、删除和选择操作。</p>
 <p><img alt="image-20221027105233860" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027105233860.png" /></p>
 <h3 id="1-bookstorecontrollerjava">1. BookStoreController.java</h3>
@@ -9500,11 +9460,11 @@ public class JpademoApplication {
 2022-10-27 11:16:40.183  INFO 93488 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;dispatcherServlet&#39;
 2022-10-27 11:16:40.249  INFO 93488 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 66 ms
 </code></pre></div>
-<h3 id="1-book-get">1. 获取 Book 列表，使用 GET 请求调用以下端口</h3>
+<h3 id="1-book-get">1. 获取 Book 列表，使用 GET 请求调用以下接口</h3>
 <div class="highlight"><pre><span></span><code>http://localhost:8080/bookservice/books
 </code></pre></div>
 <p><img alt="image-20221027112426189" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027112426189.png" /></p>
-<h3 id="2-book-post">2. 创建一个新 Book，使用 POST 请求调用以下端口</h3>
+<h3 id="2-book-post">2. 创建一个新 Book，使用 POST 请求调用以下接口</h3>
 <div class="highlight"><pre><span></span><code>http://localhost:8080/bookservice/books
 </code></pre></div>
 <p>将 Header 中的内容类型设置为 <code>application/json</code>，将 Request Body 设置为原始 JSON 有效负载。</p>
@@ -9518,15 +9478,13 @@ public class JpademoApplication {
   }
 </code></pre></div>
 <p><img alt="image-20221027115733788" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115733788.png" /></p>
-<h3 id="3-book-get">3. 如需获取特定 Book，使用 GET 请求调用以下端口</h3>
+<h3 id="3-book-get">3. 如需获取特定 Book，使用 GET 请求调用以下接口</h3>
 <div class="highlight"><pre><span></span><code>  http://localhost:8080/bookservice/books/&lt;id&gt;
 </code></pre></div>
 <p><img alt="image-20221027115844378" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115844378.png" /></p>
-<h3 id="4-book-put">4. 在数据库中升级 Book，使用 PUT 请求调用以下端口</h3>
+<h3 id="4-book-put">4. 在数据库中升级 Book，使用 PUT 请求调用以下接口</h3>
 <div class="highlight"><pre><span></span><code>    http://localhost:8080/bookservice/books/&lt;id&gt;
 </code></pre></div>
-<h4 id="set-content-type-as-in-header-as-applicationjson">set content type as in header as <code>application/json</code></h4>
-<h4 id="set-request-body-as-raw-with-json-payload">set request body as raw with JSON payload</h4>
 <ul>
 <li>
 <p>将 Header 中的内容类型设置为 <code>application/json</code>。</p>
@@ -9545,7 +9503,7 @@ public class JpademoApplication {
   }
 </code></pre></div>
 <p><img alt="image-20221027120144112" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120144112.png" /></p>
-<h3 id="5-book-delete">5. 如需从数据库中删除特定的 Book，使用 DELETE 请求调用以下端口</h3>
+<h3 id="5-book-delete">5. 如需从数据库中删除特定的 Book，使用 DELETE 请求调用以下接口</h3>
 <div class="highlight"><pre><span></span><code>  http://localhost:8080/bookservice/books/&lt;id&gt;
 </code></pre></div>
 <p><img alt="image-20221027120306830" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120306830.png" /></p>

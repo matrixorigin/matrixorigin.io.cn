@@ -8710,10 +8710,10 @@
 <ul>
 <li>当一个事务开始时，数据库会为该事务生成一个独一无二的事务 ID。</li>
 <li>在生成该事务 ID 的时间戳，在每次对数据进行增、删、改、查时，TAE 自动检测对应表中是否有已被更新的时间戳，如果有，则更新时间戳为最新。</li>
-<li>在对数据操作时，TAE 将操作的数据缓存在内存中，提交事务时，TAE 将内存中的数据写入到磁盘内（数据存储到的 S3 路径，或本地磁盘路径）。</li>
+<li>在对数据操作时，TAE 将操作的数据缓存在内存中，提交事务时，TAE 将内存中的数据写入到磁盘内（数据存储到 S3 路径，或本地磁盘路径）。</li>
 </ul>
 <h3 id="_4">读已提交示例</h3>
-<p>你可以参加下面的示例，来理解<strong>读已提交</strong>隔离级别。</p>
+<p>你可以参照下面的示例，来理解<strong>读已提交</strong>隔离级别。</p>
 <p>首先在 MatrixOne 中，我们建立一个命名为 <code>test</code> 的数据库与表 <code>t1</code>，并插入数据：</p>
 <div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
 <span class="n">use</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
@@ -8784,7 +8784,7 @@
 <span class="o">+</span><span class="c1">------+----------+</span>
 </code></pre></div>
 <h2 id="_5">快照隔离</h2>
-<p>在 MatrixOne 中，支持的隔离级别是快照隔离（Snapshot Isolation），为了与 MySQL 隔离级别保持一致，MatixOne 快照隔离又叫做可重复读（REPEATABLE READS）。该级别的隔离实现原理如下：</p>
+<p>在 MatrixOne 中，也支持快照隔离（Snapshot Isolation），为了与 MySQL 隔离级别保持一致，MatixOne 快照隔离又叫做可重复读（REPEATABLE READS）。该级别的隔离实现原理如下：</p>
 <h3 id="_6">快照隔离原理</h3>
 <ul>
 <li>当一个事务开始时，数据库会为该事务生成一个事务 ID，这是一个独一无二的 ID。</li>
@@ -8792,7 +8792,7 @@
 <li>当事务提交完成对数据的修改后，释放事务 ID 与数据快照。</li>
 </ul>
 <h3 id="_7">快照隔离示例</h3>
-<p>你可以参加下面的示例，来帮助理解快照隔离。</p>
+<p>你可以参照下面的示例，来帮助理解快照隔离。</p>
 <p>首先在 MatrixOne 中，我们建立一个数据库 <em>test</em> 与表 <em>t1</em>：</p>
 <div class="highlight"><pre><span></span><code>create database test;
 use test;

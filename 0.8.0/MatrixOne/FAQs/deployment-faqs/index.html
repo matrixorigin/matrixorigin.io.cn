@@ -8955,7 +8955,7 @@ Password:
 <p>设置完成后，<code>make build</code> 应该很快就能完成。</p>
 <h3 id="matrixone_3"><strong>当我想将 MatrixOne 的数据目录保存到我指定的文件目录中，我应该如何操作？</strong></h3>
 <p>当你使用 Docker 启动 MatrixOne，你可以将你指定的数据目录挂载至 Docker 容器，参见<a href="../../Maintain/mount-data-by-docker/">挂载目录到 Docker 容器</a>。</p>
-<p>当你使用源码或二进制包编译并启动 MatrixOne，你可以通过修改配置文件中的默认数据目录路径：打开 MatrixOne 源码文件目录 <code>matrixone/etc/launch-tae-CN-tae-DN</code>，修改 <code>cn.toml</code>、<code>dn.toml</code> 和 <code>log.toml</code> 三个文件内的配置参数 <code>data-dir = "./mo-data"</code> 为 <code>data-dir = "your_local_path"</code>，保存后重启 MatrixOne 即可生效。</p>
+<p>当你使用源码或二进制包编译并启动 MatrixOne，你可以通过修改配置文件中的默认数据目录路径：打开 MatrixOne 配置文件目录 <code>matrixone/etc/launch-tae-CN-tae-DN</code>，修改 <code>cn.toml</code>、<code>dn.toml</code> 和 <code>log.toml</code> 三个文件内的配置参数 <code>data-dir = "./mo-data"</code> 为 <code>data-dir = "your_local_path"</code>，保存后重启 MatrixOne 即可生效。</p>
 <h3 id="mo-tester-matrixone-too-many-open-files"><strong>当我通过 MO-Tester 对 MatrixOne 进行测试时，我如何解决产生的 <code>too many open files</code> 错误？</strong></h3>
 <p>为了对 MatrixOne 进行测试，MO-Tester 会快速地打开和关闭许多 SQL 文件，于是很快就达到 Linux 和 MacOS 系统的最大打开文件限制，这就是导致 <code>too many open files</code> 错误的原因。</p>
 <ul>

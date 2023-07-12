@@ -8886,7 +8886,7 @@
 <p>MyBatis：MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。我们只需要关注项目中的 SQL 本身。</p>
 </li>
 <li>
-<p>Intellij IDEA：IntelliJ IDEA 是一种商业化销售的 Java 集成开发环境（Integrated Development Environment，IDE）工具软件。它所拥有诸多插件，可以提高我们的工作效率。</p>
+<p>Intellij IDEA：IntelliJ IDEA 是一种商业化销售的 Java 集成开发环境（Integrated Development Environment，IDE）工具软件。它所拥有的诸多插件，可以提高我们的工作效率。</p>
 </li>
 <li>
 <p>Maven：Maven 是 Java 中功能强大的项目管理工具，可以根据 <em>pom.xml</em> 文件中的配置自动下载和导入 <em>Jar</em> 文件。这个特性减少了不同版本 Jar 文件之间的冲突。</p>
@@ -9031,7 +9031,7 @@ server.port=8080
 </code></pre></div>
 <h2 id="_3">编写代码</h2>
 <p>完成环境配置后，我们编写代码来实现一个简单的 CRUD 应用程序。</p>
-<p>在完成编写编码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。</p>
+<p>在完成编写代码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。</p>
 <p>我们将为这个演示应用程序编写创建、更新、插入、删除和选择操作。</p>
 <p><img alt="image-20221026155656694" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026155656694.png" /></p>
 <h3 id="1-usercontrollerjava">1. UserController.java</h3>
@@ -9377,7 +9377,7 @@ PRIMARY KEY (`id`)
 <p><img alt="image-20221026162455058" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162455058.png" /></p>
 <p>你可以直接从浏览器中获取查询结果。</p>
 <h3 id="4">4. 测试更新用户</h3>
-<p>打开你的浏览器并输入网址：<code>http://localhost:8080/test/update/username=tom&amp;password=654321&amp;address=beijing</code></p>
+<p>打开你的浏览器并输入网址：<code>http://localhost:8080/test/update?id=1&amp;username=tom&amp;password=654321&amp;address=beijing</code></p>
 <p><img alt="image-20221026162613066" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162613066.png" /></p>
 <p>在 MySQL 客户端中，使用如下命令验证是否成功更新记录：</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from user;

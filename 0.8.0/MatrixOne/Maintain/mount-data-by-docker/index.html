@@ -8664,7 +8664,7 @@ docker rm &lt;containerID&gt;
 </li>
 <li>
 <p>如果 Docker 内还没有正在运行的 MatrixOne，请先启动：</p>
-<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:0.8.0
+<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:0.8.0
 </code></pre></div>
 </li>
 <li>

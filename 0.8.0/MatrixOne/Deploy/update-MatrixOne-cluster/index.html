@@ -8741,12 +8741,12 @@
 <p>本篇文档将介绍如何<strong>滚动升级</strong>或者<strong>重装升级</strong> MatrixOne 集群。</p>
 <p>本篇文档所介绍到的升级环境将基于 <a href="../deploy-MatrixOne-cluster/">MatrixOne 分布式集群部署</a>的环境。</p>
 <h2 id="_2">滚动升级</h2>
-<p>滚动升级，是一种在线升级方式，即 MatrixOne 集群在保证在部分或全部服务可用的情况下完成软件的升级。</p>
+<p>滚动升级，是一种在线升级方式，即 MatrixOne 集群在保证部分或全部服务可用的情况下完成软件的升级。</p>
 <p><a href="../deploy-MatrixOne-cluster/">MatrixOne 分布式集群部署</a>中介绍，安装 MatrixOne 分布式集群基于 Kubernetes 和 MatrixOne Operator，因此滚动升级 MatrixOne 就是通过动态修改 MatrixOne Operator 中的 MatrixOne 镜像版本号来实现自动的版本更新。</p>
 <h3 id="_3">操作步骤</h3>
 <ol>
 <li>
-<p>在 master0 节点上终端上执行以下命令，进入动态修改 operator 使用的 <code>yaml</code> 配置文件的界面。</p>
+<p>在 master0 节点的终端上执行以下命令，进入动态修改 operator 使用的 <code>yaml</code> 配置文件的界面。</p>
 <div class="highlight"><pre><span></span><code>mo_ns=&quot;mo-hn&quot; #matrixone集群的namespace
 mo_cluster_name=&quot;mo&quot; # matrixone的集群名称，一般为mo，根据部署时matrixonecluster对象的yaml文件中的name指定，也可以通过kubectl get matrixonecluster -n${mo_ns}来确认
 #mo-hn及mo已在安装部署的mo.yaml文件中设置
@@ -8867,7 +8867,7 @@ kubectl delete pvc mo-data-mo-log-2 -nmo-hn
 <div class="highlight"><pre><span></span><code>mc rb --force  minio/minio-mo/data/
 mc rb --force  minio/minio-mo/etl
 </code></pre></div>
-<p>另外，如果不想删除旧数据，也可以新建一个 MinIO 的桶，然后在部署 MatrixOne 集群的 yaml 文件制定新的桶名即可。</p>
+<p>另外，如果不想删除旧数据，也可以新建一个 MinIO 的桶，然后在部署 MatrixOne 集群的 yaml 文件指定新的桶名即可。</p>
 <p><img alt="image-minio-new-bucket" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-minio-new-bucket.png" /></p>
 <h4 id="3">3. 部署新版本集群</h4>
 <p>编辑定义 MO 集群的 yaml 文件，参考<strong>滚动升级</strong>章节，修改 <code>.spec.version</code> 字段为最新版本，重新部署 MatrixOne 集群：</p>
@@ -8877,7 +8877,7 @@ kubectl apply -f mo.yaml
 </code></pre></div>
 <h4 id="4">4. 检查升级是否成功</h4>
 <p>可以通过以下命令检查 MatrixOne 是否成功启动。</p>
-<p>如下面代码示例所示，当 Log Service, DN, CN 都正常运行，则 MatrixOne 集群成功启动。你也可以通过 MySQL Client 连接检查是否数据库功能正常。</p>
+<p>如下面代码示例所示，当 Log Service, DN, CN 都正常运行，则 MatrixOne 集群成功启动。你也可以通过 MySQL Client 连接检查数据库功能是否正常。</p>
 <div class="highlight"><pre><span></span><code>[root@master0 ~]# kubectl get pods -n mo-hn      
 NAME                                  READY   STATUS    RESTARTS     AGE
 matrixone-operator-6c9c49fbd7-lw2h2   1/1     Running   2 (8h ago)   9h
