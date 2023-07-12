@@ -11,7 +11,7 @@ MatrixOne 支持 x86 及 ARM 的 Linux 系统。本文以 Debian11.1 x86 架构�
 | 依赖软件     | 版本                          |
 | ------------ | ----------------------------- |
 | golang       | 1.20 及以上                    |
-| gcc/clang    | gcc8.5 及以上, clang13.0 及以上 |
+| gcc          | gcc8.5 及以上                  |
 | git          | 2.20 及以上                    |
 | MySQL Client | 8.0 及以上                     |
 
@@ -27,7 +27,7 @@ MatrixOne 支持 x86 及 ARM 的 Linux 系统。本文以 Debian11.1 x86 架构�
     go version go1.20.4 linux/amd64
     ```
 
-### 2. 安装 GCC/Clang
+### 2. 安装 GCC
 
 1. Debian11.1 中一般已经自带 9.0 以上版本的 GCC，可以先用以下命令验证 GCC 环境是否需要安装。
 
@@ -36,11 +36,11 @@ MatrixOne 支持 x86 及 ARM 的 Linux 系统。本文以 Debian11.1 x86 架构�
     bash: gcc: command not found
     ```
 
-    如代码所示，未显示 GCC 或 Clang 的版本，则表示 **GCC/Clang** 的环境需要安装。
+    如代码所示，未显示 GCC 的版本，则表示 **GCC** 的环境需要安装。
 
 2. 点击 <a href="https://gcc.gnu.org/install/" target="_blank">GCC Download and install</a> 入到 **GCC** 的官方文档，按照官方指导安装步骤完成 **GCC** 的安装。
 
-3. 验证 **GCC/Clang** 是否安装，请执行代码 `gcc -v`，安装成功代码行示例如下（只展示部分代码）：
+3. 验证 **GCC** 是否安装，请执行代码 `gcc -v`，安装成功代码行示例如下（只展示部分代码）：
 
     ```
     Using built-in specs.
@@ -256,4 +256,4 @@ mysql>
 ```
 
 !!! note
-    上述的连接和登录账号为初始账号 `root` 和密码 `111`，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../Security/password-mgmt/)。修改登录用户名或密码后重新登录同样需要通过 `mo_ctl set_conf` 的方式设置新的用户名和密码，详情可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。
+    上述的连接和登录账号为初始账号 `root` 和密码 `111`，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../Security/password-mgmt.md)。修改登录用户名或密码后重新登录同样需要通过 `mo_ctl set_conf` 的方式设置新的用户名和密码，详情可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。
