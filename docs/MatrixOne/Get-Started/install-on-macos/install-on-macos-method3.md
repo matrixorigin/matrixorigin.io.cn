@@ -74,29 +74,26 @@
      1. 打开一个新的终端，输入如下命令：
 
          ```
-         cd ~
-         sudo vim .bash_profile
+         vim ~/.bash_profile
          ```
 
-     2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
-
-     3. 输入/跳过 root 密码后，即进入了*. bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+     2. 回车执行上面的命令后，即进入了*. bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
 
         ```
         export PATH=${PATH}:/usr/local/mysql/bin
         ```
 
-     4. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
+     3. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
 
-     5. 执行命令 `source .bash_profile`，回车执行，运行环境变量。
+     4. 执行命令 `source ~/.bash_profile`，回车执行，运行环境变量。
 
-     6. 测试 MySQL 是否可用：
+     5. 测试 MySQL 是否可用：
 
          - 方式一：输入命令 `mysql -u root -p`，回车执行，需要 root 用户密码，显示 `mysql>` 即表示 MySQL 客户端已开启。
 
          - 方式二：执行命令 `mysql --version`，安装成功提示：`mysql  Ver 8.0.31 for macos12 on arm64 (MySQL Community Server - GPL)`
 
-     7. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
+     6. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
 
     __Tips__: 目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
 
