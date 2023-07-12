@@ -77,7 +77,7 @@ minio1-console   100.92.250.195:9090,100.92.250.200:9090,100.92.250.201:9090 + 1
 minio1-hl        100.92.250.195:9000,100.92.250.200:9000,100.92.250.201:9000 + 1 more...   127d
 ```
 
-SVC 的访问地址是在 `Load` 语句中需要添加的终端地址。要构建 SVC 地址，可以使用 `${service_name}.{namespace}.svc.cluster.local` 的方式（后三位可省略）。以下命令的结果表明，minio1-hl 的 SVC 使用 9000 作为对外转发端口，minio 的 SVC 使用 80 作为对外转发端口。因此，连接 Mostorage 的 Minio 的最终 endpoint 为：<http://minio1-hl.mostorage:9000> 或者 <http://minio.mostorage:80>。
+SVC 的访问地址是在 `Load` 语句中需要添加的终端地址。要构建 SVC 地址，可以使用 `${service_name}.{namespace}.svc.cluster.local` 的方式（后三位可省略）。以上命令的结果表明，minio1-hl 的 SVC 使用 9000 作为对外转发端口，minio 的 SVC 使用 80 作为对外转发端口。因此，连接 Mostorage 的 Minio 的最终 endpoint 为：<http://minio1-hl.mostorage:9000> 或者 <http://minio.mostorage:80>。
 
 ### 构建并执行 Load 语句
 
@@ -89,12 +89,12 @@ SVC 的访问地址是在 `Load` 语句中需要添加的终端地址。要构�
 
 2. 参照 Load S3 的语法结构，将参数信息填入 `Load` 语句中其中：
 
-    - endpoint，access_key_id：为 minio 的登录账号
+    - access_key_id：为 minio 的登录账号
     - secret_access_key：为 minio 的登录密码
     - bucket：存储桶的名称
     - filepath：为导入文件的路径
 
-    需要注意的是，从本地 Minio 需要在参数串中增加一条 `"provider"="minio"` 来指明底层存储来源是本地 Minio，最终形成如以下的 SQL 语句。
+    需要注意的是，从本地 Minio 带入需要在参数串中增加一条 `"provider"="minio"` 来指明底层存储来源是本地 Minio，最终形成如以下的 SQL 语句。
 
     ```
     MySQL [stock]> load data url s3option{"endpoint"='http://minio.mostorage:80',"access_key_id"='rootuser', "secret_access_key"='rootpass123',"bucket"='load-from-minio', "filepath"='/addresses.csv', "compression"='none', "provider"="minio"} INTO TABLE address FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' PARALLEL 'TRUE';
