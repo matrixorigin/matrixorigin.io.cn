@@ -817,8 +817,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-gccclang" class="md-nav__link">
-    2. 安装 GCC/Clang
+  <a href="#2-gcc" class="md-nav__link">
+    2. 安装 GCC
   </a>
   
 </li>
@@ -8692,8 +8692,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-gccclang" class="md-nav__link">
-    2. 安装 GCC/Clang
+  <a href="#2-gcc" class="md-nav__link">
+    2. 安装 GCC
   </a>
   
 </li>
@@ -8801,8 +8801,8 @@
 <td>1.20 及以上</td>
 </tr>
 <tr>
-<td>gcc/clang</td>
-<td>gcc8.5 及以上, clang13.0 及以上</td>
+<td>gcc</td>
+<td>gcc8.5 及以上</td>
 </tr>
 <tr>
 <td>git</td>
@@ -8826,20 +8826,20 @@
 </code></pre></div>
 </li>
 </ol>
-<h3 id="2-gccclang">2. 安装 GCC/Clang</h3>
+<h3 id="2-gcc">2. 安装 GCC</h3>
 <ol>
 <li>
 <p>Debian11.1 中一般已经自带 9.0 以上版本的 GCC，可以先用以下命令验证 GCC 环境是否需要安装。</p>
 <div class="highlight"><pre><span></span><code>gcc -v
 bash: gcc: command not found
 </code></pre></div>
-<p>如代码所示，未显示 GCC 或 Clang 的版本，则表示 <strong>GCC/Clang</strong> 的环境需要安装。</p>
+<p>如代码所示，未显示 GCC 的版本，则表示 <strong>GCC</strong> 的环境需要安装。</p>
 </li>
 <li>
 <p>点击 <a href="https://gcc.gnu.org/install/" target="_blank">GCC Download and install</a> 入到 <strong>GCC</strong> 的官方文档，按照官方指导安装步骤完成 <strong>GCC</strong> 的安装。</p>
 </li>
 <li>
-<p>验证 <strong>GCC/Clang</strong> 是否安装，请执行代码 <code>gcc -v</code>，安装成功代码行示例如下（只展示部分代码）：</p>
+<p>验证 <strong>GCC</strong> 是否安装，请执行代码 <code>gcc -v</code>，安装成功代码行示例如下（只展示部分代码）：</p>
 <div class="highlight"><pre><span></span><code>Using built-in specs.
 COLLECT_GCC=gcc
 ...
@@ -9016,7 +9016,7 @@ mysql&gt;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>上述的连接和登录账号为初始账号 <code>root</code> 和密码 <code>111</code>，请在登录 MatrixOne 后及时修改初始密码，参见<a href="../../Security/password-mgmt/">密码管理</a>。修改登录用户名或密码后重新登录同样需要通过 <code>mo_ctl set_conf</code> 的方式设置新的用户名和密码，详情可以参考 <a href="../../../Maintain/mo_ctl/">mo_ctl 工具指南</a>。</p>
+<p>上述的连接和登录账号为初始账号 <code>root</code> 和密码 <code>111</code>，请在登录 MatrixOne 后及时修改初始密码，参见<a href="../../../Security/password-mgmt/">密码管理</a>。修改登录用户名或密码后重新登录同样需要通过 <code>mo_ctl set_conf</code> 的方式设置新的用户名和密码，详情可以参考 <a href="../../../Maintain/mo_ctl/">mo_ctl 工具指南</a>。</p>
 </div>
 
               

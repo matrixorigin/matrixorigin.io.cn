@@ -8804,7 +8804,7 @@
 <h3 id="1-go">1. 安装部署 Go 语言</h3>
 <ol>
 <li>
-<p>点击 <a href="https://go.dev/doc/install" target="_blank">Go Download and install</a> 入到 <strong>Go</strong> 的官方文档，按照官方指导安装步骤完成 <strong>Go</strong> 语言的安装。</p>
+<p>点击 <a href="https://go.dev/doc/install" target="_blank">Go Download and install</a> 进入到 <strong>Go</strong> 的官方文档，按照官方指导安装步骤完成 <strong>Go</strong> 语言的安装。</p>
 </li>
 <li>
 <p>验证 <strong>Go</strong> 是否安装，请执行代码 <code>go version</code>，安装成功代码行示例如下：</p>
@@ -8823,7 +8823,7 @@ bash: gcc: command not found
 <p>如代码所示，未显示 GCC 或 Clang 的版本，则表示 <strong>GCC/Clang</strong> 的环境需要安装。</p>
 </li>
 <li>
-<p>你可以选择点击 <a href="https://gcc.gnu.org/install/" target="_blank">GCC Download and install</a> 入到 <strong>GCC</strong> 的官方文档，按照官方指导安装步骤完成 <strong>GCC</strong> 的安装。或者也可以通过 Apple 官方的 <a href="https://www.ics.uci.edu/~pattis/common/handouts/macclion/clang.html">Xcode</a> 进行 Clang 的安装。</p>
+<p>你可以选择点击 <a href="https://gcc.gnu.org/install/" target="_blank">GCC Download and install</a> 进入到 <strong>GCC</strong> 的官方文档，按照官方指导安装步骤完成 <strong>GCC</strong> 的安装。或者也可以通过 Apple 官方的 <a href="https://www.ics.uci.edu/~pattis/common/handouts/macclion/clang.html">Xcode</a> 进行 Clang 的安装。</p>
 </li>
 <li>
 <p>验证 <strong>GCC/Clang</strong> 是否安装，请执行代码 <code>gcc -v</code>，无论显示的是 Clang 或者 GCC 版本均说明安装成功，示例如下：</p>
@@ -8850,15 +8850,11 @@ git version 2.40.0
 <ol>
 <li>
 <p>打开一个新的终端，输入如下命令：</p>
-<div class="highlight"><pre><span></span><code>cd ~
-sudo vim .bash_profile
+<div class="highlight"><pre><span></span><code>vim ~/.bash_profile
 </code></pre></div>
 </li>
 <li>
-<p>回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。</p>
-</li>
-<li>
-<p>输入/跳过 root 密码后，即进入了 <em>bash_profile</em>，点击键盘上的 <em>i</em> 进入 insert 状态，即可在文件下方输入如下命令：</p>
+<p>回车执行上面的命令后，即进入了 <em>bash_profile</em>，点击键盘上的 <em>i</em> 进入 insert 状态，即可在文件下方输入如下命令：</p>
 </li>
 </ol>
 <div class="highlight"><pre><span></span><code>export PATH=${PATH}:/usr/local/mysql/bin
@@ -8868,7 +8864,7 @@ sudo vim .bash_profile
 <p>输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 <code>:wq</code> 保存退出。</p>
 </li>
 <li>
-<p>执行命令 <code>source .bash_profile</code>，回车执行，运行环境变量。</p>
+<p>执行命令 <code>source ~/.bash_profile</code>，回车执行，运行环境变量。</p>
 </li>
 <li>
 <p>测试 MySQL 是否可用：</p>
@@ -9004,7 +9000,7 @@ mysql&gt;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>上述的连接和登录账号为初始账号 <code>root</code> 和密码 <code>111</code>，请在登录 MatrixOne 后及时修改初始密码，参见<a href="../../Security/password-mgmt/">密码管理</a>。修改登录用户名或密码后重新登录同样需要通过 <code>mo_ctl set_conf</code> 的方式设置新的用户名和密码，详情可以参考 <a href="../../../Maintain/mo_ctl/">mo_ctl 工具指南</a>。</p>
+<p>上述的连接和登录账号为初始账号 <code>root</code> 和密码 <code>111</code>，请在登录 MatrixOne 后及时修改初始密码，参见<a href="../../../Security/password-mgmt/">密码管理</a>。修改登录用户名或密码后重新登录同样需要通过 <code>mo_ctl set_conf</code> 的方式设置新的用户名和密码，详情可以参考 <a href="../../../Maintain/mo_ctl/">mo_ctl 工具指南</a>。</p>
 </div>
 
               

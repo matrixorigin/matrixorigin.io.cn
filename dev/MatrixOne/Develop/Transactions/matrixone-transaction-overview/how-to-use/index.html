@@ -8674,7 +8674,7 @@ insert into t1 values(123,&#39;123&#39;);
 rollback;
 </code></pre></div>
 <h2 id="_5">自动提交</h2>
-<p>在 MatrixOne 中，有一个参数 <code>AUTOCOMMIT</code>，决定了没有 <code>START TRANSACTION</code> 或 <code>BEGIN</code> 的情况下，没有单条 SQL 语句的是否被当做独立事务自动提交。语法如下：</p>
+<p>在 MatrixOne 中，有一个参数 <code>AUTOCOMMIT</code>，决定了没有 <code>START TRANSACTION</code> 或 <code>BEGIN</code> 的情况下，单条 SQL 语句的是否被当做独立事务自动提交。语法如下：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- 设置该参数的值</span>
 <span class="k">SET</span><span class="w"> </span><span class="n">AUTOCOMMIT</span><span class="o">=</span><span class="err">{</span><span class="k">on</span><span class="o">|</span><span class="k">off</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="mi">1</span><span class="err">}</span><span class="w">  </span>
 <span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;AUTOCOMMIT&#39;</span><span class="p">;</span>
