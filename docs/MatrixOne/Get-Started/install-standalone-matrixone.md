@@ -36,7 +36,7 @@
 
     * [客户端连接 MatrixOne 服务](../Develop/connect-mo/database-client-tools.md)
     * [JDBC 连接 MatrixOne 服务](../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md)
-    * [Python 连接 MatrixOne 服务](../Develop/connect-mo/python-connect-to-matrixone.md)。
+    * [Python 连接 MatrixOne 服务](../Develop/connect-mo/python-connect-to-matrixone.md)
 
 - 常见的安装和部署问题，参见[安装和部署常见问题](../FAQs/deployment-faqs.md)。
 
