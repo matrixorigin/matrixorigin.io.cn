@@ -91,13 +91,12 @@
      1. 打开一个新的终端，输入如下命令：
 
          ```
-         cd ~
          sudo vim /etc/profile
          ```
 
-     2. 回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
+     2. 回车执行上面的命令后，非 Linux root 用户需要输入当前 Linux 用户的密码。
 
-     3. 输入/跳过 root 密码后，即进入了*. bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
+     3. 输入密码后回车，即进入了 *profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
 
         ```
         export PATH=/software/mysql/bin:$PATH
