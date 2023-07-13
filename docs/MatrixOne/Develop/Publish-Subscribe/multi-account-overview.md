@@ -4,9 +4,9 @@
 
 ## 租户概念介绍
 
-在 MatrixOne 中，`租户（Account）`是权限管理体系的一部分。可以参考[权限管理概述](../../Security/role-priviledge-management/about-privilege-management.md)章节以了解更详细的权限管理体系信息。
+在 MatrixOne 中，`租户（Account）` 是权限管理体系的一部分。可以参考[权限管理概述](../../Security/role-priviledge-management/about-privilege-management.md)章节以了解更详细的权限管理体系信息。
 
-多租户的使用场景多种多样，包括在SaaS应用中的多租户设计、集团公司中不同子公司账号的隔离、微服务架构下各服务数据库的使用等。有关详细的应用场景，请参考 MatrixOne 功能概述中的[多租户](../../Overview/feature/key-feature-multi-accounts.md)章节。
+多租户的使用场景多种多样，包括在 SaaS 应用中的多租户设计、集团公司中不同子公司账号的隔离、微服务架构下各服务数据库的使用等。有关详细的应用场景，请参考 MatrixOne 功能概述中的[多租户](../../Overview/feature/key-feature-multi-accounts.md)章节。
 
 ## 创建和使用租户
 
