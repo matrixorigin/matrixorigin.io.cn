@@ -91,7 +91,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      x86 架构系统安装包：
 
      ```bash
-     mkdir /root/matrixone & cd /root/
+     mkdir -p /root/matrixone & cd /root/
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
      unzip -d matrixone/ mo-v0.8.0-linux-amd64.zip
      ```
@@ -99,7 +99,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      ARM 架构系统安装包：
 
      ```bash
-     mkdir /root/matrixone & cd /root/
+     mkdir -p /root/matrixone & cd /root/
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-arm64.zip
      unzip -d matrixone/ mo-v0.8.0-linux-arm64.zip
      ```
@@ -109,7 +109,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      x86 架构系统安装包：
 
      ```bash
-     mkdir /root/matrixone & cd /root/
+     mkdir -p /root/matrixone & cd /root/
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
      unzip -d matrixone/ mo-v0.8.0-linux-amd64.zip
      ```
@@ -117,7 +117,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      ARM 架构系统安装包：
 
      ```bash
-     mkdir /root/matrixone & cd /root/
+     mkdir -p /root/matrixone & cd /root/
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-arm64.zip
      unzip -d matrixone/ mo-v0.8.0-linux-arm64.zip
      ```
