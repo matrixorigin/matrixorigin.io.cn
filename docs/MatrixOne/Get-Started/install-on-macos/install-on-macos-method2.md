@@ -92,7 +92,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      x86 架构系统安装包：
 
      ```bash
-     mkdir /User/username/mo/matrixone & cd /User/username/mo
+     mkdir -p /User/username/mo/matrixone & cd /User/username/mo
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
      unzip -d matrixone/ mo-v0.8.0-darwin-x86_64.zip
      ```
@@ -100,7 +100,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      ARM 架构系统安装包：
 
      ```bash
-     mkdir /User/username/mo/matrixone & cd /User/username/mo
+     mkdir -p /User/username/mo/matrixone & cd /User/username/mo
      wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
      unzip -d matrixone/ mo-v0.8.0-darwin-arm64.zip
      ```
@@ -110,7 +110,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      x86 架构系统安装包：
 
      ```bash
-     mkdir /User/username/mo/matrixone & cd /User/username/mo
+     mkdir -p /User/username/mo/matrixone & cd /User/username/mo
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
      unzip -d matrixone/ mo-v0.8.0-darwin-x86_64.zip
      ```
@@ -118,7 +118,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      ARM 架构系统安装包：
 
      ```bash
-     mkdir /User/username/mo/matrixone & cd /User/username/mo
+     mkdir -p /User/username/mo/matrixone & cd /User/username/mo
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
      unzip -d matrixone/ mo-v0.8.0-darwin-arm64.zip
      ```
