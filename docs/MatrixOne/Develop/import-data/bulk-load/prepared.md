@@ -1,4 +1,4 @@
-# Prepared 语句概述
+# 预处理
 
 MatrixOne 提供对服务器端预处理语句的支持。利用客户端或服务器二进制协议的高效性，对参数值使用带有占位符的语句进行预处理，执行过程中的优点如下：
 
@@ -10,8 +10,8 @@ MatrixOne 提供对服务器端预处理语句的支持。利用客户端或服�
 
 PREPARE 语句的 SQL 基本语法主要为以下三种 SQL 语句：
 
-- [PREPARE](prepare.md)：执行预编译语句。
+- [PREPARE](../../../Reference/SQL-Reference/Other/Prepared-Statements/prepare.md)：执行预编译语句。
 
-- [EXECUTE](execute.md)：执行已预编译的句。
+- [EXECUTE](../../../Reference/SQL-Reference/Other/Prepared-Statements/execute.md)：执行已预编译的句。
 
-- [DEALLOCATE PREPARE](deallocate.md)：释放一条预编译的语句。
+- [DEALLOCATE PREPARE](../../../Reference/SQL-Reference/Other/Prepared-Statements/deallocate.md)：释放一条预编译的语句。

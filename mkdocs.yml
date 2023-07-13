@@ -102,6 +102,7 @@ nav:
             - 插入 jsonlines 文件: MatrixOne/Develop/import-data/bulk-load/load-jsonline.md
             - 从对象存储导入文件: MatrixOne/Develop/import-data/bulk-load/load-s3.md
             - Source 插入: MatrixOne/Develop/import-data/bulk-load/using-source.md
+            - 预处理: MatrixOne/Develop/import-data/bulk-load/prepared.md
       - 数据写出:
         - SELECT INTO 写出: MatrixOne/Develop/export-data/select-into-outfile.md
         - MODUMP 工具写出: MatrixOne/Develop/export-data/modump.md
@@ -111,6 +112,7 @@ nav:
         - 子查询: MatrixOne/Develop/read-data/subquery.md
         - 视图: MatrixOne/Develop/read-data/views.md
         - 公共表表达式: MatrixOne/Develop/read-data/cte.md
+        - 窗口函数: MatrixOne/Develop/read-data/window-function.md
       - 租户设计:
         - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
       - 事务:
@@ -301,7 +303,6 @@ nav:
             - USE DATABASE: MatrixOne/Reference/SQL-Reference/Other/use-database.md
           - KILL: MatrixOne/Reference/SQL-Reference/Other/kill.md
           - Prepared:
-            - Prepared 概述: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview.md
             - PREPARE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/prepare.md
             - EXECUTE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/execute.md
             - DEALLOCATE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/deallocate.md
@@ -457,7 +458,6 @@ nav:
           - 表函数:
             - UNNEST(): MatrixOne/Reference/Functions-and-Operators/Table/unnest.md
           - 窗口函数:
-            - 窗口函数概述: MatrixOne/Reference/Functions-and-Operators/Window-Functions/window-functions-overview.md
             - DENSE_RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/dense_rank.md
             - RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/rank.md
             - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
