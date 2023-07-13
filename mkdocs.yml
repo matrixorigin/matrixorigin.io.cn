@@ -112,6 +112,7 @@ nav:
         - 视图: MatrixOne/Develop/read-data/views.md
         - 公共表表达式: MatrixOne/Develop/read-data/cte.md
       - 租户设计:
+        - 多租户概述: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
         - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
       - 事务:
         - 事务通用概念: MatrixOne/Develop/Transactions/common-transaction-overview.md
