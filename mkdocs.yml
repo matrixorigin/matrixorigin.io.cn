@@ -102,7 +102,7 @@ nav:
             - 插入 jsonlines 文件: MatrixOne/Develop/import-data/bulk-load/load-jsonline.md
             - 从对象存储导入文件: MatrixOne/Develop/import-data/bulk-load/load-s3.md
             - Source 插入: MatrixOne/Develop/import-data/bulk-load/using-source.md
-            - 预处理: MatrixOne/Develop/import-data/bulk-load/prepared.md
+        - 预处理: MatrixOne/Develop/import-data/bulk-load/prepared.md
       - 数据写出:
         - SELECT INTO 写出: MatrixOne/Develop/export-data/select-into-outfile.md
         - MODUMP 工具写出: MatrixOne/Develop/export-data/modump.md
