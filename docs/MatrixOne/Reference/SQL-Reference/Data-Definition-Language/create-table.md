@@ -68,7 +68,7 @@
 !!! Note 注意区分
     上述示例中只有一个主键，并且其中仅包含了一列（`ID`）
 
-而下面 SQL 语句在创建 `Students` 表时，在其中的 `ID` 、`LastName`列创建主键：
+而下面 SQL 语句在创建 `Students` 表时，在其中的 `ID` 和 `LastName` 列创建主键：
 
 ```
 > CREATE TABLE Students (
