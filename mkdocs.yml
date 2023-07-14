@@ -93,6 +93,7 @@ nav:
           - UNIQUE KEY 唯一约束: MatrixOne/Develop/schema-design/data-integrity/unique-key-constraints.md
           - PRIMARY KEY 主键约束: MatrixOne/Develop/schema-design/data-integrity/primary-key-constraints.md
           - FOREIGN KEY 外键约束: MatrixOne/Develop/schema-design/data-integrity/foreign-key-constraints.md
+          - AUTO INCREMENT 自增约束: MatrixOne/Develop/schema-design/data-integrity/auto-increment-integrity.md
       - 数据写入:
         - 插入数据:
           - INSERT 插入: MatrixOne/Develop/import-data/insert-data.md
