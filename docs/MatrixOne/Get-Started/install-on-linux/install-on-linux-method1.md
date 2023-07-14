@@ -80,7 +80,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
 
     ```
     ## 更新软件源列表缓存
-    sudo apt udpate
+    sudo apt update
     ## 安装 wget
     sudo apt install wget
     ```
