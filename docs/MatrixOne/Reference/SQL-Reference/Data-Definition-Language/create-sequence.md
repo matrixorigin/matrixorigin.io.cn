@@ -59,7 +59,7 @@
 设置当前值；
 
 - b 默认设置 true，下一次调用 nextval() 时，直接返回 n
-- b 如果设置 false，则返回 n+increment:
+- b 如果设置 false，则返回 n+increment
 
 #### `LASTVAL()`
 
