@@ -1,4 +1,4 @@
-# 窗口函数概述
+# 窗口函数
 
 窗口函数（Window Function）是一种特殊的函数，它能够在查询结果集的某个窗口（Window）上执行计算操作。窗口函数可以用于对结果集进行分组、排序和聚合操作，同时还能够在每个窗口内计算每行数据的相关值，而无需改变结果集的行数。即通过窗口函数，可以在不引入额外的子查询或连接操作的情况下，对结果集进行灵活的分析和处理。
 
@@ -14,19 +14,19 @@ SQL 窗口函数在多种业务场景中都有其广泛的应用：
 
 - 大多数聚合函数也可以用作窗口函数，例如，`SUM()`、`AVG()`、`COUNT()` 这些聚合函数可以与窗口函数一起使用，以在窗口内计算某个列的总和、平均值或计数。MatrixOne 支持的可做窗口函数的聚合函数和参考文档参见：
 
-    * [AVG](../Aggregate-Functions/avg.md)
-    * [COUNT](../Aggregate-Functions/count.md)
-    * [MAX](../Aggregate-Functions/max.md)
-    * [SUM](../Aggregate-Functions/sum.md)
-    * [MIN](../Aggregate-Functions/min.md)
+    * [AVG](../../Reference/Functions-and-Operators/Aggregate-Functions/avg.md)
+    * [COUNT](../../Reference/Functions-and-Operators/Aggregate-Functions/count.md)
+    * [MAX](../../Reference/Functions-and-Operators/Aggregate-Functions/max.md)
+    * [SUM](../../Reference/Functions-and-Operators/Aggregate-Functions/sum.md)
+    * [MIN](../../Reference/Functions-and-Operators/Aggregate-Functions/min.md)
 
 - 其他窗口函数参见下表：
 
 |函数名称|说明|
 |---|---|
-|[DENSE_RANK()](dense_rank.md)|用于为数据集中的行分配排名，始终为下一个值分配连续的排名，即使前面的值有相同的排名。|
-|[RANK()](rank.md)|为查询结果集中的每一行分配一个排名值，相同值的行将具有相同的排名，而下一个排名值将会跳过相同数量的行。|
-|[ROW_NUMBER()](row_number.md)|为查询结果集中的每一行分配一个唯一的整数值，根据指定的排序规则确定顺序。|
+|[DENSE_RANK()](../../Reference/Functions-and-Operators/Window-Functions/dense_rank.md)|用于为数据集中的行分配排名，始终为下一个值分配连续的排名，即使前面的值有相同的排名。|
+|[RANK()](../../Reference/Functions-and-Operators/Window-Functions/rank.md)|为查询结果集中的每一行分配一个排名值，相同值的行将具有相同的排名，而下一个排名值将会跳过相同数量的行。|
+|[ROW_NUMBER()](../../Reference/Functions-and-Operators/Window-Functions/row_number.md)|为查询结果集中的每一行分配一个唯一的整数值，根据指定的排序规则确定顺序。|
 
 ## 如何使用窗口函数
 

@@ -93,6 +93,7 @@ nav:
           - UNIQUE KEY 唯一约束: MatrixOne/Develop/schema-design/data-integrity/unique-key-constraints.md
           - PRIMARY KEY 主键约束: MatrixOne/Develop/schema-design/data-integrity/primary-key-constraints.md
           - FOREIGN KEY 外键约束: MatrixOne/Develop/schema-design/data-integrity/foreign-key-constraints.md
+          - AUTO INCREMENT 自增约束: MatrixOne/Develop/schema-design/data-integrity/auto-increment-integrity.md
       - 数据写入:
         - 插入数据:
           - INSERT 插入: MatrixOne/Develop/import-data/insert-data.md
@@ -104,6 +105,7 @@ nav:
             - Source 插入: MatrixOne/Develop/import-data/bulk-load/using-source.md
         - 更新数据: MatrixOne/Develop/import-data/update-data.md
         - 删除数据: MatrixOne/Develop/import-data/delete-data.md
+        - 预处理: MatrixOne/Develop/import-data/prepared.md
       - 数据写出:
         - SELECT INTO 写出: MatrixOne/Develop/export-data/select-into-outfile.md
         - MODUMP 工具写出: MatrixOne/Develop/export-data/modump.md
@@ -113,6 +115,7 @@ nav:
         - 子查询: MatrixOne/Develop/read-data/subquery.md
         - 视图: MatrixOne/Develop/read-data/views.md
         - 公共表表达式: MatrixOne/Develop/read-data/cte.md
+        - 窗口函数: MatrixOne/Develop/read-data/window-function.md
       - 租户设计:
         - 多租户概述: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
         - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
@@ -304,7 +307,6 @@ nav:
             - USE DATABASE: MatrixOne/Reference/SQL-Reference/Other/use-database.md
           - KILL: MatrixOne/Reference/SQL-Reference/Other/kill.md
           - Prepared:
-            - Prepared 概述: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview.md
             - PREPARE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/prepare.md
             - EXECUTE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/execute.md
             - DEALLOCATE: MatrixOne/Reference/SQL-Reference/Other/Prepared-Statements/deallocate.md
@@ -460,7 +462,6 @@ nav:
           - 表函数:
             - UNNEST(): MatrixOne/Reference/Functions-and-Operators/Table/unnest.md
           - 窗口函数:
-            - 窗口函数概述: MatrixOne/Reference/Functions-and-Operators/Window-Functions/window-functions-overview.md
             - DENSE_RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/dense_rank.md
             - RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/rank.md
             - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md

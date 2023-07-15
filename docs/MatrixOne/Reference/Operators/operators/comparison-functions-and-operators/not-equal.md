@@ -2,7 +2,7 @@
 
 ## **运算符说明**
 
-The `<>,!=` operator returns `true` only if the left-hand operand is not equal to the right-hand operand.
+`<>, !=` 运算符仅当左操作数不等于右操作数时返回 `true`。
 
 ## **语法结构**
 
