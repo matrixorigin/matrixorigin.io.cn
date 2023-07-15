@@ -22,12 +22,17 @@
 | `mo_ctl start`       | 启动MatrixOne服务                                            |
 | `mo_ctl status`      | 检查MatrixOne服务是否正在运行中                              |
 | `mo_ctl stop`        | 停止所有MatrixOne服务进程                                    |
-| `mo_ctl start`       | 重启MatrixOne服务                                            |
+| `mo_ctl restart`       | 重启MatrixOne服务                                            |
 | `mo_ctl connect`     | 调用MySQL Client连接MatrixOne服务                            |
+| `mo_ctl upgrade`     | 将MatrixOne从当前版本升级/降级到某个发布版本或者commit id版本        |
 | `mo_ctl set_conf`    | 设置各类使用参数                                             |
 | `mo_ctl get_conf`    | 查看当前使用参数                                             |
+| `mo_ctl uninstall`    | 从MO_PATH路径下卸载MatrixOne                               |
+| `mo_ctl watchdog`    | 设置一个定时任务保证MatrixOne服务可用性，每分钟检查MatrixOne的状态，如果发现服务中止则自动拉起服务           |
+| `mo_ctl sql`    | 直接通过命令执行SQL或者SQL构成的文本文件           |
 | `mo_ctl ddl_convert` | 将MySQL的DDL语句转换成MatrixOne语句的工具                    |
 | `mo_ctl get_cid`     | 查看当前使用MatrixOne下载仓库的源码版本                      |
+| `mo_ctl get_branch`     | 查看当前使用MatrixOne下载仓库的分支版本                      |
 | `mo_ctl pprof`       | 用于收集MatrixOne的性能分析数据                              |
 
 ## 安装 mo_ctl
@@ -94,23 +99,28 @@ bash +x ./install.sh mo_ctl.zip
 mo_ctl help
 Usage             : mo_ctl [option_1] [option_2]
 
-[option_1]        : available: help | precheck | deploy | status | start | stop | restart | connect | get_cid | set_conf | get_conf | pprof | ddl_convert
-  0) help         : print help information
-  1) precheck     : check pre-requisites for mo_ctl
-  2) deploy       : deploy mo onto the path configured
-  3) status       : check if there's any mo process running on this machine
-  4) start        : start mo-service from the path configured
-  5) stop         : stop all mo-service processes found on this machine
-  6) restart      : start mo-service from the path configured
-  7) connect      : connect to mo via mysql client using connection info configured
-  8) get_cid      : print mo commit id from the path configured
-  9) pprof        : collect pprof information
-  10) set_conf    : set configurations
-  11) get_conf    : get configurations
-  12) ddl_convert : convert ddl file from to mo format from other types of database
+  [option_1]      : available: connect | ddl_connect | deploy | get_branch | get_cid | get_conf | help | pprof | precheck | query | restart | set_conf | sql | start | status | stop | uninstall | upgrade | watchdog
+  1) connect      : connect to mo via mysql client using connection info configured
+  2) ddl_convert  : convert ddl file to mo format from other types of database
+  3) deploy       : deploy mo onto the path configured
+  4) get_branch   : upgrade or downgrade mo from current version to a target commit id or stable version
+  5) get_cid      : print mo git commit id from the path configured
+  6) get_conf     : get configurations
+  7) help         : print help information
+  8) pprof        : collect pprof information
+  9) precheck     : check pre-requisites for mo_ctl
+  10) restart     : a combination operation of stop and start
+  11) set_conf    : set configurations
+  12) sql         : execute sql from string, or a file or a path containg multiple files
+  13) start       : start mo-service from the path configured
+  14) status      : check if there's any mo process running on this machine
+  15) stop        : stop all mo-service processes found on this machine
+  16) uninstall   : uninstall mo from path MO_PATH=/data/mo/20230712_1228//matrixone
+  17) upgrade     : upgrade or downgrade mo from current version to a target commit id or stable version
+  18) watchdog    : setup a watchdog crontab task for mo-service to keep it alive
   e.g.            : mo_ctl status
 
-[option_2]        : Use " mo_ctl [option_1] help " to get more info
+  [option_2]      : Use " mo_ctl [option_1] help " to get more info
   e.g.            : mo_ctl deploy help
 ```
 
@@ -185,6 +195,15 @@ mo_ctl connect help
 Usage         : mo_ctl connect # connect to mo via mysql client using connection info configured
 ```
 
+### status - 检查 MatrixOne 的状态
+
+使用 `mo_ctl status` 来检查 MatrixOne 的运行状态，是否在运行中。
+
+```
+mo_ctl status help
+Usage         : mo_ctl status # check if there's any mo process running on this machine
+```
+
 ### get_cid - 打印 MatrixOne 代码提交 id
 
 使用 `mo_ctl get_cid` 打印当前 `MO_PATH` 路径下的 MatrixOne 代码库提交 id。
@@ -192,6 +211,15 @@ Usage         : mo_ctl connect # connect to mo via mysql client using connection
 ```
 mo_ctl get_cid help
 Usage         : mo_ctl get_cid # print mo commit id from the path configured
+```
+
+### get_branch - 打印 MatrixOne 代码提交 id
+
+使用 `mo_ctl get_branch` 打印当前 `MO_PATH` 路径下的 MatrixOne 代码库分支。
+
+```
+mo_ctl get_branch help
+Usage           : mo_ctl get_branch        # print which git branch mo is currently on
 ```
 
 ### pprof -  收集性能信息
@@ -276,6 +304,57 @@ Usage           : mo_ctl ddl_convert [options] [src_file] [tgt_file] # convert a
  [src_file]     : source file to be converted, will use env DDL_SRC_FILE from conf file by default
  [tgt_file]     : target file of converted output, will use env DDL_TGT_FILE from conf file by default
   e.g.          : mo_ctl ddl_convert mysql_to_mo /tmp/mysql.sql /tmp/mo.sql
+```
+
+### sql - 执行 SQL
+
+使用 `mo_ctl sql [sql]` 来执行 SQL 文本或者 SQL 文件。
+
+```
+mo_ctl sql help
+Usage           : mo_ctl sql [sql]                 # execute sql from string, or a file or a path containg multiple files
+  [sql]         : a string quote by "", or a file, or a path
+  e.g.          : mo_ctl sql "use test;select 1;"  # execute sql "use test;select 1"
+                : mo_ctl sql /data/q1.sql          # execute sql in file /data/q1.sql
+                : mo_ctl sql /data/                # execute all sql files with .sql postfix in /data/
+```
+
+### uninstall - 卸载 MatrixOne
+
+使用 `mo_ctl uninstall` 来从 MO_PATH 上卸载 MatrixOne。
+
+```
+mo_ctl uninstall help
+Usage           : mo_ctl uninstall        # uninstall mo from path MO_PATH=/data/mo//matrixone
+                                          # note: you will need to input 'Yes/No' to confirm before uninstalling
+```
+
+### upgrade - 升级/降级 MatrixOne 版本
+
+使用 `mo_ctl upgrade version` 或者 `mo_ctl upgrade commitid` 来将 MatrixOne 从当前版本升级或降级到某个稳定版本或者某个 commit id 版本。
+
+```
+mo_ctl upgrade help
+Usage           : mo_ctl upgrade [version_commitid]   # upgrade or downgrade mo from current version to a target commit id or stable version
+ [commitid]     : a commit id such as '38888f7', or a stable version such as '0.8.0'
+                : use 'latest' to upgrade to latest commit on main branch if you don't know the id
+  e.g.          : mo_ctl upgrade 38888f7              # upgrade/downgrade to commit id 38888f7 on main branch
+                : mo_ctl upgrade latest               # upgrade/downgrade to latest commit on main branch
+                : mo_ctl upgrade 0.8.0                # upgrade/downgrade to stable version 0.8.0
+```
+
+### watchdog - 保活 MatrixOne
+
+使用 `mo_ctl watchdog [options]` 设置一个定时任务保证 MatrixOne 服务可用性，每分钟检查 MatrixOne 的状态，如果发现服务中止则自动拉起服务。
+
+```
+mo_ctl watchdog help
+Usage           : mo_ctl watchdog [options]   # setup a watchdog crontab task for mo-service to keep it alive
+ [options]      : available: enable | disable | status
+  e.g.          : mo_ctl watchdog enable      # enable watchdog service for mo, by default it will check if mo-servie is alive and pull it up if it's dead every one minute
+                : mo_ctl watchdog disable     # disable watchdog
+                : mo_ctl watchdog status      # check if watchdog is enabled or disabled
+                : mo_ctl watchdog             # same as mo_ctl watchdog status
 ```
 
 <!--ddl_convert 的详细转换规则请参考[该文档]()。-->
