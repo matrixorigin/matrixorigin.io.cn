@@ -35,7 +35,7 @@ MatrixOne 中推荐配置如下：
 ```
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://127.0.0.1:6001/test?characterSetResults=UTF-8&continueBatchOnError=false&useServerPrepStmts=true&alwaysSendSetIsolation=false&useLocalSessionState=true&zeroDateTimeBehavior=CONVERT_TO_NULL&failoverReadOnly=false&serverTimezone=Asia/Shanghai&socketTimeout=30000
-spring.datasource.username=dump
+spring.datasource.username=root
 spring.datasource.password=111
 mybatis.mapper-locations=classpath:mapping/*xml
 ```
