@@ -62,7 +62,7 @@ MO-tester 基于 Java 语言进行开发，因此 Mo-tester 所依赖的 Java �
       socketTimeout: 30000
   #users
   user:
-    name: "dump"
+    name: "root"
     passwrod: "111"
   ```
 

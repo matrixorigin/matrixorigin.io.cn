@@ -71,19 +71,19 @@ __Tips:__ 由于 `mo-dump` 是基于 Go 语言进行开发，所以你同时需�
 例如，如果你在与 MatrixOne 实例相同的服务器中启动终端，并且你想要生成单个数据库的备份，请运行以下命令。该命令将在 *t.sql* 文件中生成 **t** 数据库的结构和数据的备份。*t.sql* 文件将与您的 `mo-dump` 可执行文件位于同一目录中。
 
 ```
-./mo-dump -u dump -p 111 -h 127.0.0.1 -P 6001 -db t > t.sql
+./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db t > t.sql
 ```
 
 如果你想将数据库 *t* 内的表导出为 *CSV* 格式，参考使用下面的命令：
 
 ```
-./mo-dump -u dump -p 111  -db t -csv --local-infile=false > ttt.sql
+./mo-dump -u root -p 111  -db t -csv --local-infile=false > ttt.sql
 ```
 
 如果要在数据库中生成单个表的备份，可以运行以下命令。该命令将生成命名为 *t* 的数据库的 *t1* 表的备份，其中包含 *t.sql* 文件中的结构和数据。
 
 ```
-./mo-dump -u dump -p 111 -db t -tbl t1 > t1.sql
+./mo-dump -u root -p 111 -db t -tbl t1 > t1.sql
 ```
 
 ## 限制

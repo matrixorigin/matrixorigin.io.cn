@@ -154,7 +154,7 @@ spring.datasource.name=defaultDataSource
 # Database connection url, modify to MatrixOne address and port, with paratemers
 spring.datasource.url=jdbc:mysql://127.0.0.1:6001/test?characterSetResults=UTF-8&continueBatchOnError=false&useServerPrepStmts=true&alwaysSendSetIsolation=false&useLocalSessionState=true&zeroDateTimeBehavior=CONVERT_TO_NULL&failoverReadOnly=false&serverTimezone=Asia/Shanghai&socketTimeout=30000
 # Database username and password
-spring.datasource.username=dump
+spring.datasource.username=root
 spring.datasource.password=111
 
 # Mybatis mapper location
