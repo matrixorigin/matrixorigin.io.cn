@@ -105,7 +105,7 @@ SQLAlchemy 是 Python SQL 工具包和对象关系映射器 (ORM)，它为应用
     from sqlalchemy import create_engine, text
 
     # Open database connection
-    my_conn = create_engine("mysql+mysqldb://dump:111@127.0.0.1:6001/test")
+    my_conn = create_engine("mysql+mysqldb://root:111@127.0.0.1:6001/test")
 
     # execute SQL query using execute() method.
     query=text("SELECT * FROM student LIMIT 0,10")
