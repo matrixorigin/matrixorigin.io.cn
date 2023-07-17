@@ -52,7 +52,7 @@ go version
 
     func main() {
         //"username:password@[protocol](address:port)/database"
-        db, _ := sql.Open("mysql", "dump:111@tcp(127.0.0.1:6001)/test") // Set database connection
+        db, _ := sql.Open("mysql", "root:111@tcp(127.0.0.1:6001)/test") // Set database connection
         defer db.Close()                                            //Close DB
         err := db.Ping()                                            //Connect to DB
         if err != nil {
