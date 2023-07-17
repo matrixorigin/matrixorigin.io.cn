@@ -1,6 +1,6 @@
 # MatrixOne 系统数据库和表
 
-MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你可以通过它们访问系统信息。MatrixOne 在初始化时创建了 6 个系统数据库：`mo_catalog`、`information_schema`、`system_metrcis`、`system`、`mysql` 和 `mo_task`。`mo_task` 当前正在开发中，暂时对你所进行的操作不会产生直接影响。本文档中描述了其他系统数据库和表函数。
+MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你可以通过它们访问系统信息。MatrixOne 在初始化时创建了 6 个系统数据库：`mo_catalog`、`information_schema`、`system_metrcis`、`system`、`mysql` 和 `mo_task`。`mo_task` 当前正在开发中，暂时对你所进行的操作不会产生直接影响。本文档中描述了其他系统数据库和表函数。
 
 系统只能修改系统数据库和表，你仅能从中进行读取操作。
 
@@ -251,7 +251,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 * `process_cpu_percent` 表：CPU 进程繁忙百分比。
 * `process_resident_memory_bytes` 表：驻留内存量，单位为字节。
 * `process_open_fds` 表：打开的文件描述符的数量。
-* `sys_cpu_seconds_total` 表：系统 CPU 时间，以秒为单位，由核数标准化
+* `sys_cpu_seconds_total` 表：系统 CPU 时间，以秒为单位，由核数标准化。
 * `sys_cpu_combined_percent` 表：系统 CPU 繁忙百分比，所有逻辑核的平均值。
 * `sys_memory_used` 表：以字节为单位已使用的系统内存。
 * `sys_memory_available` 表：以字节为单位的可用系统内存。
@@ -418,7 +418,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你�
 
 ### `SCHEMATA` 表
 
-`SCHEMATA` 表提供有关数据库的信息。表数据等同于 `SHOW DATABASES` 语句的结果。`SCHEMATA` 表中的字段描述如下：
+`SCHEMATA` 表提供有关数据库的信息，表数据等同于 `SHOW DATABASES` 语句的结果。`SCHEMATA` 表中的字段描述如下：
 
 - `CATALOG_NAME`：数据库所属的目录。
 - `SCHEMA_NAME`：数据库名称。
