@@ -17,7 +17,7 @@ mysql> select current_user();
 +----------------+
 | current_user() |
 +----------------+
-| dump@0.0.0.0   |
+| root@0.0.0.0   |
 +----------------+
 1 row in set (0.00 sec)
 ```
