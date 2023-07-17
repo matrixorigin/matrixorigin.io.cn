@@ -49,7 +49,7 @@ PyMySQL 是一个纯 Python MySQL 客户端库。
     db = pymysql.connect(
             host='127.0.0.1',
 	        port=6001,
-            user='dump',
+            user='root',
             password = "111",
             db='test',
             )
