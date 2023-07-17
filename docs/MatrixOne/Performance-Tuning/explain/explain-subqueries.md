@@ -22,7 +22,7 @@ MatrixOne 会执行多种子查询相关的优化，以提升子查询的执行�
 
      + 重复以上步骤
 
-     但是 MatrixOne 在处理该 SQL 语句是会将其改写为等价的 `JOIN` 查询：`select t1.* from t1 join t2 on t1.id=t2.id where t2.id>=4;`
+     但是 MatrixOne 在处理该 SQL 语句时会将其改写为等价的 `JOIN` 查询：`select t1.* from t1 join t2 on t1.id=t2.id where t2.id>=4;`
 
 ## 示例
 
@@ -125,7 +125,7 @@ mysql> explain SELECT * FROM t1 WHERE id in (SELECT id FROM t2 WHERE t1.ti = t2.
 8 rows in set (0.01 sec)
 ```
 
-MatrixOne 在处理该 SQL 语句是会将其改写为等价的 `JOIN` 查询：`select t1.* from t1 join t2 on t1.id=t2.id where t2.id>=4;`，可以看到这个执行计划的执行顺序是：
+MatrixOne 在处理该 SQL 语句时会将其改写为等价的 `JOIN` 查询：`select t1.* from t1 join t2 on t1.id=t2.id where t2.id>=4;`，可以看到这个执行计划的执行顺序是：
 
 1. 先执行过滤查询 `where t2.id>=4;`。
 
