@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5135,20 +5191,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7680,20 +7722,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8928,7 +8956,7 @@ MatrixOne 也可以通过权限管理实现多租户方案。在 MatrixOne 中�
 </ul>
 <p><strong>Note</strong>: <em>ACCOUNTADMIN</em> (租户管理员角色，租户被创建后即自动生成) 虽然不是租户内所用对象的 Owner，但它拥有所有对象的 Ownership 权限。</p>
 <h3 id="_5">集群</h3>
-<p>集群是 MatrixOne 权限管理中是最高层级的对象，当部署完 MatrixOne 后便创建了集群这个对象。</p>
+<p>集群是 MatrixOne 权限管理中最高层级的对象，当部署完 MatrixOne 后便创建了集群这个对象。</p>
 <p><strong>Tip</strong>: 对集群对象的操作权限的集合被称为系统权限。</p>
 <h3 id="_6">租户</h3>
 <p>MatrixOne 集群内可以创建和管理多个数据和用户权限体系完全隔离的租户，并对这些资源隔离的租户进行管理，这种多租户功能既节省了部署和运维多套数据业务系统的成本，又能利用租户间的硬件资源共享最大限度的节约机器成本。</p>
@@ -8960,7 +8988,7 @@ MatrixOne 也可以通过权限管理实现多租户方案。在 MatrixOne 中�
 <ol>
 <li>角色的权限继承是动态的，如果被继承角色的权限发生了变化，那么继承角色所继承的权限范围也会动态变化。</li>
 <li>角色的继承关系不能成环。例如，role1 继承了 role2，role 2 继承了 role3，role3 继承了 role1。</li>
-<li>角色间的权限传递使得权限管理更加便捷，但同时也存在风险，为此，MatrixOne 只允许具有 <em>Manage Grants</em> 权限的角色才能做这样的操作，该权限被默认赋予给系统默认角色 <em>MOADMIN</em> 或 <em>ACCOUNTADMIN</em> 中，并且不建议在新建自定义角色是将该权限授予给自定义角色。</li>
+<li>角色间的权限传递使得权限管理更加便捷，但同时也存在风险，为此，MatrixOne 只允许具有 <em>Manage Grants</em> 权限的角色才能做这样的操作，该权限被默认赋予给系统默认角色 <em>MOADMIN</em> 或 <em>ACCOUNTADMIN</em> 中，并且不建议在新建自定义角色时将该权限授予给自定义角色。</li>
 </ol>
 </div>
 <h4 id="_9">角色切换</h4>

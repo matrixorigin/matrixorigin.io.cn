@@ -1210,6 +1210,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1400,6 +1414,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1564,6 +1592,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1596,6 +1638,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5007,20 +5063,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7552,20 +7594,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8652,11 +8680,11 @@ go version
 
 <span class="n">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="o">//</span><span class="n">Open</span> <span class="n">a</span> <span class="n">new</span> <span class="n">connection</span> <span class="n">to</span> <span class="n">MatrixOne</span>
-    <span class="n">db</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">sql</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">,</span> <span class="s2">&quot;dump:111@tcp(127.0.0.1:6001)/test&quot;</span><span class="p">)</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">sql</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">,</span> <span class="s2">&quot;root:111@tcp(127.0.0.1:6001)/test&quot;</span><span class="p">)</span>
     <span class="n">checkErr</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 
     <span class="o">//</span><span class="n">Create</span> <span class="n">a</span> <span class="n">table</span>
-    <span class="n">_</span><span class="p">,</span> <span class="n">err2</span> <span class="o">:=</span> <span class="n">db</span><span class="o">.</span><span class="n">Exec</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE `userinfo` (`uid` INT(10) NOT NULL AUTO_INCREMENT,`username` VARCHAR(64) NULL DEFAULT NULL,`department` VARCHAR(64) NULL DEFAULT NULL,`created` DATE NULL DEFAULT NULL, PRIMARY KEY (`uid`));&quot;</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">err2</span> <span class="o">:=</span> <span class="n">db</span><span class="o">.</span><span class="n">Exec</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE `userinfo` (`uid` INT(10) NOT NULL AUTO_INCREMENT,`username` VARCHAR(64) NULL DEFAULT NULL,`department` VARCHAR(64) NULL DEFAULT NULL,`created` DATETIME NULL DEFAULT NULL, PRIMARY KEY (`uid`));&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">err2</span> <span class="o">!=</span> <span class="n">nil</span> <span class="p">{</span>
         <span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err2</span><span class="p">)</span>
     <span class="p">}</span>
@@ -8666,7 +8694,7 @@ go version
     <span class="n">stmt</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">db</span><span class="o">.</span><span class="n">Prepare</span><span class="p">(</span><span class="s2">&quot;INSERT userinfo SET username=?,department=?,created=?&quot;</span><span class="p">)</span>
     <span class="n">checkErr</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 
-    <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">Exec</span><span class="p">(</span><span class="s2">&quot;Alex&quot;</span><span class="p">,</span> <span class="s2">&quot;r&amp;d&quot;</span><span class="p">,</span> <span class="s2">&quot;2023-01-01&quot;</span><span class="p">)</span>
+    <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">Exec</span><span class="p">(</span><span class="s2">&quot;Alex&quot;</span><span class="p">,</span> <span class="s2">&quot;r&amp;d&quot;</span><span class="p">,</span> <span class="s2">&quot;2023-01-01 12:00:00&quot;</span><span class="p">)</span>
     <span class="n">checkErr</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 
     <span class="nb">id</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">res</span><span class="o">.</span><span class="n">LastInsertId</span><span class="p">()</span>

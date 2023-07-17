@@ -1267,6 +1267,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1457,6 +1471,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1621,6 +1649,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1653,6 +1695,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5014,20 +5070,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7559,20 +7601,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8681,7 +8709,7 @@ go version
 
 <span class="n">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="o">//</span><span class="s2">&quot;username:password@[protocol](address:port)/database&quot;</span>
-    <span class="n">db</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">sql</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">,</span> <span class="s2">&quot;dump:111@tcp(127.0.0.1:6001)/test&quot;</span><span class="p">)</span> <span class="o">//</span> <span class="n">Set</span> <span class="n">database</span> <span class="n">connection</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">sql</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">,</span> <span class="s2">&quot;root:111@tcp(127.0.0.1:6001)/test&quot;</span><span class="p">)</span> <span class="o">//</span> <span class="n">Set</span> <span class="n">database</span> <span class="n">connection</span>
     <span class="n">defer</span> <span class="n">db</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>                                            <span class="o">//</span><span class="n">Close</span> <span class="n">DB</span>
     <span class="n">err</span> <span class="o">:=</span> <span class="n">db</span><span class="o">.</span><span class="n">Ping</span><span class="p">()</span>                                            <span class="o">//</span><span class="n">Connect</span> <span class="n">to</span> <span class="n">DB</span>
     <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="n">nil</span> <span class="p">{</span>

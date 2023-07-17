@@ -1210,6 +1210,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1395,6 +1409,20 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
     </li>
   
 
@@ -1641,6 +1669,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1673,6 +1715,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5034,20 +5090,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7579,20 +7621,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8739,13 +8767,13 @@ make build modump
 <div class="highlight"><pre><span></span><code>./mo-dump -u username -p password -h host_ip_address -P port -db database &gt; exporteddb.sql
 </code></pre></div>
 <p>例如，如果你在与 MatrixOne 实例相同的服务器中启动终端，并且你想要生成单个数据库的备份，请运行以下命令。该命令将在 <em>t.sql</em> 文件中生成 <strong>t</strong> 数据库的结构和数据的备份。<em>t.sql</em> 文件将与您的 <code>mo-dump</code> 可执行文件位于同一目录中。</p>
-<div class="highlight"><pre><span></span><code>./mo-dump -u dump -p 111 -h 127.0.0.1 -P 6001 -db t &gt; t.sql
+<div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db t &gt; t.sql
 </code></pre></div>
 <p>如果你想将数据库 <em>t</em> 内的表导出为 <em>CSV</em> 格式，参考使用下面的命令：</p>
-<div class="highlight"><pre><span></span><code>./mo-dump -u dump -p 111  -db t -csv --local-infile=false &gt; ttt.sql
+<div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111  -db t -csv --local-infile=false &gt; ttt.sql
 </code></pre></div>
 <p>如果要在数据库中生成单个表的备份，可以运行以下命令。该命令将生成命名为 <em>t</em> 的数据库的 <em>t1</em> 表的备份，其中包含 <em>t.sql</em> 文件中的结构和数据。</p>
-<div class="highlight"><pre><span></span><code>./mo-dump -u dump -p 111 -db t -tbl t1 &gt; t1.sql
+<div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -db t -tbl t1 &gt; t1.sql
 </code></pre></div>
 <h2 id="_2">限制</h2>
 <ul>

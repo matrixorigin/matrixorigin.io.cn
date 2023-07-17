@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5025,20 +5081,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7570,20 +7612,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8657,13 +8685,13 @@
 
 <h1 id="_1">备份与恢复</h1>
 <p>对于企业而言，每天都会产生大量数据，那么对于数据库的备份就非常重要。在系统崩溃或者硬件故障，又或者用户误操作的情况下，你可以恢复数据并重启系统，不会造成数据丢失。</p>
-<p>另外，数据备份也作为升级 MatrixOne 安装之前的保障，同时数据备份也可以可用于将 MatrixOne 安装转移到另一个系统。</p>
+<p>另外，数据备份也作为升级 MatrixOne 安装之前的保障，同时数据备份也可以用于将 MatrixOne 安装转移到另一个系统。</p>
 <p>MatrixOne 目前仅支持通过 <code>modump</code> 实用程序进行逻辑备份。<code>modump</code> 是一个命令行实用程序，用于生成 MatrixOne 数据库的逻辑备份。它生成可用于重新创建数据库对象和数据的 SQL 语句。你可以在 <a href="../../Develop/export-data/modump/">modump</a> 章节中查找它的语法说明和使用指南。</p>
 <p>我们将通过一个简单的示例来讲述如何使用 <code>modump</code> 实用程序完成数据备份和还原的过程。</p>
 <h2 id="_2">步骤</h2>
 <h3 id="1-modump">1. <a href="../../Develop/export-data/modump/">构建 modump 二进制文件</a></h3>
 <p>参见<a href="../../Develop/export-data/modump/">构建 modump 二进制文件</a>章节，完成 <code>modump</code> 二进制文件构建。</p>
-<p>如果你已经完成了 <code>modump</code> 的构建，那么你可以继续阅读下一章节 <strong>2. 生成单个数据库的备份</strong>。</p>
+<p>如果你已经完成了 <code>modump</code> 的构建，那么你可以继续阅读下一章节。</p>
 <h3 id="2">2. 生成单个数据库的备份</h3>
 <p>示例如下，使用以下 SQL 创建的数据库 <em>t</em> 及其表 <em>t1</em>：</p>
 <div class="highlight"><pre><span></span><code>DROP DATABASE IF EXISTS `t`;
@@ -8695,10 +8723,10 @@ create table t1
 insert into t1 values (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, &#39;2019-01-01&#39;, &#39;2019-01-01 00:00:00&#39;, &#39;2019-01-01 00:00:00&#39;, &#39;a&#39;, &#39;a&#39;, &#39;{&quot;a&quot;:1}&#39;,&#39;1212.1212&#39;, &#39;a&#39;, &#39;aza&#39;, &#39;00000000-0000-0000-0000-000000000000&#39;);
 </code></pre></div>
 <p>如果要生成单个数据库的备份，可以运行以下命令。该命令将生成命名为 <em>t</em> 的数据库的备份，其中包含 <em>t.sql</em> 文件中的结构和数据。</p>
-<div class="highlight"><pre><span></span><code>./modump -u dump -p 111 -h 127.0.0.1 -P 6001 -db t &gt; t.sql
+<div class="highlight"><pre><span></span><code>./modump -u root -p 111 -h 127.0.0.1 -P 6001 -db t &gt; t.sql
 </code></pre></div>
 <p>如果要在数据库中生成单个表的备份，可以运行以下命令。该命令将生成命名为 <em>t</em> 的数据库的 <em>t1</em> 表的备份，其中包含 <em>t.sql</em> 文件中的结构和数据。</p>
-<div class="highlight"><pre><span></span><code>./modump -u dump -p 111 -db t -tbl t1 &gt; t1.sql
+<div class="highlight"><pre><span></span><code>./modump -u root -p 111 -db t -tbl t1 &gt; t1.sql
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

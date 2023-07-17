@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5144,20 +5200,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7689,20 +7731,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8971,7 +8999,7 @@
 <p>如果 <code>ENCLOSED BY</code> 前不加 <code>OPTIONALLY</code>，比如说，<code>ENCLOSED BY '"'</code> 就表示使用双引号把各个字段都括起来。</p>
 <p><strong>LINES TERMINATED BY</strong></p>
 <p><code>LINES TERMINATED BY</code> 用于指定一行的结束符。<code>LINES TERMINATED BY</code> 值可以超过一个字符。</p>
-<p>例如，如果 <em>csv</em> 文件中的行以回车符/换行符对结束，你在加载它时，可以使用 <code>LINES TERMINATED BY '\r\n'</code> 或 <code>LINES TERMINATED BY '\n'</code>：</p>
+<p>例如，<em>csv</em> 文件中的行以回车符/换行符对结束，你在加载它时，可以使用 <code>LINES TERMINATED BY '\r\n'</code> 或 <code>LINES TERMINATED BY '\n'</code>：</p>
 <div class="highlight"><pre><span></span><code>LOAD DATA INFILE &#39;data.txt&#39; INTO TABLE table1
   FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;&quot;&#39;
   LINES TERMINATED BY &#39;\r\n&#39;;
@@ -9027,7 +9055,7 @@ null,wederTom,&quot;man&quot;
 </li>
 </ol>
 <h3 id="parallel">PARALLEL</h3>
-<p>对于一个格式良好的大文件，例如 <em>JSONLines</em> 文件，或者一行数据中没有换行符的 <em>CSV</em> 文件，都可以使用 <code>PARALLEL</code> 就可以对该文件进行并行加载，以加快加载速度。</p>
+<p>对于一个格式良好的大文件，例如 <em>JSONLines</em> 文件，或者一行数据中没有换行符的 <em>CSV</em> 文件，都可以使用 <code>PARALLEL</code> 对该文件进行并行加载，以加快加载速度。</p>
 <p>例如，对于 2 个 G 的大文件，使用两个线程去进行加载，第 2 个线程先拆分定位到 1G 的位置，然后一直往后读取并进行加载。这样就可以做到两个线程同时读取大文件，每个线程读取 1G 的数据。</p>
 <p><strong>开启/关闭并行加载命令行示例</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">--  打开并行加载</span>
@@ -9041,9 +9069,9 @@ null,wederTom,&quot;man&quot;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>[PARALLEL {'TRUE' | 'FALSE'}]</code> 内字段当前仅支持 <code>TRUE</code> 或 <code>FALSE</code>，且大小写不敏感。</p>
+<p><code>[PARALLEL {'TRUE' | 'FALSE'}]</code> 内字段，当前仅支持 <code>TRUE</code> 或 <code>FALSE</code>，且大小写不敏感。</p>
 </div>
-<p><strong>Note:</strong> <code>LOAD</code> 语句中如果不加 <code>PARALLEL</code> 字段，对于 <em>CSV</em> 文件，是默认关闭并行加载；对于 <em>JSONLines</em> 文件，默认开启并行加载。如果 <em>CSV</em> 文件中有行结束符，比如 '\n'，否则有可能会导致文件加载时数据出错，如果文件过大，建议从换行符为起止点手动拆分文件后再开启并行加载。</p>
+<p><strong>Note:</strong> <code>LOAD</code> 语句中如果不加 <code>PARALLEL</code> 字段，对于 <em>CSV</em> 文件，是默认关闭并行加载；对于 <em>JSONLines</em> 文件，默认开启并行加载。如果 <em>CSV</em> 文件中有行结束符，比如 '\n'，那么有可能会导致文件加载时数据出错。如果文件过大，建议从换行符为起止点手动拆分文件后再开启并行加载。</p>
 <h2 id="_3">支持的文件格式</h2>
 <p>在 MatrixOne 当前版本中，<code>LOAD DATA</code> 支持 <em>CSV</em> 格式和 <em>JSONLines</em> 格式文件。</p>
 <p>有关导入这两种格式的文档，参见<a href="../../../../Develop/import-data/bulk-load/load-csv/">导入<em>. csv</em> 格式数据</a>和<a href="../../../../Develop/import-data/bulk-load/load-jsonline/">导入 JSONLines 数据</a>。</p>
@@ -9253,7 +9281,7 @@ aa&quot;aa|bb&quot;bb|cc&quot;cc|dd&quot;dd
 <span class="mi">10</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>可以看到，查询结果忽略了前 10 行，并且忽略了公共前缀 aa。</p>
-<p>有关如何导入 <em>CSV</em> 格式文件的详细步骤，参见<a href="../../../../Develop/import-data/bulk-load/load-jsonline/">导入<em>. csv</em> 格式数据</a>。</p>
+<p>有关如何导入 <em>CSV</em> 格式文件的详细步骤，参见<a href="../../../../Develop/import-data/bulk-load/load-csv/">导入<em>. csv</em> 格式数据</a>。</p>
 <h3 id="2load-jsonlines">示例 2：LOAD JSONLines</h3>
 <h4 id="_7">简单导入示例</h4>
 <p>本地命名为 <em>jsonline_array.jl</em> 文件内数据如下：</p>
@@ -9298,11 +9326,11 @@ load data infile {&#39;filepath&#39;=&#39;&lt;your-local-file-path&gt;/jsonline_
 <p>有关如何导入 <em>JSONLines</em> 格式文件的详细步骤，参见<a href="../../../../Develop/import-data/bulk-load/load-jsonline/">导入 JSONLines 数据</a>。</p>
 <h2 id="_9"><strong>限制</strong></h2>
 <ol>
-<li><code>REPLACE</code> 和 <code>IGNORE</code> 修饰符解决唯一索引的冲突：<code>REPLACE</code> 表示若表中已经存在则用新的数据替换掉旧的数据，而 <code>IGNORE</code> 则表示保留旧的数据，忽略掉新数据。这两个修饰符在 MatrixOne 中尚不支持。</li>
+<li><code>REPLACE</code> 和 <code>IGNORE</code> 修饰符用来解决唯一索引的冲突：<code>REPLACE</code> 表示若表中已经存在，则用新的数据替换掉旧的数据；<code>IGNORE</code> 则表示保留旧的数据，忽略掉新数据。这两个修饰符在 MatrixOne 中尚不支持。</li>
 <li>MatrixOne 当前部分支持 <code>SET</code>，仅支持 <code>SET columns_name=nullif(col_name,expr2)</code>。</li>
 <li>开启并行加载操作时必须要保证文件中每行数据中不包含指定的行结束符，比如 '\n'，否则有可能会导致文件加载时数据出错。</li>
 <li>文件的并行加载要求文件必须是非压缩格式，暂不支持并行加载压缩格式的文件。</li>
-<li>如果你需要用 <code>LOAD DATA LOCAL</code> 进行本地加载，则需要使用命令行连接 MatrixOne 服务主机：<code>mysql -h &lt;mo-host -ip&gt; -P 6001 -udump -p111 --local-infile</code>。</li>
+<li>如果你需要用 <code>LOAD DATA LOCAL</code> 进行本地加载，则需要使用命令行连接 MatrixOne 服务主机：<code>mysql -h &lt;mo-host -ip&gt; -P 6001 -uroot -p111 --local-infile</code>。</li>
 <li>MatrixOne 当前暂不支持 <code>ESCAPED BY</code>，写入或读取特殊字符与 MySQL 存在一定的差异。</li>
 </ol>
 

@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -4957,20 +5013,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7508,20 +7550,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8638,7 +8666,7 @@
 <h1 id="rank"><strong>RANK()</strong></h1>
 <h2 id="_1"><strong>函数说明</strong></h2>
 <p><code>RANK()</code> 为数据集中的每一行提供一个唯一的排名。<code>RANK()</code> 首先根据 <code>ORDER BY</code> 子句中指定的列对数据集进行排序，然后为每一行赋予一个唯一的排名。</p>
-<p><code>RANK()</code> 函数在处理相同值（即平局）的情况时有一个特殊的行为。当两行或更多行具有相同的值时，它们将获得相同的排名。然后，它将跳过紧随其后的一个或多个排名。例如，如果两行获得排名 1，那么下一行将获得排名 3，而不是 2。</p>
+<p><code>RANK()</code> 函数在处理相同值（即平局）的情况时，有一个特殊的行为：当两行或更多行具有相同的值时，它们将获得相同的排名。然后，它将跳过紧随其后的一个或多个排名。例如，如果两行获得排名 1，那么下一行将获得排名 3，而不是 2。</p>
 <h2 id="_2"><strong>函数语法</strong></h2>
 <div class="highlight"><pre><span></span><code>&gt; RANK() OVER (
     [PARTITION BY column_1, column_2, ... ]

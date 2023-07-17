@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5067,20 +5123,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7612,20 +7654,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8831,7 +8859,7 @@ mo-log-headless     ClusterIP   None          &lt;none&gt;        &lt;none&gt;  
 mo-proxy            NodePort    10.96.1.153   &lt;none&gt;        6001:31429/TCP   70m
 mo-tp-cn            ClusterIP   10.96.1.43    &lt;none&gt;        6001/TCP         70m
 mo-tp-cn-headless   ClusterIP   None          &lt;none&gt;        &lt;none&gt;           70m
-root@HOST-10-206-134-16:~# mysql -h 10.96.1.153 -P6001 -udump -p111
+root@HOST-10-206-134-16:~# mysql -h 10.96.1.153 -P6001 -uroot -p111
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 2064
@@ -8959,11 +8987,11 @@ spec:
 <span class="k">Type</span><span class="w"> </span><span class="s1">&#39;help;&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="s1">&#39;\h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">help</span><span class="p">.</span><span class="w"> </span><span class="k">Type</span><span class="w"> </span><span class="s1">&#39;\c&#39;</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">input</span><span class="w"> </span><span class="k">statement</span><span class="p">.</span>
 <span class="c1">-- acc1 查看实际登录使用的 CN 组是哪些</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="n">servers</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">UUID</span><span class="w">                                 </span><span class="o">|</span><span class="w"> </span><span class="n">Address</span><span class="w">                                               </span><span class="o">|</span><span class="w"> </span><span class="n">Labels</span><span class="w">                       </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">32333337</span><span class="o">-</span><span class="mi">3966</span><span class="o">-</span><span class="mi">3137</span><span class="o">-</span><span class="mi">3032</span><span class="o">-</span><span class="mi">613035306561</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mo</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">set1</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="n">mo</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">set1</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">headless</span><span class="p">.</span><span class="n">mo</span><span class="o">-</span><span class="n">hn</span><span class="p">.</span><span class="n">svc</span><span class="p">:</span><span class="mi">6001</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">account</span><span class="p">:</span><span class="n">acc1</span><span class="p">;</span><span class="n">cn</span><span class="o">-</span><span class="n">set1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="p">;</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+------------------------------+</span>
+<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+------------+------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">UUID</span><span class="w">                                 </span><span class="o">|</span><span class="w"> </span><span class="n">Address</span><span class="w">                                               </span><span class="o">|</span><span class="w"> </span><span class="k">Work</span><span class="w"> </span><span class="k">State</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Labels</span><span class="w">                       </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+------------+------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="mi">32333337</span><span class="o">-</span><span class="mi">3966</span><span class="o">-</span><span class="mi">3137</span><span class="o">-</span><span class="mi">3032</span><span class="o">-</span><span class="mi">613035306561</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mo</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">set1</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="n">mo</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">set1</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">headless</span><span class="p">.</span><span class="n">mo</span><span class="o">-</span><span class="n">hn</span><span class="p">.</span><span class="n">svc</span><span class="p">:</span><span class="mi">6001</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Working</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">account</span><span class="p">:</span><span class="n">acc1</span><span class="p">;</span><span class="n">cn</span><span class="o">-</span><span class="n">set1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="p">;</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+------------+------------------------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">-- acc2 租户登录 MatrixOne</span>
@@ -8982,11 +9010,11 @@ spec:
 <span class="k">Type</span><span class="w"> </span><span class="s1">&#39;help;&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="s1">&#39;\h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">help</span><span class="p">.</span><span class="w"> </span><span class="k">Type</span><span class="w"> </span><span class="s1">&#39;\c&#39;</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">input</span><span class="w"> </span><span class="k">statement</span><span class="p">.</span>
 <span class="c1">-- acc2 查看实际登录使用的 CN 组是哪些</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="n">servers</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+--------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">UUID</span><span class="w">                                 </span><span class="o">|</span><span class="w"> </span><span class="n">Address</span><span class="w">                                               </span><span class="o">|</span><span class="w"> </span><span class="n">Labels</span><span class="w">                         </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+--------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">33663265</span><span class="o">-</span><span class="mi">3234</span><span class="o">-</span><span class="mi">3365</span><span class="o">-</span><span class="mi">3737</span><span class="o">-</span><span class="mi">333030613535</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mo</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">set2</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="n">mo</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">set2</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">headless</span><span class="p">.</span><span class="n">mo</span><span class="o">-</span><span class="n">hn</span><span class="p">.</span><span class="n">svc</span><span class="p">:</span><span class="mi">6001</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">account</span><span class="p">:</span><span class="n">acc2</span><span class="p">;</span><span class="n">cn</span><span class="o">-</span><span class="n">set2</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="n">medium</span><span class="p">;</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+--------------------------------+</span>
+<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+------------+--------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">UUID</span><span class="w">                                 </span><span class="o">|</span><span class="w"> </span><span class="n">Address</span><span class="w">                                               </span><span class="o">|</span><span class="w"> </span><span class="k">Work</span><span class="w"> </span><span class="k">State</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Labels</span><span class="w">                         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+------------+--------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="mi">33663265</span><span class="o">-</span><span class="mi">3234</span><span class="o">-</span><span class="mi">3365</span><span class="o">-</span><span class="mi">3737</span><span class="o">-</span><span class="mi">333030613535</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mo</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">set2</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="n">mo</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">set2</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">headless</span><span class="p">.</span><span class="n">mo</span><span class="o">-</span><span class="n">hn</span><span class="p">.</span><span class="n">svc</span><span class="p">:</span><span class="mi">6001</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Working</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">account</span><span class="p">:</span><span class="n">acc2</span><span class="p">;</span><span class="n">cn</span><span class="o">-</span><span class="n">set2</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="n">medium</span><span class="p">;</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------------------------+-------------------------------------------------------+------------+--------------------------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>如果一个普通租户没有对应的 CN 组，那么租户无法登录成功。例如，你如果创建一个没有 CN 组标签对应的租户 <code>acc3</code>，并尝试登录，会出现 <code>no available CN server</code> 错误。</p>
@@ -9021,17 +9049,29 @@ spec:
 +   replicas: 1
 +   cnLabels:
 +   - key: &quot;workload&quot;
-# 负载标签设置为 olap
++     # 负载标签设置为 olap
 +     values: [&quot;olap&quot;]
 +
 + - name: cn-set2
 +   replicas: 1
 +   cnLabels:
 +   - key: &quot;workload&quot;
-# 负载标签设置为 oltp
-+           values: [&quot;oltp&quot;]
++     # 负载标签设置为 oltp
++     values: [&quot;oltp&quot;]
 </code></pre></div>
-<p>负载隔离的连接设计待更新...</p>
+<p>配置完集群的负载之后，可以连接到集群进行负载测试：</p>
+<ol>
+<li>通过 JDBC 连接：</li>
+</ol>
+<p>在 JDBC 的连接串中指定 connectionAttributes，并设置相应的 key 和 value，key 和 value 之间用冒号 <code>:</code> 间隔，多个 key-value 之间用逗号 <code>,</code> 间隔。示例如下：</p>
+<div class="highlight"><pre><span></span><code>jdbc:mysql://localhost:6001/test_db1?serverTimezone=UTC&amp;connectionAttributes=workload:olap,another_key:test_value
+</code></pre></div>
+<ol>
+<li>通过 MySQL 客户端连接：</li>
+</ol>
+<p>通过扩展 username 字段，实现使用 MySQL 客户端的方式连接。在 usernmae 后加 <code>?</code>，后面的写法跟 JDBC 中的 connectionAttributes 一样。示例如下：</p>
+<div class="highlight"><pre><span></span><code>mysql -h127.0.0.1 -uuser1?workload:olap,another_key:test_value -P6001 -pxxx
+</code></pre></div>
 
               
             </article>
