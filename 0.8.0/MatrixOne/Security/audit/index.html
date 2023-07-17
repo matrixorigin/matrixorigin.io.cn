@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5019,20 +5075,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7564,20 +7606,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8647,7 +8675,7 @@
 <p>本文档对 MatrixOne 安全审计基本功能进行阐述，并指引如何开启和使用。</p>
 <h2 id="_2">概述</h2>
 <p>审计是用来记录数据库用户行为以及数据库内部重要事件的功能，它记录了所有用户在登录数据库后做出的所有数据库操作以及数据内部的重大事件。也是很多企业级数据库必备的功能之一。</p>
-<p>在日常的数据库运维中，为了确保数据库用户的所有行为合规合法，审计是非常有效的手段。在数据库发生重要事件时，例如启停、节点宕机等，审计内容可以非常方便地追踪到前后时段的护具库行为。</p>
+<p>在日常的数据库运维中，为了确保数据库用户的所有行为合规合法，审计是非常有效的手段。在数据库发生重要事件时，例如启停、节点宕机等，审计内容可以非常方便地追踪到前后时段的数据库行为。</p>
 <p>对于重要的业务信息表或系统配置表需要进行有效完整的行为监控时，数据库审计的开启十分有必要。例如监控对用户 A 在数据库中所有行为，以便于及时发现违规的数据修改或删除来源。对于数据库内部重大事件的监控，可以第一时间排查故障，并且追溯事故产生的根本原因。</p>
 <p>MatrixOne 支持对用户行为，操作日志，SQL 语句的审计。MatrixOne 的审计数据保存在数据库表中，直接通过 SQL 交互可以查询审计数据。</p>
 <h2 id="_3">开启审计</h2>

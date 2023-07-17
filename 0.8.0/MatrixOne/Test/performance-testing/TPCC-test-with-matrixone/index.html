@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5082,20 +5138,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7627,20 +7669,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8788,7 +8816,7 @@
 <div class="highlight"><pre><span></span><code>db=mo
 driver=com.mysql.cj.jdbc.Driver
 conn=jdbc:mysql://127.0.0.1:6001/tpcc?characterSetResults=utf8&amp;continueBatchOnError=false&amp;useServerPrepStmts=true&amp;alwaysSendSetIsolation=false&amp;useLocalSessionState=true&amp;zeroDateTimeBehavior=CONVERT_TO_NULL&amp;failoverReadOnly=false&amp;serverTimezone=Asia/Shanghai&amp;enabledTLSProtocols=TLSv1.2&amp;useSSL=false
-user=dump
+user=root
 password=111
 
 //the number of warehouse
@@ -8955,7 +8983,7 @@ primary key (s_w_id, s_i_id)
 props.mo
 driver=com.mysql.cj.jdbc.Driver
 conn=jdbc:mysql://127.0.0.1:6001/tpcc?characterSetResults=utf8&amp;continueBatchOnError=false&amp;useServerPrepStmts=true&amp;alwaysSendSetIsolation=false&amp;useLocalSessionState=true&amp;zeroDateTimeBehavior=CONVERT_TO_NULL&amp;failoverReadOnly=false&amp;serverTimezone=Asia/Shanghai&amp;enabledTLSProtocols=TLSv1.2&amp;useSSL=false
-user=dump
+user=root
 password=***********
 warehouses=10
 loadWorkers=4
@@ -9028,7 +9056,7 @@ load data infile &#39;/yourpath/order.csv&#39; INTO TABLE bmsql_oorder FIELDS TE
 2022-12-22 21:15:35 INFO  jTPCC:63 - Term-00, db=mo
 2022-12-22 21:15:35 INFO  jTPCC:63 - Term-00, driver=com.mysql.cj.jdbc.Driver
 2022-12-22 21:15:35 INFO  jTPCC:63 - Term-00, conn=jdbc:mysql://127.0.0.1:6001/tpcc?characterSetResults=utf8&amp;continueBatchOnError=false&amp;useServerPrepStmts=true&amp;alwaysSendSetIsolation=false&amp;useLocalSessionState=true&amp;zeroDateTimeBehavior=CONVERT_TO_NULL&amp;failoverReadOnly=false&amp;serverTimezone=Asia/Shanghai&amp;enabledTLSProtocols=TLSv1.2&amp;useSSL=false
-2022-12-22 21:15:35 INFO  jTPCC:63 - Term-00, user=dump
+2022-12-22 21:15:35 INFO  jTPCC:63 - Term-00, user=root
 2022-12-22 21:15:35 INFO  jTPCC:93 - Term-00,
 2022-12-22 21:15:35 INFO  jTPCC:63 - Term-00, warehouses=10
 2022-12-22 21:15:35 INFO  jTPCC:63 - Term-00, terminals=1

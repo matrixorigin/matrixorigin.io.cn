@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5027,20 +5083,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7572,20 +7614,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8684,7 +8712,7 @@
 </li>
 <li>
 <p>执行 <code>Cluster by</code> 命令。</p>
-<p>一旦确定了排序列，就可以在建表时执行 <code>Cluster by</code> 命令在建表时进行排序。</p>
+<p>一旦确定了排序列，就可以在建表时执行 <code>Cluster by</code> 命令对表进行排序。</p>
 <p>下面我们来看一个示例：</p>
 <div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="w"> </span><span class="k">cluster</span><span class="w"> </span><span class="k">by</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="k">c</span><span class="p">);</span>
 <span class="k">desc</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
@@ -8704,7 +8732,7 @@
 <ul>
 <li>一是尽可能将最常查询的列放在靠前的位置。</li>
 </ul>
-<p>对于 <code>Cluster by</code> 多多列的情况，第一列将取得最好的查询加速效果，因为第一列的数据分布是完全有序的。只有在第一列相同的情况下，剩下的数据会按照第二列进行排序。所以第二列的查询加速效果会弱于第一列。之后的列会依次递减。所以 <code>Cluster by</code> 通常不推荐指定太多列，一般 3-4 列即可。</p>
+<p>对于 <code>Cluster by</code> 多列的情况，第一列将取得最好的查询加速效果，因为第一列的数据分布是完全有序的。只有在第一列相同的情况下，剩下的数据会按照第二列进行排序。所以第二列的查询加速效果会弱于第一列，之后的列会依次递减。所以 <code>Cluster by</code> 通常不推荐指定太多列，一般 3-4 列即可。</p>
 <ul>
 <li>二是将低基数的列放在靠前的位置。</li>
 </ul>

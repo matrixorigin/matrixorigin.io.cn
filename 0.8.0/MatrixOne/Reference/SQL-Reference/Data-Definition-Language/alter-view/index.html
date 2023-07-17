@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5016,20 +5072,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7561,20 +7603,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8635,8 +8663,8 @@
 
 <h1 id="alter-view"><strong>ALTER VIEW</strong></h1>
 <h2 id="_1"><strong>语法说明</strong></h2>
-<p><code>ALTER VIEW</code> 用于更改已存在的视图。</p>
-<p>如果语法参数列表中命名的任何视图都不存在，语句报错，无法更改哪些不存在的视图。</p>
+<p><code>ALTER VIEW</code> 用于更改视图。</p>
+<p>如果语法参数列表中命名的视图不存在，则语句报错：该视图无效。</p>
 <h2 id="_2"><strong>语法结构</strong></h2>
 <div class="highlight"><pre><span></span><code>&gt; ALTER VIEW view_name [(column_list)]
   AS select_statement

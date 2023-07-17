@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -4957,20 +5013,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7502,20 +7544,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8870,7 +8898,7 @@
 </tr>
 <tr>
 <td>CREATE VIEW</td>
-<td>创建视图权限，无对应表权限时创建视图无法查询</td>
+<td>创建视图权限，无对应权限时创建视图无法查询</td>
 </tr>
 <tr>
 <td>DROP VIEW</td>
@@ -8882,7 +8910,7 @@
 </tr>
 <tr>
 <td>ALTER VIEW</td>
-<td>修改视图权限，无对应表权限时创建视图无法查询</td>
+<td>修改视图权限，无对应权限时无法修改视图</td>
 </tr>
 <tr>
 <td>ALL [PRIVILEGES]</td>
@@ -8926,7 +8954,7 @@
 </tr>
 <tr>
 <td>REFERENCE</td>
-<td>允许将表引用为外间约束的唯一/主键表。通过 <code>DESCRIBE</code> 或 <code>SHOW</code> 命令查看表的结构</td>
+<td>允许将表引用为外键约束的唯一/主键表。通过 <code>DESCRIBE</code> 或 <code>SHOW</code> 命令查看表的结构</td>
 </tr>
 <tr>
 <td>INDEX</td>
@@ -8964,7 +8992,7 @@
 <ul>
 <li><strong>发布端</strong></li>
 </ul>
-<p>发布端，即发布需共享、同步的数据的一方。</p>
+<p>发布端，即发布共享、同步数据的一方。</p>
 <table>
 <thead>
 <tr>

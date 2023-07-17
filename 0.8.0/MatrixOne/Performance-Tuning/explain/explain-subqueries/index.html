@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5020,20 +5076,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7565,20 +7607,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8673,7 +8701,7 @@
 <p>重复以上步骤</p>
 </li>
 </ul>
-<p>但是 MatrixOne 在处理该 SQL 语句是会将其改写为等价的 <code>JOIN</code> 查询：<code>select t1.* from t1 join t2 on t1.id=t2.id where t2.id&gt;=4;</code></p>
+<p>但是 MatrixOne 在处理该 SQL 语句时会将其改写为等价的 <code>JOIN</code> 查询：<code>select t1.* from t1 join t2 on t1.id=t2.id where t2.id&gt;=4;</code></p>
 </li>
 </ul>
 <h2 id="_1">示例</h2>
@@ -8770,7 +8798,7 @@
 <span class="o">+</span><span class="c1">---------------------------------------------------------------+</span>
 <span class="mi">8</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
-<p>MatrixOne 在处理该 SQL 语句是会将其改写为等价的 <code>JOIN</code> 查询：<code>select t1.* from t1 join t2 on t1.id=t2.id where t2.id&gt;=4;</code>，可以看到这个执行计划的执行顺序是：</p>
+<p>MatrixOne 在处理该 SQL 语句时会将其改写为等价的 <code>JOIN</code> 查询：<code>select t1.* from t1 join t2 on t1.id=t2.id where t2.id&gt;=4;</code>，可以看到这个执行计划的执行顺序是：</p>
 <ol>
 <li>
 <p>先执行过滤查询 <code>where t2.id&gt;=4;</code>。</p>

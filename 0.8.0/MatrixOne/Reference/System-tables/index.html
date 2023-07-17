@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -4957,20 +5013,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7502,20 +7544,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -9082,7 +9110,7 @@
 
 
 <h1 id="matrixone">MatrixOne 系统数据库和表</h1>
-<p>MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方。你可以通过它们访问系统信息。MatrixOne 在初始化时创建了 6 个系统数据库：<code>mo_catalog</code>、<code>information_schema</code>、<code>system_metrcis</code>、<code>system</code>、<code>mysql</code> 和 <code>mo_task</code>。<code>mo_task</code> 当前正在开发中，暂时对你所进行的操作不会产生直接影响。本文档中描述了其他系统数据库和表函数。</p>
+<p>MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你可以通过它们访问系统信息。MatrixOne 在初始化时创建了 6 个系统数据库：<code>mo_catalog</code>、<code>information_schema</code>、<code>system_metrcis</code>、<code>system</code>、<code>mysql</code> 和 <code>mo_task</code>。<code>mo_task</code> 当前正在开发中，暂时对你所进行的操作不会产生直接影响。本文档中描述了其他系统数据库和表函数。</p>
 <p>系统只能修改系统数据库和表，你仅能从中进行读取操作。</p>
 <h2 id="mo_catalog"><code>mo_catalog</code> 数据库</h2>
 <p><code>mo_catalog</code> 用于存储 MatrixOne 对象的元数据，如：数据库、表、列、系统变量、租户、用户和角色。</p>
@@ -9999,7 +10027,7 @@
 <li><code>process_cpu_percent</code> 表：CPU 进程繁忙百分比。</li>
 <li><code>process_resident_memory_bytes</code> 表：驻留内存量，单位为字节。</li>
 <li><code>process_open_fds</code> 表：打开的文件描述符的数量。</li>
-<li><code>sys_cpu_seconds_total</code> 表：系统 CPU 时间，以秒为单位，由核数标准化</li>
+<li><code>sys_cpu_seconds_total</code> 表：系统 CPU 时间，以秒为单位，由核数标准化。</li>
 <li><code>sys_cpu_combined_percent</code> 表：系统 CPU 繁忙百分比，所有逻辑核的平均值。</li>
 <li><code>sys_memory_used</code> 表：以字节为单位已使用的系统内存。</li>
 <li><code>sys_memory_available</code> 表：以字节为单位的可用系统内存。</li>
@@ -10403,7 +10431,7 @@
 <li><code>INFO</code>：正在处理的请求语句。</li>
 </ul>
 <h3 id="schemata"><code>SCHEMATA</code> 表</h3>
-<p><code>SCHEMATA</code> 表提供有关数据库的信息。表数据等同于 <code>SHOW DATABASES</code> 语句的结果。<code>SCHEMATA</code> 表中的字段描述如下：</p>
+<p><code>SCHEMATA</code> 表提供有关数据库的信息，表数据等同于 <code>SHOW DATABASES</code> 语句的结果。<code>SCHEMATA</code> 表中的字段描述如下：</p>
 <ul>
 <li><code>CATALOG_NAME</code>：数据库所属的目录。</li>
 <li><code>SCHEMA_NAME</code>：数据库名称。</li>

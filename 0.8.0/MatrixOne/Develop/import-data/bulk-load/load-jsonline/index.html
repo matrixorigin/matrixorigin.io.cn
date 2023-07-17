@@ -1210,6 +1210,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1468,6 +1482,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1632,6 +1660,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1664,6 +1706,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5025,20 +5081,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7570,20 +7612,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8862,7 +8890,7 @@ load data infile {&#39;filepath&#39;=&#39;data.jl.gz&#39;, &#39;compression&#39;
 <p>启动 MySQL 客户端，连接到 MatrixOne。</p>
 <div class="highlight"><pre><span></span><code>mysql -h 127.0.0.1 -P 6001 -uroot -p111
 </code></pre></div>
-<p><strong>Note:</strong> 如果你的数据文件与 MatrixOne 服务器在不同的机器上，即数据文件在你所使用的客户端机器上时，那么你连接 MatrixOne 服务主机需要使用命令行：<code>mysql -h &lt;mo-host-ip&gt; -P &lt;mo-host-ip&gt; -udump -p111 --local-infile</code>；并且导入的命令行需要使用 <code>LOAD DATA LOCAL INFILE</code> 语法。</p>
+<p><strong>Note:</strong> 如果你的数据文件与 MatrixOne 服务器在不同的机器上，即数据文件在你所使用的客户端机器上时，那么你连接 MatrixOne 服务主机需要使用命令行：<code>mysql -h &lt;mo-host-ip&gt; -P &lt;mo-host-ip&gt; -uroot -p111 --local-infile</code>；并且导入的命令行需要使用 <code>LOAD DATA LOCAL INFILE</code> 语法。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>

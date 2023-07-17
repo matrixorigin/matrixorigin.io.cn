@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5047,20 +5103,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7592,20 +7634,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Reference/Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8752,7 +8780,7 @@ minio            100.92.250.195:9000,100.92.250.200:9000,100.92.250.201:9000 + 1
 minio1-console   100.92.250.195:9090,100.92.250.200:9090,100.92.250.201:9090 + 1 more...   127d
 minio1-hl        100.92.250.195:9000,100.92.250.200:9000,100.92.250.201:9000 + 1 more...   127d
 </code></pre></div>
-<p>SVC 的访问地址是在 <code>Load</code> 语句中需要添加的终端地址。要构建 SVC 地址，可以使用 <code>${service_name}.{namespace}.svc.cluster.local</code> 的方式（后三位可省略）。以下命令的结果表明，minio1-hl 的 SVC 使用 9000 作为对外转发端口，minio 的 SVC 使用 80 作为对外转发端口。因此，连接 Mostorage 的 Minio 的最终 endpoint 为：<a href="http://minio1-hl.mostorage:9000">http://minio1-hl.mostorage:9000</a> 或者 <a href="http://minio.mostorage:80">http://minio.mostorage:80</a>。</p>
+<p>SVC 的访问地址是在 <code>Load</code> 语句中需要添加的终端地址。要构建 SVC 地址，可以使用 <code>${service_name}.{namespace}.svc.cluster.local</code> 的方式（后三位可省略）。以上命令的结果表明，minio1-hl 的 SVC 使用 9000 作为对外转发端口，minio 的 SVC 使用 80 作为对外转发端口。因此，连接 Mostorage 的 Minio 的最终 endpoint 为：<a href="http://minio1-hl.mostorage:9000">http://minio1-hl.mostorage:9000</a> 或者 <a href="http://minio.mostorage:80">http://minio.mostorage:80</a>。</p>
 <h3 id="load">构建并执行 Load 语句</h3>
 <ol>
 <li>
@@ -8763,12 +8791,12 @@ minio1-hl        100.92.250.195:9000,100.92.250.200:9000,100.92.250.201:9000 + 1
 <li>
 <p>参照 Load S3 的语法结构，将参数信息填入 <code>Load</code> 语句中其中：</p>
 <ul>
-<li>endpoint，access_key_id：为 minio 的登录账号</li>
+<li>access_key_id：为 minio 的登录账号</li>
 <li>secret_access_key：为 minio 的登录密码</li>
 <li>bucket：存储桶的名称</li>
 <li>filepath：为导入文件的路径</li>
 </ul>
-<p>需要注意的是，从本地 Minio 需要在参数串中增加一条 <code>"provider"="minio"</code> 来指明底层存储来源是本地 Minio，最终形成如以下的 SQL 语句。</p>
+<p>需要注意的是，从本地 Minio 带入需要在参数串中增加一条 <code>"provider"="minio"</code> 来指明底层存储来源是本地 Minio，最终形成如以下的 SQL 语句。</p>
 <div class="highlight"><pre><span></span><code>MySQL [stock]&gt; load data url s3option{&quot;endpoint&quot;=&#39;http://minio.mostorage:80&#39;,&quot;access_key_id&quot;=&#39;rootuser&#39;, &quot;secret_access_key&quot;=&#39;rootpass123&#39;,&quot;bucket&quot;=&#39;load-from-minio&#39;, &quot;filepath&quot;=&#39;/addresses.csv&#39;, &quot;compression&quot;=&#39;none&#39;, &quot;provider&quot;=&quot;minio&quot;} INTO TABLE address FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39; PARALLEL &#39;TRUE&#39;;
 Query OK, 6 rows affected (2.302 sec)
 </code></pre></div>

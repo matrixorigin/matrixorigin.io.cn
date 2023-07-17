@@ -1208,6 +1208,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+        AUTO INCREMENT 自增约束
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,6 +1412,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+        预处理
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1562,6 +1590,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/read-data/window-function/" class="md-nav__link">
+        窗口函数
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1594,6 +1636,20 @@
           租户设计
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+        多租户概述
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5091,20 +5147,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
-        Prepared 概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
@@ -7636,20 +7678,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Window-Functions/window-functions-overview/" class="md-nav__link">
-        窗口函数概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
@@ -8822,7 +8850,7 @@
 <h4 id="primary-key">PRIMARY KEY</h4>
 <p><code>PRIMARY KEY</code> 即主键约束，用于唯一标示表中的每条数据。
 主键必须包含 <code>UNIQUE</code> 值，不能包含 <code>NULL</code> 值。
-当前版本一个表只能有一个主键，并且这个主键只能有一个列组成。</p>
+当前版本一个表只能有一个主键，这个主键可以由一个列组成，也可以由多个列组成。</p>
 <ul>
 <li><strong>在建表时创建主键</strong></li>
 </ul>
@@ -8837,9 +8865,9 @@
 </code></pre></div>
 <div class="admonition note 注意区分">
 <p class="admonition-title">Note</p>
-<p>上述示例中只有一个主键 <code>PK_Person</code>，并且其中仅包含了一列（<code>ID</code>）</p>
+<p>上述示例中只有一个主键，并且其中仅包含了一列（<code>ID</code>）</p>
 </div>
-<p>例如使用如下建表语句时会有错误：</p>
+<p>而下面 SQL 语句在创建 <code>Students</code> 表时，在其中的 <code>ID</code> 和 <code>LastName</code> 列创建主键：</p>
 <div class="highlight"><pre><span></span><code>&gt; CREATE TABLE Students (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,
@@ -8847,7 +8875,6 @@
     Age int,
     PRIMARY KEY (ID,LastName)
 );
-ERROR 1105 (HY000): tae catalog: schema validation: compound idx not supported yet
 </code></pre></div>
 <h4 id="foreign-key">FOREIGN KEY</h4>
 <p>FOREIGN KEY 约束，即外键约束，是表的一个特殊字段，经常与主键约束一起使用。外键约束是用于防止破坏表之间链接的行为。对于两个具有关联关系的表而言，相关联字段中主键所在的表就是主表（父表），外键所在的表就是从表（子表）。外键用来建立主表与从表的关联关系，为两个表的数据建立连接，约束两个表中数据的一致性和完整性。</p>
@@ -8936,7 +8963,7 @@ partition_definition:
 <ul>
 <li><strong>HASH(expr)</strong></li>
 </ul>
-<p>在实际工作中经常遇到像会员表的没有明显可以分区的特征字段的大表。为了把这类的数据进行分区打散，MatrixOne 提供了 <code>HASH</code> 分区。基于给定的分区个数，将数据分配到不同的分区，<code>HASH</code> 分区只能针对整数进行 <code>HASH</code>，对于非整形的字段则通过表达式将其转换成整数。</p>
+<p>在实际工作中，经常会遇到像会员表这种没有明显可以分区的特征字段的大表。为了把这类的数据进行分区打散，MatrixOne 提供了 <code>HASH</code> 分区。基于给定的分区个数，将数据分配到不同的分区，<code>HASH</code> 分区只能针对整数进行 <code>HASH</code>，对于非整形的字段则通过表达式将其转换成整数。</p>
 <p>· HASH 分区，基于给定的分区个数，把数据分配到不同的分区。</p>
 <p>· Expr 是使用一个或多个表列的表达式。</p>
 <p>示例如下：</p>
@@ -8949,7 +8976,7 @@ CREATE TABLE t1 (col1 INT, col2 CHAR(5), col3 DATETIME)
 <ul>
 <li><strong>KEY(column_list)</strong></li>
 </ul>
-<p>·  KEY 分区，按照某个字段取余。分区对象必须为列，不能是基于列的表达式，且允许多列，KEY 分区列可以不指定，默认为逐渐或者唯一键，不指定的情况下，则必须显性指定列。</p>
+<p>·  KEY 分区，按照某个字段取余。分区对象必须为列，不能是基于列的表达式，且允许多列。KEY 分区列可以不指定，默认为主键列或者唯一键列，无主键和唯一键的情况下，则必须显性指定列。</p>
 <p>类似于 <code>HASH</code>。<code>column_list</code> 参数只是一个包含 1 个或多个表列的列表（最大值：16）。下面的示例为一个按 <code>KEY</code> 分区的简单表，有 4 个分区：</p>
 <div class="highlight"><pre><span></span><code>CREATE TABLE tk (col1 INT, col2 CHAR(5), col3 DATE)
     PARTITION BY KEY(col3)
