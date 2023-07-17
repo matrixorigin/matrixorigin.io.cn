@@ -489,7 +489,7 @@ mysql> select * from t1;
 
 可以看到，查询结果忽略了前 10 行，并且忽略了公共前缀 aa。
 
-有关如何导入 *CSV* 格式文件的详细步骤，参见[导入*. csv* 格式数据](../../../Develop/import-data/bulk-load/load-jsonline.md)。
+有关如何导入 *CSV* 格式文件的详细步骤，参见[导入*. csv* 格式数据](../../../Develop/import-data/bulk-load/load-csv.md)。
 
 ### 示例 2：LOAD JSONLines
 
