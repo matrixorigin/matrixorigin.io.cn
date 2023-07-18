@@ -128,7 +128,7 @@ Usage             : mo_ctl [option_1] [option_2]
 
 ### precheck - 检查前置依赖条件
 
-源码安装 MatrixOne 前使用 `mo_ctl precheck` 检查前置依赖条件. 目前前置依赖于 `go`/`gcc`/`git`/`mysql(client)`。
+源码安装 MatrixOne 前使用 `mo_ctl precheck` 检查前置依赖条件，目前前置依赖于 `go`/`gcc`/`git`/`mysql(client)`。
 
 ```
 mo_ctl precheck help
