@@ -2,26 +2,26 @@
 
 ## **语法说明**
 
-`SHOW INDEX` returns table index information.
+`SHOW INDEX` 返回表的索引信息。
 
-`SHOW INDEX` returns the following fields:
+`SHOW INDEX` 返回以下字段：
 
-|Fields | Description|
+|字段|描述|
 |---|---|
-|Table|The name of the table.|
-|Non_unique|0 if the index cannot contain duplicates, 1 if it can.|
-|Key_name|The name of the index. If the index is the primary key, the name is always PRIMARY.|
-|Seq_in_index|The column sequence number in the index, starting with 1.|
-|Column_name|The column name. See also the description for the Expression column.|
-|Collation|How the column is sorted in the index. This can have values A (ascending), D (descending), or NULL (not sorted).|
-|Cardinality|An estimate of the number of unique values in the index. To update this number, run ANALYZE TABLE or (for MyISAM tables) myisamchk -a.<br>Cardinality is counted based on statistics stored as integers, so the value is not necessarily exact even for small tables. The higher the cardinality, the greater the chance that MySQL uses the index when doing joins.|
-|Sub_part|The index prefix. That is, the number of indexed characters if the column is only partly indexed, NULL if the entire column is indexed. <br> **Note:** Prefix limits are measured in bytes. However, prefix lengths for index specifications in CREATE TABLE, ALTER TABLE, and CREATE INDEX statements are interpreted as number of characters for nonbinary string types (CHAR, VARCHAR, TEXT) and number of bytes for binary string types (BINARY, VARBINARY, BLOB). Take this into account when specifying a prefix length for a nonbinary string column that uses a multibyte character set.|
-|Packed|Indicates how the key is packed. NULL if it is not.|
-|Null|Contains YES if the column may contain NULL values and '' if not.|
-|Index_type|The index method used (BTREE, FULLTEXT, HASH, RTREE).|
-|Comment|Information about the index not described in its own column, such as disabled if the index is disabled.|
-|Visible|Whether the index is visible to the optimizer.|
-|Expression|For a nonfunctional key part, Column_name indicates the column indexed by the key part and Expression is NULL.<br>For a functional key part, Column_name column is NULL and Expression indicates the expression for the key part.|
+|Table|表的名称。|
+|Non_unique|如果索引不允许重复值，则为0；如果允许重复值，则为1。|
+|Key_name|索引的名称。如果索引是主键，则名称始终为PRIMARY。|
+|Seq_in_index|列在索引中的顺序号，从1开始。|
+|Column_name|列的名称。请参阅Expression列的描述。|
+|Collation|列在索引中的排序方式。可能的值为A（升序），D（降序）或NULL（未排序）。|
+|Cardinality|索引中唯一值的估计数量。要更新此值，请运行ANALYZE TABLE或（对于MyISAM表）myisamchk -a。 <br>基数是基于存储为整数的统计信息计算的，因此即使对于小表，该值也不一定精确。基数越高，MySQL在执行连接操作时使用索引的可能性就越大。|
+|Sub_part|索引的前缀。即，如果列只部分索引化，则为索引化的字符数；如果整列都索引化，则为NULL。<br> **注意：**前缀限制以字节为单位。但是，在CREATE TABLE、ALTER TABLE和CREATE INDEX语句中，用于索引规范的前缀长度解释为非二进制字符串类型（CHAR、VARCHAR、TEXT）的字符数，以及用于二进制字符串类型（BINARY、VARBINARY、BLOB）的字节数。在指定非二进制字符串列的前缀长度时，请考虑使用多字节字符集。|
+|Packed|指示键是否被压缩。如果未压缩，则为NULL。|
+|Null|如果列可能包含NULL值，则为YES；否则为空字符串。|
+|Index_type|使用的索引方法（BTREE、FULLTEXT、HASH、RTREE）。|
+|Comment|关于索引的其他信息，不在自己的列中描述，例如如果索引已禁用则为disabled。|
+|Visible|索引是否对优化器可见。|
+|Expression|对于非功能键部分，Column_name指示键部分索引的列，而Expression为NULL。<br>对于功能键部分，Column_name列为NULL，而Expression指示键部分的表达式。|
 
 ## **语法结构**
 
@@ -31,9 +31,9 @@
     [{FROM | IN} db_name]
 ```
 
-### Explanations
+### 语法说明
 
-An alternative to tbl_name FROM db_name syntax is db_name.tbl_name.
+`tbl_name FROM db_name` 语法的替代方法是 `db_name.tbl_name`。
 
 ## **示例**
 
