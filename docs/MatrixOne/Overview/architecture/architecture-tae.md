@@ -2,8 +2,6 @@
 
 MatrixOne 的存储引擎称为事务分析引擎 (Transactional Analytical Engine，TAE)。
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/tae/tae-arch.png?raw=true)
-
 ## 存储引擎架构
 
 如下图所示：
