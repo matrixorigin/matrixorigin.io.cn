@@ -6,6 +6,8 @@ MatrixOne 的存储引擎称为事务分析引擎（Transactional Analytical Eng
 
 ## 存储引擎架构
 
+如下图所示：
+
 ![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/tae/tae-storage.png?raw=true)
 
 TAE 的最小 IO 单位被称为列块（Column Block），目前固定行数进行组织，对于 Blob 类型的列，我们进行了特别的处理。
