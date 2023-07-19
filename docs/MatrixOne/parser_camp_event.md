@@ -60,7 +60,7 @@ To access MatrixOne, you need a MySQL client with this url: <https://dev.mysql.c
 After the MySQL client installation, you can use this command to access your MatrixOne locally in another CLI session.
 
 ```
-$ mysql -P6001 -h127.0.0.1 -udump -p111
+$ mysql -P6001 -h127.0.0.1 -uroot -p111
 ```
 
 When you are in mysql command line, you can start your MatrixOne experience. More details can be found in <http://doc.matrixorigin.cn>

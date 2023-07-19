@@ -27,7 +27,7 @@ SELECT column_list ...
 
 #### `UNION` 与 `ORDER BY`，`LIMIT`
 
-使用 `ORDER BY` 或 `LIMIT` 子句来对全部 UNION 结果进行分类或限制，则应对单个地 `SELECT` 语句加圆括号，并把 `ORDER BY` 或 `LIMIT` 放到最后一个的后面。
+使用 `ORDER BY` 或 `LIMIT` 子句对全部 UNION 结果进行分类或限制时，应对单个的 `SELECT` 语句加圆括号，并把 `ORDER BY` 或 `LIMIT` 放到最后一个的后面。
 
 例如：
 

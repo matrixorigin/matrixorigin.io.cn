@@ -357,7 +357,7 @@ __Note:__ 本章节均是在 master0 节点操作。
     mkdir minio_ins && cd minio_ins
     helm fetch minio/minio
     ls -lth
-    tar minio-5.0.9.tgz # 这个版本可能会变，以实际下载到的为准
+    tar -zxvf minio-5.0.9.tgz # 这个版本可能会变，以实际下载到的为准
     cd ./minio/
 
     kubectl create ns mostorage

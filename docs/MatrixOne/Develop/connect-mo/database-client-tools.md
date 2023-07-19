@@ -67,7 +67,7 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
     - **Connction Name**: MatrixOne
     - **Host**: 127.0.0.1
     - **Port**: 6001
-    - **User Name**: dump
+    - **User Name**: root
     - **Password**: 111
     - **Save password**：勾选
 
@@ -98,7 +98,7 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
     - **Host**: 127.0.0.1
     - **Port**: 6001
     - **Database**: MatrixOne
-    - **User Name**: dump
+    - **User Name**: root
     - **Password**: 111
     - **Save password locally**: 勾选
 

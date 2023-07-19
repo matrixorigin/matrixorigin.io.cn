@@ -72,7 +72,7 @@ CN 组是由一组具有相同属性和大小的 CN 节点组成的逻辑 CN 组
     mo-proxy            NodePort    10.96.1.153   <none>        6001:31429/TCP   70m
     mo-tp-cn            ClusterIP   10.96.1.43    <none>        6001/TCP         70m
     mo-tp-cn-headless   ClusterIP   None          <none>        <none>           70m
-    root@HOST-10-206-134-16:~# mysql -h 10.96.1.153 -P6001 -udump -p111
+    root@HOST-10-206-134-16:~# mysql -h 10.96.1.153 -P6001 -uroot -p111
     mysql: [Warning] Using a password on the command line interface can be insecure.
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 2064

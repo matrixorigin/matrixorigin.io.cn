@@ -116,7 +116,7 @@ LOAD DATA INFILE 'data.txt' INTO TABLE table1
 
 `LINES TERMINATED BY` 用于指定一行的结束符。`LINES TERMINATED BY` 值可以超过一个字符。
 
-例如，如果 *csv* 文件中的行以回车符/换行符对结束，你在加载它时，可以使用 `LINES TERMINATED BY '\r\n'` 或 `LINES TERMINATED BY '\n'`：
+例如，*csv* 文件中的行以回车符/换行符对结束，你在加载它时，可以使用 `LINES TERMINATED BY '\r\n'` 或 `LINES TERMINATED BY '\n'`：
 
 ```
 LOAD DATA INFILE 'data.txt' INTO TABLE table1
@@ -191,7 +191,7 @@ MatrixOne 当前仅支持 `SET column_name=nullif(column_name,expr)`。即，当
 
 ### PARALLEL
 
-对于一个格式良好的大文件，例如 *JSONLines* 文件，或者一行数据中没有换行符的 *CSV* 文件，都可以使用 `PARALLEL` 就可以对该文件进行并行加载，以加快加载速度。
+对于一个格式良好的大文件，例如 *JSONLines* 文件，或者一行数据中没有换行符的 *CSV* 文件，都可以使用 `PARALLEL` 对该文件进行并行加载，以加快加载速度。
 
 例如，对于 2 个 G 的大文件，使用两个线程去进行加载，第 2 个线程先拆分定位到 1G 的位置，然后一直往后读取并进行加载。这样就可以做到两个线程同时读取大文件，每个线程读取 1G 的数据。
 
@@ -209,9 +209,9 @@ load data infile 'file_name' into table tbl_name FIELDS TERMINATED BY '|' ENCLOS
 ```
 
 !!! note
-    `[PARALLEL {'TRUE' | 'FALSE'}]` 内字段当前仅支持 `TRUE` 或 `FALSE`，且大小写不敏感。
+    `[PARALLEL {'TRUE' | 'FALSE'}]` 内字段，当前仅支持 `TRUE` 或 `FALSE`，且大小写不敏感。
 
-__Note:__ `LOAD` 语句中如果不加 `PARALLEL` 字段，对于 *CSV* 文件，是默认关闭并行加载；对于 *JSONLines* 文件，默认开启并行加载。如果 *CSV* 文件中有行结束符，比如 '\n'，否则有可能会导致文件加载时数据出错，如果文件过大，建议从换行符为起止点手动拆分文件后再开启并行加载。
+__Note:__ `LOAD` 语句中如果不加 `PARALLEL` 字段，对于 *CSV* 文件，是默认关闭并行加载；对于 *JSONLines* 文件，默认开启并行加载。如果 *CSV* 文件中有行结束符，比如 '\n'，那么有可能会导致文件加载时数据出错。如果文件过大，建议从换行符为起止点手动拆分文件后再开启并行加载。
 
 ## 支持的文件格式
 
@@ -489,7 +489,7 @@ mysql> select * from t1;
 
 可以看到，查询结果忽略了前 10 行，并且忽略了公共前缀 aa。
 
-有关如何导入 *CSV* 格式文件的详细步骤，参见[导入*. csv* 格式数据](../../../Develop/import-data/bulk-load/load-jsonline.md)。
+有关如何导入 *CSV* 格式文件的详细步骤，参见[导入*. csv* 格式数据](../../../Develop/import-data/bulk-load/load-csv.md)。
 
 ### 示例 2：LOAD JSONLines
 
@@ -558,9 +558,9 @@ mysql> select * from t1;
 
 ## **限制**
 
-1. `REPLACE` 和 `IGNORE` 修饰符解决唯一索引的冲突：`REPLACE` 表示若表中已经存在则用新的数据替换掉旧的数据，而 `IGNORE` 则表示保留旧的数据，忽略掉新数据。这两个修饰符在 MatrixOne 中尚不支持。
+1. `REPLACE` 和 `IGNORE` 修饰符用来解决唯一索引的冲突：`REPLACE` 表示若表中已经存在，则用新的数据替换掉旧的数据；`IGNORE` 则表示保留旧的数据，忽略掉新数据。这两个修饰符在 MatrixOne 中尚不支持。
 2. MatrixOne 当前部分支持 `SET`，仅支持 `SET columns_name=nullif(col_name,expr2)`。
 3. 开启并行加载操作时必须要保证文件中每行数据中不包含指定的行结束符，比如 '\n'，否则有可能会导致文件加载时数据出错。
 4. 文件的并行加载要求文件必须是非压缩格式，暂不支持并行加载压缩格式的文件。
-5. 如果你需要用 `LOAD DATA LOCAL` 进行本地加载，则需要使用命令行连接 MatrixOne 服务主机：`mysql -h <mo-host -ip> -P 6001 -udump -p111 --local-infile`。
+5. 如果你需要用 `LOAD DATA LOCAL` 进行本地加载，则需要使用命令行连接 MatrixOne 服务主机：`mysql -h <mo-host -ip> -P 6001 -uroot -p111 --local-infile`。
 6. MatrixOne 当前暂不支持 `ESCAPED BY`，写入或读取特殊字符与 MySQL 存在一定的差异。

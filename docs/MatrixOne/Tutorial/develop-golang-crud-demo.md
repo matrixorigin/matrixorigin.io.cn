@@ -35,11 +35,11 @@
 
     func main() {
       	//Open a new connection to MatrixOne
-        db, err := sql.Open("mysql", "dump:111@tcp(127.0.0.1:6001)/test")
+        db, err := sql.Open("mysql", "root:111@tcp(127.0.0.1:6001)/test")
         checkErr(err)
 
         //Create a table
-        _, err2 := db.Exec("CREATE TABLE `userinfo` (`uid` INT(10) NOT NULL AUTO_INCREMENT,`username` VARCHAR(64) NULL DEFAULT NULL,`department` VARCHAR(64) NULL DEFAULT NULL,`created` DATE NULL DEFAULT NULL, PRIMARY KEY (`uid`));")
+        _, err2 := db.Exec("CREATE TABLE `userinfo` (`uid` INT(10) NOT NULL AUTO_INCREMENT,`username` VARCHAR(64) NULL DEFAULT NULL,`department` VARCHAR(64) NULL DEFAULT NULL,`created` DATETIME NULL DEFAULT NULL, PRIMARY KEY (`uid`));")
         if err2 != nil {
             log.Fatal(err2)
         }
@@ -49,7 +49,7 @@
         stmt, err := db.Prepare("INSERT userinfo SET username=?,department=?,created=?")
         checkErr(err)
 
-        res, err := stmt.Exec("Alex", "r&d", "2023-01-01")
+        res, err := stmt.Exec("Alex", "r&d", "2023-01-01 12:00:00")
         checkErr(err)
 
         id, err := res.LastInsertId()

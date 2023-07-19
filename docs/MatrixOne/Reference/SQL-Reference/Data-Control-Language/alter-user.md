@@ -41,7 +41,7 @@ mysql> select * from mo_catalog.mo_user;
 | user_id | user_host | user_name | authentication_string | status | created_time        | expired_time | login_type | creator | owner | default_role |
 +---------+-----------+-----------+-----------------------+--------+---------------------+--------------+------------+---------+-------+--------------+
 |       0 | localhost | root      | 111                   | unlock | 2023-04-19 06:37:58 | NULL         | PASSWORD   |       0 |     0 |            0 |
-|       1 | localhost | dump      | 111                   | unlock | 2023-04-19 06:37:58 | NULL         | PASSWORD   |       0 |     0 |            0 |
+|       1 | localhost | root      | 111                   | unlock | 2023-04-19 06:37:58 | NULL         | PASSWORD   |       0 |     0 |            0 |
 |       2 | localhost | admin_1   | 111111                | unlock | 2023-04-21 06:21:31 | NULL         | PASSWORD   |       1 |     0 |            1 |
 +---------+-----------+-----------+-----------------------+--------+---------------------+--------------+------------+---------+-------+--------------+
 3 rows in set (0.01 sec)

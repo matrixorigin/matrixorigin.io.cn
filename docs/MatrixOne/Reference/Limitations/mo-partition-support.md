@@ -52,7 +52,7 @@ ERROR 1503 (HY000): A PRIMARY KEY must include all columns in the table's partit
 ERROR 1503 (HY000): A PRIMARY KEY must include all columns in the table's partitioning function
 ```
 
-### 关于 KEY 分区分区键为 NULL
+### 关于 KEY 分区键为 NULL
 
 1. KEY 只接受零个或多个列名的列表。在表有主键的情况下，用作分区键的任何列必须包含表主键的一部分或全部。
 
@@ -79,7 +79,7 @@ PARTITIONS 4;
 
 ## 3. 关于 MatrixOne 分区表达式的说明
 
-​ 在 DDL 语句构建分区表时，会回针对每一种分区定义生成一个分区表达式，该分区表达式可用于计算数据的所属的分区。
+​ 在 DDL 语句构建分区表时，会针对每一种分区定义生成一个分区表达式，该分区表达式可用于计算数据的所属的分区。
 
 在计划构建阶段对 DDL 语句中的分区信息数据结构为 plan.PartitionInfo：
 
