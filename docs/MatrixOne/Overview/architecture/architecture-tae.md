@@ -2,13 +2,13 @@
 
 MatrixOne 的存储引擎称为事务分析引擎（Transactional Analytical Engine，TAE）。
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/tae/tae-arch.png?raw=true)
+![](https://github.com/matrixorigin/artwork/blob/main/docs/tae/tae-arch.png?raw=true)
 
 ## 存储引擎架构
 
 如下图所示：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/tae/tae-storage.png?raw=true)
+![](https://github.com/matrixorigin/artwork/blob/main/docs/tae/tae-storage.png?raw=true)
 
 TAE 的最小 IO 单位被称为列块（Column Block），目前固定行数进行组织，对于 Blob 类型的列，我们进行了特别的处理。
 
@@ -37,7 +37,7 @@ TAE，如传统列存储引擎一样，在块 (Block) 和段 (Segment) 级别引
 
 在段级索引中，有两种类型的段，一种可以进行追加修改，另一种不可修改。对于不可修改的段，段级索引是一个包含 Bloomfilter 和 Zonemap 的两级结构。对于可追加修改的段，它至少由一个可追加的块和多个不可追加的块组成。可追加的块索引是一个常驻内存的 ART-tree（Adaptive Radix Tree）结构和 Zonemap，而不可追加的则是 Bloomfilter 和 Zonemap。
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/tae/index-metadata.png?raw=true)
+![](https://github.com/matrixorigin/artwork/blob/main/docs/tae/index-metadata.png?raw=true)
 
 ## 缓存区管理
 
@@ -91,11 +91,11 @@ TAE 通过采用多版本并发控制（MVCC）机制来保证事务的隔离性
 
 段的生成和变化由后台异步任务处理，为确保数据读取的一致性，TAE 将这些异步任务纳入到事务处理框架中，如下例所示：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/tae/segment.png?raw=true)
+![](https://github.com/matrixorigin/artwork/blob/main/docs/tae/segment.png?raw=true)
 
 L0 层的块 `$Block1 {L0}$` 在 `$t1$` 时创建，它包含了来自 `$Txn1`、`Txn2`、`Txn3`、`Txn4$` 的数据。`$Block1 {L0}$` 在 `$t11$` 开始排序，它的读视图是基线加上一个未提交的更新节点。排序和持久化块可能需要较长时间。在提交排序的 `$Block2 {L1}$` 之前，存在两个已提交事务 `$Txn5`、`Txn6$` 和一个未提交事务 `$Txn7$`。当 `$Txn7$` 在 `$t16$` 提交时，将失败，因为 `$Block1 {L0}$` 已经被终止。在 `$(t11, t16)$` 期间提交的更新节点 `$Txn5`、`Txn6$` 将被合并为一个新的更新节点，它将与 `$Block2 {L1}$` 在 `$t16$` 时一同提交。
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/tae/compaction.png?raw=true)
+![](https://github.com/matrixorigin/artwork/blob/main/docs/tae/compaction.png?raw=true)
 
 压缩过程会终止一系列块或段，并原子性地创建一个新的块或段（或建立索引）。与常规事务相比，此过程通常需要更长的时间，而我们不希望阻止涉及的块或段的更新或删除事务。因此，我们扩展了读视图，将块和段的元数据纳入其中。在提交常规事务时，一旦检测到写操作对应的块（或段）的元数据已更改（提交），该事务将失败。对于压缩事务，其写操作包括块（或段）的软删除和添加。在事务执行期间，每次写入操作都会检测是否存在写-写冲突。一旦冲突发生，事务将被提前终止。
 
@@ -113,6 +113,6 @@ L0 层的块 `$Block1 {L0}$` 在 `$t1$` 时创建，它包含了来自 `$Txn1`�
 
 TAE 目前选择了第三种方案的变体：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/tae/mvcc.png?raw=true)
+![](https://github.com/matrixorigin/artwork/blob/main/docs/tae/mvcc.png?raw=true)
 
 在大量更新的情况下，LSM 树结构的旧版本数据会导致大量的读放大。而 TAE 的版本链由缓冲区管理器维护，当需要被替换时，它会与主表数据合并，重新生成新的块。因此，在语义上，它是原地更新，但在实现上是写时复制，这对于云存储来说是必需的。重新生成的新块的读放大较少，这对于频繁更新后的 AP 查询更有利。
