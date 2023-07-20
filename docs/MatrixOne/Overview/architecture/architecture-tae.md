@@ -4,9 +4,9 @@ MatrixOne 的存储引擎称为事务分析引擎 (Transactional Analytical Engi
 
 ## 存储引擎架构
 
-TAE 的最小 IO 单位被称为列块（Column Block），目前固定行数进行组织，对于 Blob 类型的列，我们进行了特别的处理。
+TAE 的最小 IO 单位被称为列块 (Column Block)，目前固定行数进行组织，对于 Blob 类型的列，我们进行了特别的处理。
 
-TAE 以表的形式组织数据，每个表的数据结构化为一个 LSM（Log-structured Merge-tree）树。当前 TAE 的实现是一个三层 LSM 树，包括 L0、L1 和 L2。其中，L0 规模较小，全部存储在内存中，而 L1 和 L2 则持久化存储在硬盘上。
+TAE 以表的形式组织数据，每个表的数据结构化为一个 LSM (Log-structured Merge-tree) 树。当前 TAE 的实现是一个三层 LSM 树，包括 L0、L1 和 L2。其中，L0 规模较小，全部存储在内存中，而 L1 和 L2 则持久化存储在硬盘上。
 
 在 TAE 中，L0 由被称为临时块（Transient Block）的组件组成，数据在此并未进行排序。而 L1 由已排序块（Sorted Block）组成，包含了已经排序的数据。新的数据总是被插入到最新的临时块中。当插入的数据使得该块的行数超过限制时，该块将进行主键排序后作为一个已排序块刷新到 L1。如果已排序的块数量超过一个段（Segment）的最大数量，会使用合并排序（Merge Sort）方法按主键排序并写入 L2。
 
