@@ -4,10 +4,6 @@ MatrixOne 的存储引擎称为事务分析引擎 (Transactional Analytical Engi
 
 ## 存储引擎架构
 
-如下图所示：
-
-![](https://github.com/matrixorigin/artwork/blob/main/docs/tae/tae-storage.png?raw=true)
-
 TAE 的最小 IO 单位被称为列块（Column Block），目前固定行数进行组织，对于 Blob 类型的列，我们进行了特别的处理。
 
 TAE 以表的形式组织数据，每个表的数据结构化为一个 LSM（Log-structured Merge-tree）树。当前 TAE 的实现是一个三层 LSM 树，包括 L0、L1 和 L2。其中，L0 规模较小，全部存储在内存中，而 L1 和 L2 则持久化存储在硬盘上。
