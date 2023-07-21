@@ -20,6 +20,8 @@ theme:
 edit_uri: edit/main/docs/
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - javascripts/extra.js
 extra:
   homepage: https://www.matrixorigin.cn
   version:
