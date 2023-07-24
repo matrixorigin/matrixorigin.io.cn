@@ -157,6 +157,5 @@ mysql> select * from t1 order by spID asc nulls last;
 
 ## **限制**
 
-- 在 `GROUP BY` 中暂不支持表别名。
 - `SELECT...FOR UPDATE` 当前仅支持单表查询。
 - 部分支持 `INTO OUTFILE`。
