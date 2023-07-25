@@ -296,6 +296,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | query_type            | VARCHAR(1024) | 查询类型，[DQL, DDL, DML, DCL, TCL]                                |
 | role_id               | BIGINT        | 角色 ID                                                                     |
 | sql_source_type       | TEXT          | SQL语句源类型                                                   |
+| aggr_count            | BIGINT(64)    | 语句的总数   |
 | result_count          | BIGINT(64)    | 统计sql执行结果的行数    |  
 
 ### `rawlog` 表

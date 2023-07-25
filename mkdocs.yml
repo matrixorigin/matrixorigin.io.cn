@@ -299,6 +299,7 @@ nav:
             - SHOW COLUMNS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-columns.md
             - SHOW FUNCTION STATUS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-function-status.md
             - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-grants.md
+            - SHOW PROCESSLIST: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-processlist.md
             - SHOW PUBLICATIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-publications.md
             - SHOW ROLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-roles.md
             - SHOW SEQUENCES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-sequences.md
