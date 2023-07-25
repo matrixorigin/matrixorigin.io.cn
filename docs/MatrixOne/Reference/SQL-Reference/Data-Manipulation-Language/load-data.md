@@ -67,11 +67,10 @@ LOAD DATA INFILE '/tmp/test.txt' INTO TABLE table1 IGNORE 1 LINES;
 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n'
 ```
 
-意义如下：
-
-- `FIELDS TERMINATED BY ','`：以*,* 作为分隔符
-- `ENCLOSED BY '"'`：使用双引号把各个字段括起来
-- `LINES TERMINATED BY '\n'`：以 '\n' 为行间分隔符
+!!! note
+    - `FIELDS TERMINATED BY ','`：以且仅以 `,`、`|` 或 `\t` 作为分隔符。
+    - `ENCLOSED BY '"'`：以且仅以 `"` 作为包括符。
+    - `LINES TERMINATED BY '\n'`：以且仅以 `\n` 或 `\r\n` 作为行间分隔符。
 
 **FIELDS TERMINATED BY**
 
