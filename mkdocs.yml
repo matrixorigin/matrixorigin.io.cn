@@ -20,6 +20,8 @@ theme:
 edit_uri: edit/main/docs/
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - javascripts/extra.js
 extra:
   homepage: https://www.matrixorigin.cn
   version:
@@ -55,6 +57,7 @@ nav:
         - MySQL 兼容性: MatrixOne/Overview/feature/mysql-compatibility.md
       - MatrixOne 技术架构:
         - 整体架构概述: MatrixOne/Overview/architecture/matrixone-architecture-design.md
+        - 存储引擎架构详解: MatrixOne/Overview/architecture/architecture-tae.md
         - Logservice 架构详解: MatrixOne/Overview/architecture/architecture-logservice.md
         - Proxy 架构详解: MatrixOne/Overview/architecture/architecture-proxy.md
         - 数据缓存及冷热数据分离架构详解: MatrixOne/Overview/architecture/architecture-cold-hot-data-separation.md
@@ -103,6 +106,8 @@ nav:
             - 插入 jsonlines 文件: MatrixOne/Develop/import-data/bulk-load/load-jsonline.md
             - 从对象存储导入文件: MatrixOne/Develop/import-data/bulk-load/load-s3.md
             - Source 插入: MatrixOne/Develop/import-data/bulk-load/using-source.md
+        - 更新数据: MatrixOne/Develop/import-data/update-data.md
+        - 删除数据: MatrixOne/Develop/import-data/delete-data.md
         - 预处理: MatrixOne/Develop/import-data/prepared.md
       - 数据写出:
         - SELECT INTO 写出: MatrixOne/Develop/export-data/select-into-outfile.md
@@ -294,6 +299,7 @@ nav:
             - SHOW COLUMNS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-columns.md
             - SHOW FUNCTION STATUS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-function-status.md
             - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-grants.md
+            - SHOW PROCESSLIST: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-processlist.md
             - SHOW PUBLICATIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-publications.md
             - SHOW ROLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-roles.md
             - SHOW SEQUENCES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-sequences.md
