@@ -518,6 +518,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Overview/architecture/architecture-tae/" class="md-nav__link">
+        存储引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Overview/architecture/architecture-logservice/" class="md-nav__link">
         Logservice 架构详解
       </a>
@@ -1418,7 +1432,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+      <a href="../../../../Develop/import-data/update-data/" class="md-nav__link">
+        更新数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/import-data/delete-data/" class="md-nav__link">
+        删除数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/import-data/prepared/" class="md-nav__link">
         预处理
       </a>
     </li>
@@ -8871,6 +8913,15 @@
 <p><code>WHERE</code> 子句（如果给定）指示要选择行必须满足的一个或多个条件。<code>where_condition</code> 表达式，对于要选择的每一行计算结果为真。如果没有 <code>WHERE</code> 子句，该语句将选择所有行。</p>
 <h4 id="group-by"><code>GROUP BY</code></h4>
 <p>可以使用列名、列别名或列位置在 <code>ORDER BY</code> 和 <code>GROUP BY</code> 子句中引用选择的列。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li><code>GROUP BY</code> 或 <code>HAVING</code> 子句中，不允许使用一个别名来定义另一个别名。</li>
+<li>在 <code>GROUP BY</code> 或 <code>HAVING</code> 子句中，首先会尝试使用列名进行分组或条件过滤。如果在这两个子句中找不到相应的列名，那么它们会检查是否有别名与之匹配，然后再使用这个别名。</li>
+<li>在 <code>GROUP BY</code> 或 <code>HAVING</code> 子句中使用别名时应当避免出现列引用模糊不清的情况，因为当在 <code>GROUP BY</code> 或 <code>HAVING</code> 子句中使用别名时，它会查找与别名匹配的列，如果找到多个匹配的列，则会产生报错。</li>
+<li><code>ORDER BY</code> 子句首先会尝试使用别名排序，如果找不到别名，则再尝试使用列名进行排序。</li>
+</ul>
+</div>
 <h4 id="having"><code>HAVING</code></h4>
 <p><code>HAVING</code> 子句与 <code>WHERE</code> 子句一样，指定选择条件。</p>
 <h4 id="order-by"><code>ORDER BY</code></h4>
@@ -8951,7 +9002,6 @@
 </code></pre></div>
 <h2 id="_5"><strong>限制</strong></h2>
 <ul>
-<li>在 <code>GROUP BY</code> 中暂不支持表别名。</li>
 <li><code>SELECT...FOR UPDATE</code> 当前仅支持单表查询。</li>
 <li>部分支持 <code>INTO OUTFILE</code>。</li>
 </ul>
@@ -9024,6 +9074,8 @@
     
     
       <script src="../../../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="../../../../../javascripts/extra.js"></script>
       
     
   </body>

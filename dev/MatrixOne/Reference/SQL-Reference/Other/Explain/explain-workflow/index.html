@@ -518,6 +518,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../Overview/architecture/architecture-tae/" class="md-nav__link">
+        存储引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../Overview/architecture/architecture-logservice/" class="md-nav__link">
         Logservice 架构详解
       </a>
@@ -1418,7 +1432,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+      <a href="../../../../../Develop/import-data/update-data/" class="md-nav__link">
+        更新数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Develop/import-data/delete-data/" class="md-nav__link">
+        删除数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Develop/import-data/prepared/" class="md-nav__link">
         预处理
       </a>
     </li>
@@ -8849,46 +8891,46 @@
 <table>
 <thead>
 <tr>
-<th>特性</th>
-<th>格式</th>
-<th>描述</th>
+<th>Feature</th>
+<th>Format</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>cost</td>
 <td>cost=0.00..0.00</td>
-<td>The first is estimated start-up cost. This is the time expended before the output phase can begin, e.g., time to do the sorting in a sort node. The second is estimated total cost. This is stated on the assumption that the plan node is run to completion, i.e., all available rows are retrieved. In practice a node's parent node might stop short of reading all available rows (see the <code>LIMIT</code> example below).</td>
+<td>第一个数是预计的启动成本。这是在输出阶段开始之前花费的时间，例如，在排序节点中进行排序的时间。第二个数是预计的总成本。这是在假设计划节点运行完成的情况下给出的，即检索所有可用的行。实际上，父节点可能在读取所有可用行之前停止（参见下面的“LIMIT”示例）。</td>
 </tr>
 <tr>
 <td>card</td>
 <td>card=14.00</td>
-<td>Estimated column cardinality.</td>
+<td>估计的列基数。</td>
 </tr>
 <tr>
 <td>ndv</td>
 <td>ndv=0.00</td>
-<td>Estimated number of distinct values.</td>
+<td>估计的不同值的数量。</td>
 </tr>
 <tr>
 <td>rowsize</td>
 <td>rowsize=0.00</td>
-<td>Estimated rowsize.</td>
+<td>估计的行大小。</td>
 </tr>
 <tr>
 <td>output</td>
 <td>Output: #[0,0], #[0,1], #[0,2], #[0,3], #[0,4], #[0,5], #[0,6], #[0,7]</td>
-<td>Node output information.</td>
+<td>节点输出信息。</td>
 </tr>
 <tr>
 <td>Table</td>
 <td>Table : 'emp' (0:'empno', 1:'ename', 2:'job', 3:'mgr',)</td>
-<td>Table definition information after column pruning.</td>
+<td>经过列剪枝后的表定义信息。</td>
 </tr>
 <tr>
 <td>Filter Cond</td>
 <td>Filter Cond: (CAST(#[0,5] AS DECIMAL128) &gt; CAST(20 AS DECIMAL128))</td>
-<td>Filter condition.</td>
+<td>过滤条件。</td>
 </tr>
 </tbody>
 </table>
@@ -8896,21 +8938,21 @@
 <table>
 <thead>
 <tr>
-<th>特性</th>
-<th>格式</th>
-<th>描述</th>
+<th>Feature</th>
+<th>Format</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>cost</td>
 <td>(cost=0.00..0.00 card=14.00 ndv=0.00 rowsize=0)</td>
-<td>Estimated cost</td>
+<td>预计成本</td>
 </tr>
 <tr>
 <td>output</td>
 <td>Output: 0</td>
-<td>Node output information</td>
+<td>节点输出信息</td>
 </tr>
 </tbody>
 </table>
@@ -8918,21 +8960,21 @@
 <table>
 <thead>
 <tr>
-<th>特性</th>
-<th>格式</th>
-<th>描述</th>
+<th>Feature</th>
+<th>Format</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>cost</td>
 <td>(cost=0.00..0.00 card=25.00 ndv=0.00 rowsize=0)</td>
-<td>Estimated cost</td>
+<td>预计成本</td>
 </tr>
 <tr>
 <td>output</td>
 <td>Output: (CAST(#[0,0] AS INT64) + 2)</td>
-<td>Node output information</td>
+<td>节点输出信息</td>
 </tr>
 </tbody>
 </table>
@@ -8940,31 +8982,31 @@
 <table>
 <thead>
 <tr>
-<th>特性</th>
-<th>格式</th>
-<th>描述</th>
+<th>Feature</th>
+<th>Format</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>cost</td>
 <td>(cost=0.00..0.00 card=14.00 ndv=0.00 rowsize=0)</td>
-<td>Estimated cost</td>
+<td>预计成本</td>
 </tr>
 <tr>
 <td>output</td>
 <td>Output: #[0,0], #[0,1], #[0,2], #[0,3], #[0,4], #[0,5], #[0,6], #[0,7]</td>
-<td>Node output information</td>
+<td>节点输出信息</td>
 </tr>
 <tr>
 <td>Group Key</td>
 <td>Group Key:#[0,0]</td>
-<td>Key for grouping</td>
+<td>分组的关键字</td>
 </tr>
 <tr>
 <td>Aggregate Functions</td>
 <td>Aggregate Functions: max(#[0,1])</td>
-<td>Aggregate function name</td>
+<td>聚合函数的名称</td>
 </tr>
 </tbody>
 </table>
@@ -8972,26 +9014,26 @@
 <table>
 <thead>
 <tr>
-<th>特性</th>
-<th>格式</th>
-<th>描述</th>
+<th>Feature</th>
+<th>Format</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>cost</td>
 <td>(cost=0.00..0.00 card=14.00 ndv=0.00 rowsize=0)</td>
-<td>Estimated cost</td>
+<td>预计成本</td>
 </tr>
 <tr>
 <td>output</td>
 <td>Output: #[0,0], #[0,1], #[0,2], #[0,3], #[0,4], #[0,5], #[0,6], #[0,7]</td>
-<td>Node output information</td>
+<td>节点输出信息</td>
 </tr>
 <tr>
 <td>Filter Cond</td>
 <td>Filter Cond: (CAST(#[0,1] AS INT64) &gt; 10)</td>
-<td>Filter condition</td>
+<td>过滤条件</td>
 </tr>
 </tbody>
 </table>
@@ -8999,31 +9041,31 @@
 <table>
 <thead>
 <tr>
-<th>特性</th>
-<th>格式</th>
-<th>描述</th>
+<th>Feature</th>
+<th>Format</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>cost</td>
 <td>(cost=0.00..0.00 card=14.00 ndv=0.00 rowsize=0)</td>
-<td>Estimated cost</td>
+<td>预计成本</td>
 </tr>
 <tr>
 <td>output</td>
 <td>Output: #[0,0]</td>
-<td>Node output information</td>
+<td>节点输出信息</td>
 </tr>
 <tr>
 <td>Join Type: INNER</td>
 <td>Join Type: INNER</td>
-<td>Join type</td>
+<td>连接类型</td>
 </tr>
 <tr>
 <td>Join Cond</td>
 <td>Join Cond: (#[0,0] = #[1,0])</td>
-<td>Join condition</td>
+<td>连接条件</td>
 </tr>
 </tbody>
 </table>
@@ -9031,36 +9073,21 @@
 <table>
 <thead>
 <tr>
-<th>特性</th>
-<th>格式</th>
-<th>描述</th>
+<th>Feature</th>
+<th>Format</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>cost</td>
 <td>(cost=0.00..0.00 card=25.00 ndv=0.00 rowsize=0)</td>
-<td>Estimated cost</td>
+<td>预计成本</td>
 </tr>
 <tr>
 <td>output</td>
-<td>Output: #[0,0], #[0,1], #[0,2], #[0,3], #[0,4], #[0,5], #[0,6], #[0,7]</td>
-<td>Node output information</td>
-</tr>
-<tr>
-<td>Sort Key</td>
-<td>Sort Key: #[0,0] DESC,  #[0,1] INTERNAL</td>
-<td>Sort key</td>
-</tr>
-<tr>
-<td>Limit</td>
-<td>Limit: 10</td>
-<td>Number limit for output data</td>
-</tr>
-<tr>
-<td>Offset</td>
-<td>Offset: 20</td>
-<td>Number offset for output data</td>
+<td>Output: #[0,0], #[0,1], #[0,2], #[0,3], #[0,4],</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -9133,6 +9160,8 @@
     
     
       <script src="../../../../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="../../../../../../javascripts/extra.js"></script>
       
     
   </body>
