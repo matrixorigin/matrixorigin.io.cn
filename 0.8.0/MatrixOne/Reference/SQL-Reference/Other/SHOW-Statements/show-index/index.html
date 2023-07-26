@@ -518,6 +518,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../Overview/architecture/architecture-tae/" class="md-nav__link">
+        存储引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../Overview/architecture/architecture-logservice/" class="md-nav__link">
         Logservice 架构详解
       </a>
@@ -1418,7 +1432,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+      <a href="../../../../../Develop/import-data/update-data/" class="md-nav__link">
+        更新数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Develop/import-data/delete-data/" class="md-nav__link">
+        删除数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Develop/import-data/prepared/" class="md-nav__link">
         预处理
       </a>
     </li>
@@ -4787,8 +4829,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#explanations" class="md-nav__link">
-    Explanations
+  <a href="#_3" class="md-nav__link">
+    语法说明
   </a>
   
 </li>
@@ -4799,7 +4841,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     示例
   </a>
   
@@ -8653,8 +8695,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#explanations" class="md-nav__link">
-    Explanations
+  <a href="#_3" class="md-nav__link">
+    语法说明
   </a>
   
 </li>
@@ -8665,7 +8707,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     示例
   </a>
   
@@ -8691,71 +8733,71 @@
 
 <h1 id="show-index"><strong>SHOW INDEX</strong></h1>
 <h2 id="_1"><strong>语法说明</strong></h2>
-<p><code>SHOW INDEX</code> returns table index information.</p>
-<p><code>SHOW INDEX</code> returns the following fields:</p>
+<p><code>SHOW INDEX</code> 返回表的索引信息。</p>
+<p><code>SHOW INDEX</code> 返回以下字段：</p>
 <table>
 <thead>
 <tr>
-<th>Fields</th>
-<th>Description</th>
+<th>字段</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Table</td>
-<td>The name of the table.</td>
+<td>表的名称。</td>
 </tr>
 <tr>
 <td>Non_unique</td>
-<td>0 if the index cannot contain duplicates, 1 if it can.</td>
+<td>如果索引不允许重复值，则为0；如果允许重复值，则为1。</td>
 </tr>
 <tr>
 <td>Key_name</td>
-<td>The name of the index. If the index is the primary key, the name is always PRIMARY.</td>
+<td>索引的名称。如果索引是主键，则名称始终为PRIMARY。</td>
 </tr>
 <tr>
 <td>Seq_in_index</td>
-<td>The column sequence number in the index, starting with 1.</td>
+<td>列在索引中的顺序号，从1开始。</td>
 </tr>
 <tr>
 <td>Column_name</td>
-<td>The column name. See also the description for the Expression column.</td>
+<td>列的名称。请参阅Expression列的描述。</td>
 </tr>
 <tr>
 <td>Collation</td>
-<td>How the column is sorted in the index. This can have values A (ascending), D (descending), or NULL (not sorted).</td>
+<td>列在索引中的排序方式。可能的值为A（升序），D（降序）或NULL（未排序）。</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>An estimate of the number of unique values in the index. To update this number, run ANALYZE TABLE or (for MyISAM tables) myisamchk -a.<br>Cardinality is counted based on statistics stored as integers, so the value is not necessarily exact even for small tables. The higher the cardinality, the greater the chance that MySQL uses the index when doing joins.</td>
+<td>索引中唯一值的估计数量。要更新此值，请运行ANALYZE TABLE或（对于MyISAM表）myisamchk -a。 <br>基数是基于存储为整数的统计信息计算的，因此即使对于小表，该值也不一定精确。基数越高，MySQL在执行连接操作时使用索引的可能性就越大。</td>
 </tr>
 <tr>
 <td>Sub_part</td>
-<td>The index prefix. That is, the number of indexed characters if the column is only partly indexed, NULL if the entire column is indexed. <br> <strong>Note:</strong> Prefix limits are measured in bytes. However, prefix lengths for index specifications in CREATE TABLE, ALTER TABLE, and CREATE INDEX statements are interpreted as number of characters for nonbinary string types (CHAR, VARCHAR, TEXT) and number of bytes for binary string types (BINARY, VARBINARY, BLOB). Take this into account when specifying a prefix length for a nonbinary string column that uses a multibyte character set.</td>
+<td>索引的前缀。即，如果列只部分索引化，则为索引化的字符数；如果整列都索引化，则为NULL。<br> <strong>注意：</strong>前缀限制以字节为单位。但是，在CREATE TABLE、ALTER TABLE和CREATE INDEX语句中，用于索引规范的前缀长度解释为非二进制字符串类型（CHAR、VARCHAR、TEXT）的字符数，以及用于二进制字符串类型（BINARY、VARBINARY、BLOB）的字节数。在指定非二进制字符串列的前缀长度时，请考虑使用多字节字符集。</td>
 </tr>
 <tr>
 <td>Packed</td>
-<td>Indicates how the key is packed. NULL if it is not.</td>
+<td>指示键是否被压缩。如果未压缩，则为NULL。</td>
 </tr>
 <tr>
 <td>Null</td>
-<td>Contains YES if the column may contain NULL values and '' if not.</td>
+<td>如果列可能包含NULL值，则为YES；否则为空字符串。</td>
 </tr>
 <tr>
 <td>Index_type</td>
-<td>The index method used (BTREE, FULLTEXT, HASH, RTREE).</td>
+<td>使用的索引方法（BTREE、FULLTEXT、HASH、RTREE）。</td>
 </tr>
 <tr>
 <td>Comment</td>
-<td>Information about the index not described in its own column, such as disabled if the index is disabled.</td>
+<td>关于索引的其他信息，不在自己的列中描述，例如如果索引已禁用则为disabled。</td>
 </tr>
 <tr>
 <td>Visible</td>
-<td>Whether the index is visible to the optimizer.</td>
+<td>索引是否对优化器可见。</td>
 </tr>
 <tr>
 <td>Expression</td>
-<td>For a nonfunctional key part, Column_name indicates the column indexed by the key part and Expression is NULL.<br>For a functional key part, Column_name column is NULL and Expression indicates the expression for the key part.</td>
+<td>对于非功能键部分，Column_name指示键部分索引的列，而Expression为NULL。<br>对于功能键部分，Column_name列为NULL，而Expression指示键部分的表达式。</td>
 </tr>
 </tbody>
 </table>
@@ -8764,9 +8806,9 @@
     {FROM | IN} tbl_name
     [{FROM | IN} db_name]
 </code></pre></div>
-<h3 id="explanations">Explanations</h3>
-<p>An alternative to tbl_name FROM db_name syntax is db_name.tbl_name.</p>
-<h2 id="_3"><strong>示例</strong></h2>
+<h3 id="_3">语法说明</h3>
+<p><code>tbl_name FROM db_name</code> 语法的替代方法是 <code>db_name.tbl_name</code>。</p>
+<h2 id="_4"><strong>示例</strong></h2>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">show_01</span><span class="p">(</span><span class="n">sname</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">show_01</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">---------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+------------------+---------+------------+</span>
@@ -8847,6 +8889,8 @@
     
     
       <script src="../../../../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="../../../../../../javascripts/extra.js"></script>
       
     
   </body>

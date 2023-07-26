@@ -518,6 +518,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Overview/architecture/architecture-tae/" class="md-nav__link">
+        存储引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Overview/architecture/architecture-logservice/" class="md-nav__link">
         Logservice 架构详解
       </a>
@@ -1418,7 +1432,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+      <a href="../../../../Develop/import-data/update-data/" class="md-nav__link">
+        更新数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/import-data/delete-data/" class="md-nav__link">
+        删除数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Develop/import-data/prepared/" class="md-nav__link">
         预处理
       </a>
     </li>
@@ -8966,12 +9008,14 @@
 <p>如果不指定处理数据的参数，则使用默认值如下：</p>
 <div class="highlight"><pre><span></span><code>FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;
 </code></pre></div>
-<p>意义如下：</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul>
-<li><code>FIELDS TERMINATED BY ','</code>：以<em>,</em> 作为分隔符</li>
-<li><code>ENCLOSED BY '"'</code>：使用双引号把各个字段括起来</li>
-<li><code>LINES TERMINATED BY '\n'</code>：以 '\n' 为行间分隔符</li>
+<li><code>FIELDS TERMINATED BY ','</code>：以且仅以 <code>,</code>、<code>|</code> 或 <code>\t</code> 作为分隔符。</li>
+<li><code>ENCLOSED BY '"'</code>：以且仅以 <code>"</code> 作为包括符。</li>
+<li><code>LINES TERMINATED BY '\n'</code>：以且仅以 <code>\n</code> 或 <code>\r\n</code> 作为行间分隔符。</li>
 </ul>
+</div>
 <p><strong>FIELDS TERMINATED BY</strong></p>
 <p><code>FIELDS TERMINATED BY</code> 表示字段与字段之间的分隔符，使用 <code>FIELDS TERMINATED BY</code> 就可以指定每个数据的分隔符号。</p>
 <p><code>FIELDS TERMINATED BY</code> 指定的值可以超过一个字符。</p>
@@ -9402,6 +9446,8 @@ load data infile {&#39;filepath&#39;=&#39;&lt;your-local-file-path&gt;/jsonline_
     
     
       <script src="../../../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="../../../../../javascripts/extra.js"></script>
       
     
   </body>

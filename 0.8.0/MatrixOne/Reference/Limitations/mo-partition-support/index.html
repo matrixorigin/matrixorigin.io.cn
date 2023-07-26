@@ -518,6 +518,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Overview/architecture/architecture-tae/" class="md-nav__link">
+        存储引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Overview/architecture/architecture-logservice/" class="md-nav__link">
         Logservice 架构详解
       </a>
@@ -1418,7 +1432,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+      <a href="../../../Develop/import-data/update-data/" class="md-nav__link">
+        更新数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/delete-data/" class="md-nav__link">
+        删除数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/prepared/" class="md-nav__link">
         预处理
       </a>
     </li>
@@ -7916,7 +7958,7 @@
         
           <li class="md-nav__item">
   <a href="#key-null" class="md-nav__link">
-    关于 KEY 分区分区键为 NULL
+    关于 KEY 分区键为 NULL
   </a>
   
 </li>
@@ -8710,7 +8752,7 @@
         
           <li class="md-nav__item">
   <a href="#key-null" class="md-nav__link">
-    关于 KEY 分区分区键为 NULL
+    关于 KEY 分区键为 NULL
   </a>
   
 </li>
@@ -8808,7 +8850,7 @@
 
 <span class="s1">ERROR 1503 (HY000): A PRIMARY KEY must include all columns in the table&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">partitioning</span><span class="w"> </span><span class="k">function</span>
 </code></pre></div>
-<h3 id="key-null">关于 KEY 分区分区键为 NULL</h3>
+<h3 id="key-null">关于 KEY 分区键为 NULL</h3>
 <ol>
 <li>
 <p>KEY 只接受零个或多个列名的列表。在表有主键的情况下，用作分区键的任何列必须包含表主键的一部分或全部。</p>
@@ -8834,7 +8876,7 @@
 <p>其他分区规则与 MySQL 基本保持一致。</p>
 </div>
 <h2 id="3-matrixone">3. 关于 MatrixOne 分区表达式的说明</h2>
-<p>​ 在 DDL 语句构建分区表时，会回针对每一种分区定义生成一个分区表达式，该分区表达式可用于计算数据的所属的分区。</p>
+<p>​ 在 DDL 语句构建分区表时，会针对每一种分区定义生成一个分区表达式，该分区表达式可用于计算数据的所属的分区。</p>
 <p>在计划构建阶段对 DDL 语句中的分区信息数据结构为 plan.PartitionInfo：</p>
 <div class="highlight"><pre><span></span><code><span class="k">type</span><span class="w"> </span><span class="n">PartitionInfo</span><span class="w"> </span><span class="n">struct</span><span class="w"> </span><span class="err">{</span>
 <span class="w">    </span><span class="k">Type</span><span class="w">                 </span><span class="n">PartitionType</span>
@@ -8943,6 +8985,8 @@
     
     
       <script src="../../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="../../../../javascripts/extra.js"></script>
       
     
   </body>

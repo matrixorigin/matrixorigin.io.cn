@@ -518,6 +518,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Overview/architecture/architecture-tae/" class="md-nav__link">
+        存储引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Overview/architecture/architecture-logservice/" class="md-nav__link">
         Logservice 架构详解
       </a>
@@ -1418,7 +1432,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Develop/import-data/bulk-load/prepared/" class="md-nav__link">
+      <a href="../../Develop/import-data/update-data/" class="md-nav__link">
+        更新数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/delete-data/" class="md-nav__link">
+        删除数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/import-data/prepared/" class="md-nav__link">
         预处理
       </a>
     </li>
@@ -9408,7 +9450,7 @@ local-path (default)   cluster.local/local-path-storage-local-path-provisioner  
 mkdir minio_ins &amp;&amp; cd minio_ins
 helm fetch minio/minio
 ls -lth
-tar minio-5.0.9.tgz # 这个版本可能会变，以实际下载到的为准
+tar -zxvf minio-5.0.9.tgz # 这个版本可能会变，以实际下载到的为准
 cd ./minio/
 
 kubectl create ns mostorage
@@ -9755,6 +9797,8 @@ mysql&gt;
     
     
       <script src="../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
       
     
   </body>
