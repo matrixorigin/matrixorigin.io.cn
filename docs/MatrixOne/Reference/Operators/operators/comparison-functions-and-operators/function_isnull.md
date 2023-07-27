@@ -6,7 +6,7 @@
 
 如果表达式为 `NULL`，则该函数返回 `true`。否则，它返回 `false`。
 
-`ISNULL()` 函数与 `IS NULL` 比较运算符共享一些特殊行为。参见[`IS NULL`](is-null.md)的描述。
+`ISNULL()` 函数与 `IS NULL` 比较运算符共享一些特殊行为。参见 [`IS NULL`](is-null.md) 的描述。
 
 ## **语法结构**
 
