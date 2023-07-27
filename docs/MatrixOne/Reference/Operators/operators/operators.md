@@ -26,13 +26,14 @@
 | [>>](bit-functions-and-operators/right-shift.md) | 位移运算符右移 |
 | [<<](bit-functions-and-operators/left-shift.md) |位移运算符右移 |
 | [^](bit-functions-and-operators/bitwise-xor.md) |按位异或 |
-| [|](bit-functions-and-operators/bitwise-or.md) |位运算符或，按位或|
+| [\|](bit-functions-and-operators/bitwise-or.md) |位运算符或，按位或|
 | [~](bit-functions-and-operators/bitwise-inversion.md) |一元运算符，二进制取反 |
 
 ## [**强制转换函数和运算符**](cast-functions-and-operators/cast-functions-and-operators-overview.md)
 
 | 名称 | 描述|
 |---|-----|
+| [BINARY()](cast-functions-and-operators/binary.md) | 将值转换为二进制字符串的函数 |
 | [CAST()](cast-functions-and-operators/cast.md) | 将值转换为特定类型，用于小数转数值和字符型 |
 | [CONVERT()](cast-functions-and-operators/convert.md) | 将值转换为特定类型，用于日期和时间值、小数之间进行转换 |
 
@@ -52,8 +53,10 @@
 | [IS NOT](comparison-functions-and-operators/is-not.md) | 测试值是否是布尔值，IS 的否定用法 |
 | [IS NOT NULL](comparison-functions-and-operators/is-not-null.md) | 不为空 |
 | [IS NULL](comparison-functions-and-operators/is-null.md) | 为空 |
+| [ISNULL](comparison-functions-and-operators/function_isnull.md) | 代替 `=` 来测试值是否为 `NULL`。|
 | [LIKE](comparison-functions-and-operators/like.md) | 模糊匹配 |
 | [NOT BETWEEN ... AND ...](comparison-functions-and-operators/not-between.md) | 不在两值之间 |
+| [NOT IN](comparison-functions-and-operators/not-in.md) | 多个 `XOR` 条件的简写 |
 | [NOT LIKE](comparison-functions-and-operators/not-like.md) | 模糊匹配，Like 的否定用法 |
 | [COALESCE](comparison-functions-and-operators/coalesce.md)|返回第一个非空值|
 
@@ -63,6 +66,8 @@
 |---|-----|
 | [CASE](flow-control-functions/case-when.md) | Case 运算符 |
 | [IF()](flow-control-functions/function_if.md) | If/else 语句 |
+| [IFNULL()](flow-control-functions/function_ifnull.md) | If null/else 语句 |
+| [NULLIF()](function_nullif.md) | expr1 = expr2 时返回 NULL |
 
 ## [**逻辑运算符**](logical-operators/logical-operators-overview.md)
 

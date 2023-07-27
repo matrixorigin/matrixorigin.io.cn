@@ -1,17 +1,16 @@
 # **IFNULL**
 
-## **Description**
+## **语法说明**
 
-If expr1 is not `NULL`, `IFNULL()` returns expr1; otherwise it returns expr2.
-The default return type of `IFNULL(expr1,expr2)` is the more "general" of the two expressions, in the order `STRING`, `REAL`, or `INTEGER`.
+如果 `expr1` 不为 `NULL`，则 `IFNULL()` 返回 `expr1`；否则返回 `expr2`。
 
-## **Syntax**
+## **语法结构**
 
 ```
 > IFNULL(expr1,expr2)
 ```
 
-## **Examples**
+## **示例**
 
 ```sql
 mysql> SELECT IFNULL(NULL,10);
@@ -20,13 +19,13 @@ mysql> SELECT IFNULL(NULL,10);
 +------------------+
 |               10 |
 +------------------+
-1 row in set (0.00 sec)
+1 row in set (0.01 sec)
 ```
 
 ```sql
 mysql> SELECT CAST(IFNULL(NULL, NULL) AS DECIMAL);
 +-----------------------------------------+
-| cast(ifnull(null, null) as decimal(10)) |
+| cast(ifnull(null, null) as decimal(38)) |
 +-----------------------------------------+
 |                                    NULL |
 +-----------------------------------------+

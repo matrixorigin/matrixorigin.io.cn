@@ -340,6 +340,7 @@ nav:
               - '~': MatrixOne/Reference/Operators/operators/bit-functions-and-operators/bitwise-inversion.md
             - 强制转换函数和运算符:
               - 强制转换函数和运算符概述: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/cast-functions-and-operators-overview.md
+              - BINARY: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/binary.md
               - CAST: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/cast.md
               - CONVERT: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/convert.md
             - 比较函数和运算符:
@@ -356,14 +357,18 @@ nav:
               - IS NOT: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/is-not.md
               - IS NOT NULL: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/is-not-null.md
               - IS NULL: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/is-null.md
+              - ISNULL: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/function_isnull.md
               - LIKE: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/like.md
               - NOT BETWEEN ... AND ...: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/not-between.md
+              - NOT IN: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/not-in.md
               - NOT LIKE: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/not-like.md
               - COALESCE: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/coalesce.md
             - 控制流函数:
               - 控制流函数概述: MatrixOne/Reference/Operators/operators/flow-control-functions/flow-control-functions-overview.md
               - CASE WHEN: MatrixOne/Reference/Operators/operators/flow-control-functions/case-when.md
               - IF: MatrixOne/Reference/Operators/operators/flow-control-functions/function_if.md
+              - IFNULL: MatrixOne/Reference/Operators/operators/flow-control-functions/function_ifnull.md
+              - NULLIF: MatrixOne/Reference/Operators/operators/flow-control-functions/function_nullif.md
             - 逻辑运算符:
               - 逻辑运算符概述: MatrixOne/Reference/Operators/operators/logical-operators/logical-operators-overview.md
               - AND,&&: MatrixOne/Reference/Operators/operators/logical-operators/and.md
