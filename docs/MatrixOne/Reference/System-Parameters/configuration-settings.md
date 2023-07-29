@@ -14,8 +14,8 @@
 |level = "info" |日志级别，可修改为 info/debug/error/faltal|
 |format = "console" |日志格式|
 |max-size = 512|日志默认长度|
-|[hakeeper-client]|HAkeeper 默认地址与端口，不建议更改|
-|service-addresses = [<br>  "127.0.0.1:32001",<br>]||
+|[hakeeper-client]|HAKeeper 相关配置|
+|service-addresses = [<br>  "127.0.0.1:32001",<br>]|HAKeeper 默认地址与端口，不建议更改|
 |[metacache]|元数据缓存|
 |memory-capacity = "512MB"|设置元数据的缓存大小，默认 512MB，数据缓存特性对于首次查询较慢，但之后多次查询速度会变快。|
 |[[fileservice]] |fileservice 配置，不建议更改|
@@ -37,8 +37,10 @@
 |[observability]|可观测性参数，默认不开启|
 |disableTrace = true||
 |disableMetric = true||
-|[cn] |cn 节点的编号，不可修改|
-|uuid = "dd1dccb4-4d3c-41f8-b482-5251dc7a41bf"||
+|[cn] ||
+|uuid = "dd1dccb4-4d3c-41f8-b482-5251dc7a41bf"|cn 节点的编号，不可修改|
+|port-base = 18000|cn 服务中使用端口的起始端口号，从该端口号起的20个端口预留给该服务使用，请不要占用。<br />如果不设置，则使用原来的方式配置监听地址。如果设置了，则不再需要设置内部的服务 listen address 和 service address。|
+|service-host = "127.0.0.1"|其他 cn 实例连接该实例的地址，配合 port-base 使用。即如果设置了 port-base，那么只需要设置该值即可，默认值为 127.0.0.1。|
 |[cn.Engine]|cn 节点的存储引擎，分布式 tae，不可修改|
 |type = "distributed-tae"||
 |[cn.txn]||
@@ -77,6 +79,8 @@
 |backend = "DISK-ETL"|fileservice 后端介质，DISK-ETL|
 |[dn]||
 |uuid = "dd4dccb4-4d3c-41f8-b482-5251dc7a41bf"|DN 的 uuid，不可修改|
+|port-base = 19000|dn 服务中使用端口的起始端口号，从该端口号起的20个端口预留给该服务使用，请不要占用。<br />如果不设置，则使用原来的方式配置监听地址。|
+|service-host = "127.0.0.1"|其他服务连接该 dn 的地址，配合 port-base 使用。即如果设置了 port-base，那么只需要设置该值即可，默认值为 127.0.0.1。|
 |[dn.Txn.Storage]|dn 事务后端的存储引擎，不可修改|
 |backend = "TAE" ||
 |log-backend = "logservice"||
@@ -127,14 +131,18 @@
 |[observability]|监控相关参数|
 |statusPort = 7001|预留普罗米修斯的监控端口|
 |enableTraceDebug = false|开启 trace 功能的 dbug 模式|
-|[hakeeper-client]|HAkeeper 默认地址与端口，不建议更改|
-|service-addresses = [<br>  "127.0.0.1:32001",<br>]||
+|[hakeeper-client]||
+|service-addresses = [<br>  "127.0.0.1:32001",<br>]|HAkeeper 默认地址与端口，不建议更改|
 |[logservice] |logservice 的相关参数，不可修改|
 |deployment-id = 1 |logservice 的部署 id|
 |uuid = "7c4dccb4-4d3c-41f8-b482-5251dc7a41bf"|logservice 的节点 id|
-|raft-address = "127.0.0.1:32000"|raft 协议使用的地址|
-|logservice-address = "127.0.0.1:32001"|logservice 服务地址|
-|gossip-address = "127.0.0.1:32002" |gossip 协议的地址|
+|service-host = "127.0.0.1"|logservice 中所有服务的 service 地址，不包含端口号|
+|raft-address = "127.0.0.1:32000"|raft 协议使用的地址，即将弃用|
+|raft-port = 32000|raft 协议使用的端口号|
+|logservice-address = "127.0.0.1:32001"|logservice 服务地址，即将弃用|
+|logservice-port = 32001|logservice 服务使用的端口号|
+|gossip-address = "127.0.0.1:32002" |gossip 协议的地址，即将弃用|
+|gossip-port = 32002 |gossip 协议使用的端口号|
 |gossip-seed-addresses = [<br>"127.0.0.1:32002",<br>]|gossip 协议的种子节点地址|
 |gossip-allow-self-as-seed = true|是否允许 gossip 协议用本节点做种子节点|
 |[logservice.BootstrapConfig]|bootstrap 相关参数，不可修改|
