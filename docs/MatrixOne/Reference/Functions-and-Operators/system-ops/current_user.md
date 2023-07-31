@@ -7,7 +7,7 @@
 ## **语法结构**
 
 ```
-SELECT CURRENT_ROLE();
+SELECT CURRENT_USER();
 ```
 
 ## **示例**

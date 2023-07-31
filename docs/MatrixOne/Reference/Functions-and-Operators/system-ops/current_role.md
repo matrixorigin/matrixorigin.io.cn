@@ -1,13 +1,13 @@
 # **CURRENT_ROLE()**
 
-## **函数说明**
+## **语法说明**
 
-`CURRENT_ROLE_NAME()` 用于查询你当前所登录的用户所拥有的角色。
+返回当前会话的角色。
 
-## **函数语法**
+## **语法结构**
 
 ```
-> CURRENT_ROLE()
+SELECT CURRENT_ROLE();
 ```
 
 ## **示例**
@@ -18,6 +18,19 @@ mysql> select current_role();
 | current_role() |
 +----------------+
 | moadmin        |
++----------------+
+1 row in set (0.00 sec)
+
+-- 新建一个角色，并且切换到新角色
+create role use_role_1;
+grant all on database * to use_role_1;
+grant use_role_1 to root;
+set role use_role_1;
+mysql> select current_role();
++----------------+
+| current_role() |
++----------------+
+| use_role_1     |
 +----------------+
 1 row in set (0.00 sec)
 ```
