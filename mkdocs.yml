@@ -481,6 +481,7 @@ nav:
             - CURRENT_ROLE_NAME(): MatrixOne/Reference/Functions-and-Operators/system-ops/current_role_name.md
             - CURRENT_ROLE(): MatrixOne/Reference/Functions-and-Operators/system-ops/current_role.md
             - CURRENT_USER_NAME(): MatrixOne/Reference/Functions-and-Operators/system-ops/current_user_name.md
+            - CURRENT_USER(): MatrixOne/Reference/Functions-and-Operators/system-ops/current_user.md
             - PURGE_LOG(): MatrixOne/Reference/Functions-and-Operators/system-ops/purge_log.md
       - 系统配置:
         - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
