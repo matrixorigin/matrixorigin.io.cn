@@ -214,7 +214,9 @@ nav:
       - 数据类型:
         - 数据类型概览: MatrixOne/Reference/Data-Types/data-types.md
         - 数据类型转换: MatrixOne/Reference/Data-Types/data-type-conversion.md
-        - TIMESTAMP 和 DATETIME 的自动初始化和更新: MatrixOne/Reference/Data-Types/timestamp-initialization.md
+        - 日期和时间类型:
+          - TIMESTAMP 和 DATETIME 的自动初始化和更新: MatrixOne/Reference/Data-Types/date-time-data-types/timestamp-initialization.md
+          - YEAR 类型: MatrixOne/Reference/Data-Types/date-time-data-types/year-type.md
         - JSON 数据类型: MatrixOne/Reference/Data-Types/json-type.md
         - BLOB 和 TEXT 数据类型: MatrixOne/Reference/Data-Types/blob-text-type.md
         - UUID 数据类型: MatrixOne/Reference/Data-Types/uuid-type.md
@@ -411,6 +413,8 @@ nav:
             - TIMEDIFF(): MatrixOne/Reference/Functions-and-Operators/Datetime/timediff.md
             - TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/timestamp.md
             - TO_DATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-date.md
+            - TO_DAYS(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-seconds.md
+            - TO_SECONDS(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-days.md
             - UNIX_TIMESTAMP: MatrixOne/Reference/Functions-and-Operators/Datetime/unix-timestamp.md
             - UTC_TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/utc-timestamp.md
             - WEEKDAY(): MatrixOne/Reference/Functions-and-Operators/Datetime/weekday.md
