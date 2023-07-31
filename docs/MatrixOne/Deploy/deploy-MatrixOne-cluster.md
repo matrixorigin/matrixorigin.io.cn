@@ -263,10 +263,10 @@ docker run -d \
 
 4. 命令结果如上图所示，即表示 Kubernetes 集群安装完成。
 
-5. 在 Kubernetes 的每个节点上调整 DNS 路由表。请在每台机器上执行以下命令，查找包含 `169.254.25.10` 的 nameserver，并删除该记录。（该记录可能影响各个 Pod 之间的通信效率）
+5. 在 Kubernetes 的每个节点上调整 DNS 路由表。请在每台机器上执行以下命令，查找包含 `169.254.25.10` 的 nameserver，并删除该记录。（该记录可能影响各个 Pod 之间的通信效率，如果不存在这条记录则无需更改）
 
     ```
-    vim
+    vim /etc/resolve.conf
     ```
 
     ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-10-1.png)
