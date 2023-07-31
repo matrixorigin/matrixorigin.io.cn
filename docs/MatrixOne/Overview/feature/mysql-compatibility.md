@@ -204,6 +204,10 @@ CREATE TABLE IF NOT EXISTS `tool` (
 
 * 仅支持 `JSON_UNQUOTE`，`JSON_QUOTE`，`JSON_EXTRACT`。
 
+### 系统管理函数
+
+- 支持 `CURRENT_ROLE_NAME()`，`CURRENT_ROLE()`，`CURRENT_USER_NAME()`，`CURRENT_USER`，`PURGE_LOG()`。
+
 ## 存储引擎
 
 * MatrixOne 的 TAE 存储引擎是完全独立研发的，不支持 MySQL 的 InnoDB，MyISAM 等引擎。
