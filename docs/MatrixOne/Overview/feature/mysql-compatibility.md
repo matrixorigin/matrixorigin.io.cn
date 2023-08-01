@@ -112,8 +112,8 @@ CREATE TABLE IF NOT EXISTS `tool` (
 ### SHOW 相关
 
 * MatrixOne 不支持对某些对象进行 SHOW 操作，包括 `TRIGGER`，`FUNCTION`，`EVENT`，`PROCEDURE`，`ENGINE` 等。
-* 由于架构上的不同，MatrixOne 实现了部分 SHOW 命令仅出于语法的兼容性，这些命令不会产生任何输出，如 `SHOW STATUS/PROCESSLIST/PRIVILEGES` 等。
-* 有些命令虽然在语法上与 MySQL 相同，但由于实现方式的不同，其结果与 MySQL 会有较大差异，如：`SHOW GRANTS`，`SHOW ERRORS`，`SHOW VARIABLES`。
+* 由于架构上的不同，MatrixOne 实现了部分 SHOW 命令仅出于语法的兼容性，这些命令不会产生任何输出，如 `SHOW STATUS/PRIVILEGES` 等。
+* 有些命令虽然在语法上与 MySQL 相同，但由于实现方式的不同，其结果与 MySQL 会有较大差异，如：`SHOW GRANTS`，`SHOW ERRORS`，`SHOW VARIABLES`，`SHOW PROCESSLIST`。
 * MatrixOne 提供了一些特有的 SHOW 命令以方便其自身的管理，包括 `SHOW BACKEND SERVERS`，`SHOW ACCOUNTS`，`SHOW ROLES`，`SHOW NODE LIST` 等。
 
 ### 关于 SET
