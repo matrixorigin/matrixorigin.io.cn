@@ -533,7 +533,7 @@ __Note:__ 本章节均是在 master0 节点操作。
           level = "error"
           format = "json"
           max-size = 512
-        replicas: 1 # dn的副本数
+        replicas: 1 # dn的副本数，不可修改。当前版本仅支持设置为 1。
       # 2. 配置 logservice
       logService:
         replicas: 3 # logservice的副本数
@@ -551,7 +551,7 @@ __Note:__ 本章节均是在 master0 节点操作。
             endpoint: http://minio.mostorage:9000 # 此处为 minio 服务的 svc 地址和端口
             secretRef: # 配置访问 minio 的密钥即 secret，名称为 minio
               name: minio
-        pvcRetentionPolicy: Retain # 配置集群销毁后，S3 桶的周期策略，Retain 为保留，Delete 为删除
+        pvcRetentionPolicy: Retain # 配置集群销毁后，pvc 的周期策略，Retain 为保留，Delete 为删除
         volume:
           size: 1Gi # 配置 S3 对象存储的大小，根据实际磁盘大小和需求修改
         config: | # logservice 的配置
