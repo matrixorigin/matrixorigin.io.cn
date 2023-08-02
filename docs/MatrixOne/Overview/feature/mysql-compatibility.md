@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `tool` (
 
 ## 分区支持
 
-* 仅支持 `KEY`，`HASH` 两种分区类型。
+* 仅支持 `KEY`，`HASH`，`RANGE`，`RANGE COLUMNS`，`LIST`，`LIST COLUMNS` 六种分区类型。
 * 子分区仅实现语法，未实现功能。
 
 ## 函数与操作符

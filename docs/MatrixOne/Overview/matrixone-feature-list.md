@@ -136,10 +136,10 @@
 | ----------------- | ---------------------------------- |
 | KEY 分区          | E                                  |
 | HASH 分区         | E                                  |
-| RANGE 分区        | N                                  |
-| RANGE COLUMNS分区 | N                                  |
-| LIST 分区         | N                                  |
-| LIST COLUMNS 分区 | N                                  |
+| RANGE 分区        | E                                  |
+| RANGE COLUMNS分区 | E                                  |
+| LIST 分区         | E                                  |
+| LIST COLUMNS 分区 | E                                  |
 
 ## 数据导入和导出
 
