@@ -7,7 +7,7 @@
 !!! note
     1. 集群管理员（即 root 用户）可以修改它所创建的租户的密码。
     2. 租户本身可以修改自己的密码。
-    2. 仅集群管理员（即 root 用户）可以执行**暂停（SUSPEND）**和**恢复（OPEN）**租户的操作。
+    2. 仅集群管理员（即 root 用户）可以执行**暂停（SUSPEND）**、**恢复（OPEN）**和**限制（RESTRICTED）**租户的操作。
 
 ## **语法结构**
 
@@ -23,6 +23,7 @@ IDENTIFIED BY 'auth_string'
 status_option: {
 OPEN
 | SUSPEND
+| RESTRICTED
 }
 ```
 
@@ -38,6 +39,9 @@ OPEN
 
 - SUSPEND：暂停某个租户的服务，即暂停后该租户不能再访问 MatrixOne；正在访问的租户仍然可以继续访问，关闭会话后，将不能再访问 MatrixOne。
 - OPEN：恢复某个暂停状态的租户，恢复后，该租户将正常访问 MatrixOne。
+- RESTRICTED：允许用户访问并做出有限的行为。对租户启用了 `RESTRICTED` 状态以后，这个租户只能对数据库进行 `SHOW`/`DELETE`/`SELECT`/`USE`/`SET` 操作，其他操作不可以使用。
+    * 对该租户启用了 `RESTRICTED` 状态后，即使租户正在访问，访问行为也将受到限制。
+    * 解除对用户的限制，将状态切换为 `OPEN` 即可解除限制，即使用 `ALTER ACCOUNT account_name OPEN` 解除限制。
 
 ### comment
 
