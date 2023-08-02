@@ -10,7 +10,7 @@
 | 删除数据库DROP DATABASE            | Y                                            |
 | 修改数据库ALTER DATABASE           | N                                            |
 | 创建表CREATE TABLE                 | Y                                            |
-| 修改表ALTER TABLE                  | E，支持修改表名，增删列，不支持修改列        |
+| 修改表ALTER TABLE                  | E，子句`CHANGE [COLUMN]`，`MODIFY [COLUMN]`，`RENAME COLUMN`，`ADD [CONSTRAINT [symbol]] PRIMARY KEY`，`DROP PRIMARY KEY` 和 `ALTER COLUMN ORDER BY` 可以在 ALTER TABLE 语句中自由组合使用，但暂时不支持与其他子句一起使用。  |
 | 修改表名RENAME TABLE               | N，可用ALTER TABLE tbl RENAME TO new_tbl替代 |
 | 删除表DROP TABLE                   | Y                                            |
 | 创建约束CREATE INDEX               | Y，次级索引没有加速作用                      |
