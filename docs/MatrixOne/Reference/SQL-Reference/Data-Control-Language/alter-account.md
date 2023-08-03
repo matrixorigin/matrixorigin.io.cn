@@ -37,7 +37,7 @@ OPEN
 
 设置租户的状态。作为 VARCHAR 类型存储在系统数据库 mo_catalog 下的 mo_account 表中。
 
-- SUSPEND：暂停某个租户的服务，即暂停后该租户不能再访问 MatrixOne；正在访问的租户仍然可以继续访问，关闭会话后，将不能再访问 MatrixOne。
+- SUSPEND：暂停某个租户的服务，即暂停后该租户不能再访问 MatrixOne；正在访问的租户也无法再访问 MatrixOne。
 - OPEN：恢复某个暂停状态的租户，恢复后，该租户将正常访问 MatrixOne。
 - RESTRICTED：允许用户访问并做出有限的行为。对租户启用了 `RESTRICTED` 状态以后，这个租户只能对数据库进行 `SHOW`/`DELETE`/`SELECT`/`USE`/`SET` 操作，其他操作不可以使用。
     * 对该租户启用了 `RESTRICTED` 状态后，即使租户正在访问，访问行为也将受到限制。
