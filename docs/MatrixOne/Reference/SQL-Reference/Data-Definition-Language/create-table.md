@@ -38,12 +38,26 @@
 
 #### AUTO_INCREMENT
 
-`AUTO_INCREMENT`：表的初始值，初始值从 1 开始，且数据列的值必须唯一。
+`AUTO_INCREMENT`：表的初始值，初始值默认从 1 开始，每条新纪录递增 1，且数据列的值必须唯一。
 
 - 设置 `AUTO_INCREMENT` 的列，需为整数或者浮点数据类型。
 - 自增列需要设置为 `NOT NULL`，否则会直接存储 `NULL`。当你将 NULL（推荐）或 0 值插入索引的 `AUTO_INCREMENT` 列时，该列将设置为下一个序列值。通常这是 *value+1*，其中 *value* 是表中当前列的最大值。
 
 - 每个表只能有一个 `AUTO_INCREMENT` 列，它必须可以被索引，且不能设置默认值。`AUTO_INCREMENT` 列需要含有正数值，如果插入一个负数被判断为插入一个非常大的正数，这样做是为了避免数字出现精度问题，并确保不会意外出现包含 0 的 `AUTO_INCREMENT` 列。
+
+你可以使用 `AUTO_INCREMENT` 属性来定义自增列的起始值。如果要设置自增列的起始值为 10，可以在创建表时使用 `AUTO_INCREMENT` 关键字，并在后面指定起始值。
+
+例如，创建一个表并定义自增列的起始值为 10，可以使用以下 SQL 语句：
+
+```sql
+-- 设置
+create table t1(a int auto_increment primary key) auto_increment = 10;
+```
+
+在这个例子中，`id` 列是自增列，其起始值为 10，当向表中插入新记录时，`id` 列的值将从 10 开始，每次自动递增 1。如果没有指定 `AUTO_INCREMENT` 的起始值，默认起始值为 1，每次自动递增 1。
+
+!!! note
+    MatrixOne 目前仅支持默认的递增步长为 1，无论自增列的初始值为何，每次自动递增都为 1。暂时不支持设置递增步长大小。
 
 #### PRIMARY KEY
 
@@ -541,4 +555,6 @@ mysql> select * from t1 order by a;
 
 ## **限制**
 
-目前不支持使用 `ALTER TABLE table_name DROP PRIMARY KEY` 语句删除表中的主键。
+1. 不支持使用 `ALTER TABLE table_name DROP PRIMARY KEY` 语句删除表中的主键。
+2. 不支持使用 `ALTER TABLE table_name AUTO_INCREMENT = n;` 语句修改自增列初始值。
+3. 在 MatrixOne 中，虽然语法上支持使用 `set @@auto_increment_increment=n` 来设置递增步长，但实际上并不生效；当前支持设置自增列的初始值 `AUTO_INCREMENT=n`，但步长仍然默认为 1。
