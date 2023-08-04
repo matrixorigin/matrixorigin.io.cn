@@ -253,6 +253,7 @@ nav:
             - CURRENT_ROLE(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_role.md
             - LAST_QUERY_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id.md
             - LAST_INSERT_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-insert-id.md
+          - REPLACE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/replace.md
         - 数据查询语言（DQL）:
           - SELECT: MatrixOne/Reference/SQL-Reference/Data-Query-Language/select.md
           - SUBQUERY:
