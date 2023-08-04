@@ -78,7 +78,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | ------------ | ------------ | ------------ |
 | account_id   | int unsigned | 租户 ID，主键  |
 | account_name | varchar(100) | 租户名  |
-| status       | varchar(100) | 开启/暂停 |
+| status       | varchar(100) | 开启/暂停/限制 |
 | created_time | timestamp    | 创建时间  |
 | comment     | varchar(256)  | 注释      |
 | suspended_time | TIMESTAMP    | 修改租户状态的时间|
@@ -296,7 +296,6 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | query_type            | VARCHAR(1024) | 查询类型，[DQL, DDL, DML, DCL, TCL]                                |
 | role_id               | BIGINT        | 角色 ID                                                                     |
 | sql_source_type       | TEXT          | SQL语句源类型                                                   |
-| aggr_count            | BIGINT(64)    | 语句的总数   |
 | result_count          | BIGINT(64)    | 统计sql执行结果的行数    |  
 
 ### `rawlog` 表
