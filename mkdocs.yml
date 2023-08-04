@@ -120,7 +120,7 @@ nav:
         - 公共表表达式: MatrixOne/Develop/read-data/cte.md
         - 窗口函数: MatrixOne/Develop/read-data/window-function.md
       - 租户设计:
-        - 多租户概述: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
+        - 多租户概述: MatrixOne/Develop/Publish-Subscribe/multi-account-overview.md
         - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
       - 事务:
         - 事务通用概念: MatrixOne/Develop/Transactions/common-transaction-overview.md
