@@ -456,6 +456,7 @@ nav:
             - LPAD(): MatrixOne/Reference/Functions-and-Operators/String/lpad.md
             - LTRIM(): MatrixOne/Reference/Functions-and-Operators/String/ltrim.md
             - OCT(): MatrixOne/Reference/Functions-and-Operators/String/oct.md
+            - REPEAT(): MatrixOne/Reference/Functions-and-Operators/String/repeat.md
             - REVERSE(): MatrixOne/Reference/Functions-and-Operators/String/reverse.md
             - RPAD(): MatrixOne/Reference/Functions-and-Operators/String/rpad.md
             - RTRIM(): MatrixOne/Reference/Functions-and-Operators/String/rtrim.md
