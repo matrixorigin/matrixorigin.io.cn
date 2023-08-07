@@ -219,6 +219,7 @@ nav:
           - YEAR 类型: MatrixOne/Reference/Data-Types/date-time-data-types/year-type.md
         - JSON 数据类型: MatrixOne/Reference/Data-Types/json-type.md
         - BLOB 和 TEXT 数据类型: MatrixOne/Reference/Data-Types/blob-text-type.md
+        - ENUM 类型: MatrixOne/Reference/Data-Types/enum-type.md
         - UUID 数据类型: MatrixOne/Reference/Data-Types/uuid-type.md
         - 精确数值类型-DECIMAL: MatrixOne/Reference/Data-Types/fixed-point-types.md
       - SQL 目录:
