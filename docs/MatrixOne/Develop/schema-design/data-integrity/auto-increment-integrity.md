@@ -66,4 +66,4 @@ mysql> SELECT * FROM employees;
 ## 限制
 
 1. MatrixOne 暂时还不支持使用 `ALTER TABLE` 修改自增值的起始值和递增步长。
-2. 在 MatrixOne 中，仅语法上支持使用 `set @@auto_increment_increment=n` 来设置递增步长，也仅语法支持使用 `set auto_increment_offset=n` 来设置自增列初始值，但实际上并不生效；当前支持设置自增列的初始值 `AUTO_INCREMENT=n`，但步长仍然默认为 1。
+2. 在 MatrixOne 中，仅语法上支持使用 `set @@auto_increment_increment=n` 来设置递增步长，也仅语法支持使用 `set @@auto_increment_offset=n` 来设置默认自增列初始值，但实际上并不生效；当前支持设置自增列的初始值 `AUTO_INCREMENT=n`，但步长仍然默认为 1。
