@@ -25,7 +25,7 @@
 | session_id     | varchar | not null  | 会话 ID         |
 | account        | varchar | not null  | 租户 <br>__Note:__ 系统租户下可以看到所有租户的会话与租户名称，非系统租户只能看到自己租户的会话与租户名称。    |
 | user           | varchar | not null  | 用户               |
-| host           | varchar | not null  | 主机名或IP地址       |
+| host           | varchar | not null  | 客户机端的主机名     |
 | db             | varchar |           | 数据库名            |
 | session_start  | varchar |           | 会话开始时间     |
 | command        | varchar | not null  | 命令类型，如COM_QUERY |
