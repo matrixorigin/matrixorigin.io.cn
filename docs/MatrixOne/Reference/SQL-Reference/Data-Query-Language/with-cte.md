@@ -63,6 +63,72 @@ SELECT ... FROM <query_name>;
 
 - `SELECT ... FROM <query_name>`：在递归 CTE 上使用递归 CTE 的名称进行查询。
 
+#### 递归 CTE 使用规则
+
+##### 锚定成员与递归成员
+
+递归 CTE 必须包含至少两个查询定义，一个是锚定成员（anchor member），一个是递归成员（recursive member）。锚定成员必须位于第一个递归成员之前，可以定义多个锚定和递归成员。所有 CTE 查询定义都被视为锚定成员，除非它们引用 CTE 本身。
+
+假设有一个名为 `Employee` 的表，包含员工的信息，其中包括 `EmployeeID`、`Name` 和 `ManagerID` 字段，表示员工的 ID、姓名和上级经理的 ID。我们可以使用递归 CTE 来查询员工及其下属的层级关系。
+
+假设表中的数据如下：
+
+| EmployeeID | Name    | ManagerID |
+|------------|---------|-----------|
+| 1          | Alice   | NULL      |
+| 2          | Bob     | 1         |
+| 3          | Charlie | 1         |
+| 4          | David   | 2         |
+| 5          | Eve     | 2         |
+| 6          | Frank   | 3         |
+
+以下是使用递归 CTE 来查询员工及其下属的层级关系的示例：
+
+```sql
+WITH RECURSIVE EmployeeHierarchy AS (
+    -- 锚定成员：查找顶层员工
+    SELECT EmployeeID, Name, ManagerID, 0 AS Level
+    FROM Employee
+    WHERE ManagerID IS NULL
+    
+    UNION ALL
+    
+    -- 递归成员：递归查询下属员工
+    SELECT e.EmployeeID, e.Name, e.ManagerID, eh.Level + 1
+    FROM Employee AS e
+    JOIN EmployeeHierarchy AS eh ON e.ManagerID = eh.EmployeeID
+)
+SELECT Name, Level
+FROM EmployeeHierarchy;
+```
+
+在上面的示例中：
+
+- 锚定成员选择顶层员工（`ManagerID` 为 NULL）并将其级别（Level）设置为0。
+- 递归成员基于上一轮的结果（`EmployeeHierarchy`）查询下属员工，并将级别递增。
+- 查询最终使用 `SELECT` 从递归 CTE 中检索员工姓名和层级。
+
+执行此查询后，将获得员工及其下属的层级关系信息，其中锚定成员和递归成员共同构成了递归查询的结构。非递归 CTE 用于创建临时的查询结果集，你只需要提供一个查询定义，然后在查询中引用这个CTE，而无需关心锚定成员和递归成员的问题。
+
+##### 运算符与语句要求
+
+- **集合运算符**：锚定成员必须使用集合运算符（如 `UNION ALL`、`UNION`、`INTERSECT` 或 `EXCEPT`）进行组合。只有在最后一个锚定成员与第一个递归成员之间，以及在组合多个递归成员时，允许使用 UNION ALL。
+
+- **列匹配**：锚定成员和递归成员中的列数量必须相同。
+
+- **数据类型**：递归成员中的列的数据类型必须与锚定成员中相应列的数据类型相匹配。
+
+- **FROM 子句**：递归成员的 FROM 子句只能一次引用 CTE expression_name。
+
+- **不支持的特性**：在递归成员的 CTE_query_definition 中不允许使用某些特性，包括：
+
+    + 使用 `SELECT DISTINCT` 关键字进行去重查询。
+    + 使用 `GROUP BY` 对结果进行分组。
+    + 使用 `HAVING` 筛选分组后的结果。
+    + 进行标量聚合，即对一组行应用聚合函数（如 `SUM`、`AVG` 等）得到一个单一的值。
+    + 使用 `LEFT`、`RIGHT`、`OUTER JOIN` 等外连接操作（但是 `INNER JOIN` 是允许的）。
+    + 使用子查询。
+
 ## **示例**
 
 - 非递归 CTE 示例：
