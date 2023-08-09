@@ -152,7 +152,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | -----------------| --------------- | ----------------- |
 | function_id          | INT(32)       | 函数的 ID，主键    |
 | name                 | VARCHAR(100)  |  函数的名称        |
-| creator              | INT UNSIGNED(32) | 函数的创建用户 ID  |
+| owner                | INT UNSIGNED(32) | 创建函数的角色 ID  |
 | args                 | TEXT(0)       |函数的参数列表       |
 | rettype              | VARCHAR(20)   | 函数的返回类型 |
 | body                 | TEXT(0)       |函数的函数体     |
