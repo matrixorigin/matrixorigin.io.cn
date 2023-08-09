@@ -4,25 +4,31 @@
 
 `SHOW PROCESSLIST` 用于查看当前正在执行的线程列表（也称为进程列表），提供了关于 MatrixOne 服务器上所有活动连接和执行中查询的信息。
 
+`SHOW PROCESSLIST` 用于监控和管理数据库中的活动，发现潜在问题，帮助查询性能问题，并帮助决策优化数据库的运行：
+
+- 监控数据库活动：通过执行 `SHOW PROCESSLIST`，可以实时查看数据库中当前正在运行的查询和操作。这对于监控数据库活动并及时发现可能的性能问题非常有用。你可以了解哪些查询正在运行，它们的状态如何，以及是否有长时间运行或阻塞的查询、或者锁定、死锁或资源争用等。
+
+- 终止查询：通过查看进程列表，可以确定要终止的查询 ID，并使用 `KILL` 命令终止具体的查询。这对于停止长时间运行的查询或解决死锁问题非常有用。
+
 ## **语法结构**
 
 ```
-> SHOW PROCESSLIST
+> SHOW PROCESSLIST;
 ```
 
 查询出的表结构字段解释如下：
 
 | 列名            | 类型     | 约束       | 备注               |
 |----------------|---------|-----------|--------------------|
-| node_id        | varchar | not null  | 节点 ID             |
-| conn_id        | uint32  | not null  | 连接 ID             |
-| session_id     | varchar | not null  | session ID         |
-| account        | varchar | not null  | 租户 <br>__Note:__ 系统租户下可以看到所有租户的会话与租户名称，非系统租户只能看到自己租户的会话与租户名称     |
+| node_id        | varchar | not null  | 节点ID，用于在数据库集群中唯一标识不同的节点。在 MatrixOne 中，一个节点即为一个 CN（Compute Node）。<br> __Note:__ <br> - 在单机版本的 MatrixOne 中，通常只有一个节点，所有进程都运行在这个节点上，因此所有进程的 node_id 都相同。<br> - 在分布式版本的 MatrixOne 中，每个节点都有一个唯一的 node_id。系统租户可以查看所有正在执行的线程所在节点对应的 node_id，而非系统租户只能看到属于其租户下正在执行的线程的节点对应的 node_id。        |
+| conn_id        | uint32  | not null  | 连接 ID，用于标识不同的数据库连接。如果需要终止某个数据库连接，可以使用 `KILL CONNECTION conn_id;` 命令来终止该连接。在数据库中，每个连接都会被分配一个唯一的 conn_id，用于标识该连接。<br> __Note:__ 系统租户可以查看所有conn_id，非系统租户只能看到租户下的conn_id。 ID             |
+| session_id     | varchar | not null  | 会话 ID         |
+| account        | varchar | not null  | 租户 <br>__Note:__ 系统租户下可以看到所有租户的会话与租户名称，非系统租户只能看到自己租户的会话与租户名称。    |
 | user           | varchar | not null  | 用户               |
-| host           | varchar | not null  | 主机名或IP地址       |
+| host           | varchar | not null  | 客户机端的主机名     |
 | db             | varchar |           | 数据库名            |
-| session_start  | varchar |           | session开始时间     |
-| command        | varchar | not null  | command类型，如COM_QUERY |
+| session_start  | varchar |           | 会话开始时间     |
+| command        | varchar | not null  | 命令类型，如COM_QUERY |
 | info           | varchar |           | 当前或上一条SQL 语句  |
 | txn_id         | varchar | not null  | 当前或上一条事务ID    |
 | statement_id   | varchar |           | 当前或上一条语句ID    |
