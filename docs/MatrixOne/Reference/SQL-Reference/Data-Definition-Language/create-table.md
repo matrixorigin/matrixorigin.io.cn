@@ -7,17 +7,110 @@
 ## **语法结构**
 
 ```
-> CREATE [TEMPORARY] TABLE [IF NOT EXISTS] [db.]table_name [comment = "comment of table"];
-(
-    name1 type1 [comment 'comment of column'] [AUTO_INCREMENT] [[PRIMARY] KEY] [[FOREIGN] KEY],
-    name2 type2 [comment 'comment of column'],
-    ...
-)
-    [cluster by (column_name1, column_name2, ...);]
+> CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    (create_definition,...)
+    [table_options]
     [partition_options]
+
+create_definition: {
+    col_name column_definition
+  | [CONSTRAINT [symbol]] PRIMARY KEY
+      [index_type] (key_part,...)
+      [index_option] ...
+  | [CONSTRAINT [symbol]] FOREIGN KEY
+      [index_name] (col_name,...)
+      reference_definition
+}
+
+column_definition: {
+    data_type [NOT NULL | NULL] [DEFAULT {literal | (expr)} ]
+      [AUTO_INCREMENT] [UNIQUE [KEY]] [[PRIMARY] KEY]
+      [COMMENT 'string']
+      [reference_definition]
+  | data_type
+      [[PRIMARY] KEY]
+      [COMMENT 'string']
+      [reference_definition]
+}
+
+reference_definition:
+    REFERENCES tbl_name (key_part,...)
+      [ON DELETE reference_option]
+      [ON UPDATE reference_option]
+
+reference_option:
+    RESTRICT | CASCADE | SET NULL | NO ACTION
+
+table_options:
+    table_option [[,] table_option] ...
+
+table_option: {
+  | AUTO_INCREMENT [=] value
+  | COMMENT [=] 'string'
+  | START TRANSACTION
+}
+
+partition_options:
+    PARTITION BY
+        { [LINEAR] HASH(expr)
+        | [LINEAR] KEY [ALGORITHM={1 | 2}] (column_list)}
+    [PARTITIONS num]
+    [(partition_definition [, partition_definition] ...)]
+
+partition_definition:
+ PARTITION partition_name
+     [VALUES
+         {LESS THAN {(expr | value_list) | MAXVALUE}
+         |
+         IN (value_list)}]
+     [COMMENT [=] 'string' ]
 ```
 
 ### 语法释义
+
+创建表时可以使用的各种参数和选项，包括表的创建、列的定义、约束、选项和分区等。
+
+- `CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name`：这是创建表的基本语法。`TEMPORARY` 关键字表示创建临时表，`IF NOT EXISTS` 表示如果表不存在则创建，`tbl_name` 是要创建的表的名称。
+
+- `(create_definition,...)`：这是列定义的部分，用来定义表的各个列以及相关属性。
+
+- `[table_options]`：这是表级别的选项，可以设置表的存储引擎、字符集等参数。
+
+- `[partition_options]`：这是用于分区表的选项，用来定义分区方式和分区键。
+
+`create_definition` 部分用于定义每一列的属性，它可以包含以下内容：
+
+- `col_name column_definition`：定义具体列名以及列的属性，包括数据类型、是否允许为空、默认值等。
+
+- `[CONSTRAINT [symbol]] PRIMARY KEY`：定义主键约束，可以设置约束名称和主键的列。
+
+- `[CONSTRAINT [symbol]] FOREIGN KEY`：定义外键约束，可以设置约束名称、外键的列以及参考的表。
+
+`column_definition` 部分用于具体列的定义，可以包含以下内容：
+
+- `data_type [NOT NULL | NULL] [DEFAULT {literal | (expr)} ]`：定义列的数据类型，以及是否允许为空和默认值。
+
+- `[AUTO_INCREMENT] [UNIQUE [KEY]] [[PRIMARY] KEY]`：设置自增、唯一和主键约束。
+
+- `[COMMENT 'string']`：设置列的注释。
+
+- `[reference_definition]`：可选的引用定义，用于定义外键约束。
+
+`reference_definition` 部分用于定义外键引用，包括以下内容：
+
+- `REFERENCES tbl_name (key_part,...)`：指定外键引用的表和列。
+
+- `[ON DELETE reference_option]`：设置在删除时的外键操作。
+
+- `[ON UPDATE reference_option]`：设置在更新时的外键操作。
+
+`reference_option` 表示外键操作的选项，可以是 `RESTRICT`、`CASCADE`、`SET NULL` 或 `NO ACTION`。
+
+`table_options` 部分用于设置表级别的选项，包括自增的初始值、表的注释等。
+
+`partition_options` 部分用于定义分区表的选项，包括分区方式、分区键以及分区数等。
+
+更详细的参数语法释义请参见下文。
 
 #### TEMPORARY
 
@@ -130,6 +223,40 @@ mysql> select * from t2;
 +------+------+------+
 3 rows in set (0.00 sec)
 ```
+
+另外，`[ON DELETE reference_option]` 和 `[ON UPDATE reference_option]` 在定义外键关系时用于指定在删除父表中的记录时执行的操作。这两个参数主要用于维护数据的完整性和一致性：
+
+- `ON DELETE reference_option`：这个参数指定了在引用表中的数据被删除时，应该如何处理与之关联的外键数据。常见的选项包括：
+
+    + `RESTRICT`：如果在引用表中有相关的外键数据存在，不允许删除引用表中的数据。这可以用来防止误删除关联数据，以维护数据的一致性。
+
+    + `CASCADE`：当引用表中的数据被删除时，同时删除与之关联的外键数据。这可以用于级联删除关联数据，以确保数据的完整性。
+
+    + `SET NULL`：当引用表中的数据被删除时，将外键列的值设置为 NULL。这可以用于在删除引用数据时保留外键数据，但断开与引用数据的关联。
+
+    + `NO ACTION`：表示不采取任何操作，只是检查是否有关联数据存在。这类似于 `RESTRICT`，但可能在某些数据库中有微小的差异。
+
+- `ON UPDATE reference_option`：这个参数指定了在引用表中的数据被更新时，应该如何处理与之关联的外键数据。常见的选项类似于 `ON DELETE reference_option`，用法也类似，只是针对数据更新操作。
+
+参见下面的示例：
+
+假设有两张表 `Orders` 和 `Customers`，`Orders` 表中有一个外键列 `customer_id` 引用 `Customers` 表中的 `id` 列。如果在 `Customers` 表中的某个客户被删除，同时也希望删除关联的订单数据，可以使用 `ON DELETE CASCADE`。
+
+```sql
+CREATE TABLE Customers (
+    id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+CREATE TABLE Orders (
+    id INT PRIMARY KEY,
+    order_number VARCHAR(10),
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES Customers(id) ON DELETE CASCADE
+);
+```
+
+在上述示例中，当 `Customers` 表中的某个客户被删除时，关联的订单数据也会被级联删除，以维护数据的完整性。同样的，`ON UPDATE` 参数也可以用类似的方式来处理更新操作。
 
 有关数据完整性约束的更多信息，参见[数据完整性约束概述](../../../Develop/schema-design/data-integrity/overview-of-integrity-constraint-types.md)。
 
