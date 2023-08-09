@@ -1,6 +1,6 @@
 # AUTO INCREMENT 自增约束
 
-自增约束（Auto-Increment Constraint）是 M 一种用于自动为表中的列生成唯一标识值的特性。它允许你在插入新行时，自动为指定的自增列生成一个递增的唯一值。这在许多情况下非常有用，例如用作主键或标识符。
+自增约束（Auto-Increment Constraint）是 MatrixOne 一种用于自动为表中的列生成唯一标识值的特性。它允许你在插入新行时，自动为指定的自增列生成一个递增的唯一值。这在许多情况下非常有用，例如用作主键或标识符。
 
 **自增约束特性**
 
@@ -65,4 +65,5 @@ mysql> SELECT * FROM employees;
 
 ## 限制
 
-MatrixOne 暂时还不支持使用 `ALTER TABLE` 修改自增值的起始值和递增步长。
+1. MatrixOne 暂时还不支持使用 `ALTER TABLE` 修改自增值的起始值和递增步长。
+2. 在 MatrixOne 中，仅语法上支持使用 `set @@auto_increment_increment=n` 来设置递增步长，也仅语法支持使用 `set @@auto_increment_offset=n` 来设置默认自增列初始值，但实际上并不生效；当前支持设置自增列的初始值 `AUTO_INCREMENT=n`，但步长仍然默认为 1。
