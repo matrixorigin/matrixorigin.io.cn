@@ -96,7 +96,7 @@ INSERT INTO enumtable (id) VALUES ('05');
 update orders set status= 2 where status='Processing';`
 ```
 
-在这个示例中，你需要将 `status` 为 `Processing` 的行的 `status` 更新为2。由于 ENUM 类型的特性，在 WHERE 条件中，MatrixOne 将 2 隐式地转换为字符串 `2`，然后与 `Processing` 进行比较。
+在这个示例中，你需要将 `status` 为 `Processing` 的行的 `status` 更新为 2。由于 ENUM 类型的特性，在 WHERE 条件中，MatrixOne 将 2 隐式地转换为字符串 `2`，然后与 `Processing` 进行比较。
 
 !!! note
     以下章节**过滤 ENUM 值**和**排序 ENUM 值**是 MySQL 的 ENUM 特性，MatrixOne 暂不支持。
