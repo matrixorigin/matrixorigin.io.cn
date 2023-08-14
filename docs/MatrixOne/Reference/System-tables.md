@@ -44,6 +44,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | partition_info    | blob            | 分区信息                                       |
 | viewdef        | blob            | 视图定义语句                                   |
 | constraint        | varchar(5000)            | 与表相关的约束                       |
+| catalog_version | INT UNSIGNED(0)    | 系统表的版本号 |
 
 ### mo_columns table
 
@@ -71,6 +72,21 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | attr_has_update       | tinyint(1)      | 此列含有更新表达式                           |
 | attr_update           | varchar(1024)   | 更新表达式                                            |
 | attr_is_clusterby     | tinyint(1)      | 此列是否作为 cluster by 关键字来建表   |
+
+### mo_table_partitions table
+
+| 列属性      | 类型        | 描述     |
+| ------------ | ------------ | ------------ |
+| table_id             | BIGINT UNSIGNED(64)   | 当前分区表的ID   |
+| database_id          | BIGINT UNSIGNED(64)   | 当前分区表所属的数据库的ID   |
+| number               | SMALLINT UNSIGNED(16) | 当前分区编号。所有分区都按照定义的顺序进行索引，其中1是分配给第一个分区的数字   |
+| name                 | VARCHAR(64)           | 分区的名称   |
+| partition_type       | VARCHAR(50)           | 存放表的分区类型信息，如果是分区表，其值枚举为"KEY"， "LINEAR_KEY"，"HASH"，"LINEAR_KEY_51"，"RANGE"，"RANGE_COLUMNS"，"LIST"，"LIST_COLUMNS"；如果不是分区表，partition_type 的值为空字符串。__Note:__ MatrixOne 暂不支持 `RANGE` 和 `LIST` 分区。   |
+| partition_expression | VARCHAR(2048)         | 创建分区表的的 `CREATE TABLE` 或 `ALTER TABLE` 语句中使用的分区函数的表达式。 |
+| description_utf8     | TEXT(0)               | 此列用于 `RANGE` 和 `LIST` 分区。对于 `RANGE` 分区，它包含分区的 `VALUES LESS THAN` 子句中设置的值，该值可以是整数或 `MAXVALUE`。对于 `LIST` 分区，此列包含分区的 `values in` 子句中定义的值，该子句是逗号分隔的整数值列表。对于不是 `RANGE` 或 `LIST` 的分区，此列始终为 NULL。 __Note:__ MatrixOne 暂不支持 `RANGE` 和 `LIST` 分区，此列为 NULL |
+| comment              | VARCHAR(2048)         | 注释的文本。否则，此值为空。   |
+| options              | TEXT(0)               | 分区的选项信息，暂为 `NULL`  |
+| partition_table_name | VARCHAR(1024)         | 当前分区对应的分区子表名字   |
 
 ### mo_account table (仅 `sys` 租户可见)
 
@@ -337,19 +353,20 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 
 | 表名称       | 描述                                                  |
 | :--------------- | :----------------------------------------------------------- |
-| CHARACTER_SETS   | 提供了服务器支持的字符集列表。       |
-| COLUMNS          | 提供了所有表的列列表。                  |
-| ENGINES          | 提供了支持的存储引擎列表。                |
 | KEY_COLUMN_USAGE | 描述了列的键约束，例如主键约束。 |
-| PROCESSLIST      | 提供了与执行命令 `SHOW PROCESSLIST` 类似的信息。 |
-| SCHEMATA         | 提供了与执行 `SHOW DATABASES` 类似的信息。      |
-| TABLES           | 提供了当前用户可以查看的表列表。类似于执行`SHOW TABLES`。 |
-| TRIGGERS         | 提供了与执行 `SHOW TRIGGERS` 类似的信息。   |
-| USER_PRIVILEGES  | 列举了与当前用户关联的权限。  |
+| COLUMNS          | 提供了所有表的列列表。                  |
 | PROFILING | 提供 SQL 语句执行时一些分析信息。|
+| PROCESSLIST      | 提供了与执行命令 `SHOW PROCESSLIST` 类似的信息。 |
+| USER_PRIVILEGES  | 列举了与当前用户关联的权限。  |
+| SCHEMATA         | 提供了与执行 `SHOW DATABASES` 类似的信息。      |
+| CHARACTER_SETS   | 提供了服务器支持的字符集列表。       |
+| TRIGGERS         | 提供了与执行 `SHOW TRIGGERS` 类似的信息。   |
+| TABLES           | 提供了当前用户可以查看的表列表。类似于执行`SHOW TABLES`。 |
+| PARTITIONS       | 提供了表的分区信息。   |
+| VIEWS   |提供有关数据库中视图的信息。|
+| ENGINES          | 提供了支持的存储引擎列表。                |
 | ROUTINES  |提供有关存储存储过程的一些信息。|
 | PARAMETERS| 表提供了存储过程的参数和返回值的信息。|
-| VIEWS   |提供有关数据库中视图的信息。|
 | KEYWORDS | 提供有关数据库中关键字信息，详情参见[关键字](Language-Structure/keywords.md)。|
 
 ### `CHARACTER_SETS` 表
@@ -402,6 +419,35 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `TRANSACTIONS`：存储引擎是否支持事务。
 - `XA`：存储引擎是否支持 XA 事务。
 - `SAVEPOINTS`：存储引擎是否支持 `savepoints`。
+
+### `PARTITIONS` 表
+
+`PARTITIONS` 表中的列描述如下：
+
+- `TABLE_CATALOG`：含有该列的表所属的目录的名称。该值始终为 def。
+- `TABLE_SCHEMA`：含有列的表所在的模式的名称。
+- `TABLE_NAME`：包含列的表的名称。
+- `PARTITION_NAME`：分区名称。
+- `SUBPARTITION_NAME`：如果 `PARTITIONS` 表中的行表示一个子分区，则为该子分区的名称；否则为空。
+- `PARTITION_ORDINAL_POSITION`：所有分区按照它们被定义的顺序进行索引，其中 1 表示分配给第一个分区的编号。随着分区的增加、删除和重新组织，索引可能会发生变化；该列中显示的编号反映了当前的顺序，考虑了任何索引变化。
+- `SUBPARTITION_ORDINAL_POSITION`：在给定分区内，子分区的索引和重新索引方式与表内分区的方式相同。
+- `PARTITION_METHOD`：取值之一为 `RANGE`、`LIST`、`HASH`、`LINEAR HASH`、`KEY` 或 `LINEAR KEY`。__Note:__ MatrixOne 暂不支持 `RANGE` 和 `LIST` 分区。
+- `SUBPARTITION_METHOD`：取值之一为 `HASH`、`LINEAR HASH`、`KEY` 或 `LINEAR KEY`。
+- `PARTITION_EXPRESSION`：在创建表的 `CREATE TABLE` 或 `ALTER TABLE` 语句中使用的分区函数表达式，用于创建表的当前分区方案。
+- `SUBPARTITION_EXPRESSION`：这与 `PARTITION_EXPRESSION` 类似，用于定义表的子分区方式，如果表没有子分区，则该列为空。
+- `PARTITION_DESCRIPTION`：此列适用于 `RANGE` 和 `LIST` 分区。对于 `RANGE` 分区，它包含在分区的 `VALUES LESS THAN` 子句中设置的值，可以是整数或 `MAXVALUE`。对于 `LIST` 分区，此列包含在分区的 `VALUES IN` 子句中定义的值，这是一组逗号分隔的整数值。对于 `PARTITION_METHOD` 不是 `RANGE` 或 `LIST` 的分区，此列始终为空。__Note:__ MatrixOne 暂不支持 `RANGE` 和 `LIST` 分区。
+- `TABLE_ROWS`：分区中的表行数。
+- `AVG_ROW_LENGTH`：存储在此分区或子分区中的行的平均长度，以字节为单位。这与 `DATA_LENGTH` 除以 `TABLE_ROWS` 得到的结果相同。
+- `DATA_LENGTH`：此分区或子分区中存储的所有行的总长度，以字节为单位；即存储在分区或子分区中的字节总数。
+- `INDEX_LENGTH`：此分区或子分区的索引文件长度，以字节为单位。
+- `DATA_FREE`：分配给分区或子分区但未使用的字节数。
+- `CREATE_TIME`：分区或子分区创建的时间。
+- `UPDATE_TIME`：分区或子分区上次修改的时间。
+- `CHECK_TIME`：属于此分区或子分区的表最后一次检查的时间。
+- `CHECKSUM`：校验和值，如果有的话；否则为空。
+- `PARTITION_COMMENT`：如果分区有注释，则为注释的文本。如果没有，则该值为空。分区注释的最大长度定义为 1024 个字符，`PARTITION_COMMENT` 列的显示宽度也为 1024 个字符，以与此限制相符。
+- `NODEGROUP`：该分区所属的节点组。
+- `TABLESPACE_NAME`：该分区所属的表空间的名称。该值始终为 `DEFAULT`。
 
 ### `PROCESSLIST` 表
 
