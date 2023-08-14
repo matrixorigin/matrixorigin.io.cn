@@ -175,7 +175,7 @@ docker run -d \
   swr.cn-east-2.myhuaweicloud.com/kuboard/kuboard-spray:latest-amd64
 ```
 
-执行完成后，即可在浏览器输入 `http://1.13.2.100` (跳板机 IP 地址）打开 Kuboard-Spray 的 Web 界面，输入用户名 `admin`，默认密码 `Kuboard123`，即可登录 Kuboard-Spray 界面，如下所示：
+执行完成后，即可在浏览器输入 `http://1.13.2.100`（跳板机 IP 地址）打开 Kuboard-Spray 的 Web 界面，输入用户名 `admin`，默认密码 `Kuboard123`，即可登录 Kuboard-Spray 界面，如下所示：
 
 ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-1.png)
 
@@ -613,7 +613,7 @@ __Note:__ 本章节均是在 master0 节点操作。
     mo-tp-cn-0                           1/1     Running   0             50s
     ```
 
-## **6. 连接 Matrix0ne 集群**
+## **6. 连接 MatrixOne 集群**
 
 为了连接 MatrixOne 集群，您需要将对应服务的端口映射到 MatrixOne 节点上。以下是使用 `kubectl port-forward` 连接 MatrixOne 集群的指导：
 
