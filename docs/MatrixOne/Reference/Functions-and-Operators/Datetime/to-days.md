@@ -14,7 +14,7 @@
      ERROR 20301 (HY000): invalid input: invalid datatime value 0000-01-01
      ```
 
-对于日期中的两位数年份，例如查询 `SELECT TO_DAYS('08-10-07');`，MatrixOne 将年份 08 自动补全为 0008，与 MySQL 不同。更多信息，参见[日期中的两位数年份](../../Data-Types/date-time-data-types/two-digit-years-in-dates.md)。
+对于日期中的两位数年份，例如查询 `SELECT TO_DAYS('08-10-07');`，MatrixOne 将年份 08 自动补全为 0008，与 MySQL 不同。更多信息，参见[日期中的两位数年份](../../Data-Types/date-time-data-types/year-type.md)。
 
 ## **函数语法**
 
