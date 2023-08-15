@@ -4,10 +4,6 @@ repo_url: https://github.com/matrixorigin/matrixorigin.io.cn
 theme:
   name: material
   logo: assets/new-logo.png
-  icon:
-    admonition:
-      note: fontawesome/solid/sticky-note
-      info: fontawesome/solid/info-circle
   features:
     - navigation.instant
     - navigation.tracking
@@ -17,6 +13,9 @@ theme:
     scheme: mo
   font:
     text: Ubuntu
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|[，。！？…：“”‘’（）—【】《》]|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
 edit_uri: edit/main/docs/
 extra_css:
   - stylesheets/extra.css
