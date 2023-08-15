@@ -91,4 +91,11 @@ Query OK, 0 rows affected (0.00 sec)
 -- 尝试将 user 表的数据导出到名为 'stage1:/user.csv' 的数据阶段中，但 stage1 已经被禁用，所以已不可用，产生报错
 mysql> SELECT * FROM user INTO OUTFILE 'stage1:/user.csv';
 ERROR 20101 (HY000): internal error: stage 'stage1' is invalid, please check
+
+-- 再次启用用名为 'stage1' 的数据阶段
+mysql> ALTER STAGE stage1 SET ENABLE = TRUE;
+Query OK, 0 rows affected (0.00 sec)
+
+-- 导出又可以执行成功
+mysql> SELECT * FROM user INTO OUTFILE 'stage1:/user.csv';
 ```
