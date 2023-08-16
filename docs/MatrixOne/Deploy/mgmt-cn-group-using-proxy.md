@@ -301,16 +301,16 @@ spec:
 
 1. 通过 JDBC 连接：
 
-   在 JDBC 的连接串中指定 connectionAttributes，并设置相应的 key 和 value，key 和 value 之间用冒号 `:` 间隔，多个 key-value 之间用逗号 `,` 间隔。示例如下：
+    在 JDBC 的连接串中指定 connectionAttributes，并设置相应的 key 和 value，key 和 value 之间用冒号 `:` 间隔，多个 key-value 之间用逗号 `,` 间隔。示例如下：
 
-   ```
-   jdbc:mysql://localhost:6001/test_db1?serverTimezone=UTC&connectionAttributes=workload:olap,another_key:test_value
-   ```
+    ```
+    jdbc:mysql://localhost:6001/test_db1?serverTimezone=UTC&connectionAttributes=workload:olap,another_key:test_value
+    ```
 
-2. 通过 MySQL 客户端连接：
+2. 通过 MySQL 客户端实现连接：
 
-   通过扩展 username 字段，实现使用 MySQL 客户端的方式连接。在 usernmae 后加 `?`，后面的写法跟 JDBC 中的 connectionAttributes 一样。示例如下：
+    通过扩展用户名（username）字段，实现使用 MySQL 客户端进行连接。在用户名（username）后添加 `?`，随后的编写方式遵循 JDBC 中的 connectionAttributes 格式，与 JDBC 中的 connectionAttributes 格式不同的是，key 和 value 之间用 `=` 间隔，多个 key-value 之间用逗号 `,` 间隔，示例如下：
 
-   ```
-   mysql -h127.0.0.1 -uuser1?workload:olap,another_key:test_value -P6001 -pxxx
-   ```
+    ```
+    mysql -h127.0.0.1 -uuser1?workload=olap,another_key=test_value -P6001 -pxxx
+    ```
