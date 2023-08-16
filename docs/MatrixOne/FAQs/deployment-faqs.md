@@ -217,4 +217,4 @@ MatrixOne 版本 0.8.0 以及之前的版本之间的存储格式并不相互兼
 ...
 ```
 
-在以 root 用户且带有 CN 标签的方式连接 MySQL Client 时，你可以使用以下命令示例： `mysql -u root?workload=bk -p111 -h 10.206.16.10 -P 31429`。其中，`workload=bk` 为 CN 标签，使用 `=` 连接。
+在以 root 用户且带有 CN 标签的方式连接 MySQL Client 时，你可以使用以下命令示例：`mysql -u root?workload=bk -p111 -h 10.206.16.10 -P 31429`。其中，`workload=bk` 为 CN 标签，使用 `=` 连接。
