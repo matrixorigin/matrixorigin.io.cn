@@ -10,11 +10,11 @@ MatrixOne 提供对服务器端预处理语句的支持。利用客户端或服�
 
 PREPARE 语句的 SQL 基本语法主要为以下三种 SQL 语句：
 
-- [PREPARE](../../../Reference/SQL-Reference/Other/Prepared-Statements/prepare.md)：执行预编译语句。
+- [PREPARE](../../Reference/SQL-Reference/Other/Prepared-Statements/prepare.md)：执行预编译语句。
 
-- [EXECUTE](../../../Reference/SQL-Reference/Other/Prepared-Statements/execute.md)：执行已预编译的句。
+- [EXECUTE](../../Reference/SQL-Reference/Other/Prepared-Statements/execute.md)：执行已预编译的句。
 
-- [DEALLOCATE PREPARE](../../../Reference/SQL-Reference/Other/Prepared-Statements/deallocate.md)：释放一条预编译的语句。
+- [DEALLOCATE PREPARE](../../Reference/SQL-Reference/Other/Prepared-Statements/deallocate.md)：释放一条预编译的语句。
 
 ### 创建预处理语句
 
