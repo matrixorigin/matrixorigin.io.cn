@@ -247,6 +247,7 @@ nav:
           - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/delete.md
           - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/update.md
           - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data.md
+          - REPLACE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/replace.md
           - Information Functions:
             - CURRENT_USER(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_user.md
             - CURRENT_ROLE(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/current_role.md
