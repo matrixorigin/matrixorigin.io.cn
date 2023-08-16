@@ -196,3 +196,25 @@ MatrixOne 版本 0.8.0 以及之前的版本之间的存储格式并不相互兼
 
 !!! note
     MatrixOne 0.8.0 版本兼容旧版本存储格式。如果你使用的是 0.8.0 版本或更高版本，执行切换至其他分支并构建时，则无需再清理数据文件目录。
+
+### **我使用带有 CN 标签的 root 用户连接 Proxy 时，登录 MatrixOne 集群出现密码验证错误**
+
+- **问题原因**：连接字符串书写有误。
+
+- **解决方法**：请参考以下示例。
+
+假设在你的 MatrixOne 的 `mo.yaml` 配置文件中，CN 组的配置如下所示：
+
+```yaml
+## 仅展示部分代码
+...
+- cacheVolume:
+    size: 100Gi
+  cnLabels:
+  - key: workload
+    values:
+    - bk
+...
+```
+
+在以 root 用户且带有 CN 标签的方式连接 MySQL Client 时，你可以使用以下命令示例： `mysql -u root?workload=bk -p111 -h 10.206.16.10 -P 31429`。其中，`workload=bk` 为 CN 标签，使用 `=` 连接。
