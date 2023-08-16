@@ -219,4 +219,4 @@ MatrixOne 版本 0.8.0 以及之前的版本之间的存储格式并不相互兼
 
 在以 root 用户且带有 CN 标签的方式连接 MySQL Client 时，你可以使用以下命令示例：`mysql -u root?workload=bk -p111 -h 10.206.16.10 -P 31429`。其中，`workload=bk` 为 CN 标签，使用 `=` 连接。
 
-同理，使用 `mo-dump` 工具导出数据的命令，你可以参考使用以下命令示例：`mo-dump -u "dump?workload=bk" -h 10.206.16.10 -P 31429 -db tpch_10g > /tmp/aron/tpch_10g.sql`。
+同理，使用 `mo-dump` 工具导出数据的命令，你可以参考使用以下命令示例：`mo-dump -u "dump?workload=bk" -h 10.206.16.10 -P 31429 -db tpch_10g > /tmp/mo/tpch_10g.sql`。
