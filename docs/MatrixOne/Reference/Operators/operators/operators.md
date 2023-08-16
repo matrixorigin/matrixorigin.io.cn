@@ -67,7 +67,7 @@
 | [CASE](flow-control-functions/case-when.md) | Case 运算符 |
 | [IF()](flow-control-functions/function_if.md) | If/else 语句 |
 | [IFNULL()](flow-control-functions/function_ifnull.md) | If null/else 语句 |
-| [NULLIF()](function_nullif.md) | expr1 = expr2 时返回 NULL |
+| [NULLIF()](flow-control-functions/function_nullif.md) | expr1 = expr2 时返回 NULL |
 
 ## [**逻辑运算符**](logical-operators/logical-operators-overview.md)
 
