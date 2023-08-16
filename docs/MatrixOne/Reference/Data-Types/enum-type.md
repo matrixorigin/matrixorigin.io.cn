@@ -121,4 +121,5 @@ MatrixOne 根据索引号对 `ENUM` 值进行排序。因此，枚举成员的�
 
 ## 限制
 
-当前修改 ENUM 枚举成员需要使用 `ALTER TABLE` 语句重建表。
+1. 当前修改 ENUM 枚举成员需要使用 `ALTER TABLE` 语句重建表。
+2. MatrixOne 暂不支持**过滤 ENUM 值**和**排序 ENUM 值**。
