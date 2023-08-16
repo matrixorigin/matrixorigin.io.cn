@@ -98,27 +98,6 @@ update orders set status= 2 where status='Processing';`
 
 在这个示例中，你需要将 `status` 为 `Processing` 的行的 `status` 更新为 2。由于 ENUM 类型的特性，在 WHERE 条件中，MatrixOne 将 2 隐式地转换为字符串 `2`，然后与 `Processing` 进行比较。
 
-!!! note
-    以下章节**过滤 ENUM 值**和**排序 ENUM 值**是 MySQL 的 ENUM 特性，MatrixOne 暂不支持。
-
-### 过滤 ENUM 值
-
-在查询数据时，可以使用枚举常量或整数值来筛选数据。例如：
-
-```sql
-SELECT * FROM enumtable WHERE color = 'green';
-SELECT * FROM enumtable WHERE color = 2;
--- 'green' 在预定义的列表中排在第二位，其对应的整数值为 2
-```
-
-### 排序 ENUM 值
-
-MatrixOne 根据索引号对 `ENUM` 值进行排序。因此，枚举成员的顺序取决于它们在枚举列表中的定义方式。
-
-需要注意的是，`ENUM` 类型的值在 SQL 内部被表示为整数值，而非字符串值。因此，在执行查询时，如果使用整数值来筛选数据，则需要将其与枚举常量的整数值进行匹配。
-
-如果你需要按照枚举列进行排序，那么在创建列时按照要排序的顺序定义枚举值。
-
 ## 限制
 
 1. 当前修改 ENUM 枚举成员需要使用 `ALTER TABLE` 语句重建表。
