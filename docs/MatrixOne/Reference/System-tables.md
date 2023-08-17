@@ -162,6 +162,18 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | granted_time      | timestamp       | 授权时间                                 |
 | with_grant_option | bool            | 是否允许授权|
 
+### mo_stages table
+
+| 列属性            | 类型             | 描述               |
+| -----------------| --------------- | ----------------- |
+| stage_id          | INT UNSIGNED(32) | 数据阶段 ID |
+| stage_name        | VARCHAR(64)      | 数据阶段名称 |
+| url               | TEXT(0)          | 对象存储的路径（不含认证）、文件系统的路径 |
+| stage_credentials | TEXT(0)          | 认证信息，加密后保存 |
+| stage_status      | VARCHAR(64)      | ENABLED/DISABLED  默认：DISABLED |
+| created_time      | TIMESTAMP(0)     | 创建时间 |
+| comment           | TEXT(0)          | 注释   |
+
 ### mo_user_defined_function table
 
 | 列属性            | 类型             | 描述               |

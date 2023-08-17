@@ -229,16 +229,19 @@ nav:
           - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-external-table.md
           - CREATE PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-publication.md
           - CREATE SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-sequence.md
+          - CREATE STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-stage.md
           - CREATE...FROM...PUBLICATION...: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-subscription.md
           - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-view.md
           - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
           - ALTER PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-publication.md
+          - ALTER STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-stage.md
           - ALTER VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-view.md
           - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-database.md
           - DROP INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-index.md
           - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-table.md
           - DROP PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-publication.md
           - DROP SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-sequence.md
+          - DROP STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-stage.md
           - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-view.md
           - TRUNCATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/truncate-table.md
         - 数据修改语言（DML）:
@@ -304,6 +307,7 @@ nav:
             - SHOW PUBLICATIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-publications.md
             - SHOW ROLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-roles.md
             - SHOW SEQUENCES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-sequences.md
+            - SHOW STAGE: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-stage.md
             - SHOW SUBSCRIPTIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-subscriptions.md
             - SHOW VARIABLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-variables.md
           - SET:
