@@ -55,6 +55,7 @@
 | [IS NULL](comparison-functions-and-operators/is-null.md) | 为空 |
 | [ISNULL](comparison-functions-and-operators/function_isnull.md) | 代替 `=` 来测试值是否为 `NULL`。|
 | [LIKE](comparison-functions-and-operators/like.md) | 模糊匹配 |
+| [ILIKE](comparison-functions-and-operators/ilike.md) | 模糊匹配，同 LIKE。但对大小写不敏感。 |
 | [NOT BETWEEN ... AND ...](comparison-functions-and-operators/not-between.md) | 不在两值之间 |
 | [NOT IN](comparison-functions-and-operators/not-in.md) | 多个 `XOR` 条件的简写 |
 | [NOT LIKE](comparison-functions-and-operators/not-like.md) | 模糊匹配，Like 的否定用法 |
