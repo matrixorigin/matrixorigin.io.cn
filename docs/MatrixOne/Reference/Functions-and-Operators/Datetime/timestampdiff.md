@@ -2,14 +2,9 @@
 
 ## **函数说明**
 
-`TIMESTAMPEDIFF()` 返回一个整数，表示在给定的时间单位内，从第一个日期时间表达式到第二个日期时间表达式之间的时间间隔。即 `datetime_expr2` 与 `datetime_expr1` 的差值。`datetime_expr1` 和 `datetime_expr2` 是日期或日期时间表达式；一个表达式可以是日期，另一个表达式可以是日期时间，日期值被视为具有时间部分 “00:00:00” 的日期时间。
+`TIMESTAMPEDIFF()` 返回一个整数，表示在给定的时间单位内，从第一个日期时间表达式到第二个日期时间表达式之间的时间间隔。即 `datetime_expr2` 与 `datetime_expr1` 的差值。`datetime_expr1` 和 `datetime_expr2` 是日期或日期时间表达式；一个表达式可以是日期，另一个表达式可以是日期时间，日期值被视为具有时间部分 `00:00:00` 的日期时间。
 
 如果 `datetime_expr1` 或 `datetime_expr2` 为 `NULL`，则此函数返回 `NULL`。
-
-
-Returns datetime_expr2 − datetime_expr1, where datetime_expr1 and datetime_expr2 are date or datetime expressions. One expression may be a date and the other a datetime; a date value is treated as a datetime having the time part '00:00:00' where necessary. The unit for the result (an integer) is given by the unit argument. The legal values for unit are the same as those listed in the description of the TIMESTAMPADD() function.
-
-This function returns NULL if datetime_expr1 or datetime_expr2 is NULL.
 
 ## **函数语法**
 
