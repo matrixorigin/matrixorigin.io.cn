@@ -155,6 +155,7 @@ mysql> select min(big),max(big),max(big)-1 from floattable;
 | varbinary  | 255 bytes| 0 ~ 65535  |VARBINARY(M)| 类似于 VARCHAR，二进制字符串|
 | text    | 1 GB  |other types mapping | TEXT |长文本数据，不区分 TINY TEXT、MEDIUM TEXT 和 LONG TEXT|
 | blob    | 1 GB | other types mapping  |BLOB|二进制的长文本数据，不区分 TINY BLOB、MEDIUM BLOB  和 LONGBLOB|
+| enum  | 1 byte 或 2 bytes | 0 ~ 65535 | enum  | 一个枚举类型。它是一个字符串对象，只能从 `value1`、`value2` 等值列表中选择一个值，或者是 `NULL` 或特殊的 '' 错误值。枚举值在内部表示为整数。 |
 
 ### **示例**
 
@@ -227,7 +228,7 @@ mysql> select * from texttest where a like 'ab\_def' order by 1 asc;
 - BLOB
 
 ```sql
---  Create a table named "blobtest" with 1 attribute of a "blob"
+-- Create a table named "blobtest" with 1 attribute of a "blob"
 create table blobtest (a blob);
 insert into blobtest values('abcdef');
 insert into blobtest values('_bcdef');
@@ -243,6 +244,21 @@ mysql> select * from blobtest where a like 'ab\_def' order by 1 asc;
 +----------------+
 | 0x61625F646566 |
 +----------------+
+1 row in set (0.01 sec)
+```
+
+- ENUM
+
+```sql
+-- Create a table named "enumtest" with 1 attribute of a "enum"
+CREATE TABLE enumtest (color ENUM('red', 'green', 'blue'));
+INSERT INTO enumtest (color) VALUES ('red');
+mysql> SELECT * FROM enumtest WHERE color = 'green';
++-------+
+| color |
++-------+
+| green |
++-------+
 1 row in set (0.01 sec)
 ```
 
