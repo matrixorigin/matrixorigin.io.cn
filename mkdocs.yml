@@ -407,15 +407,21 @@ nav:
             - DAY(): MatrixOne/Reference/Functions-and-Operators/Datetime/day.md
             - DAYOFYEAR(): MatrixOne/Reference/Functions-and-Operators/Datetime/dayofyear.md
             - EXTRACT(): MatrixOne/Reference/Functions-and-Operators/Datetime/extract.md
+            - HOUR(): MatrixOne/Reference/Functions-and-Operators/Datetime/hour.md
             - FROM_UNIXTIME: MatrixOne/Reference/Functions-and-Operators/Datetime/from-unixtime.md
+            - MINUTE(): MatrixOne/Reference/Functions-and-Operators/Datetime/minute.md
             - MONTH(): MatrixOne/Reference/Functions-and-Operators/Datetime/month.md
+            - SECOND(): MatrixOne/Reference/Functions-and-Operators/Datetime/second.md
+            - TIME(): MatrixOne/Reference/Functions-and-Operators/Datetime/time.md
             - TIMEDIFF(): MatrixOne/Reference/Functions-and-Operators/Datetime/timediff.md
             - TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/timestamp.md
+            - TIMESTAMPDIFF(): MatrixOne/Reference/Functions-and-Operators/Datetime/timestampdiff.md
             - TO_DATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-date.md
             - TO_DAYS(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-seconds.md
             - TO_SECONDS(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-days.md
             - UNIX_TIMESTAMP: MatrixOne/Reference/Functions-and-Operators/Datetime/unix-timestamp.md
             - UTC_TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/utc-timestamp.md
+            - WEEK(): MatrixOne/Reference/Functions-and-Operators/Datetime/week.md
             - WEEKDAY(): MatrixOne/Reference/Functions-and-Operators/Datetime/weekday.md
             - YEAR(): MatrixOne/Reference/Functions-and-Operators/Datetime/year.md
           - 数学类:
