@@ -4,7 +4,7 @@
 
 本篇文档所介绍到的环境将基于 [MatrixOne 分布式集群部署](deploy-MatrixOne-cluster.md)的环境。
 
-### 何时需要进行扩容
+### 何时需要进行扩容/缩容
 
 为了确定是否需要对 MatrixOne 服务进行扩缩容，用户需要监控 MatrixOne 集群所在的节点和相关组件对应的 Pod 所使用的资源。你可以使用 `kubectl top` 命令来完成此操作。更详细的操作步骤可以参考[健康检查与资源监控](health-check-resource-monitoring.md)。
 
@@ -53,9 +53,12 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
 
     ```
     tp:
-        replicas: 2 #由原来的 1 个 CN 更改为 2 个 CN
+        replicas: 2 #例如，扩容是由原来的 1 个 CN 更改为 2 个 CN
     #其他内容忽略    
     ```
+
+    !!! note
+        缩容也可参考上述步骤，更改 `replicas` 的字段值。
 
 3. 编辑完成 `replicas` 个数保存退出后，MatrixOne Operator 将会自动启动一个新的 CN。你可以通过以下命令观察新的 CN 状态：
 

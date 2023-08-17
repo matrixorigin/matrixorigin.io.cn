@@ -14,6 +14,16 @@ CN 组是由一组具有相同属性和大小的 CN 节点组成的逻辑 CN 组
 
 ![proxy-cn-group](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/proxy-cn-group.png)
 
+当对 CN 进行缩容时，Proxy 在 YAML 文件的行为如下：
+
+- 同一个 Label 会话搬迁：当 CN 的副本数量减少时，具有相同 Label 的会话将被迁移到其他缩容后的 CN 节点上。这样可以保持与特定 Label 相关的会话的连续性和可用性。
+
+- 不同 Label 会话搬迁：如果某个 Label 的 CN 副本被置为 0 或取消，根据 Label 的匹配规则，将会在将来的会话中将这个 Label 相关的会话迁移到空闲的 Label 上。
+
+- Label 取消并且没有匹配 Label：如果某个 Label 被取消，而且没有与之匹配的 Label，相关会话将被关闭，因为没有目标 CN 可以接收这些会话。
+
+Proxy 在 CN 缩容时通过以上行为处理会话的迁移和关闭，以确保负载和租户之间的隔离以及业务的连续性。
+
 ## 操作步骤
 
 本篇文档所介绍到的使用 Proxy 管理 CN 组的环境将基于 [MatrixOne 分布式集群部署](deploy-MatrixOne-cluster.md)的环境。
@@ -92,7 +102,7 @@ CN 组是由一组具有相同属性和大小的 CN 节点组成的逻辑 CN 组
 
 ### 第二步：设置 CN 组
 
-在 MatrixOne 集群的 `mo.yaml` 文件中，你需要通过设置 `cnGroups` 字段来配置 CN 组，并在每个 `cnGroups` 中配置 `cnLabels` 字段，以设定该 CN 组中所有 CN 的标签。Proxy 会根据连接标签进行路由转发。例如，在以下示例中，你设置了名为 `cnSet1` 和 `cnSet2` 的两个 CN 组。每个 CN 组可以具有自己的独立副本数、不同的日志级别、CN 参数配置以及 CN 标签。
+在 MatrixOne 集群的 `mo.yaml` 文件中，你需要通过设置 `cnGroups` 字段来配置 CN 组，并在每个 `cnGroups` 中配置 `cnLabels` 字段，以设定该 CN 组中所有 CN 的标签。Proxy 会根据连接标签进行路由转发。例如，在以下示例中，你设置了名为 `cn-set1` 和 `cn-set2` 的两个 CN 组。每个 CN 组可以具有自己的独立副本数、不同的日志级别、CN 参数配置以及 CN 标签。
 
 CN 组的标签采用一到多组 Key/value 格式，其中每组 Key 与 value 之间存在一对多的关系，即每个 Key 可拥有多个 value。
 
