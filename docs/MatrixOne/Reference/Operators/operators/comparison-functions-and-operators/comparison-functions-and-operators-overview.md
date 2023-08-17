@@ -17,6 +17,7 @@
 | [IS NULL](is-null.md) | 为空 |
 | [ISNULL](function_isnull.md) | 代替 `=` 来测试值是否为 `NULL`。|
 | [LIKE](like.md) | 模糊匹配 |
+| [ILIKE](ilike.md) | 模糊匹配，同 LIKE。但对大小写不敏感。 |
 | [NOT BETWEEN ... AND ...](not-between.md) | 不在两值之间 |
 | [NOT IN](not-in.md) | 多个 `XOR` 条件的简写 |
 | [NOT LIKE](not-like.md) | N 模糊匹配，Like 的否定用法 |
