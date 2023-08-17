@@ -196,3 +196,27 @@ MatrixOne 版本 0.8.0 以及之前的版本之间的存储格式并不相互兼
 
 !!! note
     MatrixOne 0.8.0 版本兼容旧版本存储格式。如果你使用的是 0.8.0 版本或更高版本，执行切换至其他分支并构建时，则无需再清理数据文件目录。
+
+### **我使用带 CN 标签的方式连 proxy，登录 MatrixOne 集群出现密码验证错误的提示**
+
+- **问题原因**：连接字符串书写有误。通过 MySQL 客户端连接 MatrixOne 集群，支持扩展用户名（username）字段，在用户名（username）后添加 `?`，`?` 后可以跟随 CN 组标签，CN 组标签的 key 和 value 之间用 `=` 间隔，多个 key-value 之间用逗号 `,` 间隔。
+
+- **解决方法**：请参考以下示例。
+
+假设在你的 MatrixOne 的 `mo.yaml` 配置文件中，CN 组的配置如下所示：
+
+```yaml
+## 仅展示部分代码
+...
+- cacheVolume:
+    size: 100Gi
+  cnLabels:
+  - key: workload
+    values:
+    - bk
+...
+```
+
+通过 MySQL 客户端连接 MatrixOne 集群，你可以使用以下命令示例：`mysql -u root?workload=bk -p111 -h 10.206.16.10 -P 31429`。其中，`workload=bk` 为 CN 标签，使用 `=` 连接。
+
+同理，使用 `mo-dump` 工具导出数据的命令，你可以参考使用以下命令示例：`mo-dump -u "dump?workload=bk" -h 10.206.16.10 -P 31429 -db tpch_10g > /tmp/mo/tpch_10g.sql`。
