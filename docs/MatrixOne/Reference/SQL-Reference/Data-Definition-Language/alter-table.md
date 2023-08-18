@@ -231,4 +231,6 @@ mysql> select * from t1;
 
 ## 限制
 
-这些子句：`CHANGE [COLUMN]`，`MODIFY [COLUMN]`，`RENAME COLUMN`，`ADD [CONSTRAINT [symbol]] PRIMARY KEY`，`DROP PRIMARY KEY` 和 `ALTER COLUMN ORDER BY` 可以在 ALTER TABLE 语句中自由组合使用，但暂时不支持与其他子句一起使用。
+1. 这些子句：`CHANGE [COLUMN]`，`MODIFY [COLUMN]`，`RENAME COLUMN`，`ADD [CONSTRAINT [symbol]] PRIMARY KEY`，`DROP PRIMARY KEY` 和 `ALTER COLUMN ORDER BY` 可以在 ALTER TABLE 语句中自由组合使用，但暂时不支持与其他子句一起使用。
+2. 临时表暂不支持使用 `ALTER TABLE` 修改表结构。
+3. 使用 `CREATE TABLE ... CLUSTER BY...` 所建的表，不支持使用 `ALTER TABLE` 修改表结构。
