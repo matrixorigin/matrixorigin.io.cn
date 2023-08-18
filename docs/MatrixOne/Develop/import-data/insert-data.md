@@ -178,7 +178,3 @@ SELECT SupplierName, City, Country FROM Suppliers;
 | 4          | Exotic Liquid                      | null           | null                          | Londona     | null       | UK      |
 | 5          | New Orleans Cajun Delights         | null           | null                          | New Orleans | null       | USA     |
 | 6          | Grandma Kelly's Homestead          | null           | null                          | Ann Arbor   | null       | USA     |
-
-## 限制
-
-MatrixOne 暂不支持 `INSERT ... ON DUPLICATE KEY UPDATE` 语句。你需要使用 `UPDATE` 执行此操作。
