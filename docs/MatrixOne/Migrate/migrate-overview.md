@@ -23,3 +23,4 @@ MatrixOne 提供了以下文档，帮助你快速了解如何从其他数据库�
 - [将数据从 MySQL 迁移至 MatrixOne](migrate-from-mysql-to-matrixone.md)
 - [将数据从 Oracle 迁移至 MatrixOne](migrate-from-oracle-to-matrixone.md)
 - [将数据从 SQL Server 迁移至 MatrixOne](migrate-from-sqlserver-to-matrixone.md)
+- [将数据从 PostgreSQL 迁移至 MatrixOne](migrate-from-postgresql-to-matrixone.md)

@@ -2,7 +2,7 @@
 
 本篇文档将指导你如何将数据从 MySQL 迁移至 MatrixOne。
 
-MatrixOne 保持了对 MySQL 语法的高度兼容，因此在迁移过程中，需要做的语法调整也是最少的。尽管如此，MatrixOne 与 MySQL 在数据类型以及数据对象方面，仍然存在着些许差异使得迁移过程需要做出一些调整。
+MatrixOne 保持了对 MySQL 语法的高度兼容，因此在迁移过程中，无需其他操作，可实现无缝迁移。
 
 ## 数据类型差异
 
@@ -10,7 +10,7 @@ MatrixOne 中，数据类型在保持与 MySQL 命名一致的情况下，在精
 
 ## 在线迁移
 
-本章节将指导你使用第三方工具，将数据从 MySQL 迁移至 MatrixOne。
+本章节将指导你使用第三方工具 DBeaver，将数据从 MySQL 迁移至 MatrixOne。
 
 - 适用场景：数据量较小（建议小于 1GB），对迁移的速度不敏感的场景。
 
@@ -27,17 +27,7 @@ MatrixOne 中，数据类型在保持与 MySQL 命名一致的情况下，在精
 
     ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-1.png)
 
-2. 使用下面的命令替换 *tpch_ddl.sql* 文件内 MatrixOne 不支持的关键字：
-
-    ```
-    # Linux 系统执行的命令如下：
-    sed -i 's/ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci//g' /YOUR_PATH/tpch_ddl.sql
-
-    #MacOS 系统使用的命令如下：
-    sed -i '' 's/ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci//g' /YOUR_PATH/tpch_ddl.sql
-    ```
-
-3. 连接到 MatrixOne，在 MatrixOne 中创建新的数据库和表：
+2. 连接 MatrixOne，并在 MatrixOne 中创建新的数据库和表：
 
     ```sql
     create database tpch;
@@ -83,7 +73,7 @@ MatrixOne 中，数据类型在保持与 MySQL 命名一致的情况下，在精
 
 - 带图形界面的跳板机：可连接 MySQL 源端，也可连接 MatrixOne 目标端的。
 - 数据迁移工具：[下载 DBeaver](https://dbeaver.io/download/) 到跳板机。
-- 安装 `mysqldump`。如果你不熟悉如何使用 `mysqldump`，可参见 [mysqldump 教程](https://simplebackups.com/blog/the-complete-mysqldump-guide-with-examples/)
+- 在 MySQL 服务器端安装 `mysqldump`。如果你不熟悉如何使用 `mysqldump`，可参见 [mysqldump 教程](https://simplebackups.com/blog/the-complete-mysqldump-guide-with-examples/)
 
 ### 第一步：迁移表结构
 
@@ -93,17 +83,7 @@ MatrixOne 中，数据类型在保持与 MySQL 命名一致的情况下，在精
 
     ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-1.png)
 
-2. 使用下面的命令替换 *tpch_ddl.sql* 文件内 MatrixOne 不支持的关键字：
-
-    ```
-    # Linux系统执行的命令如下：
-    $ sed -i 's/ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci//g' /YOUR_PATH/tpch_ddl.sql
-
-    #MacOS 系统则使用的命令如下：
-    sed -i '' 's/ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci//g' /YOUR_PATH/tpch_ddl.sql
-    ```
-
-3. 连接到 MatrixOne，在 MatrixOne 中创建新的数据库和表：
+2. 连接到 MatrixOne，在 MatrixOne 中创建新的数据库和表：
 
     ```sql
     create database tpch;
@@ -116,8 +96,6 @@ MatrixOne 中，数据类型在保持与 MySQL 命名一致的情况下，在精
 在 MatrixOne 中，有两种数据迁移方式可供选择：`INSERT` 和 `LOAD DATA`。当数据量大于 1GB 时，首先推荐使用 `LOAD DATA`，其次可以选择使用 `INSERT`。
 
 #### LOAD DATA
-
-使用 `LOAD DATA` 先将 MySQL 的数据表导出为 CSV 格式，并使用 MatrixOne 的并行 LOAD 功能将数据迁移至 MatrixOne：
 
 1. 使用 `mysqldump` 将 MySQL 数据表导出为 CSV 格式文件。请确保你对 filepath 路径具有写权限，并检查 `secure_file_priv` 配置：
 
