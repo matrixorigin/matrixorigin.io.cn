@@ -500,7 +500,9 @@ nav:
             - CURRENT_USER(): MatrixOne/Reference/Functions-and-Operators/system-ops/current_user.md
             - PURGE_LOG(): MatrixOne/Reference/Functions-and-Operators/system-ops/purge_log.md
       - 系统配置:
-        - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
+        - 系统参数概述: MatrixOne/Reference/System-Parameters/system-parameter.md
+        - 单机版通用参数配置: MatrixOne/Reference/System-Parameters/standalone-configuration-settings.md
+        - 分布式版通用参数配置: MatrixOne/Reference/System-Parameters/distributed-configuration-settings.md
       - 系统表目录: MatrixOne/Reference/System-tables.md
       - 权限分类列表: MatrixOne/Reference/access-control-type.md
       - 使用限制:
