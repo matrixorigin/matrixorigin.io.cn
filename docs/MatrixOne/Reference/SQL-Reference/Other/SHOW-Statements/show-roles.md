@@ -4,7 +4,7 @@
 
 列出为你的账户下创建的角色的元信息，包括角色名称、创建者、创建时间以及注释内容。
 
-__Note:__ 如果需要查询你当前所使用的角色，使用 [`select current_role()`](../../Functions-and-Operators/system-ops/current_role.md) 语句。
+__Note:__ 如果需要查询你当前所使用的角色，使用 [`select current_role()`](../../../Functions-and-Operators/system-ops/current_role.md) 语句。
 
 ## **函数语法**
 
