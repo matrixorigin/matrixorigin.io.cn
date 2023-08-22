@@ -156,7 +156,7 @@ nav:
         - 本地对象存储导入数据: MatrixOne/Deploy/import-data-from-minio-to-mo.md
         - Operator 管理: MatrixOne/Deploy/MatrixOne-Operator-mgmt.md
     - 运维:
-      - 备份与恢复: MatrixOne/Maintain/backup-restore.md
+      - 备份与恢复: MatrixOne/Maintain/backup-restore/modump-backup-restore.md
       - 数据挂载:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:

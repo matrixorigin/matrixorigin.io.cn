@@ -1,18 +1,18 @@
-# 备份与恢复
+# mo-dump 备份与恢复
 
 对于企业而言，每天都会产生大量数据，那么对于数据库的备份就非常重要。在系统崩溃或者硬件故障，又或者用户误操作的情况下，你可以恢复数据并重启系统，不会造成数据丢失。
 
 另外，数据备份也作为升级 MatrixOne 安装之前的保障，同时数据备份也可以用于将 MatrixOne 安装转移到另一个系统。
 
-MatrixOne 目前仅支持通过 `modump` 实用程序进行逻辑备份。`modump` 是一个命令行实用程序，用于生成 MatrixOne 数据库的逻辑备份。它生成可用于重新创建数据库对象和数据的 SQL 语句。你可以在 [modump](../Develop/export-data/modump.md) 章节中查找它的语法说明和使用指南。
+MatrixOne 支持通过 `modump` 实用程序进行逻辑备份。`modump` 是一个命令行实用程序，用于生成 MatrixOne 数据库的逻辑备份。它生成可用于重新创建数据库对象和数据的 SQL 语句。你可以在 [modump](../../Develop/export-data/modump.md) 章节中查找它的语法说明和使用指南。
 
 我们将通过一个简单的示例来讲述如何使用 `modump` 实用程序完成数据备份和还原的过程。
 
 ## 步骤
 
-### 1. [构建 modump 二进制文件](../Develop/export-data/modump.md)
+### 1. [构建 modump 二进制文件](../../Develop/export-data/modump.md)
 
-参见[构建 modump 二进制文件](../Develop/export-data/modump.md)章节，完成 `modump` 二进制文件构建。
+参见[构建 modump 二进制文件](../../Develop/export-data/modump.md)章节，完成 `modump` 二进制文件构建。
 
 如果你已经完成了 `modump` 的构建，那么你可以继续阅读下一章节。
 
@@ -67,9 +67,9 @@ insert into t1 values (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '2019-01-01', '2019-01-01 0
 
 ### 3. 恢复备份到 MatrixOne 服务器
 
-将导出的*. sql* 文件恢复至 MatrixOne 数据库相对简单。要恢复你的数据库，你必须先创建一个空数据库，并使用 *MySQL 客户端*进行恢复。
+将导出的 *sql* 文件恢复至 MatrixOne 数据库相对简单。要恢复你的数据库，你必须先创建一个空数据库，并使用 *MySQL 客户端*进行恢复。
 
-将 MatrixOne 与 MySQL 客户端连接至同一服务器上，并确保导出的*. sql* 文件也在同一服务器上。
+将 MatrixOne 与 MySQL 客户端连接至同一服务器上，并确保导出的 *sql* 文件也在同一服务器上。
 
 ```
 mysql> create database t if not exists;
