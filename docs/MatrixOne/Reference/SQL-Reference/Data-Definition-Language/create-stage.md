@@ -34,10 +34,10 @@
    [ COMMENT = '<string_literal>' ]
 
 StageParams (for Amazon S3) :
-URL =  "endpoint"='<string>' CREDENTIALS = {"access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "role_arn"='xxxx', "external_id"='yyy', "filepath"='<string>', "region"='<string>', "compression"='<string>'}
+URL =  "endpoint"='<string>' CREDENTIALS = {"access_key_id"='<string>', "secret_access_key"='<string>'}
 
 StageParams (for Aliyun OSS) :
-URL =  "endpoint"='<string>' CREDENTIALS = {"access_key_id"='<string>', "secret_access_key"='<string>', "bucket"='<string>', "role_arn"='xxxx', "external_id"='yyy', "filepath"='<string>', "region"='<string>', "compression"='<string>'}
+URL =  "endpoint"='<string>' CREDENTIALS = {"access_key_id"='<string>', "secret_access_key"='<string>'}
 
 StageParams (for File System) :
 URL= 'filepath'
@@ -56,15 +56,7 @@ ENABLE = { TRUE | FALSE }
 
     - `endpoint`：Stage 的连接 URL，指定对象存储服务的位置。对于不同的对象存储服务（如 Amazon S3、Aliyun OSS、文件系统等），这个 URL 的内容可能有所不同。例如：s3.us-west-2.amazonaws.com
 
-    - `CREDENTIALS`：这是一个 JSON 对象，包含连接到对象存储服务所需的凭证信息，如 `access_key_id`、`secret_access_key`、`bucket` 等。
-
-    - `role_arn`、`external_id`：这两个参数通常与跨账号的访问权限有关，用于授权访问。__Note:__ MatrixOne 暂不支持这两个参数。
-
-    - `filepath`：指定要加载或卸载的文件的路径，可以支持正则表达式，例如 `/files/*.csv`。
-
-    - `region`：对象存储服务的地区。
-
-    - `compression`：S3 文件的压缩格式，可选项为 `"auto"`、`"none"`、`"gzip"`、`"bz2"`、`"lz4"`。
+    - `CREDENTIALS`：这是一个 JSON 对象，包含连接到对象存储服务所需的凭证信息，如 `access_key_id`、`secret_access_key` 等。
 
 - `directoryTableParams`：这是一个参数组，用于指定 Stage 的目录表（directory table）的配置。
 
