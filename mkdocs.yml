@@ -141,6 +141,7 @@ nav:
         - Python 基础示例: MatrixOne/Tutorial/develop-python-crud-demo.md
         - SQLAlchemy 基础示例: MatrixOne/Tutorial/sqlalchemy-python-crud-demo.md
         - Golang 基础示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
+        - Gorm 基础示例: MatrixOne/Tutorial/gorm-golang-crud-demo.md
     - 部署指南:
       - 集群拓扑规划:
         - 体验环境: MatrixOne/Deploy/deployment-topology/experience-deployment-topology.md
