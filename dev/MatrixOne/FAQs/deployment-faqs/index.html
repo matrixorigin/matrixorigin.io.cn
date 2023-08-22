@@ -2397,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Maintain/backup-restore/" class="md-nav__link">
+      <a href="../../Maintain/backup-restore/modump-backup-restore/" class="md-nav__link">
         备份与恢复
       </a>
     </li>
@@ -9515,7 +9515,7 @@
 <p>分布式安装情况下，MatrixOne 对于开发、测试和生产环境的服务器硬件配置要求和建议可以参考<a href="../../Deploy/deployment-topology/experience-deployment-topology/">分布式部署的拓扑文档</a>。</p>
 <h2 id="_6">安装和部署</h2>
 <h3 id="_7"><strong>安装时需要更改什么设置吗？</strong></h3>
-<p>通常情况下，安装时，你无需更改任何设置。<code>launch.toml</code> 默认设置完全可以直接运行 MatrixOne。但是如果你需要自定义监听端口、IP 地址、存储数据文件路径，你可以修改相应的 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/cn.toml"><code>cn.toml</code></a>、<a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/dn.toml"><code>dn.toml</code></a> 或 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/log.toml"><code>log.toml</code></a>，这些文件内参数配置详情可参考<a href="../Reference/System-Parameters/configuration-settings.md">通用参数配置</a></p>
+<p>通常情况下，安装时，你无需更改任何设置。<code>launch.toml</code> 默认设置完全可以直接运行 MatrixOne。但是如果你需要自定义监听端口、IP 地址、存储数据文件路径，你可以修改相应的 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/cn.toml"><code>cn.toml</code></a>、<a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/dn.toml"><code>dn.toml</code></a> 或 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/log.toml"><code>log.toml</code></a>，这些文件内参数配置详情可参考<a href="../../Reference/System-Parameters/system-parameter/">通用参数配置</a></p>
 <h3 id="mysql-mysql-command-not-found-mysql"><strong>当我安装完成 MySQL 客户端后，打开终端运行 <code>mysql</code> 产生报错 <code>command not found: mysql</code>，我该如何解决？</strong></h3>
 <p>产生这个报错是环境变量未设置的原因，打开一个新的终端，执行以下命令：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><strong>Linux 环境</strong></label><label for="__tabbed_1_2"><strong>MacOS 环境</strong></label></div>
