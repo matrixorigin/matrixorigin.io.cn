@@ -83,13 +83,13 @@ go version
    ```
 
 2. 使用 MySQL 客户端连接 MatrixOne。新建一个名称为 *test* 数据库：
-   
+
     ```sql
     mysql> create database test;
     ```
 
 3. 创建一个文本文件 *golang_gorm_connect_matrixone.go* 并将代码写入文件：
-   
+
     ```go
     package main
     import (
