@@ -9,6 +9,7 @@ MatrixOne 支持 Golang 连接，并且支持 [`Go-MySQL-Driver`](https://github
 - 已完成[安装并启动 MatrixOne](../../Get-Started/install-standalone-matrixone.md)。
 
 - 已安装 [Golang 1.18 版本及以上](https://go.dev/dl/)，如果你没有安装，可以点击 [Golang 1.18 版本及以上](https://go.dev/dl/)至官方网站进行下载安装；如果你已安装，可以使用下面的命令行检查版本：
+
 ```
 #检查 Golang 版本号，确认是否安装
 go version
@@ -75,16 +76,20 @@ go version
 ```gorm```是一个基于golang的一个神奇的全功能ORM库，我们将使用```gorm.io/gorm```和```gorm.io/driver/mysql```这两个库来让Go连接到MYSQL数据库。
 
 1. 安装```gorm.io/gorm```和```gorm.io/driver/mysql```库，使用```go get```命令安装：
+
    ```
    go get -u gorm.io/gorm
    go get -u gorm.io/driver/mysql
    ```
+
 2. 使用 MySQL 客户端连接 MatrixOne。新建一个名称为 *test* 数据库：
+   
     ```sql
     mysql> create database test;
     ```
 
 3. 创建一个文本文件 *golang_gorm_connect_matrixone.go* 并将代码写入文件：
+   
     ```go
     package main
     import (
@@ -108,15 +113,13 @@ go version
     	getDBConn()
     }
     ```
+
 4. 打开一个终端，在终端内执行下面的命令：
+
     ```
     > go run golang_gorm_connect_matrixone.go
     Database Connection Succeed
     ```
-
-
-
-
 
 ## 参考文档
 
