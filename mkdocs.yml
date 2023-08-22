@@ -164,6 +164,7 @@ nav:
       - 将数据从 MySQL 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-mysql-to-matrixone.md
       - 将数据从 Oracle 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-oracle-to-matrixone.md
       - 将数据从 SQL Server 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-sqlserver-to-matrixone.md
+      - 将数据从 PostgreSQL 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-postgresql-to-matrixone.md
     - 测试:
       - 性能测试:
         - SSB 测试: MatrixOne/Test/performance-testing/SSB-test-with-matrixone.md

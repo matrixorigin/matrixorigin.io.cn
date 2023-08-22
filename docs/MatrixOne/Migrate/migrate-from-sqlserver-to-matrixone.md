@@ -26,9 +26,12 @@ MatrixOne 与 SQL Server 存在着诸多类型上的差异，这些差异有些�
 
 ## 在线迁移
 
-本章节将指导你使用第三方工具，将数据从 SQL Server 迁移至 MatrixOne。
+本章节将指导你使用第三方工具 DBeaver，将数据从 SQL Server 迁移至 MatrixOne。
+
+通过 DBeaver，将源端的数据按批次获取，再将数据以 `INSERT` 的方式，插入到目标库。如果在迁移过程中报错 heap 空间不足，请尝试调整每个批次获取并插入数据的规模。
 
 - 适用场景：数据量较小（建议小于 1GB），对迁移的速度不敏感的场景。
+- 安装 DBeaver 的跳板机推荐配置：内存 16GB 以上。
 
 ### 准备工作
 
@@ -145,7 +148,7 @@ MatrixOne 与 SQL Server 存在着诸多类型上的差异，这些差异有些�
     # Linux系统执行的命令如下：
     sed -i 's/,N/,/g' mssql_data.sql
 
-    #MacOS 系统则使用的命令如下：
+    # MacOS 系统则使用的命令如下：
     sed -i '' 's/,N/,/g' mssql_data.sql
     ```
 
