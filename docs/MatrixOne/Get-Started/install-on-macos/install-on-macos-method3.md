@@ -24,18 +24,18 @@
 
 使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像。
 
-=== "稳定版本的镜像（0.8.0）"
+=== "稳定版本的镜像（1.0.0-rc1）"
 
       ```bash
-      docker pull matrixorigin/matrixone:0.8.0
-      docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:0.8.0
+      docker pull matrixorigin/matrixone:1.0.0-rc1
+      docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:1.0.0-rc1
       ```
 
       如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 稳定版本镜像：
 
       ```bash
-      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:0.8.0
-      docker run -d -p 6001:6001 --name matrixone --privileged=true registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:0.8.0
+      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
+      docker run -d -p 6001:6001 --name matrixone --privileged=true registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
       ```
 
 === "开发版本的镜像"

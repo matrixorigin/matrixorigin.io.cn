@@ -60,6 +60,7 @@ nav:
         - Logservice 架构详解: MatrixOne/Overview/architecture/architecture-logservice.md
         - Proxy 架构详解: MatrixOne/Overview/architecture/architecture-proxy.md
         - 数据缓存及冷热数据分离架构详解: MatrixOne/Overview/architecture/architecture-cold-hot-data-separation.md
+        - 流引擎架构详解: MatrixOne/Overview/architecture/streaming.md
       - 最新动态: MatrixOne/Overview/whats-new.md
     - 快速开始:
       - 单机部署 MatrixOne:
@@ -524,6 +525,7 @@ nav:
       - SQL 常见问题: MatrixOne/FAQs/sql-faqs.md
     - 版本发布纪要:
       - 版本发布历史记录: MatrixOne/Release-Notes/release-timeline.md
+      - v1.0.0-rc1: MatrixOne/Release-Notes/v1.0.0-rc1.md
       - v0.8.0: MatrixOne/Release-Notes/v0.8.0.md
       - v0.7.0: MatrixOne/Release-Notes/v0.7.0.md
       - v0.6.0: MatrixOne/Release-Notes/v0.6.0.md

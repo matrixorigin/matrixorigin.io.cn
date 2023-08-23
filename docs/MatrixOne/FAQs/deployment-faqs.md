@@ -191,7 +191,7 @@ MatrixOne 版本 0.8.0 以及之前的版本之间的存储格式并不相互兼
 [root ~]# rm -rf mo-data // 清理数据目录
 [root ~]# make build // 构建 matrixone
 ...    // 此处省略构建过程代码
-[root ~]# ./mo-service --daemon --launch ./etc/quickstart/launch.toml &> test.log &   // 在终端的后台启动 MatrixOne 服务
+[root ~]# ./mo-service --daemon --launch ./etc/launch/launch.toml &> test.log &   // 在终端的后台启动 MatrixOne 服务
 ```
 
 !!! note

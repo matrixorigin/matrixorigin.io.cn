@@ -451,13 +451,13 @@ __Note:__ 本章节均是在 master0 节点操作。
 1. 下载最新的 MatrixOne Operator 安装包：
 
     ```
-    wget https://github.com/matrixorigin/matrixone-operator/releases/download/chart-0.8.0-alpha.2/matrixone-operator-0.8.0-alpha.2.tgz
+    wget https://github.com/matrixorigin/matrixone-operator/releases/download/chart-1.0.0-rc1-alpha.2/matrixone-operator-1.0.0-rc1-alpha.2.tgz
     ```
 
 2. 解压安装包：
 
     ```
-    tar -xvf matrixone-operator-0.8.0-alpha.2.tgz
+    tar -xvf matrixone-operator-1.0.0-rc1-alpha.2.tgz
     cd /root/matrixone-operator/
     ```
 
@@ -642,7 +642,7 @@ mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 163
-Server version: 8.0.30-MatrixOne-v0.8.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
