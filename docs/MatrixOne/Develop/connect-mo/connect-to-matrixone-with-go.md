@@ -73,9 +73,9 @@ go version
 
 ## 使用 Gorm 连接 MatrixOne 服务
 
-```gorm```是一个基于golang的一个神奇的全功能ORM库，我们将使用```gorm.io/gorm```和```gorm.io/driver/mysql```这两个库来让Go连接到MYSQL数据库。
+```gorm``` 是一个基于 golang 的一个神奇的全功能 ORM 库，我们将使用 ```gorm.io/gorm``` 和 ```gorm.io/driver/mysql``` 这两个库来让 Go 连接到 MYSQL 数据库。
 
-1. 安装```gorm.io/gorm```和```gorm.io/driver/mysql```库，使用```go get```命令安装：
+1. 安装 ```gorm.io/gorm``` 和 ```gorm.io/driver/mysql``` 库，使用 ```go get``` 命令安装：
 
    ```
    go get -u gorm.io/gorm
@@ -123,6 +123,6 @@ go version
 
 ## 参考文档
 
-关于使用 Golang 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见[Golang 基础示例](../../Tutorial/develop-golang-crud-demo.md)。
+关于使用 Golang 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见 [Golang 基础示例](../../Tutorial/develop-golang-crud-demo.md)。
 
-关于使用 Gorm 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见[Gorm 基础示例](../../Tutorial/gorm-golang-crud-demo.md)。
+关于使用 Gorm 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见 [Gorm 基础示例](../../Tutorial/gorm-golang-crud-demo.md)。
