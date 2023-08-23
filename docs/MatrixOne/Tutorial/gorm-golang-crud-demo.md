@@ -1,4 +1,4 @@
-# gorm基础示例
+# gorm 基础示例
 
 本篇文档将指导你如何使用 **golang** 和 **gorm** 构建一个简单的应用程序，并实现 CRUD（创建、读取、更新、删除）功能。
 
@@ -8,7 +8,7 @@
 
 相关软件的简单介绍：
 
-* Gorm：基于golang的一个神奇的全功能ORM库，本次教程主要通过使用```gorm.io/gorm```和```gorm.io/driver/mysql```这两个库来让Go连接到MYSQL数据库并完成CRUD操作。
+* Gorm：基于 golang 的一个神奇的全功能 ORM 库，本次教程主要通过使用 ```gorm.io/gorm``` 和 ```gorm.io/driver/mysql``` 这两个库来让 Go 连接到 MYSQL 数据库并完成 CRUD 操作。
 
 ### 环境配置
 
@@ -29,7 +29,7 @@
 
 - 确认你已完成安装 MySQL 客户端。
 
-- 确认你已经安装`gorm.io/gorm`以及`gorm.io/driver/mysql`，使用`go get`命令安装，代码如下：
+- 确认你已经安装 `gorm.io/gorm` 以及 `gorm.io/driver/mysql`，使用 `go get` 命令安装，代码如下：
 
   ```
   go get -u gorm.io/gorm
@@ -40,8 +40,8 @@
 
 ## 新建表
 
-作为对象关系映射器（ORM）工具， `Gorm` 允许开发人员创建 GO 类来映射关系数据库中的表。
-在下面的代码示例中，将创建一个 `USER` 类，这里的类名和属性名称必须使用大写英文开头以保证`public`访问，否则不能创建。`USER` 类在`GORM`的作用下将转化为一条`SQL`语句，创建表名为`users` 的表。
+作为对象关系映射器（ORM）工具，`Gorm` 允许开发人员创建 GO 类来映射关系数据库中的表。
+在下面的代码示例中，将创建一个 `USER` 类，这里的类名和属性名称必须使用大写英文开头以保证 `public` 访问，否则不能创建。`USER` 类在 `GORM` 的作用下将转化为一条 `SQL` 语句，创建表名为 `users` 的表。
 新建一个 `gorm_create.go` 的文本文件，将以下代码拷贝粘贴到文件内：
 
 ```go
@@ -84,7 +84,7 @@ func main() {
 
 ```
 
-你可以取消注释```Logger: logger.Default.LogMode(logger.Info)```以把转化后的```SQL```输出出来。
+你可以取消注释 ```Logger: logger.Default.LogMode(logger.Info)``` 以把转化后的 ```SQL``` 输出出来。
 打开终端，使用以下代码运行此 *go* 文件：
 
 ```
@@ -105,7 +105,7 @@ mysql> show tables;
 
 ## 插入数据
 
-下面的演示中，将指导你在刚刚创建的`users`表中插入两条数据记录，这里的`ID`默认是自增的，也可以指定为固定的值。
+下面的演示中，将指导你在刚刚创建的 `users` 表中插入两条数据记录，这里的 `ID` 默认是自增的，也可以指定为固定的值。
 新建一个 `gorm_insert.go` 的文本文件，将以下代码拷贝粘贴到文件内：
 
 ```go
@@ -168,7 +168,7 @@ func main() {
 go run gorm_insert.go
 ```
 
-同样的，终端也会输出SQL语句，你可以使用 MySQL 客户端验证表是否成功插入数据：
+同样的，终端也会输出 SQL 语句，你可以使用 MySQL 客户端验证表是否成功插入数据：
 
 ```sql
 mysql> select * from users;
@@ -183,7 +183,7 @@ mysql> select * from users;
 
 ## 查询数据
 
-下面的演示中，将指导你用条件查询部分数据，查询`CNAME=zhang`的数据。
+下面的演示中，将指导你用条件查询部分数据，查询 `CNAME=zhang` 的数据。
 新建一个 `gorm_query.go` 的文本文件，将以下代码拷贝粘贴到文件内：
 
 ```go
@@ -397,4 +397,4 @@ mysql> select * from users;
 1 row in set (0.00 sec)
 ```
 
-以上仅是GORM中CRUD操作的部分演示，更多的用法和案例可以参考[GORM官方指南](https://gorm.io/zh_CN/docs/index.html)
+以上仅是 GORM 中 CRUD 操作的部分演示，更多的用法和案例可以参考 [GORM 官方指南](https://gorm.io/zh_CN/docs/index.html)
