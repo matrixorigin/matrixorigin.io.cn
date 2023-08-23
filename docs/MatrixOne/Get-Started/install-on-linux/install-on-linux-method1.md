@@ -134,23 +134,28 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/insta
 root@VM-16-2-debian:~# mo_ctl
 Usage             : mo_ctl [option_1] [option_2]
 
-[option_1]        : available: help | precheck | deploy | status | start | stop | restart | connect | get_cid | set_conf | get_conf | pprof | ddl_convert
-  0) help         : print help information
-  1) precheck     : check pre-requisites for mo_ctl
-  2) deploy       : deploy mo onto the path configured
-  3) status       : check if there's any mo process running on this machine
-  4) start        : start mo-service from the path configured
-  5) stop         : stop all mo-service processes found on this machine
-  6) restart      : start mo-service from the path configured
-  7) connect      : connect to mo via mysql client using connection info configured
-  8) get_cid      : print mo commit id from the path configured
-  9) pprof        : collect pprof information
-  10) set_conf    : set configurations
-  11) get_conf    : get configurations
-  12) ddl_convert : convert ddl file to mo format from other types of database
+[option_1]      : available: connect | ddl_connect | deploy | get_branch | get_cid | get_conf | help | pprof | precheck | restart | set_conf | sql | start | status | stop | uninstall | upgrade | watchdog
+  1) connect      : connect to mo via mysql client using connection info configured
+  2) ddl_convert  : convert ddl file to mo format from other types of database
+  3) deploy       : deploy mo onto the path configured
+  4) get_branch   : upgrade or downgrade mo from current version to a target commit id or stable version
+  5) get_cid      : print mo git commit id from the path configured
+  6) get_conf     : get configurations
+  7) help         : print help information
+  8) pprof        : collect pprof information
+  9) precheck     : check pre-requisites for mo_ctl
+  10) restart     : a combination operation of stop and start
+  11) set_conf    : set configurations
+  12) sql         : execute sql from string, or a file or a path containg multiple files
+  13) start       : start mo-service from the path configured
+  14) status      : check if there's any mo process running on this machine
+  15) stop        : stop all mo-service processes found on this machine
+  16) uninstall   : uninstall mo from path MO_PATH=/data/mo//matrixone
+  17) upgrade     : upgrade or downgrade mo from current version to a target commit id or stable version
+  18) watchdog    : setup a watchdog crontab task for mo-service to keep it alive
   e.g.            : mo_ctl status
 
-[option_2]        : Use " mo_ctl [option_1] help " to get more info
+  [option_2]      : Use " mo_ctl [option_1] help " to get more info
   e.g.            : mo_ctl deploy help
 ```
 
