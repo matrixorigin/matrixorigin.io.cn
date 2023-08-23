@@ -2,7 +2,7 @@
 
 公用表表达式（CTE,Common table expression) 是一个命名的临时结果集，仅在单个 SQL 语句 (例如 `SELECT`，`INSERT`，`UPDATE` 或 `DELETE`) 的执行范围内存在。
 
-与派生表类似，CTE 不作为对象存储，仅在查询执行期间持续；与派生表不同，CTE 可以是自引用 ，也可以在同一查询中多次引用。此外，与派生表相比，CTE 提供了更好的可读性和性能。
+与派生表类似，CTE 不作为对象存储，仅在查询执行期间持续；与派生表不同，CTE 可以是自引用，也可以在同一查询中多次引用。此外，与派生表相比，CTE 提供了更好的可读性和性能。
 
 **应用场景**：
 
@@ -122,4 +122,4 @@ SELECT * FROM EmployeeInfo;
 
 注意，递归 CTE 需要使用 `RECURSIVE` 关键字来声明。
 
-更多关于 CTE 的使用文档，参考[WITH (Common Table Expressions)](../../Reference/SQL-Reference/Data-Query-Language/with-cte.md)
+更多关于 CTE 的使用文档，参考 [WITH (Common Table Expressions)](../../Reference/SQL-Reference/Data-Query-Language/with-cte.md)
