@@ -165,15 +165,23 @@ mo_ctl 工具中有部分参数可能需要你进行调整设置，通过 `mo_ct
 
 ```
 root@VM-16-2-debian:~# mo_ctl get_conf
-2023-07-07_10:09:09    [INFO]    Below are all configurations set in conf file /data/mo_ctl/conf/env.sh
+2023-08-23 18:23:35.444 UTC+0800    [INFO]    Below are all configurations set in conf file /root/mo_ctl/conf/env.sh
 MO_PATH="/data/mo/"
-MO_LOG_PATH="${MO_PATH}/logs"
+MO_LOG_PATH="${MO_PATH}/matrixone/logs"
 MO_HOST="127.0.0.1"
 MO_PORT="6001"
 MO_USER="root"
 MO_PW="111"
-CHECK_LIST=("go" "gcc" "git" "mysql")
+MO_DEPLOY_MODE="host"
+MO_REPO="matrixorigin/matrixone"
+MO_IMAGE_PREFIX="nightly"
+MO_IMAGE_FULL=""
+MO_CONTAINER_NAME="mo"
+MO_CONTAINER_PORT="6001"
+MO_CONTAINER_DEBUG_PORT="12345"
+CHECK_LIST=("go" "gcc" "git" "mysql" "docker")
 GCC_VERSION="8.5.0"
+CLANG_VERSION="13.0"
 GO_VERSION="1.20"
 MO_GIT_URL="https://github.com/matrixorigin/matrixone.git"
 MO_DEFAULT_VERSION="0.8.0"
@@ -181,7 +189,7 @@ GOPROXY="https://goproxy.cn,direct"
 STOP_INTERVAL="5"
 START_INTERVAL="2"
 MO_DEBUG_PORT="9876"
-MO_CONF_FILE="${MO_PATH}/matrixone/etc/launch-tae-CN-tae-DN/launch.toml"
+MO_CONF_FILE="${MO_PATH}/matrixone/etc/launch/launch.toml"
 RESTART_INTERVAL="2"
 PPROF_OUT_PATH="/tmp/pprof-test/"
 PPROF_PROFILE_DURATION="30"
@@ -192,7 +200,7 @@ PPROF_PROFILE_DURATION="30"
 ```
 mo_ctl set_conf MO_PATH="/data/mo/matrixone" # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL="https://ghproxy.com/https://github.com/matrixorigin/matrixone.git" #针对github原地址下载过慢问题，设置代理下载地址
-mo_ctl set_conf MO_DEFAULT_VERSION="0.8.0" # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0" # 设置所下载的MatrixOne版本
 ```
 
 ## 步骤 3：一键安装 MatrixOne
