@@ -41,7 +41,7 @@ go version
 
 3. 创建一个纯文本文件 *golang_connect_matrixone.go* 并将代码写入文件：
 
-    ```python
+    ```go
     package main
 
     import (
@@ -71,6 +71,58 @@ go version
     Database Connection Succeed
     ```
 
+## 使用 Gorm 连接 MatrixOne 服务
+
+```gorm``` 是一个基于 golang 的一个神奇的全功能 ORM 库，我们将使用 ```gorm.io/gorm``` 和 ```gorm.io/driver/mysql``` 这两个库来让 Go 连接到 MYSQL 数据库。
+
+1. 安装 ```gorm.io/gorm``` 和 ```gorm.io/driver/mysql``` 库，使用 ```go get``` 命令安装：
+
+   ```
+   go get -u gorm.io/gorm
+   go get -u gorm.io/driver/mysql
+   ```
+
+2. 使用 MySQL 客户端连接 MatrixOne。新建一个名称为 *test* 数据库：
+
+    ```sql
+    mysql> create database test;
+    ```
+
+3. 创建一个文本文件 *golang_gorm_connect_matrixone.go* 并将代码写入文件：
+
+    ```go
+    package main
+    import (
+    	"gorm.io/driver/mysql"
+    	"gorm.io/gorm"
+    	"fmt"
+      )
+    func getDBConn() *gorm.DB {
+	    dsn := "root:111@tcp(127.0.0.1:6001)/test?charset=utf8mb4&parseTime=True&loc=Local" //MO 
+	    db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{ 
+	    })
+	    // get connection
+	    if err != nil {
+	    	fmt.Println("Database Connection Failed") //Connection failed
+	    } else {
+	    	fmt.Println("Database Connection Succeed") //Connection succeed
+	    }
+	    return db
+        }
+    func main() {
+    	getDBConn()
+    }
+    ```
+
+4. 打开一个终端，在终端内执行下面的命令：
+
+    ```
+    > go run golang_gorm_connect_matrixone.go
+    Database Connection Succeed
+    ```
+
 ## 参考文档
 
-关于使用 Golang 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见[构建一个 Golang CRUD 示例](../../Tutorial/develop-golang-crud-demo.md)。
+关于使用 Golang 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见 [Golang 基础示例](../../Tutorial/develop-golang-crud-demo.md)。
+
+关于使用 Gorm 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见 [Gorm 基础示例](../../Tutorial/gorm-golang-crud-demo.md)。
