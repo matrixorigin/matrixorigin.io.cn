@@ -160,7 +160,7 @@ GOPROXY="https://goproxy.cn,direct"
 STOP_INTERVAL="5"
 START_INTERVAL="2"
 MO_DEBUG_PORT="9876"
-MO_CONF_FILE="${MO_PATH}/matrixone/etc/launch-tae-CN-tae-DN/launch.toml"
+MO_CONF_FILE="${MO_PATH}/matrixone/etc/launch-tae-CN-tae-TN/launch.toml"
 RESTART_INTERVAL="2"
 PPROF_OUT_PATH="/tmp/pprof-test/"
 PPROF_PROFILE_DURATION="30"
@@ -201,10 +201,10 @@ mo_ctl set_conf MO_DEFAULT_VERSION="0.8.0" # 设置所下载的MatrixOne版本
 ```
 > mo_ctl start
 2023-07-07_15:33:45    [INFO]    No mo-service is running
-2023-07-07_15:33:45    [INFO]    Starting mo-service: cd /Users/username/mo/matrixone/matrixone/ && /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-DN/launch.toml >/Users/username/mo/matrixone/matrixone/logs/stdout-20230707_153345.log 2>/Users/username/mo/matrixone/matrixone/logs/stderr-20230707_153345.log
+2023-07-07_15:33:45    [INFO]    Starting mo-service: cd /Users/username/mo/matrixone/matrixone/ && /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-TN/launch.toml >/Users/username/mo/matrixone/matrixone/logs/stdout-20230707_153345.log 2>/Users/username/mo/matrixone/matrixone/logs/stderr-20230707_153345.log
 2023-07-07_15:33:45    [INFO]    Wait for 2 seconds
 2023-07-07_15:33:48    [INFO]    At least one mo-service is running. Process info:
-2023-07-07_15:33:48    [INFO]      501 66932     1   0  3:33PM ??         0:00.27 /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-DN/launch.toml
+2023-07-07_15:33:48    [INFO]      501 66932     1   0  3:33PM ??         0:00.27 /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-TN/launch.toml
 2023-07-07_15:33:48    [INFO]    Pids:
 2023-07-07_15:33:48    [INFO]    66932
 2023-07-07_15:33:48    [INFO]    Start succeeded

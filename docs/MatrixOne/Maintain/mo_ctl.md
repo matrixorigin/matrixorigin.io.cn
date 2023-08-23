@@ -288,7 +288,7 @@ Usage         : mo_ctl getconf [conf_list] # get configurations
 | STOP_INTERVAL          | 停止间隔，停止服务后检测服务状态等待时间            | 默认为5秒                                                    |
 | START_INTERVAL         | 启动间隔，启动服务后检测服务状态等待时间            | 默认为2秒                                                    |
 | MO_DEBUG_PORT          | MatrixOne的debug端口，一般为开发人员使用            | 默认为9876                                                   |
-| MO_CONF_FILE           | MatrixOne的启动配置文件                             | 默认为${MO_PATH}/matrixone/etc/launch-tae-CN-tae-DN/launch.toml |
+| MO_CONF_FILE           | MatrixOne的启动配置文件                             | 默认为${MO_PATH}/matrixone/etc/launch-tae-CN-tae-TN/launch.toml |
 | RESTART_INTERVAL       | 重启间隔，重启服务后检测服务状态等待时间            | 默认为2秒                                                    |
 | PPROF_OUT_PATH         | golang的性能收集数据输出路径                        | 默认为/tmp/pprof-test/                                       |
 | PPROF_PROFILE_DURATION | golang的性能收集时间                                | 默认为30秒                                                   |

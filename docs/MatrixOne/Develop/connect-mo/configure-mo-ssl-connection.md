@@ -45,7 +45,7 @@
     ├── server-cert.pem <br>
     └── server-key.pem<br>
 
-2. 在 MatrixOne 目录下的 *etc/launch-tae-CN-tae-DN/cn.toml* 文件内的 `[cn.frontend]` 部分插入以下代码段：
+2. 在 MatrixOne 目录下的 *etc/launch-tae-CN-tae-TN/cn.toml* 文件内的 `[cn.frontend]` 部分插入以下代码段：
 
     ```
     [cn.frontend]

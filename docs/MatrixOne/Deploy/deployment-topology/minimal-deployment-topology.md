@@ -28,6 +28,6 @@
 
 | 节点名称 | 资源  | 节点角色       | 部署模块                                                     | 磁盘部署                                                     |
 | -------- | ----- | -------------- | :----------------------------------------------------------- | ------------------------------------------------------------ |
-| node0    | 8c32g | 管控/存储/计算 | 部署及运维工具 mo-ctl, Kubernetes master/node，Minio， MatrixOne Proxy，Logservice，DN，负载均衡 | Kubernetes 需要1块数据盘，Minio 需要 1 至 4 块数据盘（建议物理分盘，也可逻辑分盘）, Logservice 需要1块数据盘，DN 需要 1 块数据盘 |
+| node0    | 8c32g | 管控/存储/计算 | 部署及运维工具 mo-ctl, Kubernetes master/node，Minio， MatrixOne Proxy，Logservice，TN，负载均衡 | Kubernetes 需要1块数据盘，Minio 需要 1 至 4 块数据盘（建议物理分盘，也可逻辑分盘）, Logservice 需要1块数据盘，TN 需要 1 块数据盘 |
 | node1    | 8c32g | 管控/存储/计算 | 部署及运维工具 mo-ctl, Kubernetes master/node，Minio，MatrixOne Proxy，Logservice，CN，负载均衡 | Kubernetes 需要1块数据盘，Minio 需要1-4块数据盘（建议物理分盘，也可逻辑分盘）, Logservice 需要1块数据盘，CN需要1块数据盘 |
 | node2    | 8c32g | 管控/存储/计算 | 部署及运维工具 mo-ctl, Kubernetes master/node，Minio，MatrixOne Proxy，Logservice，CN，负载均衡 | Kubernetes 需要 1 块数据盘，Minio需要1-4块数据盘（建议物理分盘，也可逻辑分盘）, Logservice 需要 1 块数据盘，CN 需要 1 块数据盘 |

@@ -1,6 +1,6 @@
 # 单机版通用参数配置
 
-在 *matrixone/etc/launch/* 目录下有四个配置文件：*cn.toml*、*dn.toml*、*proxy.toml* 和 *log.toml*，用于配置通用参数。
+在 *matrixone/etc/launch/* 目录下有四个配置文件：*cn.toml*、*tn.toml*、*proxy.toml* 和 *log.toml*，用于配置通用参数。
 
 ## cn.toml
 
@@ -52,31 +52,31 @@
 | disableTrace           | 禁用跟踪收集。如果设置为 true，系统将停止收集任何跟踪（trace）、度量（metric）和日志（log）数据，                          | disableTrace = false      |
 | longQueryTime          | 记录执行时间超过的查询。该参数定义了一个阈值，以秒为单位，用于筛选出执行时间超过该阈值的查询语句，然后记录这些查询的执行计划（ExecPlan）。如果查询的执行时间超过这个阈值，系统会记录查询的执行计划，以便后续分析。如果设置为 0.0，表示记录所有查询的执行计划。                   | longQueryTime = 1.0                |
 
-## dn.toml
+## tn.toml
 
 ### 默认参数
 
-*dn.toml* 文件中默认包含以下参数：
+*tn.toml* 文件中默认包含以下参数：
 
 | 参数              | 参数解释                                  | 书写格式示例             |
 |-------------------|-------------------------------------------|--------------------------|
 | [log]             | 日志配置节                                |                          |
 | level             | 日志级别，默认值为 info，可修改为不同级别  | level = "info"        |
-| [dn]              | DN 节点，不可修改                         |                        |
-| uuid              | DN 的唯一标识符，不可修改                  | uuid = "dd4dccb4-4d3c-41f8-b482-5251dc7a41bf" |
-| port-base         | "DN" 使用的起始端口号，从端口号往后，连续20个端口找到可用端口用于内部服务| port-base = 19000       |
+| [tn]              | TN 节点，不可修改                         |                        |
+| uuid              | TN 的唯一标识符，不可修改                  | uuid = "dd4dccb4-4d3c-41f8-b482-5251dc7a41bf" |
+| port-base         | "TN" 使用的起始端口号，从端口号往后，连续20个端口找到可用端口用于内部服务| port-base = 19000       |
 | service-host      | 服务连接地址，用于注册到 HAKeeper 中       | service-host = "0.0.0.0" |
 
 ### 扩展参数
 
-在 *dn.toml* 文件中，你也可以自定义添加以下配置参数：
+在 *tn.toml* 文件中，你也可以自定义添加以下配置参数：
 
 | 参数                   | 参数解释                                  | 书写格式示例             |
 |------------------------|-------------------------------------------|--------------------------|
 | [log]                  | 日志配置节                                |                          |
 | format                 | 日志保存格式为 JSON 或其他                | format = "console"        |
-| filename               | 日志文件名                                |  filename = "dn.log"          |
-| [dn.LogtailServer]     | Logtail 服务器配置节                      |                            |
+| filename               | 日志文件名                                |  filename = "tn.log"          |
+| [tn.LogtailServer]     | Logtail 服务器配置节                      |                            |
 | rpc-enable-checksum    | 是否开启 RPC 校验和                        | rpc-enable-checksum = false|
 | [fileservice.cache]    | 文件服务缓存配置节                        |                            |
 | memory-capacity        | cache 内存大小                            | memory-capacity = "512MB" |

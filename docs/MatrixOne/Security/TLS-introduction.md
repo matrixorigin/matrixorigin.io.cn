@@ -46,12 +46,12 @@ MatrixOne 默认采用非加密传输，也支持启用基于 TLS 协议的加�
 
     __Note__: 上述代码中的 `<yourpath>` 是你需要存放生成的证书及密钥文件的本地目录路径。
 
-2. 进入到你本地的 MatrixOne 文件目录路径 *matrixone/etc/launch-tae-CN-tae-DN/* 中的 *cn.toml* 配置文件：
+2. 进入到你本地的 MatrixOne 文件目录路径 *matrixone/etc/launch-tae-CN-tae-TN/* 中的 *cn.toml* 配置文件：
 
     你也可以使用 vim 命令直接在终端中打开 cn.toml 文件
 
     ```
-    vim $matrixone/etc/launch-tae-CN-tae-DN/cn.toml
+    vim $matrixone/etc/launch-tae-CN-tae-TN/cn.toml
     ```
 
     将下面的代码段复制粘贴到配置文件中：

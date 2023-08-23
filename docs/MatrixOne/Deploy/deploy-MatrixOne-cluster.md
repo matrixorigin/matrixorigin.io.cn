@@ -46,7 +46,7 @@
 
 MatrixOne 分布式系统依赖于以下组件：
 
-- Kubernetes：作为整个 MatrixOne 集群的资源管理平台，包括 Logservice、CN、DN 等组件，都在由 Kubernetes 管理的 Pod 中运行。如果发生故障，Kubernetes 将负责剔除故障的 Pod 并启动新的 Pod 进行替换。
+- Kubernetes：作为整个 MatrixOne 集群的资源管理平台，包括 Logservice、CN、TN 等组件，都在由 Kubernetes 管理的 Pod 中运行。如果发生故障，Kubernetes 将负责剔除故障的 Pod 并启动新的 Pod 进行替换。
 
 - Minio：为整个 MatrixOne 集群提供对象存储服务，MatrixOne 的所有数据存储在由 Minio 提供的对象存储中。
 
@@ -74,13 +74,13 @@ MatrixOne 分布式系统依赖于以下组件：
 
 ### MatrixOne 的 Pod 及存储架构
 
-MatrixOne 根据 Operator 的规则创建一系列的 Kubernetes 对象，这些对象根据组件分类并归类到资源组中，分别为 CNSet、DNSet 和 LogSet。
+MatrixOne 根据 Operator 的规则创建一系列的 Kubernetes 对象，这些对象根据组件分类并归类到资源组中，分别为 CNSet、TNSet 和 LogSet。
 
 - Service：每个资源组中的服务需要通过 Service 进行对外提供。Service 承载了对外连接的功能，确保在 Pod 崩溃或被替换时仍能提供服务。外部应用程序通过 Service 的公开端口连接，而 Service 则通过内部转发规则将连接转发到相应的 Pod。
 
 - Pod：MatrixOne 组件的容器化实例，其中运行着 MatrixOne 的核心内核代码。
 
-- PVC：每个 Pod 都通过 PVC（Persistent Volume Claim）声明自己所需的存储资源。在我们的架构中，CN 和 DN 需要申请一块存储资源作为缓存，而 LogService 则需要相应的 S3 资源。这些需求通过 PVC 进行声明。
+- PVC：每个 Pod 都通过 PVC（Persistent Volume Claim）声明自己所需的存储资源。在我们的架构中，CN 和 TN 需要申请一块存储资源作为缓存，而 LogService 则需要相应的 S3 资源。这些需求通过 PVC 进行声明。
 
 - PV：PV（Persistent Volume）是存储介质的抽象表示，可以看作是存储单元。在 PVC 的申请后，通过实现 CSI 接口的软件创建 PV，并将其与申请资源的 PVC 进行绑定。
 
@@ -507,9 +507,9 @@ __Note:__ 本章节均是在 master0 节点操作。
       name: mo
       namespace: mo-hn
     spec:
-      # 1. 配置 dn
-      dn:
-        cacheVolume: # dn的磁盘缓存
+      # 1. 配置 tn
+      tn:
+        cacheVolume: # tn的磁盘缓存
           size: 5Gi # 根据实际磁盘大小和需求修改
           storageClassName: local-path # 如果不写，会用系统默认的storage class
         resources:
@@ -519,11 +519,11 @@ __Note:__ 本章节均是在 master0 节点操作。
           limits: # 注意limits不能低于requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置limits和requests一致即可
             cpu: 200m
             memory: 1Gi
-        config: |  # dn的配置
-          [dn.Txn.Storage]
+        config: |  # tn的配置
+          [tn.Txn.Storage]
           backend = "TAE"
           log-backend = "logservice"
-          [dn.Ckp]
+          [tn.Ckp]
           flush-interval = "60s"
           min-count = 100
           scan-interval = "5s"
@@ -533,7 +533,7 @@ __Note:__ 本章节均是在 master0 节点操作。
           level = "error"
           format = "json"
           max-size = 512
-        replicas: 1 # dn的副本数，不可修改。当前版本仅支持设置为 1。
+        replicas: 1 # tn的副本数，不可修改。当前版本仅支持设置为 1。
       # 2. 配置 logservice
       logService:
         replicas: 3 # logservice的副本数
@@ -581,7 +581,7 @@ __Note:__ 本章节均是在 master0 节点操作。
           format = "json"
           max-size = 512
         replicas: 1
-      version: nightly-54b5e8c # 此处为 MO 镜像的版本，可通过 dockerhub 查阅，一般 cn、dn、logservice 为同一个镜像打包，所以用同一个字段指定即可，也支持单独在各自部分中指定，但无特殊情况请用统一的镜像版本
+      version: nightly-54b5e8c # 此处为 MO 镜像的版本，可通过 dockerhub 查阅，一般 cn、tn、logservice 为同一个镜像打包，所以用同一个字段指定即可，也支持单独在各自部分中指定，但无特殊情况请用统一的镜像版本
       # https://hub.docker.com/r/matrixorigin/matrixone/tags
       imageRepository: matrixorigin/matrixone # 镜像仓库地址，如果本地拉取后，有修改过 tag，那么可以调整这个配置项
       imagePullPolicy: IfNotPresent # 镜像拉取策略，与 k8s 官方可配置值一致
@@ -606,7 +606,7 @@ __Note:__ 本章节均是在 master0 节点操作。
     ```
     [root@master0 mo]# kubectl get pods -n mo-hn      
     NAME                                 READY   STATUS    RESTARTS      AGE
-    mo-dn-0                              1/1     Running   0             74s
+    mo-tn-0                              1/1     Running   0             74s
     mo-log-0                             1/1     Running   1 (25s ago)   2m2s
     mo-log-1                             1/1     Running   1 (24s ago)   2m2s
     mo-log-2                             1/1     Running   1 (22s ago)   2m2s
