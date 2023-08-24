@@ -43,12 +43,12 @@ matrixone-operator      matrixone-operator      1               2023-05-09 15:19
 
 ### 升级
 
-MatrixOne-Operator 项目是长期维护更新的项目，请更新至最新版本。你可以在 [Github](https://github.com/matrixorigin/matrixone-operator/releases) 上下载新版本的 Operator，例如：`matrixone-operator-1.0.0-rc1-alpha.2`
+MatrixOne-Operator 项目是长期维护更新的项目，请更新至最新版本。你可以在 [Github](https://github.com/matrixorigin/matrixone-operator/releases) 上下载新版本的 Operator，例如：`matrixone-operator-0.8.0-alpha.2`
 
 使用如下命令解压文件：
 
 ```
-tar xvf ./matrixone-operator-1.0.0-rc1-alpha.2.tgz
+tar xvf ./matrixone-operator-0.8.0-alpha.2.tgz
 cd matrixone-operator
 ```
 
@@ -78,7 +78,7 @@ TEST SUITE: None
 #获取镜像版本
 NS="matrixone-operator"
 kubectl get pod -n${NS} `kubectl get pod -n${NS}  | grep operator | head -1 | awk '{print $1}'` -ojsonpath='{.spec.containers[0].image}'
-matrixorigin/matrixone-operator:1.0.0-rc1-alpha.2
+matrixorigin/matrixone-operator:0.8.0-alpha.2
 ```
 
 在升级 Matrixone-Operator 之后，会在 `matrixone-operator` 命名空间下先重新生成一个新的 `matrixone-operator-xxxx-xxx` 的 Pod，之后会把旧的 Pod 删除。
