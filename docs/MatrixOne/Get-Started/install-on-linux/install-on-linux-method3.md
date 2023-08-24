@@ -80,39 +80,25 @@
 
 ## 步骤 3：连接 MatrixOne
 
-### 安装并配置 MySQL 客户端
+### 安装 MySQL Client
 
-1. 点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 **Select Operating System**，再下拉选择 **Select OS Version**，按需选择下载安装包进行安装。
+Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安装。
 
-    __Note__: 建议 MySQL 客户端版本为 8.0.30 版本及以上。
+1. 依次执行以下命令：
 
-2. 配置 MySQL 客户端环境变量：
+    ```
+    wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+    sudo dpkg -i ./mysql-apt-config_0.8.22-1_all.deb
+    sudo apt update
+    sudo apt install mysql-client
+    ```
 
-     1. 打开一个新的终端，输入如下命令：
+2. 执行命令 `mysql --version` 测试 MySQL 是否可用，安装成功结果如下：
 
-         ```
-         sudo vim /etc/profile
-         ```
-
-     2. 回车执行上面的命令后，非 Linux root 用户需要输入当前 Linux 用户的密码。
-
-     3. 输入密码后回车，即进入了 *profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
-
-        ```
-        export PATH=/software/mysql/bin:$PATH
-        ```
-
-     4. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
-
-     5. 输入命令 `source  /etc/profile`，回车执行，运行环境变量。
-
-     6. 测试 MySQL 是否可用：
-
-         - 方式一：输入命令 `mysql -u root -p`，回车执行，需要 root 用户密码，显示 `mysql>` 即表示 MySQL 客户端已开启。
-
-         - 方式二：执行命令 `mysql --version`，安装成功提示：`mysql  Ver 8.0.31 for Linux on x86_64 (Source distribution)`
-
-     7. MySQL 如可用，关闭当前终端，继续浏览下一章节**连接 MatrixOne 服务**。
+    ```
+    mysql --version
+    mysql  Ver 8.0.33 for Linux on x86_64 (MySQL Community Server - GPL)
+    ```
 
     __Tips__: 目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。
 
