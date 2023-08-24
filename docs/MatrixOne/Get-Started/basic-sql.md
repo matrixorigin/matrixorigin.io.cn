@@ -111,7 +111,7 @@ DROP TABLE person;
 
 ## 增加、删除、修改表记录
 
-通用的 DML 即增删改表记录，基本的语句为 `INSERT`，`UPDATE` 和 `DELETE`。
+通用的 DML 即增删改表记录，基本的语句为 `INSERT`，`UPDATE`、`REPLACE` 和 `DELETE`。
 
 - 向表中插入数据，使用 `INSERT` 语句：
 
@@ -131,14 +131,20 @@ INSERT INTO person(id,name) VALUES('2','bob');
 UPDATE person SET birthday='20180808' WHERE id=2;
 ```
 
+- 向表内替换表记录的部分字段数据，使用 `UPDATE` 语句，例如：
+
+```sql
+REPLACE INTO person SET birthday='20180809' WHERE id=2;
+```
+
 - 向表内删除部分表记录，使用 `DELETE` 语句，例如：
 
 ```sql
 DELETE FROM person WHERE id=2;
 ```
 
-!!!note
-   `UPDATE` 和 `DELETE` 操作如果不带 `WHERE` 过滤条件则是对全表进行操作。
+!!! note
+    `UPDATE` 和 `DELETE` 操作如果不带 `WHERE` 过滤条件则是对全表进行操作。
 
 ## 查询数据
 
