@@ -92,16 +92,16 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
 
      ```bash
      mkdir -p /root/matrixone & cd /root/
-     wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
-     unzip -d matrixone/ mo-v0.8.0-linux-amd64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-linux-amd64.zip
+     unzip -d matrixone/ mo-v1.0.0-rc1-linux-amd64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
      mkdir -p /root/matrixone & cd /root/
-     wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-arm64.zip
-     unzip -d matrixone/ mo-v0.8.0-linux-arm64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-linux-arm64.zip
+     unzip -d matrixone/ mo-v1.0.0-rc1-linux-arm64.zip
      ```
 
 === "**下载方式二：`curl` 工具下载二进制包**"
@@ -110,21 +110,21 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
 
      ```bash
      mkdir -p /root/matrixone & cd /root/
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
-     unzip -d matrixone/ mo-v0.8.0-linux-amd64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-linux-amd64.zip
+     unzip -d matrixone/ mo-v1.0.0-rc1-linux-amd64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
      mkdir -p /root/matrixone & cd /root/
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-arm64.zip
-     unzip -d matrixone/ mo-v0.8.0-linux-arm64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-linux-arm64.zip
+     unzip -d matrixone/ mo-v1.0.0-rc1-linux-arm64.zip
      ```
 
 === "**下载方式三：页面下载**"
 
-     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 0.8.0](https://github.com/matrixorigin/matrixone/releases/tag/v0.8.0)，下拉找到 **Assets** 栏，点击安装包 *mo-v0.8.0-linux-amd64.zip* 或者 *mo-v0.8.0-linux-arm64.zip* 下载即可。
+     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 1.0.0-rc1](https://github.com/matrixorigin/matrixone/releases/tag/v1.0.0-rc1)，下拉找到 **Assets** 栏，点击安装包 *mo-v1.0.0-rc1-linux-amd64.zip* 或者 *mo-v1.0.0-rc1-linux-arm64.zip* 下载再使用 ```unzip``` 命令解压即可即可。
 
 ## 步骤 3：安装 mo_ctl 工具
 
@@ -143,7 +143,7 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/insta
 通过以下命令将 MatrixOne 的二进制解压文件目录设置到 mo_ctl 的 `MO_PATH` 参数上。mo_ctl 会自动寻找位于 `MO_PATH` 中的 `matrixone` 文件夹。
 
 ```
-mo_ctl set_conf MO_PATH="/root/"
+mo_ctl set_conf MO_PATH="/root"
 ```
 
 ## 步骤 4：启动 MatrixOne 服务
