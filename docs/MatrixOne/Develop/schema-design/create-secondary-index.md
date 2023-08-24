@@ -63,4 +63,4 @@ mysql> SELECT * FROM users WHERE name = 'John';
 
 ## 限制
 
-当前 MatrixOne 仅语法实现次级索引。
+当前 MatrixOne 仅语法实现次级索引，并未实现性能提升。
