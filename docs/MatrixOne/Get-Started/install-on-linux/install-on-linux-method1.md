@@ -200,7 +200,7 @@ PPROF_PROFILE_DURATION="30"
 ```
 mo_ctl set_conf MO_PATH="/data/mo/matrixone" # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL="https://ghproxy.com/https://github.com/matrixorigin/matrixone.git" #针对github原地址下载过慢问题，设置代理下载地址
-mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0" # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0-rc1" # 设置所下载的MatrixOne版本
 ```
 
 ## 步骤 3：一键安装 MatrixOne
@@ -218,7 +218,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0" # 设置所下载的MatrixOne版本
 === "通过 MatrixOne (稳定版本) 代码安装"
 
      ```
-     mo_ctl deploy 0.8.0
+     mo_ctl deploy 1.0.0-rc1
      ```
 
 ## 步骤 4：启动 MatrixOne 服务
