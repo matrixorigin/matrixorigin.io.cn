@@ -38,7 +38,7 @@ MatrixOneCluster 集群由多个组件（如 Compute Node（CN）、Database Nod
 [root@master0 ~]# NS="matrixone-operator"
 [root@master0 ~]# helm list -n${NS}
 NAME                    NAMESPACE               REVISION        UPDATED                                 STATUS          CHART                                   APP VERSION
-matrixone-operator      matrixone-operator      1               2023-05-09 15:19:38.363683192 +0800 CST deployed        matrixone-operator-1.0.0-rc1-alpha.2        0.1.0
+matrixone-operator      matrixone-operator      1               2023-05-09 15:19:38.363683192 +0800 CST deployed        matrixone-operator-0.8.0-alpha.2        0.1.0
 ```
 
 ### 升级
