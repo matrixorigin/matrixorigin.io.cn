@@ -18,27 +18,22 @@
 
 另外，从 SQL 语句执行情况上，子查询语句一般有以下两种形式：
 
-- 关联子查询（Correlated Subquery）：数据库嵌套查询中内层查询和外层查询不相互独立，内层查询也依赖于外层查询。
+- 关联子查询（Correlated Subquery）：数据库嵌套查询中内层查询和外层查询不相互独立，内层查询也依赖于外层查询。执行顺序为：
 
-   执行顺序为：
+    + 先从外层查询中查询中一条记录。
 
-     + 先从外层查询中查询中一条记录。
+    + 再将查询到的记录放到内层查询中符合条件的记录，再放到外层中查询。
 
-     + 再将查询到的记录放到内层查询中符合条件的记录，再放到外层中查询。
+    + 重复以上步骤
 
-     + 重复以上步骤
+    例如：`select * from tableA where tableA.cloumn < (select column from tableB where tableA.id = tableB.id))`
 
-    例如：``select * from tableA where tableA.cloumn < (select column from tableB where tableA.id = tableB.id))``
-
-- 无关联子查询 (Self-contained Subquery)：数据库嵌套查询中内层查询是完全独立于外层查询的。
-
-   执行顺序为：
+- 无关联子查询 (Self-contained Subquery)：数据库嵌套查询中内层查询是完全独立于外层查询的。执行顺序为：
 
     + 先执行内层查询。
-
     + 得到内层查询的结果后带入外层，再执行外层查询。
 
-    例如：``select * from tableA where tableA.column  = (select tableB.column from tableB )``
+    例如：`select * from tableA where tableA.column  = (select tableB.column from tableB )`
 
 **子查询的作用**：
 

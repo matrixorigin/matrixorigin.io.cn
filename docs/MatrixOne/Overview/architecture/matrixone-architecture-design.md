@@ -113,7 +113,7 @@ Computing Node（CN)，是 Matrixone 接收用户请求并处理 SQL 的组件�
 
 ### **Stream Engine**
 
-Stream Engine 是一个新组件，用于简化从 OLTP 到 OLAP 的 ETL 处理过程。Stream Engine 还处在 MatrixOne 开发过程中，暂尚未实现。
+Stream Engine 是 MatrixOne 内置的全新组件，旨在支持实时数据查询、处理以及增强数据存储，特别针对传入的数据流（数据点序列）。借助 Stream Engine，您能够使用 SQL 定义并构建流处理管道，将其作为实时数据后端提供服务；同时，您也能够运用 SQL 查询流中的数据，并与非流式数据集进行联接，从而更进一步地简化整个数据堆栈的处理流程。
 
 ### **Proxy**
 
