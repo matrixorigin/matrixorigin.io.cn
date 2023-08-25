@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2173,6 +2187,20 @@
     <li class="md-nav__item">
       <a href="../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8780,6 +8808,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9369,7 +9411,7 @@
 <div class="highlight"><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">person</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="_3">增加、删除、修改表记录</h2>
-<p>通用的 DML 即增删改表记录，基本的语句为 <code>INSERT</code>，<code>UPDATE</code> 和 <code>DELETE</code>。</p>
+<p>通用的 DML 即增删改表记录，基本的语句为 <code>INSERT</code>，<code>UPDATE</code>、<code>REPLACE</code> 和 <code>DELETE</code>。</p>
 <ul>
 <li>向表中插入数据，使用 <code>INSERT</code> 语句：</li>
 </ul>
@@ -9386,14 +9428,19 @@
 <div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">birthday</span><span class="o">=</span><span class="s1">&#39;20180808&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
 </code></pre></div>
 <ul>
+<li>向表内替换表记录的部分字段数据，使用 <code>UPDATE</code> 语句，例如：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">REPLACE</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">birthday</span><span class="o">=</span><span class="s1">&#39;20180809&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+</code></pre></div>
+<ul>
 <li>向表内删除部分表记录，使用 <code>DELETE</code> 语句，例如：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p><code>UPDATE</code> 和 <code>DELETE</code> 操作如果不带 <code>WHERE</code> 过滤条件则是对全表进行操作。</p>
+</div>
 <h2 id="_4">查询数据</h2>
 <p>DQL 用于从一个表或多个表检索所需的数据行。</p>
 <ul>

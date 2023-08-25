@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2088,6 +2102,20 @@
     <li class="md-nav__item">
       <a href="../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8854,6 +8882,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9515,7 +9557,7 @@
 <p>分布式安装情况下，MatrixOne 对于开发、测试和生产环境的服务器硬件配置要求和建议可以参考<a href="../../Deploy/deployment-topology/experience-deployment-topology/">分布式部署的拓扑文档</a>。</p>
 <h2 id="_6">安装和部署</h2>
 <h3 id="_7"><strong>安装时需要更改什么设置吗？</strong></h3>
-<p>通常情况下，安装时，你无需更改任何设置。<code>launch.toml</code> 默认设置完全可以直接运行 MatrixOne。但是如果你需要自定义监听端口、IP 地址、存储数据文件路径，你可以修改相应的 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/cn.toml"><code>cn.toml</code></a>、<a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/dn.toml"><code>dn.toml</code></a> 或 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-tae-CN-tae-DN/log.toml"><code>log.toml</code></a>，这些文件内参数配置详情可参考<a href="../../Reference/System-Parameters/system-parameter/">通用参数配置</a></p>
+<p>通常情况下，安装时，你无需更改任何设置。<code>launch.toml</code> 默认设置完全可以直接运行 MatrixOne。但是如果你需要自定义监听端口、IP 地址、存储数据文件路径，你可以修改相应的 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-with-proxy/cn.toml"><code>cn.toml</code></a>、<a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-with-proxy/tn.toml"><code>tn.toml</code></a> 或 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-with-proxy/log.toml"><code>log.toml</code></a>，这些文件内参数配置详情可参考<a href="../../Reference/System-Parameters/system-parameter/">通用参数配置</a></p>
 <h3 id="mysql-mysql-command-not-found-mysql"><strong>当我安装完成 MySQL 客户端后，打开终端运行 <code>mysql</code> 产生报错 <code>command not found: mysql</code>，我该如何解决？</strong></h3>
 <p>产生这个报错是环境变量未设置的原因，打开一个新的终端，执行以下命令：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><strong>Linux 环境</strong></label><label for="__tabbed_1_2"><strong>MacOS 环境</strong></label></div>
@@ -9560,7 +9602,7 @@ Password:
 <p>设置完成后，<code>make build</code> 应该很快就能完成。</p>
 <h3 id="matrixone_3"><strong>当我想将 MatrixOne 的数据目录保存到我指定的文件目录中，我应该如何操作？</strong></h3>
 <p>当你使用 Docker 启动 MatrixOne，你可以将你指定的数据目录挂载至 Docker 容器，参见<a href="../../Maintain/mount-data-by-docker/">挂载目录到 Docker 容器</a>。</p>
-<p>当你使用源码或二进制包编译并启动 MatrixOne，你可以通过修改配置文件中的默认数据目录路径：打开 MatrixOne 配置文件目录 <code>matrixone/etc/launch-tae-CN-tae-DN</code>，修改 <code>cn.toml</code>、<code>dn.toml</code> 和 <code>log.toml</code> 三个文件内的配置参数 <code>data-dir = "./mo-data"</code> 为 <code>data-dir = "your_local_path"</code>，保存后重启 MatrixOne 即可生效。</p>
+<p>当你使用源码或二进制包编译并启动 MatrixOne，你可以通过修改配置文件中的默认数据目录路径：打开 MatrixOne 配置文件目录 <code>matrixone/etc/launch-with-proxy</code>，修改 <code>cn.toml</code>、<code>tn.toml</code> 和 <code>log.toml</code> 三个文件内的配置参数 <code>data-dir = "./mo-data"</code> 为 <code>data-dir = "your_local_path"</code>，保存后重启 MatrixOne 即可生效。</p>
 <h3 id="mo-tester-matrixone-too-many-open-files"><strong>当我通过 MO-Tester 对 MatrixOne 进行测试时，我如何解决产生的 <code>too many open files</code> 错误？</strong></h3>
 <p>为了对 MatrixOne 进行测试，MO-Tester 会快速地打开和关闭许多 SQL 文件，于是很快就达到 Linux 和 MacOS 系统的最大打开文件限制，这就是导致 <code>too many open files</code> 错误的原因。</p>
 <ul>
@@ -9639,7 +9681,7 @@ make
 [root ~]# rm -rf mo-data // 清理数据目录
 [root ~]# make build // 构建 matrixone
 ...    // 此处省略构建过程代码
-[root ~]# ./mo-service --daemon --launch ./etc/quickstart/launch.toml &amp;&gt; test.log &amp;   // 在终端的后台启动 MatrixOne 服务
+[root ~]# ./mo-service --daemon --launch ./etc/launch/launch.toml &amp;&gt; test.log &amp;   // 在终端的后台启动 MatrixOne 服务
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

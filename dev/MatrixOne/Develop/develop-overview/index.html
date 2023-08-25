@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2145,6 +2159,20 @@
     <li class="md-nav__item">
       <a href="../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8752,6 +8780,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9226,7 +9268,7 @@
 <p>总体来说，MatrixOne 与 MySQL 8.0 具有高度的兼容性，无论在通信协议，SQL 语法，连接工具，还是开发模式上，都与 MySQL 基本一致。如果本文档中没有明确说明某些用法，你可以参照 MySQL 8.0 的官方文档进行操作。大部分的应用程序框架或编程语言都可以使用 MySQL 的客户端库。</p>
 <p>对于 MatrixOne 和 MySQL 有显著差异的地方，请参阅 <a href="../../Overview/feature/mysql-compatibility/">MySQL 兼容性</a>章节。</p>
 <h2 id="matrixone_1">MatrixOne 事务机制</h2>
-<p>MatrixOne 支持乐观事务和悲观事务两种模式。在 MatrixOne 的当前版本中，默认采用的是<strong>乐观事务</strong>模式，你可以通过修改启动配置文件来开启悲观事务模式。</p>
+<p>MatrixOne 支持乐观事务和悲观事务两种模式。在 MatrixOne 的当前版本中，默认采用的是<strong>悲观事务</strong>模式，你可以通过修改启动配置文件来开启乐观事务模式。</p>
 <p>你可以使用 <code>BEGIN</code> 来开启一个事务，使用 <code>COMMIT</code> 来提交事务，或者使用 <code>ROLLBACK</code> 来回滚事务。MatrixOne 会确保从 <code>BEGIN</code> 开始到 <code>COMMIT</code> 或 <code>ROLLBACK</code> 结束之间的所有语句具有原子性，即在这段时间内的所有语句要么全部成功，要么全部失败，以此来保证你在应用开发过程中需要的数据一致性。</p>
 <p>如果你选择使用乐观事务，在应用程序中请增加错误处理和重试机制，因为 MatrixOne 并不保证每个事务都能执行成功。如果你使用悲观事务，那么就无需考虑这一点。乐观事务在并发性能上会优于悲观事务。</p>
 <h2 id="_2">参考文档</h2>

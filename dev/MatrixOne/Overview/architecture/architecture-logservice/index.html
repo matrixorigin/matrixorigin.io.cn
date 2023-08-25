@@ -713,6 +713,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2221,6 +2235,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8828,6 +8856,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9377,11 +9419,11 @@
 <p>Logservice 的架构由客户端和服务端两部分组成。服务端包括 handler、dragonboat 和 RSM（Replicated State Machine）等模块，而客户端则包含多个关键接口。它们之间的协作关系如下图所示：</p>
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/logserviece-arch.png" /></p>
 <h3 id="_1">客户端</h3>
-<p>Logservice 客户端主要由 DN（数据节点）调用，并提供以下关键接口：</p>
+<p>Logservice 客户端主要由 TN（事务节点）调用，并提供以下关键接口：</p>
 <ul>
 <li><code>Close()</code>：关闭客户端连接。</li>
 <li><code>Config()</code>：获取客户端相关配置。</li>
-<li><code>GetLogRecord()</code>：返回一个 <code>pb.LogRecord</code> 变量，其中包含 8 字节的 LSN（日志序列号）、4 字节的记录类型和 1 个类型为 <code>[]byte</code> 的数据字段。数据字段包括 4 字节的 <code>pb.UserEntryUpdate</code>、8 字节的副本 DN ID，以及 <code>payload []byte</code>。</li>
+<li><code>GetLogRecord()</code>：返回一个 <code>pb.LogRecord</code> 变量，其中包含 8 字节的 LSN（日志序列号）、4 字节的记录类型和 1 个类型为 <code>[]byte</code> 的数据字段。数据字段包括 4 字节的 <code>pb.UserEntryUpdate</code>、8 字节的副本 TN ID，以及 <code>payload []byte</code>。</li>
 <li><code>Append()</code>：将 <code>pb.LogRecord</code> 追加到 Logservice，并返回 LSN。在调用端，参数 <code>pb.LogRecord</code> 可以复用。</li>
 <li><code>Read()</code>：从 Logservice 中读取从指定 <code>firstLsn</code> 开始的日志，直到达到 <code>maxSize</code> 为止。返回的 LSN 作为下一次读取的起点。</li>
 <li><code>Truncate()</code>：删除指定 LSN 之前的日志，释放磁盘空间。</li>
@@ -9397,21 +9439,21 @@
 <li>Read：从日志数据库中读取日志条目。首先调用 <code>(*NodeHost) SyncRead()</code> 方法从状态机中进行线性读取到当前的 LSN，然后根据 LSN 调用 <code>(*NodeHost) QueryRaftLog()</code> 方法从日志数据库中读取日志条目。</li>
 <li>Truncate：截断日志数据库中的日志，释放磁盘空间。需要注意的是，这里只是更新状态机中可以截断的最新 LSN，而不是真正执行截断操作。</li>
 <li>Connect：建立与 Logservice 服务器的连接，并尝试读写状态机以进行状态检查。</li>
-<li>Heartbeat：包括对 Logservice、CN 和 DN 的心跳。该请求会更新 HAKeeper 的状态机中各自的状态信息，并同步 HAKeeper 的 tick。在 HAKeeper 进行检查时，根据 tick 比较离线时间，如果离线，则触发移除（Remove）或关闭（Shutdown）等操作。</li>
+<li>Heartbeat：包括对 Logservice、CN 和 TN 的心跳。该请求会更新 HAKeeper 的状态机中各自的状态信息，并同步 HAKeeper 的 tick。在 HAKeeper 进行检查时，根据 tick 比较离线时间，如果离线，则触发移除（Remove）或关闭（Shutdown）等操作。</li>
 <li>Get XXX：从状态机中获取相关信息。</li>
 </ul>
 <h4 id="bootstrap">Bootstrap</h4>
 <p>Bootstrap 是在 logservice 服务启动时进行的过程，通过 HAKeeper 分片（shard ID 为 0）完成。入口函数为 <code>(*Service) BootstrapHAKeeper</code>。
 无论配置中设置了多少个副本，每个 logservice 进程在启动时都会启动一个 HAKeeper 的副本。每个副本在启动时都会设置成员（members），HAKeeper 分片以这些成员作为默认的副本数启动 Raft。
-在完成 Raft 的领导者选举后，执行设置初始集群信息（<code>set initial cluster info</code>），设置日志和 DN 的分片数以及日志的副本数。
+在完成 Raft 的领导者选举后，执行设置初始集群信息（<code>set initial cluster info</code>），设置日志和 TN 的分片数以及日志的副本数。
 设置完成副本数后，多余的 HAKeeper 副本将被停止。</p>
 <h4 id="heartbeat">心跳（Heartbeat）</h4>
-<p>该心跳是由 Logservice、CN 和 DN 发送到 HAKeeper 的心跳，而不是 Raft 副本之间的心跳。它主要有两个作用：</p>
+<p>该心跳是由 Logservice、CN 和 TN 发送到 HAKeeper 的心跳，而不是 Raft 副本之间的心跳。它主要有两个作用：</p>
 <ol>
 <li>通过心跳将各个副本的状态信息发送给 HAKeeper，使得 HAKeeper 的状态机更新副本信息。</li>
 <li>在心跳返回时，从 HAKeeper 中获取需要副本执行的命令。</li>
 </ol>
-<p>Logservice 的心跳流程如下图所示，CN 和 DN 的流程类似。</p>
+<p>Logservice 的心跳流程如下图所示，CN 和 TN 的流程类似。</p>
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/heartbeat.png" /></p>
 <p>默认情况下，心跳每秒执行一次，其原理如下：</p>
 <ol>
@@ -9424,7 +9466,7 @@
 </ul>
 </li>
 </ol>
-<p>CN 和 DN 向 HAKeeper 发送心跳的原理也类似。</p>
+<p>CN 和 TN 向 HAKeeper 发送心跳的原理也类似。</p>
 <h4 id="rsm">状态机（RSM）</h4>
 <p>Logservice 和 HAKeeper 的状态机都是基于内存的状态机模型，所有数据仅保存在内存中。它们都实现了 IStateMachine 接口，其中关键的方法如下：</p>
 <ul>
@@ -9467,26 +9509,26 @@
 <li>该过程通常发生在集群重启时。</li>
 <li>在重启时，副本需要先从快照（snapshot）中恢复状态机的数据，然后从快照中记录的索引位置开始读取日志数据库中的日志条目，并应用到状态机中。</li>
 <li>该操作完成后，副本才能参与 leader 的选举。</li>
-<li>当集群选举出 leader 后，数据节点（DN）会连接到 logservice 集群，并从一个副本的日志数据库的上一次检查点位置开始读取日志条目，并将其回放（replay）到数据节点自身的内存数据中。</li>
+<li>当集群选举出 leader 后，数据节点（TN）会连接到 logservice 集群，并从一个副本的日志数据库的上一次检查点位置开始读取日志条目，并将其回放（replay）到数据节点自身的内存数据中。</li>
 </ul>
 </li>
 </ul>
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/logdb-read.png" /></p>
 <h3 id="truncation">截断（Truncation）</h3>
 <p>当 logservice 的日志条目在 log db 中不断增长时，会导致磁盘空间不足。因此，需要定期释放磁盘空间，这通过截断（truncation）来完成。</p>
-<p>logservice 使用基于内存的状态机，状态机中只记录了一些元数据和状态信息，例如 tick、state 和 LSN 等，并没有记录用户数据，这些数据由数据节点（DN）自己记录。可以将其理解为在主从架构中，状态机是分离的，DN 和 logservice 分别维护各自的状态机。</p>
+<p>logservice 使用基于内存的状态机，状态机中只记录了一些元数据和状态信息，例如 tick、state 和 LSN 等，并没有记录用户数据，这些数据由数据节点（TN）自己记录。可以将其理解为在主从架构中，状态机是分离的，TN 和 logservice 分别维护各自的状态机。</p>
 <p>在这种状态机分离的设计下，简单的快照（snapshot）机制会导致问题：</p>
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/truncation-1.png" /></p>
 <ol>
-<li>当 DN 发送一个截断请求时，截断索引（truncate index）设为 100，但此时 logservice 状态机的应用索引（applied index）是 200，即会删除 200 之前的日志，并在该位置生成快照。注意：截断索引不等于应用索引。</li>
+<li>当 TN 发送一个截断请求时，截断索引（truncate index）设为 100，但此时 logservice 状态机的应用索引（applied index）是 200，即会删除 200 之前的日志，并在该位置生成快照。注意：截断索引不等于应用索引。</li>
 <li>集群重启。</li>
 <li>logservice 状态机应用快照，索引为 200，并设置首个索引（first index）为 200（删除了 200 之前的日志），然后状态机开始回放日志，回放完成后提供服务。</li>
-<li>DN 从 logservice 读取日志条目，起始位置为 100，但无法读取，因为 200 之前的日志已被删除，出现错误。</li>
+<li>TN 从 logservice 读取日志条目，起始位置为 100，但无法读取，因为 200 之前的日志已被删除，出现错误。</li>
 </ol>
 <p>为解决上述问题，当前的截断工作流程如下：</p>
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/truncation-2.png" /></p>
 <ol>
-<li>DN 发送截断请求，更新 logservice 状态机中的截断 LSN（truncateLsn），此时仅更新该值，不执行快照/截断操作。</li>
+<li>TN 发送截断请求，更新 logservice 状态机中的截断 LSN（truncateLsn），此时仅更新该值，不执行快照/截断操作。</li>
 <li>每个 logservice 服务器内部启动一个截断工作器（truncation worker），定期发送截断请求（Truncate Request）。需要注意的是，该请求中的参数 Exported 设置为 true，表示该快照对系统不可见，仅将快照导出到指定目录下。</li>
 <li>截断工作器还会检查当前已导出的快照列表，查看是否有索引大于 logservice 状态机中的截断 LSN 的快照。如果有，将最接近截断 LSN 的快照导入系统中，使其生效并对系统可见。</li>
 <li>所有副本执行相同的操作，确保两个状态机的快照 LSN 是一致的，这样在集群重启时可以读取到相应的日志条目。</li>

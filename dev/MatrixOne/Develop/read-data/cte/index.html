@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1692,24 +1706,11 @@
     开始前准备
   </a>
   
-    <nav class="md-nav" aria-label="开始前准备">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    数据准备
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#cte_1" class="md-nav__link">
-    CTE 语句使用实例
+    CTE 语句使用示例
   </a>
   
 </li>
@@ -2153,6 +2154,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8760,6 +8775,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9194,24 +9223,11 @@
     开始前准备
   </a>
   
-    <nav class="md-nav" aria-label="开始前准备">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    数据准备
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#cte_1" class="md-nav__link">
-    CTE 语句使用实例
+    CTE 语句使用示例
   </a>
   
 </li>
@@ -9236,10 +9252,26 @@
 
 <h1 id="cte">公共表表达式 (CTE)</h1>
 <p>公用表表达式（CTE,Common table expression) 是一个命名的临时结果集，仅在单个 SQL 语句 (例如 <code>SELECT</code>，<code>INSERT</code>，<code>UPDATE</code> 或 <code>DELETE</code>) 的执行范围内存在。</p>
-<p>与派生表类似，CTE 不作为对象存储，仅在查询执行期间持续；与派生表不同，CTE 可以是自引用 (递归 CTE，暂时不支持)，也可以在同一查询中多次引用。此外，与派生表相比，CTE 提供了更好的可读性和性能。</p>
-<p>CTE 的结构包括名称，可选列列表和定义 CTE 的查询。</p>
-<p>CTE 语法如下：</p>
+<p>与派生表类似，CTE 不作为对象存储，仅在查询执行期间持续；与派生表不同，CTE 可以是自引用，也可以在同一查询中多次引用。此外，与派生表相比，CTE 提供了更好的可读性和性能。</p>
+<p><strong>应用场景</strong>：</p>
+<ul>
+<li>CTE 可以用于多个地方复用相同的子查询，避免重复编写相同的逻辑。</li>
+<li>可以用于简化递归查询，例如查找树形结构数据。</li>
+<li>可以将复杂的查询拆分为多个较小的部分，使查询逻辑更清晰易懂。</li>
+</ul>
+<p><strong>通用表表达式分为非递归和递归两种类型</strong>：</p>
+<ul>
+<li>非递归公共表达式：是指 CTE 中不引用自身的表达式，它只用于构建一次性的临时结果集，不涉及递归操作。非递归 CTE 语法如下：</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="o">&lt;</span><span class="n">query_name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">query_definition</span><span class="o">&gt;</span>
+<span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="n">query_name</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>递归公共表达式：是指 CTE 中引用自身的表达式，用于处理具有递归结构的数据，例如树形结构、图形等。递归 CTE 在定义中包含一个基本查询（起始条件），然后在该基本查询的结果上进行递归操作，直到满足停止条件为止。递归 CTE 语法如下：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="k">RECURSIVE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">query_name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="o">&lt;</span><span class="n">query_definition</span><span class="o">&gt;</span>
 <span class="p">)</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="n">query_name</span><span class="o">&gt;</span><span class="p">;</span>
@@ -9247,26 +9279,79 @@
 <h2 id="_1">开始前准备</h2>
 <p>你需要确认在开始之前，已经完成了以下任务：</p>
 <p>已完成<a href="../../../Get-Started/install-standalone-matrixone/">单机部署 MatrixOne</a>。</p>
-<h3 id="_2">数据准备</h3>
-<p>你可以新建一个简单的表，插入一些数据，帮助你理解后续所展示的 CTE 语句：</p>
-<div class="highlight"><pre><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
-<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="k">null</span><span class="p">,</span><span class="k">null</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<h2 id="cte_1">CTE 语句使用示例</h2>
+<p>假设我们要创建一个名为 <code>EMPLOYEES</code> 的表，其中包含员工的层次结构关系，然后使用非递归 Common Table Expression（CTE）和递归 CTE 分别查询员工层次结构。</p>
+<p>首先，我们创建一个 <code>EMPLOYEES</code> 表并插入一些示例数据：</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">EMPLOYEES</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">EMPLOYEE_ID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">NAME</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="w">    </span><span class="n">MANAGER_ID</span><span class="w"> </span><span class="nb">INT</span>
+<span class="p">);</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">EMPLOYEES</span><span class="w"> </span><span class="p">(</span><span class="n">EMPLOYEE_ID</span><span class="p">,</span><span class="w"> </span><span class="n">NAME</span><span class="p">,</span><span class="w"> </span><span class="n">MANAGER_ID</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Carol&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;David&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Eve&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Frank&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Grace&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hannah&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Ian&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="cte_1">CTE 语句使用实例</h2>
-<p>在下面的示例中，<code>qn</code> 作为一个临时的结果集被创建，此时相应的查询结果会被缓存在 MatrixOne 中，你在执行正式的 <code>qn</code> 查询时，比非 CTE 场景的性能有所提升。</p>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">qn</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">),</span><span class="w"> </span><span class="n">qn2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">qn</span><span class="p">;</span>
+<p>接下来，我们使用递归 CTE 查询员工层次结构：</p>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="k">RECURSIVE</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">EMPLOYEE_ID</span><span class="p">,</span><span class="w"> </span><span class="n">NAME</span><span class="p">,</span><span class="w"> </span><span class="n">MANAGER_ID</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">LEVEL</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">EMPLOYEES</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">MANAGER_ID</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+
+<span class="w">    </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
+
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">EMPLOYEE_ID</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">MANAGER_ID</span><span class="p">,</span><span class="w"> </span><span class="n">eh</span><span class="p">.</span><span class="k">LEVEL</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">EMPLOYEES</span><span class="w"> </span><span class="n">e</span>
+<span class="w">    </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="w"> </span><span class="n">eh</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">MANAGER_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eh</span><span class="p">.</span><span class="n">EMPLOYEE_ID</span>
+<span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-------------+--------+------------+-------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">name</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">manager_id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+--------+------------+-------+</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Alice</span><span class="w">  </span><span class="o">|</span><span class="w">       </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Bob</span><span class="w">    </span><span class="o">|</span><span class="w">          </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Carol</span><span class="w">  </span><span class="o">|</span><span class="w">          </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">David</span><span class="w">  </span><span class="o">|</span><span class="w">          </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Eve</span><span class="w">    </span><span class="o">|</span><span class="w">          </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Frank</span><span class="w">  </span><span class="o">|</span><span class="w">          </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">7</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Grace</span><span class="w">  </span><span class="o">|</span><span class="w">          </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Hannah</span><span class="w"> </span><span class="o">|</span><span class="w">          </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">9</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Ian</span><span class="w">    </span><span class="o">|</span><span class="w">          </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+--------+------------+-------+</span>
+<span class="mi">9</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
-<p>查询结果如下：</p>
-<div class="highlight"><pre><span></span><code>+------+
-| a    |
-+------+
-| NULL |
-|    2 |
-+------+
-2 rows in set (0.00 sec)
+<p>然后，我们使用非递归 CTE 查询员工信息：</p>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="n">EmployeeInfo</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">EMPLOYEE_ID</span><span class="p">,</span><span class="w"> </span><span class="n">NAME</span><span class="p">,</span><span class="w"> </span><span class="n">MANAGER_ID</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">EMPLOYEES</span>
+<span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">EmployeeInfo</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-------------+--------+------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">name</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">manager_id</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+--------+------------+</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Alice</span><span class="w">  </span><span class="o">|</span><span class="w">       </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Bob</span><span class="w">    </span><span class="o">|</span><span class="w">          </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Carol</span><span class="w">  </span><span class="o">|</span><span class="w">          </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">David</span><span class="w">  </span><span class="o">|</span><span class="w">          </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Eve</span><span class="w">    </span><span class="o">|</span><span class="w">          </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Frank</span><span class="w">  </span><span class="o">|</span><span class="w">          </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">7</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Grace</span><span class="w">  </span><span class="o">|</span><span class="w">          </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Hannah</span><span class="w"> </span><span class="o">|</span><span class="w">          </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">           </span><span class="mi">9</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Ian</span><span class="w">    </span><span class="o">|</span><span class="w">          </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+--------+------------+</span>
+<span class="mi">9</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
+<p>我们使用了一个递归 CTE <code>EmployeeHierarchy</code>，它首先选择顶层经理（<code>MANAGER_ID IS NULL</code>），然后通过递归连接找到每个员工的直接下属，同时跟踪层次级别。这样，我们就可以通过查询 CTE 来获取员工层次结构的详细信息。</p>
+<p>非递归 CTE 示例只是从 <code>EMPLOYEES</code> 表中选择所有员工的基本信息，包括 <code>EMPLOYEE_ID</code>、<code>NAME</code> 和 <code>MANAGER_ID</code>。</p>
+<p>注意，递归 CTE 需要使用 <code>RECURSIVE</code> 关键字来声明。</p>
+<p>更多关于 CTE 的使用文档，参考 <a href="../../../Reference/SQL-Reference/Data-Query-Language/with-cte/">WITH (Common Table Expressions)</a></p>
 
 
 

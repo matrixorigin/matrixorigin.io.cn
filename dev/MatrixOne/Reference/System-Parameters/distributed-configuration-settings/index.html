@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2088,6 +2102,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8373,11 +8401,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dntoml" class="md-nav__link">
-    dn.toml
+  <a href="#tntoml" class="md-nav__link">
+    tn.toml
   </a>
   
-    <nav class="md-nav" aria-label="dn.toml">
+    <nav class="md-nav" aria-label="tn.toml">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -8829,6 +8857,20 @@
     <li class="md-nav__item">
       <a href="../../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
       </a>
     </li>
   
@@ -9298,11 +9340,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dntoml" class="md-nav__link">
-    dn.toml
+  <a href="#tntoml" class="md-nav__link">
+    tn.toml
   </a>
   
-    <nav class="md-nav" aria-label="dn.toml">
+    <nav class="md-nav" aria-label="tn.toml">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9397,7 +9439,7 @@
 
 
 <h1 id="_1">分布式版通用参数配置</h1>
-<p>在 <em>matrixone/etc/launch-with-proxy/</em> 目录下，有四个配置文件：<em>cn.toml</em>、<em>dn.toml</em>、<em>proxy.toml</em> 和 <em>log.toml</em>。这些配置文件中包含的参数解释如下：</p>
+<p>在 <em>matrixone/etc/launch-with-proxy/</em> 目录下，有四个配置文件：<em>cn.toml</em>、<em>tn.toml</em>、<em>proxy.toml</em> 和 <em>log.toml</em>。这些配置文件中包含的参数解释如下：</p>
 <h2 id="cntoml">cn.toml</h2>
 <h3 id="_2">默认参数</h3>
 <p><em>cn.toml</em> 文件中默认包含以下参数：</p>
@@ -9630,9 +9672,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="dntoml">dn.toml</h2>
+<h2 id="tntoml">tn.toml</h2>
 <h3 id="_4">默认参数</h3>
-<p><em>dn.toml</em> 文件中默认包含以下参数：</p>
+<p><em>tn.toml</em> 文件中默认包含以下参数：</p>
 <table>
 <thead>
 <tr>
@@ -9653,18 +9695,18 @@
 <td>level = "info"</td>
 </tr>
 <tr>
-<td>[dn]</td>
-<td>DN 节点，不可修改</td>
+<td>[tn]</td>
+<td>TN 节点，不可修改</td>
 <td></td>
 </tr>
 <tr>
 <td>uuid</td>
-<td>DN 的唯一标识符，不可修改</td>
+<td>TN 的唯一标识符，不可修改</td>
 <td>uuid = "dd4dccb4-4d3c-41f8-b482-5251dc7a41bf"</td>
 </tr>
 <tr>
 <td>port-base</td>
-<td>"DN" 使用的起始端口号，从端口号往后，连续20个端口找到可用端口用于内部服务</td>
+<td>"TN" 使用的起始端口号，从端口号往后，连续20个端口找到可用端口用于内部服务</td>
 <td>port-base = 19000</td>
 </tr>
 <tr>
@@ -9690,7 +9732,7 @@
 </tbody>
 </table>
 <h3 id="_5">扩展参数</h3>
-<p>你还可以在 <em>dn.toml</em> 文件中自定义添加以下配置参数：</p>
+<p>你还可以在 <em>tn.toml</em> 文件中自定义添加以下配置参数：</p>
 <table>
 <thead>
 <tr>
@@ -9716,7 +9758,7 @@
 <td>filename = "mo.log"</td>
 </tr>
 <tr>
-<td>[dn.LogtailServer]</td>
+<td>[tn.LogtailServer]</td>
 <td>Logtail 服务器配置节</td>
 <td></td>
 </tr>
@@ -9883,9 +9925,9 @@
 <td>num-of-log-shards = 0</td>
 </tr>
 <tr>
-<td>num-of-dn-shards</td>
+<td>num-of-tn-shards</td>
 <td></td>
-<td>num-of-dn-shards = 0</td>
+<td>num-of-tn-shards = 0</td>
 </tr>
 <tr>
 <td>num-of-log-shard-replicas</td>

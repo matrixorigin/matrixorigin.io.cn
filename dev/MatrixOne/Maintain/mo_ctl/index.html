@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2088,6 +2102,20 @@
     <li class="md-nav__item">
       <a href="../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8926,6 +8954,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9766,12 +9808,12 @@ Usage         : mo_ctl precheck # check pre-requisites for mo_ctl
 Usage         : mo_ctl deploy [mo_version] [force] # deploy mo onto the path configured
   [mo_version]: optional, specify an mo version to deploy
   [force]     : optional, if specified will delete all content under MO_PATH and deploy from beginning
-  e.g.        : mo_ctl deploy             # default, same as mo_ctl deploy 0.8.0
+  e.g.        : mo_ctl deploy             # default, same as mo_ctl deploy 1.0.0-rc1
               : mo_ctl deploy main        # deploy development latest version
               : mo_ctl deploy d29764a     # deploy development version d29764a
-              : mo_ctl deploy 0.8.0       # deploy stable verson 0.8.0
-              : mo_ctl deploy force       # delete all under MO_PATH and deploy verson 0.8.0
-              : mo_ctl deploy 0.8.0 force # delete all under MO_PATH and deploy stable verson 0.8.0 from beginning
+              : mo_ctl deploy 1.0.0-rc1       # deploy stable verson 1.0.0-rc1
+              : mo_ctl deploy force       # delete all under MO_PATH and deploy verson 1.0.0-rc1
+              : mo_ctl deploy 1.0.0-rc1 force # delete all under MO_PATH and deploy stable verson 1.0.0-rc1 from beginning
 </code></pre></div>
 <h3 id="start-matrixone">start - 启动 MatrixOne 服务</h3>
 <p>使用 <code>mo_ctl start</code> 启动 MatrixOne 服务, 启动文件路径位于 <code>MO_PATH</code> 下。</p>
@@ -9911,7 +9953,7 @@ Usage         : mo_ctl getconf [conf_list] # get configurations
 <tr>
 <td>MO_DEFAULT_VERSION</td>
 <td>默认拉取的MatrixOne的版本</td>
-<td>默认为0.8.0</td>
+<td>默认为1.0.0-rc1</td>
 </tr>
 <tr>
 <td>GOPROXY</td>
@@ -9936,7 +9978,7 @@ Usage         : mo_ctl getconf [conf_list] # get configurations
 <tr>
 <td>MO_CONF_FILE</td>
 <td>MatrixOne的启动配置文件</td>
-<td>默认为${MO_PATH}/matrixone/etc/launch-tae-CN-tae-DN/launch.toml</td>
+<td>默认为${MO_PATH}/matrixone/etc/launch-tae-CN-tae-TN/launch.toml</td>
 </tr>
 <tr>
 <td>RESTART_INTERVAL</td>
@@ -9983,11 +10025,11 @@ Usage           : mo_ctl uninstall        # uninstall mo from path MO_PATH=/data
 <p>使用 <code>mo_ctl upgrade version</code> 或者 <code>mo_ctl upgrade commitid</code> 来将 MatrixOne 从当前版本升级或降级到某个稳定版本或者某个 commit id 版本。</p>
 <div class="highlight"><pre><span></span><code>mo_ctl upgrade help
 Usage           : mo_ctl upgrade [version_commitid]   # upgrade or downgrade mo from current version to a target commit id or stable version
- [commitid]     : a commit id such as &#39;38888f7&#39;, or a stable version such as &#39;0.8.0&#39;
+ [commitid]     : a commit id such as &#39;38888f7&#39;, or a stable version such as &#39;1.0.0-rc1&#39;
                 : use &#39;latest&#39; to upgrade to latest commit on main branch if you don&#39;t know the id
   e.g.          : mo_ctl upgrade 38888f7              # upgrade/downgrade to commit id 38888f7 on main branch
                 : mo_ctl upgrade latest               # upgrade/downgrade to latest commit on main branch
-                : mo_ctl upgrade 0.8.0                # upgrade/downgrade to stable version 0.8.0
+                : mo_ctl upgrade 1.0.0-rc1                # upgrade/downgrade to stable version 1.0.0-rc1
 </code></pre></div>
 <h3 id="watchdog-matrixone">watchdog - 保活 MatrixOne</h3>
 <p>使用 <code>mo_ctl watchdog [options]</code> 设置一个定时任务保证 MatrixOne 服务可用性，每分钟检查 MatrixOne 的状态，如果发现服务中止则自动拉起服务。</p>

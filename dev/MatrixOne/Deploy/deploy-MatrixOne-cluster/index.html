@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2088,6 +2102,20 @@
     <li class="md-nav__item">
       <a href="../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8947,6 +8975,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9653,7 +9695,7 @@
 <p>MatrixOne 分布式系统依赖于以下组件：</p>
 <ul>
 <li>
-<p>Kubernetes：作为整个 MatrixOne 集群的资源管理平台，包括 Logservice、CN、DN 等组件，都在由 Kubernetes 管理的 Pod 中运行。如果发生故障，Kubernetes 将负责剔除故障的 Pod 并启动新的 Pod 进行替换。</p>
+<p>Kubernetes：作为整个 MatrixOne 集群的资源管理平台，包括 Logservice、CN、TN 等组件，都在由 Kubernetes 管理的 Pod 中运行。如果发生故障，Kubernetes 将负责剔除故障的 Pod 并启动新的 Pod 进行替换。</p>
 </li>
 <li>
 <p>Minio：为整个 MatrixOne 集群提供对象存储服务，MatrixOne 的所有数据存储在由 Minio 提供的对象存储中。</p>
@@ -9687,7 +9729,7 @@
 </li>
 </ul>
 <h3 id="matrixone-pod">MatrixOne 的 Pod 及存储架构</h3>
-<p>MatrixOne 根据 Operator 的规则创建一系列的 Kubernetes 对象，这些对象根据组件分类并归类到资源组中，分别为 CNSet、DNSet 和 LogSet。</p>
+<p>MatrixOne 根据 Operator 的规则创建一系列的 Kubernetes 对象，这些对象根据组件分类并归类到资源组中，分别为 CNSet、TNSet 和 LogSet。</p>
 <ul>
 <li>
 <p>Service：每个资源组中的服务需要通过 Service 进行对外提供。Service 承载了对外连接的功能，确保在 Pod 崩溃或被替换时仍能提供服务。外部应用程序通过 Service 的公开端口连接，而 Service 则通过内部转发规则将连接转发到相应的 Pod。</p>
@@ -9696,7 +9738,7 @@
 <p>Pod：MatrixOne 组件的容器化实例，其中运行着 MatrixOne 的核心内核代码。</p>
 </li>
 <li>
-<p>PVC：每个 Pod 都通过 PVC（Persistent Volume Claim）声明自己所需的存储资源。在我们的架构中，CN 和 DN 需要申请一块存储资源作为缓存，而 LogService 则需要相应的 S3 资源。这些需求通过 PVC 进行声明。</p>
+<p>PVC：每个 Pod 都通过 PVC（Persistent Volume Claim）声明自己所需的存储资源。在我们的架构中，CN 和 TN 需要申请一块存储资源作为缓存，而 LogService 则需要相应的 S3 资源。这些需求通过 PVC 进行声明。</p>
 </li>
 <li>
 <p>PV：PV（Persistent Volume）是存储介质的抽象表示，可以看作是存储单元。在 PVC 的申请后，通过实现 CSI 接口的软件创建 PV，并将其与申请资源的 PVC 进行绑定。</p>
@@ -10059,12 +10101,12 @@ nohup kubectl port-forward --address 0.0.0.0 $POD_NAME -n mostorage 9000:9000 &a
 <ol>
 <li>
 <p>下载最新的 MatrixOne Operator 安装包：</p>
-<div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/matrixone-operator/releases/download/chart-0.8.0-alpha.2/matrixone-operator-0.8.0-alpha.2.tgz
+<div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/matrixone-operator/releases/download/chart-1.0.0-rc1-alpha.2/matrixone-operator-1.0.0-rc1-alpha.2.tgz
 </code></pre></div>
 </li>
 <li>
 <p>解压安装包：</p>
-<div class="highlight"><pre><span></span><code>tar -xvf matrixone-operator-0.8.0-alpha.2.tgz
+<div class="highlight"><pre><span></span><code>tar -xvf matrixone-operator-1.0.0-rc1-alpha.2.tgz
 cd /root/matrixone-operator/
 </code></pre></div>
 </li>
@@ -10106,9 +10148,9 @@ metadata:
   name: mo
   namespace: mo-hn
 spec:
-  # 1. 配置 dn
-  dn:
-    cacheVolume: # dn的磁盘缓存
+  # 1. 配置 tn
+  tn:
+    cacheVolume: # tn的磁盘缓存
       size: 5Gi # 根据实际磁盘大小和需求修改
       storageClassName: local-path # 如果不写，会用系统默认的storage class
     resources:
@@ -10118,11 +10160,11 @@ spec:
       limits: # 注意limits不能低于requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置limits和requests一致即可
         cpu: 200m
         memory: 1Gi
-    config: |  # dn的配置
-      [dn.Txn.Storage]
+    config: |  # tn的配置
+      [tn.Txn.Storage]
       backend = &quot;TAE&quot;
       log-backend = &quot;logservice&quot;
-      [dn.Ckp]
+      [tn.Ckp]
       flush-interval = &quot;60s&quot;
       min-count = 100
       scan-interval = &quot;5s&quot;
@@ -10132,7 +10174,7 @@ spec:
       level = &quot;error&quot;
       format = &quot;json&quot;
       max-size = 512
-    replicas: 1 # dn的副本数，不可修改。当前版本仅支持设置为 1。
+    replicas: 1 # tn的副本数，不可修改。当前版本仅支持设置为 1。
   # 2. 配置 logservice
   logService:
     replicas: 3 # logservice的副本数
@@ -10180,7 +10222,7 @@ spec:
       format = &quot;json&quot;
       max-size = 512
     replicas: 1
-  version: nightly-54b5e8c # 此处为 MO 镜像的版本，可通过 dockerhub 查阅，一般 cn、dn、logservice 为同一个镜像打包，所以用同一个字段指定即可，也支持单独在各自部分中指定，但无特殊情况请用统一的镜像版本
+  version: nightly-54b5e8c # 此处为 MO 镜像的版本，可通过 dockerhub 查阅，一般 cn、tn、logservice 为同一个镜像打包，所以用同一个字段指定即可，也支持单独在各自部分中指定，但无特殊情况请用统一的镜像版本
   # https://hub.docker.com/r/matrixorigin/matrixone/tags
   imageRepository: matrixorigin/matrixone # 镜像仓库地址，如果本地拉取后，有修改过 tag，那么可以调整这个配置项
   imagePullPolicy: IfNotPresent # 镜像拉取策略，与 k8s 官方可配置值一致
@@ -10201,7 +10243,7 @@ spec:
 <p>请耐心等待大约 10 分钟，如果出现 Pod 重启，请继续等待。直到你看到以下信息表示部署成功：</p>
 <div class="highlight"><pre><span></span><code>[root@master0 mo]# kubectl get pods -n mo-hn      
 NAME                                 READY   STATUS    RESTARTS      AGE
-mo-dn-0                              1/1     Running   0             74s
+mo-tn-0                              1/1     Running   0             74s
 mo-log-0                             1/1     Running   1 (25s ago)   2m2s
 mo-log-1                             1/1     Running   1 (24s ago)   2m2s
 mo-log-2                             1/1     Running   1 (22s ago)   2m2s
@@ -10232,7 +10274,7 @@ mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath=&#39;{.spec.clusterIP}&
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 163
-Server version: 8.0.30-MatrixOne-v0.8.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 

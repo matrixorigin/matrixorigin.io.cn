@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2088,6 +2102,20 @@
     <li class="md-nav__item">
       <a href="../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8807,6 +8835,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9358,22 +9400,22 @@ kubectl edit matrixonecluster ${mo_cluster_name} -n${mo_ns}
 <p><img alt="image-20230407094251938" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094251938.png" /></p>
 </li>
 <li>
-<p>修改完成后，按 <code>:wq</code> 保存即可，MatrixOne Operator 会自动拉取新版本的镜像，并重启组件服务，包括 Log Service，DN 和 CN，你也可以通过以下命令观察其运行状态。</p>
+<p>修改完成后，按 <code>:wq</code> 保存即可，MatrixOne Operator 会自动拉取新版本的镜像，并重启组件服务，包括 Log Service，TN 和 CN，你也可以通过以下命令观察其运行状态。</p>
 <div class="highlight"><pre><span></span><code>watch -e &quot;kubectl get pod -n${mo_ns}&quot;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>NAME                                 READY   STATUS    RESTARTS      AGE
 matrixone-operator-f8496ff5c-fp6zm   1/1     Running   0             24h
-mo-dn-0                              1/1     Running   1 (51s ago)   18h
+mo-tn-0                              1/1     Running   1 (51s ago)   18h
 mo-log-0                             1/1     Running   0             18h
 mo-log-1                             1/1     Running   1 (5s ago)    18h
 mo-log-2                             1/1     Running   1 (53s ago)   18h
 mo-tp-cn-0                           1/1     Running   1 (53s ago)   18h
 </code></pre></div>
 <p>如果发生 error、crashbackoff 等情况，可以通过查看组件的日志来进一步排查问题。</p>
-<div class="highlight"><pre><span></span><code># pod_name是pod的名称，如mo-dn-0,mo-tp-cn-0
-pod_name=mo-dn-0
-kubectl logs ${pod_name} -nmo-hn &gt; /tmp/dn.log
-vim /tmp/dn.log
+<div class="highlight"><pre><span></span><code># pod_name是pod的名称，如mo-tn-0,mo-tp-cn-0
+pod_name=mo-tn-0
+kubectl logs ${pod_name} -nmo-hn &gt; /tmp/tn.log
+vim /tmp/tn.log
 </code></pre></div>
 </li>
 <li>
@@ -9387,7 +9429,7 @@ vim /tmp/dn.log
 root@master0 ~]# mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath=&#39;{.spec.clusterIP}&#39;) -P 6001 -uroot -p111
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 1005
-Server version: 8.0.30-MatrixOne-v0.8.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
 
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
@@ -9417,7 +9459,7 @@ MySQL [(none)]&gt; show databases;
 <li>
 <p>你可以通过以下命令查看当前 MatrixOne 部署的版本号：</p>
 <div class="highlight"><pre><span></span><code>[root@master0 matrixone-operator]# kubectl get matrixoneclusters -n mo-hn -o yaml | grep version
-        {&quot;apiVersion&quot;:&quot;core.matrixorigin.io/v1alpha1&quot;,&quot;kind&quot;:&quot;MatrixOneCluster&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;mo&quot;,&quot;namespace&quot;:&quot;mo-hn&quot;},&quot;spec&quot;:{&quot;dn&quot;:{&quot;cacheVolume&quot;:{&quot;size&quot;:&quot;5Gi&quot;,&quot;storageClassName&quot;:&quot;local-path&quot;},&quot;config&quot;:&quot;[dn.Txn.Storage]\nbackend = \&quot;TAE\&quot;\nlog-backend = \&quot;logservice\&quot;\n[dn.Ckp]\nflush-interval = \&quot;60s\&quot;\nmin-count = 100\nscan-interval = \&quot;5s\&quot;\nincremental-interval = \&quot;60s\&quot;\nglobal-interval = \&quot;100000s\&quot;\n[log]\nlevel = \&quot;error\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;replicas&quot;:1,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;1Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}}},&quot;imagePullPolicy&quot;:&quot;IfNotPresent&quot;,&quot;imageRepository&quot;:&quot;matrixorigin/matrixone&quot;,&quot;logService&quot;:{&quot;config&quot;:&quot;[log]\nlevel = \&quot;error\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;pvcRetentionPolicy&quot;:&quot;Retain&quot;,&quot;replicas&quot;:3,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;1Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}},&quot;sharedStorage&quot;:{&quot;s3&quot;:{&quot;endpoint&quot;:&quot;http://minio.mostorage:9000&quot;,&quot;path&quot;:&quot;minio-mo&quot;,&quot;secretRef&quot;:{&quot;name&quot;:&quot;minio&quot;},&quot;type&quot;:&quot;minio&quot;}},&quot;volume&quot;:{&quot;size&quot;:&quot;1Gi&quot;}},&quot;tp&quot;:{&quot;cacheVolume&quot;:{&quot;size&quot;:&quot;5Gi&quot;,&quot;storageClassName&quot;:&quot;local-path&quot;},&quot;config&quot;:&quot;[cn.Engine]\ntype = \&quot;distributed-tae\&quot;\n[log]\nlevel = \&quot;debug\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;nodePort&quot;:31429,&quot;replicas&quot;:1,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;2Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}},&quot;serviceType&quot;:&quot;NodePort&quot;},&quot;version&quot;:&quot;nightly-54b5e8c&quot;}}
+        {&quot;apiVersion&quot;:&quot;core.matrixorigin.io/v1alpha1&quot;,&quot;kind&quot;:&quot;MatrixOneCluster&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;mo&quot;,&quot;namespace&quot;:&quot;mo-hn&quot;},&quot;spec&quot;:{&quot;tn&quot;:{&quot;cacheVolume&quot;:{&quot;size&quot;:&quot;5Gi&quot;,&quot;storageClassName&quot;:&quot;local-path&quot;},&quot;config&quot;:&quot;[tn.Txn.Storage]\nbackend = \&quot;TAE\&quot;\nlog-backend = \&quot;logservice\&quot;\n[tn.Ckp]\nflush-interval = \&quot;60s\&quot;\nmin-count = 100\nscan-interval = \&quot;5s\&quot;\nincremental-interval = \&quot;60s\&quot;\nglobal-interval = \&quot;100000s\&quot;\n[log]\nlevel = \&quot;error\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;replicas&quot;:1,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;1Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}}},&quot;imagePullPolicy&quot;:&quot;IfNotPresent&quot;,&quot;imageRepository&quot;:&quot;matrixorigin/matrixone&quot;,&quot;logService&quot;:{&quot;config&quot;:&quot;[log]\nlevel = \&quot;error\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;pvcRetentionPolicy&quot;:&quot;Retain&quot;,&quot;replicas&quot;:3,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;1Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}},&quot;sharedStorage&quot;:{&quot;s3&quot;:{&quot;endpoint&quot;:&quot;http://minio.mostorage:9000&quot;,&quot;path&quot;:&quot;minio-mo&quot;,&quot;secretRef&quot;:{&quot;name&quot;:&quot;minio&quot;},&quot;type&quot;:&quot;minio&quot;}},&quot;volume&quot;:{&quot;size&quot;:&quot;1Gi&quot;}},&quot;tp&quot;:{&quot;cacheVolume&quot;:{&quot;size&quot;:&quot;5Gi&quot;,&quot;storageClassName&quot;:&quot;local-path&quot;},&quot;config&quot;:&quot;[cn.Engine]\ntype = \&quot;distributed-tae\&quot;\n[log]\nlevel = \&quot;debug\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;nodePort&quot;:31429,&quot;replicas&quot;:1,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;2Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}},&quot;serviceType&quot;:&quot;NodePort&quot;},&quot;version&quot;:&quot;nightly-54b5e8c&quot;}}
     version: nightly-54b5e8c
 </code></pre></div>
 </li>
@@ -9468,11 +9510,11 @@ kubectl apply -f mo.yaml
 </code></pre></div>
 <h4 id="4">4. 检查升级是否成功</h4>
 <p>可以通过以下命令检查 MatrixOne 是否成功启动。</p>
-<p>如下面代码示例所示，当 Log Service, DN, CN 都正常运行，则 MatrixOne 集群成功启动。你也可以通过 MySQL Client 连接检查数据库功能是否正常。</p>
+<p>如下面代码示例所示，当 Log Service, TN, CN 都正常运行，则 MatrixOne 集群成功启动。你也可以通过 MySQL Client 连接检查数据库功能是否正常。</p>
 <div class="highlight"><pre><span></span><code>[root@master0 ~]# kubectl get pods -n mo-hn      
 NAME                                  READY   STATUS    RESTARTS     AGE
 matrixone-operator-6c9c49fbd7-lw2h2   1/1     Running   2 (8h ago)   9h
-mo-dn-0                               1/1     Running   0            2m13s
+mo-tn-0                               1/1     Running   0            2m13s
 mo-log-0                              1/1     Running   0            2m47s
 mo-log-1                              1/1     Running   0            2m47s
 mo-log-2                              1/1     Running   0            2m47s

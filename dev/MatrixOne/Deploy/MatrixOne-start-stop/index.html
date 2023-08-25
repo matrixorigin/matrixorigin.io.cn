@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2094,6 +2108,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2353,8 +2381,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dnsetcnsetlogset" class="md-nav__link">
-    检查 DNSet/CNSet/LogSet 状态
+  <a href="#tnsetcnsetlogset" class="md-nav__link">
+    检查 TNSet/CNSet/LogSet 状态
   </a>
   
 </li>
@@ -8814,6 +8842,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9301,8 +9343,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dnsetcnsetlogset" class="md-nav__link">
-    检查 DNSet/CNSet/LogSet 状态
+  <a href="#tnsetcnsetlogset" class="md-nav__link">
+    检查 TNSet/CNSet/LogSet 状态
   </a>
   
 </li>
@@ -9382,10 +9424,10 @@ kubectl get matrixonecluster -n${NS} ${MO_NAME}
 </code></pre></div>
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-4.png" /></p>
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-5.png" /></p>
-<h4 id="dnsetcnsetlogset">检查 DNSet/CNSet/LogSet 状态</h4>
-<p>当前 MatrixOne 集群的组件主要有：DN、CN、Log Service，分别对应的自定义资源类型 DNSet、CNSet、LogSet。这些对象均由 MatrixOneCluster 控制器生成。</p>
-<p>可以使用以下命令来检查各组件的状态，以 DN 为例：</p>
-<div class="highlight"><pre><span></span><code>SET_TYPE=&quot;dnset&quot;
+<h4 id="tnsetcnsetlogset">检查 TNSet/CNSet/LogSet 状态</h4>
+<p>当前 MatrixOne 集群的组件主要有：TN、CN、Log Service，分别对应的自定义资源类型 TNSet、CNSet、LogSet。这些对象均由 MatrixOneCluster 控制器生成。</p>
+<p>可以使用以下命令来检查各组件的状态，以 TN 为例：</p>
+<div class="highlight"><pre><span></span><code>SET_TYPE=&quot;tnset&quot;
 NS=&quot;mo-hn&quot;
 kubectl get ${SET_TYPE} -n${NS}
 </code></pre></div>

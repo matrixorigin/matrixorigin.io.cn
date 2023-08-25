@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2210,6 +2224,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8817,6 +8845,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9425,29 +9467,29 @@ mysql  Ver 8.0.33 for Linux on x86_64 (MySQL Community Server - GPL)
 <div class="tabbed-block">
 <p>x86 架构系统安装包：</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/root/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/root/
-wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
-unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v0.8.0-linux-amd64.zip
+wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-linux-amd64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-rc1-linux-amd64.zip
 </code></pre></div>
 <p>ARM 架构系统安装包：</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/root/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/root/
-wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-arm64.zip
-unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v0.8.0-linux-arm64.zip
+wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-linux-arm64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-rc1-linux-arm64.zip
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>x86 架构系统安装包：</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/root/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/root/
-curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-amd64.zip
-unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v0.8.0-linux-amd64.zip
+curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-linux-amd64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-rc1-linux-amd64.zip
 </code></pre></div>
 <p>ARM 架构系统安装包：</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/root/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/root/
-curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-linux-arm64.zip
-unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v0.8.0-linux-arm64.zip
+curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-linux-arm64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-rc1-linux-arm64.zip
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>如果你想通过更直观的页面下载的方式下载，直接点击进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v0.8.0">版本 0.8.0</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v0.8.0-linux-amd64.zip</em> 或者 <em>mo-v0.8.0-linux-arm64.zip</em> 下载即可。</p>
+<p>如果你想通过更直观的页面下载的方式下载，直接点击进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v1.0.0-rc1">版本 1.0.0-rc1</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v1.0.0-rc1-linux-amd64.zip</em> 或者 <em>mo-v1.0.0-rc1-linux-arm64.zip</em> 下载再使用 <code>unzip</code> 命令解压即可。</p>
 </div>
 </div>
 </div>
@@ -9459,17 +9501,17 @@ unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"
 </code></pre></div>
 <h3 id="2-mo_ctl">2. 设置 mo_ctl 的配置参数</h3>
 <p>通过以下命令将 MatrixOne 的二进制解压文件目录设置到 mo_ctl 的 <code>MO_PATH</code> 参数上。mo_ctl 会自动寻找位于 <code>MO_PATH</code> 中的 <code>matrixone</code> 文件夹。</p>
-<div class="highlight"><pre><span></span><code>mo_ctl set_conf MO_PATH=&quot;/root/&quot;
+<div class="highlight"><pre><span></span><code>mo_ctl set_conf MO_PATH=&quot;/root&quot;
 </code></pre></div>
 <h2 id="4-matrixone">步骤 4：启动 MatrixOne 服务</h2>
 <p>通过 <code>mo_ctl start</code> 命令一键启动 MatrixOne 服务。</p>
 <p>如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 <code>/data/mo/logs/</code> 中。</p>
 <div class="highlight"><pre><span></span><code>root@VM-16-2-debian:~# mo_ctl start
 2023-07-07_09:55:01    [INFO]    No mo-service is running
-2023-07-07_09:55:01    [INFO]    Starting mo-service: cd /data/mo//matrixone/ &amp;&amp; /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-DN/launch.toml &gt;/data/mo//logs/stdout-20230707_095501.log 2&gt;/data/mo//logs/stderr-20230707_095501.log
+2023-07-07_09:55:01    [INFO]    Starting mo-service: cd /data/mo//matrixone/ &amp;&amp; /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-TN/launch.toml &gt;/data/mo//logs/stdout-20230707_095501.log 2&gt;/data/mo//logs/stderr-20230707_095501.log
 2023-07-07_09:55:01    [INFO]    Wait for 2 seconds
 2023-07-07_09:55:03    [INFO]    At least one mo-service is running. Process info:
-2023-07-07_09:55:03    [INFO]    root      748128       1  2 09:55 ?        00:00:00 /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-DN/launch.toml
+2023-07-07_09:55:03    [INFO]    root      748128       1  2 09:55 ?        00:00:00 /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-TN/launch.toml
 2023-07-07_09:55:03    [INFO]    Pids:
 2023-07-07_09:55:03    [INFO]    748128
 2023-07-07_09:55:03    [INFO]    Start succeeded
@@ -9487,7 +9529,7 @@ unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v0.8.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 

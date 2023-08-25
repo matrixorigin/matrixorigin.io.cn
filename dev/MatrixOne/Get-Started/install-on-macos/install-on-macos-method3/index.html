@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2169,6 +2183,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8776,6 +8804,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9285,15 +9327,15 @@
 </ol>
 <h2 id="2-matrixone">步骤 2：获取 MatrixOne 镜像并启动</h2>
 <p>使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">稳定版本的镜像（0.8.0）</label><label for="__tabbed_1_2">开发版本的镜像</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">稳定版本的镜像（1.0.0-rc1）</label><label for="__tabbed_1_2">开发版本的镜像</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>matrixorigin/matrixone:0.8.0
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:0.8.0
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
 </code></pre></div>
 <p>如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 稳定版本镜像：</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:0.8.0
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:0.8.0
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -9362,17 +9404,8 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
 <ul>
 <li>
 <p>你可以使用 MySQL 命令行客户端来连接 MatrixOne。打开一个新的终端，直接输入以下指令：</p>
-<div class="highlight"><pre><span></span><code>mysql -h IP -P PORT -uUsername -p
-</code></pre></div>
-<p>输入完成上述命令后，终端会提示你提供用户名和密码。你可以使用我们提供的的初始帐号和密码：</p>
-<pre><code>· user: root
-· password: 111
-</code></pre>
-</li>
-<li>
-<p>你也可以使用 MySQL 客户端下述命令行，输入密码，来连接 MatrixOne 服务：</p>
 <div class="highlight"><pre><span></span><code>mysql -h 127.0.0.1 -P 6001 -uroot -p
-Enter password:
+Enter password:  # 初始密码默认为111
 </code></pre></div>
 </li>
 </ul>

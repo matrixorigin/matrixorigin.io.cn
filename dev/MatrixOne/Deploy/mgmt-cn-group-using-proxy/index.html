@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2088,6 +2102,20 @@
     <li class="md-nav__item">
       <a href="../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8807,6 +8835,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9416,7 +9458,7 @@ spec:
 <p>运行 <code>kubectl get pod -nmo-hn</code> 检查 Proxy 状态是否正常启动：</p>
 <div class="highlight"><pre><span></span><code>root@HOST-10-206-134-16:~# kubectl get pod -nmo-hn
 NAME             READY   STATUS    RESTARTS   AGE
-mo-dn-0          1/1     Running   0          2m51s
+mo-tn-0          1/1     Running   0          2m51s
 mo-log-0         1/1     Running   0          3m25s
 mo-log-1         1/1     Running   0          3m25s
 mo-log-2         1/1     Running   0          3m25s
@@ -9429,7 +9471,7 @@ mo-tp-cn-0       1/1     Running   0          2m25s
 <p>正常启动后的代码示例如上述所示。这样最小化的 Proxy 组件就启动完成了。你可以使用 <code>kubectl get svc -nmo-hn</code> 通过 Proxy 的 SVC 地址即可以连接到该集群：</p>
 <div class="highlight"><pre><span></span><code>root@HOST-10-206-134-16:~# kubectl get svc -nmo-hn
 NAME                TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE
-mo-dn-headless      ClusterIP   None          &lt;none&gt;        &lt;none&gt;           70m
+mo-tn-headless      ClusterIP   None          &lt;none&gt;        &lt;none&gt;           70m
 mo-log-discovery    ClusterIP   10.96.3.186   &lt;none&gt;        32001/TCP        71m
 mo-log-headless     ClusterIP   None          &lt;none&gt;        &lt;none&gt;           71m
 mo-proxy            NodePort    10.96.1.153   &lt;none&gt;        6001:31429/TCP   70m
@@ -9495,7 +9537,7 @@ spec:
 NAME              READY   STATUS    RESTARTS   AGE
 mo-cn-set1-cn-0   1/1     Running   0          6s
 mo-cn-set2-cn-0   1/1     Running   0          6s
-mo-dn-0           1/1     Running   0          97m
+mo-tn-0           1/1     Running   0          97m
 mo-log-0          1/1     Running   0          97m
 mo-log-1          1/1     Running   0          97m
 mo-log-2          1/1     Running   0          97m

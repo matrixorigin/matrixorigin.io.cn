@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1067,6 +1081,13 @@
         <li class="md-nav__item">
   <a href="#golang-matrixone" class="md-nav__link">
     使用 Golang 连接 MatrixOne 服务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gorm-matrixone" class="md-nav__link">
+    使用 Gorm 连接 MatrixOne 服务
   </a>
   
 </li>
@@ -2147,6 +2168,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8754,6 +8789,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9198,6 +9247,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gorm-matrixone" class="md-nav__link">
+    使用 Gorm 连接 MatrixOne 服务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     参考文档
   </a>
@@ -9262,25 +9318,25 @@ go version
 </li>
 <li>
 <p>创建一个纯文本文件 <em>golang_connect_matrixone.go</em> 并将代码写入文件：</p>
-<div class="highlight"><pre><span></span><code><span class="n">package</span> <span class="n">main</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
 
-<span class="kn">import</span> <span class="p">(</span>
-    <span class="s2">&quot;database/sql&quot;</span>
-    <span class="s2">&quot;fmt&quot;</span>
-    <span class="n">_</span> <span class="s2">&quot;github.com/go-sql-driver/mysql&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;database/sql&quot;</span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+<span class="w">    </span><span class="nx">_</span><span class="w"> </span><span class="s">&quot;github.com/go-sql-driver/mysql&quot;</span>
 <span class="p">)</span>
 
-<span class="n">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="o">//</span><span class="s2">&quot;username:password@[protocol](address:port)/database&quot;</span>
-    <span class="n">db</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">sql</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">,</span> <span class="s2">&quot;root:111@tcp(127.0.0.1:6001)/test&quot;</span><span class="p">)</span> <span class="o">//</span> <span class="n">Set</span> <span class="n">database</span> <span class="n">connection</span>
-    <span class="n">defer</span> <span class="n">db</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>                                            <span class="o">//</span><span class="n">Close</span> <span class="n">DB</span>
-    <span class="n">err</span> <span class="o">:=</span> <span class="n">db</span><span class="o">.</span><span class="n">Ping</span><span class="p">()</span>                                            <span class="o">//</span><span class="n">Connect</span> <span class="n">to</span> <span class="n">DB</span>
-    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="n">nil</span> <span class="p">{</span>
-        <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s2">&quot;Database Connection Failed&quot;</span><span class="p">)</span>               <span class="o">//</span><span class="n">Connection</span> <span class="n">failed</span>
-        <span class="k">return</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s2">&quot;Database Connection Succeed&quot;</span><span class="p">)</span>              <span class="o">//</span><span class="n">Connection</span> <span class="n">succeed</span>
-    <span class="p">}</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//&quot;username:password@[protocol](address:port)/database&quot;</span>
+<span class="w">    </span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">sql</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="s">&quot;mysql&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;root:111@tcp(127.0.0.1:6001)/test&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Set database connection</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span><span class="w">                                            </span><span class="c1">//Close DB</span>
+<span class="w">    </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">Ping</span><span class="p">()</span><span class="w">                                            </span><span class="c1">//Connect to DB</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Database Connection Failed&quot;</span><span class="p">)</span><span class="w">               </span><span class="c1">//Connection failed</span>
+<span class="w">        </span><span class="k">return</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Database Connection Succeed&quot;</span><span class="p">)</span><span class="w">              </span><span class="c1">//Connection succeed</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </li>
@@ -9291,8 +9347,55 @@ Database Connection Succeed
 </code></pre></div>
 </li>
 </ol>
+<h2 id="gorm-matrixone">使用 Gorm 连接 MatrixOne 服务</h2>
+<p><code>gorm</code> 是一个基于 golang 的一个神奇的全功能 ORM 库，我们将使用 <code>gorm.io/gorm</code> 和 <code>gorm.io/driver/mysql</code> 这两个库来让 Go 连接到 MYSQL 数据库。</p>
+<ol>
+<li>安装 <code>gorm.io/gorm</code> 和 <code>gorm.io/driver/mysql</code> 库，使用 <code>go get</code> 命令安装：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>go get -u gorm.io/gorm
+go get -u gorm.io/driver/mysql
+</code></pre></div>
+<ol>
+<li>
+<p>使用 MySQL 客户端连接 MatrixOne。新建一个名称为 <em>test</em> 数据库：</p>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+</code></pre></div>
+</li>
+<li>
+<p>创建一个文本文件 <em>golang_gorm_connect_matrixone.go</em> 并将代码写入文件：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;gorm.io/driver/mysql&quot;</span>
+<span class="w">    </span><span class="s">&quot;gorm.io/gorm&quot;</span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">getDBConn</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">dsn</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;root:111@tcp(127.0.0.1:6001)/test?charset=utf8mb4&amp;parseTime=True&amp;loc=Local&quot;</span><span class="w"> </span><span class="c1">//MO </span>
+<span class="w">    </span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorm</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">mysql</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">dsn</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">Config</span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="c1">// get connection</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Database Connection Failed&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">//Connection failed</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Database Connection Succeed&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">//Connection succeed</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">db</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">getDBConn</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>打开一个终端，在终端内执行下面的命令：</p>
+<div class="highlight"><pre><span></span><code>&gt; go run golang_gorm_connect_matrixone.go
+Database Connection Succeed
+</code></pre></div>
+</li>
+</ol>
 <h2 id="_2">参考文档</h2>
-<p>关于使用 Golang 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见<a href="../../../Tutorial/develop-golang-crud-demo/">构建一个 Golang CRUD 示例</a>。</p>
+<p>关于使用 Golang 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见 <a href="../../../Tutorial/develop-golang-crud-demo/">Golang 基础示例</a>。</p>
+<p>关于使用 Gorm 通过 MatrixOne 构建一个简单的 CRUD 的示例，参见 <a href="../../../Tutorial/gorm-golang-crud-demo/">Gorm 基础示例</a>。</p>
 
 
 

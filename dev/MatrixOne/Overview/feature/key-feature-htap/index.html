@@ -740,6 +740,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2248,6 +2262,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8855,6 +8883,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9441,14 +9483,14 @@
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/mo-htap-arch.png" /></p>
 <ul>
 <li><strong>计算层</strong>，以计算节点 Compute Node 为单位，实现计算和事务处理的无服务器化，并有自己的 Cache，支持随意重启和扩缩容；多个 Compute Node 可以并行计算，提升查询效率。</li>
-<li><strong>事务层</strong>，由数据库节点 Database Node 和日志节点 Log Service 组成，提供完整的日志服务以及元数据信息，内置 Logtail 用于保存最近写入的新数据。</li>
+<li><strong>事务层</strong>，由数据库节点 Transaction Node 和日志节点 Log Service 组成，提供完整的日志服务以及元数据信息，内置 Logtail 用于保存最近写入的新数据。</li>
 <li><strong>存储层</strong>，所有数据均保存在以 S3 为代表的对象存储中，实现了低成本、无限扩展的存储方式，通过命名为 File Service 的统一文件操作服务，实现了不同节点对底层存储的无感知操作。</li>
 </ul>
 <h3 id="_5">多级存储体系</h3>
 <p>如上一章节中图示所示，MatrixOne 的存储体系由全量数据共享存储、少量共享日志和计算节点的无状态缓存组成。</p>
 <ul>
 <li>全量数据保存在对象存储中，作为整个数据库的主存储，也是数据持久化的唯一保存位置。对象存储具有成本低廉，扩展性近乎无限的特性。</li>
-<li>LogService 提供共享日志服务，用于对整个集群的写入/更新等事务信息进行状态信息保存，它是整个集群唯一带状态的组件。因此，LogService 需要以分布式 Raft 协议以 3 节点的形式保证高可用。但是它只保留一段时间的事务处理日志，我们称之为 Logtail。隔一段时间，就会有 DN 来帮助将历史日志进行压缩，存入 S3，因此 Logtail 可以保持一个非常精简的数据大小，一般在几 GB 左右。</li>
+<li>LogService 提供共享日志服务，用于对整个集群的写入/更新等事务信息进行状态信息保存，它是整个集群唯一带状态的组件。因此，LogService 需要以分布式 Raft 协议以 3 节点的形式保证高可用。但是它只保留一段时间的事务处理日志，我们称之为 Logtail。隔一段时间，就会有 TN 来帮助将历史日志进行压缩，存入 S3，因此 Logtail 可以保持一个非常精简的数据大小，一般在几 GB 左右。</li>
 <li>每个计算节点 CN 上都有缓存，在用户初次查询时，会从对象存储中读取相关数据并放入缓存中，作为热数据。当客户再次查询相同内容时，如果命中缓存，将会快速向用户返回查询结果。关于缓存带来的冷热数据分离的技术特性，可以参考<a href="../../architecture/architecture-cold-hot-data-separation/">数据缓存及冷热数据分离架构详解</a>。另外，除了读取对象存储中的数据外，CN 节点还会向 LogService 订阅 Logtail 的数据，LogService 中有新的更新会即时推送给 CN。</li>
 </ul>
 <h3 id="_6">负载处理链路隔离</h3>
@@ -9465,13 +9507,13 @@
 <p>CN 节点会启动一个事务，并检查写入请求是否有主键冲突或其他事务相关问题，如果有，则直接向用户返回错误。</p>
 </li>
 <li>
-<p>接下来，CN 会根据写请求的数据量大小来决定操作的链路。如果数据量没有超过设定的阈值（通常为 10MB），则 CN 节点会将数据发送给 DN 节点，DN 节点会进行写写冲突检测和事务仲裁等操作，确保无误后，将这些数据以日志形式写入 LogService，形成 Logtail。</p>
+<p>接下来，CN 会根据写请求的数据量大小来决定操作的链路。如果数据量没有超过设定的阈值（通常为 10MB），则 CN 节点会将数据发送给 TN 节点，TN 节点会进行写写冲突检测和事务仲裁等操作，确保无误后，将这些数据以日志形式写入 LogService，形成 Logtail。</p>
 </li>
 <li>
-<p>更新的 Logtail 将即时推送给订阅了 Logtail 数据的 CN 节点，以便查询。如果数据量超过阈值，则 CN 节点会直接将数据写入对象存储，并将提交 commit 信息发送给 DN，DN 节点会进行写写冲突检测和事务仲裁等操作，在确认无误后，提交事务。</p>
+<p>更新的 Logtail 将即时推送给订阅了 Logtail 数据的 CN 节点，以便查询。如果数据量超过阈值，则 CN 节点会直接将数据写入对象存储，并将提交 commit 信息发送给 TN，TN 节点会进行写写冲突检测和事务仲裁等操作，在确认无误后，提交事务。</p>
 </li>
 </ol>
-<p>从上图可知，少量数据的 OLTP 类型写入请求会经过 CN 至 DN 再至 LogService 的处理链路，而大数据量的写入请求，如 Load 等，则会主要经过 CN 至 S3，以及少量的 CN 至 DN。</p>
+<p>从上图可知，少量数据的 OLTP 类型写入请求会经过 CN 至 TN 再至 LogService 的处理链路，而大数据量的写入请求，如 Load 等，则会主要经过 CN 至 S3，以及少量的 CN 至 TN。</p>
 <h5 id="_9">读请求处理</h5>
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/read.png" /></p>
 <p>如图所示，处理读请求时，CN 节点会首先查看已订阅的 Logtail 数据，如果数据直接命中 Logtail，则说明数据位于最新的一部分写入数据中，可以直接返回。如果没有命中 Logtail，CN 会检查自己及其他可见 CN 的缓存，如果命中缓存，将直接返回结果。如果没有命中缓存，CN 会通过分析执行计划判断是否需要大量读取数据，如果超过一定的阈值（如 200 个 block size）则由多个 CN 节点并行从对象存储中读取，如果未超过阈值则由单个 CN 节点从对象存储中读取。</p>

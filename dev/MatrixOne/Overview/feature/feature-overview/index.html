@@ -572,6 +572,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2080,6 +2094,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8687,6 +8715,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9239,7 +9281,7 @@
 
 <h1 id="matrixone">MatrixOne 功能特性</h1>
 <h2 id="matrixone_1">MatrixOne 特性</h2>
-<p>在 MatrixOne 版本 0.8.0 中，具有如下特性，让你在使用 MatrixOne 的过程中更加高效：</p>
+<p>在 MatrixOne 版本 1.0.0-rc1 中，具有如下特性，让你在使用 MatrixOne 的过程中更加高效：</p>
 <h3 id="_1">分布式架构</h3>
 <p>在 MatrixOne 中，采用了分布式存算分离的分布式架构，存储层、数据层、计算层的分离，使得 MatrixOne 在遇到系统资源瓶颈时，能够灵活实现节点的扩容。同时，多节点的架构下，资源可以进行更加有效率地分配，一定程度上避免了热点与资源征用。</p>
 <h3 id="_2">事务与隔离</h3>
@@ -9272,9 +9314,9 @@
 </ul>
 <h3 id="_8">明确的事务分工</h3>
 <ul>
-<li>CN 负责所有的计算和事务逻辑，DN 负责保存元数据、日志信息和事务裁决。</li>
+<li>CN 负责所有的计算和事务逻辑，TN 负责保存元数据、日志信息和事务裁决。</li>
 <li>引入 Logtail 对象在日志中，用于保存最近日志中的关联数据。将 Logtail 的数据定期写入 S3 中。CN 扩容可以实时将 Logtail 数据同步至 Cache，实现部分数据共享。</li>
-<li>设置事务大小的阈值。超过阈值的事务直接写入 S3，日志只记录写入记录。未超过阈值的事务继续由 DN 写入，极大增加了吞吐量。</li>
+<li>设置事务大小的阈值。超过阈值的事务直接写入 S3，日志只记录写入记录。未超过阈值的事务继续由 TN 写入，极大增加了吞吐量。</li>
 </ul>
 <h3 id="htap">HTAP 工作负载隔离</h3>
 <p>作为 HTAP 数据库，实现了不同类型的工作负载隔离：</p>

@@ -687,6 +687,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2195,6 +2209,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8802,6 +8830,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9348,7 +9390,7 @@
 <h3 id="_7">共享日志</h3>
 <p>共享日志组件 LogService 是 MatrixOne 中唯一拥有分布式事务状态的组件。这是一个由三个节点组成，遵循 Raft 协议的架构，即使一个节点失效，也能正常工作。它负责对整个 MatrixOne 集群的服务进行最终一致性的保障。</p>
 <h3 id="_8">事务层</h3>
-<p>事务层组件 Data Node 负责对事务操作进行冲突检测以及仲裁，它是一个无状态的节点。如果出现故障，Kubernetes 可以随时拉起，在秒级时间内就能恢复正常，保证持续可用性。目前 0.8 版本的 Data Node 仅支持单节点运行，后续会增加多 Data Node 方案，以进一步提高可用性。</p>
+<p>事务层组件 Transaction node 负责对事务操作进行冲突检测以及仲裁，它是一个无状态的节点。如果出现故障，Kubernetes 可以随时拉起，在秒级时间内就能恢复正常，保证持续可用性。目前版本的 Transaction node 仅支持单节点运行，后续会增加多 Transaction node 方案，以进一步提高可用性。</p>
 <h3 id="_9">计算层</h3>
 <p>计算层组件 Compute Node 负责前端 Query 的解析，以及执行计划的生成和执行。它也是一个无状态的节点，如果出现故障，Kubernetes 可以随时拉起，在秒级时间内恢复正常，保证持续可用性。</p>
 <h3 id="proxy">Proxy</h3>

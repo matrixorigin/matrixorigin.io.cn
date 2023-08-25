@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2180,6 +2194,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8787,6 +8815,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9303,27 +9345,30 @@
 <p>关于子查询 SQL 语句，参见 <a href="../../../Reference/SQL-Reference/Data-Query-Language/subqueries/subquery/">SUBQUERY</a>。</p>
 <p>另外，从 SQL 语句执行情况上，子查询语句一般有以下两种形式：</p>
 <ul>
-<li>关联子查询（Correlated Subquery）：数据库嵌套查询中内层查询和外层查询不相互独立，内层查询也依赖于外层查询。</li>
-</ul>
-<p>执行顺序为：</p>
-<pre><code> + 先从外层查询中查询中一条记录。
-
- + 再将查询到的记录放到内层查询中符合条件的记录，再放到外层中查询。
-
- + 重复以上步骤
-
-例如：``select * from tableA where tableA.cloumn &lt; (select column from tableB where tableA.id = tableB.id))``
-</code></pre>
+<li>
+<p>关联子查询（Correlated Subquery）：数据库嵌套查询中内层查询和外层查询不相互独立，内层查询也依赖于外层查询。执行顺序为：</p>
 <ul>
-<li>无关联子查询 (Self-contained Subquery)：数据库嵌套查询中内层查询是完全独立于外层查询的。</li>
+<li>
+<p>先从外层查询中查询中一条记录。</p>
+</li>
+<li>
+<p>再将查询到的记录放到内层查询中符合条件的记录，再放到外层中查询。</p>
+</li>
+<li>
+<p>重复以上步骤</p>
+</li>
 </ul>
-<p>执行顺序为：</p>
-<pre><code>+ 先执行内层查询。
-
-+ 得到内层查询的结果后带入外层，再执行外层查询。
-
-例如：``select * from tableA where tableA.column  = (select tableB.column from tableB )``
-</code></pre>
+<p>例如：<code>select * from tableA where tableA.cloumn &lt; (select column from tableB where tableA.id = tableB.id))</code></p>
+</li>
+<li>
+<p>无关联子查询 (Self-contained Subquery)：数据库嵌套查询中内层查询是完全独立于外层查询的。执行顺序为：</p>
+<ul>
+<li>先执行内层查询。</li>
+<li>得到内层查询的结果后带入外层，再执行外层查询。</li>
+</ul>
+<p>例如：<code>select * from tableA where tableA.column  = (select tableB.column from tableB )</code></p>
+</li>
+</ul>
 <p><strong>子查询的作用</strong>：</p>
 <ul>
 <li>子查询允许结构化的查询，这样就可以把一个查询语句的每个部分隔开。</li>

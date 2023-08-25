@@ -653,6 +653,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2161,6 +2175,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8768,6 +8796,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9258,7 +9300,7 @@
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-cost-performance/HTAP.png" /></p>
 <h2 id="htap_1">单一存储引擎实现 HTAP</h2>
 <p>在数据库领域，实现 HTAP 通常需要将一个 OLTP 引擎和一个 OLAP 引擎封装到一个数据库产品中。虽然数据在两个存储引擎之间的转换过程对用户是隐藏的，用户只看到一个统一的 SQL 接口，但实际上数据在两个存储引擎各存一份，硬件和存储成本并未降低。</p>
-<p>与上述引擎封装方式不同，MatrixOne 利用单一存储引擎实现 HTAP。如下图所示，MatrixOne 通过对不同计算节点 CN 进行分组，以及在负载的运行链路上进行区分，实现单引擎的 HTAP。当用户的应用请求进入 MatrixOne 集群时，Proxy 模块会将 OLAP 类的请求分发到专门处理 OLAP 的 CN 组。这些请求通常需要大范围地读取或写入数据，由 CN 节点直接与对象存储进行交互。而 OLTP 类的请求，如小数据量的 <code>INSERT</code>，<code>UPDATE</code>，<code>DELETE</code>，则会通过另一组专门处理 OLTP 的 CN 组，并由 DN 节点处理事务信息，并写入 LogService 的共享日志。DN 还会不断地将 LogService 中的少量事务类数据进行压缩和合并，再写入对象存储中。</p>
+<p>与上述引擎封装方式不同，MatrixOne 利用单一存储引擎实现 HTAP。如下图所示，MatrixOne 通过对不同计算节点 CN 进行分组，以及在负载的运行链路上进行区分，实现单引擎的 HTAP。当用户的应用请求进入 MatrixOne 集群时，Proxy 模块会将 OLAP 类的请求分发到专门处理 OLAP 的 CN 组。这些请求通常需要大范围地读取或写入数据，由 CN 节点直接与对象存储进行交互。而 OLTP 类的请求，如小数据量的 <code>INSERT</code>，<code>UPDATE</code>，<code>DELETE</code>，则会通过另一组专门处理 OLTP 的 CN 组，并由 TN 节点处理事务信息，并写入 LogService 的共享日志。TN 还会不断地将 LogService 中的少量事务类数据进行压缩和合并，再写入对象存储中。</p>
 <p>总的来说，用户写入 MatrixOne 的数据只存在一份，并通过单一的存储引擎进行处理，大幅度降低了存储和计算硬件的成本。</p>
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-cost-performance/HTAP-single-engine.png" /></p>
 <h2 id="_2">灵活的资源分配提高机器利用率</h2>

@@ -707,6 +707,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2215,6 +2229,20 @@
     <li class="md-nav__item">
       <a href="../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8822,6 +8850,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9445,7 +9487,7 @@
 </tr>
 <tr>
 <td>流式表CREATE STREAM</td>
-<td>N</td>
+<td>E，部分支持</td>
 </tr>
 <tr>
 <td>分区表PARTITION BY</td>
@@ -9484,7 +9526,7 @@
 </tr>
 <tr>
 <td>REPLACE</td>
-<td>N</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>INSERT ON DUPLICATE KEY UPDATE</td>
@@ -9641,7 +9683,7 @@
 <tr>
 <td></td>
 <td>ENUM</td>
-<td>N，可用VARCHAR代替</td>
+<td>Y，不支持<strong>过滤 ENUM 值</strong>和<strong>排序 ENUM 值</strong></td>
 </tr>
 <tr>
 <td></td>
@@ -9676,7 +9718,7 @@
 <tr>
 <td></td>
 <td>YEAR</td>
-<td>N</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>Boolean</td>
@@ -9763,7 +9805,7 @@
 <tbody>
 <tr>
 <td>悲观事务</td>
-<td>E</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>乐观事务</td>
@@ -9779,7 +9821,7 @@
 </tr>
 <tr>
 <td>读已提交RC隔离</td>
-<td>E</td>
+<td>Y</td>
 </tr>
 </tbody>
 </table>
@@ -9946,7 +9988,7 @@
 </tr>
 <tr>
 <td>物理备份恢复</td>
-<td>N</td>
+<td>Y</td>
 </tr>
 </tbody>
 </table>

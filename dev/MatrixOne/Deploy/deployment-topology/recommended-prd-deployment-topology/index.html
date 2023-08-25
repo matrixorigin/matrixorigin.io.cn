@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2088,6 +2102,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8747,6 +8775,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9262,7 +9304,7 @@
 <td>每节点 NVME SSD 3.0/4.0 (1G/s以上读取速率) × 1块 × xg/块。<br/><br/>备注：x 与业务数据量相关，越接近越好。</td>
 </tr>
 <tr>
-<td>DN（混部Proxy及负载均衡）</td>
+<td>TN（混部Proxy及负载均衡）</td>
 <td>1台</td>
 <td>MatrixOne 工作节点</td>
 <td>16 核以上</td>
@@ -9270,7 +9312,7 @@
 <td>双万兆网口，万兆网卡</td>
 <td>同上</td>
 <td>同上</td>
-<td>NVME SSD 3.0/4.0 × 2 块 × xg/块<br/><br/>备注：x 与业务数据量相关，越接近越好。其中一块给 DN/CN 故障恢复时备用。</td>
+<td>NVME SSD 3.0/4.0 × 2 块 × xg/块<br/><br/>备注：x 与业务数据量相关，越接近越好。其中一块给 TN/CN 故障恢复时备用。</td>
 </tr>
 <tr>
 <td>CN（混部Proxy及负载均衡）</td>
@@ -9281,7 +9323,7 @@
 <td>双万兆网口，万兆网卡</td>
 <td>同上</td>
 <td>同上</td>
-<td>每节点 NVME SSD 3.0/4.0 × 2块 × xg/块 。<br/><br/>备注：x 与业务数据量相关，越接近越好。其中一块给 DN/CN 故障恢复时备用。y与业务负载相关。</td>
+<td>每节点 NVME SSD 3.0/4.0 × 2块 × xg/块 。<br/><br/>备注：x 与业务数据量相关，越接近越好。其中一块给 TN/CN 故障恢复时备用。y与业务负载相关。</td>
 </tr>
 </tbody>
 </table>

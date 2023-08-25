@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2217,6 +2231,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8824,6 +8852,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9486,24 +9528,29 @@ Copyright © 2015 Free Software Foundation, Inc.
 <div class="highlight"><pre><span></span><code>&gt; mo_ctl
 Usage             : mo_ctl [option_1] [option_2]
 
-[option_1]        : available: help | precheck | deploy | status | start | stop | restart | connect | get_cid | set_conf | get_conf | pprof | ddl_convert
-  0) help         : print help information
-  1) precheck     : check pre-requisites for mo_ctl
-  2) deploy       : deploy mo onto the path configured
-  3) status       : check if there&#39;s any mo process running on this machine
-  4) start        : start mo-service from the path configured
-  5) stop         : stop all mo-service processes found on this machine
-  6) restart      : start mo-service from the path configured
-  7) connect      : connect to mo via mysql client using connection info configured
-  8) get_cid      : print mo commit id from the path configured
-  9) pprof        : collect pprof information
-  10) set_conf    : set configurations
-  11) get_conf    : get configurations
-  12) ddl_convert : convert ddl file to mo format from other types of database
-  e.g.            : mo_ctl status
+[option_1]      : available: connect | ddl_connect | deploy | get_branch | get_cid | get_conf | help | pprof | precheck | restart | set_conf | sql | start | status | stop | uninstall | upgrade | watchdog
+1) connect      : connect to mo via mysql client using connection info configured
+2) ddl_convert  : convert ddl file to mo format from other types of database
+3) deploy       : deploy mo onto the path configured
+4) get_branch   : upgrade or downgrade mo from current version to a target commit id or stable version
+5) get_cid      : print mo git commit id from the path configured
+6) get_conf     : get configurations
+7) help         : print help information
+8) pprof        : collect pprof information
+9) precheck     : check pre-requisites for mo_ctl
+10) restart     : a combination operation of stop and start
+11) set_conf    : set configurations
+12) sql         : execute sql from string, or a file or a path containg multiple files
+13) start       : start mo-service from the path configured
+14) status      : check if there&#39;s any mo process running on this machine
+15) stop        : stop all mo-service processes found on this machine
+16) uninstall   : uninstall mo from path MO_PATH=/data/mo//matrixone
+17) upgrade     : upgrade or downgrade mo from current version to a target commit id or stable version
+18) watchdog    : setup a watchdog crontab task for mo-service to keep it alive
+e.g.            : mo_ctl status
 
-[option_2]        : Use &quot; mo_ctl [option_1] help &quot; to get more info
-  e.g.            : mo_ctl deploy help
+[option_2]      : Use &quot; mo_ctl [option_1] help &quot; to get more info
+e.g.            : mo_ctl deploy help
 </code></pre></div>
 </li>
 </ol>
@@ -9517,16 +9564,24 @@ MO_HOST=&quot;127.0.0.1&quot;
 MO_PORT=&quot;6001&quot;
 MO_USER=&quot;root&quot;
 MO_PW=&quot;111&quot;
-CHECK_LIST=(&quot;go&quot; &quot;gcc&quot; &quot;git&quot; &quot;mysql&quot;)
+MO_DEPLOY_MODE=&quot;host&quot;
+MO_REPO=&quot;matrixorigin/matrixone&quot;
+MO_IMAGE_PREFIX=&quot;nightly&quot;
+MO_IMAGE_FULL=&quot;&quot;
+MO_CONTAINER_NAME=&quot;mo&quot;
+MO_CONTAINER_PORT=&quot;6001&quot;
+MO_CONTAINER_DEBUG_PORT=&quot;12345&quot;
+CHECK_LIST=(&quot;go&quot; &quot;gcc&quot; &quot;git&quot; &quot;mysql&quot; &quot;docker&quot;)
 GCC_VERSION=&quot;8.5.0&quot;
+CLANG_VERSION=&quot;13.0&quot;
 GO_VERSION=&quot;1.20&quot;
 MO_GIT_URL=&quot;https://github.com/matrixorigin/matrixone.git&quot;
-MO_DEFAULT_VERSION=&quot;0.8.0&quot;
+MO_DEFAULT_VERSION=&quot;1.0.0-rc1&quot;
 GOPROXY=&quot;https://goproxy.cn,direct&quot;
 STOP_INTERVAL=&quot;5&quot;
 START_INTERVAL=&quot;2&quot;
 MO_DEBUG_PORT=&quot;9876&quot;
-MO_CONF_FILE=&quot;${MO_PATH}/matrixone/etc/launch-tae-CN-tae-DN/launch.toml&quot;
+MO_CONF_FILE=&quot;${MO_PATH}/matrixone/etc/launch/launch.toml&quot;
 RESTART_INTERVAL=&quot;2&quot;
 PPROF_OUT_PATH=&quot;/tmp/pprof-test/&quot;
 PPROF_PROFILE_DURATION=&quot;30&quot;
@@ -9534,7 +9589,7 @@ PPROF_PROFILE_DURATION=&quot;30&quot;
 <p>一般可能会需要调整的参数如下：</p>
 <div class="highlight"><pre><span></span><code>mo_ctl set_conf MO_PATH=&quot;/Users/username/mo/matrixone&quot; # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL=&quot;https://ghproxy.com/https://github.com/matrixorigin/matrixone.git&quot; #针对github原地址下载过慢问题，设置代理下载地址
-mo_ctl set_conf MO_DEFAULT_VERSION=&quot;0.8.0&quot; # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEFAULT_VERSION=&quot;1.0.0-rc1&quot; # 设置所下载的MatrixOne版本
 </code></pre></div>
 <h2 id="3-matrixone">步骤 3：一键安装 MatrixOne</h2>
 <p>根据您的需要，选择最新的开发版本，还是获得稳定版本的代码。</p>
@@ -9546,7 +9601,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION=&quot;0.8.0&quot; # 设置所下载的MatrixO
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mo_ctl deploy 0.8.0
+<div class="highlight"><pre><span></span><code>mo_ctl deploy 1.0.0-rc1
 </code></pre></div>
 </div>
 </div>
@@ -9556,10 +9611,10 @@ mo_ctl set_conf MO_DEFAULT_VERSION=&quot;0.8.0&quot; # 设置所下载的MatrixO
 <p>如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 <code>/data/mo/logs/</code> 中。</p>
 <div class="highlight"><pre><span></span><code>&gt; mo_ctl start
 2023-07-07_15:33:45    [INFO]    No mo-service is running
-2023-07-07_15:33:45    [INFO]    Starting mo-service: cd /Users/username/mo/matrixone/matrixone/ &amp;&amp; /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-DN/launch.toml &gt;/Users/username/mo/matrixone/matrixone/logs/stdout-20230707_153345.log 2&gt;/Users/username/mo/matrixone/matrixone/logs/stderr-20230707_153345.log
+2023-07-07_15:33:45    [INFO]    Starting mo-service: cd /Users/username/mo/matrixone/matrixone/ &amp;&amp; /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-TN/launch.toml &gt;/Users/username/mo/matrixone/matrixone/logs/stdout-20230707_153345.log 2&gt;/Users/username/mo/matrixone/matrixone/logs/stderr-20230707_153345.log
 2023-07-07_15:33:45    [INFO]    Wait for 2 seconds
 2023-07-07_15:33:48    [INFO]    At least one mo-service is running. Process info:
-2023-07-07_15:33:48    [INFO]      501 66932     1   0  3:33PM ??         0:00.27 /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-DN/launch.toml
+2023-07-07_15:33:48    [INFO]      501 66932     1   0  3:33PM ??         0:00.27 /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-TN/launch.toml
 2023-07-07_15:33:48    [INFO]    Pids:
 2023-07-07_15:33:48    [INFO]    66932
 2023-07-07_15:33:48    [INFO]    Start succeeded
@@ -9577,7 +9632,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION=&quot;0.8.0&quot; # 设置所下载的MatrixO
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v0.8.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 

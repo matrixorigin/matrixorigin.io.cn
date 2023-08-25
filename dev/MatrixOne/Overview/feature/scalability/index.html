@@ -639,6 +639,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2147,6 +2161,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8754,6 +8782,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9241,13 +9283,13 @@
 <p>从上图技术架构角度看，MatrixOne 的极致扩展性主要体现在以下几个方面：</p>
 <ul>
 <li>
-<p><strong>分布式架构的灵活扩展</strong>：MatrixOne 采用了分布式存储和计算分离的架构，存储层、事务层、计算层的分离，使得 MatrixOne 在遇到系统资源瓶颈时，能够灵活实现节点的扩展。存储层主要基于对象存储，部分基于计算节点 CN 上的缓存。事务层基于无状态的事务节点 DN。计算层基于无状态的计算节点 CN。多节点的架构可以更有效地分配资源，避免热点和资源争抢。</p>
+<p><strong>分布式架构的灵活扩展</strong>：MatrixOne 采用了分布式存储和计算分离的架构，存储层、事务层、计算层的分离，使得 MatrixOne 在遇到系统资源瓶颈时，能够灵活实现节点的扩展。存储层主要基于对象存储，部分基于计算节点 CN 上的缓存。事务层基于无状态的事务节点 TN。计算层基于无状态的计算节点 CN。多节点的架构可以更有效地分配资源，避免热点和资源争抢。</p>
 </li>
 <li>
 <p><strong>S3 对象存储的无限扩展能力</strong>：MatrixOne 的核心存储完全基于 S3 对象存储。S3 对象存储具有天然的高可用性和无限扩展性，使得 MatrixOne 在数据存储方面具有极高的扩展性。无论数据规模如何增长，MatrixOne 都可以通过扩展 S3 存储来满足需求。在私有化部署环境中，MatrixOne 基于开源的 MinIO 组件搭建 S3 服务。在公有云环境中，MatrixOne 可以无缝利用公有云提供的对象存储服务。</p>
 </li>
 <li>
-<p><strong>无状态的计算和事务节点</strong>：MatrixOne 的计算节点（CN）和事务节点（DN）是无状态的，这意味着它们可以随时进行横向扩展。无状态的设计使得计算和事务节点不需要存储任何持久化数据，从而可以轻松添加或删除，以应对不同的负载需求。这种设计使得 MatrixOne 在处理大规模并发请求时具有极高的扩展性和灵活性。（当前 0.8 版本 DN 节点尚不具备扩展能力，但是 DN 主要处理事务的提交信息，负载较低，因此单 DN 已足够处理较大规模的集群，后续版本会完善 DN 的扩展性）。</p>
+<p><strong>无状态的计算和事务节点</strong>：MatrixOne 的计算节点（CN）和事务节点（TN）是无状态的，这意味着它们可以随时进行横向扩展。无状态的设计使得计算和事务节点不需要存储任何持久化数据，从而可以轻松添加或删除，以应对不同的负载需求。这种设计使得 MatrixOne 在处理大规模并发请求时具有极高的扩展性和灵活性。（当前 0.8 版本 TN 节点尚不具备扩展能力，但是 TN 主要处理事务的提交信息，负载较低，因此单 TN 已足够处理较大规模的集群，后续版本会完善 TN 的扩展性）。</p>
 </li>
 <li>
 <p><strong>不同负载及租户的独立扩缩</strong>：MatrixOne 通过 Proxy 模块可以将多个计算节点（CN）进行分组管理，组成 CN Set，通过标签来实现每组 CN Set 的独立扩缩。用户可以对不同租户指定不同的 CN Set，使租户之间负载隔离并独立扩展。也可以对不同负载指定不同的 CN Set，比如读负载和写负载，或者事务型负载和分析型负载，实现它们之间的隔离和独立扩缩。</p>

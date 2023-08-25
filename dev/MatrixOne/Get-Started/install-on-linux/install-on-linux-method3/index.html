@@ -580,6 +580,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
+        流引擎架构详解
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -875,8 +889,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    安装并配置 MySQL 客户端
+  <a href="#mysql-client" class="md-nav__link">
+    安装 MySQL Client
   </a>
   
 </li>
@@ -2169,6 +2183,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+        Gorm 基础示例
       </a>
     </li>
   
@@ -8776,6 +8804,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+        v1.0.0-rc1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
@@ -9228,8 +9270,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    安装并配置 MySQL 客户端
+  <a href="#mysql-client" class="md-nav__link">
+    安装 MySQL Client
   </a>
   
 </li>
@@ -9297,15 +9339,15 @@ systemctl status docker
 </ol>
 <h2 id="2-matrixone">步骤 2：获取 MatrixOne 镜像并启动</h2>
 <p>使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">稳定版本的镜像（0.8.0）</label><label for="__tabbed_1_2">开发版本的镜像</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">稳定版本的镜像（1.0.0-rc1）</label><label for="__tabbed_1_2">开发版本的镜像</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>matrixorigin/matrixone:0.8.0
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:0.8.0
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
 </code></pre></div>
 <p>如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 稳定版本镜像：</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:0.8.0
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:0.8.0
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -9327,49 +9369,22 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
 </div>
 <p>如需挂载数据目录或配置自定义文件，参见<a href="../../../Maintain/mount-data-by-docker/">挂载目录到 Docker 容器</a>。</p>
 <h2 id="3-matrixone">步骤 3：连接 MatrixOne</h2>
-<h3 id="mysql">安装并配置 MySQL 客户端</h3>
+<h3 id="mysql-client">安装 MySQL Client</h3>
+<p>Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安装。</p>
 <ol>
 <li>
-<p>点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 <strong>Select Operating System</strong>，再下拉选择 <strong>Select OS Version</strong>，按需选择下载安装包进行安装。</p>
-<p><strong>Note</strong>: 建议 MySQL 客户端版本为 8.0.30 版本及以上。</p>
-</li>
-<li>
-<p>配置 MySQL 客户端环境变量：</p>
-<ol>
-<li>
-<p>打开一个新的终端，输入如下命令：</p>
-<div class="highlight"><pre><span></span><code>sudo vim /etc/profile
+<p>依次执行以下命令：</p>
+<div class="highlight"><pre><span></span><code>wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+sudo dpkg -i ./mysql-apt-config_0.8.22-1_all.deb
+sudo apt update
+sudo apt install mysql-client
 </code></pre></div>
 </li>
 <li>
-<p>回车执行上面的命令后，非 Linux root 用户需要输入当前 Linux 用户的密码。</p>
-</li>
-<li>
-<p>输入密码后回车，即进入了 <em>profile</em>，点击键盘上的 <em>i</em> 进入 insert 状态，即可在文件下方输入如下命令：</p>
-<div class="highlight"><pre><span></span><code>export PATH=/software/mysql/bin:$PATH
+<p>执行命令 <code>mysql --version</code> 测试 MySQL 是否可用，安装成功结果如下：</p>
+<div class="highlight"><pre><span></span><code>mysql --version
+mysql  Ver 8.0.33 for Linux on x86_64 (MySQL Community Server - GPL)
 </code></pre></div>
-</li>
-<li>
-<p>输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 <code>:wq</code> 保存退出。</p>
-</li>
-<li>
-<p>输入命令 <code>source  /etc/profile</code>，回车执行，运行环境变量。</p>
-</li>
-<li>
-<p>测试 MySQL 是否可用：</p>
-<ul>
-<li>
-<p>方式一：输入命令 <code>mysql -u root -p</code>，回车执行，需要 root 用户密码，显示 <code>mysql&gt;</code> 即表示 MySQL 客户端已开启。</p>
-</li>
-<li>
-<p>方式二：执行命令 <code>mysql --version</code>，安装成功提示：<code>mysql  Ver 8.0.31 for Linux on x86_64 (Source distribution)</code></p>
-</li>
-</ul>
-</li>
-<li>
-<p>MySQL 如可用，关闭当前终端，继续浏览下一章节<strong>连接 MatrixOne 服务</strong>。</p>
-</li>
-</ol>
 <p><strong>Tips</strong>: 目前，MatrixOne 只兼容 Oracle MySQL 客户端，因此一些特性可能无法在 MariaDB、Percona 客户端下正常工作。</p>
 </li>
 </ol>
@@ -9377,17 +9392,8 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
 <ul>
 <li>
 <p>你可以使用 MySQL 命令行客户端来连接 MatrixOne。打开一个新的终端，直接输入以下指令：</p>
-<div class="highlight"><pre><span></span><code>mysql -h IP -P PORT -uUsername -p
-</code></pre></div>
-<p>输入完成上述命令后，终端会提示你提供用户名和密码。你可以使用我们提供的的初始帐号和密码：</p>
-<pre><code>· user: root
-· password: 111
-</code></pre>
-</li>
-<li>
-<p>你也可以使用 MySQL 客户端下述命令行，输入密码，来连接 MatrixOne 服务：</p>
 <div class="highlight"><pre><span></span><code>mysql -h 127.0.0.1 -P 6001 -uroot -p
-Enter password:
+Enter password:  # 初始密码默认为111
 </code></pre></div>
 </li>
 </ul>
