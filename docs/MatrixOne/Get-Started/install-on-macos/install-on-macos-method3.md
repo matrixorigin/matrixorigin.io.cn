@@ -24,18 +24,18 @@
 
 使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像。
 
-=== "稳定版本的镜像（0.8.0）"
+=== "稳定版本的镜像（1.0.0-rc1）"
 
       ```bash
-      docker pull matrixorigin/matrixone:0.8.0
-      docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:0.8.0
+      docker pull matrixorigin/matrixone:1.0.0-rc1
+      docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:1.0.0-rc1
       ```
 
       如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 稳定版本镜像：
 
       ```bash
-      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:0.8.0
-      docker run -d -p 6001:6001 --name matrixone --privileged=true registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:0.8.0
+      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
+      docker run -d -p 6001:6001 --name matrixone --privileged=true registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
       ```
 
 === "开发版本的镜像"
@@ -102,19 +102,8 @@
 - 你可以使用 MySQL 命令行客户端来连接 MatrixOne。打开一个新的终端，直接输入以下指令：
 
        ```
-       mysql -h IP -P PORT -uUsername -p
-       ```
-
-       输入完成上述命令后，终端会提示你提供用户名和密码。你可以使用我们提供的的初始帐号和密码：
-
-        · user: root
-        · password: 111
-
-- 你也可以使用 MySQL 客户端下述命令行，输入密码，来连接 MatrixOne 服务：
-
-       ```
        mysql -h 127.0.0.1 -P 6001 -uroot -p
-       Enter password:
+       Enter password:  # 初始密码默认为111
        ```
 
 目前，MatrixOne 只支持 TCP 监听。

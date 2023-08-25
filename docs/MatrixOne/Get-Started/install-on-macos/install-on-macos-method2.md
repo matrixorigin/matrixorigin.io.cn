@@ -93,16 +93,16 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
      ```bash
      mkdir -p /User/username/mo/matrixone & cd /User/username/mo
-     wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
-     unzip -d matrixone/ mo-v0.8.0-darwin-x86_64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-darwin-x86_64.zip
+     unzip -d matrixone/ mo-v1.0.0-rc1-darwin-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
      mkdir -p /User/username/mo/matrixone & cd /User/username/mo
-     wget https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
-     unzip -d matrixone/ mo-v0.8.0-darwin-arm64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-darwin-arm64.zip
+     unzip -d matrixone/ mo-v1.0.0-rc1-darwin-arm64.zip
      ```
 
 === "**下载方式二：`curl` 工具下载二进制包**"
@@ -111,21 +111,21 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
      ```bash
      mkdir -p /User/username/mo/matrixone & cd /User/username/mo
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-x86_64.zip
-     unzip -d matrixone/ mo-v0.8.0-darwin-x86_64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-darwin-x86_64.zip
+     unzip -d matrixone/ mo-v1.0.0-rc1-darwin-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
      mkdir -p /User/username/mo/matrixone & cd /User/username/mo
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v0.8.0/mo-v0.8.0-darwin-arm64.zip
-     unzip -d matrixone/ mo-v0.8.0-darwin-arm64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-darwin-arm64.zip
+     unzip -d matrixone/ mo-v1.0.0-rc1-darwin-arm64.zip
      ```
 
 === "**下载方式三：页面下载**"
 
-     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 0.8.0](https://github.com/matrixorigin/matrixone/releases/tag/v0.8.0)，下拉找到 **Assets** 栏，点击安装包 *mo-v0.8.0-darwin-x86_64.zip* 或 *mo-v0.8.0-darwin-arm64.zip* 下载即可。
+     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 1.0.0-rc1](https://github.com/matrixorigin/matrixone/releases/tag/v1.0.0-rc1)，下拉找到 **Assets** 栏，点击安装包 *mo-v1.0.0-rc1-darwin-x86_64.zip* 或 *mo-v1.0.0-rc1-darwin-arm64.zip* 下载再使用 ```unzip``` 命令解压即可。
 
 ## 步骤 3：安装 mo_ctl 工具
 
@@ -144,7 +144,7 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/insta
 通过以下命令将 MatrixOne 的二进制解压文件目录设置到 mo_ctl 的 `MO_PATH` 参数上。mo_ctl 会自动寻找位于 `MO_PATH` 中的 `matrixone` 文件夹。
 
 ```
-mo_ctl set_conf MO_PATH="/User/username/mo/"
+mo_ctl set_conf MO_PATH="/User/username/mo"
 ```
 
 ## 步骤 4：启动 MatrixOne 服务

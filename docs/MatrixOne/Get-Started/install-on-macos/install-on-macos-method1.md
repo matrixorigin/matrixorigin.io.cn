@@ -118,24 +118,29 @@ git version 2.40.0
     > mo_ctl
     Usage             : mo_ctl [option_1] [option_2]
 
-    [option_1]        : available: help | precheck | deploy | status | start | stop | restart | connect | get_cid | set_conf | get_conf | pprof | ddl_convert
-      0) help         : print help information
-      1) precheck     : check pre-requisites for mo_ctl
-      2) deploy       : deploy mo onto the path configured
-      3) status       : check if there's any mo process running on this machine
-      4) start        : start mo-service from the path configured
-      5) stop         : stop all mo-service processes found on this machine
-      6) restart      : start mo-service from the path configured
-      7) connect      : connect to mo via mysql client using connection info configured
-      8) get_cid      : print mo commit id from the path configured
-      9) pprof        : collect pprof information
-      10) set_conf    : set configurations
-      11) get_conf    : get configurations
-      12) ddl_convert : convert ddl file to mo format from other types of database
-      e.g.            : mo_ctl status
+    [option_1]      : available: connect | ddl_connect | deploy | get_branch | get_cid | get_conf | help | pprof | precheck | restart | set_conf | sql | start | status | stop | uninstall | upgrade | watchdog
+    1) connect      : connect to mo via mysql client using connection info configured
+    2) ddl_convert  : convert ddl file to mo format from other types of database
+    3) deploy       : deploy mo onto the path configured
+    4) get_branch   : upgrade or downgrade mo from current version to a target commit id or stable version
+    5) get_cid      : print mo git commit id from the path configured
+    6) get_conf     : get configurations
+    7) help         : print help information
+    8) pprof        : collect pprof information
+    9) precheck     : check pre-requisites for mo_ctl
+    10) restart     : a combination operation of stop and start
+    11) set_conf    : set configurations
+    12) sql         : execute sql from string, or a file or a path containg multiple files
+    13) start       : start mo-service from the path configured
+    14) status      : check if there's any mo process running on this machine
+    15) stop        : stop all mo-service processes found on this machine
+    16) uninstall   : uninstall mo from path MO_PATH=/data/mo//matrixone
+    17) upgrade     : upgrade or downgrade mo from current version to a target commit id or stable version
+    18) watchdog    : setup a watchdog crontab task for mo-service to keep it alive
+    e.g.            : mo_ctl status
 
-    [option_2]        : Use " mo_ctl [option_1] help " to get more info
-      e.g.            : mo_ctl deploy help
+    [option_2]      : Use " mo_ctl [option_1] help " to get more info
+    e.g.            : mo_ctl deploy help
     ```
 
 ### 设置 mo_ctl 的配置参数（选做）
@@ -151,8 +156,16 @@ MO_HOST="127.0.0.1"
 MO_PORT="6001"
 MO_USER="root"
 MO_PW="111"
-CHECK_LIST=("go" "gcc" "git" "mysql")
+MO_DEPLOY_MODE="host"
+MO_REPO="matrixorigin/matrixone"
+MO_IMAGE_PREFIX="nightly"
+MO_IMAGE_FULL=""
+MO_CONTAINER_NAME="mo"
+MO_CONTAINER_PORT="6001"
+MO_CONTAINER_DEBUG_PORT="12345"
+CHECK_LIST=("go" "gcc" "git" "mysql" "docker")
 GCC_VERSION="8.5.0"
+CLANG_VERSION="13.0"
 GO_VERSION="1.20"
 MO_GIT_URL="https://github.com/matrixorigin/matrixone.git"
 MO_DEFAULT_VERSION="0.8.0"
@@ -160,7 +173,7 @@ GOPROXY="https://goproxy.cn,direct"
 STOP_INTERVAL="5"
 START_INTERVAL="2"
 MO_DEBUG_PORT="9876"
-MO_CONF_FILE="${MO_PATH}/matrixone/etc/launch-tae-CN-tae-DN/launch.toml"
+MO_CONF_FILE="${MO_PATH}/matrixone/etc/launch/launch.toml"
 RESTART_INTERVAL="2"
 PPROF_OUT_PATH="/tmp/pprof-test/"
 PPROF_PROFILE_DURATION="30"
@@ -171,7 +184,7 @@ PPROF_PROFILE_DURATION="30"
 ```
 mo_ctl set_conf MO_PATH="/Users/username/mo/matrixone" # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL="https://ghproxy.com/https://github.com/matrixorigin/matrixone.git" #针对github原地址下载过慢问题，设置代理下载地址
-mo_ctl set_conf MO_DEFAULT_VERSION="0.8.0" # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0-rc1" # 设置所下载的MatrixOne版本
 ```
 
 ## 步骤 3：一键安装 MatrixOne
@@ -189,7 +202,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION="0.8.0" # 设置所下载的MatrixOne版本
 === "通过 MatrixOne (稳定版本) 代码安装"
 
      ```
-     mo_ctl deploy 0.8.0
+     mo_ctl deploy 1.0.0-rc1
      ```
 
 ## 步骤 4：启动 MatrixOne 服务
