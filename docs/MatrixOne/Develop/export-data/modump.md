@@ -60,7 +60,7 @@ __Tips:__ 由于 `mo-dump` 是基于 Go 语言进行开发，所以你同时需�
 
 ## 如何使用 `mo-dump` 导出 MatrixOne 数据库
 
-`mo-dump` 在命令行中非常易用。参见以下步骤，导出 *sql* 文件格式完整数据库：
+`mo-dump` 在命令行中非常易用。参见以下步骤示例，导出 *sql* 文件格式完整数据库：
 
 在你本地计算机上打开终端窗口，输入以下命令，连接到 MatrixOne，并且导出数据库：
 
@@ -77,7 +77,7 @@ __Tips:__ 由于 `mo-dump` 是基于 Go 语言进行开发，所以你同时需�
 如果你想将数据库 *t* 内的表导出为 *CSV* 格式，参考使用下面的命令：
 
 ```
-./mo-dump -u root -p 111  -db t -csv --local-infile=false > ttt.sql
+./mo-dump -u root -p 111  -db t -csv --local-infile=false > ttt.csv
 ```
 
 如果要在数据库中生成单个表的备份，可以运行以下命令。该命令将生成命名为 *t* 的数据库的 *t1* 表的备份，其中包含 *t.sql* 文件中的结构和数据。

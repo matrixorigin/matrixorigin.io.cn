@@ -102,19 +102,8 @@
 - 你可以使用 MySQL 命令行客户端来连接 MatrixOne。打开一个新的终端，直接输入以下指令：
 
        ```
-       mysql -h IP -P PORT -uUsername -p
-       ```
-
-       输入完成上述命令后，终端会提示你提供用户名和密码。你可以使用我们提供的的初始帐号和密码：
-
-        · user: root
-        · password: 111
-
-- 你也可以使用 MySQL 客户端下述命令行，输入密码，来连接 MatrixOne 服务：
-
-       ```
        mysql -h 127.0.0.1 -P 6001 -uroot -p
-       Enter password:
+       Enter password:  # 初始密码默认为111
        ```
 
 目前，MatrixOne 只支持 TCP 监听。
