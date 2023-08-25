@@ -10,7 +10,7 @@ matrixone    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***Ma
 |-- mo-data  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***数据文件目录*** <br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |-- local   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***本地 fileservice 目录*** <br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |   |-- cnservice   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***cn 节点信息目录*** <br>
-│&nbsp;&nbsp;&nbsp;&nbsp; |   |-- dnservice   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***dn 节点信息目录*** <br>
+│&nbsp;&nbsp;&nbsp;&nbsp; |   |-- tnservice   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***tn 节点信息目录*** <br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |-- etl  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***外部表目录*** <br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |        |-- sys &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***外部表信息归属于哪个租户*** <br>
 │&nbsp;&nbsp;&nbsp;&nbsp; |            |--  logs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***统计信息的类型*** <br>

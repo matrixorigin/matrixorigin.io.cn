@@ -89,8 +89,8 @@
 | 20602 | ErrMissingTxn | missing transaction | 事务 |
 | 20603 | ErrUnresolvedConflict | unresolved conflict | 事务 |
 | 20604 | ErrTxnError  | transaction error | 事务 |
-| 20605 | ErrDNShardNotFound | dn shard not found | 事务 |
-| 20606 | ErrShardNotReported  | dn shard not reported | 事务 |
+| 20605 | ErrDNShardNotFound | TN shard not found | 事务 |
+| 20606 | ErrShardNotReported  | TN shard not reported | 事务 |
 | 20607 | ErrTAEError | tae error | TAE 错误 |
 | 20608 | ErrTAERead | tae read error | TAE 错误 |
 | 20609 | ErrRpcError | rpc error | TAE 错误 |

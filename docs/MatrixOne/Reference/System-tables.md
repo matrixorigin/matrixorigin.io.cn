@@ -250,7 +250,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 
 - node：表示 MatrixOne 节点的 uuid。
 
-- role：MatrixOne 节点角色，包括 CN、DN 和 Log。
+- role：MatrixOne 节点角色，包括 CN、TN 和 Log。
 
 - account：默认为 “sys” 租户，即触发 SQL 请求的账户。
 
@@ -309,7 +309,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | statement_tag         | TEXT          | 语句中的注释标签 (保留)                              |
 | statement_fingerprint | TEXT          | 语句中的注释标签 (保留)                               |
 | node_uuid             | VARCHAR(36)   | 节点 uuid，即生成数据的某个节点                          |
-| node_type             | VARCHAR(64)   | 在 MatrixOne 内，var 所属的 DN/CN/Log 的节点类型                 |
+| node_type             | VARCHAR(64)   | 在 MatrixOne 内，var 所属的 TN/CN/Log 的节点类型                 |
 | request_at            | DATETIME      | 请求接受的 datetime                                      |
 | response_at           | DATETIME      | 响应发送的 datetime                                       |
 | duration              | BIGINT        | 执行时间，单位：ns                                          |
@@ -334,7 +334,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | -------------- | ------------- | ------------------------------------------------------------ |
 | raw_item       | VARCHAR(1024) | 原日志项                                                 |
 | node_uuid      | VARCHAR(36)   | 节点 uuid，即生成数据的某个节点                         |
-| node_type      | VARCHAR(64)   | 在 MatrixOne 内，var 所属的 DN/CN/Log 的节点类型                         |
+| node_type      | VARCHAR(64)   | 在 MatrixOne 内，var 所属的 TN/CN/Log 的节点类型                         |
 | span_id        | VARCHAR(16)   | span 的唯一 ID                                             |
 | statement_id   | VARCHAR(36)   | 声明语句唯一 ID                                         |
 | logger_name    | VARCHAR(1024) | 日志记录器的名称                                                  |

@@ -114,7 +114,7 @@ MODUMP QUERY_RESULT query_id INTO s3_path
    ```
    root@rootMacBook-Pro 02matrixone % cd matrixone/mo-data
    root@rootMacBook-Pro mo-data % ls
-   dn-data         etl             local           logservice-data s3
+   tn-data         etl             local           logservice-data s3
    ```
 
    __Note:__ 如果你需要导出 `csv` 文件。路径需要以 `etl:` 开头。

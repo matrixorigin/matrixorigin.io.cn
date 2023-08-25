@@ -34,7 +34,7 @@ MatrixOne 适用于需要实时数据写入，数据规模较大，负载波动�
 
 * **高性能执行引擎**
 
-     通过 Compute Node 和 Data Node 的灵活配合兼顾点查询与批处理，对于 OLTP 和 OLAP 都具备极致性能。
+     通过 Compute Node 和 Transaction node 的灵活配合兼顾点查询与批处理，对于 OLTP 和 OLAP 都具备极致性能。
 
 * **企业级高可用**
 

@@ -46,7 +46,7 @@
     load data local infile '/XXX/pe.csv' into table stock.pe fields TERMINATED BY '\t';
     ```
 
-2. 接下来进行相应的缓存配置。在 MatrixOne 的集群 yaml 设置中，DN、Log Service 以及 CN 都有与缓存相关的设置，但你只需关注与查询直接相关的 CN 缓存，主要的缓存大小由 `memoryCacheSize` 和 `diskCacheSize` 来管理。
+2. 接下来进行相应的缓存配置。在 MatrixOne 的集群 yaml 设置中，TN、Log Service 以及 CN 都有与缓存相关的设置，但你只需关注与查询直接相关的 CN 缓存，主要的缓存大小由 `memoryCacheSize` 和 `diskCacheSize` 来管理。
 
     ```yaml
     metadata:

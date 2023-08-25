@@ -29,15 +29,15 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
 
 ## MatrixOne 各服务的扩缩容
 
-服务的扩缩容，指的是 MatrixOne 集群中核心的组件服务，例如，对 Log Service、DN、CN 等进行扩缩容。
+服务的扩缩容，指的是 MatrixOne 集群中核心的组件服务，例如，对 Log Service、TN、CN 等进行扩缩容。
 
 根据 MatrixOne 的架构特点，这些服务节点情况如下：
 
 - Log Service 仅有 3 个节点。
-- DN 仅有 1 个节点。
+- TN 仅有 1 个节点。
 - CN 节点数目灵活。
 
-因此，Log Service、DN 的节点只能垂直扩缩容，CN 节点可同时水平扩缩容和垂直扩缩容。
+因此，Log Service、TN 的节点只能垂直扩缩容，CN 节点可同时水平扩缩容和垂直扩缩容。
 
 ### 水平扩缩容
 
@@ -66,7 +66,7 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
     [root@master0 ~]# kubectl get pods -n mo-hn      
     NAME                                  READY   STATUS    RESTARTS     AGE
     matrixone-operator-6c9c49fbd7-lw2h2   1/1     Running   2 (8h ago)   9h
-    mo-dn-0                               1/1     Running   0            11m
+    mo-tn-0                               1/1     Running   0            11m
     mo-log-0                              1/1     Running   0            12m
     mo-log-1                              1/1     Running   0            12m
     mo-log-2                              1/1     Running   0            12m
@@ -168,7 +168,7 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
     ```
     [root@master0 mo]# kubectl get pod -nmo-hn -owide
     NAME         READY   STATUS    RESTARTS   AGE   IP              NODE    NOMINATED NODE   READINESS GATES
-    mo-dn-0      1/1     Running   0          34m   10.234.60.120   node0   <none>           2/2
+    mo-tn-0      1/1     Running   0          34m   10.234.60.120   node0   <none>           2/2
     mo-log-0     1/1     Running   0          34m   10.234.168.72   node1   <none>           2/2
     mo-log-1     1/1     Running   0          34m   10.234.60.118   node0   <none>           2/2
     mo-log-2     1/1     Running   0          34m   10.234.168.73   node1   <none>           2/2
@@ -209,7 +209,7 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
     ```
     [root@master0 ~]# kubectl get pod -nmo-hn -owide      
     NAME         READY   STATUS    RESTARTS        AGE     IP              NODE    NOMINATED NODE   READINESS GATES
-    mo-dn-0      1/1     Running   1 (2m53s ago)   3m6s    10.234.168.80   node1   <none>           2/2
+    mo-tn-0      1/1     Running   1 (2m53s ago)   3m6s    10.234.168.80   node1   <none>           2/2
     mo-log-0     1/1     Running   0               3m40s   10.234.168.78   node1   <none>           2/2
     mo-log-1     1/1     Running   0               3m40s   10.234.60.122   node0   <none>           2/2
     mo-log-2     1/1     Running   0               3m40s   10.234.168.77   node1   <none>           2/2

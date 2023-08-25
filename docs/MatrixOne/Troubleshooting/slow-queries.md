@@ -95,12 +95,12 @@ mysql> select * from mo_ts.error_message;
 | 2022-11-28 14:40:16.443234 | read loop stopped                                                       |
 | 2022-11-28 14:40:16.443162 | read from backend failed                                                |
 | 2022-11-28 14:40:16.448858 | gc inactive backends task stopped                                       |
-| 2022-11-28 14:40:16.457276 | error: file dnservice/dd4dccb4-4d3c-41f8-b482-5251dc7a41bf is not found |
+| 2022-11-28 14:40:16.457276 | error: file tnservice/dd4dccb4-4d3c-41f8-b482-5251dc7a41bf is not found |
 | 2022-11-28 14:40:17.061260 | error: internal error: failed to get task service                       |
 | 2022-11-28 14:40:17.061323 | failed to create init tasks                                             |
 | 2022-11-28 14:40:18.062165 | error: internal error: failed to get task service                       |
 | 2022-11-28 14:40:18.062249 | failed to create init tasks                                             |
-| 2022-11-28 14:40:18.642097 | error: dn shard uuid , id 2 not reported                                |
+| 2022-11-28 14:40:18.642097 | error: TN shard uuid , id 2 not reported                                |
 | 2022-11-28 14:40:19.062775 | error: internal error: failed to get task service                       |
 | 2022-11-28 14:40:19.062937 | failed to create init tasks                                             |
 | 2022-11-28 14:40:20.063237 | error: internal error: failed to get task service                       |
