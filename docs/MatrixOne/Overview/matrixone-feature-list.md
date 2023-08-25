@@ -24,7 +24,7 @@
 | 自增列AUTO_INCREMENT               | Y                                            |
 | 序列SEQUENCE                       | Y                                            |
 | 临时表TEMPORARY TABLE              | Y                                            |
-| 流式表CREATE STREAM                | N                                            |
+| 流式表CREATE STREAM                | E，部分支持                                 |
 | 分区表PARTITION BY                 | E，部分类型支持                              |
 | 字符集和排序顺序CHARSET，COLLATION | N，仅默认支持UTF8                            |
 
@@ -36,7 +36,7 @@
 | INSERT                                             | Y                                  |
 | UPDATE                                             | Y                                  |
 | DELETE                                             | Y                                  |
-| REPLACE                                            | N                                  |
+| REPLACE                                            | Y                                  |
 | INSERT ON DUPLICATE KEY UPDATE                     | Y                                  |
 | 导入数据 LOAD DATA                                 | Y                                  |
 | 导出数据 SELECT INTO                               | Y                                  |
@@ -77,14 +77,14 @@
 |              | BINARY                                 | Y                                  |
 |              | VARBINARY                              | Y                                  |
 |              | TINYTEXT/TEXT/MEDIUMTEXT/LONGTEXT      | Y                                  |
-|              | ENUM                                   | N，可用VARCHAR代替                 |
+|              | ENUM                                   | Y，不支持**过滤 ENUM 值**和**排序 ENUM 值**|
 |              | SET                                    | N                                  |
 | 二进制类型   | TINYBLOB/BLOB/MEDIUMBLOB/LONGBLOB      | Y                                  |
 | 时间与日期   | DATE                                   | Y                                  |
 |              | TIME                                   | Y                                  |
 |              | DATETIME                               | Y                                  |
 |              | TIMESTAMP                              | Y                                  |
-|              | YEAR                                   | N                                  |
+|              | YEAR                                   | Y                                  |
 | Boolean      | BOOL                                   | Y                                  |
 | 定点类型     | DECIMAL                                | Y，最高到38位                      |
 | JSON 类型    | JSON                                   | Y                                  |
@@ -109,11 +109,11 @@
 
 | 事务                       | 支持（Y）/不支持（N）/实验特性 (E) |
 | -------------------------- | ---------------------------------- |
-| 悲观事务                   | E                                  |
+| 悲观事务                   | Y                                  |
 | 乐观事务                   | Y                                  |
 | 分布式事务                 | Y                                  |
-| 可重复读隔离（快照SI隔离） | Y                                  |
-| 读已提交RC隔离             | E                                  |
+| 可重复读隔离（快照SI隔离）   | Y                                  |
+| 读已提交RC隔离             | Y                                  |
 
 ## 函数与操作符
 
@@ -166,7 +166,7 @@
 | 备份和恢复   | 支持（Y）/不支持（N）/实验特性 (E) |
 | ------------ | ---------------------------------- |
 | 逻辑备份恢复 | Y，仅支持modump工具                |
-| 物理备份恢复 | N                                  |
+| 物理备份恢复 | Y                                  |
 
 ## 管理工具
 
