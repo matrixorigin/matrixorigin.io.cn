@@ -63,3 +63,19 @@ insert into t1 values(1,2,3);
 -- 此处需要手动提交
 COMMIT；  
 ```
+
+## 切换事务模式
+
+MatrixOne默认采用悲观事务与 RC 隔离级别。但若你需要切换至乐观事务模式，相应的隔离级别将改为快照隔离。
+
+在 *matrixone/etc/launch-with-proxy/* 目录下的配置文件 *cn.toml* 中添加如下配置参数以切换事务模式：
+
+```toml
+[cn.Txn]
+mode = "optimistic"
+isolation = "SI"
+```
+
+重启 MatrixOne，便能使切换后的事务模式生效。
+
+更多关于配置参数信息，参见[分布式版通用参数配置](../../Reference/System-Parameters/distributed-configuration-settings.md)。
