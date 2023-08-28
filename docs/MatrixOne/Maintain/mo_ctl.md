@@ -145,12 +145,12 @@ mo_ctl deploy help
 Usage         : mo_ctl deploy [mo_version] [force] # deploy mo onto the path configured
   [mo_version]: optional, specify an mo version to deploy
   [force]     : optional, if specified will delete all content under MO_PATH and deploy from beginning
-  e.g.        : mo_ctl deploy             # default, same as mo_ctl deploy 0.8.0
+  e.g.        : mo_ctl deploy             # default, same as mo_ctl deploy 1.0.0-rc1
               : mo_ctl deploy main        # deploy development latest version
               : mo_ctl deploy d29764a     # deploy development version d29764a
-              : mo_ctl deploy 0.8.0       # deploy stable verson 0.8.0
-              : mo_ctl deploy force       # delete all under MO_PATH and deploy verson 0.8.0
-              : mo_ctl deploy 0.8.0 force # delete all under MO_PATH and deploy stable verson 0.8.0 from beginning
+              : mo_ctl deploy 1.0.0-rc1       # deploy stable verson 1.0.0-rc1
+              : mo_ctl deploy force       # delete all under MO_PATH and deploy verson 1.0.0-rc1
+              : mo_ctl deploy 1.0.0-rc1 force # delete all under MO_PATH and deploy stable verson 1.0.0-rc1 from beginning
 ```
 
 ### start - 启动 MatrixOne 服务
@@ -283,12 +283,12 @@ Usage         : mo_ctl getconf [conf_list] # get configurations
 | GCC_VERSION            | precheck检查的gcc版本                               | 默认为8.5.0                                                  |
 | GO_VERSION             | precheck检查的go版本                                | 默认为1.20                                                   |
 | MO_GIT_URL             | MatrixOne的源码拉取地址                             | 默认为<https://github.com/matrixorigin/matrixone.git>          |
-| MO_DEFAULT_VERSION     | 默认拉取的MatrixOne的版本                           | 默认为0.8.0                                                  |
+| MO_DEFAULT_VERSION     | 默认拉取的MatrixOne的版本                           | 默认为1.0.0-rc1                                                  |
 | GOPROXY                | GOPROXY的地址，一般为国内加速拉取golang依赖包而使用 | 默认为<https://goproxy.cn>,direct                              |
 | STOP_INTERVAL          | 停止间隔，停止服务后检测服务状态等待时间            | 默认为5秒                                                    |
 | START_INTERVAL         | 启动间隔，启动服务后检测服务状态等待时间            | 默认为2秒                                                    |
 | MO_DEBUG_PORT          | MatrixOne的debug端口，一般为开发人员使用            | 默认为9876                                                   |
-| MO_CONF_FILE           | MatrixOne的启动配置文件                             | 默认为${MO_PATH}/matrixone/etc/launch-tae-CN-tae-DN/launch.toml |
+| MO_CONF_FILE           | MatrixOne的启动配置文件                             | 默认为${MO_PATH}/matrixone/etc/launch-tae-CN-tae-TN/launch.toml |
 | RESTART_INTERVAL       | 重启间隔，重启服务后检测服务状态等待时间            | 默认为2秒                                                    |
 | PPROF_OUT_PATH         | golang的性能收集数据输出路径                        | 默认为/tmp/pprof-test/                                       |
 | PPROF_PROFILE_DURATION | golang的性能收集时间                                | 默认为30秒                                                   |
@@ -336,11 +336,11 @@ Usage           : mo_ctl uninstall        # uninstall mo from path MO_PATH=/data
 ```
 mo_ctl upgrade help
 Usage           : mo_ctl upgrade [version_commitid]   # upgrade or downgrade mo from current version to a target commit id or stable version
- [commitid]     : a commit id such as '38888f7', or a stable version such as '0.8.0'
+ [commitid]     : a commit id such as '38888f7', or a stable version such as '1.0.0-rc1'
                 : use 'latest' to upgrade to latest commit on main branch if you don't know the id
   e.g.          : mo_ctl upgrade 38888f7              # upgrade/downgrade to commit id 38888f7 on main branch
                 : mo_ctl upgrade latest               # upgrade/downgrade to latest commit on main branch
-                : mo_ctl upgrade 0.8.0                # upgrade/downgrade to stable version 0.8.0
+                : mo_ctl upgrade 1.0.0-rc1                # upgrade/downgrade to stable version 1.0.0-rc1
 ```
 
 ### watchdog - 保活 MatrixOne

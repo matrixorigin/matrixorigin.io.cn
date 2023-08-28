@@ -22,28 +22,48 @@ FOREIGN KEY 约束可用于在跨表交叉引用相关数据时，保持相关�
 
 **外键特性**
 
-- 多列外键: 这种外键是在一个表中两个或更多的列联合起来引用另一个表的主键。也就是说，这些列共同定义了对另一个表的引用。它们必须以组的形式存在，且需要同时满足外键约束。
+- 多列外键：这种外键是在一个表中两个或更多的列联合起来引用另一个表的主键。也就是说，这些列共同定义了对另一个表的引用。它们必须以组的形式存在，且需要同时满足外键约束。
 
-- 多层外键: 这种情况通常涉及到三个或更多的表，并且它们之间存在依赖关系。一个表的外键可以是另一个表的主键，而这个表的外键又可以是第三个表的主键，形成多层外键的情况。
+- 多层外键：这种情况通常涉及到三个或更多的表，并且它们之间存在依赖关系。一个表的外键可以是另一个表的主键，而这个表的外键又可以是第三个表的主键，形成多层外键的情况。
 
 ## 语法说明
 
 外键是在子表中定义的，基本的外键约束语法如下：
 
 ```
-> CREATE TABLE table_name (
-    column1 datatype [NOT NULL],
-    column2 datatype [NOT NULL],
-    ...
-    FOREIGN KEY (column1, column2, ... column_n)
-    REFERENCES parent_table (column1, column2, ... column_n)
+> CREATE TABLE child_table (
+    ...,
+    foreign_key_column data_type,
+    FOREIGN KEY (foreign_key_column) REFERENCES parent_table (parent_key_column)
+    [ON DELETE reference_option]
+    [ON UPDATE reference_option]
 );
+
+reference_option:
+    RESTRICT | CASCADE | SET NULL | NO ACTION
 ```
 
 **参数释义**
 
-- `FOREIGN KEY (column1, column2, ... column_n)`：定义了作为外键的列。
-- `REFERENCES parent_table (column1, column2, ... column_n)`：`REFERENCES` 定义了被引用的父表和父表中的列。
+在上述外键约束的语法结构中，以下是各个参数的释义：
+
+- `child_table`：子表的名称，即包含外键的表。
+- `foreign_key_column`：子表中用于引用父表的外键列的名称。
+- `data_type`：外键列的数据类型。
+- `parent_table`：被引用的父表的名称。
+- `parent_key_column`：父表中用于建立关系的主键列的名称。
+- `[ON DELETE reference_option]`：可选参数，用于指定在删除父表中的记录时执行的操作。
+    + `RESTRICT`：如果在引用表中有相关的外键数据存在，不允许删除引用表中的数据。这可以用来防止误删除关联数据，以维护数据的一致性。
+
+    + `CASCADE`：当引用表中的数据被删除时，同时删除与之关联的外键数据。这可以用于级联删除关联数据，以确保数据的完整性。
+
+    + `SET NULL`：当引用表中的数据被删除时，将外键列的值设置为 NULL。这可以用于在删除引用数据时保留外键数据，但断开与引用数据的关联。
+
+    + `NO ACTION`：表示不采取任何操作，只是检查是否有关联数据存在。这类似于 `RESTRICT`，但可能在某些数据库中有微小的差异。
+
+- `[ON UPDATE reference_option]`：可选参数，用于指定在更新父表中的记录时执行的操作。可能的值与 `[ON DELETE reference_option]` 相同。
+
+这些参数一起定义了外键约束，它们确保了子表与父表之间的数据完整性关系。
 
 ## 示例
 

@@ -45,7 +45,7 @@
     ├── server-cert.pem <br>
     └── server-key.pem<br>
 
-2. 在 MatrixOne 目录下的 *etc/launch-tae-CN-tae-DN/cn.toml* 文件内的 `[cn.frontend]` 部分插入以下代码段：
+2. 在 MatrixOne 目录下的 *etc/launch-with-proxy/cn.toml* 文件内的 `[cn.frontend]` 部分插入以下代码段：
 
     ```
     [cn.frontend]
@@ -77,7 +77,7 @@
     Current pager:		stdout
     Using outfile:		''
     Using delimiter:	;
-    Server version:		8.0.30-MatrixOne-v0.8.0 MatrixOne
+    Server version:		8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
     Protocol version:	10
     Connection:		127.0.0.1 via TCP/IP
     Client characterset:	utf8mb4

@@ -60,6 +60,7 @@ nav:
         - Logservice 架构详解: MatrixOne/Overview/architecture/architecture-logservice.md
         - Proxy 架构详解: MatrixOne/Overview/architecture/architecture-proxy.md
         - 数据缓存及冷热数据分离架构详解: MatrixOne/Overview/architecture/architecture-cold-hot-data-separation.md
+        - 流引擎架构详解: MatrixOne/Overview/architecture/streaming.md
       - 最新动态: MatrixOne/Overview/whats-new.md
     - 快速开始:
       - 单机部署 MatrixOne:
@@ -157,7 +158,7 @@ nav:
         - 本地对象存储导入数据: MatrixOne/Deploy/import-data-from-minio-to-mo.md
         - Operator 管理: MatrixOne/Deploy/MatrixOne-Operator-mgmt.md
     - 运维:
-      - 备份与恢复: MatrixOne/Maintain/backup-restore.md
+      - 备份与恢复: MatrixOne/Maintain/backup-restore/modump-backup-restore.md
       - 数据挂载:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:
@@ -165,6 +166,7 @@ nav:
       - 将数据从 MySQL 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-mysql-to-matrixone.md
       - 将数据从 Oracle 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-oracle-to-matrixone.md
       - 将数据从 SQL Server 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-sqlserver-to-matrixone.md
+      - 将数据从 PostgreSQL 迁移至 MatrixOne: MatrixOne/Migrate/migrate-from-postgresql-to-matrixone.md
     - 测试:
       - 性能测试:
         - SSB 测试: MatrixOne/Test/performance-testing/SSB-test-with-matrixone.md
@@ -501,7 +503,9 @@ nav:
             - CURRENT_USER(): MatrixOne/Reference/Functions-and-Operators/system-ops/current_user.md
             - PURGE_LOG(): MatrixOne/Reference/Functions-and-Operators/system-ops/purge_log.md
       - 系统配置:
-        - 通用参数配置: MatrixOne/Reference/System-Parameters/configuration-settings.md
+        - 系统参数概述: MatrixOne/Reference/System-Parameters/system-parameter.md
+        - 单机版通用参数配置: MatrixOne/Reference/System-Parameters/standalone-configuration-settings.md
+        - 分布式版通用参数配置: MatrixOne/Reference/System-Parameters/distributed-configuration-settings.md
       - 系统表目录: MatrixOne/Reference/System-tables.md
       - 权限分类列表: MatrixOne/Reference/access-control-type.md
       - 使用限制:
@@ -521,6 +525,7 @@ nav:
       - SQL 常见问题: MatrixOne/FAQs/sql-faqs.md
     - 版本发布纪要:
       - 版本发布历史记录: MatrixOne/Release-Notes/release-timeline.md
+      - v1.0.0-rc1: MatrixOne/Release-Notes/v1.0.0-rc1.md
       - v0.8.0: MatrixOne/Release-Notes/v0.8.0.md
       - v0.7.0: MatrixOne/Release-Notes/v0.7.0.md
       - v0.6.0: MatrixOne/Release-Notes/v0.6.0.md

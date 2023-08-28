@@ -127,7 +127,7 @@ lowerCaseTableNames = "0" // 默认为 1
 # 4 带有``的标识符存储为原始字符串，大小写敏感，其他转小写
 ```
 
-全局配置时，如果启动了多个 cn，那么每个 cn 都需要配置。如需查阅配置文件参数说明，参见[通用参数配置](../../System-Parameters/configuration-settings.md)。
+全局配置时，如果启动了多个 cn，那么每个 cn 都需要配置。如需查阅配置文件参数说明，参见[通用参数配置](../../System-Parameters/system-parameter.md)。
 
 !!! note
     当前仅支持设置参数为 0 或 1。但暂不支持设置为参数为 2，3 和 4。

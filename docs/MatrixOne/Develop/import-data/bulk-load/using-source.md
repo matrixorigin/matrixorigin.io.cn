@@ -36,51 +36,9 @@ mysqldump -h IP_ADDRESS -uUSERNAME -pPASSWORD -d DB_NAME1 DB_NAME2 ... OUTPUT_FI
 mysqldump -h 127.0.0.1 -uroot -proot -d test > a.sql
 ```
 
-#### 2. 修改 *sql* 文件
+#### 2. 导入至 MatrixOne
 
-从 MySQL 转储的 SQL 文件还不完全兼容 MatrixOne。你需要删除和修改几个元素，以使 SQL 文件适应 MatrixOne 的格式。
-
-* 需要删除不支持的语法或功能：`CHARACTER SET/CHARSET`、`COLLATE`、`ROW_FORMAT`、`USING BTREE`、`LOCK TABLE` `SET SYSTEM_VARIABLE`、`ENGINE`。
-
-* 需要修改不支持的数据类型：如果你使用 BINARY 类型，你可以将其修改为 BLOB 类型。
-
-下面示例是一个典型的 `mysqldump` 表：
-
-```
-DROP TABLE IF EXISTS `tool`;
-CREATE TABLE IF NOT EXISTS `tool` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `tool_id` bigint DEFAULT NULL COMMENT 'id',
-  `operation_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'type',
-  `remark` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'remark',
-  `create_user` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'create user',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'create time',
-  PRIMARY KEY (`id`) USING BTREE,
-  KEY `tool_id_IDX` (`tool_id`) USING BTREE,
-  KEY `operation_type_IDX` (`operation_type`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1913 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='tool table';
-```
-
-在 MatrixOne 中成功创建这个表，它需要被修改为：
-
-```
-DROP TABLE IF EXISTS `tool`;
-CREATE TABLE IF NOT EXISTS `tool` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `tool_id` bigint DEFAULT NULL COMMENT 'id',
-  `operation_type` varchar(50) DEFAULT NULL COMMENT 'type',
-  `remark` varchar(100) DEFAULT NULL COMMENT 'remark',
-  `create_user` varchar(20) DEFAULT NULL COMMENT 'create user',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'create time',
-  PRIMARY KEY (`id`),
-  KEY `tool_id_IDX` (`tool_id`),
-  KEY `operation_type_IDX` (`operation_type`)
-) COMMENT='tool table';
-```
-
-#### 3. 导入至 MatrixOne
-
-转储的 *sql* 文件修改完成之后，就可以将整个表结构和数据导入到 MatrixOne 中。
+将整个表结构和数据导入到 MatrixOne 中。
 
 1. 打开 MySQL 终端并连接到 MatrixOne。
 
@@ -99,7 +57,7 @@ nohup mysql -h 127.0.0.1 -P 6001 -uroot -p111 -e 'source /YOUR_PATH/a.sql' &
 !!! note
        上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../../Security/password-mgmt.md)。
 
-#### 4. 检查数据
+#### 3. 检查数据
 
 导入成功后，使用如下 SQL 语句查看导入结果：
 

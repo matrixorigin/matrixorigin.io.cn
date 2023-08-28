@@ -62,7 +62,7 @@ Proxy 在 CN 缩容时通过以上行为处理会话的迁移和关闭，以确�
     ```
     root@HOST-10-206-134-16:~# kubectl get pod -nmo-hn
     NAME             READY   STATUS    RESTARTS   AGE
-    mo-dn-0          1/1     Running   0          2m51s
+    mo-tn-0          1/1     Running   0          2m51s
     mo-log-0         1/1     Running   0          3m25s
     mo-log-1         1/1     Running   0          3m25s
     mo-log-2         1/1     Running   0          3m25s
@@ -76,7 +76,7 @@ Proxy 在 CN 缩容时通过以上行为处理会话的迁移和关闭，以确�
     ```
     root@HOST-10-206-134-16:~# kubectl get svc -nmo-hn
     NAME                TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE
-    mo-dn-headless      ClusterIP   None          <none>        <none>           70m
+    mo-tn-headless      ClusterIP   None          <none>        <none>           70m
     mo-log-discovery    ClusterIP   10.96.3.186   <none>        32001/TCP        71m
     mo-log-headless     ClusterIP   None          <none>        <none>           71m
     mo-proxy            NodePort    10.96.1.153   <none>        6001:31429/TCP   70m
@@ -146,7 +146,7 @@ root@HOST-10-206-134-16:~# kubectl get pod -nmo-hn
 NAME              READY   STATUS    RESTARTS   AGE
 mo-cn-set1-cn-0   1/1     Running   0          6s
 mo-cn-set2-cn-0   1/1     Running   0          6s
-mo-dn-0           1/1     Running   0          97m
+mo-tn-0           1/1     Running   0          97m
 mo-log-0          1/1     Running   0          97m
 mo-log-1          1/1     Running   0          97m
 mo-log-2          1/1     Running   0          97m

@@ -13,7 +13,7 @@ MatrixOne 实现了三个独立的层级，每个层级都有自己的对象单�
 ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/architecture-1.png)
 
 - 计算层：以计算节点 Compute Node (简称 CN) 为单位，实现了计算和事务处理的 Serverless 化，具备自己的缓存，可以任意重启和扩缩容。
-- 事务层：以数据库节点 Database Node 和日志节点 Log Service 为单位，提供完整的日志服务和元数据信息，内置 Logtail 用于保存最近的数据。
+- 事务层：以数据库节点 Transaction Node 和日志节点 Log Service 为单位，提供完整的日志服务和元数据信息，内置 Logtail 用于保存最近的数据。
 - 存储层：全量数据保存在对象存储中，以 S3 为代表，实现了低成本的无线伸缩存储方式。统一的文件操作服务 File Service 实现了不同节点对底层存储的无感知操作。
 
 ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/architecture-2.png)
@@ -21,7 +21,7 @@ MatrixOne 实现了三个独立的层级，每个层级都有自己的对象单�
 在确定了 TAE 作为唯一存储引擎之后，对融合后的 TAE 引擎进行了多项设计上的调整，才有了后来的 TAE 存储引擎。这个引擎具有如下优势：
 
 - 列存管理：统一的列存和压缩方式，对于 OLAP 业务具有先天的性能优势。
-- 事务处理：共享日志和 DN 节点共同完成对计算节点的事务支持。
+- 事务处理：共享日志和 TN 节点共同完成对计算节点的事务支持。
 - 冷热分离：使用 S3 对象存储作为目标的 File Service，每个计算节点都有自己的缓存。
 
 ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/architecture-3.png)
@@ -94,9 +94,9 @@ Log Service 是 MatrixOne 中专门用于处理事务日志的组件，它具有
 - 在完成事务的提交与落盘后，对 Log Service 内容做截断，从而控制 Log Service 的大小，截断后仍然保留在 Log Service 中的内容，称为 Logtail。
 - 如果多个 Log Service 副本同时出现宕机，那么整个 MatrixOne 将会发生宕机。
 
-### **Database Node**
+### **Transaction Node**
 
-Database Node（DN)，是用来运行 MatrixOne 的分布式存储引擎 TAE 的载体，它提供了如下特性：
+Transaction Node（TN)，是用来运行 MatrixOne 的分布式存储引擎 TAE 的载体，它提供了如下特性：
 
 - 管理 MatrixOne 中的元数据信息以及 Log Service 中保存的事务日志内容。
 - 接收 Computing Node（CN) 发来的分布式事务请求，对分布式事务的读写请求进行裁决，将事务裁决结果推给 CN，将事务内容推给 Log Service，确保事务的 ACID 特性。
@@ -109,11 +109,11 @@ Computing Node（CN)，是 Matrixone 接收用户请求并处理 SQL 的组件�
 - Frontend，处理客户端 SQL 协议，接受客户端发送的 SQL 报文，然后解析得到 MatrixOne 可执行的 SQL，调用其他模块执行 SQL 后将查询结果组织成报文返回给客户端。
 - Plan，解析 Frontend 处理后的 SQL，并根据 MatrixOne 的计算引擎生成逻辑执行计划发送给 Pipeline。
 - Pipeline，解析逻辑计划，将逻辑计划转成实际的执行计划，然后 Pipeline 运行执行计划。
-- Disttae，负责具体的读写任务，既包含了从 DN 同步 Logtail 和从 S3 读取数据，也会把写入的数据发送给 DN。
+- Disttae，负责具体的读写任务，既包含了从 TN 同步 Logtail 和从 S3 读取数据，也会把写入的数据发送给 TN。
 
 ### **Stream Engine**
 
-Stream Engine 是一个新组件，用于简化从 OLTP 到 OLAP 的 ETL 处理过程。Stream Engine 还处在 MatrixOne 开发过程中，暂尚未实现。
+Stream Engine 是 MatrixOne 内置的全新组件，旨在支持实时数据查询、处理以及增强数据存储，特别针对传入的数据流（数据点序列）。借助 Stream Engine，您能够使用 SQL 定义并构建流处理管道，将其作为实时数据后端提供服务；同时，您也能够运用 SQL 查询流中的数据，并与非流式数据集进行联接，从而更进一步地简化整个数据堆栈的处理流程。
 
 ### **Proxy**
 

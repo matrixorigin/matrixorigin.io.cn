@@ -184,7 +184,7 @@ GCC_VERSION="8.5.0"
 CLANG_VERSION="13.0"
 GO_VERSION="1.20"
 MO_GIT_URL="https://github.com/matrixorigin/matrixone.git"
-MO_DEFAULT_VERSION="0.8.0"
+MO_DEFAULT_VERSION="1.0.0-rc1"
 GOPROXY="https://goproxy.cn,direct"
 STOP_INTERVAL="5"
 START_INTERVAL="2"
@@ -230,10 +230,10 @@ mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0-rc1" # 设置所下载的MatrixOne版�
 ```
 root@VM-16-2-debian:~# mo_ctl start
 2023-07-07_09:55:01    [INFO]    No mo-service is running
-2023-07-07_09:55:01    [INFO]    Starting mo-service: cd /data/mo//matrixone/ && /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-DN/launch.toml >/data/mo//logs/stdout-20230707_095501.log 2>/data/mo//logs/stderr-20230707_095501.log
+2023-07-07_09:55:01    [INFO]    Starting mo-service: cd /data/mo//matrixone/ && /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-TN/launch.toml >/data/mo//logs/stdout-20230707_095501.log 2>/data/mo//logs/stderr-20230707_095501.log
 2023-07-07_09:55:01    [INFO]    Wait for 2 seconds
 2023-07-07_09:55:03    [INFO]    At least one mo-service is running. Process info:
-2023-07-07_09:55:03    [INFO]    root      748128       1  2 09:55 ?        00:00:00 /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-DN/launch.toml
+2023-07-07_09:55:03    [INFO]    root      748128       1  2 09:55 ?        00:00:00 /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-TN/launch.toml
 2023-07-07_09:55:03    [INFO]    Pids:
 2023-07-07_09:55:03    [INFO]    748128
 2023-07-07_09:55:03    [INFO]    Start succeeded
@@ -255,7 +255,7 @@ root@VM-16-2-debian:~# mo_ctl connect
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v0.8.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 

@@ -8,7 +8,7 @@
 
 - 物理资源层：包括三台虚拟机的 CPU、内存和磁盘资源。有关监控这些资源的成熟方案，可以参考[监控方案](https://easywebfixes.com/memory-disk-cpu-usage-linux/)。在此不做过多介绍。
 
-- 逻辑资源层：包括 MinIO 的容量使用情况，Kubernetes 的各个节点和 Pod 的 CPU 和内存资源使用情况，以及 MatrixOne 的整体状态和各个组件（如 LogService、CN、DN）的状态。
+- 逻辑资源层：包括 MinIO 的容量使用情况，Kubernetes 的各个节点和 Pod 的 CPU 和内存资源使用情况，以及 MatrixOne 的整体状态和各个组件（如 LogService、CN、TN）的状态。
 
 ## 资源监控
 
@@ -221,7 +221,7 @@ Non-terminated Pods:          (20 in total)
   kube-system                 nodelocaldns-qkxhv                                           100m (5%)     0 (0%)      70Mi (0%)        170Mi (2%)     14h
   local-path-storage          local-path-storage-local-path-provisioner-d5bb7f8c9-qfp8h    0 (0%)        0 (0%)      0 (0%)           0 (0%)         21h
   mo-hn                       matrixone-operator-f8496ff5c-fp6zm                           0 (0%)        0 (0%)      0 (0%)           0 (0%)         20h
-  mo-hn                       mo-dn-0                                                      0 (0%)        0 (0%)      0 (0%)           0 (0%)         13h
+  mo-hn                       mo-tn-0                                                      0 (0%)        0 (0%)      0 (0%)           0 (0%)         13h
   mo-hn                       mo-log-0                                                     0 (0%)        0 (0%)      0 (0%)           0 (0%)         13h
   mo-hn                       mo-log-1                                                     0 (0%)        0 (0%)      0 (0%)           0 (0%)         13h
   mo-hn                       mo-log-2                                                     0 (0%)        0 (0%)      0 (0%)           0 (0%)         13h
@@ -251,7 +251,7 @@ Events:              <none>
 2. 根据上述返回结果，使用以下命令来查看特定 Pod 的资源使用情况：
 
     ```
-    POD="[待监控pod名称]" # 根据上述结果，例如：dn为mo-dn-0，cn为mo-tp-cn-0、mo-tp-cn-1、...，logservice为mo-log-0、mo-log-1、...
+    POD="[待监控pod名称]" # 根据上述结果，例如：tn为mo-tn-0，cn为mo-tp-cn-0、mo-tp-cn-1、...，logservice为mo-log-0、mo-log-1、...
     kubectl top pod ${POD} -n${NS}
     ```
 
@@ -261,9 +261,9 @@ Events:              <none>
     [root@master0 ~]# kubectl top pod mo-tp-cn-0 -nmo-hn
     NAME         CPU(cores)   MEMORY(bytes)   
     mo-tp-cn-0   20m          214Mi
-    [root@master0 ~]# kubectl top pod mo-dn-0 -nmo-hn     
+    [root@master0 ~]# kubectl top pod mo-tn-0 -nmo-hn     
     NAME      CPU(cores)   MEMORY(bytes)   
-    mo-dn-0   36m          161Mi  
+    mo-tn-0   36m          161Mi  
     ```
 
 3. 此外，你还可以查看特定 Pod 的资源声明情况，以便与实际使用的资源进行对比。
@@ -547,7 +547,7 @@ kubectl get matrixonecluster -n${NS} ${MO_NAME}
 [root@master0 ~]# MO_NAME="mo"
 [root@master0 ~]# NS="mo-hn"
 [root@master0 ~]# kubectl get matrixonecluster -n${NS} ${MO_NAME}
-NAME   LOG   DN    TP    AP    VERSION            PHASE   AGE
+NAME   LOG   TN    TP    AP    VERSION            PHASE   AGE
 mo     3     1     1           nightly-144f3be4   Ready   13h
 ```
 
@@ -580,7 +580,7 @@ Metadata:
           f:kubectl.kubernetes.io/last-applied-configuration:
       f:spec:
         .:
-        f:dn:
+        f:Tn:
           .:
           f:config:
           f:replicas:
@@ -644,7 +644,7 @@ Metadata:
           f:syncedGroups:
         f:conditions:
         f:credentialRef:
-        f:dn:
+        f:Tn:
           .:
           f:availableStores:
           f:conditions:
@@ -664,20 +664,20 @@ Metadata:
   Resource Version:  72671
   UID:               be2355c0-0c69-4f0f-95bb-9310224200b6
 Spec:
-  Dn:
+  Tn:
     Config:  
-[dn]
+[tn]
 
-[dn.Ckp]
+[tn.Ckp]
 flush-interval = "60s"
 global-interval = "100000s"
 incremental-interval = "60s"
 min-count = 100
 scan-interval = "5s"
 
-[dn.Txn]
+[tn.Txn]
 
-[dn.Txn.Storage]
+[tn.Txn.Storage]
 backend = "TAE"
 log-backend = "logservice"
 
@@ -702,7 +702,7 @@ level = "error"
 max-size = 512
 
     Initial Config:
-      Dn Shards:           1
+      TN Shards:           1
       Log Shard Replicas:  3
       Log Shards:          1
     Pvc Retention Policy:  Retain
@@ -760,11 +760,11 @@ Status:
     Type:                  Ready
   Credential Ref:
     Name:  mo-credential
-  Dn:
+  Tn:
     Available Stores:
       Last Transition:  2023-05-07T13:01:48Z
       Phase:            Up
-      Pod Name:         mo-dn-0
+      Pod Name:         mo-tn-0
     Conditions:
       Last Transition Time:  2023-05-07T13:01:48Z
       Message:               the object is synced
@@ -810,20 +810,20 @@ Events:
 
 ### 查看组件状态
 
-当前 MatrixOne 集群包含以下组件：DN、CN、Log Service，它们分别对应着自定义资源类型 DNSet、CNSet、LogSet，这些对象由 MatrixOneCluster 控制器生成。
+当前 MatrixOne 集群包含以下组件：TN、CN、Log Service，它们分别对应着自定义资源类型 TNSet、CNSet、LogSet，这些对象由 MatrixOneCluster 控制器生成。
 
-要检查各组件是否正常，以 DN 为例，可以运行以下命令：
+要检查各组件是否正常，以 TN 为例，可以运行以下命令：
 
 ```
-SET_TYPE="dnset"
+SET_TYPE="tnset"
 NS="mo-hn"
 kubectl get ${SET_TYPE} -n${NS}
 ```
 
-这将显示 DN 组件的状态信息，信息如下：
+这将显示 TN 组件的状态信息，信息如下：
 
 ```
-[root@master0 ~]# SET_TYPE="dnset"
+[root@master0 ~]# SET_TYPE="tnset"
 [root@master0 ~]# NS="mo-hn"
 [root@master0 ~]# kubectl get ${SET_TYPE} -n${NS}
 NAME   IMAGE                                     REPLICAS   AGE
@@ -854,7 +854,7 @@ kubectl get pod -n${NS}
 [root@master0 ~]# kubectl get pod -n${NS}
 NAME                                 READY   STATUS    RESTARTS   AGE
 matrixone-operator-f8496ff5c-fp6zm   1/1     Running   0          19h
-mo-dn-0                              1/1     Running   0          13h
+mo-tn-0                              1/1     Running   0          13h
 mo-log-0                             1/1     Running   0          13h
 mo-log-1                             1/1     Running   0          13h
 mo-log-2                             1/1     Running   0          13h
