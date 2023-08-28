@@ -125,7 +125,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
 === "**下载方式三：页面下载**"
 
-     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 1.0.0-rc1](https://github.com/matrixorigin/matrixone/releases/tag/v1.0.0-rc1)，下拉找到 **Assets** 栏，点击安装包 *mo-v1.0.0-rc1-darwin-x86_64.zip* 或 *mo-v1.0.0-rc1-darwin-arm64.zip* 下载再使用 ```unzip``` 命令解压即可。
+     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 1.0.0-rc1](https://github.com/matrixorigin/matrixone/releases/tag/v1.0.0-rc1)，下拉找到 **Assets** 栏，点击安装包 *mo-v1.0.0-rc1-darwin-x86_64.zip* 或 *mo-v1.0.0-rc1-darwin-arm64.zip* 下载即可。
 
 ## 步骤 3：安装 mo_ctl 工具
 
@@ -144,7 +144,7 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/insta
 通过以下命令将 MatrixOne 的二进制解压文件目录设置到 mo_ctl 的 `MO_PATH` 参数上。mo_ctl 会自动寻找位于 `MO_PATH` 中的 `matrixone` 文件夹。
 
 ```
-mo_ctl set_conf MO_PATH="/User/username/mo"
+mo_ctl set_conf MO_PATH="/User/username/mo/"
 ```
 
 ## 步骤 4：启动 MatrixOne 服务
@@ -156,10 +156,10 @@ mo_ctl set_conf MO_PATH="/User/username/mo"
 ```
 > mo_ctl start
 2023-07-07_15:33:45    [INFO]    No mo-service is running
-2023-07-07_15:33:45    [INFO]    Starting mo-service: cd /Users/username/mo/matrixone/matrixone/ && /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-TN/launch.toml >/Users/username/mo/matrixone/matrixone/logs/stdout-20230707_153345.log 2>/Users/username/mo/matrixone/matrixone/logs/stderr-20230707_153345.log
+2023-07-07_15:33:45    [INFO]    Starting mo-service: cd /Users/username/mo/matrixone/matrixone/ && /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch/launch.toml >/Users/username/mo/matrixone/matrixone/logs/stdout-20230707_153345.log 2>/Users/username/mo/matrixone/matrixone/logs/stderr-20230707_153345.log
 2023-07-07_15:33:45    [INFO]    Wait for 2 seconds
 2023-07-07_15:33:48    [INFO]    At least one mo-service is running. Process info:
-2023-07-07_15:33:48    [INFO]      501 66932     1   0  3:33PM ??         0:00.27 /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch-tae-CN-tae-TN/launch.toml
+2023-07-07_15:33:48    [INFO]      501 66932     1   0  3:33PM ??         0:00.27 /Users/username/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /Users/username/mo/matrixone/matrixone/etc/launch/launch.toml
 2023-07-07_15:33:48    [INFO]    Pids:
 2023-07-07_15:33:48    [INFO]    66932
 2023-07-07_15:33:48    [INFO]    Start succeeded
@@ -181,7 +181,7 @@ mo_ctl set_conf MO_PATH="/User/username/mo"
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v0.8.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
