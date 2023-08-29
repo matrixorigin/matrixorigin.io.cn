@@ -26,32 +26,32 @@
 | 临时表TEMPORARY TABLE              | Y                                            |
 | 流式表CREATE STREAM                | E，部分支持                                 |
 | 分区表PARTITION BY                 | E，部分类型支持                              |
-| 字符集和排序顺序CHARSET，COLLATION | N，仅默认支持UTF8                            |
+| 字符集和排序顺序CHARSET，COLLATION   | N，仅默认支持UTF8                            |
 
-## SQL 语句
+## 数据修改/查询语言（Data manipulation/query language, DML/DQL）
 
 | SQL 语句                                           | 支持（Y）/不支持（N）/实验特性 (E) |
-| -------------------------------------------------- | ---------------------------------- |
-| SELECT                                             | Y                                  |
-| INSERT                                             | Y                                  |
-| UPDATE                                             | Y                                  |
-| DELETE                                             | Y                                  |
-| REPLACE                                            | Y                                  |
-| INSERT ON DUPLICATE KEY UPDATE                     | Y                                  |
+| ------------------------------------------------- | ---------------------------------- |
+| SELECT                                            | Y                                  |
+| INSERT                                            | Y                                  |
+| UPDATE                                            | Y                                  |
+| DELETE                                            | Y                                  |
+| REPLACE                                           | Y                                  |
+| INSERT ON DUPLICATE KEY UPDATE                    | Y                                  |
 | 导入数据 LOAD DATA                                 | Y                                  |
 | 导出数据 SELECT INTO                               | Y                                  |
-| 连接 INNER/LEFT/RIGHT/OUTER JOIN                   | Y                                  |
-| 联合 UNION, UNION ALL                              | Y                                  |
-| EXCEPT, INTERSECT                                  | Y                                  |
-| GROUP BY, ORDER BY                                 | Y                                  |
+| 连接 INNER/LEFT/RIGHT/OUTER JOIN                  | Y                                  |
+| 联合 UNION, UNION ALL                             | Y                                  |
+| EXCEPT, INTERSECT                                 | Y                                  |
+| GROUP BY, ORDER BY                                | Y                                  |
 | 预排序 CLUSTER BY                                  | Y                                  |
 | 子查询 SUBQUERY                                    | Y                                  |
-| 公共表表达式(Common Table Expressions，CTE)                                  | Y                                  |
+| 公共表表达式(Common Table Expressions，CTE)         | Y                                  |
 | 事务语句 BEGIN/START TRANSACTION, COMMIT, ROLLBACK | Y                                  |
-| EXPLAIN                                            | Y                                  |
-| EXPLAIN ANALYZE                                    | Y                                  |
+| EXPLAIN                                           | Y                                  |
+| EXPLAIN ANALYZE                                   | Y                                  |
 | 表级锁 LOCK/UNLOCK TABLE                           | N                                  |
-| 用户自定义变量                                     | Y                                  |
+| 用户自定义变量                                       | Y                                  |
 
 ## 高级 SQL 功能
 
@@ -100,7 +100,7 @@
 | 唯一约束         | Y                                  |
 | 次级索引         | Y，仅语法实现，没有加速效果        |
 | 外键约束         | Y                                  |
-| 无效数据强制约束 | Y                                  |
+| 无效数据强制约束   | Y                                  |
 | ENUM 和 SET 约束 | N                                  |
 | 非空约束         | Y                                  |
 | 自增约束         | Y                                  |
@@ -127,6 +127,7 @@
 | 流程控制函数   | E                                  |
 | 窗口函数       | Y                                  |
 | JSON函数       | Y                                  |
+| 系统函数       | Y                                  |
 | 其他函数       | Y                                  |
 | 操作符         | Y                                  |
 
@@ -145,11 +146,11 @@
 
 | 数据导入和导出    | 支持（Y）/不支持（N）/实验特性 (E) |
 | ----------------- | ---------------------------------- |
-| 文件导入LOAD DATA | Y                                  |
+| 文件导入LOAD DATA  | Y                                  |
 | SQL导入SOURCE     | Y                                  |
-| 从对象存储导入    | Y                                  |
-| modump工具导出SQL | Y                                  |
-| mysqldump原生工具 | N                                  |
+| 从对象存储导入      | Y                                  |
+| modump工具导出SQL  | Y                                  |
+| mysqldump原生工具  | N                                  |
 
 ## 安全与访问控制
 
@@ -157,8 +158,8 @@
 | -------------------------- | ---------------------------------- |
 | 传输层加密TLS              | Y                                  |
 | 静态加密                   | Y                                  |
-| 从对象存储导入             | Y                                  |
-| 基于角色的访问控制（RBAC） | Y                                  |
+| 从对象存储导入              | Y                                  |
+| 基于角色的访问控制（RBAC）    | Y                                  |
 | 多租户                     | Y                                  |
 
 ## 备份和恢复
