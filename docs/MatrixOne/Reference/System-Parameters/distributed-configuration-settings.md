@@ -44,7 +44,7 @@
 | lowerCaseTableNames    | 标识符大小写敏感，默认参数值为 1，表示大小写不敏感                        | lowerCaseTableNames = 1   |
 | [cn.Txn]               | 事务配置节                                |                            |
 | isolation              | 事务隔离级别，此参数用于配置节点（cn）上的事务隔离级别。事务隔离级别定义了事务在处理并发操作时的行为。默认情况下，如果未设置隔离级别（Isolation），当事务模式（Mode）设置为乐观（optimistic）时，隔离级别将被设置为序列化隔离（SI），当事务模式设置为悲观（pessimistic）时，隔离级别将被设置为可重复读隔离（RC）。默认：RC                                  | isolation = "RC"          |
-| mode                   | 事务模式，此参数用于配置节点（cn）上的事务模式。事务模式定义了如何处理事务中的操作和并发性。可选的值为乐观（optimistic）和悲观（pessimistic），默认值是乐观（optimistic）。                                  | mode = "optimistic"       |
+| mode                   | 事务模式，此参数用于配置节点（cn）上的事务模式。事务模式定义了如何处理事务中的操作和并发性。可选的值为乐观（optimistic）和悲观（pessimistic），默认值是悲观（pessimistic）。                                  | mode = "pessimistic"       |
 | [fileservice.s3]       |                        |                            |
 | endpoint               |S3 端点地址|endpoint = "s3.amazonaws.com"|
 | [fileservice.cache]    | 文件服务缓存配置节                        |                            |
