@@ -230,10 +230,10 @@ mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0-rc1" # 设置所下载的MatrixOne版�
 ```
 root@VM-16-2-debian:~# mo_ctl start
 2023-07-07_09:55:01    [INFO]    No mo-service is running
-2023-07-07_09:55:01    [INFO]    Starting mo-service: cd /data/mo//matrixone/ && /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-TN/launch.toml >/data/mo//logs/stdout-20230707_095501.log 2>/data/mo//logs/stderr-20230707_095501.log
+2023-07-07_09:55:01    [INFO]    Starting mo-service: cd /data/mo//matrixone/ && /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch/launch.toml >/data/mo//logs/stdout-20230707_095501.log 2>/data/mo//logs/stderr-20230707_095501.log
 2023-07-07_09:55:01    [INFO]    Wait for 2 seconds
 2023-07-07_09:55:03    [INFO]    At least one mo-service is running. Process info:
-2023-07-07_09:55:03    [INFO]    root      748128       1  2 09:55 ?        00:00:00 /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch-tae-CN-tae-TN/launch.toml
+2023-07-07_09:55:03    [INFO]    root      748128       1  2 09:55 ?        00:00:00 /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch/launch.toml
 2023-07-07_09:55:03    [INFO]    Pids:
 2023-07-07_09:55:03    [INFO]    748128
 2023-07-07_09:55:03    [INFO]    Start succeeded
