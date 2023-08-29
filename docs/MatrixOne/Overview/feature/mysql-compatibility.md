@@ -107,10 +107,6 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 * MatrixOne 的 `Explain` 和 `Explain Analyze` 打印格式均参照 PostgreSQL，与 MySQL 有较大不同。
 * 不支持 JSON 类型的输出。
 
-### 公共表表达式 (CTE)
-
-* 支持非递归 CTE 和递归 CTE。
-
 ### 其他
 
 * `REPLACE` 语句不支持使用 `VALUES row_constructor_list` 参数插入的一组值构成的行。
