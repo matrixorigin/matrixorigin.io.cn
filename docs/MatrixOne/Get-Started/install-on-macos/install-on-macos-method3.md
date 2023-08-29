@@ -4,7 +4,7 @@
 
 ## 步骤 1：下载安装 Docker
 
-1. 点击 <a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a>，进入 Docker 的官方文档页面，根据你的操作系统，下载安装对应的 Docker。
+1. 点击 <a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a>，进入 Docker 的官方文档页面，根据你的操作系统，下载安装对应的 Docker，Docker 版本推荐选择在 20.10.18 及以上，且尽量保持 Docker client 和 Docker server 的版本一致。
 
 2. 安装完成后，通过下述代码行确认 Docker 版本，验证 Docker 安装是否成功：
 
@@ -15,7 +15,7 @@
     安装成功，代码示例如下：
 
     ```
-    Docker version 20.10.17, build 100c701
+    Docker version 20.10.18, build 100c701
     ```
 
 3. 直接打开你本地 Docker 客户端，启动 Docker。
@@ -28,14 +28,14 @@
 
       ```bash
       docker pull matrixorigin/matrixone:1.0.0-rc1
-      docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:1.0.0-rc1
+      docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:1.0.0-rc1
       ```
 
       如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 稳定版本镜像：
 
       ```bash
       docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
-      docker run -d -p 6001:6001 --name matrixone --privileged=true registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
+      docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
       ```
 
 === "开发版本的镜像"
@@ -44,17 +44,24 @@
 
       ```bash
       docker pull matrixorigin/matrixone:nightly-commitnumber
-      docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:nightly-commitnumber
+      docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:nightly-commitnumber
       ```
 
       如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 开发版本镜像：
 
       ```bash
       docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:nightly-commitnumber
-      docker run -d -p 6001:6001 --name matrixone --privileged=true registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:nightly-commitnumber
+      docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:nightly-commitnumber
       ```
 
       __Note__: 如上面代码所示，*nightly* 为标识的 Tag 版本每天都进行更新，请注意获取最新的镜像。
+
+!!! note
+    若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 ```docker run``` 命令中加上参数 ```--privileged=true```，如：
+
+    ```bash
+    docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:1.0.0-rc1
+    ```
 
 !!! note
     首次启动 MatrixOne 大致需要花费 20 至 30 秒的时间，在稍作等待后，你便可以使用 MySQL 客户端连接至 MatrixOne。
