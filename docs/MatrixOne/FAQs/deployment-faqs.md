@@ -75,7 +75,6 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
     source ~/.zshrc
     ```
     
-    
     将上述代码中的`/path/to/mysql/bin`替换为你系统中MySQL的安装路径。一般是 `/usr/local/mysql/bin`, 如果你不确定MySQL的安装路径，可以使用以下命令找到：
     
     ```bash
