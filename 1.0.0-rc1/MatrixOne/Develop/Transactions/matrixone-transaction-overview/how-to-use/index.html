@@ -2023,6 +2023,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    切换事务模式
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9264,6 +9271,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    切换事务模式
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9321,6 +9335,16 @@ rollback;
 <span class="c1">-- 此处需要手动提交</span>
 <span class="k">COMMIT</span><span class="err">；</span><span class="w">  </span>
 </code></pre></div>
+<h2 id="_6">切换事务模式</h2>
+<p>MatrixOne 默认采用悲观事务与 RC 隔离级别。但若你需要切换至乐观事务模式，相应的隔离级别将自动更改为快照隔离。</p>
+<p>在 <em>matrixone/etc/launch-with-proxy/</em> 目录下的配置文件 <em>cn.toml</em> 中添加如下配置参数以切换事务模式：</p>
+<div class="highlight"><pre><span></span><code><span class="k">[cn.Txn]</span>
+<span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;optimistic&quot;</span>
+<span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SI&quot;</span>
+</code></pre></div>
+<p><strong>Note:</strong> 如果你只添加事务模式参数 <code>mode = "optimistic"</code>，但未添加 <code>isolation = "SI"</code>，系统也将默认在乐观事务模式下的隔离级别为 SI 隔离。</p>
+<p>重启 MatrixOne，便能使切换后的事务模式生效。</p>
+<p>更多关于配置参数信息，参见<a href="../../Reference/System-Parameters/distributed-configuration-settings.md">分布式版通用参数配置</a>。</p>
 
 
 

@@ -9311,14 +9311,14 @@
 <h2 id="1-docker">步骤 1：下载安装 Docker</h2>
 <ol>
 <li>
-<p>点击 <a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a>，进入 Docker 的官方文档页面，根据你的操作系统，下载安装对应的 Docker。</p>
+<p>点击 <a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a>，进入 Docker 的官方文档页面，根据你的操作系统，下载安装对应的 Docker，Docker 版本推荐选择在 20.10.18 及以上，且尽量保持 Docker client 和 Docker server 的版本一致。</p>
 </li>
 <li>
 <p>安装完成后，通过下述代码行确认 Docker 版本，验证 Docker 安装是否成功：</p>
 <div class="highlight"><pre><span></span><code>docker --version
 </code></pre></div>
 <p>安装成功，代码示例如下：</p>
-<div class="highlight"><pre><span></span><code>Docker version 20.10.17, build 100c701
+<div class="highlight"><pre><span></span><code>Docker version 20.10.18, build 100c701
 </code></pre></div>
 </li>
 <li>
@@ -9331,25 +9331,31 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
 </code></pre></div>
 <p>如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 稳定版本镜像：</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc1
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>获取最新开发版本的镜像，参见<a href="https://hub.docker.com/r/matrixorigin/matrixone/tags">Docker Hub</a>，找到最新Tag，拉取镜像。拉取镜像代码示例如下：</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>matrixorigin/matrixone:nightly-commitnumber
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:nightly-commitnumber
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>matrixorigin/matrixone:nightly-commitnumber
 </code></pre></div>
 <p>如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 开发版本镜像：</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:nightly-commitnumber
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:nightly-commitnumber
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:nightly-commitnumber
 </code></pre></div>
 <p><strong>Note</strong>: 如上面代码所示，<em>nightly</em> 为标识的 Tag 版本每天都进行更新，请注意获取最新的镜像。</p>
 </div>
 </div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 <code>docker run</code> 命令中加上参数 <code>--privileged=true</code>，如：</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
+</code></pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
