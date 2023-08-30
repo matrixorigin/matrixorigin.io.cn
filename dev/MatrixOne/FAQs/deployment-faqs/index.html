@@ -9563,26 +9563,21 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><strong>Linux 环境</strong></label><label for="__tabbed_1_2"><strong>MacOS 环境</strong></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>cd ~
-sudo vim /etc/profile
-password:
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=&quot;/path/to/mysql/bin:$PATH&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
+<span class="nb">source</span><span class="w"> </span>~/.bash_profile
 </code></pre></div>
-<p>回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。</p>
-<p>输入/跳过 root 密码后，即进入了 <em>profile</em> 文件，点击键盘上的 <em>i</em> 进入 insert 状态，即可在文件下方输入如下命令：</p>
-<div class="highlight"><pre><span></span><code>export PATH=/software/mysql/bin:$PATH
+<p>将上述代码中的<code>/path/to/mysql/bin</code>替换为你系统中MySQL的安装路径。一般是 <code>/usr/local/mysql/bin</code>, 如果你不确定MySQL的安装路径，可以使用以下命令找到：</p>
+<div class="highlight"><pre><span></span><code>whereis<span class="w"> </span>mysql
 </code></pre></div>
-<p>输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 <code>:wq</code> 保存退出。继续输入 <code>source  /etc/profile</code>，回车执行，运行环境变量。</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>cd ~
-sudo vim .bash_profile
-Password:
+<p>macOS 10 之后将zsh作为默认shell，此处使用zsh做示例，若使用其他shell可自行转换。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/path/to/mysql/bin:<span class="nv">$PATH</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+<span class="nb">source</span><span class="w"> </span>~/.zshrc
 </code></pre></div>
-<p>回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。</p>
-<p>输入/跳过 root 密码后，即进入了 <em>profile</em> 文件，点击键盘上的 <em>i</em> 进入 insert 状态，即可在文件下方输入如下命令：</p>
-<div class="highlight"><pre><span></span><code>export PATH=${PATH}:/usr/local/mysql/bin
+<p>将上述代码中的<code>/path/to/mysql/bin</code>替换为你系统中MySQL的安装路径。一般是 <code>/usr/local/mysql/bin</code>, 如果你不确定MySQL的安装路径，可以使用以下命令找到：</p>
+<div class="highlight"><pre><span></span><code>whereis<span class="w"> </span>mysql
 </code></pre></div>
-<p>输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 <code>:wq</code> 保存退出。继续输入 <code>source .bash_profile</code>，回车执行，运行环境变量。</p>
 </div>
 </div>
 </div>
