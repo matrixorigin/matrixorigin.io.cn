@@ -55,39 +55,31 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
 
 === "**Linux 环境**"
 
-     ```
-     cd ~
-     sudo vim /etc/profile
-     password:
-     ```
+    ```bash
+    echo 'export PATH="/path/to/mysql/bin:$PATH"' >> ~/.bash_profile
+    source ~/.bash_profile
+    ```
 
-     回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
-
-     输入/跳过 root 密码后，即进入了 *profile* 文件，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
-
-     ```
-     export PATH=/software/mysql/bin:$PATH
-     ```
-
-     输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。继续输入 `source  /etc/profile`，回车执行，运行环境变量。
+    将上述代码中的`/path/to/mysql/bin`替换为你系统中MySQL的安装路径。一般是 `/usr/local/mysql/bin`, 如果你不确定MySQL的安装路径，可以使用以下命令找到：
+    
+    ```bash
+    whereis mysql
+    ```
 
 === "**MacOS 环境**"
 
-     ```
-     cd ~
-     sudo vim .bash_profile
-     Password:
-     ```
+    macOS 10 之后将zsh作为默认shell，此处使用zsh做示例，若使用其他shell可自行转换。
 
-     回车执行上面的命令后，需要输入 root 用户密码，即你在安装 MySQL 客户端时，你在安装窗口设置的 root 密码；如果没有设置密码，则直接回车跳过即可。
-
-     输入/跳过 root 密码后，即进入了 *profile* 文件，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
-
-     ```
-     export PATH=${PATH}:/usr/local/mysql/bin
-     ```
-
-     输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。继续输入 `source .bash_profile`，回车执行，运行环境变量。
+    ```zsh
+    echo export PATH=/path/to/mysql/bin:$PATH >> ~/.zshrc
+    source ~/.zshrc
+    ```
+    
+    将上述代码中的`/path/to/mysql/bin`替换为你系统中MySQL的安装路径。一般是 `/usr/local/mysql/bin`, 如果你不确定MySQL的安装路径，可以使用以下命令找到：
+    
+    ```bash
+    whereis mysql
+    ```
 
 ### **当我安装选择从源代码安装构建 MatrixOne 时，产生了以下错误或构建失败提示，我该如何继续？**
 
