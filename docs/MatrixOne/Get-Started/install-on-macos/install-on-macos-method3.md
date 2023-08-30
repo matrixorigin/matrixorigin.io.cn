@@ -4,7 +4,7 @@
 
 ## 步骤 1：下载安装 Docker
 
-1. 点击 <a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a>，进入 Docker 的官方文档页面，根据你的操作系统，下载安装对应的 Docker，Docker 版本尽量选择在 20.10.18 以及以上。
+1. 点击 <a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a>，进入 Docker 的官方文档页面，根据你的操作系统，下载安装对应的 Docker，Docker 版本推荐选择在 20.10.18 及以上，且尽量保持 Docker client 和 Docker server 的版本一致。
 
 2. 安装完成后，通过下述代码行确认 Docker 版本，验证 Docker 安装是否成功：
 
@@ -57,7 +57,7 @@
       __Note__: 如上面代码所示，*nightly* 为标识的 Tag 版本每天都进行更新，请注意获取最新的镜像。
 
 !!! note
-    若 Docker 版本低于 20.10.18，推荐升级到 Docker 最新稳定版本后再尝试。若坚持使用低版本 Docker，需要在 ```docker run``` 命令中加上参数 ```--privileged=true```，如：
+    若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 ```docker run``` 命令中加上参数 ```--privileged=true```，如：
 
     ```bash
     docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:1.0.0-rc1
