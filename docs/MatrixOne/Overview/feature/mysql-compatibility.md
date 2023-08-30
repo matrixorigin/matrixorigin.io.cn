@@ -5,10 +5,10 @@
 MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都具有高度的兼容性。此外，MatrixOne 也对常见的 MySQL 周边工具提供了支持，如 Navicat，MySQL Workbench，JDBC 等。然而，由于 MatrixOne 的技术架构不同，且仍处于发展和完善阶段，因此有一些功能尚未得到支持。本节将主要从以下几个方面详述 MatrixOne 数据库的 MySQL 模式与原生 MySQL 数据库的区别：
 
 - DDL 语句
-- 数据类型
 - DCL 语句
-- SQL 语法
+- DML 语句
 - 高级 SQL 功能
+- 数据类型
 - 索引和约束
 - 分区支持
 - 函数与操作符
@@ -25,51 +25,17 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 ### DATABASE 相关
 
 * 不支持中文命名的表名。
-* `CHARSET`，`COLLATE`，`ENCRYPTION` 目前语法支持但不生效。
+* `ENCRYPTION` 目前语法支持但不生效。
 * 不支持 `ALTER DATABASE`。
 * 仅默认支持 `utf8mb4` 字符集和 `utf8mb4_bin` 排序规则，无法更改。
 
 ### TABLE 相关
 
 * 不支持 `CREATE TABLE .. AS SELECT` 语句。
-* 支持列定义中的 `AUTO_INCREMENT`，但不支持表定义的 `AUTO_INCREMENT` 自定义起始值。
-* 不支持列定义中的 `CHARACTER SET/CHARSET`，`COLLATE`。
-* 不支持表定义中的 `CHARACTER SET/CHARSET`，`COLLATE`，`ROW_FORMAT`，`USING ...`，`ENGINE=`。
-
-以典型的 mysqldump 从 MySQL 中导出的 DDL 语句为例：
-
-```
--- MySQL DDL语句
-CREATE TABLE IF NOT EXISTS `tool` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `tool_id` bigint DEFAULT NULL COMMENT 'id',
-  `operation_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'type',
-  `remark` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'remark',
-  `create_user` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'create user',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'create time',
-  PRIMARY KEY (`id`) USING BTREE,
-  KEY `tool_id_IDX` (`tool_id`) USING BTREE,
-  KEY `operation_type_IDX` (`operation_type`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1913 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='tool table';
-```
-
-需要如下方案例做出修改方可在 MatrixOne 中建表成功：
-
-```
-CREATE TABLE IF NOT EXISTS `tool` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `tool_id` bigint DEFAULT NULL COMMENT 'id',
-  `operation_type` varchar(50) DEFAULT NULL COMMENT 'type',
-  `remark` varchar(100) DEFAULT NULL COMMENT 'remark',
-  `create_user` varchar(20) DEFAULT NULL COMMENT 'create user',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'create time',
-  PRIMARY KEY (`id`),
-  KEY `tool_id_IDX` (`tool_id`),
-  KEY `operation_type_IDX` (`operation_type`)
-) COMMENT='tool table';
-```
-
-* ALTER TABLE 仅支持 `ADD/DROP COLUMN` 增加和删除列，`RENAME` 修改表名，不支持 `MODIFY COLUMN`，不支持修改已有列和索引的定义，不支持动态增加删除主键。
+* 不支持表定义中的 `ENGINE=`，但 MatrixOne 会直接忽略 `ENGINE=`。
+* ALTER TABLE 中的这些子句：`CHANGE [COLUMN]`，`MODIFY [COLUMN]`，`RENAME COLUMN`，`ADD [CONSTRAINT [symbol]] PRIMARY KEY`，`DROP PRIMARY KEY` 和 `ALTER COLUMN ORDER BY` 可以在 ALTER TABLE 语句中自由组合使用，但不支持与其他子句一起使用。
+* 临时表暂不支持使用 `ALTER TABLE` 修改表结构。
+* 使用 `CREATE TABLE ... CLUSTER BY...` 所建的表，不支持使用 `ALTER TABLE` 修改表结构。
 * ALTER TABLE 不支持 `PARTITION` 相关的操作。
 * 支持定义 `Cluster by column` 字句，对某列进行预排序加速查询。
 
@@ -84,19 +50,6 @@ CREATE TABLE IF NOT EXISTS `tool` (
 * MySQL 不支持 SEQUENCE 对象，而 MatrixOne 可以通过 CREATE SEQUENCE 创建一个序列，MatrixOne 的语法与 PostgreSQL 相同。
 * 在表中使用 SEQUENCE 时，需要注意 `auto_increment` 与 `sequence` 不能一起用，否则会报错。
 
-## 数据类型
-
-* BOOL: 与 MySQL 的布尔值类型实际上是 int 不同，MatrixOne 的布尔值是一个新的类型，它的值只能是 true 或 false。
-* DECIMAL：DECIMAL(P,D)，MatrixOne 的有效数字 P 和小数点后的位数 D 最大精度均为 38 位，MySQL 则分别为 65 和 30。
-* 浮点数：MySQL8.0.17 后废弃 Float(M,D) 及 Double(M,D) 用法，但 MatrixOne 仍保留该用法。
-* DATETIME: MySQL 的最大取值范围为 `'1000-01-01 00:00:00'` 到 `'9999-12-31 23:59:59'`，MatrixOne 的最大范围为 `'0001-01-01 00:00:00'` 到 `'9999-12-31 23:59:59'`。
-* TIMESTAMP: MySQL 的最大取值范围是 `'1970-01-01 00:00:01.000000'` UTC 到 `'2038-01-19 03:14:07.999999'` UTC，MatrixOne 的最大范围 `'0001-01-01 00:00:00'` UTC 到 `'9999-12-31 23:59:59'` UTC。
-* MatrixOne 支持 UUID 类型。
-* 不支持 YEAR 类型。
-* 不支持空间 Spatial 类型。
-* 不支持 BIT，ENUM，SET 类型。
-* 不支持 MEDIUMINT 类型。
-
 ## DCL 语句
 
 ### ACCOUNT 相关
@@ -106,7 +59,6 @@ CREATE TABLE IF NOT EXISTS `tool` (
 ### 权限相关
 
 * GRANT，授权逻辑与 MySQL 有差异。
-
 * REVOLE，回收权限逻辑与 MySQL 有差异。
 
 ### SHOW 相关
@@ -120,12 +72,11 @@ CREATE TABLE IF NOT EXISTS `tool` (
 
 * MatrixOne 的系统变量与 MySQL 存在较大差异，大部分只是为了实现语法的兼容性，目前实际可设置的参数包括：`ROLE`，`SQL_MODE`，`TIME_ZONE`。
 
-## SQL 语法
+## DML 语句
 
 ### SELECT 相关
 
-* 在 `GROUP BY` 中，MatrixOne 不支持表别名。
-* `SELECT...FOR UPDATE` 当前仅支持单表查询。
+`SELECT...FOR UPDATE` 当前仅支持单表查询。
 
 ### INSERT 相关
 
@@ -141,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `tool` (
 
 ### 子查询相关
 
-* MatrixOne 不支持 IN 的多层关联子查询。
+* MatrixOne 不支持 `IN` 的多层关联子查询。
 
 ### LOAD 相关
 
@@ -156,13 +107,9 @@ CREATE TABLE IF NOT EXISTS `tool` (
 * MatrixOne 的 `Explain` 和 `Explain Analyze` 打印格式均参照 PostgreSQL，与 MySQL 有较大不同。
 * 不支持 JSON 类型的输出。
 
-### 公共表表达式 (CTE)
-
-* 不支持递归 CTE `With recursive`。
-
 ### 其他
 
-* 不支持 `REPLACE` 语句。
+* `REPLACE` 语句不支持使用 `VALUES row_constructor_list` 参数插入的一组值构成的行。
 
 ## 高级 SQL 功能
 
@@ -171,6 +118,18 @@ CREATE TABLE IF NOT EXISTS `tool` (
 * 不支持事件调度器。
 * 不支持自定义函数。
 * 不支持物化视图。
+
+## 数据类型
+
+* BOOL: 与 MySQL 的布尔值类型实际上是 int 不同，MatrixOne 的布尔值是一个新的类型，它的值只能是 true 或 false。
+* DECIMAL：DECIMAL(P,D)，MatrixOne 的有效数字 P 和小数点后的位数 D 最大精度均为 38 位，MySQL 则分别为 65 和 30。
+* 浮点数：MySQL8.0.17 后废弃 Float(M,D) 及 Double(M,D) 用法，但 MatrixOne 仍保留该用法。
+* DATETIME: MySQL 的最大取值范围为 `'1000-01-01 00:00:00'` 到 `'9999-12-31 23:59:59'`，MatrixOne 的最大范围为 `'0001-01-01 00:00:00'` 到 `'9999-12-31 23:59:59'`。
+* TIMESTAMP: MySQL 的最大取值范围是 `'1970-01-01 00:00:01.000000'` UTC 到 `'2038-01-19 03:14:07.999999'` UTC，MatrixOne 的最大范围 `'0001-01-01 00:00:00'` UTC 到 `'9999-12-31 23:59:59'` UTC。
+* MatrixOne 支持 UUID 类型。
+* 不支持空间 Spatial 类型。
+* 不支持 BIT，SET 类型。
+* 不支持 MEDIUMINT 类型。
 
 ## 索引和约束
 
@@ -218,18 +177,19 @@ CREATE TABLE IF NOT EXISTS `tool` (
 * 仅支持使用 `ALTER USER` 方法修改密码。
 * 不支持修改用户连接个数上限。
 * 不支持连接 IP 白名单。
-* 不支持 `LOAD` 和 `SELECT INTO` 文件授权管理。
+* 不支持 `LOAD` 文件授权管理。
+* 可以通过 `CREATE STAGE` 部分支持 `SELECT INTO` 文件授权管理。
 
 ## 事务
 
-* MatrixOne 默认为乐观事务。
+* MatrixOne 默认为悲观事务。
 * 与 MySQL 不同，MatrixOne 中的 DDL 语句是事务性的，可以在一个事务中回滚 DDL 操作。
 * 不支持表级锁 `LOCK/UNLOCK TABLE`。
 
 ## 备份恢复
 
+* 支持物理备份。
 * 不支持 mysqldump 备份工具，仅支持 modump 工具。
-* 不支持物理备份。
 * 不支持 binlog 日志备份。
 * 不支持增量备份。
 
