@@ -41,7 +41,7 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
 | :------- | :----- | :-------------- |
 | 16 core+ | 64 GB+ | SSD/HDD 500 GB+ |
 
-分布式安装情况下，MatrixOne 对于开发、测试和生产环境的服务器硬件配置要求和建议可以参考[分布式部署的拓扑文档](../Deploy/deployment-topology/experience-deployment-topology.md)。
+分布式安装情况下，MatrixOne 对于开发、测试和生产环境的服务器硬件配置要求和建议可以参考[集群拓扑规划概述](../Deploy/deployment-topology/topology-overview.md)。
 
 ## 安装和部署
 
@@ -60,23 +60,23 @@ ARM 架构的 Macbook M1/M2 也适合开发环境。
     source ~/.bash_profile
     ```
 
-    将上述代码中的`/path/to/mysql/bin`替换为你系统中MySQL的安装路径。一般是 `/usr/local/mysql/bin`, 如果你不确定MySQL的安装路径，可以使用以下命令找到：
-    
+    将上述代码中的`/path/to/mysql/bin`替换为你系统中 MySQL 的安装路径。一般是 `/usr/local/mysql/bin`, 如果你不确定 MySQL 的安装路径，可以使用以下命令找到：
+
     ```bash
     whereis mysql
     ```
 
 === "**MacOS 环境**"
 
-    macOS 10 之后将zsh作为默认shell，此处使用zsh做示例，若使用其他shell可自行转换。
+    macOS 10 之后将 `zsh` 作为默认 `shell`，此处使用zsh做示例，若使用其他 `shell` 可自行转换。
 
     ```zsh
     echo export PATH=/path/to/mysql/bin:$PATH >> ~/.zshrc
     source ~/.zshrc
     ```
-    
-    将上述代码中的`/path/to/mysql/bin`替换为你系统中MySQL的安装路径。一般是 `/usr/local/mysql/bin`, 如果你不确定MySQL的安装路径，可以使用以下命令找到：
-    
+
+    将上述代码中的`/path/to/mysql/bin`替换为你系统中 MySQL 的安装路径。一般是 `/usr/local/mysql/bin`, 如果你不确定 MySQL 的安装路径，可以使用以下命令找到：
+
     ```bash
     whereis mysql
     ```
