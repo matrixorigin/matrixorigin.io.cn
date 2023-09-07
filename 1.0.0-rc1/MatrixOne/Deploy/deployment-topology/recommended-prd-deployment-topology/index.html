@@ -2200,6 +2200,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../topology-overview/" class="md-nav__link">
+        集群拓扑规划概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../experience-deployment-topology/" class="md-nav__link">
         体验环境
       </a>
@@ -9258,72 +9272,86 @@
 <table>
 <thead>
 <tr>
-<th>模块</th>
-<th>台数（物理机、虚拟机均可）</th>
-<th>节点角色</th>
-<th>CPU 配置</th>
-<th>内存配置</th>
-<th>网卡</th>
-<th>系统盘配置</th>
-<th>Kubernetes 盘配置</th>
-<th>数据盘配置</th>
+<th style="text-align: center;"><strong>模块</strong></th>
+<th>Kubernetes master</th>
+<th>Minio</th>
+<th>LogService</th>
+<th>TN（混部Proxy及负载均衡）</th>
+<th>CN（混部Proxy及负载均衡）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Kubernetes master</td>
-<td>3台</td>
-<td>Kubernetes 管控</td>
-<td>4 核以上</td>
-<td>8GB 以上</td>
-<td>双万兆网口，万兆网卡</td>
-<td>每节点 PCIe NVME SSD 3.0 × 1块 100GB，建议做 Raid 1</td>
-<td>每节点 PCIe NVME SSD 3.0 × 1块 100GB，建议做 Raid 1</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>Minio</td>
-<td>4 台</td>
-<td>存储服务</td>
-<td>4核以上</td>
-<td>8GB以上</td>
-<td>双万兆网口，万兆网卡</td>
-<td>同上</td>
-<td>同上</td>
-<td>每节点 PCIe NVME SSD 3.0 × 4块 × x g/块 ，raid无要求，建议物理分盘，可逻辑分盘。<br/><br/>备注：x 与业务数据量相关，x = 业务数据量×2/16</td>
-</tr>
-<tr>
-<td>LogService</td>
+<td style="text-align: center;"><strong>台数（物理机、虚拟机均可）</strong></td>
 <td>3 台</td>
+<td>4 台</td>
+<td>3 台</td>
+<td>1 台</td>
+<td>y 台</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>节点角色</strong></td>
+<td>Kubernetes 管控</td>
+<td>存储服务</td>
 <td>MatrixOne 工作节点</td>
+<td>MatrixOne 工作节点</td>
+<td>MatrixOne 工作节点</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>CPU 配置</strong></td>
+<td>4 核以上</td>
+<td>4 核以上</td>
 <td>4核以上</td>
+<td>16 核以上</td>
+<td>16 核以上</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>内存配置</strong></td>
 <td>8GB 以上</td>
-<td>双万兆网口，万兆网卡</td>
-<td>同上</td>
-<td>同上</td>
-<td>每节点 NVME SSD 3.0/4.0 (1G/s以上读取速率) × 1块 × xg/块。<br/><br/>备注：x 与业务数据量相关，越接近越好。</td>
-</tr>
-<tr>
-<td>TN（混部Proxy及负载均衡）</td>
-<td>1台</td>
-<td>MatrixOne 工作节点</td>
-<td>16 核以上</td>
+<td>8GB 以上</td>
+<td>8GB 以上</td>
 <td>64GB 以上</td>
-<td>双万兆网口，万兆网卡</td>
-<td>同上</td>
-<td>同上</td>
-<td>NVME SSD 3.0/4.0 × 2 块 × xg/块<br/><br/>备注：x 与业务数据量相关，越接近越好。其中一块给 TN/CN 故障恢复时备用。</td>
+<td>32GB 以上</td>
 </tr>
 <tr>
-<td>CN（混部Proxy及负载均衡）</td>
-<td>y台</td>
-<td>MatrixOne 工作节点</td>
-<td>16 核以上</td>
-<td>32GB 以上</td>
+<td style="text-align: center;"><strong>网卡</strong></td>
 <td>双万兆网口，万兆网卡</td>
 <td>同上</td>
 <td>同上</td>
-<td>每节点 NVME SSD 3.0/4.0 × 2块 × xg/块 。<br/><br/>备注：x 与业务数据量相关，越接近越好。其中一块给 TN/CN 故障恢复时备用。y与业务负载相关。</td>
+<td>同上</td>
+<td>同上</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>系统盘配置</strong></td>
+<td>每节点 PCIe NVME SSD 3.0 × 1块 100GB，建议做 Raid 1</td>
+<td>同上</td>
+<td>同上</td>
+<td>同上</td>
+<td>同上</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Kubernetes 盘配置</strong></td>
+<td>每节点 PCIe NVME SSD 3.0 × 1块 100GB，建议做 Raid 1</td>
+<td>同上</td>
+<td>同上</td>
+<td>同上</td>
+<td>同上</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>数据盘配置</strong></td>
+<td>N/A</td>
+<td>每节点 PCIe NVME SSD 3.0 × 4块 × a G/块 ，raid无要求，建议物理分盘，可逻辑分盘。</td>
+<td>每节点 NVME SSD 3.0/4.0 (1G/s以上读取速率) × 1块 × b G/块。</td>
+<td>NVME SSD 3.0/4.0 × 2 块 × c G/块</td>
+<td>每节点 NVME SSD 3.0/4.0 × 2块 × d G/块 。</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>备注</strong></td>
+<td></td>
+<td>a 与业务数据量相关，a = 业务数据量×2/16。</td>
+<td>b 与业务数据量相关，越接近越好。</td>
+<td>c 与业务数据量相关，越接近越好。其中一块给 TN/CN 故障恢复时备用。</td>
+<td>d 与业务数据量相关，越接近越好。其中一块给 TN/CN 故障恢复时备用。y与业务负载相关。</td>
 </tr>
 </tbody>
 </table>

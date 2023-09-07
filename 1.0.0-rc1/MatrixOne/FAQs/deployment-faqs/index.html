@@ -2196,6 +2196,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Deploy/deployment-topology/topology-overview/" class="md-nav__link">
+        集群拓扑规划概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Deploy/deployment-topology/experience-deployment-topology/" class="md-nav__link">
         体验环境
       </a>
@@ -9554,7 +9568,7 @@
 </tr>
 </tbody>
 </table>
-<p>分布式安装情况下，MatrixOne 对于开发、测试和生产环境的服务器硬件配置要求和建议可以参考<a href="../../Deploy/deployment-topology/experience-deployment-topology/">分布式部署的拓扑文档</a>。</p>
+<p>分布式安装情况下，MatrixOne 对于开发、测试和生产环境的服务器硬件配置要求和建议可以参考<a href="../../Deploy/deployment-topology/topology-overview/">集群拓扑规划概述</a>。</p>
 <h2 id="_6">安装和部署</h2>
 <h3 id="_7"><strong>安装时需要更改什么设置吗？</strong></h3>
 <p>通常情况下，安装时，你无需更改任何设置。<code>launch.toml</code> 默认设置完全可以直接运行 MatrixOne。但是如果你需要自定义监听端口、IP 地址、存储数据文件路径，你可以修改相应的 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-with-proxy/cn.toml"><code>cn.toml</code></a>、<a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-with-proxy/tn.toml"><code>tn.toml</code></a> 或 <a href="https://github.com/matrixorigin/matrixone/blob/main/etc/launch-with-proxy/log.toml"><code>log.toml</code></a>，这些文件内参数配置详情可参考<a href="../../Reference/System-Parameters/system-parameter/">通用参数配置</a></p>
@@ -9566,16 +9580,16 @@
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=&quot;/path/to/mysql/bin:$PATH&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
 <span class="nb">source</span><span class="w"> </span>~/.bash_profile
 </code></pre></div>
-<p>将上述代码中的<code>/path/to/mysql/bin</code>替换为你系统中MySQL的安装路径。一般是 <code>/usr/local/mysql/bin</code>, 如果你不确定MySQL的安装路径，可以使用以下命令找到：</p>
+<p>将上述代码中的<code>/path/to/mysql/bin</code>替换为你系统中 MySQL 的安装路径。一般是 <code>/usr/local/mysql/bin</code>, 如果你不确定 MySQL 的安装路径，可以使用以下命令找到：</p>
 <div class="highlight"><pre><span></span><code>whereis<span class="w"> </span>mysql
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>macOS 10 之后将zsh作为默认shell，此处使用zsh做示例，若使用其他shell可自行转换。</p>
+<p>macOS 10 之后将 <code>zsh</code> 作为默认 <code>shell</code>，此处使用zsh做示例，若使用其他 <code>shell</code> 可自行转换。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/path/to/mysql/bin:<span class="nv">$PATH</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
 <span class="nb">source</span><span class="w"> </span>~/.zshrc
 </code></pre></div>
-<p>将上述代码中的<code>/path/to/mysql/bin</code>替换为你系统中MySQL的安装路径。一般是 <code>/usr/local/mysql/bin</code>, 如果你不确定MySQL的安装路径，可以使用以下命令找到：</p>
+<p>将上述代码中的<code>/path/to/mysql/bin</code>替换为你系统中 MySQL 的安装路径。一般是 <code>/usr/local/mysql/bin</code>, 如果你不确定 MySQL 的安装路径，可以使用以下命令找到：</p>
 <div class="highlight"><pre><span></span><code>whereis<span class="w"> </span>mysql
 </code></pre></div>
 </div>
