@@ -5,6 +5,7 @@ theme:
   name: material
   logo: assets/new-logo.png
   features:
+    - content.code.copy
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
