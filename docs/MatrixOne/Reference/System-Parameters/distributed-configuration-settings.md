@@ -69,7 +69,7 @@
 |-------------------|-------------------------------------------|--------------------------|
 | [log]             | 日志配置节                                |                          |
 | level             | 日志级别，默认值为 info，可修改为不同级别  | level = "info"        |
-| [tn]              | TN 节点，不可修改                         |                        |
+| [dn]              | TN 节点，不可修改                         |                        |
 | uuid              | TN 的唯一标识符，不可修改                  | uuid = "dd4dccb4-4d3c-41f8-b482-5251dc7a41bf" |
 | port-base         | "TN" 使用的起始端口号，从端口号往后，连续20个端口找到可用端口用于内部服务| port-base = 19000       |
 | service-host      | 服务连接地址，用于注册到 HAKeeper 中       | service-host = "0.0.0.0" |
@@ -86,7 +86,7 @@
 | [log]                  | 日志配置节                                |                          |
 | format                 | 日志保存格式为 JSON 或其他                | format = "console"        |
 | filename               | 日志文件名                                |  filename = "mo.log"          |
-| [tn.LogtailServer]     | Logtail 服务器配置节                      |                            |
+| [dn.LogtailServer]     | Logtail 服务器配置节                      |                            |
 | rpc-enable-checksum    | 是否开启 RPC 校验和                        | rpc-enable-checksum = false|
 | [fileservice.s3]       |                        |                            |
 | endpoint               |S3 端点地址|endpoint = "s3.amazonaws.com"|
