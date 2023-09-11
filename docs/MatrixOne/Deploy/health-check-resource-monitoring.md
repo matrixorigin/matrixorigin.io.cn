@@ -666,18 +666,18 @@ Metadata:
 Spec:
   Tn:
     Config:  
-[tn]
+[dn]
 
-[tn.Ckp]
+[dn.Ckp]
 flush-interval = "60s"
 global-interval = "100000s"
 incremental-interval = "60s"
 min-count = 100
 scan-interval = "5s"
 
-[tn.Txn]
+[dn.Txn]
 
-[tn.Txn.Storage]
+[dn.Txn.Storage]
 backend = "TAE"
 log-backend = "logservice"
 
