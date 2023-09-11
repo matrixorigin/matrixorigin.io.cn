@@ -6,7 +6,7 @@ MatrixOne 内置流引擎，用于实时查询、处理和/或丰富传入的一
 
 MatrixOne 流引擎技术架构如下所示：
 
-![](https://github.com/matrixorigin/artwork/blob/main/docs/overview/stream-arch.png?raw=true)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/stream-arch.png?raw=true)
 
 MatrixOne 实现了创建流式表的相关能力，同时实现了一个 Kafka 的连接器，用于满足大量时序场景的流式数据接入需求。
 
