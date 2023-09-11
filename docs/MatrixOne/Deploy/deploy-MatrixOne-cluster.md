@@ -197,6 +197,9 @@ docker run -d \
 
 2. 点击**导入**后，选择**加载资源包**，选择合适的下载源，等待资源包下载完成。
 
+    !!! note
+        推荐您选择 Docker 作为用于 K8s 集群的容器引擎。选择 Docker 作为 K8s 的容器引擎后，Kuboard-Spray 会自动使用 Docker 来运行 K8s 集群的各个组件，包括 Master 节点和 Worker 节点上的容器。
+
     ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-3.png)
 
 3. 此时会 `pull` 相关的镜像依赖：
