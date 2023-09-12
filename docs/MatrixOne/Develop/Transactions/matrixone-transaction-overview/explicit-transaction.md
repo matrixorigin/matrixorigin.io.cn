@@ -58,3 +58,61 @@ mysql> SELECT * FROM Accounts;
 +----------------+---------+
 2 rows in set (0.01 sec)
 ```
+
+## 跨库事务行为示例
+
+MatrixOne 支持跨库事务行为，这里将以一个简单的示例进行说明。
+
+首先，让我们创建两个数据库（db1 和 db2）以及它们各自的表（table1 和 table2）：
+
+```sql
+-- 创建 db1 数据库
+CREATE DATABASE db1;
+USE db1;
+
+-- 创建 db1 中的表 table1
+CREATE TABLE table1 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    field1 INT
+);
+
+-- 创建 db2 数据库
+CREATE DATABASE db2;
+USE db2;
+
+-- 创建 db2 中的表 table2
+CREATE TABLE table2 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    field2 INT
+);
+```
+
+现在，我们已经创建了两个数据库和它们的表。接下来，我们将插入一些数据：
+
+```sql
+-- 在 db1 的 table1 中插入数据
+INSERT INTO db1.table1 (field1) VALUES (100), (200), (300);
+
+-- 在 db2 的 table2 中插入数据
+INSERT INTO db2.table2 (field2) VALUES (500), (600), (700);
+```
+
+现在，我们已经有了两个数据库中的数据。接下来，我们将执行一个跨库事务，同时修改这两个数据库中的数据：
+
+```sql
+-- 开始跨库事务
+START TRANSACTION;
+
+-- 在 db1 中更新 table1 的数据
+UPDATE db1.table1 SET field1 = field1 + 10;
+
+-- 在 db2 中更新 table2 的数据
+UPDATE db2.table2 SET field2 = field2 - 50;
+
+-- 提交跨库事务
+COMMIT;
+```
+
+在上面的跨库事务中，首先使用 `START TRANSACTION;` 开始事务，然后分别在 db1 和 db2 中更新了各自的表数据，最后使用 `COMMIT;` 提交事务。如果在事务期间任何一步失败，整个事务将回滚，以确保数据的一致性。
+
+这个示例展示了一个完整的跨库事务，在实际应用中，跨库事务可能更加复杂，这个简单的示例可以帮助理解基本的概念和操作。
