@@ -2690,10 +2690,72 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6_1" id="__nav_1_6_1_label" tabindex="0">
+          备份与恢复
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          备份与恢复
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Maintain/backup-restore/backup-restore-overview/" class="md-nav__link">
+        MatrixOne 备份与恢复概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Maintain/backup-restore/key-concepts/" class="md-nav__link">
+        备份与恢复相关概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../Maintain/backup-restore/modump-backup-restore/" class="md-nav__link">
-        备份与恢复
+        mo-dump 备份与恢复
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -9884,6 +9946,10 @@ May 07 11:48:06 VM-0-6-centos dockerd[5845]: time=&quot;2023-05-07T11:48:06.5692
 </li>
 <li>
 <p>点击<strong>导入</strong>后，选择<strong>加载资源包</strong>，选择合适的下载源，等待资源包下载完成。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>推荐您选择 Docker 作为用于 K8s 集群的容器引擎。选择 Docker 作为 K8s 的容器引擎后，Kuboard-Spray 会自动使用 Docker 来运行 K8s 集群的各个组件，包括 Master 节点和 Worker 节点上的容器。</p>
+</div>
 <p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-3.png" /></p>
 </li>
 <li>
@@ -10175,10 +10241,10 @@ spec:
         cpu: 200m
         memory: 1Gi
     config: |  # tn的配置
-      [tn.Txn.Storage]
+      [dn.Txn.Storage]
       backend = &quot;TAE&quot;
       log-backend = &quot;logservice&quot;
-      [tn.Ckp]
+      [dn.Ckp]
       flush-interval = &quot;60s&quot;
       min-count = 100
       scan-interval = &quot;5s&quot;
@@ -10342,7 +10408,7 @@ mysql&gt;
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

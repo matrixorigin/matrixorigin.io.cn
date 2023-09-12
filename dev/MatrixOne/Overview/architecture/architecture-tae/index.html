@@ -2525,10 +2525,72 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6_1" id="__nav_1_6_1_label" tabindex="0">
+          备份与恢复
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          备份与恢复
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintain/backup-restore/backup-restore-overview/" class="md-nav__link">
+        MatrixOne 备份与恢复概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintain/backup-restore/key-concepts/" class="md-nav__link">
+        备份与恢复相关概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../../Maintain/backup-restore/modump-backup-restore/" class="md-nav__link">
-        备份与恢复
+        mo-dump 备份与恢复
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -9356,7 +9418,7 @@
 </ul>
 <p>从索引粒度来看，TAE 可以分为两类：表级索引和段级索引。例如，可以有一个表级索引，或者每个段都有一个索引。由于 TAE 的表数据由多个段组成，每个段的数据都会经历从 L1 到 L3，从无序到有序的压缩/合并过程，这对表级索引不友好，因此，TAE 的索引建立在段级。</p>
 <p>在段级索引中，有两种类型的段，一种可以进行追加修改，另一种不可修改。对于不可修改的段，段级索引是一个包含 Bloomfilter 和 Zonemap 的两级结构。对于可追加修改的段，它至少由一个可追加的块和多个不可追加的块组成。可追加的块索引是一个常驻内存的 ART-tree（Adaptive Radix Tree）结构和 Zonemap，而不可追加的则是 Bloomfilter 和 Zonemap。</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/tae/index-metadata.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/Tae/index-metadata.png?raw=true" /></p>
 <h2 id="_5">缓存区管理</h2>
 <p>在稳定的存储引擎中，精细的内存管理离不开缓存区管理。虽然缓存区管理在理论上只是一个最近最少使用（LRU）缓存的概念，但数据库不会直接使用操作系统的页缓存（Page Cache）来代替缓存管理器，尤其是对于事务处理（TP）类型的数据库。</p>
 <p>在 MatrixOne 中，使用缓存管理器对内存缓冲区进行管理。每个缓冲区节点（buffer node）具有固定的大小，并分配给以下四个区域：</p>
@@ -9447,9 +9509,9 @@
 <p>TAE 通过采用多版本并发控制（MVCC）机制来保证事务的隔离性。每个事务都配备一个由事务启动时间决定的一致性读取视图（读视图），因此事务内部读取的数据永不会反映其他并发事务所做的修改。TAE 提供了细粒度的乐观并发控制，在对同一行和同一列进行更新操作时才可能发生冲突。事务使用的是在事务开始时已存在的值版本，并在读取数据时不对其进行加锁。当两个事务试图更新同一个值时，第二个事务会因为写-写冲突而失败。</p>
 <p>在 TAE 的架构中，一个表由多个段组成，每个段是多个事务共同产生的结果。因此，一个段可以表示为 <code>$[T{start}, T{end}]$</code>。<code>$[T{start}</code> 是最早事务的提交时间，<code>T{end}]$</code> 是最新事务的提交时间。为了能够压缩段并进行合并，我们需要在段的表示中增加一个维度以区分版本，即 <code>$([T{start} T{end}]</code>，<code>[T{create}, T{drop}])$</code>。<code>$T{create}$</code> 是段的创建时间，<code>$T{drop}$</code> 是段的删除时间。当 <code>$T{drop} = 0$</code> 时表示该段未被丢弃。块的表示方式与段 <code>$([T{start}, T{end}]</code>，<code>[T{create}, T{drop}])$</code> 相同。事务提交时，需要根据提交时间来获取它的读视图：<code>$(Txn{commit} \geqslant T{create})\bigcap（(T{drop}= 0)\bigcup（T{drop} &gt; Txn{commit}))$</code>。</p>
 <p>段的生成和变化由后台异步任务处理，为确保数据读取的一致性，TAE 将这些异步任务纳入到事务处理框架中，如下例所示：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/tae/segment.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/Tae/segment.png?raw=true" /></p>
 <p>L0 层的块 <code>$Block1 {L0}$</code> 在 <code>$t1$</code> 时创建，它包含了来自 <code>$Txn1</code>、<code>Txn2</code>、<code>Txn3</code>、<code>Txn4$</code> 的数据。<code>$Block1 {L0}$</code> 在 <code>$t11$</code> 开始排序，它的读视图是基线加上一个未提交的更新节点。排序和持久化块可能需要较长时间。在提交排序的 <code>$Block2 {L1}$</code> 之前，存在两个已提交事务 <code>$Txn5</code>、<code>Txn6$</code> 和一个未提交事务 <code>$Txn7$</code>。当 <code>$Txn7$</code> 在 <code>$t16$</code> 提交时，将失败，因为 <code>$Block1 {L0}$</code> 已经被终止。在 <code>$(t11, t16)$</code> 期间提交的更新节点 <code>$Txn5</code>、<code>Txn6$</code> 将被合并为一个新的更新节点，它将与 <code>$Block2 {L1}$</code> 在 <code>$t16$</code> 时一同提交。</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/tae/compaction.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/Tae/compaction.png?raw=true" /></p>
 <p>压缩过程会终止一系列块或段，并原子性地创建一个新的块或段（或建立索引）。与常规事务相比，此过程通常需要更长的时间，而我们不希望阻止涉及的块或段的更新或删除事务。因此，我们扩展了读视图，将块和段的元数据纳入其中。在提交常规事务时，一旦检测到写操作对应的块（或段）的元数据已更改（提交），该事务将失败。对于压缩事务，其写操作包括块（或段）的软删除和添加。在事务执行期间，每次写入操作都会检测是否存在写-写冲突。一旦冲突发生，事务将被提前终止。</p>
 <h2 id="mvcc">MVCC（多版本并发控制）</h2>
 <p>数据库的版本存储机制决定了系统如何保存不同版本的元组以及每个版本所包含的信息。TAE 创建了一个称为版本链的无锁链表，它基于数据元组的指针字段。版本链使得数据库能够准确地定位到所需元组的版本。因此，版本数据的存储机制是数据库存储引擎设计中的一个重要考虑因素。</p>
@@ -9458,7 +9520,7 @@
 <p>第三种方案是在主表中维护元组的主版本，并在单独的增量存储中维护一系列增量版本。在更新现有元组时，数据库从增量存储中获取一段连续的空间，用于创建一个新的增量版本，该增量版本仅包含被修改属性的原始值，而不是整个元组。然后数据库直接对主表中的主版本进行原地更新。</p>
 <p>以上各种方案都有其特点，并对它们在 OLTP 工作负载中的表现产生影响。对于 LSM 树来说，由于其天然的追加模式结构，因此更接近第一种方案。但是版本链的链表可能不会显现。</p>
 <p>TAE 目前选择了第三种方案的变体：</p>
-<p><img alt="" src="https://github.com/matrixorigin/artwork/blob/main/docs/tae/mvcc.png?raw=true" /></p>
+<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/Tae/mvcc.png?raw=true" /></p>
 <p>在大量更新的情况下，LSM 树结构的旧版本数据会导致大量的读放大。而 TAE 的版本链由缓冲区管理器维护，当需要被替换时，它会与主表数据合并，重新生成新的块。因此，在语义上，它是原地更新，但在实现上是写时复制，这对于云存储来说是必需的。重新生成的新块的读放大较少，这对于频繁更新后的 AP 查询更有利。</p>
 
 
@@ -9497,7 +9559,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
