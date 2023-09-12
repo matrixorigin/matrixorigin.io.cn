@@ -2550,10 +2550,72 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6_1" id="__nav_1_6_1_label" tabindex="0">
+          备份与恢复
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          备份与恢复
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Maintain/backup-restore/backup-restore-overview/" class="md-nav__link">
+        MatrixOne 备份与恢复概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Maintain/backup-restore/key-concepts/" class="md-nav__link">
+        备份与恢复相关概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../Maintain/backup-restore/modump-backup-restore/" class="md-nav__link">
-        备份与恢复
+        mo-dump 备份与恢复
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -9473,7 +9535,7 @@ MySQL [(none)]&gt; show databases;
 <li>
 <p>你可以通过以下命令查看当前 MatrixOne 部署的版本号：</p>
 <div class="highlight"><pre><span></span><code>[root@master0 matrixone-operator]# kubectl get matrixoneclusters -n mo-hn -o yaml | grep version
-        {&quot;apiVersion&quot;:&quot;core.matrixorigin.io/v1alpha1&quot;,&quot;kind&quot;:&quot;MatrixOneCluster&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;mo&quot;,&quot;namespace&quot;:&quot;mo-hn&quot;},&quot;spec&quot;:{&quot;tn&quot;:{&quot;cacheVolume&quot;:{&quot;size&quot;:&quot;5Gi&quot;,&quot;storageClassName&quot;:&quot;local-path&quot;},&quot;config&quot;:&quot;[tn.Txn.Storage]\nbackend = \&quot;TAE\&quot;\nlog-backend = \&quot;logservice\&quot;\n[tn.Ckp]\nflush-interval = \&quot;60s\&quot;\nmin-count = 100\nscan-interval = \&quot;5s\&quot;\nincremental-interval = \&quot;60s\&quot;\nglobal-interval = \&quot;100000s\&quot;\n[log]\nlevel = \&quot;error\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;replicas&quot;:1,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;1Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}}},&quot;imagePullPolicy&quot;:&quot;IfNotPresent&quot;,&quot;imageRepository&quot;:&quot;matrixorigin/matrixone&quot;,&quot;logService&quot;:{&quot;config&quot;:&quot;[log]\nlevel = \&quot;error\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;pvcRetentionPolicy&quot;:&quot;Retain&quot;,&quot;replicas&quot;:3,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;1Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}},&quot;sharedStorage&quot;:{&quot;s3&quot;:{&quot;endpoint&quot;:&quot;http://minio.mostorage:9000&quot;,&quot;path&quot;:&quot;minio-mo&quot;,&quot;secretRef&quot;:{&quot;name&quot;:&quot;minio&quot;},&quot;type&quot;:&quot;minio&quot;}},&quot;volume&quot;:{&quot;size&quot;:&quot;1Gi&quot;}},&quot;tp&quot;:{&quot;cacheVolume&quot;:{&quot;size&quot;:&quot;5Gi&quot;,&quot;storageClassName&quot;:&quot;local-path&quot;},&quot;config&quot;:&quot;[cn.Engine]\ntype = \&quot;distributed-tae\&quot;\n[log]\nlevel = \&quot;debug\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;nodePort&quot;:31429,&quot;replicas&quot;:1,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;2Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}},&quot;serviceType&quot;:&quot;NodePort&quot;},&quot;version&quot;:&quot;nightly-54b5e8c&quot;}}
+        {&quot;apiVersion&quot;:&quot;core.matrixorigin.io/v1alpha1&quot;,&quot;kind&quot;:&quot;MatrixOneCluster&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;mo&quot;,&quot;namespace&quot;:&quot;mo-hn&quot;},&quot;spec&quot;:{&quot;tn&quot;:{&quot;cacheVolume&quot;:{&quot;size&quot;:&quot;5Gi&quot;,&quot;storageClassName&quot;:&quot;local-path&quot;},&quot;config&quot;:&quot;[dn.Txn.Storage]\nbackend = \&quot;TAE\&quot;\nlog-backend = \&quot;logservice\&quot;\n[dn.Ckp]\nflush-interval = \&quot;60s\&quot;\nmin-count = 100\nscan-interval = \&quot;5s\&quot;\nincremental-interval = \&quot;60s\&quot;\nglobal-interval = \&quot;100000s\&quot;\n[log]\nlevel = \&quot;error\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;replicas&quot;:1,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;1Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}}},&quot;imagePullPolicy&quot;:&quot;IfNotPresent&quot;,&quot;imageRepository&quot;:&quot;matrixorigin/matrixone&quot;,&quot;logService&quot;:{&quot;config&quot;:&quot;[log]\nlevel = \&quot;error\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;pvcRetentionPolicy&quot;:&quot;Retain&quot;,&quot;replicas&quot;:3,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;1Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}},&quot;sharedStorage&quot;:{&quot;s3&quot;:{&quot;endpoint&quot;:&quot;http://minio.mostorage:9000&quot;,&quot;path&quot;:&quot;minio-mo&quot;,&quot;secretRef&quot;:{&quot;name&quot;:&quot;minio&quot;},&quot;type&quot;:&quot;minio&quot;}},&quot;volume&quot;:{&quot;size&quot;:&quot;1Gi&quot;}},&quot;tp&quot;:{&quot;cacheVolume&quot;:{&quot;size&quot;:&quot;5Gi&quot;,&quot;storageClassName&quot;:&quot;local-path&quot;},&quot;config&quot;:&quot;[cn.Engine]\ntype = \&quot;distributed-tae\&quot;\n[log]\nlevel = \&quot;debug\&quot;\nformat = \&quot;json\&quot;\nmax-size = 512\n&quot;,&quot;nodePort&quot;:31429,&quot;replicas&quot;:1,&quot;resources&quot;:{&quot;limits&quot;:{&quot;cpu&quot;:&quot;200m&quot;,&quot;memory&quot;:&quot;2Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;500Mi&quot;}},&quot;serviceType&quot;:&quot;NodePort&quot;},&quot;version&quot;:&quot;nightly-54b5e8c&quot;}}
     version: nightly-54b5e8c
 </code></pre></div>
 </li>
@@ -9571,7 +9633,7 @@ mo-tp-cn-0                            1/1     Running   0            111s
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
