@@ -535,6 +535,26 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `CHARACTER_SET_CLIENT`：创建视图时 `character_set_client` 系统变量的会话值。
 - `COLLATION_CONNECTION`：创建视图时，`collation_connection` 系统变量的会话值。
 
+### `STATISTICS` 表
+
+获取有关数据库表索引和统计信息的详细信息。例如，可以检查索引是否唯一，了解索引中的列顺序，以及估计索引中的唯一值数量。
+
+- `TABLE_CATALOG`：表的目录名称（始终为 'def'）。
+- `TABLE_SCHEMA`：表所属的数据库名称。
+- `TABLE_NAME`：表的名称。
+- `NON_UNIQUE`：指示索引是否允许重复值。如果为 0，则索引是唯一索引。
+- `INDEX_SCHEMA`：索引所属的数据库名称。
+- `INDEX_NAME`：索引的名称。
+- `SEQ_IN_INDEX`：列在索引中的位置。
+- `COLUMN_NAME`：列的名称。
+- `COLLATION`：列的排序规则。
+- `CARDINALITY`：索引中唯一值的数量估计。
+- `SUB_PART`：索引部分长度。对于整个列，该值为 NULL。
+- `PACKED`：指示是否使用压缩存储的值。
+- `NULLABLE`：指示列是否允许 NULL 值。
+- `INDEX_TYPE`：索引的类型（如 BTREE、HASH 等）。
+- `COMMENT`：索引的注释信息。
+
 ## `mysql` 数据库
 
 ### 授权系统表
