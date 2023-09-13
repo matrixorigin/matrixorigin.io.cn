@@ -8711,6 +8711,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#statistics" class="md-nav__link">
+    STATISTICS 表
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -9785,6 +9792,13 @@
           <li class="md-nav__item">
   <a href="#view" class="md-nav__link">
     VIEW 表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistics" class="md-nav__link">
+    STATISTICS 表
   </a>
   
 </li>
@@ -11355,6 +11369,25 @@
 <li><code>SECURITY_TYPE</code>：视图 <code>SQL SECURITY</code> 特性。值为 <code>DEFINER</code> 或 <code>INVOKER</code>。</li>
 <li><code>CHARACTER_SET_CLIENT</code>：创建视图时 <code>character_set_client</code> 系统变量的会话值。</li>
 <li><code>COLLATION_CONNECTION</code>：创建视图时，<code>collation_connection</code> 系统变量的会话值。</li>
+</ul>
+<h3 id="statistics"><code>STATISTICS</code> 表</h3>
+<p>获取有关数据库表索引和统计信息的详细信息。例如，可以检查索引是否唯一，了解索引中的列顺序，以及估计索引中的唯一值数量。</p>
+<ul>
+<li><code>TABLE_CATALOG</code>：表的目录名称（始终为 'def'）。</li>
+<li><code>TABLE_SCHEMA</code>：表所属的数据库名称。</li>
+<li><code>TABLE_NAME</code>：表的名称。</li>
+<li><code>NON_UNIQUE</code>：指示索引是否允许重复值。如果为 0，则索引是唯一索引。</li>
+<li><code>INDEX_SCHEMA</code>：索引所属的数据库名称。</li>
+<li><code>INDEX_NAME</code>：索引的名称。</li>
+<li><code>SEQ_IN_INDEX</code>：列在索引中的位置。</li>
+<li><code>COLUMN_NAME</code>：列的名称。</li>
+<li><code>COLLATION</code>：列的排序规则。</li>
+<li><code>CARDINALITY</code>：索引中唯一值的数量估计。</li>
+<li><code>SUB_PART</code>：索引部分长度。对于整个列，该值为 NULL。</li>
+<li><code>PACKED</code>：指示是否使用压缩存储的值。</li>
+<li><code>NULLABLE</code>：指示列是否允许 NULL 值。</li>
+<li><code>INDEX_TYPE</code>：索引的类型（如 BTREE、HASH 等）。</li>
+<li><code>COMMENT</code>：索引的注释信息。</li>
 </ul>
 <h2 id="mysql_1"><code>mysql</code> 数据库</h2>
 <h3 id="_1">授权系统表</h3>

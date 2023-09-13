@@ -1896,6 +1896,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    跨库事务行为示例
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9310,6 +9317,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    跨库事务行为示例
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9399,6 +9413,51 @@
 <span class="o">+</span><span class="c1">----------------+---------+</span>
 <span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="_3">跨库事务行为示例</h2>
+<p>MatrixOne 支持跨库事务行为，这里将以一个简单的示例进行说明。</p>
+<p>首先，让我们创建两个数据库（db1 和 db2）以及它们各自的表（table1 和 table2）：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 创建 db1 数据库</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">db1</span><span class="p">;</span>
+<span class="n">USE</span><span class="w"> </span><span class="n">db1</span><span class="p">;</span>
+
+<span class="c1">-- 创建 db1 中的表 table1</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">table1</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">field1</span><span class="w"> </span><span class="nb">INT</span>
+<span class="p">);</span>
+
+<span class="c1">-- 创建 db2 数据库</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">db2</span><span class="p">;</span>
+<span class="n">USE</span><span class="w"> </span><span class="n">db2</span><span class="p">;</span>
+
+<span class="c1">-- 创建 db2 中的表 table2</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">table2</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">field2</span><span class="w"> </span><span class="nb">INT</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>现在，我们已经创建了两个数据库和它们的表。接下来，我们将插入一些数据：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 在 db1 的 table1 中插入数据</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">table1</span><span class="w"> </span><span class="p">(</span><span class="n">field1</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+
+<span class="c1">-- 在 db2 的 table2 中插入数据</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">db2</span><span class="p">.</span><span class="n">table2</span><span class="w"> </span><span class="p">(</span><span class="n">field2</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">500</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">600</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>
+</code></pre></div>
+<p>现在，我们已经有了两个数据库中的数据。接下来，我们将执行一个跨库事务，同时修改这两个数据库中的数据：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 开始跨库事务</span>
+<span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+
+<span class="c1">-- 在 db1 中更新 table1 的数据</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">table1</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">field1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="c1">-- 在 db2 中更新 table2 的数据</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">db2</span><span class="p">.</span><span class="n">table2</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">field2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+
+<span class="c1">-- 提交跨库事务</span>
+<span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<p>在上面的跨库事务中，首先使用 <code>START TRANSACTION;</code> 开始事务，然后分别在 db1 和 db2 中更新了各自的表数据，最后使用 <code>COMMIT;</code> 提交事务。如果在事务期间任何一步失败，整个事务将回滚，以确保数据的一致性。</p>
+<p>这个示例展示了一个完整的跨库事务，在实际应用中，跨库事务可能更加复杂，这个简单的示例可以帮助理解基本的概念和操作。</p>
 
 
 

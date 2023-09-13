@@ -1912,6 +1912,13 @@
       
         <li class="md-nav__item">
   <a href="#matrixone_3" class="md-nav__link">
+    MatrixOne 支持跨数据库事务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrixone_4" class="md-nav__link">
     MatrixOne 的事务隔离级别
   </a>
   
@@ -9395,6 +9402,13 @@
       
         <li class="md-nav__item">
   <a href="#matrixone_3" class="md-nav__link">
+    MatrixOne 支持跨数据库事务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrixone_4" class="md-nav__link">
     MatrixOne 的事务隔离级别
   </a>
   
@@ -9456,7 +9470,11 @@
 <p>在乐观事务开始时，会假定事务相关的表处于一个不会发生写冲突的状态，把对数据的插入、修改或删除缓存在内存中，在这一阶段不会对数据加锁，而在数据提交时对相应的数据表或数据行上锁，在完成提交后解锁。</p>
 <h2 id="_4"><a href="../pessimistic-transaction/">悲观事务</a></h2>
 <p>MatrixOne 默认悲观事务。在悲观事务开始时，会假定事务相关的表处于一个会发生写冲突的状态，提前对相应的数据表或数据行上锁，完成上锁动作后，把对数据的插入、修改或删除缓存在内存中，在提交或回滚后，数据完成落盘并释放锁。</p>
-<h2 id="matrixone_3">MatrixOne 的事务隔离级别</h2>
+<h2 id="matrixone_3">MatrixOne 支持跨数据库事务</h2>
+<p>MatrixOne 提供了支持跨数据库的事务功能，允许一个事务同时访问和修改多个不同的数据库。</p>
+<p>在实际应用中，某些业务需求可能需要涉及多个数据库的操作，而跨数据库事务的出现正是为了满足这种需求。这种功能确保了不同数据库之间的操作能够保持一致性和隔离性，就像在单个数据库内执行操作一样。这意味着当您需要在多个数据库之间执行一系列操作时，可以将它们包装在一个事务中，以便在保持数据完整性和一致性的同时完成这些操作。</p>
+<p>跨数据库事务通常在复杂的企业应用场景中发挥关键作用。在这些场景中，不同的业务功能或部门可能使用不同的数据库，但它们需要协同工作以满足复杂的业务需求。MatrixOne 的支持跨数据库事务功能提高了系统的灵活性和可扩展性，但同时也需要谨慎的设计和管理，以确保数据得以保持完整性和一致性。</p>
+<h2 id="matrixone_4">MatrixOne 的事务隔离级别</h2>
 <p>MatrixOne 支持<strong>读已提交（Read Committed）</strong>和<strong>快照隔离</strong>两种隔离级别，默认隔离级别是<strong>读已提交（Read Committed）</strong>。</p>
 <h3 id="_5">读已提交</h3>
 <p>读已提交（Read Committed）是 MatrixOne 在 0.8 版本之后的默认隔离级别，也是 SQL 标准中的四个隔离级别之一。它最显著的特点是：</p>
