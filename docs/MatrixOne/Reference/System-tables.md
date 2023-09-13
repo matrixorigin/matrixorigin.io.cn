@@ -271,6 +271,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 以下表为 `metric` 表的视图：
 
 * `sql_statement_total` 表：执行 SQL 语句的计数器。
+* `sql_statement_hotspot` 表：记录了每分钟内各个租户执行的消耗时间最长的 SQL 查询。需要注意的是，只有那些执行时间未超过某个特定聚合阈值的 SQL 查询才会被纳入统计。
 * `sql_statement_errors` 表：执行错误的 SQL 语句的计数器。
 * `sql_transaction_total` 表：事务性 SQL 语句的计数器。
 * `sql_transaction_errors` 表：错误执行的事务性语句的计数器。
