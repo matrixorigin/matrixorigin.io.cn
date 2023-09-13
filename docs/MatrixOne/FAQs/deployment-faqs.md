@@ -167,11 +167,16 @@ ulimit -n 65536
 
 ### **我先在 main 分支构建了 MatrixOne，现在切换到其他版本再进行构建出现 panic**
 
-MatrixOne 版本 0.8.0 以及之前的版本之间的存储格式并不相互兼容。这意味着在执行 `make build` 后，系统会自动生成一个名为 *mo-data* 的数据目录文件，用于存放数据。
+当 MatrixOne 版本切换涉及到 0.8.0 之前的版本并且使用 `make build` 命令的时候可能会出现这个问题，这是 MatrixOne 数据存储格式升级造成的不兼容问题，但自 0.8.0 的版本开始会持续兼容。
 
-如果在未来你需要切换到其他分支并重新进行 `make build` 以构建 MatrixOne，可能会导致 panic 情况发生。在这种情况下，你需要先清理 *mo-data* 数据目录（即执行 `rm -rf mo-data` 命令），然后再重新构建 MatrixOne。
+!!! note
+    在这种情况下，我们强烈建议你重新[安装最新稳定版的 MatrixOne 版本](../../MatrixOne/Get-Started/install-standalone-matrixone.md)以实现后续的数据兼容，同时推荐使用 mo_ctl 工具进行快速构建和启动。
 
-参考代码示例：
+具体来说，在 MatrixOne 版本 0.8.0 之前时，执行 `make build` 后，系统会自动生成一个名为 *mo-data* 的数据目录文件，用于存放数据。如果你再切换到其他分支上并重新进行 `make build` 的时候，系统并不会自动删除 *mo-data* 数据目录，此时由于数据格式不兼容，可能会导致 panic 情况发生。
+
+为了解决这个问题，你需要先清理 *mo-data* 数据目录（即执行 `rm -rf mo-data` 命令），然后再重新构建 MatrixOne。
+
+以下参考代码示例使用较早的构建流程：
 
 ```
 [root ~]# cd matrixone  // 进入 matrixone 文件目录
@@ -183,11 +188,7 @@ MatrixOne 版本 0.8.0 以及之前的版本之间的存储格式并不相互兼
 [root ~]# rm -rf mo-data // 清理数据目录
 [root ~]# make build // 构建 matrixone
 ...    // 此处省略构建过程代码
-[root ~]# ./mo-service --daemon --launch ./etc/launch/launch.toml &> test.log &   // 在终端的后台启动 MatrixOne 服务
 ```
-
-!!! note
-    MatrixOne 0.8.0 版本兼容旧版本存储格式。如果你使用的是 0.8.0 版本或更高版本，执行切换至其他分支并构建时，则无需再清理数据文件目录。
 
 ### **我使用带 CN 标签的方式连 proxy，登录 MatrixOne 集群出现密码验证错误的提示**
 
