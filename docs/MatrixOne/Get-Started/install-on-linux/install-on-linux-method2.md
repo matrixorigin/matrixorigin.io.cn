@@ -93,7 +93,6 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      ```bash
      mkdir -p /root/matrixone & cd /root/
      wget https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc1/mo-v1.0.0-rc1-linux-x86_64.zip
-
      unzip -d matrixone/ mo-v1.0.0-rc1-linux-x86_64.zip
      ```
 
