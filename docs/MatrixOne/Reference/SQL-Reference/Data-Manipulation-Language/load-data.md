@@ -10,6 +10,8 @@
 
 ## **语法结构**
 
+### 加载外部数据
+
 ```
 > LOAD DATA [LOCAL]
     INFILE 'file_name'
@@ -31,7 +33,7 @@
 
 上述语法结构中的参数解释如下：
 
-### INFILE
+#### INFILE
 
 - `LOAD DATA INFILE 'file_name'`：
 
@@ -43,15 +45,7 @@
    **命令行使用场景**：需要加载的数据文件与 MatrixOne 主机服务器不在同一台机器上，即，数据文件在客户机上。
    `file_name` 可以是文件的存放位置的相对路径名称，也可以是绝对路径名称。
 
-### IGNORE LINES
-
-`IGNORE number LINES` 子句可用于忽略文件开头的行。例如，你可以使用 `IGNORE 1 LINES` 跳过包含列名的初始标题行：
-
-```
-LOAD DATA INFILE '/tmp/test.txt' INTO TABLE table1 IGNORE 1 LINES;
-```
-
-### FIELDS 和 LINES 参数说明
+#### FIELDS 和 LINES 参数说明
 
 使用 `FIELDS` 和 `LINES` 参数来指定如何处理数据格式。
 
@@ -144,7 +138,15 @@ something xxx"def",2
 
 则输出的结果行是 ("abc"，1) 和 ("def"，2)。文件中的第三行由于没有前缀，则被忽略。
 
-### SET
+#### IGNORE LINES
+
+`IGNORE number LINES` 子句可用于忽略文件开头的行。例如，你可以使用 `IGNORE 1 LINES` 跳过包含列名的初始标题行：
+
+```
+LOAD DATA INFILE '/tmp/test.txt' INTO TABLE table1 IGNORE 1 LINES;
+```
+
+#### SET
 
 MatrixOne 当前仅支持 `SET column_name=nullif(column_name,expr)`。即，当 `column_name = expr`，返回 `NULL`；否则，则返回 `column_name`。例如，`SET a=nullif(a, 1)`，当 a=1 时，返回 `NULL`；否则，返回 a 列原始的值。
 
@@ -188,7 +190,7 @@ MatrixOne 当前仅支持 `SET column_name=nullif(column_name,expr)`。即，当
     +------+-----------+------+
     ```
 
-### PARALLEL
+#### PARALLEL
 
 对于一个格式良好的大文件，例如 *JSONLines* 文件，或者一行数据中没有换行符的 *CSV* 文件，都可以使用 `PARALLEL` 对该文件进行并行加载，以加快加载速度。
 
@@ -211,6 +213,35 @@ load data infile 'file_name' into table tbl_name FIELDS TERMINATED BY '|' ENCLOS
     `[PARALLEL {'TRUE' | 'FALSE'}]` 内字段，当前仅支持 `TRUE` 或 `FALSE`，且大小写不敏感。
 
 __Note:__ `LOAD` 语句中如果不加 `PARALLEL` 字段，对于 *CSV* 文件，是默认关闭并行加载；对于 *JSONLines* 文件，默认开启并行加载。如果 *CSV* 文件中有行结束符，比如 '\n'，那么有可能会导致文件加载时数据出错。如果文件过大，建议从换行符为起止点手动拆分文件后再开启并行加载。
+
+### 加载时序数据
+
+```
+> LOAD DATA INLINE FORMAT='' DATA=''
+INTO TABLE tbl_name
+    [{FIELDS | COLUMNS}
+        [TERMINATED BY 'string']
+        [[OPTIONALLY] ENCLOSED BY 'char']
+    ]
+    [LINES
+        [STARTING BY 'string']
+        [TERMINATED BY 'string']
+    ]
+    [IGNORE number {LINES | ROWS}]
+```
+
+**参数解释**
+
+加载时序数据的 SQL 命令 `LOAD DATA INLINE` 参数解释如下：
+
+- `FORMAT`：指定了所加载的时序数据的格式，例如，`FORMAT='csv'` 表示加载的数据采用 CSV 格式。它所支持的格式与 `LOAD DATA INFILE` 支持的格式一致。
+
+- `DATA`：指定了要加载的时序数据本身。在示例中，`DATA='1\n2\n'` 表示要加载的数据是两行，分别包含数字 1 和 2。
+
+!!! note
+    `FIELDS`、`COLUMNS`、`TERMINATED BY`、`ENCLOSED BY`、`LINES`、`STARTING BY`、`IGNORE` 这些参数可以参照上文 `LOAD DATA INFILE` 的参数解释。
+
+加载时序数据的示例命令：`load data inline format='csv', data='1\n2\n' into table t1;`，它是将指定的 CSV 格式的数据（包括两行，分别是 1 和 2）加载到名为 `t1` 的数据库表中。
 
 ## 支持的文件格式
 
