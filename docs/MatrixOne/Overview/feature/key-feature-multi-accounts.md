@@ -68,7 +68,7 @@ MatrixOne 的多租户能力可在以下多个应用场景中体现优势。
 
 MatrixOne 的多租户能力带来了全新的架构方式。租户仍然共享一个 MatrixOne 集群，并且可以通过系统租户进行统一的租户运维和管理。另外，通过自带的多租户能力实现数据及资源的隔离，同时每个租户可以独立进行资源扩缩容，进一步降低运维难度。这种方式不仅满足对隔离性的需求，还能满足低资源和运维成本的需求。
 
-![MatrixOne Architecture](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/mo-account-arch.png)
+<img width="1205" height="1686" style="max-width: min(100%, 16rem); display: block; margin: auto;" alt="mo-account-arch" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/mo-account-arch.png" >
 
 |多租户模式|数据隔离程度|资源成本|资源隔离程度|运维复杂度|
 |---|---|---|---|---|
