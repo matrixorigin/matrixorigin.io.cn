@@ -53,16 +53,9 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
 ## 通过 Navicat 连接 MatrixOne 服务
 
-1. 打开一个新的终端窗口，输入以下命令，启动 MatrixOne：
+1. 下载安装 [Navicat](https://www.navicat.com/en/products)。
 
-    ```
-    #Launch MatrixOne (Source code method)
-    ./mo-service -launch ./etc/launch/launch.toml
-    ```
-
-2. 下载安装 [Navicat](https://www.navicat.com/en/products)。
-
-3. 安装 Navicat 完成后，打开 Navicat，点击左上角 **Connection > MySQL**，在弹窗中填入如下参数：
+2. 安装 Navicat 完成后，打开 Navicat，点击左上角 **Connection > MySQL**，在弹窗中填入如下参数：
 
     - **Connction Name**: MatrixOne
     - **Host**: 127.0.0.1
@@ -71,13 +64,13 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
     - **Password**: 111
     - **Save password**：勾选
 
-4. 点击 **Save** 保存设置。
+3. 点击 **Save** 保存设置。
 
     ![navicat_config](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/navicat-config.png)
 
-5. 双击左侧数据库目录中的 **MatrixOne**，图标点亮，连接成功。
+4. 双击左侧数据库目录中的 **MatrixOne**，图标点亮，连接成功。
 
-6. 连接到 MatrixOne 后，在左侧数据库目录栏，你将看到 6 个默认系统数据库：
+5. 连接到 MatrixOne 后，在左侧数据库目录栏，你将看到 6 个默认系统数据库：
 
     <img src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/navicat-databases.png"  style="zoom: 60%;" />
 
