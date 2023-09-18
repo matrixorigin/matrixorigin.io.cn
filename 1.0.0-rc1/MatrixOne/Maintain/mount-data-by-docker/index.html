@@ -9328,24 +9328,18 @@
 
 <h1 id="docker">挂载目录到 Docker 容器</h1>
 <p>本篇文档将指导你在使用 Docker 启动 MatrixOne 的情况下，如何挂载<em>数据目录</em>或<em>自定义配置文件</em>到 Docker 容器。</p>
+<p>需要注意的是，Docker 不能对已经启动过的容器进行挂载，若想要挂载数据目录则需要重新创建一个 Docker 容器。</p>
 <h2 id="_1">挂载数据目录</h2>
-<p>为了保证数据目录安全不丢失，参考以下详细步骤，挂载本地数据目录到 Docker 容器：</p>
+<p>参考以下详细步骤，挂载本地数据目录到 Docker 容器：</p>
 <ol>
 <li>
-<p>检查 Docker 内是否已经启动 MatrixOne：</p>
-<div class="highlight"><pre><span></span><code>docker ps -a
+<p>在本地创建一个<strong>空目录</strong> <em>${local_data_path}/mo-data</em>，其中 <em>${local_data_path}</em> 为你的本地文件夹路径。命令示例如下：</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span><span class="si">${</span><span class="nv">local_data_path</span><span class="si">}</span>/mo-data
 </code></pre></div>
 </li>
 <li>
-<p>如果 Docker 内有正在运行的 MatrixOne，需要先停止：</p>
-<div class="highlight"><pre><span></span><code>docker stop &lt;containerID&gt;
-docker rm &lt;containerID&gt;
-</code></pre></div>
-<p>如果没有正在运行的 MatrxiOne，请忽略这一步。</p>
-</li>
-<li>
-<p>把本地<strong>空目录</strong>挂载到 Docker 容器目录 <em>/mo-data</em> 下，命令示例如下：</p>
-<div class="highlight"><pre><span></span><code>sudo docker run --name &lt;name&gt; --privileged -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:1.0.0-rc1
+<p>把本地<strong>空目录</strong> <em>${local_data_path}/mo-data</em> 挂载到 Docker 容器目录 <em>/mo-data</em> 下，命令示例如下：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">local_data_path</span><span class="si">}</span>/mo-data:/mo-data:rw<span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
 </code></pre></div>
 <table>
 <thead>
@@ -9367,33 +9361,28 @@ docker rm &lt;containerID&gt;
 <p>如果你需要修改启动配置文件，建议你先将 Docker 内的启动配置文件拷贝到你本地目录，然后将存放配置文件的本地目录挂载到 Docker 容器目录下，参考以下详细步骤，挂载配置文件到 Docker 容器：</p>
 <ol>
 <li>
-<p>检查 Docker 内是否已经启动 MatrixOne：</p>
-<div class="highlight"><pre><span></span><code>docker ps -a
+<p>首先启动一个 MatrixOne 的容器实例，这个容器实例将提供一套标准的启动配置文件：</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w">  </span>matrixorigin/matrixone:1.0.0-rc1
 </code></pre></div>
 </li>
 <li>
-<p>如果 Docker 内还没有正在运行的 MatrixOne，请先启动：</p>
-<div class="highlight"><pre><span></span><code>docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:1.0.0-rc1
+<p>查看 Docker 已经启动的 MatrixOne 的 containerID，并将配置文件目录拷贝到本地目录的 <em>${local_config_path}</em> 目录下：</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps
+docker<span class="w"> </span>cp<span class="w"> </span>&lt;containerID&gt;:/etc/launch<span class="w"> </span><span class="si">${</span><span class="nv">local_config_path</span><span class="si">}</span>
 </code></pre></div>
 </li>
 <li>
-<p>查看 Docker 已经启动 MatrixOne 的 containerID，并将配置文件目录拷贝到本地目录内：</p>
-<div class="highlight"><pre><span></span><code>docker ps -a
-docker cp &lt;containerID&gt;:/etc .
+<p>拷贝完成后，关停并销毁当前的 MatrixOne：</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>stop<span class="w"> </span>&lt;containerID&gt;
+docker<span class="w"> </span>rm<span class="w"> </span>&lt;containerID&gt;
 </code></pre></div>
 </li>
 <li>
-<p>拷贝完成后，关停当前的 MatrixOne：</p>
-<div class="highlight"><pre><span></span><code>docker stop &lt;containerID&gt;
-docker rm &lt;containerID&gt;
-</code></pre></div>
+<p>（选做）若需要修改启动配置文件，则修改本地目录 <em>${local_config_path}/launch</em> 下的配置文件并保存。</p>
 </li>
 <li>
-<p>（选做）修改本地配置文件并保存。</p>
-</li>
-<li>
-<p>挂载配置文件到 Docker 容器目录，同时启动 MatrixOne，挂载命令示例如下：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>--privileged<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">local_config_path</span><span class="si">}</span>/etc:/etc:rw<span class="w">  </span>--entrypoint<span class="w"> </span><span class="s2">&quot;/mo-service&quot;</span><span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1<span class="w"> </span>-launch<span class="w"> </span>/etc/launch/launch.toml
+<p>挂载配置文件到 Docker 容器目录，同时创建并启动 MatrixOne，挂载命令示例如下：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">local_config_path</span><span class="si">}</span>/launch:/etc/launch:rw<span class="w">  </span>--entrypoint<span class="w"> </span><span class="s2">&quot;/mo-service&quot;</span><span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1<span class="w"> </span>-launch<span class="w"> </span>/etc/launch/launch.toml
 </code></pre></div>
 <table>
 <thead>
@@ -9404,21 +9393,27 @@ docker rm &lt;containerID&gt;
 </thead>
 <tbody>
 <tr>
-<td>${local_config_path}/etc:/etc</td>
-<td>挂载本地配置文件目录 <em>${local_config_path}/etc</em> 到容器 <em>/etc</em> 文件夹</td>
+<td>${local_config_path}/launch:/etc/launch</td>
+<td>挂载本地配置文件目录 <em>${local_config_path}/launch</em> 到容器 <em>/etc/launch</em> 文件夹</td>
 </tr>
 <tr>
 <td>--entrypoint "/mo-service"</td>
-<td>指定容器启动 MatrixOne 服务</td>
+<td>容器入口命令，即让容器启动 MatrixOne 服务</td>
 </tr>
 <tr>
 <td>-launch /etc/launch/launch.toml</td>
-<td>启动 <em>/etc/</em> 中的 MatrixOne 启动配置文件</td>
+<td>容器入口命令对应的命令参数，即使用容器内 <em>/etc/launch/launch.toml</em> 启动配置文件启动 MatrixOne 服务</td>
 </tr>
 </tbody>
 </table>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note<p>若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 <code>docker run</code> 命令中加上参数 <code>--privileged=true</code>，如：</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
+</code></pre></div>
+</p>
+</div>
 <p>更多关于 <em>Docker run</em> 的指令释义，运行命令 <code>docker run --help</code> 进行查看。</p>
 
 
