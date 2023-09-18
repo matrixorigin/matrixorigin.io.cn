@@ -10,6 +10,7 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
+    - navigation.footer
   palette:
     scheme: mo
   font:
