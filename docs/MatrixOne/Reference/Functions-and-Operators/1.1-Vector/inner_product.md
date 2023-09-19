@@ -4,7 +4,7 @@
 
 `INNER PRODUCT` 函数用于计算两个向量之间的内积/点积，它是两个向量的对应元素相乘然后相加的结果。
 
-![inner_product](https://github.com/matrixorigin/artwork/blob/main/docs/reference/vector/inner_product.png?raw=true)
+![inner_product](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/vector/inner_product.png?raw=true)
 
 ## **函数语法**
 
