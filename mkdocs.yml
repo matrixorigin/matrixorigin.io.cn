@@ -145,6 +145,14 @@ nav:
         - SQLAlchemy 基础示例: MatrixOne/Tutorial/sqlalchemy-python-crud-demo.md
         - Golang 基础示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
         - Gorm 基础示例: MatrixOne/Tutorial/gorm-golang-crud-demo.md
+      - 生态工具:
+        - BI:
+          - 通过 FineBI 实现 MatrixOne 的可视化报表: MatrixOne/Develop/Ecological-Tools/BI-Connection/FineBI-connection.md
+          - 通过永洪 BI 实现 MatrixOne 的可视化报表: MatrixOne/Develop/Ecological-Tools/BI-Connection/yonghong-connection.md
+          - 通过 Superset 实现 MatrixOne 可视化监控: MatrixOne/Develop/Ecological-Tools/BI-Connection/Superset-connection.md
+        - 计算引擎:
+          - 使用 SeaTunnel 将数据写入 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/seatunnel-write.md
+          - 使用 DataX 将数据写入 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/DataX-write.md
     - 部署指南:
       - 集群拓扑规划:
         - 集群拓扑规划概述: MatrixOne/Deploy/deployment-topology/topology-overview.md

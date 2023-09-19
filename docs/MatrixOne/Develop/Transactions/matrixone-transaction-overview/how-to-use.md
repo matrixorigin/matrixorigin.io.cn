@@ -80,4 +80,4 @@ __Note:__ 如果你只添加事务模式参数 `mode = "optimistic"`，但未添
 
 重启 MatrixOne，便能使切换后的事务模式生效。
 
-更多关于配置参数信息，参见[分布式版通用参数配置](../../Reference/System-Parameters/distributed-configuration-settings.md)。
+更多关于配置参数信息，参见[分布式版通用参数配置](../../../Reference/System-Parameters/distributed-configuration-settings.md)。
