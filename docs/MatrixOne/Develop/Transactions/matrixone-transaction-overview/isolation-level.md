@@ -112,7 +112,7 @@ SELECT * FROM t1;
 
 ## 快照隔离
 
-在 MatrixOne 中，也支持快照隔离（Snapshot Isolation），为了与 MySQL 隔离级别保持一致，MatixOne 快照隔离又叫做可重复读（REPEATABLE READS）。该级别的隔离实现原理如下：
+在 MatrixOne 中，也支持快照隔离（Snapshot Isolation），为了与 MySQL 隔离级别保持一致，MatrixOne 快照隔离又叫做可重复读（REPEATABLE READS）。该级别的隔离实现原理如下：
 
 ### 快照隔离原理
 
