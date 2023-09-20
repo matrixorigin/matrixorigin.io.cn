@@ -52,7 +52,7 @@ If in the `make config` or `make build` step, there is any timeout or downloadin
 $ go env -w GOPROXY=<https://goproxy.cn,direct>
 ```
 
-While notified `"Server Listening on : 0.0.0.0:6001"`, it means your MatirxOne is started.
+While notified `"Server Listening on : 0.0.0.0:6001"`, it means your MatrixOne is started.
 
 ### 4. Access MatrixOne database
 
@@ -219,7 +219,7 @@ column_designator:
     column_index
 ```
 
-The `VALUES` statement consists of the `VALUES` keyword followed by a list of one or more row constructors, separated by commas. A row constructor consists of the `ROW()` row constructor clause with a value list of one or more scalar values enclosed in the parentheses. A value can be a literal of any MatirxOne data type or an expression that resolves to a scalar value.
+The `VALUES` statement consists of the `VALUES` keyword followed by a list of one or more row constructors, separated by commas. A row constructor consists of the `ROW()` row constructor clause with a value list of one or more scalar values enclosed in the parentheses. A value can be a literal of any MatrixOne data type or an expression that resolves to a scalar value.
 `ROW()` cannot be empty (but each of the supplied scalar values can be NULL). Each `ROW()` in the same `VALUES` statement must have the same number of values in its value list.
 The `DEFAULT` keyword is not supported by `VALUES` and causes a syntax error, except when it is used to supply values in an INSERT statement.
 The output of `VALUES` is a table:
