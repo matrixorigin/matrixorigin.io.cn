@@ -9470,13 +9470,20 @@
       
         <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    限制
+    最佳实践
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
+    限制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     参考文档
   </a>
   
@@ -9507,19 +9514,16 @@
 <p>数据库拥有向量能力意味着数据库系统具备存储、查询和分析向量数据的能力。这些向量通常与复杂的数据分析、机器学习和数据挖掘任务相关。以下是数据库拥有向量能力的一些优点：</p>
 <ul>
 <li>
-<p><strong>支持多种应用领域：</strong>向量能力使数据库适用于多种应用领域，包括人脸识别、推荐系统和基因组学分析等。</p>
+<p><strong>生成式 AI 应用程序</strong>：这些数据库可以作为生成式 AI 应用程序的后端，使它们能够根据用户提供的查询获取最近邻结果，提高输出质量和相关性。</p>
 </li>
 <li>
-<p><strong>高性能分析：</strong>数据库可以通过针对向量数据的高性能查询和分析操作来加速复杂的数据分析任务。这对于大规模数据集和实时数据处理至关重要。</p>
+<p><strong>高级对象识别</strong>：它们对于开发识别不同数据集之间相似性的高级对象识别平台是无价的。这在抄袭检测、面部识别和 DNA 匹配等领域都有实际应用。</p>
 </li>
 <li>
-<p><strong>相似性搜索：</strong>向量能力允许数据库执行相似性搜索操作，例如查找最接近给定向量的数据库中的向量。这在推荐系统和搜索引擎等应用中非常有用。</p>
+<p><strong>个性化推荐系统</strong>：矢量数据库可以通过整合用户偏好和选择来增强推荐系统。这将带来更准确、更有针对性的推荐，从而改善用户体验和参与度。</p>
 </li>
 <li>
-<p><strong>维度灵活性：</strong>向量能力通常支持不同维度的向量，使数据库可以处理各种数据类型和特征。</p>
-</li>
-<li>
-<p><strong>机器学习集成：</strong>数据库支持向量存储和查询，可以与机器学习模型集成，使模型的训练和推断更加高效和便捷。</p>
+<p><strong>异常检测</strong>：向量数据库可以用来存储代表正常行为的特征向量。然后可以通过比较输入向量和存储向量来检测异常。这在网络安全和工业质量控制中很有用。</p>
 </li>
 </ul>
 <h2 id="_4">开始前准备</h2>
@@ -9581,7 +9585,7 @@
 <span class="p">);</span>
 
 <span class="c1">-- 插入一些示例数据</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;[1,2,3]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;[4,5,6]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;[2,1,1]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;[7,8,9]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;[0,0,0]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[1,2,3]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[4,5,6]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[2,1,1]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[7,8,9]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[0,0,0]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">);</span>
 
 <span class="c1">-- 使用l1_distance进行Top K查询</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">l1_norm</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
@@ -9636,14 +9640,42 @@
 <span class="o">+</span><span class="c1">------+-----------+</span>
 <span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
-<p>这些查询演示了如何使用不同的距离度量和相似度度量来检索与给定向量 <code>[3,1,2]</code> 最相似的前 5 个向量。在这里，<code>l1_distance</code> 和 <code>l2_distance</code> 分别表示 L1 距离和 L2 距离，<code>cosine_similarity</code> 表示余弦相似度，<code>cosine_distance</code> 表示余弦距离。通过这些查询，你可以根据不同的度量标准找到与目标向量最匹配的数据。</p>
-<h2 id="_9">限制</h2>
+<p>这些查询演示了如何使用不同的距离度量和相似度度量来检索与给定向量 <code>[3,1,2]</code> 最相似的前 5 个向量。通过这些查询，你可以根据不同的度量标准找到与目标向量最匹配的数据。</p>
+<h2 id="_9">最佳实践</h2>
+<ul>
+<li>
+<p><strong>向量类型转换</strong>：在将向量从一种类型转换为另一种类型时，建议同时指定维度。例如：</p>
+<div class="highlight"><pre><span></span><code>SELECT b + CAST(&quot;[1,2,3]&quot; AS vecf32(3)) FROM t1;
+</code></pre></div>
+<p>这种做法确保了向量类型转换的准确性和一致性。</p>
+</li>
+<li>
+<p><strong>使用二进制格式</strong>：为了提高整体插入性能，考虑使用二进制格式而不是文本格式。在转换为十六进制编码之前，确保数组采用小端序格式。以下是示例 Python 代码：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">binascii</span>
+
+<span class="c1"># &#39;value&#39; 是一个 NumPy 对象</span>
+<span class="k">def</span> <span class="nf">to_binary</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="c1"># 小端序浮点数组</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;&lt;f&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;期望 ndim 为 1&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">binascii</span><span class="o">.</span><span class="n">b2a_hex</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<p>这种方法可以显著提高数据插入的效率。</p>
+</li>
+</ul>
+<h2 id="_10">限制</h2>
 <ul>
 <li>目前，MatrixOne 向量类型支持 float32 和 float64 类型。</li>
 <li>向量不能作为主键或唯一键。</li>
 <li>向量的最大维度为 65536。</li>
 </ul>
-<h2 id="_10">参考文档</h2>
+<h2 id="_11">参考文档</h2>
 <p>更多关于向量函数的文档，参见：</p>
 <ul>
 <li><a href="../../../Reference/Functions-and-Operators/1.1-Vector/inner_product/">inner_product()</a></li>
