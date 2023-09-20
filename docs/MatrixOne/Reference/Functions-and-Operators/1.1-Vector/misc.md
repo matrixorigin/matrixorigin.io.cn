@@ -66,14 +66,14 @@ mysql> select sqrt(b) from vec_table;
 ```sql
 drop table if exists vec_table;
 create table vec_table(a int, b vecf32(3), c vecf64(3));
-insert into vec_table values(1, "[1,2,3]", "[4,5,6]");
-mysql> select * from vec_table;
-+------+-----------+-----------+
-| a    | b         | c         |
-+------+-----------+-----------+
-|    1 | [1, 2, 3] | [4, 5, 6] |
-+------+-----------+-----------+
-1 row in set (0.00 sec)
+insert into vec_table values(1, "[-1,-2,3]", "[4,5,6]");
+  mysql> select * from vec_table;
+  +------+-------------+-----------+
+  | a    | b           | c         |
+  +------+-------------+-----------+
+  |    1 | [-1, -2, 3] | [4, 5, 6] |
+  +------+-------------+-----------+
+  1 row in set (0.00 sec)
 
 mysql> select abs(b) from vec_table;
 +-----------+
@@ -119,12 +119,12 @@ mysql> select * from vec_table;
 +------+-----------+-----------+
 1 row in set (0.00 sec)
 
-mysql> select abs(cast("[-1,-2,3]" as vecf32(3)));
-+-----------------------------------+
-| abs(cast([-1,-2,3] as vecf32(3))) |
-+-----------------------------------+
-| [1, 2, 3]                         |
-+-----------------------------------+
+mysql> select b + cast("[1,2,3]" as vecf32(3)) from vec_table;
++--------------------------------+
+| b + cast([1,2,3] as vecf32(3)) |
++--------------------------------+
+| [2, 4, 6]                      |
++--------------------------------+
 1 row in set (0.00 sec)
 ```
 
