@@ -4,7 +4,7 @@
 
 `l1_norm` 函数用于计算 `l1`/曼哈顿/TaxiCab 范数。`l1` 范数通过对向量元素的绝对值求和得到。
 
-![l1_normy](https://github.com/matrixorigin/artwork/blob/main/docs/reference/vector/l1_norm.png?raw=true)
+![l1_normy](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/vector/l1_norm.png?raw=true)
 
 你可以使用 `l1` 范数来计算 `l1` 距离。
 
