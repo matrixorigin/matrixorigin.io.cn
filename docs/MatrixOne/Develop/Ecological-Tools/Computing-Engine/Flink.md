@@ -769,7 +769,7 @@ public class Kafka2Mo {
 }
 ```
 
-代码编写完成后，你可以运行 Flink 任务，即在 IDEA 中选择` Kafka2Mo.java` 文件，然后执行 `Kafka2Mo.Main()`。
+代码编写完成后，你可以运行 Flink 任务，即在 IDEA 中选择 `Kafka2Mo.java` 文件，然后执行 `Kafka2Mo.Main()`。
 
 ### 步骤四：生成数据
 
