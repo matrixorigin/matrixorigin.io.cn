@@ -32,7 +32,7 @@ MatrixOne 1.0 版本现在支持与数据可视化工具 Superset 集成。本�
 
 #### 安装 MatrixOne
 
-你可以参照 [macOS 环境下使用 Docker 部署 MatirxOne](../../../Get-Started/install-on-macos/install-on-macos-method3.md) 或 [Linux 环境下使用 Docker 部署 MatirxOne](../../../Get-Started/install-on-linux/install-on-linux-method3.md) 进行安装并启动 MatirxOne.
+你可以参照 [macOS 环境下使用 Docker 部署 MatrixOne](../../../Get-Started/install-on-macos/install-on-macos-method3.md) 或 [Linux 环境下使用 Docker 部署 MatrixOne](../../../Get-Started/install-on-linux/install-on-linux-method3.md) 进行安装并启动 MatrixOne.
 
 #### 安装 Superset
 
