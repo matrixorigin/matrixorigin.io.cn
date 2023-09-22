@@ -153,6 +153,9 @@ nav:
         - ETL 工具:
           - 使用 SeaTunnel 将数据写入 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/seatunnel-write.md
           - 使用 DataX 将数据写入 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/DataX-write.md
+        - 计算引擎:
+          - 使用 Spark 将批量数据写入 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Spark.md
+          - 使用 Flink 将实时数据写入 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink.md
         - 调度工具:
           - 使用 DolphinScheduler 连接 MatrixOne: MatrixOne/Develop/Ecological-Tools/Scheduling-Tools/dolphinScheduler.md
     - 部署指南:
