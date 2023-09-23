@@ -42,7 +42,7 @@ MinIO 自带了一个管理界面，通过该界面我们可以以可视化的�
 2. 根据上述返回结果，使用以下命令来查看特定节点的资源使用情况。根据之前的部署方案，可以查看到 MatrixOne 集群位于名为 node0 的节点上：
 
     ```
-    NODE="[待监控节点]" # 根据上述结果，有可能是ip、也可能是主机名、或者别名，例如10.0.0.1、host-10-0-0-1、node01
+    NODE="[待监控节点]" # 根据上述结果，有可能是 ip、也可能是主机名、或者别名，例如 10.0.0.1、host-10-0-0-1、node01
     kubectl top node ${NODE}
     ```
 
@@ -251,7 +251,7 @@ Events:              <none>
 2. 根据上述返回结果，使用以下命令来查看特定 Pod 的资源使用情况：
 
     ```
-    POD="[待监控pod名称]" # 根据上述结果，例如：tn为mo-tn-0，cn为mo-tp-cn-0、mo-tp-cn-1、...，logservice为mo-log-0、mo-log-1、...
+    POD="[待监控 pod 名称]" # 根据上述结果，例如：tn 为 mo-tn-0，cn 为 mo-tp-cn-0、mo-tp-cn-1、...，logservice 为 mo-log-0、mo-log-1、...
     kubectl top pod ${POD} -n${NS}
     ```
 

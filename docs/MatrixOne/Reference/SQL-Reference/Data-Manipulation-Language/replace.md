@@ -89,7 +89,7 @@ mysql> select * from names;
 +------+------+------+
 1 row in set (0.00 sec)
 
--- 使用 replace 语句更新 id=1 的记录的 name 和 age 列的值为"Bob"和25
+-- 使用 replace 语句更新 id=1 的记录的 name 和 age 列的值为"Bob"和 25
 replace into names(id, name, age) values(1,"Bobby", 25);
 
 mysql> select name, age from names where id = 1;

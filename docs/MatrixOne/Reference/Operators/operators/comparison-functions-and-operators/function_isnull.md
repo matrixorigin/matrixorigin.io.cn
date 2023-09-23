@@ -35,7 +35,7 @@ CREATE TABLE students (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50) NOT N
 
 INSERT INTO students (name, birth_date) VALUES ('John Doe', '2000-05-15'), ('Alice Smith', NULL), ('Bob Johnson', '1999-10-20');
 
--- 使用ISNULL()函数查找没有填写出生日期的学生：
+-- 使用 ISNULL() 函数查找没有填写出生日期的学生：
 mysql> SELECT * FROM students WHERE ISNULL(birth_date);
 +------+-------------+------------+
 | id   | name        | birth_date |
@@ -44,7 +44,7 @@ mysql> SELECT * FROM students WHERE ISNULL(birth_date);
 +------+-------------+------------+
 1 row in set (0.00 sec)
 
--- ISNULL()函数也可以用IS NULL来实现相同的功能，所以以下查询也是等效的：
+-- ISNULL() 函数也可以用 IS NULL 来实现相同的功能，所以以下查询也是等效的：
 mysql> SELECT * FROM students WHERE birth_date IS NULL;
 +------+-------------+------------+
 | id   | name        | birth_date |

@@ -82,13 +82,13 @@ MatrixOne 1.0 版本现在支持与数据可视化工具 Superset 集成。本�
 
 1. 访问 Superset 的登录页面，通常是 `http://ip:8080`，然后输入您的用户名和密码，登录 Superset。
 
-    ![Superset登录页面](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/bi-connection/superset/superset-login.png)
+    ![Superset 登录页面](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/bi-connection/superset/superset-login.png)
 
     __Note:__ Superset 的端口可能是 8080 或 8088，具体取决于您的配置；用户名和密码是您在部署 Superset 时设置的。
 
     登录后，您将看到 Superset 的主界面。
 
-    ![Superset主界面](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/bi-connection/superset/superset-dashboard.png)
+    ![Superset 主界面](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/bi-connection/superset/superset-dashboard.png)
 
 2. 创建数据库连接：
 
