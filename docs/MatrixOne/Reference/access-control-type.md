@@ -32,7 +32,7 @@ MatrixOne 的访问控制权限分为**系统权限**和**对象权限**，在�
 |CREATE DATABASE|创建数据库|
 |DROP DATABASE|删除数据库|
 |SHOW DATABASES|查看当前租户下所有数据库|
-|CONNECT|允许使用 `use [database | role]`，可执行不涉及具体对象的`SELECT`|
+|CONNECT|允许使用 `use [database | role]`，可执行不涉及具体对象的 `SELECT`|
 |MANAGE GRANTS|权限管理。包括角色授权、角色继承的权限|
 |ALL [PRIVILEGES]|Account 的所有权限|
 |OWNERSHIP|Account 的所有权限，可以通过 `WITH GRANT OPTION` 设置权限|

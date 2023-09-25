@@ -21,7 +21,7 @@ SELECT * FROM table ORDER BY RAND();
 
 |  参数   | 说明  |
 |  ----  | ----  |
-| seed | 可选参数。是一个整数值，用于指定生成随机数时的种子值。如果不指定 `seed` 参数，则默认以当前时间为种子值。返回值类型与输入类型保持一致。<br> MatrixOne 暂不支持指定种子值。 |
+| seed | 可选参数。是一个整数值，用于指定生成随机数时的种子值。如果不指定 `seed` 参数，则默认以当前时间为种子值。 返回值类型与输入类型保持一致。<br> MatrixOne 暂不支持指定种子值。 |
 
 ## **示例**
 
@@ -51,12 +51,12 @@ INSERT INTO Users (UserName, Email) VALUES
     ('Alice', 'alice@example.com'),
     ('Bob', 'bob@example.com');
 
--- 从 Users 表中随机选择一个用户的信息
+-- 从Users表中随机选择一个用户的信息
 mysql> SELECT * FROM Users ORDER BY RAND() LIMIT 1;
 +------+----------+-----------------+
 | id   | username | email           |
 +------+----------+-----------------+
-|    4 | Bob      | bob@example.com | -- Bob 的信息被随机选中
+|    4 | Bob      | bob@example.com | -- Bob的信息被随机选中
 +------+----------+-----------------+
 1 row in set (0.01 sec)
 
@@ -65,7 +65,7 @@ mysql> SELECT * FROM Users  ORDER BY RAND() LIMIT 1;
 +------+----------+-------------------+
 | id   | username | email             |
 +------+----------+-------------------+
-|    3 | Alice    | alice@example.com | -- Alice 的信息被随机选中
+|    3 | Alice    | alice@example.com | -- Alice的信息被随机选中
 +------+----------+-------------------+
 1 row in set (0.01 sec)
 ```

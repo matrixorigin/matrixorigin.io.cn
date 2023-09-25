@@ -43,7 +43,7 @@ MatrixOne 默认悲观事务。
 
 2. 在下午 1:01，用户 2 从数据库中读取同一行。
 
-3. 在下午 1:03，用户 2 将 FirstName 列的“Bob”改为“Robert”，此时处于未提交状态。
+3. 在下午 1:03，用户 2 将 FirstName 列的 “Bob” 改为 “Robert”，此时处于未提交状态。
 
     |Column name|Original value|Current value|Value in database|
     |---|---|---|---|
@@ -51,7 +51,7 @@ MatrixOne 默认悲观事务。
     |LastName|Smith|Smith|Smith|
     |FirstName|Bob|Robert|Bob|
 
-4. 在下午 1:05，用户 1 将 FirstName 列的“Bob”改为“James”，并尝试进行更新。
+4. 在下午 1:05，用户 1 将 FirstName 列的 “Bob” 改为 “James”，并尝试进行更新。
 
     |Column name|Original value|Current value|Value in database|
     |---|---|---|---|
@@ -59,6 +59,6 @@ MatrixOne 默认悲观事务。
     |LastName|Smith|Smith|Smith|
     |FirstName|Bob|James|Bob|
 
-5. 此时，用户 1 遇到了悲观并发冲突，因为数据库中的值“Robert”所在行已经被锁定，需要等待用户 2 的下一步操作。
+5. 此时，用户 1 遇到了悲观并发冲突，因为数据库中的值 “Robert” 所在行已经被锁定，需要等待用户 2 的下一步操作。
 
 6. 在下午 1:06，用户 1 对事务提交。此时用户 2 解除等待状态开始事务，但是因为已经无法匹配到对应的 FirstName，因此用户 2 的事务会更新失败。

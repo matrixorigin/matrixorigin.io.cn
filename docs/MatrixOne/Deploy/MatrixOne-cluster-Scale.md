@@ -132,9 +132,9 @@ Kubernetes 可以通过 kuboard spray 图形化管理页面来完成节点的扩
 2. 根据上述返回的结果和实际需求，你可以为节点打上标签，参见下面的代码示例：
 
     ```
-    NODE="[待打上标签的节点]" # 根据上述结果，有可能是 ip、也可能是主机名、或者别名，例如 10.0.0.1、host-10-0-0-1、node01，那么设置 NODE="node0"
-    LABEL_K="mo-role" # 标签的 key，可按需定义，也可以直接用示例
-    LABEL_V="mo-cn" # 标签的 value，可按需定义，也可以直接用示例
+    NODE="[待打上标签的节点]" # 根据上述结果，有可能是ip、也可能是主机名、或者别名，例如10.0.0.1、host-10-0-0-1、node01，那么设置NODE="node0"
+    LABEL_K="mo-role" # 标签的key，可按需定义，也可以直接用示例
+    LABEL_V="mo-cn" # 标签的value，可按需定义，也可以直接用示例
 
     kubectl label node ${NODE} ${LABEL_K}=${LABEL_V}
     ```

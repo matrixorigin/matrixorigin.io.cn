@@ -11,7 +11,7 @@ MatrixOne 支持 x86 及 ARM 的 macOS 系统，本文以 Macbook M1 ARM 版本�
 | 依赖软件     | 版本                          |
 | ------------ | ----------------------------- |
 | golang       | 1.20 及以上                    |
-| gcc/clang    | gcc8.5 及以上，clang13.0 及以上 |
+| gcc/clang    | gcc8.5 及以上, clang13.0 及以上 |
 | git          | 2.20 及以上                    |
 | MySQL Client | 8.0 及以上                     |
 

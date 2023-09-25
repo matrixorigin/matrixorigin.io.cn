@@ -17,7 +17,7 @@ CREATE TABLE employees ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50) NOT
 
 INSERT INTO employees (name, salary) VALUES ('John Doe', 1000), ('Alice Smith', 2000), ('Bob Johnson', 1500);
 
--- 使用 NULLIF() 函数将工资为特定值的员工的工资设为 NULL。NULLIF(salary, 1500) 函数将比较 salary 字段的值和 1500。如果 salary 的值等于 1500，则返回 NULL，否则返回 salary 的值。
+-- 使用NULLIF()函数将工资为特定值的员工的工资设为NULL。NULLIF(salary, 1500)函数将比较salary字段的值和1500。如果salary的值等于1500，则返回NULL，否则返回salary的值。
 mysql> SELECT name, salary, NULLIF(salary, 1500) AS adjusted_salary FROM employees;
 +-------------+---------+-----------------+
 | name        | salary  | adjusted_salary |

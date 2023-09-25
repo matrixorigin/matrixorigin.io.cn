@@ -173,7 +173,7 @@ mysql> select count(*) from m_user limit 5;
 
 以下是 MatrixOneWriter 的一些常用参数说明：
 
-|参数名称 | 参数描述 | 是否必选 | 默认值|
+|参数名称|参数描述|是否必选|默认值|
 |---|---|---|---|
 |**jdbcUrl** |目标数据库的 JDBC 连接信息。DataX 在运行时会在提供的 `jdbcUrl` 后面追加一些属性，例如：`yearIsDateType=false&zeroDateTimeBehavior=CONVERT_TO_NULL&rewriteBatchedStatements=true&tinyInt1isBit=false&serverTimezone=Asia/Shanghai`。 |是 |无 |
 |**username** | 目标数据库的用户名。|是 |无 |
@@ -208,6 +208,6 @@ MatrixOneWriter 支持大多数 MatrixOne 数据类型，但也有少数类型�
 
 ## 常见问题
 
-**Q: 在运行时，我遇到了“配置信息错误，您提供的配置文件/{YOUR_MATRIXONE_WRITER_PATH}/plugin.json 不存在”的问题该怎么处理？**
+**Q: 在运行时，我遇到了 “配置信息错误，您提供的配置文件/{YOUR_MATRIXONE_WRITER_PATH}/plugin.json 不存在” 的问题该怎么处理？**
 
 A: DataX 在启动时会尝试查找相似的文件夹以寻找 plugin.json 文件。如果 matrixonewriter.zip 文件也存在于相同的目录下，DataX 将尝试从 `.../datax/plugin/writer/matrixonewriter.zip/plugin.json` 中查找。在 MacOS 环境下，DataX 还会尝试从 `.../datax/plugin/writer/.DS_Store/plugin.json` 中查找。此时，您需要删除这些多余的文件或文件夹。
