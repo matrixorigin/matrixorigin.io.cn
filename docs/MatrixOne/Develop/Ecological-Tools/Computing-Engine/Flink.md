@@ -296,7 +296,7 @@ Apache Flink 是一个强大的框架和分布式处理引擎，专注于进行�
 
 2. 清空 MatrixOne 表数据：
 
-    在 node3 上，使用 MySQL 客户端连接node1的 MatrixOne。由于本示例继续使用前面读取 MatrixOne 数据的示例中的 `test` 数据库，因此我们需要首先清空 `person` 表的数据。
+    在 node3 上，使用 MySQL 客户端连接 node1 的 MatrixOne。由于本示例继续使用前面读取 MatrixOne 数据的示例中的 `test` 数据库，因此我们需要首先清空 `person` 表的数据。
 
     ```sql
     -- 在node3上，使用Mysql客户端连接node1的MatrixOne
