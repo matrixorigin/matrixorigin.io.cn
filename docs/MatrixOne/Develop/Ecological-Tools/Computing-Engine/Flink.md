@@ -288,18 +288,18 @@ Apache Flink 是一个强大的框架和分布式处理引擎，专注于进行�
 
     ```sql
     mysql -h127.0.0.1 -P3306 -uroot -proot
-    mysql> CREATE DATABASE test;
-    mysql> USE test;
+    mysql> CREATE DATABASE motest;
+    mysql> USE motest;
     mysql> CREATE TABLE `person` (`id` int DEFAULT NULL, `name` varchar(255) DEFAULT NULL, `birthday` date DEFAULT NULL);
     mysql> INSERT INTO motest.person (id, name, birthday) VALUES(2, 'lisi', '2023-07-09'),(3, 'wangwu', '2023-07-13'),(4, 'zhaoliu', '2023-08-08');
     ```
 
 2. 清空 MatrixOne 表数据：
 
-    在 node3 上，使用 MySQL 客户端连接本地 MatrixOne。由于本示例继续使用前面读取 MatrixOne 数据的示例中的 `test` 数据库，因此我们需要首先清空 `person` 表的数据。
+    在 node3 上，使用 MySQL 客户端连接node1的 MatrixOne。由于本示例继续使用前面读取 MatrixOne 数据的示例中的 `test` 数据库，因此我们需要首先清空 `person` 表的数据。
 
     ```sql
-    -- 在node3上，使用Mysql客户端连接本地MatrixOne
+    -- 在node3上，使用Mysql客户端连接node1的MatrixOne
     mysql -h192.168.146.10 -P6001 -uroot -p111
     mysql> TRUNCATE TABLE test.person;
     ```
