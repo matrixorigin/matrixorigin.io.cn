@@ -395,7 +395,7 @@ hive> INSERT INTO motest.users (id, name, age) VALUES(1, 'zhangsan', 12),(2, 'li
 
 ### 步骤三：创建 MatrixOne 数据表
 
-在 node3 上，使用 MySQL 客户端连接到node1的 MatrixOne。然后继续使用之前创建的 "test" 数据库，并创建新的数据表 "users"。
+在 node3 上，使用 MySQL 客户端连接到 node1 的 MatrixOne。然后继续使用之前创建的 "test" 数据库，并创建新的数据表 "users"。
 
 ```sql
 CREATE TABLE `users` (
