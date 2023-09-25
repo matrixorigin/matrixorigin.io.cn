@@ -110,7 +110,7 @@
 
        ```
        mysql -h 127.0.0.1 -P 6001 -uroot -p
-       Enter password:  # 初始密码默认为111
+       Enter password:  # 初始密码默认为 111
        ```
 
 目前，MatrixOne 只支持 TCP 监听。

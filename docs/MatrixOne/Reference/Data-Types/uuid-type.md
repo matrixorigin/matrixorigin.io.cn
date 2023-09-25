@@ -72,13 +72,13 @@ mysql> SELECT length(uuid()) FROM t1;
 - 示例 3
 
 ```sql
--- 创建一个名为 't1' 的表，其中包含一个名为 'a' 的列，数据类型为VARCHAR，最大长度为20
+-- 创建一个名为 't1' 的表，其中包含一个名为 'a' 的列，数据类型为 VARCHAR，最大长度为 20
 create table t1(a varchar(20));
 
 -- 在 't1' 表中插入一行数据， 'a' 列的值为 '123123sdafsdf'
 insert into t1 values('123123sdafsdf');
 
--- 从 't1' 表中选择所有的行，并返回每一行的 'a' 列的值，以及一个新生成的UUID值
+-- 从 't1' 表中选择所有的行，并返回每一行的 'a' 列的值，以及一个新生成的 UUID 值
 mysql> select uuid(),a from t1;
 +--------------------------------------+---------------+
 | uuid()                               | a             |
@@ -91,10 +91,10 @@ mysql> select uuid(),a from t1;
 - 示例 4：
 
 ```sql
--- 创建名为namelists的表，包含id和name两个字段
+-- 创建名为 namelists 的表，包含 id 和 name 两个字段
 CREATE TABLE namelists (
-    id UUID DEFAULT uuid() PRIMARY KEY, -- id字段是UUID类型，默认值为uuid()函数生成的UUID值，作为主键
-    name VARCHAR NOT NULL -- name字段是VARCHAR类型，不能为空
+    id UUID DEFAULT uuid() PRIMARY KEY, -- id 字段是 UUID 类型，默认值为 uuid() 函数生成的 UUID 值，作为主键
+    name VARCHAR NOT NULL -- name 字段是 VARCHAR 类型，不能为空
 );
 INSERT INTO namelists (name) VALUES ('Tom'), ('Jane'), ('Bob');
 mysql> select * from namelists;

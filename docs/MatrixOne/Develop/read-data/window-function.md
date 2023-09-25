@@ -22,7 +22,7 @@ SQL 窗口函数在多种业务场景中都有其广泛的应用：
 
 - 其他窗口函数参见下表：
 
-|函数名称|说明|
+|函数名称 | 说明|
 |---|---|
 |[DENSE_RANK()](../../Reference/Functions-and-Operators/Window-Functions/dense_rank.md)|用于为数据集中的行分配排名，始终为下一个值分配连续的排名，即使前面的值有相同的排名。|
 |[RANK()](../../Reference/Functions-and-Operators/Window-Functions/rank.md)|为查询结果集中的每一行分配一个排名值，相同值的行将具有相同的排名，而下一个排名值将会跳过相同数量的行。|

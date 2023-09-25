@@ -9,16 +9,16 @@ MatrixOne 社区一共准备了 4 个类别的 56 个任务，有不同的难度
 
 这次的任务大家将要挑战的是 MatrixOne 的系统函数和聚合函数，对于刚入门数据库的同学来讲是相对基础但是又不乏挑战的任务。
 
-- 基础任务-系统函数（Built-in function）: 所谓的系统函数就是数据库自带的针对一些基础数据类型进行操作的函数，比如常见的 round(), time(), substring() 等等。第一周将有 25 个系统函数作为基础任务发布给大家进行挑战，包含数学类函数，时间日期类函数，字符串类函数，有 9 个任务非常容易，16 个任务稍微有一些难度，只要你有一定的 go 语言基础，看得懂英文文档，就能快速上手解决哦。
+- 基础任务 - 系统函数（Built-in function）: 所谓的系统函数就是数据库自带的针对一些基础数据类型进行操作的函数，比如常见的 round(), time(), substring() 等等。第一周将有 25 个系统函数作为基础任务发布给大家进行挑战，包含数学类函数，时间日期类函数，字符串类函数，有 9 个任务非常容易，16 个任务稍微有一些难度，只要你有一定的 go 语言基础，看得懂英文文档，就能快速上手解决哦。
 
-- 挑战任务 - 聚合函数（Aggregate function）：所谓的聚合函数就是需要聚集一部分数据进行运算返回结果的函数，比如常见的 sum(), count(), avg() 等等。在 MatrixOne 中，实现聚合函数是要用到我们的大杀器因子化加速能力的，需要对因子化中的 “环” 数据结构理论有一定理解，实现会有一定复杂度，所以我们将 5 个聚合函数列为了挑战任务。
+- 挑战任务 - 聚合函数（Aggregate function）：所谓的聚合函数就是需要聚集一部分数据进行运算返回结果的函数，比如常见的 sum(), count(), avg() 等等。在 MatrixOne 中，实现聚合函数是要用到我们的大杀器因子化加速能力的，需要对因子化中的“环”数据结构理论有一定理解，实现会有一定复杂度，所以我们将 5 个聚合函数列为了挑战任务。
 
 ## 参与流程
 
 在开始之前，先给 MatrixOne 项目 Star, Fork, Watch 一下吧。
 
-1. 选择很重要！加小助手微信 “MatrixOrigin001” 填写活动注册表 <https://www.wjx.top/vm/Ys1rz1I.aspx> 选择你想要完成的函数任务，并加入 MatrixOne 社区群。
-2. 登录 Github，在你选择的函数 issue 留下你的 comment，比如 “I'd like to work on this issue”, 小助手会将相关 issue 分配给你。
+1. 选择很重要！加小助手微信“MatrixOrigin001”填写活动注册表 <https://www.wjx.top/vm/Ys1rz1I.aspx> 选择你想要完成的函数任务，并加入 MatrixOne 社区群。
+2. 登录 Github，在你选择的函数 issue 留下你的 comment，比如“I'd like to work on this issue”, 小助手会将相关 issue 分配给你。
 3. 开始只属于你的函数体验任务。如有任何问题，MatrixOne 社区群里的技术大牛全程在线支持。
 
 > 请注意：1 个开发者可以选择多个挑战任务，但是 1 个任务只能由 1 个开发者完成
@@ -104,7 +104,7 @@ MatrixOne 社区一共准备了 4 个类别的 56 个任务，有不同的难度
 1. 注意在实现功能完成之后一定要写单元测试哦，否则你的 PR 是不会被社区采纳的。
 2. 完成代码编写之后，按以下格式向 MatrixOne 提交 PR:
 
-* PR 格式: [MatrixCamp] + function name + PR title
+* PR 格式：[MatrixCamp] + function name + PR title
 * 标签：[MatrixCamp]
 * PR 内容：遵循 [MatrixOne 的 PR 模版] (<https://github.com/matrixorigin/matrixone/blob/main/.github/PULL_REQUEST_TEMPLATE.md>)  
 

@@ -18,19 +18,16 @@ jobs:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
         ref: ${{ github.event.pull_request.head.ref }}
 
-    - name: Lint docs
-      uses: docker://avtodev/markdown-lint:v1 # fastest way
-      with:
-        config: './.markdownlint.yaml'
-        args: './docs/MatrixOne'
-
     - name: Install NodeJS
       uses: actions/setup-node@v3
       with:
         node-version: 18
     
-    - name: Install NodeJS Dependencies
-      run: npm ci
+    - name: Enable pnpm as package manager
+      run: corepack enable
 
-    - name: Lint Chinese content
-      run: npm run lint
+    - name: Install dependencies
+      run: pnpm i --frozen-lockfile
+
+    - name: Lint Markdown files
+      run: pnpm lint

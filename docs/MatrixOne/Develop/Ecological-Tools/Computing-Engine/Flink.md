@@ -16,7 +16,7 @@ Apache Flink 是一个强大的框架和分布式处理引擎，专注于进行�
 
 * 数据管道应用
 
-    提取-转换-加载（ETL）是在不同存储系统之间进行数据转换和迁移的常见方法。数据管道和 ETL 作业有相似之处，都可以进行数据转换和丰富，然后将数据从一个存储系统移动到另一个存储系统。不同之处在于数据管道以持续流模式运行，而不是周期性触发。典型的数据管道应用包括电子商务中的实时查询索引构建和持续 ETL。
+    提取 - 转换 - 加载（ETL）是在不同存储系统之间进行数据转换和迁移的常见方法。数据管道和 ETL 作业有相似之处，都可以进行数据转换和丰富，然后将数据从一个存储系统移动到另一个存储系统。不同之处在于数据管道以持续流模式运行，而不是周期性触发。典型的数据管道应用包括电子商务中的实时查询索引构建和持续 ETL。
 
 本篇文档将介绍两种示例，一种是使用计算引擎 Flink 实现将实时数据写入到 MatrixOne，另一种是使用计算引擎 Flink 将流式数据写入到 MatrixOne 数据库。
 
@@ -26,7 +26,7 @@ Apache Flink 是一个强大的框架和分布式处理引擎，专注于进行�
 
 本次实践对于机器的硬件要求如下：
 
-| 服务器名称 | 服务器IP       | 安装软件    | 操作系统       |
+| 服务器名称 | 服务器 IP       | 安装软件    | 操作系统       |
 | ---------- | -------------- | ----------- | -------------- |
 | node1      | 192.168.146.10 | MatrixOne   | Debian11.1 x86 |
 | node2      | 192.168.146.12 | kafka       | Centos7.9      |
@@ -278,7 +278,7 @@ Apache Flink 是一个强大的框架和分布式处理引擎，专注于进行�
 
 3. 在 IDEA 中运行 `MoRead.Main()`，执行结果如下：
 
-    ![MoRead执行结果](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/flink/moread.png)
+    ![MoRead 执行结果](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/flink/moread.png)
 
 ### 步骤三：将 MySQL 数据写入 MatrixOne
 
@@ -299,7 +299,7 @@ Apache Flink 是一个强大的框架和分布式处理引擎，专注于进行�
     在 node3 上，使用 MySQL 客户端连接本地 MatrixOne。由于本示例继续使用前面读取 MatrixOne 数据的示例中的 `test` 数据库，因此我们需要首先清空 `person` 表的数据。
 
     ```sql
-    -- 在node3上，使用Mysql客户端连接本地MatrixOne
+    -- 在 node3 上，使用 Mysql 客户端连接本地 MatrixOne
     mysql -h192.168.146.10 -P6001 -uroot -p111
     mysql> TRUNCATE TABLE test.person;
     ```
@@ -401,7 +401,7 @@ public class Mysql2Mo {
                 }
         );
 
-        //添加srouce
+        //添加 srouce
         DataStreamSource<Row> dataSource = environment.createInput(JdbcInputFormat.buildJdbcInputFormat()
                 .setDrivername("com.mysql.cj.jdbc.Driver")
                 .setDBUrl("jdbc:mysql://" + srcHost + ":" + srcPort + "/" + srcDataBase)
@@ -411,7 +411,7 @@ public class Mysql2Mo {
                 .setRowTypeInfo(rowTypeInfo)
                 .finish());
 
-        //进行ETL
+        //进行 ETL
         SingleOutputStreamOperator<Person> mapOperator = dataSource.map((MapFunction<Row, Person>) row -> {
             Person person = new Person();
             person.setId((Integer) row.getField("id"));
@@ -420,7 +420,7 @@ public class Mysql2Mo {
             return person;
         });
 
-        //设置matrixone sink信息
+        //设置 matrixone sink 信息
         mapOperator.addSink(
                 JdbcSink.sink(
                         "insert into " + destTable + " values(?,?,?)",
@@ -719,9 +719,9 @@ public class Kafka2Mo {
         //设置并行度
         env.setParallelism(1);
 
-        //设置kafka source信息
+        //设置 kafka source 信息
         KafkaSource<User> source = KafkaSource.<User>builder()
-                //Kafka服务
+                //Kafka 服务
                 .setBootstrapServers(srcServer)
                 //消息主题
                 .setTopics(srcTopic)
@@ -740,7 +740,7 @@ public class Kafka2Mo {
         DataStreamSource<User> kafkaSource = env.fromSource(source, WatermarkStrategy.noWatermarks(), "kafka_maxtixone");
         //kafkaSource.print();
 
-        //设置matrixone sink信息
+        //设置 matrixone sink 信息
         kafkaSource.addSink(JdbcSink.sink(
                 "insert into users (id,name,age) values(?,?,?)",
                 (JdbcStatementBuilder<User>) (preparedStatement, user) -> {
@@ -749,9 +749,9 @@ public class Kafka2Mo {
                     preparedStatement.setInt(3, user.getAge());
                 },
                 JdbcExecutionOptions.builder()
-                        //默认值5000
+                        //默认值 5000
                         .withBatchSize(1000)
-                        //默认值为0
+                        //默认值为 0
                         .withBatchIntervalMs(200)
                         //最大尝试次数
                         .withMaxRetries(5)

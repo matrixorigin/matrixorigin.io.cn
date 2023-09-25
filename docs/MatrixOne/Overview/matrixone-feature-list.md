@@ -6,27 +6,27 @@
 
 | 数据定义语言 (DDL)                 | 支持（Y）/不支持（N）/实验特性 (E)           |
 | ---------------------------------- | -------------------------------------------- |
-| 创建数据库CREATE DATABASE          | Y                                            |
-| 删除数据库DROP DATABASE            | Y                                            |
-| 修改数据库ALTER DATABASE           | N                                            |
-| 创建表CREATE TABLE                 | Y                                            |
-| 修改表ALTER TABLE                  | E，子句`CHANGE [COLUMN]`，`MODIFY [COLUMN]`，`RENAME COLUMN`，`ADD [CONSTRAINT [symbol]] PRIMARY KEY`，`DROP PRIMARY KEY` 和 `ALTER COLUMN ORDER BY` 可以在 ALTER TABLE 语句中自由组合使用，但暂时不支持与其他子句一起使用。  |
-| 修改表名RENAME TABLE               | N，可用ALTER TABLE tbl RENAME TO new_tbl替代 |
-| 删除表DROP TABLE                   | Y                                            |
-| 创建约束CREATE INDEX               | Y，次级索引没有加速作用                      |
-| 删除约束DROP INDEX                 | Y                                            |
-| 修改列MODIFY COLUMN                | N                                            |
-| 主键PRIMARY KEY                    | Y                                            |
-| 创建视图CREATE VIEW                | Y                                            |
-| 修改视图ALTER VIEW                 | Y                                            |
-| 删除视图DROP VIEW                  | Y                                            |
-| 清空表TRUNCATE TABLE               | Y                                            |
-| 自增列AUTO_INCREMENT               | Y                                            |
-| 序列SEQUENCE                       | Y                                            |
-| 临时表TEMPORARY TABLE              | Y                                            |
-| 流式表CREATE STREAM                | E，部分支持                                 |
-| 分区表PARTITION BY                 | E，部分类型支持                              |
-| 字符集和排序顺序CHARSET，COLLATION   | N，仅默认支持UTF8                            |
+| 创建数据库 CREATE DATABASE          | Y                                            |
+| 删除数据库 DROP DATABASE            | Y                                            |
+| 修改数据库 ALTER DATABASE           | N                                            |
+| 创建表 CREATE TABLE                 | Y                                            |
+| 修改表 ALTER TABLE                  | E，子句`CHANGE [COLUMN]`，`MODIFY [COLUMN]`，`RENAME COLUMN`，`ADD [CONSTRAINT [symbol]] PRIMARY KEY`，`DROP PRIMARY KEY` 和 `ALTER COLUMN ORDER BY` 可以在 ALTER TABLE 语句中自由组合使用，但暂时不支持与其他子句一起使用。  |
+| 修改表名 RENAME TABLE               | N，可用 ALTER TABLE tbl RENAME TO new_tbl 替代 |
+| 删除表 DROP TABLE                   | Y                                            |
+| 创建约束 CREATE INDEX               | Y，次级索引没有加速作用                      |
+| 删除约束 DROP INDEX                 | Y                                            |
+| 修改列 MODIFY COLUMN                | N                                            |
+| 主键 PRIMARY KEY                    | Y                                            |
+| 创建视图 CREATE VIEW                | Y                                            |
+| 修改视图 ALTER VIEW                 | Y                                            |
+| 删除视图 DROP VIEW                  | Y                                            |
+| 清空表 TRUNCATE TABLE               | Y                                            |
+| 自增列 AUTO_INCREMENT               | Y                                            |
+| 序列 SEQUENCE                       | Y                                            |
+| 临时表 TEMPORARY TABLE              | Y                                            |
+| 流式表 CREATE STREAM                | E，部分支持                                 |
+| 分区表 PARTITION BY                 | E，部分类型支持                              |
+| 字符集和排序顺序 CHARSET，COLLATION   | N，仅默认支持 UTF8                            |
 
 ## 数据修改/查询语言（Data manipulation/query language, DML/DQL）
 
@@ -46,7 +46,7 @@
 | GROUP BY, ORDER BY                                | Y                                  |
 | 预排序 CLUSTER BY                                  | Y                                  |
 | 子查询 SUBQUERY                                    | Y                                  |
-| 公共表表达式(Common Table Expressions，CTE)         | Y                                  |
+| 公共表表达式 (Common Table Expressions，CTE)         | Y                                  |
 | 事务语句 BEGIN/START TRANSACTION, COMMIT, ROLLBACK | Y                                  |
 | EXPLAIN                                           | Y                                  |
 | EXPLAIN ANALYZE                                   | Y                                  |
@@ -57,12 +57,12 @@
 
 | 高级 SQL 功能                 | 支持（Y）/不支持（N）/实验特性 (E) |
 | ----------------------------- | ---------------------------------- |
-| 预处理PREPARE                 | Y                                  |
+| 预处理 PREPARE                 | Y                                  |
 | 存储过程 STORED PROCEDURE     | N                                  |
 | 触发器 TRIGGER                | N                                  |
-| 时间调度器EVENT SCHEDULER     | N                                  |
-| 自定义函数UDF                 | N                                  |
-| 增量物化视图Materialized VIEW | N                                  |
+| 时间调度器 EVENT SCHEDULER     | N                                  |
+| 自定义函数 UDF                 | N                                  |
+| 增量物化视图 Materialized VIEW | N                                  |
 
 ## 数据类型
 
@@ -86,7 +86,7 @@
 |              | TIMESTAMP                              | Y                                  |
 |              | YEAR                                   | Y                                  |
 | Boolean      | BOOL                                   | Y                                  |
-| 定点类型     | DECIMAL                                | Y，最高到38位                      |
+| 定点类型     | DECIMAL                                | Y，最高到 38 位                      |
 | JSON 类型    | JSON                                   | Y                                  |
 | 向量类型     | VECTOR                                 | N                                  |
 | 空间类型     | SPATIAL                                | N                                  |
@@ -112,8 +112,8 @@
 | 悲观事务                   | Y                                  |
 | 乐观事务                   | Y                                  |
 | 分布式事务                 | Y                                  |
-| 可重复读隔离（快照SI隔离）   | Y                                  |
-| 读已提交RC隔离             | Y                                  |
+| 可重复读隔离（快照 SI 隔离）   | Y                                  |
+| 读已提交 RC 隔离             | Y                                  |
 
 ## 函数与操作符
 
@@ -123,10 +123,10 @@
 | 数值类函数     | Y                                  |
 | 时间日期类函数 | Y                                  |
 | 字符串函数     | Y                                  |
-| Cast函数       | Y                                  |
+| Cast 函数       | Y                                  |
 | 流程控制函数   | E                                  |
 | 窗口函数       | Y                                  |
-| JSON函数       | Y                                  |
+| JSON 函数       | Y                                  |
 | 系统函数       | Y                                  |
 | 其他函数       | Y                                  |
 | 操作符         | Y                                  |
@@ -138,7 +138,7 @@
 | KEY 分区          | E                                  |
 | HASH 分区         | E                                  |
 | RANGE 分区        | N                                  |
-| RANGE COLUMNS分区 | N                                  |
+| RANGE COLUMNS 分区 | N                                  |
 | LIST 分区         | N                                  |
 | LIST COLUMNS 分区 | N                                  |
 
@@ -146,17 +146,17 @@
 
 | 数据导入和导出    | 支持（Y）/不支持（N）/实验特性 (E) |
 | ----------------- | ---------------------------------- |
-| 文件导入LOAD DATA  | Y                                  |
-| SQL导入SOURCE     | Y                                  |
+| 文件导入 LOAD DATA  | Y                                  |
+| SQL 导入 SOURCE     | Y                                  |
 | 从对象存储导入      | Y                                  |
-| modump工具导出SQL  | Y                                  |
-| mysqldump原生工具  | N                                  |
+| modump 工具导出 SQL  | Y                                  |
+| mysqldump 原生工具  | N                                  |
 
 ## 安全与访问控制
 
 | 安全                       | 支持（Y）/不支持（N）/实验特性 (E) |
 | -------------------------- | ---------------------------------- |
-| 传输层加密TLS              | Y                                  |
+| 传输层加密 TLS              | Y                                  |
 | 静态加密                   | Y                                  |
 | 从对象存储导入              | Y                                  |
 | 基于角色的访问控制（RBAC）    | Y                                  |
@@ -166,20 +166,20 @@
 
 | 备份和恢复   | 支持（Y）/不支持（N）/实验特性 (E) |
 | ------------ | ---------------------------------- |
-| 逻辑备份恢复 | Y，仅支持modump工具                |
+| 逻辑备份恢复 | Y，仅支持 modump 工具                |
 | 物理备份恢复 | Y                                  |
 
 ## 管理工具
 
 | 管理工具             | 支持（Y）/不支持（N）/实验特性 (E) |
 | -------------------- | ---------------------------------- |
-| 单机mo_ctl部署管理   | Y                                  |
-| 分布式mo_ctl部署管理 | E，仅企业版                        |
+| 单机 mo_ctl 部署管理   | Y                                  |
+| 分布式 mo_ctl 部署管理 | E，仅企业版                        |
 | 可视化管理平台       | E，仅公有云版本                    |
 | 系统日志记录         | Y                                  |
 | 系统指标监控         | Y                                  |
 | 慢查询日志           | Y                                  |
-| SQL记录              | Y                                  |
+| SQL 记录              | Y                                  |
 | Kubernetes operator  | Y                                  |
 
 ## 部署方式
@@ -187,8 +187,8 @@
 | 部署方式             | 支持（Y）/不支持（N）/实验特性 (E)  |
 | -------------------- | ----------------------------------- |
 | 单机环境私有化部署   | Y                                   |
-| 分布式环境私有化部署 | Y，自建Kubernetes与minIO对象存储    |
+| 分布式环境私有化部署 | Y，自建 Kubernetes 与 minIO 对象存储    |
 | 阿里云分布式自建部署 | Y，ACK+OSS                          |
 | 腾讯云分布式自建部署 | Y，TKE+COS                          |
-| AWS分布式自建部署    | Y，EKS+S3                           |
-| 公有云Serverless     | Y，MatrixOne Cloud，支持AWS，阿里云 |
+| AWS 分布式自建部署    | Y，EKS+S3                           |
+| 公有云 Serverless     | Y，MatrixOne Cloud，支持 AWS，阿里云 |

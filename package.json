@@ -1,12 +1,12 @@
 {
   "name": "matrixorigin.io.cn",
   "scripts": {
-    "config:zhlint": "node ./scripts/genZhlintConfig",
-    "lint": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md' && npx markdownlint-cli2 './docs/MatrixOne/**/*.md'",
-    "lint:fix": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md' --fix && npx markdownlint-cli2-fix './docs/MatrixOne/**/*.md'"
+    "lint": "autocorrect --lint './docs/MatrixOne' && markdownlint-cli2 './docs/MatrixOne/**/*.md'",
+    "lint:fix": "autocorrect --fix './docs/MatrixOne' && npx markdownlint-cli2-fix './docs/MatrixOne/**/*.md'"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.6.0",
-    "zhlint": "^0.7.1"
-  }
+    "autocorrect-node": "^2.8.4",
+    "markdownlint-cli2": "^0.10.0"
+  },
+  "packageManager": "pnpm@8.7.5"
 }
