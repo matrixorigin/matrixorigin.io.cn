@@ -50,7 +50,7 @@
     - 不要在最后添加句号。
 
 - 第二行请留白
-- 第三行“why”部分，如果没有特定的原因，您可以使用以下表述，如 "Improve performance"，"Improve test coverage."
+- 第三行 “why” 部分，如果没有特定的原因，您可以使用以下表述，如 "Improve performance"，"Improve test coverage."
 - 其他行不超过 80 个字符。
 
 ### **良好的习惯**

@@ -20,7 +20,7 @@
 |  ----  | ----  |
 |expr|必要参数。要被拆分的字符串。|
 |delimiter|必要参数。用于分割字符串的分隔符。|
-|unsigned_integer|必要参数。这是一个整数，指定返回字符串的哪个部分。第一个部分是 1，第二个部分是 2，依此类推。|
+|unsigned_integer|必要参数。这是一个整数，指定返回字符串的哪个部分。第一个部分是1，第二个部分是2，依此类推。|
 
 ## **示例**
 
@@ -40,11 +40,11 @@ mysql> select split_part('axbxc','x',1);
 - 示例 2
 
 ```sql
--- 创建一个新的表't1'，它有三个列：'a'（varchar 类型），'b'（varchar 类型），和'c'（int 类型）。
+-- 创建一个新的表't1'，它有三个列：'a'（varchar类型），'b'（varchar类型），和'c'（int类型）。
 create table t1(a varchar,b varchar,c int);
 -- 向't1'表中插入多行数据
 insert into t1 values('axbxc','x',1),('axbxcxd','x',2),('axbxcxd','x',3),('axbxcxd','xc',1),('axbxcxd','xc',2),('axbxcxd','xc',3),('axbxcxd','asas',1),('axbxcxd','asas',2),(null,'asas',3),('axbxcxd',null,3),('axbxcxd','asas',null),('axxx','x',1),('axxx','x',2);
--- 查询使用 split_part 函数处理't1'表中的每行数据。对于每行，它都会把'a'列的值分割成多个部分（使用'b'列的值作为分隔符），然后返回指定的部分（由'c'列的值指定）。例如，对于第一行数据（'axbxc', 'x', 1），它会返回'a'，因为'a'是在'x'分隔符的基础上分割字符串'axbxc'后的第一部分。
+-- 查询使用split_part函数处理't1'表中的每行数据。对于每行，它都会把'a'列的值分割成多个部分（使用'b'列的值作为分隔符），然后返回指定的部分（由'c'列的值指定）。例如，对于第一行数据（'axbxc', 'x', 1），它会返回'a'，因为'a'是在'x'分隔符的基础上分割字符串'axbxc'后的第一部分。
 mysql> select split_part(a,b,c) from t1;
 +---------------------+
 | split_part(a, b, c) |

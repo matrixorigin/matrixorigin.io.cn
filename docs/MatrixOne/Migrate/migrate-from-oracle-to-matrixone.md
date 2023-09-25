@@ -53,7 +53,7 @@ MatrixOne 与 Oracle 自带的数据类型存在着较多的差异，这些差�
 2. 使用下面的命令替换 *oracle_ddl.sql* 文件内 MatrixOne 不支持的关键字：
 
     ```
-    # Linux 系统执行的命令如下：
+    # Linux系统执行的命令如下：
     sed -i '/CHECK (/d' /YOUR_PATH/oracle_ddl.sql
     sed -i '/CREATE UNIQUE INDEX/g' /YOUR_PATH/oracle_ddl.sql
     sed -i 's/NUMBER(3,0)/smallint/g' /YOUR_PATH/oracle_ddl.sql
@@ -132,7 +132,7 @@ MatrixOne 与 Oracle 自带的数据类型存在着较多的差异，这些差�
 2. 使用下面的命令替换 *oracle_ddl.sql* 文件内 MatrixOne 不支持的关键字：
 
     ```
-    # Linux 系统执行的命令如下：
+    # Linux系统执行的命令如下：
     sed -i '/CHECK (/d' /YOUR_PATH/oracle_ddl.sql
     sed -i '/CREATE UNIQUE INDEX/g' /YOUR_PATH/oracle_ddl.sql
     sed -i 's/NUMBER(3,0)/smallint/g' /YOUR_PATH/oracle_ddl.sql

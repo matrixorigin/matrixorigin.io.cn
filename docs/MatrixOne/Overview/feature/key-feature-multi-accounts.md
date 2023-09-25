@@ -70,11 +70,11 @@ MatrixOne 的多租户能力带来了全新的架构方式。租户仍然共享�
 
 <img width="1205" height="1686" style="max-width: min(100%, 16rem); display: block; margin: auto;" alt="mo-account-arch" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/mo-account-arch.png" >
 
-|多租户模式 | 数据隔离程度 | 资源成本 | 资源隔离程度 | 运维复杂度|
+|多租户模式|数据隔离程度|资源成本|资源隔离程度|运维复杂度|
 |---|---|---|---|---|
-|租户共享数据库模式 | 低 | 低 | 低 | 低|
-|租户独立数据库模式 | 高 | 高 | 高 | 高|
-|MatrixOne 模式 | 高 | 低 | 高 | 低|
+|租户共享数据库模式|低|低|低|低|
+|租户独立数据库模式|高|高|高|高|
+|MatrixOne 模式|高|低|高|低|
 
 ### 微服务应用架构
 

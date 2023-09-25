@@ -26,7 +26,7 @@ CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(50) NOT 
 
 INSERT INTO users (username, password) VALUES ('JohnDoe', 'Abcd123'), ('AliceSmith', 'Efgh456'), ('BobJohnson', 'ijkl789');
 
--- 使用 BINARY() 操作符进行密码验证，BINARY password = 'Abcd123'部分将密码值视为二进制字符串，这样进行的比较是大小写敏感的。如果输入的密码与数据库中的记录匹配，查询将返回相应的用户 id 和 username，否则将返回空结果。
+-- 使用BINARY()操作符进行密码验证，BINARY password = 'Abcd123'部分将密码值视为二进制字符串，这样进行的比较是大小写敏感的。如果输入的密码与数据库中的记录匹配，查询将返回相应的用户 id 和 username，否则将返回空结果。
 mysql> SELECT id, username FROM users WHERE username = 'JohnDoe' AND BINARY password = 'Abcd123';
 +------+----------+
 | id   | username |

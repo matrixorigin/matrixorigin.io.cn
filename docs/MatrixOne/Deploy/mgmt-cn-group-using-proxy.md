@@ -48,7 +48,7 @@ Proxy 在 CN 缩容时通过以上行为处理会话的迁移和关闭，以确�
       namespace: mo-hn
     spec:
     + proxy:
-    +   replicas: 2 #为了高可用，proxy 的 replicas 需要至少 2 个
+    +   replicas: 2 #为了高可用，proxy的replicas需要至少2个
     ```
 
 2. 修改完成后，使用下面的命令行运行 `mo.yaml` 文件：

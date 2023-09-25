@@ -13,7 +13,7 @@
 | [log]             | 日志配置节                                |                          |
 | level             | 日志级别，默认值为 info，可修改为不同级别  | level = "info"        |
 | [cn]              | cn 节点，不可修改                         | /                        |
-| port-base         | "cn" 使用的起始端口号，从端口号往后，连续 20 个端口找到可用端口用于内部服务 | port-base = 18000       |
+| port-base         | "cn" 使用的起始端口号，从端口号往后，连续20个端口找到可用端口用于内部服务| port-base = 18000       |
 | service-host      | 服务连接地址，用于注册到 HAKeeper 中       | service-host = "127.0.0.1" |
 | [cn.frontend]     | 前端配置节                                |                          |
 | port              | MatrixOne 监听及客户端连接的端口          | port = 6001             |
@@ -64,7 +64,7 @@
 | level             | 日志级别，默认值为 info，可修改为不同级别  | level = "info"        |
 | [dn]              | TN 节点，不可修改                         |                        |
 | uuid              | TN 的唯一标识符，不可修改                  | uuid = "dd4dccb4-4d3c-41f8-b482-5251dc7a41bf" |
-| port-base         | "TN" 使用的起始端口号，从端口号往后，连续 20 个端口找到可用端口用于内部服务 | port-base = 19000       |
+| port-base         | "TN" 使用的起始端口号，从端口号往后，连续20个端口找到可用端口用于内部服务| port-base = 19000       |
 | service-host      | 服务连接地址，用于注册到 HAKeeper 中       | service-host = "0.0.0.0" |
 
 ### 扩展参数

@@ -1,2 +1,6 @@
-site/
+site
 node_modules/
+
+# Configuration files of zhlint.
+.zhlintrc
+.zhlintignore

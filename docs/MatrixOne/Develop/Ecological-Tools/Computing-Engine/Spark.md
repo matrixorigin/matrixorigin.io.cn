@@ -30,7 +30,7 @@ Apache Spark 是一个为高效处理大规模数据而设计的分布式计算�
 
 本次实践对于机器的硬件要求如下：
 
-| 服务器名称 | 服务器 IP       | 安装软件                  | 操作系统       |
+| 服务器名称 | 服务器IP       | 安装软件                  | 操作系统       |
 | ---------- | -------------- | ------------------------- | -------------- |
 | node1      | 192.168.146.10 | MatrixOne                 | Debian11.1 x86 |
 | node3      | 192.168.146.11 | IDEA、MYSQL、Hadoop、Hive | Windows 10     |
@@ -153,7 +153,7 @@ Apache Spark 是一个为高效处理大规模数据而设计的分布式计算�
 
     /**
      * @auther MatrixOne
-     * @desc 读取 MatrixOne 数据
+     * @desc 读取MatrixOne数据
      */
     public class MoRead {
 
@@ -205,7 +205,7 @@ Apache Spark 是一个为高效处理大规模数据而设计的分布式计算�
     在 node3 上，使用 MySQL 客户端连接本地 MatrixOne。由于本示例继续使用前面读取 MatrixOne 数据的示例中的 `test` 数据库，因此我们需要首先清空 `person` 表的数据。
 
     ```sql
-    -- 在 node3 上，使用 Mysql 客户端连接本地 MatrixOne
+    -- 在node3上，使用Mysql客户端连接本地MatrixOne
     mysql -h192.168.146.10 -P6001 -uroot -p111
     mysql> TRUNCATE TABLE test.person;
     ```
@@ -259,13 +259,13 @@ public class Mysql2Mo {
         //jdbc.url=jdbc:mysql://127.0.0.1:3306/database
         String url = "jdbc:mysql://" + srcHost + ":" + srcPort + "/" + srcDataBase + "?characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai";
 
-        //SparkJdbc 读取表内容
-        System.out.println("读取数据库中 person 的表内容");
+        //SparkJdbc读取表内容
+        System.out.println("读取数据库中person的表内容");
         // 读取表中所有数据
         Dataset<Row> rowDataset = sqlContext.read().jdbc(url,srcTable,connectionProperties).select("*");
         //显示数据
         //rowDataset.show();
-       //筛选 id > 2 的数据，并将 name 字段添加 spark_ 前缀
+       //筛选id > 2的数据，并将 name 字段添加 spark_ 前缀
         Dataset<Row> dataset = rowDataset.filter("id > 2")
                 .map((MapFunction<Row, Row>) row -> RowFactory.create(row.getInt(0), "spark_" + row.getString(1), row.getDate(2)), RowEncoder.apply(rowDataset.schema()));
         //显示数据
@@ -428,8 +428,8 @@ import java.util.Properties;
  * @date 2022/2/9 10:02
  * @desc
  *
- * 1.在 hive 和 matrixone 中分别创建相应的表
- * 2.将 core-site.xml hdfs-site.xml 和 hive-site.xml 拷贝到 resources 目录下
+ * 1.在hive和matrixone中分别创建相应的表
+ * 2.将core-site.xml hdfs-site.xml和hive-site.xml拷贝到resources目录下
  * 3.需要设置域名映射
  */
 public class Hive2Mo {
@@ -453,8 +453,8 @@ public class Hive2Mo {
                 .enableHiveSupport()
                 .getOrCreate();
 
-        //SparkJdbc 读取表内容
-        System.out.println("读取 hive 中 person 的表内容");
+        //SparkJdbc读取表内容
+        System.out.println("读取hive中person的表内容");
         // 读取表中所有数据
         Dataset<Row> rowDataset = sparkSession.sql("select * from motest.users");
         //显示数据

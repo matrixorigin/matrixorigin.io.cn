@@ -129,7 +129,7 @@ MatrixOne 在处理该 SQL 语句时会将其改写为等价的 `JOIN` 查询：
 
 1. 先执行过滤查询 `where t2.id>=4;`。
 
-2. 再扫描表 `Table Scan on db1.t2`，将结果“流入”父节点后，
+2. 再扫描表 `Table Scan on db1.t2`，将结果 “流入” 父节点后，
 
 3. 扫描表 `Table Scan on db1.t1`。
 

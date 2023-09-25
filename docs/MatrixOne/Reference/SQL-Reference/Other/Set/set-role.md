@@ -22,7 +22,7 @@ SET ROLE role
 
 例如，user1 拥有主要角色 role1，次要角色 role2 和 role3, role1 被授予 pri1 和 pri2 权限；role2 被赋予权限 pri3；role3 被赋予权限 pri4，授权示例表如下：
 
-|用户名 | 角色名 | 权限名|
+|用户名|角色名|权限名|
 |---|---|---|
 |user1|role1|pri1,pri2|
 ||role2|pri3|
@@ -30,19 +30,19 @@ SET ROLE role
 
 为了更容易理解，你可以参考如下示例：
 
-|用户 | 角色 | 权限名|
+|用户|角色|权限名|
 |---|---|---|
-|Tom|应用开发者（Application Developer）| 读数据（Read Data），写数据（Write Data）|
-||运维专家（O&M expert）| 读数据（Read data）|
-||数据库管理员（Database Administrator）| 管理员权限（Administrator Privileges）|
+|Tom|应用开发者（Application Developer）|读数据（Read Data），写数据（Write Data）|
+||运维专家（O&M expert）|读数据（Read data）|
+||数据库管理员（Database Administrator）|管理员权限（Administrator Privileges）|
 
 此时 Tom 的主要角色是应用开发者，Tom 需要调用*管理员权限*，那么 Tom 可以使用以下两种方法：
 
-—使用 `SET role role` 语句将其角色切换为“数据库管理员”。
+—使用 `SET role role` 语句将其角色切换为 “数据库管理员”。
 
 —如果需要使用主、从角色的所有权限，可以使用 `SET secondary ROLE all`。
 
-这两种语句解释如下：
+这两种语句解释如下:
 
 #### SET SECONDARY ROLE ALL
 

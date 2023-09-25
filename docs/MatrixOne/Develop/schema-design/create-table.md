@@ -69,10 +69,10 @@ N_COMMENT    VARCHAR(152)
 
 |字段名 | 数据类型 | 作用 | 解释|
 |---|---|---|---|
-|N_NATIONKEY |INTEGER|民族的唯一标识 | 所有标识都应该是 INTEGER 类型的|
-|N_NAME |CHAR|民族名字 | 民族的名称都是 char 类型，且不超过 25 字符|
-|N_REGIONKEY|INTEGER|地区区号，唯一标识 | 所有标识都应该是 INTEGER 类型的|
-|N_COMMENT|VARCHAR|comment 信息|varchar 类型，且不超过 152 字符|
+|N_NATIONKEY |INTEGER|民族的唯一标识|所有标识都应该是 INTEGER 类型的|
+|N_NAME |CHAR|民族名字|民族的名称都是 char 类型，且不超过 25 字符|
+|N_REGIONKEY|INTEGER|地区区号，唯一标识|所有标识都应该是 INTEGER 类型的|
+|N_COMMENT|VARCHAR|comment信息|varchar 类型，且不超过 152 字符|
 
 MatrixOne 支持许多其他的列数据类型，包含整数、浮点数、时间等，参见[数据类型](../../Reference/Data-Types/data-types.md)。
 
@@ -99,8 +99,8 @@ PRIMARY KEY (O_ORDERKEY)
 
 |字段名 | 数据类型 | 作用 | 解释|
 |---|---|---|---|
-|O_TOTALPRICE|DECIMAL|用于标记价格 | 精度为 15，比例为 2，即精度代表字段数值的总位数，而比例代表小数点后有多少位，例如：decimal(5,2)，即精度为 5，比例为 2 时，其取值范围为 -999.99 到 999.99。decimal(6,1) ，即精度为 6，比例为 1 时，其取值范围为 -99999.9 到 99999.9。|
-|O_ORDERDATE|DATE|日期值 | 订单产生的日期|
+|O_TOTALPRICE|DECIMAL|用于标记价格|精度为 15，比例为 2，即精度代表字段数值的总位数，而比例代表小数点后有多少位，例如: decimal(5,2)，即精度为 5，比例为 2 时，其取值范围为 -999.99 到 999.99。decimal(6,1) ，即精度为 6，比例为 1 时，其取值范围为 -99999.9 到 99999.9。|
+|O_ORDERDATE|DATE|日期值|订单产生的日期|
 
 ## 选择主键
 

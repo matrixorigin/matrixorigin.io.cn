@@ -20,21 +20,21 @@
 
 | 列名            | 类型     | 约束       | 备注               |
 |----------------|---------|-----------|--------------------|
-| node_id        | varchar | not null  | 节点 ID，用于在数据库集群中唯一标识不同的节点。在 MatrixOne 中，一个节点即为一个 CN（Compute Node）。<br> __Note:__ <br> - 在单机版本的 MatrixOne 中，通常只有一个节点，所有进程都运行在这个节点上，因此所有进程的 node_id 都相同。<br> - 在分布式版本的 MatrixOne 中，每个节点都有一个唯一的 node_id。系统租户可以查看所有正在执行的线程所在节点对应的 node_id，而非系统租户只能看到属于其租户下正在执行的线程的节点对应的 node_id。        |
-| conn_id        | uint32  | not null  | 连接 ID，用于标识不同的数据库连接。如果需要终止某个数据库连接，可以使用 `KILL CONNECTION conn_id;` 命令来终止该连接。在数据库中，每个连接都会被分配一个唯一的 conn_id，用于标识该连接。<br> __Note:__ 系统租户可以查看所有 conn_id，非系统租户只能看到租户下的 conn_id。ID             |
+| node_id        | varchar | not null  | 节点ID，用于在数据库集群中唯一标识不同的节点。在 MatrixOne 中，一个节点即为一个 CN（Compute Node）。<br> __Note:__ <br> - 在单机版本的 MatrixOne 中，通常只有一个节点，所有进程都运行在这个节点上，因此所有进程的 node_id 都相同。<br> - 在分布式版本的 MatrixOne 中，每个节点都有一个唯一的 node_id。系统租户可以查看所有正在执行的线程所在节点对应的 node_id，而非系统租户只能看到属于其租户下正在执行的线程的节点对应的 node_id。        |
+| conn_id        | uint32  | not null  | 连接 ID，用于标识不同的数据库连接。如果需要终止某个数据库连接，可以使用 `KILL CONNECTION conn_id;` 命令来终止该连接。在数据库中，每个连接都会被分配一个唯一的 conn_id，用于标识该连接。<br> __Note:__ 系统租户可以查看所有conn_id，非系统租户只能看到租户下的conn_id。 ID             |
 | session_id     | varchar | not null  | 会话 ID         |
 | account        | varchar | not null  | 租户 <br>__Note:__ 系统租户下可以看到所有租户的会话与租户名称，非系统租户只能看到自己租户的会话与租户名称。    |
 | user           | varchar | not null  | 用户               |
 | host           | varchar | not null  | 客户机端的主机名     |
 | db             | varchar |           | 数据库名            |
 | session_start  | varchar |           | 会话开始时间     |
-| command        | varchar | not null  | 命令类型，如 COM_QUERY |
-| info           | varchar |           | 当前或上一条 SQL 语句  |
-| txn_id         | varchar | not null  | 当前或上一条事务 ID    |
-| statement_id   | varchar |           | 当前或上一条语句 ID    |
+| command        | varchar | not null  | 命令类型，如COM_QUERY |
+| info           | varchar |           | 当前或上一条SQL 语句  |
+| txn_id         | varchar | not null  | 当前或上一条事务ID    |
+| statement_id   | varchar |           | 当前或上一条语句ID    |
 | statement_type | varchar |           | 当前或上一条语句类型   |
-| query_type     | varchar |           | 查询类型，如 DDL，DML 等 |
-| sql_source_type| varchar |           | SQL 源类型，如 external_sql, internal_sql 等|
+| query_type     | varchar |           | 查询类型，如DDL，DML等 |
+| sql_source_type| varchar |           | SQL源类型，如external_sql, internal_sql 等|
 | query_start    | varchar |           | 查询开始时间          |
 
 ## **示例**

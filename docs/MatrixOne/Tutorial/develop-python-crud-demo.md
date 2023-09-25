@@ -240,7 +240,7 @@ with SQL_CONNECTION.cursor() as cursor:
 
 ```
 
-执行下面代码更新 id 为“1”的记录：
+执行下面代码更新 id 为 “1” 的记录：
 
 ```
 > python3 update.py
@@ -297,7 +297,7 @@ with SQL_CONNECTION.cursor() as cursor:
         SQL_CONNECTION.close()
 ```
 
-执行下面代码删除 id 为“1”的记录：
+执行下面代码删除 id 为 “1” 的记录：
 
 ```
 > python3 delete.py
