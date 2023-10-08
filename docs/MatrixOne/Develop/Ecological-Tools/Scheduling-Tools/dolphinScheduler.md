@@ -56,8 +56,8 @@ MatrixOne 支持与可视化 DAG 工作流任务调度系统 DolphinScheduler �
 
     ![image-20230809160632965](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809160632965.png)
 
-		!!! 注意
-				在生产环境中，不建议使用 root 作为租户。
+    !!! 注意
+		    在生产环境中，不建议使用 root 作为租户。
 
 2. 创建项目：
 
@@ -75,7 +75,7 @@ MatrixOne 支持与可视化 DAG 工作流任务调度系统 DolphinScheduler �
 
     接下来，类似地创建**插入数据**和**查询数据**节点。这三个节点的依赖关系如下图，您可以手动连接它们：
 
- ![image-20230809153149428](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809153149428.png)		
+    ![image-20230809153149428](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809153149428.png)		
 
     三个节点的 SQL 语句如下：
 
