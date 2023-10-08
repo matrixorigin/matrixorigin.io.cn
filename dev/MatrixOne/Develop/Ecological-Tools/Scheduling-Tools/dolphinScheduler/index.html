@@ -9690,8 +9690,9 @@
 <p>下载 MySQL 驱动并将其复制到 libs 目录：</p>
 <p>在安装完成后，您需要手动下载 <a href="https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16.jar">mysql-connector-java 驱动</a>（版本 8.0.16），然后将它分别复制到 DolphinScheduler 安装目录下的四个目录中：<code>api-server/libs</code>、<code>alert-server/libs</code>、<code>master-server/libs</code> 和 <code>worker-server/libs</code>。</p>
 <div class="admonition 注意">
-<p class="admonition-title">注意<p>推荐使用 <code>mysql-connector-java-8.0.16.jar</code> 作为 MySQL 驱动包。</p>
-</p>
+<p class="admonition-title">注意</p>
+<pre><code>推荐使用 `mysql-connector-java-8.0.16.jar` 作为 MySQL 驱动包。
+</code></pre>
 </div>
 </li>
 <li>
@@ -9720,9 +9721,11 @@ bash<span class="w"> </span>./bin/dolphinscheduler-daemon.sh<span class="w"> </s
 <p>创建租户：</p>
 <p>在<strong>安全中心</strong>中，点击<strong>创建租户</strong>，填写租户名称，如下图所示：</p>
 <p><img alt="image-20230809160632965" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809160632965.png" /></p>
-<pre><code>!!! 注意
-        在生产环境中，不建议使用 root 作为租户。
+<div class="admonition 注意">
+<p class="admonition-title">注意</p>
+<pre><code>在生产环境中，不建议使用 root 作为租户。
 </code></pre>
+</div>
 </li>
 <li>
 <p>创建项目：</p>
@@ -9735,40 +9738,29 @@ bash<span class="w"> </span>./bin/dolphinscheduler-daemon.sh<span class="w"> </s
 <p>此步骤创建的是一个建表节点，SQL 语句用于创建表格。</p>
 <p><img alt="image-20230809151554568" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809151554568.png" /></p>
 <p>接下来，类似地创建<strong>插入数据</strong>和<strong>查询数据</strong>节点。这三个节点的依赖关系如下图，您可以手动连接它们：</p>
+<p><img alt="image-20230809153149428" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809153149428.png" />       </p>
+<p>三个节点的 SQL 语句如下：</p>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="n">create_table</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">test_table</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">name</span>
+
+<span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+
+<span class="o">#</span><span class="n">insert_data</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">test_table</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;John Doe&#39;</span><span class="p">)</span>
+
+<span class="o">#</span><span class="n">select_data</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">test_table</span>
+</code></pre></div>
+<p>根据依赖关系连接这三个节点，然后点击<strong>保存</strong>。填写<strong>工作流名称</strong>，选择之前创建的<strong>租户</strong>，选择执行策略为<strong>并行</strong>，然后点击<strong>确定</strong>。</p>
+<p><img alt="image-20230809161503945" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809161503945.png" /></p>
+<p>创建好工作流后，您可以在<strong>工作流关系</strong>页面看到创建的工作流，其状态为<strong>工作流下线</strong>：</p>
+<p><img alt="image-20230809161909925" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809161909925.png" /></p>
+<p>同样，您也可以在<strong>工作流定义</strong>页面看到定义的工作流，其状态为<strong>下线</strong>：</p>
+<p><img alt="image-20230809162411368" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809162411368.png" /></p>
 </li>
-</ol>
-<p><img alt="image-20230809153149428" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809153149428.png" />      </p>
-<pre><code>三个节点的 SQL 语句如下：
-
-```sql
-#create_table
-
-CREATE TABLE IF NOT EXISTS test_table (id INT AUTO_INCREMENT PRIMARY KEY, name
-
-VARCHAR(255) NOT NULL)
-
-#insert_data
-
-INSERT INTO test_table (name) VALUES ('John Doe')
-
-#select_data
-
-SELECT * FROM test_table
-```
-
-根据依赖关系连接这三个节点，然后点击**保存**。填写**工作流名称**，选择之前创建的**租户**，选择执行策略为**并行**，然后点击**确定**。
-
-![image-20230809161503945](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809161503945.png)
-
-创建好工作流后，您可以在**工作流关系**页面看到创建的工作流，其状态为**工作流下线**：
-
-![image-20230809161909925](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809161909925.png)
-
-同样，您也可以在**工作流定义**页面看到定义的工作流，其状态为**下线**：
-
-![image-20230809162411368](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Scheduling-tool/image-20230809162411368.png)
-</code></pre>
-<ol>
 <li>
 <p>上线并运行工作流：</p>
 <p>工作流必须先上线才能运行。点击<strong>上线</strong>按钮，将之前创建的工作流上线：</p>

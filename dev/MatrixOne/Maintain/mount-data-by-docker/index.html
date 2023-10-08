@@ -9696,10 +9696,13 @@ docker<span class="w"> </span>rm<span class="w"> </span>&lt;containerID&gt;
 </li>
 </ol>
 <div class="admonition note">
-<p class="admonition-title">Note<p>若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 <code>docker run</code> 命令中加上参数 <code>--privileged=true</code>，如：</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:1.0.0-rc1
-</code></pre></div>
-</p>
+<p class="admonition-title">Note</p>
+<pre><code>若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 ```docker run``` 命令中加上参数 ```--privileged=true```，如：
+
+```bash
+docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:1.0.0-rc1
+```
+</code></pre>
 </div>
 <p>更多关于 <em>Docker run</em> 的指令释义，运行命令 <code>docker run --help</code> 进行查看。</p>
 
