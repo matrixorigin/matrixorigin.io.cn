@@ -550,6 +550,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Overview/architecture/architecture-logtail/" class="md-nav__link">
+        Logtail 协议详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/architecture/architecture-transaction-lock/" class="md-nav__link">
+        事务与锁机制实现详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Overview/architecture/architecture-proxy/" class="md-nav__link">
         Proxy 架构详解
       </a>
@@ -7678,6 +7706,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../Functions-and-Operators/Mathematical/log2/" class="md-nav__link">
+        LOG2()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Functions-and-Operators/Mathematical/log10/" class="md-nav__link">
+        LOG10()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Functions-and-Operators/Mathematical/pi/" class="md-nav__link">
         PI()
       </a>
@@ -9525,22 +9581,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mo_database" class="md-nav__link">
-    mo_database 表
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mo_tables" class="md-nav__link">
-    mo_tables 表
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mo_columns" class="md-nav__link">
-    mo_columns 表
+  <a href="#mo_indexes" class="md-nav__link">
+    mo_indexes 表
   </a>
   
 </li>
@@ -9553,6 +9595,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#mo_user" class="md-nav__link">
+    mo_user 表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#mo_account-sys" class="md-nav__link">
     mo_account 表 (仅 sys 租户可见)
   </a>
@@ -9560,15 +9609,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mo_role" class="md-nav__link">
-    mo_role 表
+  <a href="#mo_database" class="md-nav__link">
+    mo_database 表
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mo_user" class="md-nav__link">
-    mo_user 表
+  <a href="#mo_role" class="md-nav__link">
+    mo_role 表
   </a>
   
 </li>
@@ -9595,13 +9644,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mo_stages" class="md-nav__link">
-    mo_stages 表
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#mo_user_defined_function" class="md-nav__link">
     mo_user_defined_function 表
   </a>
@@ -9623,8 +9665,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mo_indexes" class="md-nav__link">
-    mo_indexes 表
+  <a href="#mo_stages" class="md-nav__link">
+    mo_stages 表
   </a>
   
 </li>
@@ -9637,8 +9679,43 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#mo_configurations" class="md-nav__link">
+    mo_configurations 表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#mo_locks" class="md-nav__link">
     mo_locks 视图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mo_variables" class="md-nav__link">
+    mo_variables 视图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mo_transactions" class="md-nav__link">
+    mo_transactions 视图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mo_columns" class="md-nav__link">
+    mo_columns 表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mo_tables" class="md-nav__link">
+    mo_tables 表
   </a>
   
 </li>
@@ -9834,7 +9911,7 @@
 <h2 id="mo_catalog"><code>mo_catalog</code> 数据库</h2>
 <p><code>mo_catalog</code> 用于存储 MatrixOne 对象的元数据，如：数据库、表、列、系统变量、租户、用户和角色。</p>
 <p>从 MatrixOne 0.6 版本即引入了多租户的概念，默认的 <code>sys</code> 租户和其他租户的行为略有不同。服务于多租户管理的系统表 <code>mo_account</code> 仅对 <code>sys</code> 租户可见；其他租户看不到此表。</p>
-<h3 id="mo_database"><code>mo_database</code> 表</h3>
+<h3 id="mo_indexes"><code>mo_indexes</code> 表</h3>
 <table>
 <thead>
 <tr>
@@ -9845,273 +9922,64 @@
 </thead>
 <tbody>
 <tr>
-<td>dat_id</td>
-<td>bigint unsigned</td>
-<td>主键 ID</td>
+<td>id</td>
+<td>BIGINT UNSIGNED(64)</td>
+<td>索引 ID</td>
 </tr>
 <tr>
-<td>datname</td>
-<td>varchar(100)</td>
-<td>数据库名称</td>
+<td>table_id</td>
+<td>BIGINT UNSIGNED(64)</td>
+<td>索引所在表的 ID</td>
 </tr>
 <tr>
-<td>dat_catalog_name</td>
-<td>varchar(100)</td>
-<td>数据库 catalog 名称，默认<code>def</code></td>
+<td>database_id</td>
+<td>BIGINT UNSIGNED(64)</td>
+<td>索引所在数据库的 ID</td>
 </tr>
 <tr>
-<td>dat_createsql</td>
-<td>varchar(100)</td>
-<td>创建数据库 SQL 语句</td>
+<td>name</td>
+<td>VARCHAR(64)</td>
+<td>索引的名字</td>
 </tr>
 <tr>
-<td>owner</td>
-<td>int unsigned</td>
-<td>角色 ID</td>
+<td>type</td>
+<td>VARCHAR(11)</td>
+<td>索引的类型，包括主键索引（PRIMARY），唯一索引（UNIQUE），次级索引（MULTIPLE）</td>
 </tr>
 <tr>
-<td>creator</td>
-<td>int unsigned</td>
-<td>用户 ID</td>
+<td>is_visible</td>
+<td>TINYINT(8)</td>
+<td>索引是否可见 ， 1 为可见， 0 不可见 （目前 MatrixOne 的索引全部为可见索引）</td>
 </tr>
 <tr>
-<td>created_time</td>
-<td>timestamp</td>
-<td>创建时间</td>
+<td>hidden</td>
+<td>TINYINT(8)</td>
+<td>索引是否为隐藏索引， 1 为隐藏索引，0 为非隐藏索引</td>
 </tr>
 <tr>
-<td>account_id</td>
-<td>int unsigned</td>
-<td>租户 ID</td>
+<td>comment</td>
+<td>VARCHAR(2048)</td>
+<td>索引的注释信息</td>
 </tr>
 <tr>
-<td>dat_type</td>
-<td>varchar(23)</td>
-<td>数据库类型，普通库或订阅库</td>
-</tr>
-</tbody>
-</table>
-<h3 id="mo_tables"><code>mo_tables</code> 表</h3>
-<table>
-<thead>
-<tr>
-<th>列属性</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rel_id</td>
-<td>bigint unsigned</td>
-<td>主键，表 ID</td>
+<td>column_name</td>
+<td>VARCHAR(256)</td>
+<td>索引的组成列的列名</td>
 </tr>
 <tr>
-<td>relname</td>
-<td>varchar(100)</td>
-<td>表、索引、视图等的名称</td>
+<td>ordinal_position</td>
+<td>INT UNSIGNED(32)</td>
+<td>索引中的列序号，从 1 开始</td>
 </tr>
 <tr>
-<td>reldatabase</td>
-<td>varchar(100)</td>
-<td>包含此关系的数据库，参考 mo_database.datname</td>
+<td>options</td>
+<td>TEXT(0)</td>
+<td>索引的 options 选项信息</td>
 </tr>
 <tr>
-<td>reldatabase_id</td>
-<td>bigint unsigned</td>
-<td>包含此关系的数据库 ID，参考 mo_database.datid</td>
-</tr>
-<tr>
-<td>relpersistence</td>
-<td>varchar(100)</td>
-<td>p = 永久表<br> t = 临时表</td>
-</tr>
-<tr>
-<td>relkind</td>
-<td>varchar(100)</td>
-<td>r = 普通表<br> e = 外部表<br> i = 索引<br> S = 序列<br> v = 视图<br> m = 物化视图</td>
-</tr>
-<tr>
-<td>rel_comment</td>
-<td>varchar(100)</td>
-<td></td>
-</tr>
-<tr>
-<td>rel_createsql</td>
-<td>varchar(100)</td>
-<td>创建表 SQL 语句</td>
-</tr>
-<tr>
-<td>created_time</td>
-<td>timestamp</td>
-<td>创建时间</td>
-</tr>
-<tr>
-<td>creator</td>
-<td>int unsigned</td>
-<td>创建者 ID</td>
-</tr>
-<tr>
-<td>owner</td>
-<td>int unsigned</td>
-<td>创建者的默认角色 ID</td>
-</tr>
-<tr>
-<td>account_id</td>
-<td>int unsigned</td>
-<td>租户 id</td>
-</tr>
-<tr>
-<td>partitioned</td>
-<td>blob</td>
-<td>按语句分区</td>
-</tr>
-<tr>
-<td>partition_info</td>
-<td>blob</td>
-<td>分区信息</td>
-</tr>
-<tr>
-<td>viewdef</td>
-<td>blob</td>
-<td>视图定义语句</td>
-</tr>
-<tr>
-<td>constraint</td>
-<td>varchar(5000)</td>
-<td>与表相关的约束</td>
-</tr>
-<tr>
-<td>rel_version</td>
-<td>INT UNSIGNED(0)</td>
-<td>主键，表的版本号</td>
-</tr>
-<tr>
-<td>catalog_version</td>
-<td>INT UNSIGNED(0)</td>
-<td>系统表的版本号</td>
-</tr>
-</tbody>
-</table>
-<h3 id="mo_columns"><code>mo_columns</code> 表</h3>
-<table>
-<thead>
-<tr>
-<th>列属性</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>att_uniq_name</td>
-<td>varchar(256)</td>
-<td>主键。隐藏的复合主键，格式类似于 "${att_relname_id}-${attname}"</td>
-</tr>
-<tr>
-<td>account_id</td>
-<td>int unsigned</td>
-<td>租户 ID</td>
-</tr>
-<tr>
-<td>att_database_id</td>
-<td>bigint unsigned</td>
-<td>数据库 ID</td>
-</tr>
-<tr>
-<td>att_database</td>
-<td>varchar(256)</td>
-<td>数据 Name</td>
-</tr>
-<tr>
-<td>att_relname_id</td>
-<td>bigint unsigned</td>
-<td>表 ID</td>
-</tr>
-<tr>
-<td>att_relname</td>
-<td>varchar(256)</td>
-<td>此列所属的表。（参考 mo_tables.relname）</td>
-</tr>
-<tr>
-<td>attname</td>
-<td>varchar(256)</td>
-<td>列名</td>
-</tr>
-<tr>
-<td>atttyp</td>
-<td>varchar(256)</td>
-<td>此列的数据类型 (删除的列为 0 )。</td>
-</tr>
-<tr>
-<td>attnum</td>
-<td>int</td>
-<td>列数。普通列从 1 开始编号。</td>
-</tr>
-<tr>
-<td>att_length</td>
-<td>int</td>
-<td>类型的字节数</td>
-</tr>
-<tr>
-<td>attnotnull</td>
-<td>tinyint(1)</td>
-<td>表示一个非空约束。</td>
-</tr>
-<tr>
-<td>atthasdef</td>
-<td>tinyint(1)</td>
-<td>此列有默认表达式或生成表达式。</td>
-</tr>
-<tr>
-<td>att_default</td>
-<td>varchar(1024)</td>
-<td>默认表达式</td>
-</tr>
-<tr>
-<td>attisdropped</td>
-<td>tinyint(1)</td>
-<td>此列已删除，不再有效。删除的列仍然物理上存在于表中，但解析器会忽略它，因此不能通过 SQL 访问它。</td>
-</tr>
-<tr>
-<td>att_constraint_type</td>
-<td>char(1)</td>
-<td>p = 主键约束<br>n=无约束</td>
-</tr>
-<tr>
-<td>att_is_unsigned</td>
-<td>tinyint(1)</td>
-<td>是否未署名</td>
-</tr>
-<tr>
-<td>att_is_auto_increment</td>
-<td>tinyint(1)</td>
-<td>是否自增</td>
-</tr>
-<tr>
-<td>att_comment</td>
-<td>varchar(1024)</td>
-<td>注释</td>
-</tr>
-<tr>
-<td>att_is_hidden</td>
-<td>tinyint(1)</td>
-<td>是否隐藏</td>
-</tr>
-<tr>
-<td>attr_has_update</td>
-<td>tinyint(1)</td>
-<td>此列含有更新表达式</td>
-</tr>
-<tr>
-<td>attr_update</td>
-<td>varchar(1024)</td>
-<td>更新表达式</td>
-</tr>
-<tr>
-<td>attr_is_clusterby</td>
-<td>tinyint(1)</td>
-<td>此列是否作为 cluster by 关键字来建表</td>
+<td>index_table_name</td>
+<td>VARCHAR(5000)</td>
+<td>该索引对应的索引表的表名，目前只有唯一索引含有索引表</td>
 </tr>
 </tbody>
 </table>
@@ -10174,95 +10042,6 @@
 <td>partition_table_name</td>
 <td>VARCHAR(1024)</td>
 <td>当前分区对应的分区子表名字</td>
-</tr>
-</tbody>
-</table>
-<h3 id="mo_account-sys"><code>mo_account</code> 表 (仅 <code>sys</code> 租户可见)</h3>
-<table>
-<thead>
-<tr>
-<th>列属性</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>account_id</td>
-<td>int unsigned</td>
-<td>租户 ID，主键</td>
-</tr>
-<tr>
-<td>account_name</td>
-<td>varchar(100)</td>
-<td>租户名</td>
-</tr>
-<tr>
-<td>status</td>
-<td>varchar(100)</td>
-<td>开启/暂停/限制</td>
-</tr>
-<tr>
-<td>created_time</td>
-<td>timestamp</td>
-<td>创建时间</td>
-</tr>
-<tr>
-<td>comment</td>
-<td>varchar(256)</td>
-<td>注释</td>
-</tr>
-<tr>
-<td>suspended_time</td>
-<td>TIMESTAMP</td>
-<td>修改租户状态的时间</td>
-</tr>
-<tr>
-<td>version</td>
-<td>bigint unsigned</td>
-<td>当前租户版本状态</td>
-</tr>
-</tbody>
-</table>
-<h3 id="mo_role"><code>mo_role</code> 表</h3>
-<table>
-<thead>
-<tr>
-<th>列属性</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>role_id</td>
-<td>int unsigned</td>
-<td>角色 ID，主键</td>
-</tr>
-<tr>
-<td>role_name</td>
-<td>varchar(100)</td>
-<td>角色名称</td>
-</tr>
-<tr>
-<td>creator</td>
-<td>int unsigned</td>
-<td>用户 ID</td>
-</tr>
-<tr>
-<td>owner</td>
-<td>int unsigned</td>
-<td>MatrixOne 管理员/租户管理员拥有者 ID</td>
-</tr>
-<tr>
-<td>created_time</td>
-<td>timestamp</td>
-<td>创建时间</td>
-</tr>
-<tr>
-<td>comment</td>
-<td>text</td>
-<td>注释</td>
 </tr>
 </tbody>
 </table>
@@ -10330,6 +10109,152 @@
 <td>default_role</td>
 <td>int</td>
 <td>此用户的默认角色 ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo_account-sys"><code>mo_account</code> 表 (仅 <code>sys</code> 租户可见)</h3>
+<table>
+<thead>
+<tr>
+<th>列属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>account_id</td>
+<td>int unsigned</td>
+<td>租户 ID，主键</td>
+</tr>
+<tr>
+<td>account_name</td>
+<td>varchar(100)</td>
+<td>租户名</td>
+</tr>
+<tr>
+<td>status</td>
+<td>varchar(100)</td>
+<td>开启/暂停/限制</td>
+</tr>
+<tr>
+<td>created_time</td>
+<td>timestamp</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>varchar(256)</td>
+<td>注释</td>
+</tr>
+<tr>
+<td>suspended_time</td>
+<td>TIMESTAMP</td>
+<td>修改租户状态的时间</td>
+</tr>
+<tr>
+<td>version</td>
+<td>bigint unsigned</td>
+<td>当前租户版本状态</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo_database"><code>mo_database</code> 表</h3>
+<table>
+<thead>
+<tr>
+<th>列属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dat_id</td>
+<td>bigint unsigned</td>
+<td>主键 ID</td>
+</tr>
+<tr>
+<td>datname</td>
+<td>varchar(100)</td>
+<td>数据库名称</td>
+</tr>
+<tr>
+<td>dat_catalog_name</td>
+<td>varchar(100)</td>
+<td>数据库 catalog 名称，默认<code>def</code></td>
+</tr>
+<tr>
+<td>dat_createsql</td>
+<td>varchar(100)</td>
+<td>创建数据库 SQL 语句</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>int unsigned</td>
+<td>角色 ID</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>int unsigned</td>
+<td>用户 ID</td>
+</tr>
+<tr>
+<td>created_time</td>
+<td>timestamp</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>account_id</td>
+<td>int unsigned</td>
+<td>租户 ID</td>
+</tr>
+<tr>
+<td>dat_type</td>
+<td>varchar(23)</td>
+<td>数据库类型，普通库或订阅库</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo_role"><code>mo_role</code> 表</h3>
+<table>
+<thead>
+<tr>
+<th>列属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td>int unsigned</td>
+<td>角色 ID，主键</td>
+</tr>
+<tr>
+<td>role_name</td>
+<td>varchar(100)</td>
+<td>角色名称</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>int unsigned</td>
+<td>用户 ID</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>int unsigned</td>
+<td>MatrixOne 管理员/租户管理员拥有者 ID</td>
+</tr>
+<tr>
+<td>created_time</td>
+<td>timestamp</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>text</td>
+<td>注释</td>
 </tr>
 </tbody>
 </table>
@@ -10466,53 +10391,6 @@
 <td>with_grant_option</td>
 <td>bool</td>
 <td>是否允许授权</td>
-</tr>
-</tbody>
-</table>
-<h3 id="mo_stages"><code>mo_stages</code> 表</h3>
-<table>
-<thead>
-<tr>
-<th>列属性</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>stage_id</td>
-<td>INT UNSIGNED(32)</td>
-<td>数据阶段 ID</td>
-</tr>
-<tr>
-<td>stage_name</td>
-<td>VARCHAR(64)</td>
-<td>数据阶段名称</td>
-</tr>
-<tr>
-<td>url</td>
-<td>TEXT(0)</td>
-<td>对象存储的路径（不含认证）、文件系统的路径</td>
-</tr>
-<tr>
-<td>stage_credentials</td>
-<td>TEXT(0)</td>
-<td>认证信息，加密后保存</td>
-</tr>
-<tr>
-<td>stage_status</td>
-<td>VARCHAR(64)</td>
-<td>ENABLED/DISABLED  默认：DISABLED</td>
-</tr>
-<tr>
-<td>created_time</td>
-<td>TIMESTAMP(0)</td>
-<td>创建时间</td>
-</tr>
-<tr>
-<td>comment</td>
-<td>TEXT(0)</td>
-<td>注释</td>
 </tr>
 </tbody>
 </table>
@@ -10712,7 +10590,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="mo_indexes"><code>mo_indexes</code> 表</h3>
+<h3 id="mo_stages"><code>mo_stages</code> 表</h3>
 <table>
 <thead>
 <tr>
@@ -10723,64 +10601,39 @@
 </thead>
 <tbody>
 <tr>
-<td>id</td>
-<td>BIGINT UNSIGNED(64)</td>
-<td>索引 ID</td>
+<td>stage_id</td>
+<td>INT UNSIGNED(32)</td>
+<td>数据阶段 ID</td>
 </tr>
 <tr>
-<td>table_id</td>
-<td>BIGINT UNSIGNED(64)</td>
-<td>索引所在表的 ID</td>
-</tr>
-<tr>
-<td>database_id</td>
-<td>BIGINT UNSIGNED(64)</td>
-<td>索引所在数据库的 ID</td>
-</tr>
-<tr>
-<td>name</td>
+<td>stage_name</td>
 <td>VARCHAR(64)</td>
-<td>索引的名字</td>
+<td>数据阶段名称</td>
 </tr>
 <tr>
-<td>type</td>
-<td>VARCHAR(11)</td>
-<td>索引的类型，包括主键索引（PRIMARY），唯一索引（UNIQUE），次级索引（MULTIPLE）</td>
+<td>url</td>
+<td>TEXT(0)</td>
+<td>对象存储的路径（不含认证）、文件系统的路径</td>
 </tr>
 <tr>
-<td>is_visible</td>
-<td>TINYINT(8)</td>
-<td>索引是否可见 ， 1 为可见， 0 不可见 （目前 MatrixOne 的索引全部为可见索引）</td>
+<td>stage_credentials</td>
+<td>TEXT(0)</td>
+<td>认证信息，加密后保存</td>
 </tr>
 <tr>
-<td>hidden</td>
-<td>TINYINT(8)</td>
-<td>索引是否为隐藏索引， 1 为隐藏索引，0 为非隐藏索引</td>
+<td>stage_status</td>
+<td>VARCHAR(64)</td>
+<td>ENABLED/DISABLED  默认：DISABLED</td>
+</tr>
+<tr>
+<td>created_time</td>
+<td>TIMESTAMP(0)</td>
+<td>创建时间</td>
 </tr>
 <tr>
 <td>comment</td>
-<td>VARCHAR(2048)</td>
-<td>索引的注释信息</td>
-</tr>
-<tr>
-<td>column_name</td>
-<td>VARCHAR(256)</td>
-<td>索引的组成列的列名</td>
-</tr>
-<tr>
-<td>ordinal_position</td>
-<td>INT UNSIGNED(32)</td>
-<td>索引中的列序号，从 1 开始</td>
-</tr>
-<tr>
-<td>options</td>
 <td>TEXT(0)</td>
-<td>索引的 options 选项信息</td>
-</tr>
-<tr>
-<td>index_table_name</td>
-<td>VARCHAR(5000)</td>
-<td>该索引对应的索引表的表名，目前只有唯一索引含有索引表</td>
+<td>注释</td>
 </tr>
 </tbody>
 </table>
@@ -10886,6 +10739,48 @@
 </tr>
 </tbody>
 </table>
+<h3 id="mo_configurations"><code>mo_configurations</code> 表</h3>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>node_type</td>
+<td>VARCHAR(65535)</td>
+<td>节点的类型：cn（计算节点）、tn（事务节点）、log（日志节点）、proxy（代理）。</td>
+</tr>
+<tr>
+<td>node_id</td>
+<td>VARCHAR(65535)</td>
+<td>节点的唯一标识符。</td>
+</tr>
+<tr>
+<td>name</td>
+<td>VARCHAR(65535)</td>
+<td>配置项的名称，可能会附带嵌套结构前缀。</td>
+</tr>
+<tr>
+<td>current_value</td>
+<td>VARCHAR(65535)</td>
+<td>配置项的当前数值。</td>
+</tr>
+<tr>
+<td>default_value</td>
+<td>VARCHAR(65535)</td>
+<td>配置项的默认数值。</td>
+</tr>
+<tr>
+<td>internal</td>
+<td>VARCHAR(65535)</td>
+<td>表示配置参数是否为内部参数。</td>
+</tr>
+</tbody>
+</table>
 <h3 id="mo_locks"><code>mo_locks</code> 视图</h3>
 <table>
 <thead>
@@ -10933,9 +10828,362 @@
 </tr>
 </tbody>
 </table>
+<h3 id="mo_variables"><code>mo_variables</code> 视图</h3>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>configuration_id</td>
+<td>INT(32)</td>
+<td>自增列，用于唯一标识每个配置项。</td>
+</tr>
+<tr>
+<td>account_id</td>
+<td>INT(32)</td>
+<td>标识租户的唯一标识符。</td>
+</tr>
+<tr>
+<td>account_name</td>
+<td>VARCHAR(300)</td>
+<td>租户的名称。</td>
+</tr>
+<tr>
+<td>dat_name</td>
+<td>VARCHAR(5000)</td>
+<td>数据库的名称。</td>
+</tr>
+<tr>
+<td>variable_name</td>
+<td>VARCHAR(300)</td>
+<td>配置变量的名称。</td>
+</tr>
+<tr>
+<td>variable_value</td>
+<td>VARCHAR(5000)</td>
+<td>配置变量的数值。</td>
+</tr>
+<tr>
+<td>system_variables</td>
+<td>BOOL(0)</td>
+<td>指示配置变量是否为系统级别的变量。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo_transactions"><code>mo_transactions</code> 视图</h3>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cn_id</td>
+<td>VARCHAR(65535)</td>
+<td>唯一标识 CN（Compute Node）的 ID。</td>
+</tr>
+<tr>
+<td>txn_id</td>
+<td>VARCHAR(65535)</td>
+<td>唯一标识事务的 ID。</td>
+</tr>
+<tr>
+<td>create_ts</td>
+<td>VARCHAR(65535)</td>
+<td>记录事务创建时间戳，遵循 RFC3339Nano 格式 ("2006-01-02T15:04:05.999999999Z07:00")。</td>
+</tr>
+<tr>
+<td>snapshot_ts</td>
+<td>VARCHAR(65535)</td>
+<td>表示事务的快照时间戳，以物理时间和逻辑时间的形式表示。</td>
+</tr>
+<tr>
+<td>prepared_ts</td>
+<td>VARCHAR(65535)</td>
+<td>表示事务的 prepared 时间戳，以物理时间和逻辑时间的形式表示。</td>
+</tr>
+<tr>
+<td>commit_ts</td>
+<td>VARCHAR(65535)</td>
+<td>表示事务的 commit 时间戳，以物理时间和逻辑时间的形式表示。</td>
+</tr>
+<tr>
+<td>txn_mode</td>
+<td>VARCHAR(65535)</td>
+<td>标识事务模式，可以是悲观事务或乐观事务。</td>
+</tr>
+<tr>
+<td>isolation</td>
+<td>VARCHAR(65535)</td>
+<td>表示事务的隔离级别，可以是 SI（Snapshot Isolation）或 RC（Read Committed）。</td>
+</tr>
+<tr>
+<td>user_txn</td>
+<td>VARCHAR(65535)</td>
+<td>指示用户事务，即用户通过客户端连接到 MatrixOne 并执行的 SQL 操作所创建的事务。</td>
+</tr>
+<tr>
+<td>txn_status</td>
+<td>VARCHAR(65535)</td>
+<td>表示事务的当前状态，可能的取值包括 active（活跃）、committed（已提交）、aborting（中止中）、aborted（已中止）。在分布式事务 2PC 模式下，还会包括 prepared（已准备）和 committing（提交中）。</td>
+</tr>
+<tr>
+<td>table_id</td>
+<td>VARCHAR(65535)</td>
+<td>表示事务所涉及的表的 ID。</td>
+</tr>
+<tr>
+<td>lock_key</td>
+<td>VARCHAR(65535)</td>
+<td>表示锁的类型，可以是 range（范围锁）或 point（点锁）。</td>
+</tr>
+<tr>
+<td>lock_content</td>
+<td>VARCHAR(65535)</td>
+<td>point 锁时表示单个值，range 锁时表示范围，通常以 "low - high" 形式表示。请注意，事务可能涉及多个锁，但此处仅展示第一个锁。</td>
+</tr>
+<tr>
+<td>lock_mode</td>
+<td>VARCHAR(65535)</td>
+<td>表示锁的模式，可以是互斥锁（exclusive）或共享锁（shared）。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo_columns"><code>mo_columns</code> 表</h3>
+<table>
+<thead>
+<tr>
+<th>列属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>att_uniq_name</td>
+<td>varchar(256)</td>
+<td>主键。隐藏的复合主键，格式类似于 "${att_relname_id}-${attname}"</td>
+</tr>
+<tr>
+<td>account_id</td>
+<td>int unsigned</td>
+<td>租户 ID</td>
+</tr>
+<tr>
+<td>att_database_id</td>
+<td>bigint unsigned</td>
+<td>数据库 ID</td>
+</tr>
+<tr>
+<td>att_database</td>
+<td>varchar(256)</td>
+<td>数据 Name</td>
+</tr>
+<tr>
+<td>att_relname_id</td>
+<td>bigint unsigned</td>
+<td>表 ID</td>
+</tr>
+<tr>
+<td>att_relname</td>
+<td>varchar(256)</td>
+<td>此列所属的表。（参考 mo_tables.relname）</td>
+</tr>
+<tr>
+<td>attname</td>
+<td>varchar(256)</td>
+<td>列名</td>
+</tr>
+<tr>
+<td>atttyp</td>
+<td>varchar(256)</td>
+<td>此列的数据类型 (删除的列为 0 )。</td>
+</tr>
+<tr>
+<td>attnum</td>
+<td>int</td>
+<td>列数。普通列从 1 开始编号。</td>
+</tr>
+<tr>
+<td>att_length</td>
+<td>int</td>
+<td>类型的字节数</td>
+</tr>
+<tr>
+<td>attnotnull</td>
+<td>tinyint(1)</td>
+<td>表示一个非空约束。</td>
+</tr>
+<tr>
+<td>atthasdef</td>
+<td>tinyint(1)</td>
+<td>此列有默认表达式或生成表达式。</td>
+</tr>
+<tr>
+<td>att_default</td>
+<td>varchar(1024)</td>
+<td>默认表达式</td>
+</tr>
+<tr>
+<td>attisdropped</td>
+<td>tinyint(1)</td>
+<td>此列已删除，不再有效。删除的列仍然物理上存在于表中，但解析器会忽略它，因此不能通过 SQL 访问它。</td>
+</tr>
+<tr>
+<td>att_constraint_type</td>
+<td>char(1)</td>
+<td>p = 主键约束<br>n=无约束</td>
+</tr>
+<tr>
+<td>att_is_unsigned</td>
+<td>tinyint(1)</td>
+<td>是否未署名</td>
+</tr>
+<tr>
+<td>att_is_auto_increment</td>
+<td>tinyint(1)</td>
+<td>是否自增</td>
+</tr>
+<tr>
+<td>att_comment</td>
+<td>varchar(1024)</td>
+<td>注释</td>
+</tr>
+<tr>
+<td>att_is_hidden</td>
+<td>tinyint(1)</td>
+<td>是否隐藏</td>
+</tr>
+<tr>
+<td>attr_has_update</td>
+<td>tinyint(1)</td>
+<td>此列含有更新表达式</td>
+</tr>
+<tr>
+<td>attr_update</td>
+<td>varchar(1024)</td>
+<td>更新表达式</td>
+</tr>
+<tr>
+<td>attr_is_clusterby</td>
+<td>tinyint(1)</td>
+<td>此列是否作为 cluster by 关键字来建表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mo_tables"><code>mo_tables</code> 表</h3>
+<table>
+<thead>
+<tr>
+<th>列属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rel_id</td>
+<td>bigint unsigned</td>
+<td>主键，表 ID</td>
+</tr>
+<tr>
+<td>relname</td>
+<td>varchar(100)</td>
+<td>表、索引、视图等的名称</td>
+</tr>
+<tr>
+<td>reldatabase</td>
+<td>varchar(100)</td>
+<td>包含此关系的数据库，参考 mo_database.datname</td>
+</tr>
+<tr>
+<td>reldatabase_id</td>
+<td>bigint unsigned</td>
+<td>包含此关系的数据库 ID，参考 mo_database.datid</td>
+</tr>
+<tr>
+<td>relpersistence</td>
+<td>varchar(100)</td>
+<td>p = 永久表<br> t = 临时表</td>
+</tr>
+<tr>
+<td>relkind</td>
+<td>varchar(100)</td>
+<td>r = 普通表<br> e = 外部表<br> i = 索引<br> S = 序列<br> v = 视图<br> m = 物化视图</td>
+</tr>
+<tr>
+<td>rel_comment</td>
+<td>varchar(100)</td>
+<td></td>
+</tr>
+<tr>
+<td>rel_createsql</td>
+<td>varchar(100)</td>
+<td>创建表 SQL 语句</td>
+</tr>
+<tr>
+<td>created_time</td>
+<td>timestamp</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>int unsigned</td>
+<td>创建者 ID</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>int unsigned</td>
+<td>创建者的默认角色 ID</td>
+</tr>
+<tr>
+<td>account_id</td>
+<td>int unsigned</td>
+<td>租户 id</td>
+</tr>
+<tr>
+<td>partitioned</td>
+<td>blob</td>
+<td>按语句分区</td>
+</tr>
+<tr>
+<td>partition_info</td>
+<td>blob</td>
+<td>分区信息</td>
+</tr>
+<tr>
+<td>viewdef</td>
+<td>blob</td>
+<td>视图定义语句</td>
+</tr>
+<tr>
+<td>constraint</td>
+<td>varchar(5000)</td>
+<td>与表相关的约束</td>
+</tr>
+<tr>
+<td>rel_version</td>
+<td>INT UNSIGNED(0)</td>
+<td>主键，表的版本号</td>
+</tr>
+<tr>
+<td>catalog_version</td>
+<td>INT UNSIGNED(0)</td>
+<td>系统表的版本号</td>
+</tr>
+</tbody>
+</table>
 <h2 id="system_metrics"><code>system_metrics</code> 数据库</h2>
 <p><code>system_metrics</code> 收集 SQL 语句、CPU 和内存资源使用的状态和统计信息。</p>
-<p><code>system_metrics</code> 表一些相同的列类型，这些表中的字段描述如下：</p>
+<p><code>metrics</code> 表一些相同的列类型，这些表中的字段描述如下：</p>
 <ul>
 <li>
 <p>collecttime：收集时间。</p>
