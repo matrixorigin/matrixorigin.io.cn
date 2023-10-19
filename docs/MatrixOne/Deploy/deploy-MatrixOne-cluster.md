@@ -474,7 +474,10 @@ __Note:__ 本章节均是在 master0 节点操作。
     ```
     helm install matrixone-operator matrixone-operator/matrixone-operator --version <VERSION> --create-namespace --namespace matrixone-operator
     ```
-
+   
+   !!! note
+       参数 VERSION 为要部署的 MatrixOne Operator 的版本号，如：1.0.0-alpha.2。
+   
 6. 安装成功后，使用以下命令确认安装状态：
 
     ```
