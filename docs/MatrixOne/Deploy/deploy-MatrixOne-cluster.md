@@ -451,32 +451,34 @@ __Note:__ 本章节均是在 master0 节点操作。
 
 按照以下步骤在 master0 上安装 MatrixOne Operator。我们将为 Operator 创建一个独立的命名空间 `matrixone-operator`。
 
-1. 下载最新的 MatrixOne Operator 安装包：
+1. 添加 matrixone-operator 地址到 helm 仓库：
 
     ```
-    wget https://github.com/matrixorigin/matrixone-operator/releases/download/chart-0.8.0-alpha.7/matrixone-operator-0.8.0-alpha.7.tgz
+    helm repo add matrixone-operator https://matrixorigin.github.io/matrixone-operator
     ```
 
-2. 解压安装包：
+2. 更新仓库：
 
     ```
-    tar -xvf matrixone-operator-0.8.0-alpha.7.tgz
-    cd /root/matrixone-operator/
+    helm repo update
     ```
 
-3. 定义命名空间变量：
+3. 查看 MatrixOne Operator 版本：
 
     ```
-    NS="matrixone-operator"
+    helm search repo matrixone-operator/matrixone-operator --versions --devel
     ```
 
-4. 使用 Helm 安装 MatrixOne Operator，并创建命名空间：
+4. 指定发布版本安装 MatrixOne Operator：
 
     ```
-    helm install --create-namespace --namespace ${NS} matrixone-operator ./ --dependency-update
+    helm install matrixone-operator matrixone-operator/matrixone-operator --version <VERSION> --create-namespace --namespace matrixone-operator
     ```
 
-5. 安装成功后，使用以下命令确认安装状态：
+   !!! note
+   参数 VERSION 为要指定部署 MatrixOne Operator 的版本号，如：1.0.0-alpha.2 
+
+6. 安装成功后，使用以下命令确认安装状态：
 
     ```
     kubectl get pod -n matrixone-operator
