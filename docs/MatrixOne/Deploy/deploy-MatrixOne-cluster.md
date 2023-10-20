@@ -477,8 +477,6 @@ __Note:__ 本章节均是在 master0 节点操作。
 
     !!! note
         参数 VERSION 为要部署的 MatrixOne Operator 的版本号，如 1.0.0-alpha.2。
-        安装最新版本的话，也可以执行下面命令:
-        helm install mo matrixone-operator/matrixone-operator
 
 6. 安装成功后，使用以下命令确认安装状态：
 
