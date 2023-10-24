@@ -9,7 +9,7 @@
 ### CREATE 语句，创建 MatrixOne 中各类对象
 
 - [CREATE DATABASE](Data-Definition-Language/create-database.md)
-- [[CREATE INDEX](Data-Definition-Language/create-index.md)
+- [CREATE INDEX](Data-Definition-Language/create-index.md)
 - [CREATE TABLE](Data-Definition-Language/create-table.md)
 - [CREATE EXTERNAL TABLE](Data-Definition-Language/create-external-table.md)
 - [CREATE PUBLICATION](Data-Definition-Language/create-publication.md)
@@ -100,11 +100,11 @@
 
 ### 除 SELECT STATEMENT 之外，还包含了针对常量的查询 VALUES 语句
 
-- [VALUES row_constructor_list [ORDER BY column_designator] [LIMIT number]
+- [SELECT](Data-Query-Language/select.md)
 
 ### 以及 modump 工具所对应的内部命令
 
-- [导出数据: MatrixOne-Cloud/App-Develop/export-data/modump.md)
+- [Export Data](../../Develop/export-data/modump.md)
 
 ## **TCL - 事务语言**
 
