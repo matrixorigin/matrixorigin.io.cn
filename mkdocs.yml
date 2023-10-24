@@ -247,6 +247,7 @@ nav:
         - UUID 数据类型: MatrixOne/Reference/Data-Types/uuid-type.md
         - 精确数值类型-DECIMAL: MatrixOne/Reference/Data-Types/fixed-point-types.md
       - SQL 目录:
+        - SQL 语句的分类: MatrixOne/Reference/SQL-Reference/SQL-Type.md
         - 数据定义语言（DDL）:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md
           - CREATE INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index.md
