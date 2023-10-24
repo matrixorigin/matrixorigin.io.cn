@@ -4,7 +4,7 @@
 
 ## **DDL - 数据定义语言**
 
-数据定义语言（Data Definition Language，DDL）是 DBMS 语言的一种，用于明确定义数据对象。在 MatrixOne 中，DDL 语句分为五个类别，其中带有*的部分尚未实现：
+数据定义语言（Data Definition Language，DDL）是 DBMS 语言的一种，用于明确定义数据对象。在 MatrixOne 中，DDL 语句分为五个类别：
 
 ### CREATE 语句，创建 MatrixOne 中各类对象
 
