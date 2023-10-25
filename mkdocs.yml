@@ -536,7 +536,7 @@ nav:
       - 使用限制:
         - MatrixOne 的 JDBC 功能支持列表: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
         - MatrixOne DDL 语句分区支持的说明: MatrixOne/Reference/Limitations/mo-partition-support.md
-      - MatrixOne  文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
+      - MatrixOne 文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
       - MatrixOne 工具:
         - mo_ctl 工具: MatrixOne/Maintain/mo_ctl.md
     - 故障诊断:
