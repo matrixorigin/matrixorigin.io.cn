@@ -198,61 +198,58 @@ load data infile '/ssb-dbgen-path/lineorder_flat.tbl' into table lineorder_flat 
 
 ## **5. 运行 SSB 测试命令**  
 
-!!! note
-    `GROUP BY` 暂不支持使用别名。
-
 ### **单表查询**
 
 ```sql
--- Q1.1
+--Q1.1
 SELECT sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS revenue FROM lineorder_flat WHERE year(LO_ORDERDATE)=1993 AND LO_DISCOUNT BETWEEN 1 AND 3 AND LO_QUANTITY < 25;
 
--- Q1.2
+--Q1.2
 SELECT sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS revenue FROM lineorder_flat WHERE year(LO_ORDERDATE)=1994 AND LO_DISCOUNT BETWEEN 4 AND 6 AND LO_QUANTITY BETWEEN 26 AND 35;
 
--- Q1.3
+--Q1.3
 SELECT sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS revenue FROM lineorder_flat WHERE year(LO_ORDERDATE)=1994 AND LO_DISCOUNT BETWEEN 5 AND 7 AND LO_QUANTITY BETWEEN 26 AND 35;
 
--- Q2.1
-SELECT sum(LO_REVENUE),year(LO_ORDERDATE) AS year,P_BRAND FROM lineorder_flat WHERE P_CATEGORY = 'MFGR#12' AND S_REGION = 'AMERICA' GROUP BY year(LO_ORDERDATE), P_BRAND ORDER BY year,P_BRAND;
+--Q2.1
+SELECT sum(LO_REVENUE),year(LO_ORDERDATE) AS year,P_BRAND FROM lineorder_flat WHERE P_CATEGORY = 'MFGR#12' AND S_REGION = 'AMERICA' GROUP BY year, P_BRAND ORDER BY year,P_BRAND;
 
--- Q2.2
-SELECT sum(LO_REVENUE), year(LO_ORDERDATE) AS year, P_BRAND FROM lineorder_flat WHERE P_BRAND BETWEEN 'MFGR#2221' AND 'MFGR#2228' AND S_REGION = 'ASIA' GROUP BY year(LO_ORDERDATE), P_BRAND ORDER BY year, P_BRAND;
+--Q2.2
+SELECT sum(LO_REVENUE), year(LO_ORDERDATE) AS year, P_BRAND FROM lineorder_flat WHERE P_BRAND BETWEEN 'MFGR#2221' AND 'MFGR#2228' AND S_REGION = 'ASIA' GROUP BY year, P_BRAND ORDER BY year, P_BRAND;
 
--- Q2.3
-SELECT sum(LO_REVENUE), year(LO_ORDERDATE) AS year, P_BRAND FROM lineorder_flat WHERE P_BRAND = 'MFGR#2239' AND S_REGION = 'EUROPE' GROUP BY year(LO_ORDERDATE), P_BRAND ORDER BY year, P_BRAND;
+--Q2.3
+SELECT sum(LO_REVENUE), year(LO_ORDERDATE) AS year, P_BRAND FROM lineorder_flat WHERE P_BRAND = 'MFGR#2239' AND S_REGION = 'EUROPE' GROUP BY year, P_BRAND ORDER BY year, P_BRAND;
 
--- Q3.1
+--Q3.1
 SELECT C_NATION, S_NATION, year(LO_ORDERDATE) AS year, sum(LO_REVENUE) AS revenue FROM lineorder_flat WHERE C_REGION = 'ASIA' AND S_REGION = 'ASIA' AND year(LO_ORDERDATE)  between 1992 AND 1997 GROUP BY C_NATION, S_NATION, year(LO_ORDERDATE) ORDER BY year asc, revenue desc;
 
--- Q3.2
+--Q3.2
 SELECT C_CITY, S_CITY, year(LO_ORDERDATE) AS year, sum(LO_REVENUE) AS revenue FROM lineorder_flat WHERE C_NATION = 'CHINA' AND S_NATION = 'CHINA' AND year(LO_ORDERDATE)  between 1992 AND 1997 GROUP BY C_CITY, S_CITY, year(LO_ORDERDATE)  ORDER BY year asc, revenue desc;
 
--- Q3.3
+--Q3.3
 SELECT C_CITY, S_CITY, year(LO_ORDERDATE) AS year, sum(LO_REVENUE) AS revenue FROM lineorder_flat WHERE (C_CITY = 'UNITED KI0' OR C_CITY = 'UNITED KI7') AND (S_CITY = 'UNITED KI0' OR S_CITY = 'UNITED KI7') AND year(LO_ORDERDATE)  between 1992 AND 1997 GROUP BY C_CITY, S_CITY, year(LO_ORDERDATE) ORDER BY year asc, revenue desc;
 
--- Q3.4
+--Q3.4
 SELECT C_CITY, S_CITY, year(LO_ORDERDATE) AS year, sum(LO_REVENUE) AS revenue FROM lineorder_flat WHERE (C_CITY = 'UNITED KI0' OR C_CITY = 'UNITED KI7') AND (S_CITY = 'MOZAMBIQU1' OR S_CITY = 'KENYA    4') AND year(LO_ORDERDATE)= 1997 GROUP BY C_CITY, S_CITY, year(LO_ORDERDATE) ORDER BY year asc, revenue desc;
 
--- Q4.1
+--Q4.1
 SELECT year(LO_ORDERDATE) AS year, C_NATION, sum(LO_REVENUE - LO_SUPPLYCOST) AS profit FROM lineorder_flat WHERE C_REGION = 'AMERICA' AND S_REGION = 'AMERICA' AND (P_MFGR = 'MFGR#1' OR P_MFGR = 'MFGR#2') GROUP BY year(LO_ORDERDATE), C_NATION ORDER BY year, C_NATION;
 
--- Q4.2
+--Q4.2
 SELECT year(LO_ORDERDATE) AS year, S_NATION, P_CATEGORY, sum(LO_REVENUE - LO_SUPPLYCOST) AS profit FROM lineorder_flat WHERE C_REGION = 'AMERICA' AND S_REGION = 'AMERICA' AND (year(LO_ORDERDATE) = 1997 OR year(LO_ORDERDATE) = 1998) AND (P_MFGR = 'MFGR#1' OR P_MFGR = 'MFGR#2') GROUP BY  year(LO_ORDERDATE), S_NATION, P_CATEGORY ORDER BY year, S_NATION, P_CATEGORY;
 
--- Q4.3
+--Q4.3
 SELECT year(LO_ORDERDATE) AS year, S_CITY, P_BRAND, sum(LO_REVENUE - LO_SUPPLYCOST) AS profit FROM lineorder_flat WHERE S_NATION = 'UNITED STATES' AND (year(LO_ORDERDATE) = 1997 OR year(LO_ORDERDATE) = 1998) AND P_CATEGORY = 'MFGR#14' GROUP BY  year(LO_ORDERDATE), S_CITY, P_BRAND ORDER BY year, S_CITY, P_BRAND;
 ```
 
 ### **多表查询**
 
 ```sql
--- Q1.1
+--Q1.1
 select sum(lo_revenue) as revenue
 from lineorder join date on lo_orderdate = d_datekey
 where year(d_datekey)  = 1993 and lo_discount between 1 and 3 and lo_quantity < 25;
 
--- Q1.2
+--Q1.2
 select sum(lo_revenue) as revenue
 from lineorder
 join date on lo_orderdate = d_datekey
@@ -260,7 +257,7 @@ where d_yearmonthnum = 199401
 and lo_discount between 4 and 6
 and lo_quantity between 26 and 35;
 
--- Q1.3
+--Q1.3
 select sum(lo_revenue) as revenue
 from lineorder
 join date on lo_orderdate = d_datekey
@@ -268,47 +265,47 @@ where d_weeknuminyear = 6 and year(d_datekey)  = 1994
 and lo_discount between 5 and 7
 and lo_quantity between 26 and 35;
 
--- Q2.1
+--Q2.1
 select sum(lo_revenue) as lo_revenue, year(d_datekey) as year, p_brand
 from lineorder
 join date on lo_orderdate = d_datekey
 join part on lo_partkey = p_partkey
 join supplier on lo_suppkey = s_suppkey
 where p_category = 'MFGR#12' and s_region = 'AMERICA'
-group by year(d_datekey), p_brand
+group by year, p_brand
 order by year, p_brand;
 
--- Q2.2
+--Q2.2
 select sum(lo_revenue) as lo_revenue, year(d_datekey) as year, p_brand
 from lineorder
 join date on lo_orderdate = d_datekey
 join part on lo_partkey = p_partkey
 join supplier on lo_suppkey = s_suppkey
 where p_brand between 'MFGR#2221' and 'MFGR#2228' and s_region = 'ASIA'
-group by year(d_datekey), p_brand
+group by year, p_brand
 order by year, p_brand;
 
--- Q2.3
+--Q2.3
 select sum(lo_revenue) as lo_revenue, year(d_datekey) as year, p_brand
 from lineorder
 join date on lo_orderdate = d_datekey
 join part on lo_partkey = p_partkey
 join supplier on lo_suppkey = s_suppkey
 where p_brand = 'MFGR#2239' and s_region = 'EUROPE'
-group by year(d_datekey), p_brand
+group by year, p_brand
 order by year, p_brand;
 
--- Q3.1
+--Q3.1
 select c_nation, s_nation, year(d_datekey) as year, sum(lo_revenue) as lo_revenue
 from lineorder
 join date on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 where c_region = 'ASIA' and s_region = 'ASIA' and year(d_datekey) between 1992 and 1997
-group by c_nation, s_nation, year(d_datekey)
+group by c_nation, s_nation, year
 order by year asc, lo_revenue desc;
 
--- Q3.2
+--Q3.2
 select c_city, s_city, year(d_datekey) as year, sum(lo_revenue) as lo_revenue
 from lineorder
 join date on lo_orderdate = d_datekey
@@ -316,10 +313,10 @@ join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 where c_nation = 'UNITED STATES' and s_nation = 'UNITED STATES'
 and year(d_datekey) between 1992 and 1997
-group by c_city, s_city, year(d_datekey)
+group by c_city, s_city, year
 order by year asc, lo_revenue desc;
 
--- Q3.3
+--Q3.3
 select c_city, s_city, year(d_datekey) as year, sum(lo_revenue) as lo_revenue
 from lineorder
 join date on lo_orderdate = d_datekey
@@ -328,20 +325,20 @@ join supplier on lo_suppkey = s_suppkey
 where (c_city='UNITED KI1' or c_city='UNITED KI5')
 and (s_city='UNITED KI1' or s_city='UNITED KI5')
 and year(d_datekey) between 1992 and 1997
-group by c_city, s_city, year(d_datekey)
+group by c_city, s_city, year
 order by year asc, lo_revenue desc;
 
--- Q3.4
+--Q3.4
 select c_city, s_city, year(d_datekey) as year, sum(lo_revenue) as lo_revenue
 from lineorder
 join date on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
-where (c_city='UNITED KI1' or c_city='UNITED KI5') and (s_city='UNITED KI1' or s_city='UNITED KI5') and d_yearmonth = '199712'
-group by c_city, s_city, year(d_datekey)
-order by year(d_datekey) asc, lo_revenue desc;
+where (c_city='UNITED KI1' or c_city='UNITED KI5') and (s_city='UNITED KI1' or s_city='UNITED KI5') and d_yearmonth = 'Dec1997'
+group by c_city, s_city, year
+order by year asc, lo_revenue desc;
 
--- Q4.1
+--Q4.1
 select year(d_datekey) as year, c_nation, sum(lo_revenue) - sum(lo_supplycost) as profit
 from lineorder
 join date on lo_orderdate = d_datekey
@@ -349,10 +346,10 @@ join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 join part on lo_partkey = p_partkey
 where c_region = 'AMERICA' and s_region = 'AMERICA' and (p_mfgr = 'MFGR#1' or p_mfgr = 'MFGR#2')
-group by year(d_datekey), c_nation
+group by year, c_nation
 order by year, c_nation;
 
--- Q4.2
+--Q4.2
 select year(d_datekey) as year, s_nation, p_category, sum(lo_revenue) - sum(lo_supplycost) as profit
 from lineorder
 join date on lo_orderdate = d_datekey
@@ -362,21 +359,19 @@ join part on lo_partkey = p_partkey
 where c_region = 'AMERICA'and s_region = 'AMERICA'
 and (year(d_datekey) = 1997 or year(d_datekey) = 1998)
 and (p_mfgr = 'MFGR#1' or p_mfgr = 'MFGR#2')
-group by year(d_datekey), s_nation, p_category
+group by year, s_nation, p_category
 order by year, s_nation, p_category;
 
--- Q4.3
-select year(d_datekey) as year, s_city, p_brand, sum(lo_revenue) - sum(lo_supplycost) as profit
+--Q4.3
+select year(d_datekey) as year, s_city, p_brand, sum(lo_revenue) - sum(lo_supplycost) as profit,c_region , s_nation, p_category
 from lineorder
-join dates on lo_orderdate = d_datekey
+join date on lo_orderdate = d_datekey
 join customer on lo_custkey = c_custkey
 join supplier on lo_suppkey = s_suppkey
 join part on lo_partkey = p_partkey
 where
 (year(d_datekey) = 1997 or year(d_datekey) = 1998)
-and c_region = 'AMERICA'
-and s_nation = 'UNITED STATES'
-and p_category = 'MFGR#14'
+and s_nation='ALGERIA'
 group by year, s_city, p_brand
 order by year, s_city, p_brand;
 ```
