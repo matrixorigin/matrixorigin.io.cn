@@ -75,12 +75,12 @@ MatrixOne 默认采用非加密传输，也支持启用基于 TLS 协议的加�
 
     上述代码中，配置参数解释如下：
 
-    |参数 | 描述|
-    |---|---|
-    |enableTls|布尔类型，是否在 MatrixOne 服务端打开 TLS 的支持。|
-    |tlsCertFile|指定 SSL 证书文件路径|
-    |tlsKeyFile|指定证书文件对应的私钥|
-    |tlsCaFile|可选，指定受信任的 CA 证书文件路径|
+    | 参数        | 描述                                               |
+    | ----------- | -------------------------------------------------- |
+    | enableTls   | 布尔类型，是否在 MatrixOne 服务端打开 TLS 的支持。 |
+    | tlsCertFile | 指定 SSL 证书文件路径                              |
+    | tlsKeyFile  | 指定证书文件对应的私钥                             |
+    | tlsCaFile   | 可选，指定受信任的 CA 证书文件路径                 |
 
     __Note__: 如果你是使用 Docker 安装部署的 MatrixOne，修改配置文件之前，你需要先挂载配置文件再进行修改，操作具体参见[挂载目录到 Docker 容器](../Maintain/mount-data-by-docker.md)。
 
@@ -109,7 +109,7 @@ MatrixOne 默认采用非加密传输，也支持启用基于 TLS 协议的加�
     Current pager:          stdout
     Using outfile:          ''
     Using delimiter:        ;
-    Server version:         8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
+    Server version:         8.0.30-MatrixOne-v1.0.0-rc2 MatrixOne
     Protocol version:       10
     Connection:             127.0.0.1 via TCP/IP
     Server characterset:    utf8mb4
@@ -134,7 +134,7 @@ MatrixOne 默认采用非加密传输，也支持启用基于 TLS 协议的加�
     Current pager:		stdout
     Using outfile:		''
     Using delimiter:	;
-    Server version:		8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
+    Server version:		8.0.30-MatrixOne-v1.0.0-rc2 MatrixOne 
     Protocol version:	10
     Connection:		127.0.0.1 via TCP/IP
     Server characterset:	utf8mb4
@@ -161,13 +161,13 @@ mysql -h 127.0.0.1 -P 6001 -uroot -p111 --ssl-mode=PREFFERED
 
 ssl mode 取值类型如下：
 
-|ssl-mode 取值 | 含义|
-|---|---|
-|DISABLED|不使用 SSL/TLS 建立加密连接，与 skip-ssl 同义。|
-|PREFFERED|默认行为，优先尝试使用 SSL/TLS 建立加密连接，如果无法建则尝试建立非 SSL/TLS 连接。|
-|REQUIRED|只会尝试使用 SSL/TLS 建立加密连接，如果无法建立连接，则会连接失败。|
-|VERIFY_CA|与 REQUIRED 行为一样，并且还会验证 Server 端的 CA 证书是否有效。|
-|VERIFY_IDENTITY|与 VERIFY_CA 行为一样，并且还验证 Server 端 CA 证书中的 host 是否与实际连接的 hostname 是否一致。|
+| ssl-mode 取值   | 含义                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------- |
+| DISABLED        | 不使用 SSL/TLS 建立加密连接，与 skip-ssl 同义。                                                   |
+| PREFFERED       | 默认行为，优先尝试使用 SSL/TLS 建立加密连接，如果无法建则尝试建立非 SSL/TLS 连接。                |
+| REQUIRED        | 只会尝试使用 SSL/TLS 建立加密连接，如果无法建立连接，则会连接失败。                               |
+| VERIFY_CA       | 与 REQUIRED 行为一样，并且还会验证 Server 端的 CA 证书是否有效。                                  |
+| VERIFY_IDENTITY | 与 VERIFY_CA 行为一样，并且还验证 Server 端 CA 证书中的 host 是否与实际连接的 hostname 是否一致。 |
 
 !!! note
     客户端在指定了 `--ssl-mode=VERIFY_CA` 时，需要使用 `--ssl-ca` 来指定 CA 证书。

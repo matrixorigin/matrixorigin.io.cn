@@ -15,7 +15,7 @@
 
 ### 建设情况
 
-目前，MatrixOne v1.0.0-rc1 已经发布了，您可以通过[版本发布指南](./../../Release-Notes/v1.0.0-rc1.md)来了解最新的发布信息，其中包含了最新的修改与优化。
+目前，MatrixOne v1.0.0-rc2 已经发布了，您可以通过[版本发布指南](./../../Release-Notes/v1.0.0-rc2.md)来了解最新的发布信息，其中包含了最新的修改与优化。
 
 关于长期的项目规划，请参阅 [MatrixOne Roadmap](https://github.com/matrixorigin/matrixone/issues/613)。
 
@@ -32,37 +32,37 @@
 我们将为 *Github* 上 *matrixorigin/matrixone* 的项目目录及其中关键文件进行简单介绍，以期为您的深入了解和开发提供指导性帮助。
 [matrixone](https://github.com/matrixorigin/matrixone) 是 MatrixOne 代码所在的主库，我们将介绍其中的项目目录以及关键文件，以期为您的深入了解和开发提供指导性帮助。
 
-| 目录              | 内容                                                  |
-| ------------------------------ | ------------------------------------------------------------ |
-| **/LICENSES** | 相关依赖库的许可 |
-| **/cmd** | Go 的可执行文件的 binary entry|
-| **optools** | 测试与部署工具 |
-| **pkg** | MatrixOne 项目的主要代码库  |
+| 目录          | 内容                           |
+| ------------- | ------------------------------ |
+| **/LICENSES** | 相关依赖库的许可               |
+| **/cmd**      | Go 的可执行文件的 binary entry |
+| **optools**   | 测试与部署工具                 |
+| **pkg**       | MatrixOne 项目的主要代码库     |
 
 对于不同的技术模块，`/pkg` 喜爱的代码结构如下表所示。
 
-| 目录            | 模块    |
-| ------------------------------ | ------------------------------------------------------------ |
-| **frontend/** | SQL 前端|
-| **sql/** | MPP SQL Execution  |
-| **sql/parser** | SQL 解析 |
-| **sql/vectorize** | SQL 的向量化执行 <!--这个也没有了，潇哥帮忙看看这里改成什么喜欢的代码文件夹-->  |
-| **catalog/** | 存储元数据的 Catalog |
-| **vm/engine** |存储引擎 |
-| **vm/engine/aoe** |  AOE 引擎（分析优化引擎）<!--潇哥帮忙看看这里改成什么喜欢的代码文件夹--> |
-| **vm/engine/tpe** |  TPE 引擎（事务处理引擎） <!--潇哥帮忙看看这里改成什么喜欢的代码文件夹-->  |
-| **buildin/** |  系统的内置函数 <!--这个也没有了，潇哥帮忙看看这里改成什么喜欢的代码文件夹-->|
+| 目录              | 模块                                                                           |
+| ----------------- | ------------------------------------------------------------------------------ |
+| **frontend/**     | SQL 前端                                                                       |
+| **sql/**          | MPP SQL Execution                                                              |
+| **sql/parser**    | SQL 解析                                                                       |
+| **sql/vectorize** | SQL 的向量化执行 <!--这个也没有了，潇哥帮忙看看这里改成什么喜欢的代码文件夹--> |
+| **catalog/**      | 存储元数据的 Catalog                                                           |
+| **vm/engine**     | 存储引擎                                                                       |
+| **vm/engine/aoe** | AOE 引擎（分析优化引擎）<!--潇哥帮忙看看这里改成什么喜欢的代码文件夹-->        |
+| **vm/engine/tpe** | TPE 引擎（事务处理引擎） <!--潇哥帮忙看看这里改成什么喜欢的代码文件夹-->       |
+| **buildin/**      | 系统的内置函数 <!--这个也没有了，潇哥帮忙看看这里改成什么喜欢的代码文件夹-->   |
 
 在文档方面，[matrixorigin.io](https://github.com/matrixorigin/matrixorigin.io)、[matrixorigin.io.cn](https://github.com/matrixorigin/matrixorigin.io.cn) 与 [artwork](https://github.com/matrixorigin/artwork) 都是在贡献过程中可能使用的库，详情参见[文档贡献](contribute-documentation.md)。
 
-| 目录              | 内容                                                  |
-| ------------------------------ | ------------------------------------------------------------ |
-| **matrixone/docs/rfcs** |MatrixOne 项目的设计文档|
-| **matrixorigin.io/docs/MatrixOne** | 英文文档网站的具体内容文件（.md 文件）  |
-| **matrixorigin.io.cn/docs/MatrixOne** | 中文文档网站的具体内容文件（.md 文件）  |
-| **matrixorigin.io/mkdocs.yml** | 英文文档网站的配置文件 |
-| **matrixorigin.io.cn/mkdocs.yml** | 中文文档网站的配置文件 |
-| **artwork/docs** | 文档官网出现的图片和图表|
+| 目录                                  | 内容                                   |
+| ------------------------------------- | -------------------------------------- |
+| **matrixone/docs/rfcs**               | MatrixOne 项目的设计文档               |
+| **matrixorigin.io/docs/MatrixOne**    | 英文文档网站的具体内容文件（.md 文件） |
+| **matrixorigin.io.cn/docs/MatrixOne** | 中文文档网站的具体内容文件（.md 文件） |
+| **matrixorigin.io/mkdocs.yml**        | 英文文档网站的配置文件                 |
+| **matrixorigin.io.cn/mkdocs.yml**     | 中文文档网站的配置文件                 |
+| **artwork/docs**                      | 文档官网出现的图片和图表               |
 
 ## **开发环境**  
 
