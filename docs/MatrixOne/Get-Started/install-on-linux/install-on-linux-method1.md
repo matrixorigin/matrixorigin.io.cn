@@ -8,12 +8,12 @@ MatrixOne 支持 x86 及 ARM 的 Linux 系统。本文以 Debian11.1 x86 架构�
 
 通过源码安装及使用单机版 MatrixOne，需要依赖于以下一些软件包。
 
-| 依赖软件     | 版本                          |
-| ------------ | ----------------------------- |
-| golang       | 1.20 及以上                    |
-| gcc          | gcc8.5 及以上                  |
-| git          | 2.20 及以上                    |
-| MySQL Client | 8.0 及以上                     |
+| 依赖软件     | 版本          |
+| ------------ | ------------- |
+| golang       | 1.20 及以上   |
+| gcc          | gcc8.5 及以上 |
+| git          | 2.20 及以上   |
+| MySQL Client | 8.0 及以上    |
 
 ## 步骤 1: 安装依赖
 
@@ -200,7 +200,7 @@ PPROF_PROFILE_DURATION="30"
 ```
 mo_ctl set_conf MO_PATH="/data/mo/matrixone" # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL="https://ghproxy.com/https://github.com/matrixorigin/matrixone.git" #针对github原地址下载过慢问题，设置代理下载地址
-mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0-rc1" # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0-rc2" # 设置所下载的MatrixOne版本
 ```
 
 ## 步骤 3：一键安装 MatrixOne
@@ -218,7 +218,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0-rc1" # 设置所下载的MatrixOne版�
 === "通过 MatrixOne (稳定版本) 代码安装"
 
      ```
-     mo_ctl deploy 1.0.0-rc1
+     mo_ctl deploy 1.0.0-rc2
      ```
 
 ## 步骤 4：启动 MatrixOne 服务
@@ -255,7 +255,7 @@ root@VM-16-2-debian:~# mo_ctl connect
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0-rc2 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 

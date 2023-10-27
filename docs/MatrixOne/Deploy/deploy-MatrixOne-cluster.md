@@ -100,7 +100,7 @@ MatrixOne 根据 Operator 的规则创建一系列的 Kubernetes 对象，这些
 
 各个机器情况分布具体如下所示：
 
-| **Host**     | **内网 IP**        | **外网 IP**      | **mem** | **CPU** | **Disk** | **Role**    |
+| **Host**     | **内网 IP**   | **外网 IP**     | **mem** | **CPU** | **Disk** | **Role**    |
 | ------------ | ------------- | --------------- | ------- | ------- | -------- | ----------- |
 | kuboardspray | 10.206.0.6    | 1.13.2.100      | 2G      | 2C      | 50G      | 跳板机      |
 | master0      | 10.206.134.8  | 118.195.255.252 | 8G      | 2C      | 50G      | master etcd |
@@ -647,7 +647,7 @@ mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 163
-Server version: 8.0.30-MatrixOne-v1.0.0-rc1 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0-rc2 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
