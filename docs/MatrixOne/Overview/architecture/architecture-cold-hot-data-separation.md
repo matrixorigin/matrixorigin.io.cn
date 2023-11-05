@@ -73,9 +73,9 @@ spec:
   cnGroups:
   - name: cn-set1
 ##省略中间配置
-    sharedStorageCache: #调配CN缓存的核心参数
-      memoryCacheSize: "1" #CN的内存缓存,Mi代表MB
-      diskCacheSize: 20Mi #CN的磁盘缓存,Gi代表GB
+    sharedStorageCache: #调配 CN 缓存的核心参数
+      memoryCacheSize: "1" #CN 的内存缓存，Mi 代表 MB
+      diskCacheSize: 20Mi #CN 的磁盘缓存，Gi 代表 GB
 ```
 
 ### 查询加速

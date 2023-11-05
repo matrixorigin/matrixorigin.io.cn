@@ -42,7 +42,7 @@ total 2150000
 -rw-r--r--  1 deister  staff    1409184 13 may 12:05 supplier.tbl
 ```
 
-我们同时也准备了 1GB 的数据集供您下载。您可以在以下链接中直接获取数据文件:
+我们同时也准备了 1GB 的数据集供您下载。您可以在以下链接中直接获取数据文件：
 
 ```
 https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/tpch/tpch-1g.zip

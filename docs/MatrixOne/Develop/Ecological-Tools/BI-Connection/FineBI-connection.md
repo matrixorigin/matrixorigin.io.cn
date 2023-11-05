@@ -162,7 +162,7 @@ MatrixOne 支持连接到数据可视化工具 FineBI。本文将指导您如何
     from orders.rfm
     GROUP BY user_type
 
-    -- 月GMV
+    -- 月 GMV
     select y,m,
     sum(order_value),
     concat(y, "-", m) month
@@ -170,7 +170,7 @@ MatrixOne 支持连接到数据可视化工具 FineBI。本文将指导您如何
     group by y,m
     order by y,m
 
-    -- 季度GMV
+    -- 季度 GMV
     select y,q,
     sum(order_value) gmv,
     concat(y, "季度", q) as quator
@@ -178,7 +178,7 @@ MatrixOne 支持连接到数据可视化工具 FineBI。本文将指导您如何
     group by y,q
     order by concat(y, "季度", q) asc
 
-    -- 季度ARPU
+    -- 季度 ARPU
     select y,q,
     round((sum(order_value)/count(DISTINCT customer_id)),2) arpu,
     concat(y, "季度", q) as quator
@@ -186,7 +186,7 @@ MatrixOne 支持连接到数据可视化工具 FineBI。本文将指导您如何
     group by y,q
     order by y,q
 
-    -- 月度ARPU
+    -- 月度 ARPU
     select y,m,
     round((sum(order_value)/count(DISTINCT customer_id)),2) arpu,
     concat(y, "-", m) as month

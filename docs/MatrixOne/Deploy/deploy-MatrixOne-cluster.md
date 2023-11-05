@@ -30,11 +30,11 @@
 
 - PersistentVolumeClaim
 
-   PersistentVolumeClaim，简称 **PVC**，作为用户对存储资源的需求申请, 主要包括存储空间请求、访问模式、PV 选择条件和存储类别等信息的设置。
+   PersistentVolumeClaim，简称 **PVC**，作为用户对存储资源的需求申请，主要包括存储空间请求、访问模式、PV 选择条件和存储类别等信息的设置。
 
 - Service
 
-   也叫做 **SVC**，通过标签选择的方式匹配一组 Pod 对外访问服务的一种机制, 每一个 svc 可以理解为一个微服务。
+   也叫做 **SVC**，通过标签选择的方式匹配一组 Pod 对外访问服务的一种机制，每一个 svc 可以理解为一个微服务。
 
 - Operator
 
@@ -514,17 +514,17 @@ __Note:__ 本章节均是在 master0 节点操作。
     spec:
       # 1. 配置 tn
       tn:
-        cacheVolume: # tn的磁盘缓存
+        cacheVolume: # tn 的磁盘缓存
           size: 5Gi # 根据实际磁盘大小和需求修改
-          storageClassName: local-path # 如果不写，会用系统默认的storage class
+          storageClassName: local-path # 如果不写，会用系统默认的 storage class
         resources:
           requests:
             cpu: 100m #1000m=1c
             memory: 500Mi # 1024Mi
-          limits: # 注意limits不能低于requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置limits和requests一致即可
+          limits: # 注意 limits 不能低于 requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置 limits 和 requests 一致即可
             cpu: 200m
             memory: 1Gi
-        config: |  # tn的配置
+        config: |  # tn 的配置
           [dn.Txn.Storage]
           backend = "TAE"
           log-backend = "logservice"
@@ -538,15 +538,15 @@ __Note:__ 本章节均是在 master0 节点操作。
           level = "error"
           format = "json"
           max-size = 512
-        replicas: 1 # tn的副本数，不可修改。当前版本仅支持设置为 1。
+        replicas: 1 # tn 的副本数，不可修改。当前版本仅支持设置为 1。
       # 2. 配置 logservice
       logService:
-        replicas: 3 # logservice的副本数
+        replicas: 3 # logservice 的副本数
         resources:
           requests:
             cpu: 100m #1000m=1c
             memory: 500Mi # 1024Mi
-          limits: # 注意limits不能低于requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置limits和requests一致即可
+          limits: # 注意 limits 不能低于 requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置 limits 和 requests 一致即可
             cpu: 200m
             memory: 1Gi
         sharedStorage: # 配置 logservice 对接的 s3 存储
@@ -573,7 +573,7 @@ __Note:__ 本章节均是在 master0 节点操作。
           requests:
             cpu: 100m #1000m=1c
             memory: 500Mi # 1024Mi
-          limits: # 注意limits不能低于requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置limits和requests一致即可
+          limits: # 注意 limits 不能低于 requests，也不能超过单节点的能力，一般根据实际情况来分配，一般设置 limits 和 requests 一致即可
             cpu: 200m
             memory: 2Gi
         serviceType: NodePort # cn 需要对外提供访问入口，其 svc 设置为 NodePort

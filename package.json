@@ -1,12 +1,24 @@
 {
   "name": "matrixorigin.io.cn",
+  "type": "module",
   "scripts": {
     "config:zhlint": "node ./scripts/genZhlintConfig",
-    "lint": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md' && npx markdownlint-cli2 './docs/MatrixOne/**/*.md'",
-    "lint:fix": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md' --fix && npx markdownlint-cli2-fix './docs/MatrixOne/**/*.md'"
+    "lint": "npm run lint:autocorrect && npm run lint:zhlint && npm run lint:markdownlint",
+    "lint:autocorrect": "node ./scripts/autocorrect --path './docs/MatrixOne/**/*.md'",
+    "lint:autocorrect:fix": "node ./scripts/autocorrect --path './docs/MatrixOne/**/*.md' --fix",
+    "lint:zhlint": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md'",
+    "lint:zhlint:fix": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md' --fix",
+    "lint:markdownlint": "markdownlint-cli2 './docs/MatrixOne/**/*.md'",
+    "lint:markdownlint:fix": "markdownlint-cli2-fix './docs/MatrixOne/**/*.md'"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.6.0",
+    "autocorrect-node": "^2.8.4",
+    "chalk": "^5.3.0",
+    "diff": "^5.1.0",
+    "fast-glob": "^3.3.1",
+    "markdownlint-cli2": "^0.10.0",
+    "minimist": "^1.2.8",
+    "yaml": "^2.3.4",
     "zhlint": "^0.7.1"
   }
 }
