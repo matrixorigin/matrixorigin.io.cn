@@ -9,6 +9,8 @@ import fg from 'fast-glob'
 import parseArgs from 'minimist'
 import YAML from 'yaml'
 
+import { resolveAbsPath } from './utils/path'
+
 const SEVERITY = {
   ERROR: 1,
   WARNING: 2
@@ -22,30 +24,42 @@ const config = YAML.parse(configFile)
 
 autocorrect.loadConfig(JSON.stringify(config))
 
-const { path = '../docs/MatrixOne/**/*.md', fix = false } = parseArgs(
+const argv = parseArgs(
   process.argv.slice(2)
 )
 
-const relPathStream = fg.stream(path)
+// console.log(argv)
 
-/** Autocorrect tasks */
+const { _: paths, fix = false } = argv
+
+const DEFAULT_PATHS = ['./docs/MatrixOne/**/*.md']
+
+const pathStream = fg.stream(paths.length ? paths : DEFAULT_PATHS)
+
+/** Autocorrect concurrent tasks */
 const autocorrectTasks = []
 
+/** File count */
+let fileCount = 0
+/** Error count */
 let warningCount = 0
+/** Warning count */
 let errorCount = 0
 
-for await (const entry of relPathStream) {
+for await (const entry of pathStream) {
   const absPath = resolveAbsPath(entry)
   // console.log({ entry, absPath })
   autocorrectTasks.push(
     readFile(absPath, { encoding: 'utf8' }).then(async (fileContent) => {
+      fileCount++
+
       const filename = basename(absPath)
-      // console.log({ filename })
+      // console.log({ filename, len: fileContent.length })
       const lintResult = autocorrect.lintFor(fileContent, filename)
 
       for (const {
-        l,
-        c,
+        l: line,
+        c: column,
         new: newStr,
         old: oldStr,
         severity
@@ -60,7 +74,8 @@ for await (const entry of relPathStream) {
         console.log(
           (level === 'error'
             ? chalk.bgRedBright('Error')
-            : chalk.bgYellowBright('Warning')) + chalk(` ${absPath}:${l}:${c}`)
+            : chalk.bgYellowBright('Warning')) +
+            chalk(` ${absPath}:${line}:${column}`)
         )
 
         // fmt - green for additions, red for deletions
@@ -106,21 +121,23 @@ for await (const entry of relPathStream) {
 
 await Promise.all(autocorrectTasks)
 
-console.log(
-  chalk.redBright(`Error: ${errorCount}`) +
-    chalk(', ') +
-    chalk.yellowBright(`Warning: ${warningCount}`)
-)
-
-if (!fix && errorCount) {
-  process.exit(1)
+if (errorCount || warningCount) {
+  console.log(
+    chalk.bgRedBright('FAILED') +
+    chalk.redBright(` - ${fileCount} files checked, found: `) +
+    chalk.redBright(`Error: ${errorCount}`) +
+      chalk(', ') +
+      chalk.yellowBright(`Warning: ${warningCount}\n`)
+  )
+} else {
+  console.log(
+    chalk.bgGreenBright('PASSED') +
+    chalk.greenBright(` - ${fileCount} files checked. `) +
+    chalk.greenBright('No error or warning found.\n')
+  )
 }
 
-/**
- * Resolve the absolute path of the argument.
- * @param {string} relPath
- * @returns {string} The absolute file path.
- */
-function resolveAbsPath(relPath) {
-  return join(__dirname, '..', relPath)
+// exit with error code 1 if there are errors
+if (!fix && errorCount) {
+  process.exit(1)
 }

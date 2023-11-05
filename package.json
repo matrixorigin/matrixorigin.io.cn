@@ -1,10 +1,11 @@
 {
   "name": "matrixorigin.io.cn",
   "type": "module",
+  "packageManager": "pnpm@8.10.2",
   "scripts": {
     "config:zhlint": "node ./scripts/genZhlintConfig",
     "lint": "npm run lint:autocorrect && npm run lint:zhlint && npm run lint:markdownlint",
-    "lint:autocorrect": "node ./scripts/autocorrect --path './docs/MatrixOne/**/*.md'",
+    "lint:autocorrect": "node ./scripts/autocorrect",
     "lint:autocorrect:fix": "node ./scripts/autocorrect --path './docs/MatrixOne/**/*.md' --fix",
     "lint:zhlint": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md'",
     "lint:zhlint:fix": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md' --fix",
@@ -20,5 +21,10 @@
     "minimist": "^1.2.8",
     "yaml": "^2.3.4",
     "zhlint": "^0.7.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "trim@<0.0.3": ">=0.0.3"
+    }
   }
 }

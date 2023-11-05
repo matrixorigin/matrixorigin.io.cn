@@ -13,24 +13,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
         ref: ${{ github.event.pull_request.head.ref }}
+        # Assume PRs are less than 20 commits
+        fetch-depth: 20
 
-    - name: Lint docs
-      uses: docker://avtodev/markdown-lint:v1 # fastest way
+    - name: Get all changed markdown files
+      id: changed-markdown-files
+      uses: tj-actions/changed-files@v40
       with:
-        config: './.markdownlint.yaml'
-        args: './docs/MatrixOne'
+        since_last_remote_commit: true 
+        files: |
+          **.md
 
-    - name: Install NodeJS
+    - name: Setup node
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
       uses: actions/setup-node@v3
       with:
-        node-version: 18
-    
-    - name: Install NodeJS Dependencies
+        node-version: 20
+
+    - name: Install node deps
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
       run: npm ci
 
-    - name: Lint Chinese content
-      run: npm run lint
+    - name: Lint with markdownlint
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      run: |
+        markdownlint-cli2-fix ${{ steps.changed-markdown-files.outputs.all_changed_files }}
+
+    - name: Lint with zhlint
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      run: |
+        npm run lint:zhlint
+
+    - name: Lint with autocorrect
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      run: |
+        npm run lint:autocorrect ${{ steps.changed-markdown-files.outputs.all_changed_files }}
