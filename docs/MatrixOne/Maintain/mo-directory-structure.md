@@ -1,8 +1,8 @@
 # MatrixOne 目录结构
 
-完成 MatrixOne 搭建和连接后，首次执行时，MatrixOne 会自动生成以下目录，用于存放各类数据文件或元数据信息。
+完成 MatrixOne 搭建和连接后，首次执行时，MatrixOne会自动生成以下目录，用于存放各类数据文件或元数据信息。
 
-进入 *matrixone* 目录执行 `ls` 查看目录结构，相关目录结构以及用途如下：
+进入 *matrixone* 目录执行 `ls` 查看目录结构，相关目录结构以及用途如下:
 
 matrixone    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***MatrixOne 主目录***<br>
 |-- etc   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//***配置文件目录*** <br>
