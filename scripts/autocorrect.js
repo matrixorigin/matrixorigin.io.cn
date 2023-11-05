@@ -9,7 +9,7 @@ import fg from 'fast-glob'
 import parseArgs from 'minimist'
 import YAML from 'yaml'
 
-import { resolveAbsPath } from './utils/path'
+import { resolveAbsPath } from './utils/path.js'
 
 const SEVERITY = {
   ERROR: 1,

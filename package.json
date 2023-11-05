@@ -5,8 +5,9 @@
   "scripts": {
     "config:zhlint": "node ./scripts/genZhlintConfig",
     "lint": "npm run lint:autocorrect && npm run lint:zhlint && npm run lint:markdownlint",
+    "lint:fix": "npm run lint:autocorrect:fix && npm run lint:zhlint:fix && npm run lint:markdownlint:fix",
     "lint:autocorrect": "node ./scripts/autocorrect",
-    "lint:autocorrect:fix": "node ./scripts/autocorrect --path './docs/MatrixOne/**/*.md' --fix",
+    "lint:autocorrect:fix": "node ./scripts/autocorrect './docs/MatrixOne/**/*.md' --fix",
     "lint:zhlint": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md'",
     "lint:zhlint:fix": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md' --fix",
     "lint:markdownlint": "markdownlint-cli2 './docs/MatrixOne/**/*.md'",
