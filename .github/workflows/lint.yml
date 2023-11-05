@@ -36,7 +36,9 @@ jobs:
 
     - name: Install node deps
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
-      run: npm ci
+      run: |
+        corepack enable
+        pnpm i --frozen-lockfile
 
     - name: Lint with markdownlint
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
