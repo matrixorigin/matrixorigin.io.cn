@@ -3,9 +3,7 @@ name: lint
 on:
   pull_request_target:
     types: [ opened, synchronize, reopened ]
-    branches: 
-      - '*'
-  workflow_dispatch:
+    branches: [ '*' ]
 
 jobs:
   lint-docs:
