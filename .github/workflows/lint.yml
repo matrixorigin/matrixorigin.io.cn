@@ -45,7 +45,7 @@ jobs:
     - name: Lint with zhlint
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
       run: |
-        npm run lint:zhlint
+        npx zhlint ${{ steps.changed-markdown-files.outputs.all_changed_files }}
 
     - name: Lint with autocorrect
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
