@@ -14,7 +14,7 @@ MatrixOne 社区欢迎所有开发者的加入和贡献！本章节旨在帮助�
 
 ## **认领任务**
 
-当您提出 Issue 之后或者是在浏览 `good-first-issue` 后决定上手解决，您需要认领这次 Issue。在相应 Issue 的评论中输入如 “I'd like to work on this issue”，社区人员会将任务分配给您，此时，您可以在右侧的 Assignees 板块看见自己，接下来便可以正式着手解决问题。
+当您提出 Issue 之后或者是在浏览 `good-first-issue` 后决定上手解决，您需要认领这次 Issue。在相应 Issue 的评论中输入如“I'd like to work on this issue”，社区人员会将任务分配给您，此时，您可以在右侧的 Assignees 板块看见自己，接下来便可以正式着手解决问题。
 
 ## **前置准备**
 

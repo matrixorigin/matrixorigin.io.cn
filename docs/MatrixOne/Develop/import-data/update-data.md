@@ -110,7 +110,7 @@ mysql> SELECT * FROM employees;
 +------+--------------+------------+---------+
 5 rows in set (0.01 sec)
 
--- 更新数据，使用UPDATE语句更新了部门为'HR'的前两个员工的薪资，薪资增加了10%。WHERE子句指定了更新数据的条件，只有满足部门为'HR'的行才会被更新。ORDER BY子句按照id列进行升序排序，LIMIT子句限制只更新两行数据。
+-- 更新数据，使用 UPDATE 语句更新了部门为'HR'的前两个员工的薪资，薪资增加了 10%。WHERE 子句指定了更新数据的条件，只有满足部门为'HR'的行才会被更新。ORDER BY 子句按照 id 列进行升序排序，LIMIT 子句限制只更新两行数据。
 mysql> UPDATE employees
        SET salary = salary * 1.1
        WHERE department = 'HR'

@@ -1,7 +1,14 @@
-const { writeFileSync } = require('fs')
-const { resolve } = require('path')
+import { writeFile } from 'node:fs/promises'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-/** zhlint 配置 */
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+/**
+ * `zhlint` 配置
+ * @type {import('zhlint').Options}
+ * @see https://github.com/zhlint-project/zhlint#supported-rules
+ */
 const config = {
   preset: 'default',
   rules: {
@@ -11,7 +18,9 @@ const config = {
     fullWidthPunctuation: '',
     // 忽略首尾的空格
     trimSpace: false,
-  },
+    // 忽略引号相关的空格问题
+    adjustedFullWidthPunctuation: ''
+  }
 }
 
 /**
@@ -22,8 +31,10 @@ const ignoredCases = [
   {
     textStart: '<br>',
     textEnd: ''
-  }
+  },
 ].reduce((prev, { textStart, textEnd }) => prev + textStart + ',' + textEnd + '\n', '')
 
-writeFileSync(resolve(__dirname, '..', '.zhlintrc'), JSON.stringify(config))
-writeFileSync(resolve(__dirname, '..', '.zhlintignore'), ignoredCases)
+await Promise.all([
+  writeFile(resolve(__dirname, '..', '.zhlintrc'), JSON.stringify(config)),
+  writeFile(resolve(__dirname, '..', '.zhlintignore'), ignoredCases)
+])

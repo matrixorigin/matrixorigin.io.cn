@@ -15,9 +15,9 @@
 1. 在 master0 节点的终端上执行以下命令，进入动态修改 operator 使用的 `yaml` 配置文件的界面。
 
     ```
-    mo_ns="mo-hn" #matrixone集群的namespace
-    mo_cluster_name="mo" # matrixone的集群名称，一般为mo，根据部署时matrixonecluster对象的yaml文件中的name指定，也可以通过kubectl get matrixonecluster -n${mo_ns}来确认
-    #mo-hn及mo已在安装部署的mo.yaml文件中设置
+    mo_ns="mo-hn" #matrixone 集群的 namespace
+    mo_cluster_name="mo" # matrixone 的集群名称，一般为 mo，根据部署时 matrixonecluster 对象的 yaml 文件中的 name 指定，也可以通过 kubectl get matrixonecluster -n${mo_ns}来确认
+    #mo-hn 及 mo 已在安装部署的 mo.yaml 文件中设置
     kubectl edit matrixonecluster ${mo_cluster_name} -n${mo_ns}
     ```
 
@@ -50,7 +50,7 @@
     如果发生 error、crashbackoff 等情况，可以通过查看组件的日志来进一步排查问题。
 
     ```
-    # pod_name是pod的名称，如mo-tn-0,mo-tp-cn-0
+    # pod_name 是 pod 的名称，如 mo-tn-0,mo-tp-cn-0
     pod_name=mo-tn-0
     kubectl logs ${pod_name} -nmo-hn > /tmp/tn.log
     vim /tmp/tn.log
@@ -59,12 +59,12 @@
 4. 当 MatrixOne 集群中的组件均 `Restart` 完成后，可以用 MySQL Client 连接集群，如果连接成功且用户数据均完整，则说明升级成功。
 
     ```
-    # 使用 'mysql' 命令行工具连接到MySQL服务
-    # 使用 'kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}' ' 获取Kubernetes集群中服务的集群IP地址
-    # '-h' 参数指定了MySQL服务的主机名或IP地址
-    # '-P' 参数指定了MySQL服务的端口号，这里是6001
-    # '-uroot' 表示用root用户登录
-    # '-p111' 表示初始密码是111
+    # 使用 'mysql' 命令行工具连接到 MySQL 服务
+    # 使用 'kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}' ' 获取 Kubernetes 集群中服务的集群 IP 地址
+    # '-h' 参数指定了 MySQL 服务的主机名或 IP 地址
+    # '-P' 参数指定了 MySQL 服务的端口号，这里是 6001
+    # '-uroot' 表示用 root 用户登录
+    # '-p111' 表示初始密码是 111
     root@master0 ~]# mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P 6001 -uroot -p111
     Welcome to the MariaDB monitor.  Commands end with ; or \g.
     Your MySQL connection id is 1005

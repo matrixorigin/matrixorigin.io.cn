@@ -10,11 +10,11 @@ MatrixOne 默认支持悲观事务以及读已提交（Read Committed）隔离�
 
 MatrixOne 集群由三个内置服务构成：CN（Compute Node）、TN（Transaction Node）、LogService，以及一个外部对象存储服务。
 
-### CN（Compute Node）
+### CN (Compute Node)
 
 CN 是计算节点，负责执行大部分计算工作。每个事务客户端（如 JDBC 或 MySQL 客户端）都会与一个 CN 建立连接，发起的事务将在相应的 CN 上创建。每个事务都会在 CN 上分配一个工作空间，用于存储事务的临时数据。当事务提交时，工作空间中的数据将被发送到 TN 节点以进行提交处理。
 
-### TN（Transaction Node）
+### TN (Transaction Node)
 
 TN 是事务节点，负责处理所有 CN 节点上的事务提交。TN 节点的职责包括将事务的提交日志写入 LogService，并将提交的数据写入内存。当内存数据达到一定条件时，TN 节点会将提交的数据写入外部对象存储，并清理相关的日志。
 
@@ -62,13 +62,13 @@ MatrixOne 采用 HLC（Hybrid Logical Clocks）时钟方案，并与内置的 MO
 
 - CN 级别的数据可见性，使用 Max(CNCommitTS, LastLogTailTS) 作为事务的 SnapshotTS，以保证同一 CN 节点上发生的事务数据的可见性。
 
-## RC（Read Committed）
+## RC (Read Committed)
 
 前面的章节主要介绍了 MatrixOne 事务的处理，MatrixOne 之前仅支持 SI 隔离级别，基于 MVCC 实现，数据具有多个版本。然而，现在 MatrixOne 还支持 RC（Read Committed）隔离级别。
 
 要在多版本上实现 RC 隔离级别，对于 SI 事务，需要维护一致的快照，不管何时读取，都能看到相同的数据。但是 RC 需要查看最新提交的数据，这相当于一致的快照不再是事务生命周期内的，而是针对每个查询的。每次查询开始时，使用当前时间戳作为事务的 SnapshotTS，以确保查询可以看到之前提交的数据。
 
-在 RC 模式下，对于带有更新的语句（UPDATE、DELETE、SELECT FOR UPDATE），一旦出现写-写冲突，即意味着其他并发事务已修改了查询所涉及的数据。由于 RC 需要看到最新的写入，因此如果出现冲突事务已提交，必须更新事务的 SnapshotTS，然后重试。
+在 RC 模式下，对于带有更新的语句（UPDATE、DELETE、SELECT FOR UPDATE），一旦出现写 - 写冲突，即意味着其他并发事务已修改了查询所涉及的数据。由于 RC 需要看到最新的写入，因此如果出现冲突事务已提交，必须更新事务的 SnapshotTS，然后重试。
 
 ## 悲观事务
 

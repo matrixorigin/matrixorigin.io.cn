@@ -70,25 +70,25 @@ reference_option:
 ### 示例 1
 
 ```sql
--- 创建名为t1的表，包含两列：a和b。a列为int类型并设为主键，b列为varchar类型，长度为5
+-- 创建名为 t1 的表，包含两列：a 和 b。a 列为 int 类型并设为主键，b 列为 varchar 类型，长度为 5
 create table t1(a int primary key, b varchar(5));
 
--- 创建名为t2的表，包含三列：a、b和c。a列为int类型，b列为varchar类型，长度为5。c列为int类型，并且被设定为外键，与t1表的a列建立关系
+-- 创建名为 t2 的表，包含三列：a、b 和 c。a 列为 int 类型，b 列为 varchar 类型，长度为 5。c 列为 int 类型，并且被设定为外键，与 t1 表的 a 列建立关系
 create table t2(a int ,b varchar(5), c int, foreign key(c) references t1(a));
 
--- 在t1表中插入两行数据：(101, 'abc') 和 (102, 'def')
+-- 在 t1 表中插入两行数据：(101, 'abc') 和 (102, 'def')
 mysql> insert into t1 values(101,'abc'),(102,'def');
 Query OK, 2 rows affected (0.01 sec)
 
--- 在t2表中插入两行数据：(1, 'zs1', 101) 和 (2, 'zs2', 102)，其中的101和102是t1表的主键
+-- 在 t2 表中插入两行数据：(1, 'zs1', 101) 和 (2, 'zs2', 102)，其中的 101 和 102 是 t1 表的主键
 mysql> insert into t2 values(1,'zs1',101),(2,'zs2',102);
 Query OK, 2 rows affected (0.01 sec)
 
--- 在t2表中插入一行数据：(3, 'xyz', null)，其中的null表示这行数据在c列（即外键列）没有关联的主键
+-- 在 t2 表中插入一行数据：(3, 'xyz', null)，其中的 null 表示这行数据在 c 列（即外键列）没有关联的主键
 mysql> insert into t2 values(3,'xyz',null);
 Query OK, 1 row affected (0.01 sec)
 
--- 尝试在t2表中插入一行数据：(3, 'xxa', 103)，但是103在t1表的主键中不存在，因此插入失败，违反了外键约束
+-- 尝试在 t2 表中插入一行数据：(3, 'xxa', 103)，但是 103 在 t1 表的主键中不存在，因此插入失败，违反了外键约束
 mysql> insert into t2 values(3,'xxa',103);
 ERROR 20101 (HY000): internal error: Cannot add or update a child row: a foreign key constraint fails
 
@@ -101,25 +101,25 @@ ERROR 20101 (HY000): internal error: Cannot add or update a child row: a foreign
 ```sql
 -- 创建一个名为"Student"的表，用于存储学生信息
 CREATE TABLE Student (
-    StudentID INT, -- 学生ID字段，整型
-    Name VARCHAR(100), -- 学生名字字段，最大长度100的字符串
-    PRIMARY KEY (StudentID) -- 将StudentID设定为这个表的主键
+    StudentID INT, -- 学生 ID 字段，整型
+    Name VARCHAR(100), -- 学生名字字段，最大长度 100 的字符串
+    PRIMARY KEY (StudentID) -- 将 StudentID 设定为这个表的主键
 );
 
 -- 创建一个名为"Course"的表，用于存储课程信息
 CREATE TABLE Course (
-    CourseID INT, -- 课程ID字段，整型
-    CourseName VARCHAR(100), -- 课程名字字段，最大长度100的字符串
-    PRIMARY KEY (CourseID) -- 将CourseID设定为这个表的主键
+    CourseID INT, -- 课程 ID 字段，整型
+    CourseName VARCHAR(100), -- 课程名字字段，最大长度 100 的字符串
+    PRIMARY KEY (CourseID) -- 将 CourseID 设定为这个表的主键
 );
 
 -- 创建一个名为"StudentCourse"的表，用于存储学生选课信息
 CREATE TABLE StudentCourse (
-    StudentID INT, -- 学生ID字段，整型，与Student表的StudentID字段对应
-    CourseID INT, -- 课程ID字段，整型，与Course表的CourseID字段对应
-    PRIMARY KEY (StudentID, CourseID), -- 将StudentID和CourseID的组合设定为这个表的主键
-    FOREIGN KEY (StudentID) REFERENCES Student(StudentID), -- 设置StudentID字段为外键，引用Student表的StudentID字段
-    FOREIGN KEY (CourseID) REFERENCES Course(CourseID) -- 设置CourseID字段为外键，引用Course表的CourseID字段
+    StudentID INT, -- 学生 ID 字段，整型，与 Student 表的 StudentID 字段对应
+    CourseID INT, -- 课程 ID 字段，整型，与 Course 表的 CourseID 字段对应
+    PRIMARY KEY (StudentID, CourseID), -- 将 StudentID 和 CourseID 的组合设定为这个表的主键
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID), -- 设置 StudentID 字段为外键，引用 Student 表的 StudentID 字段
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID) -- 设置 CourseID 字段为外键，引用 Course 表的 CourseID 字段
 );
 ```
 
@@ -130,27 +130,27 @@ CREATE TABLE StudentCourse (
 ```sql
 -- 创建一个名为"Country"的表，用于存储国家信息
 CREATE TABLE Country (
-    CountryID INT, -- 国家ID字段，整型
-    CountryName VARCHAR(100), -- 国家名字字段，最大长度100的字符串
-    PRIMARY KEY (CountryID) -- 将CountryID设定为这个表的主键
+    CountryID INT, -- 国家 ID 字段，整型
+    CountryName VARCHAR(100), -- 国家名字字段，最大长度 100 的字符串
+    PRIMARY KEY (CountryID) -- 将 CountryID 设定为这个表的主键
 );
 
 -- 创建一个名为"State"的表，用于存储州/省份信息
 CREATE TABLE State (
     StateID INT, -- 州/省份ID字段，整型
     StateName VARCHAR(100), -- 州/省份名字字段，最大长度100的字符串
-    CountryID INT, -- 国家ID字段，整型，与Country表的CountryID字段对应
-    PRIMARY KEY (StateID), -- 将StateID设定为这个表的主键
-    FOREIGN KEY (CountryID) REFERENCES Country(CountryID) -- 设置CountryID字段为外键，引用Country表的CountryID字段
+    CountryID INT, -- 国家 ID 字段，整型，与 Country 表的 CountryID 字段对应
+    PRIMARY KEY (StateID), -- 将 StateID 设定为这个表的主键
+    FOREIGN KEY (CountryID) REFERENCES Country(CountryID) -- 设置 CountryID 字段为外键，引用 Country 表的 CountryID 字段
 );
 
 -- 创建一个名为"City"的表，用于存储城市信息
 CREATE TABLE City (
-    CityID INT, -- 城市ID字段，整型
-    CityName VARCHAR(100), -- 城市名字字段，最大长度100的字符串
+    CityID INT, -- 城市 ID 字段，整型
+    CityName VARCHAR(100), -- 城市名字字段，最大长度 100 的字符串
     StateID INT, -- 州/省份ID字段，整型，与State表的StateID字段对应
-    PRIMARY KEY (CityID), -- 将CityID设定为这个表的主键
-    FOREIGN KEY (StateID) REFERENCES State(StateID) -- 设置StateID字段为外键，引用State表的StateID字段
+    PRIMARY KEY (CityID), -- 将 CityID 设定为这个表的主键
+    FOREIGN KEY (StateID) REFERENCES State(StateID) -- 设置 StateID 字段为外键，引用 State 表的 StateID 字段
 );
 ```
 

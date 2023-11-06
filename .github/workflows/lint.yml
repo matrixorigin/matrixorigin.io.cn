@@ -1,11 +1,7 @@
 name: lint
 
 on:
-  pull_request_target:
-    types: [ opened, synchronize, reopened ]
-    branches: 
-      - '*'
-  workflow_dispatch:
+  pull_request:
 
 jobs:
   lint-docs:
@@ -13,24 +9,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
         ref: ${{ github.event.pull_request.head.ref }}
 
-    - name: Lint docs
-      uses: docker://avtodev/markdown-lint:v1 # fastest way
+    - name: Get all changed markdown files
+      id: changed-markdown-files
+      uses: tj-actions/changed-files@v40
       with:
-        config: './.markdownlint.yaml'
-        args: './docs/MatrixOne'
+        since_last_remote_commit: true 
+        files: |
+          **.md
 
-    - name: Install NodeJS
+    - name: Setup node
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
       uses: actions/setup-node@v3
       with:
-        node-version: 18
-    
-    - name: Install NodeJS Dependencies
-      run: npm ci
+        node-version: 20
 
-    - name: Lint Chinese content
-      run: npm run lint
+    - name: Install node deps
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      run: |
+        corepack enable
+        pnpm i --frozen-lockfile
+
+    - name: Lint with markdownlint
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      run: |
+        npx markdownlint-cli2 ${{ steps.changed-markdown-files.outputs.all_changed_files }}
+
+    - name: Lint with zhlint
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      run: |
+        npm run config:zhlint
+        for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
+          npx zhlint $file
+        done
+
+    - name: Lint with autocorrect
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      run: |
+        npm run lint:autocorrect ${{ steps.changed-markdown-files.outputs.all_changed_files }}

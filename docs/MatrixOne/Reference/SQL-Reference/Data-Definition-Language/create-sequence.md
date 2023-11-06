@@ -157,7 +157,7 @@ SELECT LASTVAL();
 ## **示例**
 
 ```sql
--- 创建了一个名为 "seq_id" 的序列，它从1开始，每次增加1，最大值为1000：
+-- 创建了一个名为 "seq_id" 的序列，它从 1 开始，每次增加 1，最大值为 1000：
 CREATE SEQUENCE seq_id INCREMENT BY 1 MAXVALUE 1000 START with 1;
 -- 在创建序列之后，可以使用 NEXTVAL 函数获取下一个序列值，如下所示：
 mysql> SELECT NEXTVAL('seq_id');

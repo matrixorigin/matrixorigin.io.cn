@@ -50,7 +50,7 @@ CREATE TEMPORARY TABLE temp_table_name (column_list);
 ```sql
 -- 创建一个临时表 'temp_employees'
 CREATE TEMPORARY TABLE temp_employees (
-    employee_id INT AUTO_INCREMENT,  -- 自增的员工ID
+    employee_id INT AUTO_INCREMENT,  -- 自增的员工 ID
     first_name VARCHAR(50),          -- 员工名
     last_name VARCHAR(50),           -- 员工姓
     email VARCHAR(100),              -- 员工电子邮件地址
