@@ -11,6 +11,7 @@ import YAML from 'yaml'
 
 import { resolveAbsPath } from './utils/path.js'
 
+/** autocorrect severity enum */
 const SEVERITY = {
   ERROR: 1,
   WARNING: 2
@@ -18,43 +19,33 @@ const SEVERITY = {
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
+// load config
 const configFile = await readFile(join(__dirname, '../.autocorrectrc'), 'utf8')
-
 const config = YAML.parse(configFile)
-
 autocorrect.loadConfig(JSON.stringify(config))
 
-const argv = parseArgs(
-  process.argv.slice(2)
-)
-
-// console.log(argv)
-
+// parse args
+const argv = parseArgs(process.argv.slice(2))
 const { _: paths, fix = false } = argv
-
 const DEFAULT_PATHS = ['./docs/MatrixOne/**/*.md']
 
+// get paths
 const pathStream = fg.stream(paths.length ? paths : DEFAULT_PATHS)
 
-/** Autocorrect concurrent tasks */
 const autocorrectTasks = []
-
-/** File count */
 let fileCount = 0
-/** Error count */
 let warningCount = 0
-/** Warning count */
 let errorCount = 0
 
+// lint files
 for await (const entry of pathStream) {
   const absPath = resolveAbsPath(entry)
-  // console.log({ entry, absPath })
+
   autocorrectTasks.push(
     readFile(absPath, { encoding: 'utf8' }).then(async (fileContent) => {
       fileCount++
 
       const filename = basename(absPath)
-      // console.log({ filename, len: fileContent.length })
       const lintResult = autocorrect.lintFor(fileContent, filename)
 
       for (const {
@@ -78,9 +69,7 @@ for await (const entry of pathStream) {
             chalk(` ${absPath}:${line}:${column}`)
         )
 
-        // fmt - green for additions, red for deletions
         const diff = Diff.diffChars(oldStr, newStr)
-        /** old line */
         const oldLine =
           chalk.redBright('-') +
           diff
@@ -121,21 +110,19 @@ for await (const entry of pathStream) {
 
 await Promise.all(autocorrectTasks)
 
-if (errorCount || warningCount) {
-  console.log(
-    chalk.bgRedBright('FAILED') +
-    chalk.redBright(` - ${fileCount} files checked, found: `) +
+// print summary
+const execptionCount = errorCount + warningCount
+const summaryColor = execptionCount
+  ? chalk.bgRedBright('FAILED')
+  : chalk.bgGreenBright('PASSED')
+const summaryMessage = execptionCount
+  ? chalk.redBright(`- ${fileCount} files checked, found: `) +
     chalk.redBright(`Error: ${errorCount}`) +
-      chalk(', ') +
-      chalk.yellowBright(`Warning: ${warningCount}\n`)
-  )
-} else {
-  console.log(
-    chalk.bgGreenBright('PASSED') +
-    chalk.greenBright(` - ${fileCount} files checked. `) +
+    chalk(', ') +
+    chalk.yellowBright(`Warning: ${warningCount}\n`)
+  : chalk.greenBright(`- ${fileCount} files checked. `) +
     chalk.greenBright('No error or warning found.\n')
-  )
-}
+console.log(summaryColor + chalk(' ') + summaryMessage)
 
 // exit with error code 1 if there are errors
 if (!fix && errorCount) {
