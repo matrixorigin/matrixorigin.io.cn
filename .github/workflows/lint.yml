@@ -2,6 +2,9 @@ name: lint
 
 on:
   pull_request:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -45,7 +48,10 @@ jobs:
     - name: Lint with zhlint
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
       run: |
-        npx zhlint ${{ steps.changed-markdown-files.outputs.all_changed_files }}
+        npm run config:zhlint
+        for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
+          npx zhlint $file
+        done
 
     - name: Lint with autocorrect
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
