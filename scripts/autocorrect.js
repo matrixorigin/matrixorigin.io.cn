@@ -111,11 +111,11 @@ for await (const entry of pathStream) {
 await Promise.all(autocorrectTasks)
 
 // print summary
-const execptionCount = errorCount + warningCount
-const summaryColor = execptionCount
+const exceptionCount = errorCount + warningCount
+const summaryColor = exceptionCount
   ? chalk.bgRedBright('FAILED')
   : chalk.bgGreenBright('PASSED')
-const summaryMessage = execptionCount
+const summaryMessage = exceptionCount
   ? chalk.redBright(`- ${fileCount} files checked, found: `) +
     chalk.redBright(`Error: ${errorCount}`) +
     chalk(', ') +
