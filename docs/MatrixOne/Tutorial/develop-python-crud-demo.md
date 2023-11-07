@@ -19,7 +19,7 @@
     python3 -V
     ```
 
-- 确认你已完成安装 MySQL。
+- 确认你已完成安装 MySQL 客户端。
 
 - 下载安装 `pymysql` 和 `cryptography` 工具。
 
