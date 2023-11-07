@@ -1,6 +1,6 @@
 # 插入 csv 文件
 
-本篇文档将指导你在 MySQL 客户端启动 MatrixOne 时如何完成 *csv* 格式数据导入。
+本篇文档将指导你在 MySQL 客户端连接 MatrixOne 时如何完成 *csv* 格式数据导入。
 
 ## 语法结构
 
