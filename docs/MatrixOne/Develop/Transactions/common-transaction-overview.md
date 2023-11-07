@@ -162,4 +162,4 @@ ANSI/ISO SQL 定义的标准隔离级别共有四个：
 通过比低一级的隔离级别要求更多的限制，高一级的级别提供更强的隔离性。标准允许事务运行在更强的事务隔离级别上。
 
 !!! note
-    MatrixOne 的事务隔离与通用的隔离的定义个隔离级别的划分略有不同，可以参见 [MatrixOne 的隔离级别](matrixone-transaction-overview/isolation-level.md)。
+    MatrixOne 的事务隔离与通用的隔离定义的隔离级别的划分略有不同，可以参见 [MatrixOne 的隔离级别](matrixone-transaction-overview/isolation-level.md)。
