@@ -10032,7 +10032,7 @@
 <p>在表中使用 SEQUENCE 时，需要注意 <code>auto_increment</code> 与 <code>sequence</code> 不能一起用，否则会报错。</p>
 </div>
 <h2 id="_5"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="c1">-- 创建了一个名为 &quot;seq_id&quot; 的序列，它从1开始，每次增加1，最大值为1000：</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 创建了一个名为 &quot;seq_id&quot; 的序列，它从 1 开始，每次增加 1，最大值为 1000：</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="n">SEQUENCE</span><span class="w"> </span><span class="n">seq_id</span><span class="w"> </span><span class="k">INCREMENT</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">MAXVALUE</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="k">START</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="c1">-- 在创建序列之后，可以使用 NEXTVAL 函数获取下一个序列值，如下所示：</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">NEXTVAL</span><span class="p">(</span><span class="s1">&#39;seq_id&#39;</span><span class="p">);</span>

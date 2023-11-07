@@ -9716,7 +9716,7 @@
 <h1 id="jdbc">使用 JDBC 连接</h1>
 <p>在 Java 中，我们可以通过 Java 代码使用 JDBC 连接器（Java Database Connectivity）连接到 MatrixOne。JDBC 是用于数据库连接的标准 API 之一，使用它我们可以轻松地运行 SQL 语句并且从数据库中获取数据。</p>
 <h2 id="_1">开始前准备</h2>
-<p>使用 MatrixOne 进行 Java 数据库连接前，需要完成以下下载安装任务：</p>
+<p>使用 JDBC 连接 MatrixOne 前，需要完成以下下载安装任务：</p>
 <ol>
 <li>已完成<a href="../../../../Get-Started/install-standalone-matrixone/">安装并启动 MatrixOne</a>。</li>
 <li>下载安装 <a href="https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html">JDK 8+ version</a>。</li>
@@ -9750,7 +9750,7 @@
 <p><img alt="JDBC add driver" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-add-driver.png" /></p>
 </li>
 <li>
-<p>修改 <strong>src/main/java/org/example/Main.java</strong> 中的默认 Java 源代码。如下面的代码示例种所示，这段代码使用连接地址和凭据创建连接。连接到 MatrixOne 后，你可以使用 Java 语言对 MatrixOne 数据库和表进行操作。</p>
+<p>修改 <strong>src/main/java/org/example/Main.java</strong> 中的默认 Java 源代码。如下面的代码示例中所示，这段代码使用连接地址和凭据创建连接。连接到 MatrixOne 后，你可以使用 Java 语言对 MatrixOne 数据库和表进行操作。</p>
 <p>有关如何使用 JDBC 在 MatrixOne 中开发 CRUD（创建、读取、更新、删除）应用程序的完整示例，参考 <a href="../../../../Tutorial/develop-java-crud-demo/">Java CRUD 示例</a>。</p>
 <div class="highlight"><pre><span></span><code>package org.example;
 

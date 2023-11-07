@@ -9968,7 +9968,7 @@
 <tr>
 <td>N_COMMENT</td>
 <td>VARCHAR</td>
-<td>comment信息</td>
+<td>comment 信息</td>
 <td>varchar 类型，且不超过 152 字符</td>
 </tr>
 </tbody>
@@ -10004,7 +10004,7 @@
 <td>O_TOTALPRICE</td>
 <td>DECIMAL</td>
 <td>用于标记价格</td>
-<td>精度为 15，比例为 2，即精度代表字段数值的总位数，而比例代表小数点后有多少位，例如: decimal(5,2)，即精度为 5，比例为 2 时，其取值范围为 -999.99 到 999.99。decimal(6,1) ，即精度为 6，比例为 1 时，其取值范围为 -99999.9 到 99999.9。</td>
+<td>精度为 15，比例为 2，即精度代表字段数值的总位数，而比例代表小数点后有多少位，例如：decimal(5,2)，即精度为 5，比例为 2 时，其取值范围为 -999.99 到 999.99。decimal(6,1) ，即精度为 6，比例为 1 时，其取值范围为 -99999.9 到 99999.9。</td>
 </tr>
 <tr>
 <td>O_ORDERDATE</td>
@@ -10035,7 +10035,7 @@
 <span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>可以看到，a 的值默认是 1。</p>
-<p>你也可以将默认值设置为插入值时的时间，参加下面的简单的示例：</p>
+<p>你也可以将默认值设置为插入值时的时间，参考下面的简单的示例：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- 创建表并设置默认值为当前时间</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>

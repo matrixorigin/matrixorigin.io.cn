@@ -9958,7 +9958,7 @@
 </li>
 <li>
 <p>数据管道应用</p>
-<p>提取-转换-加载（ETL）是在不同存储系统之间进行数据转换和迁移的常见方法。数据管道和 ETL 作业有相似之处，都可以进行数据转换和丰富，然后将数据从一个存储系统移动到另一个存储系统。不同之处在于数据管道以持续流模式运行，而不是周期性触发。典型的数据管道应用包括电子商务中的实时查询索引构建和持续 ETL。</p>
+<p>提取 - 转换 - 加载（ETL）是在不同存储系统之间进行数据转换和迁移的常见方法。数据管道和 ETL 作业有相似之处，都可以进行数据转换和丰富，然后将数据从一个存储系统移动到另一个存储系统。不同之处在于数据管道以持续流模式运行，而不是周期性触发。典型的数据管道应用包括电子商务中的实时查询索引构建和持续 ETL。</p>
 </li>
 </ul>
 <p>本篇文档将介绍两种示例，一种是使用计算引擎 Flink 实现将实时数据写入到 MatrixOne，另一种是使用计算引擎 Flink 将流式数据写入到 MatrixOne 数据库。</p>
@@ -9969,7 +9969,7 @@
 <thead>
 <tr>
 <th>服务器名称</th>
-<th>服务器IP</th>
+<th>服务器 IP</th>
 <th>安装软件</th>
 <th>操作系统</th>
 </tr>
@@ -10236,7 +10236,7 @@
 </li>
 <li>
 <p>在 IDEA 中运行 <code>MoRead.Main()</code>，执行结果如下：</p>
-<p><img alt="MoRead执行结果" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/flink/moread.png" /></p>
+<p><img alt="MoRead 执行结果" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/flink/moread.png" /></p>
 </li>
 </ol>
 <h3 id="mysql-matrixone">步骤三：将 MySQL 数据写入 MatrixOne</h3>
@@ -10254,7 +10254,7 @@
 <li>
 <p>清空 MatrixOne 表数据：</p>
 <p>在 node3 上，使用 MySQL 客户端连接 node1 的 MatrixOne。由于本示例继续使用前面读取 MatrixOne 数据的示例中的 <code>test</code> 数据库，因此我们需要首先清空 <code>person</code> 表的数据。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- 在node3上，使用Mysql客户端连接node1的MatrixOne</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 在 node3 上，使用 Mysql 客户端连接 node1 的 MatrixOne</span>
 <span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">h192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">146</span><span class="p">.</span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="n">P6001</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="w"> </span><span class="o">-</span><span class="n">p111</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test</span><span class="p">.</span><span class="n">person</span><span class="p">;</span>
 </code></pre></div>
@@ -10354,7 +10354,7 @@
 <span class="w">                </span><span class="p">}</span>
 <span class="w">        </span><span class="p">);</span>
 
-<span class="w">        </span><span class="c1">//添加srouce</span>
+<span class="w">        </span><span class="c1">//添加 srouce</span>
 <span class="w">        </span><span class="n">DataStreamSource</span><span class="o">&lt;</span><span class="n">Row</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dataSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">environment</span><span class="p">.</span><span class="na">createInput</span><span class="p">(</span><span class="n">JdbcInputFormat</span><span class="p">.</span><span class="na">buildJdbcInputFormat</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="na">setDrivername</span><span class="p">(</span><span class="s">&quot;com.mysql.cj.jdbc.Driver&quot;</span><span class="p">)</span>
 <span class="w">                </span><span class="p">.</span><span class="na">setDBUrl</span><span class="p">(</span><span class="s">&quot;jdbc:mysql://&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">srcHost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">srcPort</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">srcDataBase</span><span class="p">)</span>
@@ -10364,7 +10364,7 @@
 <span class="w">                </span><span class="p">.</span><span class="na">setRowTypeInfo</span><span class="p">(</span><span class="n">rowTypeInfo</span><span class="p">)</span>
 <span class="w">                </span><span class="p">.</span><span class="na">finish</span><span class="p">());</span>
 
-<span class="w">        </span><span class="c1">//进行ETL</span>
+<span class="w">        </span><span class="c1">//进行 ETL</span>
 <span class="w">        </span><span class="n">SingleOutputStreamOperator</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapOperator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataSource</span><span class="p">.</span><span class="na">map</span><span class="p">((</span><span class="n">MapFunction</span><span class="o">&lt;</span><span class="n">Row</span><span class="p">,</span><span class="w"> </span><span class="n">Person</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">();</span>
 <span class="w">            </span><span class="n">person</span><span class="p">.</span><span class="na">setId</span><span class="p">((</span><span class="n">Integer</span><span class="p">)</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="na">getField</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">));</span>
@@ -10373,7 +10373,7 @@
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">person</span><span class="p">;</span>
 <span class="w">        </span><span class="p">});</span>
 
-<span class="w">        </span><span class="c1">//设置matrixone sink信息</span>
+<span class="w">        </span><span class="c1">//设置 matrixone sink 信息</span>
 <span class="w">        </span><span class="n">mapOperator</span><span class="p">.</span><span class="na">addSink</span><span class="p">(</span>
 <span class="w">                </span><span class="n">JdbcSink</span><span class="p">.</span><span class="na">sink</span><span class="p">(</span>
 <span class="w">                        </span><span class="s">&quot;insert into &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">destTable</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; values(?,?,?)&quot;</span><span class="p">,</span>
@@ -10650,9 +10650,9 @@ $<span class="w"> </span>bin/kafka-server-start.sh<span class="w"> </span>config
 <span class="w">        </span><span class="c1">//设置并行度</span>
 <span class="w">        </span><span class="n">env</span><span class="p">.</span><span class="na">setParallelism</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 
-<span class="w">        </span><span class="c1">//设置kafka source信息</span>
+<span class="w">        </span><span class="c1">//设置 kafka source 信息</span>
 <span class="w">        </span><span class="n">KafkaSource</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KafkaSource</span><span class="p">.</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="n">builder</span><span class="p">()</span>
-<span class="w">                </span><span class="c1">//Kafka服务</span>
+<span class="w">                </span><span class="c1">//Kafka 服务</span>
 <span class="w">                </span><span class="p">.</span><span class="na">setBootstrapServers</span><span class="p">(</span><span class="n">srcServer</span><span class="p">)</span>
 <span class="w">                </span><span class="c1">//消息主题</span>
 <span class="w">                </span><span class="p">.</span><span class="na">setTopics</span><span class="p">(</span><span class="n">srcTopic</span><span class="p">)</span>
@@ -10671,7 +10671,7 @@ $<span class="w"> </span>bin/kafka-server-start.sh<span class="w"> </span>config
 <span class="w">        </span><span class="n">DataStreamSource</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kafkaSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">env</span><span class="p">.</span><span class="na">fromSource</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">WatermarkStrategy</span><span class="p">.</span><span class="na">noWatermarks</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;kafka_maxtixone&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="c1">//kafkaSource.print();</span>
 
-<span class="w">        </span><span class="c1">//设置matrixone sink信息</span>
+<span class="w">        </span><span class="c1">//设置 matrixone sink 信息</span>
 <span class="w">        </span><span class="n">kafkaSource</span><span class="p">.</span><span class="na">addSink</span><span class="p">(</span><span class="n">JdbcSink</span><span class="p">.</span><span class="na">sink</span><span class="p">(</span>
 <span class="w">                </span><span class="s">&quot;insert into users (id,name,age) values(?,?,?)&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="p">(</span><span class="n">JdbcStatementBuilder</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">preparedStatement</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
@@ -10680,9 +10680,9 @@ $<span class="w"> </span>bin/kafka-server-start.sh<span class="w"> </span>config
 <span class="w">                    </span><span class="n">preparedStatement</span><span class="p">.</span><span class="na">setInt</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getAge</span><span class="p">());</span>
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="n">JdbcExecutionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<span class="w">                        </span><span class="c1">//默认值5000</span>
+<span class="w">                        </span><span class="c1">//默认值 5000</span>
 <span class="w">                        </span><span class="p">.</span><span class="na">withBatchSize</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="w">                        </span><span class="c1">//默认值为0</span>
+<span class="w">                        </span><span class="c1">//默认值为 0</span>
 <span class="w">                        </span><span class="p">.</span><span class="na">withBatchIntervalMs</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 <span class="w">                        </span><span class="c1">//最大尝试次数</span>
 <span class="w">                        </span><span class="p">.</span><span class="na">withMaxRetries</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>

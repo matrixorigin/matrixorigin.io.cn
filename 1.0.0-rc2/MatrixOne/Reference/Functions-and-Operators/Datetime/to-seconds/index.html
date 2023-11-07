@@ -9717,7 +9717,7 @@
 
 <h1 id="to_seconds"><strong>TO_SECONDS()</strong></h1>
 <h2 id="_1"><strong>函数说明</strong></h2>
-<p><code>TO_SECONDS(expr)</code> 函数用于计算给定日期或日期时间 expr 与公元0年1月1日0时0分0秒之间的秒数差。如果 <code>expr</code> 是 <code>NULL</code>，则返回 <code>NULL</code>。</p>
+<p><code>TO_SECONDS(expr)</code> 函数用于计算给定日期或日期时间 expr 与公元 0 年 1 月 1 日 0 时 0 分 0 秒之间的秒数差。如果 <code>expr</code> 是 <code>NULL</code>，则返回 <code>NULL</code>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>0000-00-00</code> 和 <code>0000-01-01</code> 日期本身被视为无效。MatrixOne 年份查询应该从 <code>0001</code> 年开始。查询 <code>0000-00-00</code> 和 <code>0000-01-01</code>，<code>TO_SECONDS()</code> 返回报错信息：</p>

@@ -10512,17 +10512,17 @@
 <tr>
 <td>table_id</td>
 <td>BIGINT UNSIGNED(64)</td>
-<td>当前分区表的ID</td>
+<td>当前分区表的 ID</td>
 </tr>
 <tr>
 <td>database_id</td>
 <td>BIGINT UNSIGNED(64)</td>
-<td>当前分区表所属的数据库的ID</td>
+<td>当前分区表所属的数据库的 ID</td>
 </tr>
 <tr>
 <td>number</td>
 <td>SMALLINT UNSIGNED(16)</td>
-<td>当前分区编号。所有分区都按照定义的顺序进行索引，其中1是分配给第一个分区的数字</td>
+<td>当前分区编号。所有分区都按照定义的顺序进行索引，其中 1 是分配给第一个分区的数字</td>
 </tr>
 <tr>
 <td>name</td>
@@ -10542,7 +10542,7 @@
 <tr>
 <td>description_utf8</td>
 <td>TEXT(0)</td>
-<td>此列用于 <code>RANGE</code> 和 <code>LIST</code> 分区。对于 <code>RANGE</code> 分区，它包含分区的 <code>VALUES LESS THAN</code> 子句中设置的值，该值可以是整数或 <code>MAXVALUE</code>。对于 <code>LIST</code> 分区，此列包含分区的 <code>values in</code> 子句中定义的值，该子句是逗号分隔的整数值列表。对于不是 <code>RANGE</code> 或 <code>LIST</code> 的分区，此列始终为 NULL。 <strong>Note:</strong> MatrixOne 暂不支持 <code>RANGE</code> 和 <code>LIST</code> 分区，此列为 NULL</td>
+<td>此列用于 <code>RANGE</code> 和 <code>LIST</code> 分区。对于 <code>RANGE</code> 分区，它包含分区的 <code>VALUES LESS THAN</code> 子句中设置的值，该值可以是整数或 <code>MAXVALUE</code>。对于 <code>LIST</code> 分区，此列包含分区的 <code>values in</code> 子句中定义的值，该子句是逗号分隔的整数值列表。对于不是 <code>RANGE</code> 或 <code>LIST</code> 的分区，此列始终为 NULL。<strong>Note:</strong> MatrixOne 暂不支持 <code>RANGE</code> 和 <code>LIST</code> 分区，此列为 NULL</td>
 </tr>
 <tr>
 <td>comment</td>
@@ -10824,7 +10824,7 @@
 <tr>
 <td>privilege_id</td>
 <td>int</td>
-<td>权限 ID ，联合主键</td>
+<td>权限 ID，联合主键</td>
 </tr>
 <tr>
 <td>privilege_name</td>
@@ -11067,7 +11067,7 @@
 <tr>
 <td>table_list</td>
 <td>TEXT(0)</td>
-<td>在非 all table 时，发布库内包含的表清单，表名与database_id对应数据库下的表一一对应</td>
+<td>在非 all table 时，发布库内包含的表清单，表名与 database_id 对应数据库下的表一一对应</td>
 </tr>
 <tr>
 <td>account_list</td>
@@ -11134,12 +11134,12 @@
 <tr>
 <td>is_visible</td>
 <td>TINYINT(8)</td>
-<td>索引是否可见 ， 1 为可见， 0 不可见 （目前 MatrixOne 的索引全部为可见索引）</td>
+<td>索引是否可见，1 为可见，0 不可见（目前 MatrixOne 的索引全部为可见索引）</td>
 </tr>
 <tr>
 <td>hidden</td>
 <td>TINYINT(8)</td>
-<td>索引是否为隐藏索引， 1 为隐藏索引，0 为非隐藏索引</td>
+<td>索引是否为隐藏索引，1 为隐藏索引，0 为非隐藏索引</td>
 </tr>
 <tr>
 <td>comment</td>
@@ -11185,7 +11185,7 @@
 <p>role：MatrixOne 节点角色，包括 CN、TN 和 Log。</p>
 </li>
 <li>
-<p>account：默认为 “sys” 租户，即触发 SQL 请求的账户。</p>
+<p>account：默认为“sys”租户，即触发 SQL 请求的账户。</p>
 </li>
 <li>
 <p>type：SQL 类型，可以是 <code>select</code>，<code>insert</code>，<code>update</code>，<code>delete</code>，<code>other</code> 类型。</p>
@@ -11400,12 +11400,12 @@
 <tr>
 <td>sql_source_type</td>
 <td>TEXT</td>
-<td>SQL语句源类型</td>
+<td>SQL 语句源类型</td>
 </tr>
 <tr>
 <td>result_count</td>
 <td>BIGINT(64)</td>
-<td>统计sql执行结果的行数</td>
+<td>统计 sql 执行结果的行数</td>
 </tr>
 </tbody>
 </table>

@@ -9779,12 +9779,12 @@
 <tbody>
 <tr>
 <td>隐式事务与自动提交</td>
-<td>当 <code>AUTOCOMMIT=1</code> 时，MySQL不会对事务进行任何更改，每个语句都是一个单独的自动提交事务。</td>
+<td>当 <code>AUTOCOMMIT=1</code> 时，MySQL 不会对事务进行任何更改，每个语句都是一个单独的自动提交事务。</td>
 <td>当 <code>AUTOCOMMIT=0</code> 时，MySQL 也不会对事务进行任何更改，但随后的语句将继续在当前事务中执行，直到显式提交或回滚事务。</td>
 </tr>
 <tr>
 <td>隐式事务与非自动提交</td>
-<td>当 <code>AUTOCOMMIT=1</code> 时，MySQL会在每个语句执行后自动提交未提交的事务。</td>
+<td>当 <code>AUTOCOMMIT=1</code> 时，MySQL 会在每个语句执行后自动提交未提交的事务。</td>
 <td>当 <code>AUTOCOMMIT=0</code> 时，MySQL 会继续在当前事务中执行随后的语句，直到显式提交或回滚事务。</td>
 </tr>
 </tbody>

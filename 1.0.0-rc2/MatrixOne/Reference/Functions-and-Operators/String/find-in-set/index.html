@@ -9733,10 +9733,10 @@
 <h2 id="_1"><strong>函数说明</strong></h2>
 <ul>
 <li>str 为要查询的字符串</li>
-<li>strList 为字段名，参数以 “,” 分隔，如 (1,2,6,8)</li>
+<li>strList 为字段名，参数以“,”分隔，如 (1,2,6,8)</li>
 <li>查询字段 (strList) 中包含的结果，返回结果 NULL 或记录。</li>
 </ul>
-<p>如果字符串 <em>str</em> 在由 N 个子字符串组成的字符串列表 <em>strlist</em> 中，则返回值的范围在 <em>1</em> 到 <em>N</em> 之间。一个字符串列表就是由 <em>‘,’</em> 符号分开的子字符串组成。如果第一个参数是常量字符串，第二个参数是 <code>SET</code> 类型的列，那么 <code>FIND_IN_SET()</code> 函数将优化为使用位运算。如果 <em>str</em> 不在 <em>strlist</em> 中或者 <em>strlist</em> 是空字符串，则返回 <em>0</em>。如果任一参数为 <em>NULL</em> 则返回 <code>NULL</code>。如果第一个参数包含逗号 <code>(,)</code> 字符，此函数将无法正常运行。</p>
+<p>如果字符串 <em>str</em> 在由 N 个子字符串组成的字符串列表 <em>strlist</em> 中，则返回值的范围在 <em>1</em> 到 <em>N</em> 之间。一个字符串列表就是由 <code>,</code> 符号分开的子字符串组成。如果第一个参数是常量字符串，第二个参数是 <code>SET</code> 类型的列，那么 <code>FIND_IN_SET()</code> 函数将优化为使用位运算。如果 <em>str</em> 不在 <em>strlist</em> 中或者 <em>strlist</em> 是空字符串，则返回 <em>0</em>。如果任一参数为 <em>NULL</em> 则返回 <code>NULL</code>。如果第一个参数包含逗号 <code>(,)</code> 字符，此函数将无法正常运行。</p>
 <h2 id="_2"><strong>函数语法</strong></h2>
 <div class="highlight"><pre><span></span><code>&gt; FIND_IN_SET(str,strlist)
 </code></pre></div>

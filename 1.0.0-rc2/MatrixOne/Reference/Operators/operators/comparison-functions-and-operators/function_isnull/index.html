@@ -9744,7 +9744,7 @@
 
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">birth_date</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;John Doe&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2000-05-15&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Alice Smith&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Bob Johnson&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1999-10-20&#39;</span><span class="p">);</span>
 
-<span class="c1">-- 使用ISNULL()函数查找没有填写出生日期的学生：</span>
+<span class="c1">-- 使用 ISNULL() 函数查找没有填写出生日期的学生：</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">ISNULL</span><span class="p">(</span><span class="n">birth_date</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">------+-------------+------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">name</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">birth_date</span><span class="w"> </span><span class="o">|</span>
@@ -9753,7 +9753,7 @@
 <span class="o">+</span><span class="c1">------+-------------+------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="c1">-- ISNULL()函数也可以用IS NULL来实现相同的功能，所以以下查询也是等效的：</span>
+<span class="c1">-- ISNULL() 函数也可以用 IS NULL 来实现相同的功能，所以以下查询也是等效的：</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">birth_date</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+-------------+------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">name</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">birth_date</span><span class="w"> </span><span class="o">|</span>

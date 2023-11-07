@@ -9939,7 +9939,7 @@
 <h4 id="limit"><code>LIMIT</code></h4>
 <p><code>LIMIT</code> 子句可用于限制 <code>SELECT</code> 语句返回的行数。</p>
 <h4 id="for-update"><code>FOR UPDATE</code></h4>
-<p><code>SELECT...FOR UPDATE</code> 主要用于在事务处理中锁定一组数据行，以防止被其他并发的事务修改。这个语句最常用于处理<strong>读-改-写</strong>场景，也就是说，当你需要读取一组数据，对其进行更改，然后将结果写回数据库，而在此过程中你不希望其他事务修改这组数据。</p>
+<p><code>SELECT...FOR UPDATE</code> 主要用于在事务处理中锁定一组数据行，以防止被其他并发的事务修改。这个语句最常用于处理<strong>读—改—写</strong>场景，也就是说，当你需要读取一组数据，对其进行更改，然后将结果写回数据库，而在此过程中你不希望其他事务修改这组数据。</p>
 <p>在一个事务中使用 <code>SELECT FOR UPDATE</code> 可以锁定所选的行，直到事务结束（通过提交或回滚）才释放锁。这样，其他尝试修改这些行的事务将被阻塞，直到第一个事务完成。</p>
 <p>参见下面的例子：</p>
 <div class="highlight"><pre><span></span><code><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>

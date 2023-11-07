@@ -10011,7 +10011,7 @@
 <p>使用 <code>pg2mysql</code> 转译工具将 <em>pg_ddl.sql</em> 文件转换为 MySQL 格式的 DDL：**</p>
 <p>a. 首先，运行下面的命令，将 <em>pg_ddl.sql</em> 文件中的 <code>bpchar</code> 替换为 <code>char</code>：</p>
 <pre><code>```
-# Linux系统执行的命令如下：
+# Linux 系统执行的命令如下：
 sed -i 's/bpchar/char/g' pg_ddl.sql
 
 # MacOS 系统则使用的命令如下：
@@ -10026,7 +10026,7 @@ sed -i '' 's/bpchar/char/g' pg_ddl.sql
 </code></pre>
 <p>c. 转换后的 DDL 会保留原始的 Postgresql schema 名称。如果有必要，你可以执行以下命令，将 schema 名称替换为 MySQL 中的数据库名称：</p>
 <pre><code>```
-# Linux系统执行的命令如下：
+# Linux 系统执行的命令如下：
 sed -i 's/{schema_name}/{database_name}/g' mysql_ddl.sql
 
 # MacOS 系统则使用的命令如下：
@@ -10035,7 +10035,7 @@ sed -i '' 's/{schema_name}/{database_name}/g' mysql_ddl.sql
 </code></pre>
 <p>d. 最后，你可能需要统一将 <em>mysql_ddl.sql</em> 文件中的 <code>numeric</code> 替换为 <code>decimal</code>，可以通过以下命令实现：</p>
 <pre><code>```
-# Linux系统执行的命令如下：
+# Linux 系统执行的命令如下：
 sed -i 's/numeric/decimal/g' mysql_ddl.sql
 
 # MacOS 系统则使用的命令如下：
@@ -10107,7 +10107,7 @@ sed -i '' 's/numeric/decimal/g' mysql_ddl.sql
 <p>使用 <code>pg2mysql</code> 转译工具将 <em>pg_ddl.sql</em> 文件转换为 MySQL 格式的 DDL：**</p>
 <p>a. 首先，运行下面的命令，将 <em>pg_ddl.sql</em> 文件中的 <code>bpchar</code> 替换为 <code>char</code>：</p>
 <pre><code>```
-# Linux系统执行的命令如下：
+# Linux 系统执行的命令如下：
 sed -i 's/bpchar/char/g' pg_ddl.sql
 
 # MacOS 系统则使用的命令如下：
@@ -10122,7 +10122,7 @@ sed -i '' 's/bpchar/char/g' pg_ddl.sql
 </code></pre>
 <p>c. 转换后的 DDL 会保留原始的 Postgresql schema 名称。如果有必要，你可以执行以下命令，将 schema 名称替换为 MySQL 中的数据库名称：</p>
 <pre><code>```
-# Linux系统执行的命令如下：
+# Linux 系统执行的命令如下：
 sed -i 's/{schema_name}/{database_name}/g' mysql_ddl.sql
 
 # MacOS 系统则使用的命令如下：
@@ -10131,7 +10131,7 @@ sed -i '' 's/{schema_name}/{database_name}/g' mysql_ddl.sql
 </code></pre>
 <p>d. 最后，你可能需要统一将 <em>mysql_ddl.sql</em> 文件中的 <code>numeric</code> 替换为 <code>decimal</code>，可以通过以下命令实现：</p>
 <pre><code>```
-# Linux系统执行的命令如下：
+# Linux 系统执行的命令如下：
 sed -i 's/numeric/decimal/g' mysql_ddl.sql
 
 # MacOS 系统则使用的命令如下：

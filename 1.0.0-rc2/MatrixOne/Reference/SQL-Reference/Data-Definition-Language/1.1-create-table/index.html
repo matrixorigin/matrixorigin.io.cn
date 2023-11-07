@@ -10060,7 +10060,7 @@ CREATE TABLE t1 (col1 INT, col2 CHAR(5), col3 DATETIME)
 </ul>
 <p><code>RANGE</code> 分区：基于一个给定连续区间范围，把数据（或者可以说是多行）分配到不同的分区。最常见的是基于时间字段。基于分区的列最好是整型，如果日期型的可以使用函数转换为整型。</p>
 <p>在这种情况下，expr 使用一组 <code>VALUES LESS THAN</code> 运算符显示一系列值。使用范围分区时，你必须使用 <code>VALUES LESS THAN</code> 定义至少一个分区，且不能将 <code>VALUES IN</code> 与范围分区一起使用。</p>
-<p><code>VALUES LESS THAN MAXVALUE</code> 用于指定小于指定最大值的 “剩余” 值。</p>
+<p><code>VALUES LESS THAN MAXVALUE</code> 用于指定小于指定最大值的“剩余”值。</p>
 <p>子句排列方式为：每个连续的 <code>VALUES LESS THAN</code> 中指定的上限大于前一个的上限，引用 <code>MAXVALUE</code> 的那个在列表中排在最后。</p>
 <ul>
 <li><strong>RANGE COLUMNS(column_list)</strong></li>
@@ -10287,7 +10287,7 @@ PARTITION BY LIST COLUMNS(a,b) (
 <span class="o">+</span><span class="c1">-------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="c1">-- 创建HASH分区</span>
+<span class="c1">-- 创建 HASH 分区</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tp7</span>
 <span class="p">(</span>
 <span class="w">    </span><span class="n">col1</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
