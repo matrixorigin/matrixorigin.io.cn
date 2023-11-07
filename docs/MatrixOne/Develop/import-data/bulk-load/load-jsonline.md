@@ -14,8 +14,6 @@ JSONLines 格式有以下三个要求：
 
 * **UTF-8 编码**：JSON 允许仅使用 ASCII 转义序列对 Unicode 字符串进行编码，但是在文本编辑器中，这些转义难以阅读。JSON Lines 文件的作者可以选择转义字符来处理纯 ASCII 文件。
 
-JSON 允许仅用 ASCII 转义序列编码 Unicode 字符串，但是当在文本编辑器中查看时，这些转义将很难阅读。JSON Lines 文件的作者可以选择转义字符来处理纯 ASCII 文件。
-
 * **每行都是一个合法的 JSON 值**：最常见的值是对象或数组，任何 JSON 值都是合法的。
 
 * **行分隔符为 `\n`**：由于在解析 JSON 值时会隐式忽略周围的空格在支持行分隔符 `\n` 的同时也支持“\r\n”。
@@ -108,7 +106,7 @@ LOAD DATA LOCAL INFILE
 |Array| Json 类型|
 |Null| 支持所有类型|
 
-例如，你可以先试用 SQL 语句为 JSONLines 格式文件先创建一个数据表，如下所示：
+例如，你可以先使用 SQL 语句为 JSONLines 格式文件先创建一个数据表，如下所示：
 
 ```
 mysql> create table t1 (name varchar(100), session varchar(100), score int, completed bool);
@@ -171,7 +169,7 @@ __Note:__ 本教程中，数据文件与 MatrixOne 服务器在同一台机器�
     __Note:__ 如果你的数据文件与 MatrixOne 服务器在不同的机器上，即数据文件在你所使用的客户端机器上时，那么你连接 MatrixOne 服务主机需要使用命令行：`mysql -h <mo-host-ip> -P <mo-host-ip> -uroot -p111 --local-infile`；并且导入的命令行需要使用 `LOAD DATA LOCAL INFILE` 语法。
 
     !!! note
-       上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../../Security/password-mgmt.md)。
+        上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../../Security/password-mgmt.md)。
 
 4. 在 MatrixOne 建表：
 
