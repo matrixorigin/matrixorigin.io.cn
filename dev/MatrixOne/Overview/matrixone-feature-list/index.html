@@ -9861,88 +9861,88 @@
 </thead>
 <tbody>
 <tr>
-<td>创建数据库CREATE DATABASE</td>
+<td>创建数据库 CREATE DATABASE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>删除数据库DROP DATABASE</td>
+<td>删除数据库 DROP DATABASE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>修改数据库ALTER DATABASE</td>
+<td>修改数据库 ALTER DATABASE</td>
 <td>N</td>
 </tr>
 <tr>
-<td>创建表CREATE TABLE</td>
+<td>创建表 CREATE TABLE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>修改表ALTER TABLE</td>
+<td>修改表 ALTER TABLE</td>
 <td>E，子句<code>CHANGE [COLUMN]</code>，<code>MODIFY [COLUMN]</code>，<code>RENAME COLUMN</code>，<code>ADD [CONSTRAINT [symbol]] PRIMARY KEY</code>，<code>DROP PRIMARY KEY</code> 和 <code>ALTER COLUMN ORDER BY</code> 可以在 ALTER TABLE 语句中自由组合使用，但暂时不支持与其他子句一起使用。</td>
 </tr>
 <tr>
-<td>修改表名RENAME TABLE</td>
-<td>N，可用ALTER TABLE tbl RENAME TO new_tbl替代</td>
+<td>修改表名 RENAME TABLE</td>
+<td>N，可用 ALTER TABLE tbl RENAME TO new_tbl 替代</td>
 </tr>
 <tr>
-<td>删除表DROP TABLE</td>
+<td>删除表 DROP TABLE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>创建约束CREATE INDEX</td>
+<td>创建约束 CREATE INDEX</td>
 <td>Y，次级索引没有加速作用</td>
 </tr>
 <tr>
-<td>删除约束DROP INDEX</td>
+<td>删除约束 DROP INDEX</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>修改列MODIFY COLUMN</td>
+<td>修改列 MODIFY COLUMN</td>
 <td>N</td>
 </tr>
 <tr>
-<td>主键PRIMARY KEY</td>
+<td>主键 PRIMARY KEY</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>创建视图CREATE VIEW</td>
+<td>创建视图 CREATE VIEW</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>修改视图ALTER VIEW</td>
+<td>修改视图 ALTER VIEW</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>删除视图DROP VIEW</td>
+<td>删除视图 DROP VIEW</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>清空表TRUNCATE TABLE</td>
+<td>清空表 TRUNCATE TABLE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>自增列AUTO_INCREMENT</td>
+<td>自增列 AUTO_INCREMENT</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>序列SEQUENCE</td>
+<td>序列 SEQUENCE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>临时表TEMPORARY TABLE</td>
+<td>临时表 TEMPORARY TABLE</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>流式表CREATE STREAM</td>
+<td>流式表 CREATE STREAM</td>
 <td>E，部分支持</td>
 </tr>
 <tr>
-<td>分区表PARTITION BY</td>
+<td>分区表 PARTITION BY</td>
 <td>E，部分类型支持</td>
 </tr>
 <tr>
-<td>字符集和排序顺序CHARSET，COLLATION</td>
-<td>N，仅默认支持UTF8</td>
+<td>字符集和排序顺序 CHARSET，COLLATION</td>
+<td>N，仅默认支持 UTF8</td>
 </tr>
 </tbody>
 </table>
@@ -10012,7 +10012,7 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>公共表表达式(Common Table Expressions，CTE)</td>
+<td>公共表表达式 (Common Table Expressions，CTE)</td>
 <td>Y</td>
 </tr>
 <tr>
@@ -10047,7 +10047,7 @@
 </thead>
 <tbody>
 <tr>
-<td>预处理PREPARE</td>
+<td>预处理 PREPARE</td>
 <td>Y</td>
 </tr>
 <tr>
@@ -10059,15 +10059,15 @@
 <td>N</td>
 </tr>
 <tr>
-<td>时间调度器EVENT SCHEDULER</td>
+<td>时间调度器 EVENT SCHEDULER</td>
 <td>N</td>
 </tr>
 <tr>
-<td>自定义函数UDF</td>
+<td>自定义函数 UDF</td>
 <td>N</td>
 </tr>
 <tr>
-<td>增量物化视图Materialized VIEW</td>
+<td>增量物化视图 Materialized VIEW</td>
 <td>N</td>
 </tr>
 </tbody>
@@ -10175,7 +10175,7 @@
 <tr>
 <td>定点类型</td>
 <td>DECIMAL</td>
-<td>Y，最高到38位</td>
+<td>Y，最高到 38 位</td>
 </tr>
 <tr>
 <td>JSON 类型</td>
@@ -10263,11 +10263,11 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>可重复读隔离（快照SI隔离）</td>
+<td>可重复读隔离（快照 SI 隔离）</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>读已提交RC隔离</td>
+<td>读已提交 RC 隔离</td>
 <td>Y</td>
 </tr>
 </tbody>
@@ -10298,7 +10298,7 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>Cast函数</td>
+<td>Cast 函数</td>
 <td>Y</td>
 </tr>
 <tr>
@@ -10310,7 +10310,7 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>JSON函数</td>
+<td>JSON 函数</td>
 <td>Y</td>
 </tr>
 <tr>
@@ -10349,7 +10349,7 @@
 <td>N</td>
 </tr>
 <tr>
-<td>RANGE COLUMNS分区</td>
+<td>RANGE COLUMNS 分区</td>
 <td>N</td>
 </tr>
 <tr>
@@ -10372,11 +10372,11 @@
 </thead>
 <tbody>
 <tr>
-<td>文件导入LOAD DATA</td>
+<td>文件导入 LOAD DATA</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>SQL导入SOURCE</td>
+<td>SQL 导入 SOURCE</td>
 <td>Y</td>
 </tr>
 <tr>
@@ -10384,11 +10384,11 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>modump工具导出SQL</td>
+<td>modump 工具导出 SQL</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>mysqldump原生工具</td>
+<td>mysqldump 原生工具</td>
 <td>N</td>
 </tr>
 </tbody>
@@ -10403,7 +10403,7 @@
 </thead>
 <tbody>
 <tr>
-<td>传输层加密TLS</td>
+<td>传输层加密 TLS</td>
 <td>Y</td>
 </tr>
 <tr>
@@ -10435,7 +10435,7 @@
 <tbody>
 <tr>
 <td>逻辑备份恢复</td>
-<td>Y，仅支持modump工具</td>
+<td>Y，仅支持 modump 工具</td>
 </tr>
 <tr>
 <td>物理备份恢复</td>
@@ -10453,11 +10453,11 @@
 </thead>
 <tbody>
 <tr>
-<td>单机mo_ctl部署管理</td>
+<td>单机 mo_ctl 部署管理</td>
 <td>Y</td>
 </tr>
 <tr>
-<td>分布式mo_ctl部署管理</td>
+<td>分布式 mo_ctl 部署管理</td>
 <td>E，仅企业版</td>
 </tr>
 <tr>
@@ -10477,7 +10477,7 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>SQL记录</td>
+<td>SQL 记录</td>
 <td>Y</td>
 </tr>
 <tr>
@@ -10501,7 +10501,7 @@
 </tr>
 <tr>
 <td>分布式环境私有化部署</td>
-<td>Y，自建Kubernetes与minIO对象存储</td>
+<td>Y，自建 Kubernetes 与 minIO 对象存储</td>
 </tr>
 <tr>
 <td>阿里云分布式自建部署</td>
@@ -10512,12 +10512,12 @@
 <td>Y，TKE+COS</td>
 </tr>
 <tr>
-<td>AWS分布式自建部署</td>
+<td>AWS 分布式自建部署</td>
 <td>Y，EKS+S3</td>
 </tr>
 <tr>
-<td>公有云Serverless</td>
-<td>Y，MatrixOne Cloud，支持AWS，阿里云</td>
+<td>公有云 Serverless</td>
+<td>Y，MatrixOne Cloud，支持 AWS，阿里云</td>
 </tr>
 </tbody>
 </table>

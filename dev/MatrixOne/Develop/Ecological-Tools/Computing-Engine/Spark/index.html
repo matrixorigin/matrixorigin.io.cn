@@ -9987,7 +9987,7 @@
 <thead>
 <tr>
 <th>服务器名称</th>
-<th>服务器IP</th>
+<th>服务器 IP</th>
 <th>安装软件</th>
 <th>操作系统</th>
 </tr>
@@ -10121,7 +10121,7 @@
 
 <span class="cm">/**</span>
 <span class="cm"> * @auther MatrixOne</span>
-<span class="cm"> * @desc 读取MatrixOne数据</span>
+<span class="cm"> * @desc 读取 MatrixOne 数据</span>
 <span class="cm"> */</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MoRead</span><span class="w"> </span><span class="p">{</span>
 
@@ -10170,7 +10170,7 @@
 <li>
 <p>清空 MatrixOne 表数据：</p>
 <p>在 node3 上，使用 MySQL 客户端连接本地 MatrixOne。由于本示例继续使用前面读取 MatrixOne 数据的示例中的 <code>test</code> 数据库，因此我们需要首先清空 <code>person</code> 表的数据。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- 在node3上，使用Mysql客户端连接node1的MatrixOne</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 在 node3 上，使用 Mysql 客户端连接 node1 的 MatrixOne</span>
 <span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">h192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">146</span><span class="p">.</span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="n">P6001</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="w"> </span><span class="o">-</span><span class="n">p111</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test</span><span class="p">.</span><span class="n">person</span><span class="p">;</span>
 </code></pre></div>
@@ -10224,13 +10224,13 @@
 <span class="w">        </span><span class="c1">//jdbc.url=jdbc:mysql://127.0.0.1:3306/database</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;jdbc:mysql://&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">srcHost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">srcPort</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">srcDataBase</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;?characterEncoding=utf-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai&quot;</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">//SparkJdbc读取表内容</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;读取数据库中person的表内容&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">//SparkJdbc 读取表内容</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;读取数据库中 person 的表内容&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="c1">// 读取表中所有数据</span>
 <span class="w">        </span><span class="n">Dataset</span><span class="o">&lt;</span><span class="n">Row</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rowDataset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlContext</span><span class="p">.</span><span class="na">read</span><span class="p">().</span><span class="na">jdbc</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">srcTable</span><span class="p">,</span><span class="n">connectionProperties</span><span class="p">).</span><span class="na">select</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="c1">//显示数据</span>
 <span class="w">        </span><span class="c1">//rowDataset.show();</span>
-<span class="w">       </span><span class="c1">//筛选id &gt; 2的数据，并将 name 字段添加 spark_ 前缀</span>
+<span class="w">       </span><span class="c1">//筛选 id &gt; 2 的数据，并将 name 字段添加 spark_ 前缀</span>
 <span class="w">        </span><span class="n">Dataset</span><span class="o">&lt;</span><span class="n">Row</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dataset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rowDataset</span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="s">&quot;id &gt; 2&quot;</span><span class="p">)</span>
 <span class="w">                </span><span class="p">.</span><span class="na">map</span><span class="p">((</span><span class="n">MapFunction</span><span class="o">&lt;</span><span class="n">Row</span><span class="p">,</span><span class="w"> </span><span class="n">Row</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">RowFactory</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">row</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;spark_&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="na">getDate</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span><span class="w"> </span><span class="n">RowEncoder</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">rowDataset</span><span class="p">.</span><span class="na">schema</span><span class="p">()));</span>
 <span class="w">        </span><span class="c1">//显示数据</span>
@@ -10373,8 +10373,8 @@
 <span class="cm"> * @date 2022/2/9 10:02</span>
 <span class="cm"> * @desc</span>
 <span class="cm"> *</span>
-<span class="cm"> * 1.在hive和matrixone中分别创建相应的表</span>
-<span class="cm"> * 2.将core-site.xml hdfs-site.xml和hive-site.xml拷贝到resources目录下</span>
+<span class="cm"> * 1.在 hive 和 matrixone 中分别创建相应的表</span>
+<span class="cm"> * 2.将 core-site.xml hdfs-site.xml 和 hive-site.xml 拷贝到 resources 目录下</span>
 <span class="cm"> * 3.需要设置域名映射</span>
 <span class="cm"> */</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Hive2Mo</span><span class="w"> </span><span class="p">{</span>
@@ -10398,8 +10398,8 @@
 <span class="w">                </span><span class="p">.</span><span class="na">enableHiveSupport</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="na">getOrCreate</span><span class="p">();</span>
 
-<span class="w">        </span><span class="c1">//SparkJdbc读取表内容</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;读取hive中person的表内容&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">//SparkJdbc 读取表内容</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;读取 hive 中 person 的表内容&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="c1">// 读取表中所有数据</span>
 <span class="w">        </span><span class="n">Dataset</span><span class="o">&lt;</span><span class="n">Row</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rowDataset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sparkSession</span><span class="p">.</span><span class="na">sql</span><span class="p">(</span><span class="s">&quot;select * from motest.users&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="c1">//显示数据</span>

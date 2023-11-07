@@ -9879,7 +9879,7 @@
 <span class="k">from</span><span class="w"> </span><span class="n">orders</span><span class="p">.</span><span class="n">rfm</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">user_type</span>
 
-<span class="c1">-- 月GMV</span>
+<span class="c1">-- 月 GMV</span>
 <span class="k">select</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="n">m</span><span class="p">,</span>
 <span class="k">sum</span><span class="p">(</span><span class="n">order_value</span><span class="p">),</span>
 <span class="n">concat</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;-&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="k">month</span>
@@ -9887,7 +9887,7 @@
 <span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="n">m</span>
 <span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="n">m</span>
 
-<span class="c1">-- 季度GMV</span>
+<span class="c1">-- 季度 GMV</span>
 <span class="k">select</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="n">q</span><span class="p">,</span>
 <span class="k">sum</span><span class="p">(</span><span class="n">order_value</span><span class="p">)</span><span class="w"> </span><span class="n">gmv</span><span class="p">,</span>
 <span class="n">concat</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;季度&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">quator</span>
@@ -9895,7 +9895,7 @@
 <span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="n">q</span>
 <span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">concat</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;季度&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="k">asc</span>
 
-<span class="c1">-- 季度ARPU</span>
+<span class="c1">-- 季度 ARPU</span>
 <span class="k">select</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="n">q</span><span class="p">,</span>
 <span class="n">round</span><span class="p">((</span><span class="k">sum</span><span class="p">(</span><span class="n">order_value</span><span class="p">)</span><span class="o">/</span><span class="k">count</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">customer_id</span><span class="p">)),</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">arpu</span><span class="p">,</span>
 <span class="n">concat</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;季度&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">quator</span>
@@ -9903,7 +9903,7 @@
 <span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="n">q</span>
 <span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="n">q</span>
 
-<span class="c1">-- 月度ARPU</span>
+<span class="c1">-- 月度 ARPU</span>
 <span class="k">select</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="n">m</span><span class="p">,</span>
 <span class="n">round</span><span class="p">((</span><span class="k">sum</span><span class="p">(</span><span class="n">order_value</span><span class="p">)</span><span class="o">/</span><span class="k">count</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">customer_id</span><span class="p">)),</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">arpu</span><span class="p">,</span>
 <span class="n">concat</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;-&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">month</span>

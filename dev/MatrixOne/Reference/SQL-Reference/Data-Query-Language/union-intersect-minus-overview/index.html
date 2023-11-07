@@ -9698,7 +9698,7 @@ query1 MINUS [ALL] query2
 <p><code>UNION</code> 有效地将 <em>query2</em> 的结果合并到 <em>query1</em> 的结果中（但不能保证这是返回行的顺序）。此外，它以与 <code>DISTINCT</code> 语法相同，即从结果中消除重复行；使用了 <code>UNION ALL</code>，即从结果中不消除重复行。</p>
 <p><code>INTERSECT</code> 返回 <em>query1</em> 和 <em>query2</em> 相交的结果中的所有行。不使用 <code>INTERSECT ALL</code>，则消除结果中的重复的行；使用 <code>INTERSECT ALL</code>，不消除结果中的重复的行。</p>
 <p><code>MINUS</code> 返回 <em>query1</em> 结果，但不在 <em>query2</em> 中的所有行。即 <em>query1</em> 和 <em>query2</em> 的结果的差集。同样，不使用 <code>MINUS ALL</code>，则消除结果中的重复的行；使用 <code>MINUS ALL</code>，不消除结果中的重复的行。</p>
-<p>要计算两个查询的并集、交集或差集，这两个查询必须是 “并集兼容的”，这意味着它们返回相同数量的列并且对应的列具有兼容的数据类型。</p>
+<p>要计算两个查询的并集、交集或差集，这两个查询必须是“并集兼容的”，这意味着它们返回相同数量的列并且对应的列具有兼容的数据类型。</p>
 <p><code>UNION</code>，<code>INTERSECT</code> 和 <code>MINUS</code> 操作可以组合，例如：</p>
 <div class="highlight"><pre><span></span><code>query1 UNION query2 MINUS query3
 </code></pre></div>

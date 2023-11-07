@@ -9745,13 +9745,13 @@
 <td>node_id</td>
 <td>varchar</td>
 <td>not null</td>
-<td>节点ID，用于在数据库集群中唯一标识不同的节点。在 MatrixOne 中，一个节点即为一个 CN（Compute Node）。<br> <strong>Note:</strong> <br> - 在单机版本的 MatrixOne 中，通常只有一个节点，所有进程都运行在这个节点上，因此所有进程的 node_id 都相同。<br> - 在分布式版本的 MatrixOne 中，每个节点都有一个唯一的 node_id。系统租户可以查看所有正在执行的线程所在节点对应的 node_id，而非系统租户只能看到属于其租户下正在执行的线程的节点对应的 node_id。</td>
+<td>节点 ID，用于在数据库集群中唯一标识不同的节点。在 MatrixOne 中，一个节点即为一个 CN（Compute Node）。<br> <strong>Note:</strong> <br> - 在单机版本的 MatrixOne 中，通常只有一个节点，所有进程都运行在这个节点上，因此所有进程的 node_id 都相同。<br> - 在分布式版本的 MatrixOne 中，每个节点都有一个唯一的 node_id。系统租户可以查看所有正在执行的线程所在节点对应的 node_id，而非系统租户只能看到属于其租户下正在执行的线程的节点对应的 node_id。</td>
 </tr>
 <tr>
 <td>conn_id</td>
 <td>uint32</td>
 <td>not null</td>
-<td>连接 ID，用于标识不同的数据库连接。如果需要终止某个数据库连接，可以使用 <code>KILL CONNECTION conn_id;</code> 命令来终止该连接。在数据库中，每个连接都会被分配一个唯一的 conn_id，用于标识该连接。<br> <strong>Note:</strong> 系统租户可以查看所有conn_id，非系统租户只能看到租户下的conn_id。 ID</td>
+<td>连接 ID，用于标识不同的数据库连接。如果需要终止某个数据库连接，可以使用 <code>KILL CONNECTION conn_id;</code> 命令来终止该连接。在数据库中，每个连接都会被分配一个唯一的 conn_id，用于标识该连接。<br> <strong>Note:</strong> 系统租户可以查看所有 conn_id，非系统租户只能看到租户下的 conn_id。ID</td>
 </tr>
 <tr>
 <td>session_id</td>
@@ -9793,25 +9793,25 @@
 <td>command</td>
 <td>varchar</td>
 <td>not null</td>
-<td>命令类型，如COM_QUERY</td>
+<td>命令类型，如 COM_QUERY</td>
 </tr>
 <tr>
 <td>info</td>
 <td>varchar</td>
 <td></td>
-<td>当前或上一条SQL 语句</td>
+<td>当前或上一条 SQL 语句</td>
 </tr>
 <tr>
 <td>txn_id</td>
 <td>varchar</td>
 <td>not null</td>
-<td>当前或上一条事务ID</td>
+<td>当前或上一条事务 ID</td>
 </tr>
 <tr>
 <td>statement_id</td>
 <td>varchar</td>
 <td></td>
-<td>当前或上一条语句ID</td>
+<td>当前或上一条语句 ID</td>
 </tr>
 <tr>
 <td>statement_type</td>
@@ -9823,13 +9823,13 @@
 <td>query_type</td>
 <td>varchar</td>
 <td></td>
-<td>查询类型，如DDL，DML等</td>
+<td>查询类型，如 DDL，DML 等</td>
 </tr>
 <tr>
 <td>sql_source_type</td>
 <td>varchar</td>
 <td></td>
-<td>SQL源类型，如external_sql, internal_sql 等</td>
+<td>SQL 源类型，如 external_sql, internal_sql 等</td>
 </tr>
 <tr>
 <td>query_start</td>

@@ -9764,7 +9764,7 @@
 <tbody>
 <tr>
 <td>seed</td>
-<td>可选参数。是一个整数值，用于指定生成随机数时的种子值。如果不指定 <code>seed</code> 参数，则默认以当前时间为种子值。 返回值类型与输入类型保持一致。<br> MatrixOne 暂不支持指定种子值。</td>
+<td>可选参数。是一个整数值，用于指定生成随机数时的种子值。如果不指定 <code>seed</code> 参数，则默认以当前时间为种子值。返回值类型与输入类型保持一致。<br> MatrixOne 暂不支持指定种子值。</td>
 </tr>
 </tbody>
 </table>
@@ -9794,12 +9794,12 @@
 <span class="w">    </span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;alice@example.com&#39;</span><span class="p">),</span>
 <span class="w">    </span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bob@example.com&#39;</span><span class="p">);</span>
 
-<span class="c1">-- 从Users表中随机选择一个用户的信息</span>
+<span class="c1">-- 从 Users 表中随机选择一个用户的信息</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Users</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RAND</span><span class="p">()</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+----------+-----------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">email</span><span class="w">           </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+----------+-----------------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Bob</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="n">bob</span><span class="o">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c1">-- Bob的信息被随机选中</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Bob</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="n">bob</span><span class="o">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c1">-- Bob 的信息被随机选中</span>
 <span class="o">+</span><span class="c1">------+----------+-----------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
@@ -9808,7 +9808,7 @@
 <span class="o">+</span><span class="c1">------+----------+-------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">email</span><span class="w">             </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+----------+-------------------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Alice</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">alice</span><span class="o">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c1">-- Alice的信息被随机选中</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Alice</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">alice</span><span class="o">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c1">-- Alice 的信息被随机选中</span>
 <span class="o">+</span><span class="c1">------+----------+-------------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
