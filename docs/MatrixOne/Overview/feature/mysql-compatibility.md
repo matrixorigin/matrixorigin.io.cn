@@ -59,7 +59,7 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 ### 权限相关
 
 * GRANT，授权逻辑与 MySQL 有差异。
-* REVOLE，回收权限逻辑与 MySQL 有差异。
+* REVOKE，回收权限逻辑与 MySQL 有差异。
 
 ### SHOW 相关
 
@@ -98,7 +98,7 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 
 * MatrixOne 支持 `SET`，但只支持 `SET columns_name=nullif(expr1,expr2)` 的形式。
 * MatrixOne 不支持 `ESCAPED BY`。
-* MatrixOne 支持客户端执行 `LOAD DATA LOCAL`，但在连接时必须加入 `--local-infle` 参数。
+* MatrixOne 支持客户端执行 `LOAD DATA LOCAL`，但在连接时必须加入 `--local-infile` 参数。
 * MatrixOne 支持导入 `JSONlines` 文件，但需要使用一些特殊的语法。
 * MatrixOne 支持从对象存储导入文件，但需要使用一些特殊的语法。
 
