@@ -135,7 +135,7 @@ lowerCaseTableNames = "0" // 默认为 1
 - 仅对当前会话开启保存查询结果：
 
 ```sql
-set global lower_case_table_names = 1;
+set lower_case_table_names = 1;
 ```
 
 在创建数据库时，MatrixOne 会自动获取 `lower_case_table_names` 的值，作为初始化数据库配置的默认值。
