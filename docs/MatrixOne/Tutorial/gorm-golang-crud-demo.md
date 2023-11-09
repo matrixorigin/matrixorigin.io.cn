@@ -2,13 +2,13 @@
 
 本篇文档将指导你如何使用 **golang** 和 **gorm** 构建一个简单的应用程序，并实现 CRUD（创建、读取、更新、删除）功能。
 
-**Gorm** 是 Python 语言中最流行的 ORM 工具之一。
+**Gorm** 是 Golang 语言中最流行的 ORM 工具之一。
 
 ## 开始前准备
 
 相关软件的简单介绍：
 
-* Gorm：基于 golang 的一个神奇的全功能 ORM 库，本次教程主要通过使用 ```gorm.io/gorm``` 和 ```gorm.io/driver/mysql``` 这两个库来让 Go 连接到 MYSQL 数据库并完成 CRUD 操作。
+* Gorm：基于 golang 的一个神奇的全功能 ORM 库，本次教程主要通过使用 ```gorm.io/gorm``` 和 ```gorm.io/driver/mysql``` 这两个库来让 Go 连接到 MatrixOne 数据库并完成 CRUD 操作。
 
 ### 环境配置
 
