@@ -16,7 +16,7 @@
 
 ```sql
 --  默认为 off
-set global save_query_result = on  
+set save_query_result = on  
 ```
 
 - 如需全局开启，可在启动 MatrixOne 之前，修改配置文件 `cn.toml`，插入以下代码并保存：
@@ -34,7 +34,7 @@ saveQueryResult = "on"  // 默认为 off
 
 ```sql
 -- 默认为 24
-set global query_result_timeout = 48
+set query_result_timeout = 48
 ```
 
 - 如需全局开启，可在启动 MatrixOne 之前，修改配置文件 `cn.toml`，插入以下代码并保存：
@@ -54,7 +54,7 @@ __Note:__ 保存时间如果设置的值比上一次设置的短，不影响之�
 
 ```sql
 -- 默认为 100
-set global query_result_maxsize = 200
+set query_result_maxsize = 200
 ```
 
 - 如需全局开启，可在启动 MatrixOne 之前，修改配置文件 `cn.toml`，插入以下代码并保存：
