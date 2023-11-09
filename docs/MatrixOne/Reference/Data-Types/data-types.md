@@ -84,7 +84,7 @@ mysql> select * from inttable order by a desc, 2 asc;
 ```sql
 -- Create a table named "inttable" with 2 attributes of a "bigint", a "bigint unsigned",
 drop table inttable;
-create table inttable ( a bigint, big bigint primary key );
+create table inttable ( a bigint, big bigint unsigned primary key );
 insert into inttable values (122345515, 0xFFFFFFFFFFFFE), (1234567, 0xFFFFFFFFFFFF0);
 
 mysql> select * from inttable;
@@ -184,7 +184,7 @@ mysql> select name,age from names;
 - BINARY 和 VARBINARY
 
 ```sql
--- Create a table named "names" with 2 attributes of a "varchar" and a "char"
+-- Create a table named "names" with 2 attributes of a "VARBINARY" and a "BINARY"
 create table names(name varbinary(255),age binary(255));
 insert into names(name, age) values('Abby', '24');
 insert into names(name, age) values("Bob", '25');
