@@ -144,7 +144,7 @@ partition_definition:
 
 ```sql
 -- 设置
-create table t1(a int auto_increment primary key) auto_increment = 10;
+create table t1(id int auto_increment primary key) auto_increment = 10;
 ```
 
 在这个例子中，`id` 列是自增列，其起始值为 10，当向表中插入新记录时，`id` 列的值将从 10 开始，每次自动递增 1。如果没有指定 `AUTO_INCREMENT` 的起始值，默认起始值为 1，每次自动递增 1。
