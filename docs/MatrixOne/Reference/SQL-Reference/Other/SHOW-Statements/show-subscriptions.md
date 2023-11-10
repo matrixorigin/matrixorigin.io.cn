@@ -13,7 +13,6 @@ SHOW SUBSCRIPTIONS;
 ## **示例**
 
 ```sql
-Create database sub1 from sys publication pub1;
 
 mysql> create database sub1 from sys publication sys_pub_1;
 Query OK, 1 row affected (0.02 sec)
