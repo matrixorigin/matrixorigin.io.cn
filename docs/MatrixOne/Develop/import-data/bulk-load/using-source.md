@@ -45,13 +45,14 @@ mysqldump -h 127.0.0.1 -uroot -proot -d test > a.sql
 2. 通过 `source` 命令将 *sql* 文件导入 MatrixOne。
 
 ```
+mysql> use test;
 mysql> source /YOUR_PATH/a.sql
 ```
 
 如果 *sql* 文件较大，可以使用如下命令在后台运行导入任务：
 
 ```
-nohup mysql -h 127.0.0.1 -P 6001 -uroot -p111 -e 'source /YOUR_PATH/a.sql' &
+nohup mysql -h 127.0.0.1 -P 6001 -uroot -p111 -e -D test 'source /YOUR_PATH/a.sql' &
 ```
 
 !!! note
