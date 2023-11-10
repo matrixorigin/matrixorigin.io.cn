@@ -12,7 +12,7 @@ query1 MINUS [ALL] query2
 
 __Tips:__ *query1* 和 *query2* 是可以使用到目前为止讨论的任何功能的查询。
 
-`UNION` 有效地将 *query2* 的结果合并到 *query1* 的结果中（但不能保证这是返回行的顺序）。此外，它以与 `DISTINCT` 语法相同，即从结果中消除重复行；使用了 `UNION ALL`，即从结果中不消除重复行。
+`UNION` 有效地将 *query2* 的结果合并到 *query1* 的结果中（但不能保证这是返回行的顺序）。此外，它与 `DISTINCT` 语法相同，即从结果中消除重复行；使用了 `UNION ALL`，即从结果中不消除重复行。
 
 `INTERSECT` 返回 *query1* 和 *query2* 相交的结果中的所有行。不使用 `INTERSECT ALL`，则消除结果中的重复的行；使用 `INTERSECT ALL`，不消除结果中的重复的行。
 
