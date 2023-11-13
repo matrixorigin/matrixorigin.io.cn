@@ -30,7 +30,7 @@ ENABLE = { TRUE | FALSE }
 
 ## 语法解释
 
-- `IF NOT EXISTS`：可选参数，用于在创建 Stage 时检查是否已存在同名的 Stage，避免重复修改。
+- `IF EXISTS`：可选参数，用于在修改 Stage 时检查是否已存在要修改的 Stage。
 
 - `stage_name`：要修改的 Stage 的名称。
 
