@@ -58,4 +58,4 @@ mysql> SELECT YEAR(c1) FROM t3;
 
 ## **限制**
 
-目前只支持 `yyyy-mm-dd` 和 `yyyymmddd` 的数据格式。
+目前只支持 `yyyy-mm-dd` 和 `yyyymmdd` 的数据格式。
