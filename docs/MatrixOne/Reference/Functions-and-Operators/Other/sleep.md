@@ -41,7 +41,7 @@ SLEEP(duration)
    2. 此时，打开一个新的会话，中断会话 1，执行如下命令：
 
        ```sql
-       mysql> kill 1463;
+       mysql> kill 1476;
        Query OK, 0 rows affected (0.00 sec)
        ```
 
