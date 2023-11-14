@@ -23,7 +23,7 @@ drop table if exists t1;
 create table t1(a date, b datetime);
 insert into t1 values('2022-01-01','2022-01-01 01:01:01');
 insert into t1 values('2022-01-01','2022-01-01 01:01:01');
-insert into t1 values(20220101,'2022-01-01 01:01:01');
+insert into t1 values('20220101','2022-01-01 01:01:01');
 insert into t1 values('2022-01-02','2022-01-02 23:01:01');
 insert into t1 values('2021-12-31','2021-12-30 23:59:59');
 insert into t1 values('2022-06-30','2021-12-30 23:59:59');
