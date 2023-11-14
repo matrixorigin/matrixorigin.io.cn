@@ -13,12 +13,14 @@ jobs:
       with:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
         ref: ${{ github.event.pull_request.head.ref }}
+        # Assume PRs are less than 20 commits
+        fetch-depth: 20
 
     - name: Get all changed markdown files
       id: changed-markdown-files
       uses: tj-actions/changed-files@v40
       with:
-        since_last_remote_commit: true 
+        since_last_remote_commit: false 
         files: |
           **.md
 
