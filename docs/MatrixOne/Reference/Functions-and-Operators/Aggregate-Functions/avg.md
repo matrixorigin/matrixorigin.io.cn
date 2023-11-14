@@ -24,7 +24,7 @@
 ## **示例**
 
 ```sql
-> drop table if exists tbl1,tbl2;
+> drop table if exists tbl1;
 > create table tbl1 (col_1a tinyint, col_1b smallint, col_1c int, col_1d bigint, col_1e char(10) not null);
 > insert into tbl1 values (0,1,1,7,"a");
 > insert into tbl1 values (0,1,2,8,"b");
@@ -37,26 +37,26 @@
 +-------------+
 | avg(col_1c) |
 +-------------+
-|      3.5000 |
+|         3.5 |
 +-------------+
 
 > select sum(col_1d) as s1,avg(col_1d) as a3 from tbl1 group by col_1e order by s1 desc;
-+------+---------+
-| s1   | a3      |
-+------+---------+
-|   21 | 10.5000 |
-|   18 |  9.0000 |
-|   10 | 10.0000 |
-|    8 |  8.0000 |
-+------+---------+
++------+------+
+| s1   | a3   |
++------+------+
+|   21 | 10.5 |
+|   18 |    9 |
+|   10 |   10 |
+|    8 |    8 |
++------+------+
 
 > select avg(col_1d) as a1 from tbl1 where col_1d < 13 group by col_1e order by a1;
-+---------+
-| a1      |
-+---------+
-|  8.0000 |
-|  9.0000 |
-| 10.0000 |
-| 10.5000 |
-+---------+
++------+
+| a1   |
++------+
+|    8 |
+|    9 |
+|   10 |
+| 10.5 |
++------+
 ```
