@@ -1,6 +1,6 @@
 # **SQL 常见问题**
 
-* **MatrixOne 兼容哪个数据库?**
+* **MatrixOne 兼容哪个数据库？**
 
 MatrixOne 在使用上保持对 MySQL 8.0 的高度兼容，包括 SQL 语法，传输协议，操作符与函数等等。与 MySQL 8.0 兼容性的差异列表可以详细参考 [MySQL 兼容性列表](../Overview/feature/mysql-compatibility.md)。
 
@@ -10,7 +10,7 @@ MatrixOne 目前支持的 SQL 语句可以参考[该详细列表](../Reference/S
 
 * **MatrixOne 支持哪些数据类型？**
 
-MatrixOne 目前支持常用的整型, 浮点数, 字符串, 时间日期, 布尔, 枚举, 二进制, JSON 类型，请参考[详细列表](../Reference/Data-Types/data-types.md)。
+MatrixOne 目前支持常用的整型，浮点数，字符串，时间日期，布尔，枚举，二进制，JSON 类型，请参考[详细列表](../Reference/Data-Types/data-types.md)。
 
 * **MatrixOne 支持什么类型的字符集？**
 
@@ -47,7 +47,7 @@ MatrixOne 的保留关键字列表可参见[该详细列表](../Reference/Langua
 
 * **如何将数据导入到 MatrixOne 中？**
 
-MatrixOne 支持与 MySQL 相同的 [`INSERT`](../Develop/import-data/insert-data.md) 数据插入语句, 可以通过 `INSERT` 进行实时数据写入，同时也支持 [`LOAD DATA`](../Develop/import-data/bulk-load/bulk-load-overview.md) 的离线批量导入语句。
+MatrixOne 支持与 MySQL 相同的 [`INSERT`](../Develop/import-data/insert-data.md) 数据插入语句，可以通过 `INSERT` 进行实时数据写入，同时也支持 [`LOAD DATA`](../Develop/import-data/bulk-load/bulk-load-overview.md) 的离线批量导入语句。
 
 * **如何将数据从 MatrixOne 导出到文件？**
 

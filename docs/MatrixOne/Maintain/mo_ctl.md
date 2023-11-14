@@ -8,32 +8,32 @@
 
 | 操作系统 | 版本                 |
 | -------- | -------------------- |
-| Debian   | 11 及以上             |
-| Ubuntu   | 20.04 及以上          |
+| Debian   | 11 及以上            |
+| Ubuntu   | 20.04 及以上         |
 | macOS    | Monterey 12.3 及以上 |
 
 `mo_ctl` 目前的功能列表如下表所示。
 
-| 命令                 | 功能                                                         |
-| -------------------- | ------------------------------------------------------------ |
-| `mo_ctl help`        | 查看`mo_ctl`工具本身的语句和功能列表                         |
-| `mo_ctl precheck`    | 检查 MatrixOne 源码安装所需要的依赖项，分别为 golang, gcc, git,MySQL Client |
-| `mo_ctl deploy`      | 下载并安装及编译 MatrixOne 相应版本，默认为安装最新稳定版本    |
-| `mo_ctl start`       | 启动 MatrixOne 服务                                            |
-| `mo_ctl status`      | 检查 MatrixOne 服务是否正在运行中                              |
-| `mo_ctl stop`        | 停止所有 MatrixOne 服务进程                                    |
-| `mo_ctl restart`       | 重启 MatrixOne 服务                                            |
-| `mo_ctl connect`     | 调用 MySQL Client 连接 MatrixOne 服务                            |
-| `mo_ctl upgrade`     | 将MatrixOne从当前版本升级/降级到某个发布版本或者commit id 版本        |
-| `mo_ctl set_conf`    | 设置各类使用参数                                             |
-| `mo_ctl get_conf`    | 查看当前使用参数                                             |
-| `mo_ctl uninstall`    | 从 MO_PATH 路径下卸载 MatrixOne                               |
-| `mo_ctl watchdog`    | 设置一个定时任务保证 MatrixOne 服务可用性，每分钟检查 MatrixOne 的状态，如果发现服务中止则自动拉起服务           |
-| `mo_ctl sql`    | 直接通过命令执行 SQL 或者 SQL 构成的文本文件           |
-| `mo_ctl ddl_convert` | 将 MySQL 的 DDL 语句转换成 MatrixOne 语句的工具                    |
-| `mo_ctl get_cid`     | 查看当前使用 MatrixOne 下载仓库的源码版本                      |
-| `mo_ctl get_branch`     | 查看当前使用 MatrixOne 下载仓库的分支版本                      |
-| `mo_ctl pprof`       | 用于收集 MatrixOne 的性能分析数据                              |
+| 命令                 | 功能                                                                                                   |
+| -------------------- | ------------------------------------------------------------------------------------------------------ |
+| `mo_ctl help`        | 查看`mo_ctl`工具本身的语句和功能列表                                                                   |
+| `mo_ctl precheck`    | 检查 MatrixOne 源码安装所需要的依赖项，分别为 golang, gcc, git,MySQL Client                            |
+| `mo_ctl deploy`      | 下载并安装及编译 MatrixOne 相应版本，默认为安装最新稳定版本                                            |
+| `mo_ctl start`       | 启动 MatrixOne 服务                                                                                    |
+| `mo_ctl status`      | 检查 MatrixOne 服务是否正在运行中                                                                      |
+| `mo_ctl stop`        | 停止所有 MatrixOne 服务进程                                                                            |
+| `mo_ctl restart`     | 重启 MatrixOne 服务                                                                                    |
+| `mo_ctl connect`     | 调用 MySQL Client 连接 MatrixOne 服务                                                                  |
+| `mo_ctl upgrade`     | 将MatrixOne从当前版本升级/降级到某个发布版本或者commit id 版本                                         |
+| `mo_ctl set_conf`    | 设置各类使用参数                                                                                       |
+| `mo_ctl get_conf`    | 查看当前使用参数                                                                                       |
+| `mo_ctl uninstall`   | 从 MO_PATH 路径下卸载 MatrixOne                                                                        |
+| `mo_ctl watchdog`    | 设置一个定时任务保证 MatrixOne 服务可用性，每分钟检查 MatrixOne 的状态，如果发现服务中止则自动拉起服务 |
+| `mo_ctl sql`         | 直接通过命令执行 SQL 或者 SQL 构成的文本文件                                                           |
+| `mo_ctl ddl_convert` | 将 MySQL 的 DDL 语句转换成 MatrixOne 语句的工具                                                        |
+| `mo_ctl get_cid`     | 查看当前使用 MatrixOne 下载仓库的源码版本                                                              |
+| `mo_ctl get_branch`  | 查看当前使用 MatrixOne 下载仓库的分支版本                                                              |
+| `mo_ctl pprof`       | 用于收集 MatrixOne 的性能分析数据                                                                      |
 
 ## 安装 mo_ctl
 
@@ -252,6 +252,13 @@ Usage         : mo_ctl setconf [conf_list] # set configurations
               : mo_ctl setconf MO_PATH=/data/mo/matrixone                                       # set single configuration
 ```
 
+!!! note
+    当 set_conf 的设置的路径中包含变量如 `${MO_PATH}` 时，需要在 `$` 前加上 `\`，例如：
+    ```bash
+    mo_ctl set_conf  MO_CONF_FILE="\${MO_PATH}/matrixone/etc/launch/launch.toml"
+
+    ```
+
 ### get_conf - 获取参数列表
 
 使用 `mo_ctl get_conf [conf_list]` 获取一个或多个当前配置项。
@@ -271,27 +278,27 @@ Usage         : mo_ctl getconf [conf_list] # get configurations
 
 使用 `mo_ctl get_conf` 将打印当前工具使用的所有参数列表，它们的释义与取值范围如下表所示。
 
-| 参数名称               | 功能                                                | 取值规范                                                     |
-| ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
-| MO_PATH                | MatrixOne 的代码库及可执行文件存放位置               | 文件夹路径                                                   |
-| MO_LOG_PATH            | MatrixOne 的日志存放位置                             | 文件夹路径，默认为${MO_PATH}/matrixone/logs                  |
-| MO_HOST                | 连接 MatrixOne 服务的 IP 地址                           | IP 地址，默认为 127.0.0.1                                      |
-| MO_PORT                | 连接 MatrixOne 服务的端口号                           | 端口号，默认为 6001                                           |
-| MO_USER                | 连接 MatrixOne 服务使用的用户名                       | 用户名，默认为 root                                           |
-| MO_PW                  | 连接 MatrixOne 服务使用的密码                         | 密码，默认为 111                                              |
-| CHECK_LIST             | precheck 需要的检查依赖项                            | 默认为 ("go" "gcc" "git" "mysql")                             |
-| GCC_VERSION            | precheck 检查的 gcc 版本                               | 默认为 8.5.0                                                  |
-| GO_VERSION             | precheck 检查的 go 版本                                | 默认为 1.20                                                   |
-| MO_GIT_URL             | MatrixOne 的源码拉取地址                             | 默认为<https://github.com/matrixorigin/matrixone.git>          |
-| MO_DEFAULT_VERSION     | 默认拉取的 MatrixOne 的版本                           | 默认为 1.0.0-rc1                                                  |
-| GOPROXY                | GOPROXY 的地址，一般为国内加速拉取 golang 依赖包而使用 | 默认为<https://goproxy.cn>,direct                              |
-| STOP_INTERVAL          | 停止间隔，停止服务后检测服务状态等待时间            | 默认为 5 秒                                                    |
-| START_INTERVAL         | 启动间隔，启动服务后检测服务状态等待时间            | 默认为 2 秒                                                    |
-| MO_DEBUG_PORT          | MatrixOne 的 debug 端口，一般为开发人员使用            | 默认为 9876                                                   |
-| MO_CONF_FILE           | MatrixOne 的启动配置文件                             | 默认为${MO_PATH}/matrixone/etc/launch/launch.toml |
-| RESTART_INTERVAL       | 重启间隔，重启服务后检测服务状态等待时间            | 默认为 2 秒                                                    |
-| PPROF_OUT_PATH         | golang 的性能收集数据输出路径                        | 默认为/tmp/pprof-test/                                       |
-| PPROF_PROFILE_DURATION | golang 的性能收集时间                                | 默认为 30 秒                                                   |
+| 参数名称               | 功能                                                   | 取值规范                                              |
+| ---------------------- | ------------------------------------------------------ | ----------------------------------------------------- |
+| MO_PATH                | MatrixOne 的代码库及可执行文件存放位置                 | 文件夹路径                                            |
+| MO_LOG_PATH            | MatrixOne 的日志存放位置                               | 文件夹路径，默认为${MO_PATH}/matrixone/logs           |
+| MO_HOST                | 连接 MatrixOne 服务的 IP 地址                          | IP 地址，默认为 127.0.0.1                             |
+| MO_PORT                | 连接 MatrixOne 服务的端口号                            | 端口号，默认为 6001                                   |
+| MO_USER                | 连接 MatrixOne 服务使用的用户名                        | 用户名，默认为 root                                   |
+| MO_PW                  | 连接 MatrixOne 服务使用的密码                          | 密码，默认为 111                                      |
+| CHECK_LIST             | precheck 需要的检查依赖项                              | 默认为 ("go" "gcc" "git" "mysql")                     |
+| GCC_VERSION            | precheck 检查的 gcc 版本                               | 默认为 8.5.0                                          |
+| GO_VERSION             | precheck 检查的 go 版本                                | 默认为 1.20                                           |
+| MO_GIT_URL             | MatrixOne 的源码拉取地址                               | 默认为<https://github.com/matrixorigin/matrixone.git> |
+| MO_DEFAULT_VERSION     | 默认拉取的 MatrixOne 的版本                            | 默认为 1.0.0-rc1                                      |
+| GOPROXY                | GOPROXY 的地址，一般为国内加速拉取 golang 依赖包而使用 | 默认为<https://goproxy.cn>,direct                     |
+| STOP_INTERVAL          | 停止间隔，停止服务后检测服务状态等待时间               | 默认为 5 秒                                           |
+| START_INTERVAL         | 启动间隔，启动服务后检测服务状态等待时间               | 默认为 2 秒                                           |
+| MO_DEBUG_PORT          | MatrixOne 的 debug 端口，一般为开发人员使用            | 默认为 9876                                           |
+| MO_CONF_FILE           | MatrixOne 的启动配置文件                               | 默认为${MO_PATH}/matrixone/etc/launch/launch.toml     |
+| RESTART_INTERVAL       | 重启间隔，重启服务后检测服务状态等待时间               | 默认为 2 秒                                           |
+| PPROF_OUT_PATH         | golang 的性能收集数据输出路径                          | 默认为/tmp/pprof-test/                                |
+| PPROF_PROFILE_DURATION | golang 的性能收集时间                                  | 默认为 30 秒                                          |
 
 ### ddl_convert - DDL 格式转换
 
