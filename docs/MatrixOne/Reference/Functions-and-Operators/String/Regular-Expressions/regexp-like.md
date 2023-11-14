@@ -29,22 +29,6 @@ REGEXP 和 RLIKE 是 `REGEXP_LIKE()` 的同义词。
 ## **示例**
 
 ```SQL
-mysql> SELECT REGEXP_INSTR('Hello, my number is 12345.', '[0-9]+');
-+--------------------------------------------------+
-| regexp_instr(Hello, my number is 12345., [0-9]+) |
-+--------------------------------------------------+
-|                                               21 |
-+--------------------------------------------------+
-1 row in set (0.00 sec)
-
-mysql> SELECT REGEXP_INSTR('apple', 'z+');
-+-------------------------+
-| regexp_instr(apple, z+) |
-+-------------------------+
-|                       0 |
-+-------------------------+
-1 row in set (0.00 sec)
-
 mysql> SELECT REGEXP_LIKE('CamelCase', 'CAMELCASE');
 +-----------------------------------+
 | regexp_like(CamelCase, CAMELCASE) |
