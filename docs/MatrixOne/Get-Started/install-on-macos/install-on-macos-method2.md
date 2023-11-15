@@ -93,16 +93,16 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
      ```bash
      mkdir -p /User/username/mo/matrixone & cd /User/username/mo
-     wget https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc2/mo-v1.0.0-rc2-darwin-x86_64.zip
-     unzip -d matrixone/ mo-v1.0.0-rc2-darwin-x86_64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v1.0.0/mo-v1.0.0-darwin-x86_64.zip
+     unzip -d matrixone/ mo-v1.0.0-darwin-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
      mkdir -p /User/username/mo/matrixone & cd /User/username/mo
-     wget https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc2/mo-v1.0.0-rc2-darwin-arm64.zip
-     unzip -d matrixone/ mo-v1.0.0-rc2-darwin-arm64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v1.0.0/mo-v1.0.0-darwin-arm64.zip
+     unzip -d matrixone/ mo-v1.0.0-darwin-arm64.zip
      ```
 
 === "**下载方式二：`curl` 工具下载二进制包**"
@@ -111,21 +111,21 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
      ```bash
      mkdir -p /User/username/mo/matrixone & cd /User/username/mo
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc2/mo-v1.0.0-rc2-darwin-x86_64.zip
-     unzip -d matrixone/ mo-v1.0.0-rc2-darwin-x86_64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.0.0/mo-v1.0.0-darwin-x86_64.zip
+     unzip -d matrixone/ mo-v1.0.0-darwin-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
      mkdir -p /User/username/mo/matrixone & cd /User/username/mo
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc2/mo-v1.0.0-rc2-darwin-arm64.zip
-     unzip -d matrixone/ mo-v1.0.0-rc2-darwin-arm64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.0.0/mo-v1.0.0-darwin-arm64.zip
+     unzip -d matrixone/ mo-v1.0.0-darwin-arm64.zip
      ```
 
 === "**下载方式三：页面下载**"
 
-     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 1.0.0-rc2](https://github.com/matrixorigin/matrixone/releases/tag/v1.0.0-rc2)，下拉找到 **Assets** 栏，点击安装包 *mo-v1.0.0-rc2-darwin-x86_64.zip* 或 *mo-v1.0.0-rc2-darwin-arm64.zip* 下载即可。
+     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 1.0.0](https://github.com/matrixorigin/matrixone/releases/tag/v1.0.0)，下拉找到 **Assets** 栏，点击安装包 *mo-v1.0.0-darwin-x86_64.zip* 或 *mo-v1.0.0-darwin-arm64.zip* 下载即可。
 
 ## 步骤 3：安装 mo_ctl 工具
 
@@ -181,7 +181,7 @@ mo_ctl set_conf MO_PATH="/User/username/mo/"
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v1.0.0-rc2 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 

@@ -24,18 +24,18 @@
 
 使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像。
 
-=== "稳定版本的镜像（1.0.0-rc2）"
+=== "稳定版本的镜像（1.0.0）"
 
       ```bash
-      docker pull matrixorigin/matrixone:1.0.0-rc2
-      docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:1.0.0-rc2
+      docker pull matrixorigin/matrixone:1.0.0
+      docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:1.0.0
       ```
 
       如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 稳定版本镜像：
 
       ```bash
-      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc2
-      docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0-rc2
+      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0
+      docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0
       ```
 
 === "开发版本的镜像"
@@ -60,7 +60,7 @@
     若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 ```docker run``` 命令中加上参数 ```--privileged=true```，如：
 
     ```bash
-    docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:1.0.0-rc2
+    docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:1.0.0
     ```
 
 !!! note
