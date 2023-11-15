@@ -75,9 +75,9 @@ git version 2.40.0
 
     2. 回车执行上面的命令后，即进入了 *bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
 
-       ```
-       export PATH=${PATH}:/usr/local/mysql/bin
-       ```
+        ```
+        export PATH=${PATH}:/usr/local/mysql/bin
+        ```
 
 3. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
 
@@ -184,7 +184,7 @@ PPROF_PROFILE_DURATION="30"
 ```
 mo_ctl set_conf MO_PATH="/Users/username/mo/matrixone" # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL="https://ghproxy.com/https://github.com/matrixorigin/matrixone.git" #针对github原地址下载过慢问题，设置代理下载地址
-mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0-rc2" # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEFAULT_VERSION="v1.0.0" # 设置所下载的MatrixOne版本
 ```
 
 ## 步骤 3：一键安装 MatrixOne
@@ -202,7 +202,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0-rc2" # 设置所下载的MatrixOne版�
 === "通过 MatrixOne (稳定版本) 代码安装"
 
      ```
-     mo_ctl deploy 1.0.0-rc2
+     mo_ctl deploy v1.0.0
      ```
 
 ## 步骤 4：启动 MatrixOne 服务
@@ -239,7 +239,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION="1.0.0-rc2" # 设置所下载的MatrixOne版�
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v1.0.0-rc2 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
