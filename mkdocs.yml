@@ -449,8 +449,8 @@ nav:
             - TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/timestamp.md
             - TIMESTAMPDIFF(): MatrixOne/Reference/Functions-and-Operators/Datetime/timestampdiff.md
             - TO_DATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-date.md
-            - TO_DAYS(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-seconds.md
-            - TO_SECONDS(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-days.md
+            - TO_DAYS(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-days.md
+            - TO_SECONDS(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-seconds.md
             - UNIX_TIMESTAMP: MatrixOne/Reference/Functions-and-Operators/Datetime/unix-timestamp.md
             - UTC_TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/utc-timestamp.md
             - WEEK(): MatrixOne/Reference/Functions-and-Operators/Datetime/week.md
