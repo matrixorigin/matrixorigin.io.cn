@@ -75,9 +75,9 @@ git version 2.40.0
 
     2. 回车执行上面的命令后，即进入了 *bash_profile*，点击键盘上的 *i* 进入 insert 状态，即可在文件下方输入如下命令：
 
-       ```
-       export PATH=${PATH}:/usr/local/mysql/bin
-       ```
+        ```
+        export PATH=${PATH}:/usr/local/mysql/bin
+        ```
 
 3. 输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 `:wq` 保存退出。
 
