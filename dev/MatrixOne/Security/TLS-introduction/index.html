@@ -7526,7 +7526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../Reference/Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7540,7 +7540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../Reference/Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9221,6 +9221,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -9846,7 +9860,7 @@ SSL:                    Cipher in use is TLS_AES_128_GCM_SHA256
 Current pager:          stdout
 Using outfile:          &#39;&#39;
 Using delimiter:        ;
-Server version:         8.0.30-MatrixOne-v1.0.0-rc2 MatrixOne
+Server version:         8.0.30-MatrixOne-v1.0.0 MatrixOne
 Protocol version:       10
 Connection:             127.0.0.1 via TCP/IP
 Server characterset:    utf8mb4
@@ -9868,7 +9882,7 @@ SSL:            Not in use
 Current pager:      stdout
 Using outfile:      &#39;&#39;
 Using delimiter:    ;
-Server version:     8.0.30-MatrixOne-v1.0.0-rc2 MatrixOne 
+Server version:     8.0.30-MatrixOne-v1.0.0 MatrixOne 
 Protocol version:   10
 Connection:     127.0.0.1 via TCP/IP
 Server characterset:    utf8mb4
@@ -9884,7 +9898,7 @@ Binary data as:     Hexadecimal
 <p>完成上述步骤后，即开启了 MatrixOne 的 TLS。</p>
 <h2 id="mysql">步骤二：配置 MySQL 客户端参数</h2>
 <p>MySQL 客户端连接 MatrixOne Server 时，需要通过 <code>--ssl-mode</code> 参数指定加密连接行为，如：</p>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w"> </span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="mi">6001</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="w"> </span><span class="o">-</span><span class="n">p111</span><span class="w"> </span><span class="c1">--ssl-mode=PREFFERED</span>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w"> </span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="mi">6001</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="w"> </span><span class="o">-</span><span class="n">p111</span><span class="w"> </span><span class="c1">--ssl-mode=PREFERRED</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -9904,7 +9918,7 @@ Binary data as:     Hexadecimal
 <td>不使用 SSL/TLS 建立加密连接，与 skip-ssl 同义。</td>
 </tr>
 <tr>
-<td>PREFFERED</td>
+<td>PREFERRED</td>
 <td>默认行为，优先尝试使用 SSL/TLS 建立加密连接，如果无法建则尝试建立非 SSL/TLS 连接。</td>
 </tr>
 <tr>

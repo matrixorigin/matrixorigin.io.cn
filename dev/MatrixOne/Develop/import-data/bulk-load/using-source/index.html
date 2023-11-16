@@ -7566,7 +7566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../../../Reference/Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7580,7 +7580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../../../Reference/Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9261,6 +9261,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -9838,10 +9852,11 @@
 <p>通过 <code>source</code> 命令将 <em>sql</em> 文件导入 MatrixOne。</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code>mysql&gt; source /YOUR_PATH/a.sql
+<div class="highlight"><pre><span></span><code>mysql&gt; use test;
+mysql&gt; source /YOUR_PATH/a.sql
 </code></pre></div>
 <p>如果 <em>sql</em> 文件较大，可以使用如下命令在后台运行导入任务：</p>
-<div class="highlight"><pre><span></span><code>nohup mysql -h 127.0.0.1 -P 6001 -uroot -p111 -e &#39;source /YOUR_PATH/a.sql&#39; &amp;
+<div class="highlight"><pre><span></span><code>nohup mysql -h 127.0.0.1 -P 6001 -uroot -p111 -e -D test &#39;source /YOUR_PATH/a.sql&#39; &amp;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

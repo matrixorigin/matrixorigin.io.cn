@@ -7592,7 +7592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7606,7 +7606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9287,6 +9287,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -10009,7 +10023,7 @@ partition_definition:
 <p>你可以使用 <code>AUTO_INCREMENT</code> 属性来定义自增列的起始值。如果要设置自增列的起始值为 10，可以在创建表时使用 <code>AUTO_INCREMENT</code> 关键字，并在后面指定起始值。</p>
 <p>例如，创建一个表并定义自增列的起始值为 10，可以使用以下 SQL 语句：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- 设置</span>
-<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">auto_increment</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">)</span><span class="w"> </span><span class="n">auto_increment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">auto_increment</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">)</span><span class="w"> </span><span class="n">auto_increment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
 <p>在这个例子中，<code>id</code> 列是自增列，其起始值为 10，当向表中插入新记录时，<code>id</code> 列的值将从 10 开始，每次自动递增 1。如果没有指定 <code>AUTO_INCREMENT</code> 的起始值，默认起始值为 1，每次自动递增 1。</p>
 <div class="admonition note">

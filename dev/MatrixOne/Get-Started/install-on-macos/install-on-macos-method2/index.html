@@ -7591,7 +7591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../../Reference/Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7605,7 +7605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../../Reference/Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9286,6 +9286,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -9947,29 +9961,29 @@ Release-Date: 2022-06-27
 <div class="tabbed-block">
 <p>x86 架构系统安装包：</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/User/username/mo/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/User/username/mo
-wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc2/mo-v1.0.0-rc2-darwin-x86_64.zip
-unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-rc2-darwin-x86_64.zip
+wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0/mo-v1.0.0-darwin-x86_64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-darwin-x86_64.zip
 </code></pre></div>
 <p>ARM 架构系统安装包：</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/User/username/mo/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/User/username/mo
-wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc2/mo-v1.0.0-rc2-darwin-arm64.zip
-unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-rc2-darwin-arm64.zip
+wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0/mo-v1.0.0-darwin-arm64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-darwin-arm64.zip
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>x86 架构系统安装包：</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/User/username/mo/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/User/username/mo
-curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc2/mo-v1.0.0-rc2-darwin-x86_64.zip
-unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-rc2-darwin-x86_64.zip
+curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0/mo-v1.0.0-darwin-x86_64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-darwin-x86_64.zip
 </code></pre></div>
 <p>ARM 架构系统安装包：</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/User/username/mo/matrixone<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/User/username/mo
-curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0-rc2/mo-v1.0.0-rc2-darwin-arm64.zip
-unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-rc2-darwin-arm64.zip
+curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.0.0/mo-v1.0.0-darwin-arm64.zip
+unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"> </span>mo-v1.0.0-darwin-arm64.zip
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>如果你想通过更直观的页面下载的方式下载，直接点击进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v1.0.0-rc2">版本 1.0.0-rc2</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v1.0.0-rc2-darwin-x86_64.zip</em> 或 <em>mo-v1.0.0-rc2-darwin-arm64.zip</em> 下载即可。</p>
+<p>如果你想通过更直观的页面下载的方式下载，直接点击进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v1.0.0">版本 1.0.0</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v1.0.0-darwin-x86_64.zip</em> 或 <em>mo-v1.0.0-darwin-arm64.zip</em> 下载即可。</p>
 </div>
 </div>
 </div>
@@ -10009,7 +10023,7 @@ unzip<span class="w"> </span>-d<span class="w"> </span>matrixone/<span class="w"
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v1.0.0-rc2 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 

@@ -7570,7 +7570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7584,7 +7584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9265,6 +9265,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -9826,7 +9840,7 @@
 <p>系统权限是初始系统租户管理员（对应的是 <em>root</em> 用户）的权限。系统租户管理员可以创建和删除其他<em>租户（Accounts）</em>，管理<em>租户（Accounts）</em>。系统租户管理员不能管理其他<em>租户（Accounts）</em>名下的资源。</p>
 <p>要使用 <code>GRANT</code> 授予其他用户或角色权限，你首先必须具有 <code>WITH GRANT OPTION</code> 权限，并且你必须具有你正在授予的权限。了解你当前角色的授权情况或其他角色的授权情况，请使用 <code>SHOW GRANTS</code> 语句，更多信息，参见 <a href="../../Other/SHOW-Statements/show-grants/">SHOW GRANTS</a>。</p>
 <p><code>REVOKE</code> 语句与 <code>GRANT</code> 相关，允许租户删除用户权限。有关 <code>REVOKE</code> 的更多信息，请参阅 <a href="../revoke/">REVOKE</a>。</p>
-<p>一般情况下，一个集群默认有一个 <em>root</em>，<em>root</em> 首先使用 <code>CREATE ACCOUNT</code> 创建一个新账户，并定义它的非特权权限，例如它的密码，然后租户使用 <code>CREATE USER</code> 创建用户并使用 <code>GRANT</code> 对其赋权。<code>ALTER ACCOUNT</code> 可用于修改现有租户的非特权特征。<code>ALTER USER</code> 用于修改现有用户的权限特征。如需了解 MatrixOne 支持的权限以及不同层级的权限，请参阅 <a href="../../../access-control-type/">MatrixOne 权限分类</a>。</p>
+<p>一般情况下，一个集群默认有一个 <em>root</em>，<em>root</em> 首先使用 <code>CREATE ACCOUNT</code> 创建一个新账户，并定义它的非特权权限，例如它的密码，然后租户使用 <code>CREATE USER</code> 创建用户并使用 <code>GRANT</code> 对其赋权。<code>ALTER ACCOUNT</code> 可用于修改现有租户的非特权特征。<code>REVOKE</code> 用于修改现有用户的权限特征。如需了解 MatrixOne 支持的权限以及不同层级的权限，请参阅 <a href="../../../access-control-type/">MatrixOne 权限分类</a>。</p>
 <p><code>GRANT</code> 在成功执行后，得到结果 <code>Query OK, 0 rows affected</code>。要查看操作产生的权限，请使用 <a href="../../Other/SHOW-Statements/show-grants/">SHOW GRANTS</a></p>
 <h2 id="_2"><strong>语法结构</strong></h2>
 <div class="highlight"><pre><span></span><code>&gt; GRANT
@@ -9861,7 +9875,7 @@ priv_level: {
 <p><code>GRANT</code> 不能在同一语句中同时授予权限和角色。</p>
 </li>
 <li>
-<p><code>ON</code> 子句区分语句是否授予特权或角色：</p>
+<p><code>ON</code> 子句区分语句是否授予权限或角色：</p>
 </li>
 <li>
 <p>使用 <code>ON</code>，该语句授予权限。</p>

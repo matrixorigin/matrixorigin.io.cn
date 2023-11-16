@@ -7564,7 +7564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7578,7 +7578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9259,6 +9259,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -9826,7 +9840,7 @@
 <li>仅对当前会话开启保存查询结果：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1">--  默认为 off</span>
-<span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">save_query_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">on</span><span class="w">  </span>
+<span class="k">set</span><span class="w"> </span><span class="n">save_query_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">on</span><span class="w">  </span>
 </code></pre></div>
 <ul>
 <li>如需全局开启，可在启动 MatrixOne 之前，修改配置文件 <code>cn.toml</code>，插入以下代码并保存：</li>
@@ -9840,7 +9854,7 @@ saveQueryResult = &quot;on&quot;  // 默认为 off
 <li>仅对当前会话开启查询结果保存时间：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1">-- 默认为 24</span>
-<span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">query_result_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">48</span>
+<span class="k">set</span><span class="w"> </span><span class="n">query_result_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">48</span>
 </code></pre></div>
 <ul>
 <li>如需全局开启，可在启动 MatrixOne 之前，修改配置文件 <code>cn.toml</code>，插入以下代码并保存：</li>
@@ -9855,7 +9869,7 @@ queryResultTimeout = 48  // 默认为 24
 <li>仅对当前会话设置查询结果的最大值：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1">-- 默认为 100</span>
-<span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">query_result_maxsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span>
+<span class="k">set</span><span class="w"> </span><span class="n">query_result_maxsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span>
 </code></pre></div>
 <ul>
 <li>如需全局开启，可在启动 MatrixOne 之前，修改配置文件 <code>cn.toml</code>，插入以下代码并保存：</li>

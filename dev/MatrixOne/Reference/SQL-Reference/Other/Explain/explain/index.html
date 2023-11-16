@@ -7588,7 +7588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7602,7 +7602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9283,6 +9283,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -9865,7 +9879,7 @@ where option can be one of:
 </code></pre></div>
 <h2 id="_2">语法描述</h2>
 <p>此命令主要作用是显示出 MatrixOne 计划程序为提供的语句生成的执行计划。执行计划显示了如何通过普通顺序扫描、索引扫描等方式扫描语句引用的表，如果引用了多个表，将使用什么连接算法将每个输入表中所需的行聚集在一起。</p>
-<p>显示的最关键部分是估计语句执行成本，即计划程序将估计运行语句所需时间 (以任意一种成本单位衡量，但通常是听过磁盘页获取)。实际上这里显示了两个数字：返回第一行之前的启动成本，以及返回所有行的总成本。对于大多数查询来说，总成本是最重要的，但在 <code>EXISTS</code> 中的子查询中，计划程序会选择最小的启动成本，而不是最小的总成本 (因为执行者在获得一行之后就会停止)。此外，如果您使用 <code>LIMIT</code> 从句限制返回的行数，计划程序将在端点成本之间进行适当的插值，以便估计哪个计划真正是最便宜的。</p>
+<p>显示的最关键部分是估计语句执行成本，即计划程序将估计运行语句所需时间 (以任意一种成本单位衡量，但通常是通过磁盘页获取)。实际上这里显示了两个数字：返回第一行之前的启动成本，以及返回所有行的总成本。对于大多数查询来说，总成本是最重要的，但在 <code>EXISTS</code> 中的子查询中，计划程序会选择最小的启动成本，而不是最小的总成本 (因为执行者在获得一行之后就会停止)。此外，如果您使用 <code>LIMIT</code> 从句限制返回的行数，计划程序将在端点成本之间进行适当的插值，以便估计哪个计划真正是最便宜的。</p>
 <p><code>ANALYZE</code> 子句语法选项为语句实际执行，而不仅仅是计划执行，然后将实际运行时统计信息添加到显示中，包括每个计划节点中花费的总运行时间 (以毫秒为单位) 和实际返回的行总数。这有助于了解规划者的期望是否接近实际。</p>
 <h2 id="_3">参数释义</h2>
 <ul>

@@ -7458,7 +7458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../Reference/Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7472,7 +7472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../Reference/Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9382,6 +9382,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -10325,6 +10339,12 @@ Usage         : mo_ctl setconf [conf_list] # set configurations
   e.g.        : mo_ctl setconf MO_PATH=/data/mo/matrixone,MO_PW=M@trix0riginR0cks,MO_PORT=6101  # set multiple configurations
               : mo_ctl setconf MO_PATH=/data/mo/matrixone                                       # set single configuration
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>当 set_conf 的设置的路径中包含变量如 <code>${MO_PATH}</code> 时，需要在 <code>$</code> 前加上 <code>\</code>，例如：
+<div class="highlight"><pre><span></span><code>mo_ctl<span class="w"> </span>set_conf<span class="w">  </span><span class="nv">MO_CONF_FILE</span><span class="o">=</span><span class="s2">&quot;\${MO_PATH}/matrixone/etc/launch/launch.toml&quot;</span>
+</code></pre></div></p>
+</div>
 <h3 id="get_conf-">get_conf - 获取参数列表</h3>
 <p>使用 <code>mo_ctl get_conf [conf_list]</code> 获取一个或多个当前配置项。</p>
 <div class="highlight"><pre><span></span><code>mo_ctl get_conf help

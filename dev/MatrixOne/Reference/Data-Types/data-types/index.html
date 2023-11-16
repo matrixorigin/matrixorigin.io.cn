@@ -7654,7 +7654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7668,7 +7668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9349,6 +9349,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -10117,7 +10131,7 @@
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Create a table named &quot;inttable&quot; with 2 attributes of a &quot;bigint&quot;, a &quot;bigint unsigned&quot;,</span>
 <span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">inttable</span><span class="p">;</span>
-<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="w"> </span><span class="n">big</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">);</span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nb">bigint</span><span class="p">,</span><span class="w"> </span><span class="n">big</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">inttable</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">122345515</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="n">xFFFFFFFFFFFFE</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1234567</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="n">xFFFFFFFFFFFF0</span><span class="p">);</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">inttable</span><span class="p">;</span>
@@ -10286,7 +10300,7 @@
 <ul>
 <li>BINARY 和 VARBINARY</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1">-- Create a table named &quot;names&quot; with 2 attributes of a &quot;varchar&quot; and a &quot;char&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Create a table named &quot;names&quot; with 2 attributes of a &quot;VARBINARY&quot; and a &quot;BINARY&quot;</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">names</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="n">varbinary</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="n">age</span><span class="w"> </span><span class="nb">binary</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">names</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;Abby&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;24&#39;</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">names</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="ss">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;25&#39;</span><span class="p">);</span>

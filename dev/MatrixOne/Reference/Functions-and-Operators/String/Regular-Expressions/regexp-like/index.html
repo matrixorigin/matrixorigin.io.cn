@@ -7462,7 +7462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../../Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7476,7 +7476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Datetime/to-days/" class="md-nav__link">
+      <a href="../../../Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9223,6 +9223,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -9758,23 +9772,7 @@
 </li>
 </ul>
 <h2 id="_4"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">REGEXP_INSTR</span><span class="p">(</span><span class="s1">&#39;Hello, my number is 12345.&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[0-9]+&#39;</span><span class="p">);</span>
-<span class="o">+</span><span class="c1">--------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">regexp_instr</span><span class="p">(</span><span class="n">Hello</span><span class="p">,</span><span class="w"> </span><span class="n">my</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="mi">12345</span><span class="p">.,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">+</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">--------------------------------------------------+</span>
-<span class="o">|</span><span class="w">                                               </span><span class="mi">21</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">--------------------------------------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">REGEXP_INSTR</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;z+&#39;</span><span class="p">);</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">regexp_instr</span><span class="p">(</span><span class="n">apple</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="o">+</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="o">|</span><span class="w">                       </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">REGEXP_LIKE</span><span class="p">(</span><span class="s1">&#39;CamelCase&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAMELCASE&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">REGEXP_LIKE</span><span class="p">(</span><span class="s1">&#39;CamelCase&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CAMELCASE&#39;</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">-----------------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">regexp_like</span><span class="p">(</span><span class="n">CamelCase</span><span class="p">,</span><span class="w"> </span><span class="n">CAMELCASE</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------------------------------+</span>

@@ -7585,7 +7585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../../Reference/Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7599,7 +7599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../../Reference/Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -9280,6 +9280,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.0.0/" class="md-nav__link">
+        v1.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
@@ -9935,10 +9949,10 @@ git version 2.40.0
 </li>
 <li>
 <p>回车执行上面的命令后，即进入了 <em>bash_profile</em>，点击键盘上的 <em>i</em> 进入 insert 状态，即可在文件下方输入如下命令：</p>
-</li>
-</ol>
 <div class="highlight"><pre><span></span><code>export PATH=${PATH}:/usr/local/mysql/bin
 </code></pre></div>
+</li>
+</ol>
 </li>
 <li>
 <p>输入完成后，点击键盘上的 esc 退出 insert 状态，并在最下方输入 <code>:wq</code> 保存退出。</p>
@@ -10036,7 +10050,7 @@ PPROF_PROFILE_DURATION=&quot;30&quot;
 <p>一般可能会需要调整的参数如下：</p>
 <div class="highlight"><pre><span></span><code>mo_ctl set_conf MO_PATH=&quot;/Users/username/mo/matrixone&quot; # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL=&quot;https://ghproxy.com/https://github.com/matrixorigin/matrixone.git&quot; #针对github原地址下载过慢问题，设置代理下载地址
-mo_ctl set_conf MO_DEFAULT_VERSION=&quot;1.0.0-rc2&quot; # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEFAULT_VERSION=&quot;v1.0.0&quot; # 设置所下载的MatrixOne版本
 </code></pre></div>
 <h2 id="3-matrixone">步骤 3：一键安装 MatrixOne</h2>
 <p>根据您的需要，选择最新的开发版本，还是获得稳定版本的代码。</p>
@@ -10048,7 +10062,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION=&quot;1.0.0-rc2&quot; # 设置所下载的Mat
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mo_ctl deploy 1.0.0-rc2
+<div class="highlight"><pre><span></span><code>mo_ctl deploy v1.0.0
 </code></pre></div>
 </div>
 </div>
@@ -10079,7 +10093,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION=&quot;1.0.0-rc2&quot; # 设置所下载的Mat
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v1.0.0-rc2 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.0 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
