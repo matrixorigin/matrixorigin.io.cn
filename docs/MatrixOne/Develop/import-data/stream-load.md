@@ -2,7 +2,6 @@
 
 本文档介绍如何使用 SQL 语句在 MatrixOne 中进行流式导入数据。具体来说，MatrixOne 支持使用 `LOAD DATA INLINE` 语法对以 *csv* 格式组织的字符串进行导入，导入速度较 `INSERT` 操作更快。
 
-
 ## 语法结构
 
 ```mysql
@@ -13,8 +12,7 @@ csv_string $XXX$
 INTO TABLE tbl_name;
 ```
 
-
-<!-- 等支持json
+<!-- 等支持 json
 
 mysql> LOAD DATA INLINE 
 FORMAT=('csv'|'json') ,
@@ -24,11 +22,14 @@ INTO TABLE tbl_name;
 
 -->
 
+**参数解释**
+
+`FORMAT='csv'` 表示后面 `DATA` 中的字符串数据是以 `csv` 为格式组织的。
+
+`DATA=$XXX$ csv_string $XXX$` 中的 `$XXX$` 是数据开始和结束的标识符。`csv_string` 是以 `csv` 为格式组织字符串数据，以 `\n` 或者 `\r\n` 作为换行符。
+
 !!! note
-    *csv_string* 中以 `\n` 或者 `\r\n` 作为换行符。
-
-    `$XXX$` 为数据开始和结束的标识符，注意数据结束处的 `$XXX$` 需要和最后一行数据放在同一行，换行可能导致`ERROR 20101`
-
+    `$XXX$` 为数据开始和结束的标识符，注意数据结束处的 `$XXX$` 需要和最后一行数据放在同一行，换行可能导致 `ERROR 20101`
 
 ## 开始前准备
 
@@ -36,7 +37,7 @@ INTO TABLE tbl_name;
 
 ## MySQL Client 中使用 `LOAD DATA INLINE` 命令导入数据
 
-你可以使用 `LOAD DATA INLINE` 将流式数据导入MatrixOne，本章将介绍如何进行流式导入，并且给出导入 *csv* 数据的示例。
+你可以使用 `LOAD DATA INLINE` 将流式数据导入 MatrixOne，本章将介绍如何进行流式导入，并且给出导入 *csv* 数据的示例。
 
 1. 启动 MySQL 客户端，连接 MatrixOne：
 
@@ -57,7 +58,8 @@ INTO TABLE tbl_name;
     `city` VARCHAR(255) DEFAULT null
     )
     ```
-3. 在 MySQL 客户端执行 `LOAD DATA INLINE`进行数据导入，以 *csv* 格式导入数据:
+
+3. 在 MySQL 客户端执行 `LOAD DATA INLINE` 进行数据导入，以 *csv* 格式导入数据：
 
     ```mysql
     mysql> LOAD DATA INLINE 
@@ -72,7 +74,7 @@ INTO TABLE tbl_name;
 
 PyMySQL 是一个纯 Python MySQL 客户端库，下面将指导你如何使用 PyMySQL 进行 `LOAD DATA INLINE` 操作。
 
-1. 下载安装 pymysql ：
+1. 下载安装 pymysql：
 
     ```bash
     pip3 install pymysql 
@@ -126,15 +128,15 @@ PyMySQL 是一个纯 Python MySQL 客户端库，下面将指导你如何使用 
     python3 pymysql_load_data_inline.py
     ```
 
-5. 打开mysql客户端，查询数据表中的数据，结果如下：
-    
+5. 打开 mysql 客户端，查询数据表中的数据，结果如下：
+
     ```mysql
-        mysql> select * from user;
-        +-------+------+-----------+
-        | name  | age  | city      |
-        +-------+------+-----------+
-        | Lihua |   23 | Shanghai  |
-        |  Bob  |   25 | Beijing   |
-        +-------+------+-----------+
-        2 rows in set (0.02 sec)
+    mysql> select * from user;
+    +-------+------+-----------+
+    | name  | age  | city      |
+    +-------+------+-----------+
+    | Lihua |   23 | Shanghai  |
+    |  Bob  |   25 | Beijing   |
+    +-------+------+-----------+
+    2 rows in set (0.02 sec)
     ```

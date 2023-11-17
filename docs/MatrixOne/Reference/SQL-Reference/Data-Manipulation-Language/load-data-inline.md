@@ -18,11 +18,10 @@ INTO TABLE tbl_name;
 
 `FORMAT='csv'` 表示后面 `DATA` 中的字符串数据是以 `csv` 为格式组织的。
 
-`DATA=$XXX$ csv_string $XXX$` 中的 `$XXX$` 是数据开始和结束的标识符。 `csv_string` 是以 `csv` 为格式组织字符串数据。
+`DATA=$XXX$ csv_string $XXX$` 中的 `$XXX$` 是数据开始和结束的标识符。`csv_string` 是以 `csv` 为格式组织字符串数据，以 `\n` 或者 `\r\n` 作为换行符。
 
 !!! note
-    `$XXX$` 为数据开始和结束的标识符，注意数据结束处的 `$XXX$` 需要和最后一行数据放在同一行，换行可能导致`ERROR 20101`
-
+    `$XXX$` 为数据开始和结束的标识符，注意数据结束处的 `$XXX$` 需要和最后一行数据放在同一行，换行可能导致 `ERROR 20101`
 
 ### 示例：使用 `LOAD DATA INLINE` 导入数据
 
@@ -45,7 +44,8 @@ INTO TABLE tbl_name;
     `city` VARCHAR(255) DEFAULT null
     )
     ```
-3. 在 MySQL 客户端执行 `LOAD DATA INLINE`进行数据导入，以 *csv* 格式导入数据:
+
+3. 在 MySQL 客户端执行 `LOAD DATA INLINE` 进行数据导入，以 *csv* 格式导入数据：
 
     ```mysql
     mysql> LOAD DATA INLINE 
@@ -56,8 +56,7 @@ INTO TABLE tbl_name;
     INTO TABLE user;
     ```
 
-
-<!-- 等支持json
+<!-- 等支持 json
 
 mysql> LOAD DATA INLINE 
 FORMAT=('csv'|'json') ,
