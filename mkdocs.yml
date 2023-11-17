@@ -278,6 +278,7 @@ nav:
           - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/delete.md
           - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/update.md
           - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data.md
+          - LOAD DATA INLINE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data-inline.md
           - REPLACE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/replace.md
           - Information Functions:
             - LAST_QUERY_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id.md
