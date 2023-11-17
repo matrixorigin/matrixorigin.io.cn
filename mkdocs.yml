@@ -105,6 +105,7 @@ nav:
       - 数据写入:
         - 插入数据:
           - INSERT 插入: MatrixOne/Develop/import-data/insert-data.md
+          - 流式导入: MatrixOne/Develop/import-data/stream-load.md
           - 批量插入:
             - 批量插入概述: MatrixOne/Develop/import-data/bulk-load/bulk-load-overview.md
             - 插入 csv 文件: MatrixOne/Develop/import-data/bulk-load/load-csv.md
@@ -276,7 +277,8 @@ nav:
           - INSERT ON DUPLICATE KEY UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate.md
           - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/delete.md
           - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/update.md
-          - LOAD DATA: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data.md
+          - LOAD DATA INFILE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data.md
+          - LOAD DATA INLINE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data-inline.md
           - REPLACE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/replace.md
           - Information Functions:
             - LAST_QUERY_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id.md
