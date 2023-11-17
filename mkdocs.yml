@@ -105,6 +105,7 @@ nav:
       - 数据写入:
         - 插入数据:
           - INSERT 插入: MatrixOne/Develop/import-data/insert-data.md
+          - 流式导入: MatrixOne/Develop/import-data/stream-load.md
           - 批量插入:
             - 批量插入概述: MatrixOne/Develop/import-data/bulk-load/bulk-load-overview.md
             - 插入 csv 文件: MatrixOne/Develop/import-data/bulk-load/load-csv.md
