@@ -9,7 +9,7 @@ MatrixOne 支持以下两种方式导出数据：
 
 ## 什么是 mo-dump
 
-`mo-dump` 是 MatrixOne 的一个客户端实用工具，与 `mysqldump` 一样，它可以被用于通过导出*. sql* 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。
+`mo-dump` 是 MatrixOne 的一个客户端实用工具，与 `mysqldump` 一样，它可以被用于通过导出*.sql* 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。
 
 使用 `mo-dump` 工具，你必须能够访问运行 MatrixOne 实例的服务器。你还必须拥有导出的数据库的用户权限。
 
@@ -40,9 +40,9 @@ MatrixOne 支持以下两种方式导出数据：
 
 - **--local-infile**：默认值为 true，仅在 **-csv** 参数存在时产生影响，否则无作用。具体来说此参数仅影响 modump 输出的 *importStatement.sql* 脚本中 `LOAD DATA [LOCAL] INFILE` 语句是否含有 `LOCAL`。
     - **--local-infile=true**：脚本中使用 `LOAD DATA LOCAL INFILE`，既适用于于本地数据导入本地 MatrixOne，也适用于本地数据导入远程 MatrixOne。
-    - **--local-infile=false**：脚本中使用 `LOAD DATA INFILE`，仅适用于本地数据导入本地 MatrixOne，导入效率高于 `LOAD DATA LOCAL INFILE`，更多可参考 [LOAD-DATA](../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md)。
+    - **--local-infile=false**：脚本中使用 `LOAD DATA INFILE`，仅适用于本地数据导入本地 MatrixOne，导入效率高于 `LOAD DATA LOCAL INFILE`，更多可参考 [LOAD DATA INFILE](../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md)。
 
-- **-tbl [tableName]**：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中指定多个 `-tbl` 和 ta b leName。
+- **-tbl [tableName]**：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中指定多个 `-tbl` 和 tableName。
 
 - **> {importStatement.sql}**：将输出的 SQL 语句存储到文件 *importStatement.sql* 中，否则在屏幕上输出。
 
@@ -67,7 +67,7 @@ __Tips:__ 由于 `mo-dump` 是基于 Go 语言进行开发，所以你同时需�
 
 ## 如何使用 `mo-dump` 导出 MatrixOne 数据库
 
-`mo-dump` 在命令行中非常易用。参见以下步骤示例，导出*. sql* 文件格式完整数据库：
+`mo-dump` 在命令行中非常易用。参见以下步骤示例，导出*.sql* 文件格式完整数据库：
 
 在你本地计算机上打开终端窗口，输入以下命令，连接到 MatrixOne，并且导出数据库：
 
