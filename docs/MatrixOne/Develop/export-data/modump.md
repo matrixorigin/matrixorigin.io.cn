@@ -42,7 +42,7 @@ MatrixOne 支持以下两种方式导出数据：
     - **--local-infile=true**：脚本中使用 `LOAD DATA LOCAL INFILE`，既适用于于本地数据导入本地 MatrixOne，也适用于本地数据导入远程 MatrixOne。
     - **--local-infile=false**：脚本中使用 `LOAD DATA INFILE`，仅适用于本地数据导入本地 MatrixOne，导入效率高于 `LOAD DATA LOCAL INFILE`，更多可参考 [LOAD DATA INFILE](../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md)。
 
-- **-tbl [tableName]**：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中指定多个 `-tbl` 和 tableName。
+- **-tbl [tableName]**：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中指定多个 `-tbl` 和 `tableName`。
 
 - **> {importStatement.sql}**：将输出的 SQL 语句存储到文件 *importStatement.sql* 中，否则在屏幕上输出。
 
