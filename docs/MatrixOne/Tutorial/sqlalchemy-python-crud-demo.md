@@ -31,7 +31,7 @@
     python3 -V
     ```
 
-- 确认你已完成安装 MySQL。
+- 确认你已完成安装 MySQL 客户端。
 
 - 下载安装 `sqlalchemy`、`pymysql`、`cryptography` 和 `faker` 工具。
 
@@ -57,15 +57,6 @@
 作为对象关系映射器（ORM）工具，SQLAlchemy 允许开发人员创建 Python 类来映射关系数据库中的表。
 
 在下面的代码示例中，将创建一个 `Customer` 类，它定义的 `Customer` 的代码相当于一条 SQL 语句，它表示 MatrixOne 中的命名为 `Customer` 的表：
-
-```
-CREATE TABLE `User` (
-`id` INT NOT NULL AUTO_INCREMENT,
-`cname` VARCHAR(64) DEFAULT NULL,
-`caddress` VARCHAR(512) DEFAULT NULL,
-PRIMARY KEY (`id`)
-)
-```
 
 新建一个 `sqlalchemy_create.py` 的文本文件，将以下代码拷贝粘贴到文件内：
 
