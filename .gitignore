@@ -32,7 +32,7 @@ lerna-debug.log*
 # typescript
 *.tsbuildinfo
 
-# Editor directories and files
+# editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -43,6 +43,10 @@ lerna-debug.log*
 *.sln
 *.sw?
 
-# Configuration files of zhlint.
+# non-pnpm npm lock files
+package-lock.json
+yarn.lock
+
+# configuration files of zhlint
 .zhlintrc
 .zhlintignore
