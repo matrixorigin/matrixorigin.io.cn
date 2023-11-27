@@ -259,8 +259,10 @@ nav:
           - CREATE STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-stage.md
           - CREATE...FROM...PUBLICATION...: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-subscription.md
           - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-view.md
+          - CREATE OR REPLACE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-replace-view.md
           - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
           - ALTER PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-publication.md
+          - ALTER SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-sequence.md
           - ALTER STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-stage.md
           - ALTER VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-view.md
           - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-database.md

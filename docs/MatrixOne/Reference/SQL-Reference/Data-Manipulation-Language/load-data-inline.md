@@ -2,7 +2,7 @@
 
 ## **概述**
 
-`LOAD DATA INLINE` 语法可以将 *csv* 格式组织的字符串导入数据表中，导入速度较 `INSERT` 操作更快。
+`LOAD DATA INLINE` 语法可以将 *csv* 格式组织的字符串导入数据表中，导入速度较 `INSERT INTO` 操作更快。`LOAD DATA INLINE` 的功能适合无主键的流式快速数据写入，如 IoT 类的场景。
 
 ## 语法结构
 
