@@ -34,7 +34,7 @@
    [ COMMENT = '<string_literal>' ]
 
 StageParams (for Amazon S3) :
-URL =  "endpoint"='<string>' CREDENTIALS = {"access_key_id"='<string>', "secret_access_key"='<string>'}
+URL =  "endpoint"='<string>' CREDENTIALS = {"access_key_id"='<string>', "secret_access_key"='<string>', "filepath"='<string>', "region"='<string>'}
 
 StageParams (for Aliyun OSS) :
 URL =  "endpoint"='<string>' CREDENTIALS = {"access_key_id"='<string>', "secret_access_key"='<string>'}
@@ -56,7 +56,12 @@ ENABLE = { TRUE | FALSE }
 
     - `endpoint`：Stage 的连接 URL，指定对象存储服务的位置。对于不同的对象存储服务（如 Amazon S3、Aliyun OSS、文件系统等），这个 URL 的内容可能有所不同。例如：s3.us-west-2.amazonaws.com
 
-    - `CREDENTIALS`：这是一个 JSON 对象，包含连接到对象存储服务所需的凭证信息，如 `access_key_id`、`secret_access_key` 等。
+    - `CREDENTIALS`：这是一个 JSON 对象，包含连接到对象存储服务所需的凭证信息，
+
+         + `access_key_id`：用于身份验证的访问密钥 ID。
+         + `secret_access_key`：与访问密钥 ID 相关联的密钥。
+         + `"filepath"='<string>`：指定 S3 存储中的文件路径或目录。
+         + `"region"='<string>'`：指定 Amazon S3 存储所在的 AWS 区域。
 
 - `directoryTableParams`：这是一个参数组，用于指定 Stage 的目录表（directory table）的配置。
 

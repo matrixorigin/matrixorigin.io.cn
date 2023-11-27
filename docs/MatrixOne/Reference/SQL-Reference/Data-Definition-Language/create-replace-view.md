@@ -58,16 +58,15 @@ mysql> select * from v1 where a > 1;
 +------+------+
 2 rows in set (0.00 sec)
 
--- 替换视图 v1，新的视图仅包含表 t1 中列 a 大于 1 的数据
-create or replace view v1 as select * from t1 where a > 1;
+-- 替换视图 v1，新的视图仅包含表 t1 中列 a 小于 2 的数据
+create or replace view v1 as select * from t1 where a < 2;
 
 -- 再次查询视图 v1，现在只包含满足新条件的数据
 mysql> select * from v1;
 +------+------+
 | a    | b    |
 +------+------+
-|    2 |   22 |
-|    3 |   33 |
+|    1 |   11 |
 +------+------+
-2 rows in set (0.00 sec)
+1 row in set (0.08 sec)
 ```

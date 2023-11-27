@@ -8,10 +8,11 @@
 
 更新一个包含索引的表需要比更新一个没有索引的表花费更多的时间，这是由于索引本身也需要更新。因此，理想的做法是仅仅在常常被搜索的列（以及表）上面创建索引。
 
-索引有两种常见的类型，分别为：
+索引有几种常见的类型，分别为：
 
 - Primary Key：即主键索引，即标识在主键列上的索引。
-- Secondary Index：即二级索引，即在非主键上标识的索引。
+- Unique Key：即唯一索引，在非主键列上的索引，可以确保该列每个值都是唯一的。
+- Secondary Index：即二级索引，即在非主键列上标识的索引。
 
 ## **语法结构**
 
@@ -27,7 +28,13 @@ COMMENT 'string'
 
 在表上创建一个唯一的索引。不允许使用重复的值：唯一的索引意味着两个行不能拥有相同的索引值。
 
+#### CREATE INDEX 语法
+
+在表上创建一个次级索引。可以使用重复值和 Null 值。
+
 ## **示例**
+
+- 示例 1：
 
 ```sql
 drop table if exists t1;
@@ -98,4 +105,40 @@ UNIQUE KEY `idx` (`col2`) COMMENT `create varchar index`
 ) |
 +-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.01 sec)
+```
+
+- 示例 2：创建次级索引并查询
+
+```sql
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Department VARCHAR(50),
+    Salary INT
+);
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, Department, Salary)
+VALUES (1, 'John', 'Doe', 'HR', 50000);
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, Department, Salary)
+VALUES (2, 'Jane', 'Smith', 'IT', 60000);
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, Department, Salary)
+VALUES (3, 'Mark', 'Johnson', 'IT', 55000);
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, Department, Salary)
+VALUES (4, 'Mary', 'Brown', 'Sales', 48000);
+
+mysql> CREATE INDEX DepartmentIndex ON Employees (Department);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SELECT * FROM Employees WHERE Department = 'IT';
++------------+-----------+----------+------------+--------+
+| employeeid | firstname | lastname | department | salary |
++------------+-----------+----------+------------+--------+
+|          2 | Jane      | Smith    | IT         |  60000 |
+|          3 | Mark      | Johnson  | IT         |  55000 |
++------------+-----------+----------+------------+--------+
+2 rows in set (0.00 sec)
 ```
