@@ -1,9 +1,52 @@
-site
-node_modules/
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# Configuration files of zhlint.
+# testing
+/coverage
+
+# production
+/build
+/site
+dist
+dist-ssr
+*.local
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+logs
+*.log
+lerna-debug.log*
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# non-pnpm npm lock files
+package-lock.json
+yarn.lock
+
+# configuration files of zhlint
 .zhlintrc
 .zhlintignore
-
-# 
-.vscode/
