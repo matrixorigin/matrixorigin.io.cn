@@ -210,7 +210,7 @@ MatrixOneWriter 支持大多数 MatrixOne 数据类型，但也有少数类型�
 
 MatrixOne 擅长 HTAP 场景的事务处理和低延迟分析计算，ElasticSearch 擅长全文检索，两者做为流行的搜索和分析引擎，结合起来可形成更完善的全场景分析解决方案。为了在不同场景间进行数据的高效流转，我们可通过 DataX 进行 MatrixOne 与 ElasticSearch 间的数据迁移。
 
-### 环境准备：
+### 环境准备
 
 - MatrixOne版本：1.0.0
 
@@ -218,7 +218,7 @@ MatrixOne 擅长 HTAP 场景的事务处理和低延迟分析计算，ElasticSea
 
 - DataX版本：[DataX_v202309](https://datax-opensource.oss-cn-hangzhou.aliyuncs.com/202309/datax.tar.gz)
 
-### 在 MatrixOne 中创建库和表：
+### 在 MatrixOne 中创建库和表
 
 创建数据库`mo`，并在该库创建数据表 person：
 
@@ -231,7 +231,7 @@ CREATE TABLE mo.`person` (
 );
 ```
 
-### 在 ElasticSearch 中创建索引：
+### 在 ElasticSearch 中创建索引
 
 创建名称为 person 的索引（下文 `-u` 参数后为 ElasticSearch 中的用户名和密码，本地测试时可按需进行修改或删除）：
 
@@ -265,7 +265,7 @@ curl -X PUT "127.0.0.1:9200/person/_mapping" -H 'Content-Type: application/json'
 {"acknowledged":true}
 ```
 
-### 为 ElasticSearch 索引添加数据：
+### 为 ElasticSearch 索引添加数据
 
 通过 curl 命令添加三条数据：
 
