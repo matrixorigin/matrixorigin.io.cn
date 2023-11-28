@@ -10,7 +10,67 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 
 从 MatrixOne 0.6 版本即引入了多租户的概念，默认的 `sys` 租户和其他租户的行为略有不同。服务于多租户管理的系统表 `mo_account` 仅对 `sys` 租户可见；其他租户看不到此表。
 
-### mo_database table
+### `mo_indexes` 表
+
+| 列属性            | 类型             | 描述               |
+| -----------------| --------------- | ----------------- |
+| id               | BIGINT UNSIGNED(64) |    索引 ID            |
+| table_id         | BIGINT UNSIGNED(64) |    索引所在表的 ID            |
+| database_id      | BIGINT UNSIGNED(64) |    索引所在数据库的 ID            |
+| name             | VARCHAR(64)         |  索引的名字              |
+| type             | VARCHAR(11)         |  索引的类型，包括主键索引（PRIMARY），唯一索引（UNIQUE），次级索引（MULTIPLE）     |
+| is_visible       | TINYINT(8)          | 索引是否可见，1 为可见，0 不可见（目前 MatrixOne 的索引全部为可见索引）  |
+| hidden           | TINYINT(8)          | 索引是否为隐藏索引，1 为隐藏索引，0 为非隐藏索引|
+| comment          | VARCHAR(2048)       |  索引的注释信息     |
+| column_name      | VARCHAR(256)        | 索引的组成列的列名  |
+| ordinal_position | INT UNSIGNED(32)    | 索引中的列序号，从 1 开始    |
+| options          | TEXT(0)             | 索引的 options 选项信息   |
+| index_table_name | VARCHAR(5000)       |  该索引对应的索引表的表名，目前只有唯一索引含有索引表    |
+
+### `mo_table_partitions` 表
+
+| 列属性      | 类型        | 描述     |
+| ------------ | ------------ | ------------ |
+| table_id             | BIGINT UNSIGNED(64)   | 当前分区表的 ID   |
+| database_id          | BIGINT UNSIGNED(64)   | 当前分区表所属的数据库的 ID   |
+| number               | SMALLINT UNSIGNED(16) | 当前分区编号。所有分区都按照定义的顺序进行索引，其中 1 是分配给第一个分区的数字   |
+| name                 | VARCHAR(64)           | 分区的名称   |
+| partition_type       | VARCHAR(50)           | 存放表的分区类型信息，如果是分区表，其值枚举为"KEY"， "LINEAR_KEY"，"HASH"，"LINEAR_KEY_51"，"RANGE"，"RANGE_COLUMNS"，"LIST"，"LIST_COLUMNS"；如果不是分区表，partition_type 的值为空字符串。__Note:__ MatrixOne 暂不支持 `RANGE` 和 `LIST` 分区。   |
+| partition_expression | VARCHAR(2048)         | 创建分区表的的 `CREATE TABLE` 或 `ALTER TABLE` 语句中使用的分区函数的表达式。 |
+| description_utf8     | TEXT(0)               | 此列用于 `RANGE` 和 `LIST` 分区。对于 `RANGE` 分区，它包含分区的 `VALUES LESS THAN` 子句中设置的值，该值可以是整数或 `MAXVALUE`。对于 `LIST` 分区，此列包含分区的 `values in` 子句中定义的值，该子句是逗号分隔的整数值列表。对于不是 `RANGE` 或 `LIST` 的分区，此列始终为 NULL。__Note:__ MatrixOne 暂不支持 `RANGE` 和 `LIST` 分区，此列为 NULL |
+| comment              | VARCHAR(2048)         | 注释的文本。否则，此值为空。   |
+| options              | TEXT(0)               | 分区的选项信息，暂为 `NULL`  |
+| partition_table_name | VARCHAR(1024)         | 当前分区对应的分区子表名字   |
+
+### `mo_user` 表
+
+| 列属性               | 类型        | 描述            |
+| --------------------- | ------------ | ------------------- |
+| user_id               | int          | 用户 ID，主键         |
+| user_host             | varchar(100) |   用户主机地址                  |
+| user_name             | varchar(100) |    用户名                 |
+| authentication_string | varchar(100) |  密码加密的认证字符串     |
+| status                | varchar(8)   | 开启、锁定、失效 |
+| created_time          | timestamp    |    用户创建时间                 |
+| expired_time          | timestamp    |      用户过期时间               |
+| login_type            | varchar(16)  | ssl/密码/其他 |
+| creator               | int | 创建此用户的创建者 ID              |
+| owner                 | int | 此用户的管理员 ID      |
+| default_role          | int | 此用户的默认角色 ID          |
+
+### `mo_account` 表 (仅 `sys` 租户可见)
+
+| 列属性      | 类型        | 描述     |
+| ------------ | ------------ | ------------ |
+| account_id   | int unsigned | 租户 ID，主键  |
+| account_name | varchar(100) | 租户名  |
+| status       | varchar(100) | 开启/暂停/限制 |
+| created_time | timestamp    | 创建时间  |
+| comment     | varchar(256)  | 注释      |
+| suspended_time | TIMESTAMP    | 修改租户状态的时间|
+| version | bigint unsigned    | 当前租户版本状态|
+
+### `mo_database` 表
 
 | 列属性          | 类型           | 描述                                |
 | ---------------- | --------------- | --------------------------------------- |
@@ -24,29 +84,189 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | account_id       | int unsigned    | 租户 ID                              |
 | dat_type         | varchar(23)     | 数据库类型，普通库或订阅库                 |
 
-### mo_tables table
+### `mo_role` 表
 
-| 列属性        | 类型           | 描述                                                     |
-| -------------- | --------------- | ---------------------------------------------------- |
-| rel_id         | bigint unsigned | 主键，表 ID                                 |
-| relname        | varchar(100)    | 表、索引、视图等的名称                         |
-| reldatabase    | varchar(100)    | 包含此关系的数据库，参考 mo_database.datname |
-| reldatabase_id | bigint unsigned | 包含此关系的数据库 ID，参考 mo_database.datid |
-| relpersistence | varchar(100)    | p = 永久表<br> t = 临时表                     |
-| relkind        | varchar(100)    | r = 普通表<br> e = 外部表<br> i = 索引<br> S = 序列<br> v = 视图<br> m = 物化视图 |
-| rel_comment    | varchar(100)    |                                                              |
-| rel_createsql  | varchar(100)    | 创建表 SQL 语句                                 |
-| created_time   | timestamp       | 创建时间                                                |
-| creator        | int unsigned    | 创建者 ID                                                   |
-| owner          | int unsigned    | 创建者的默认角色 ID                                 |
-| account_id     | int unsigned    | 租户 id                                                    |
-| partitioned    | blob            | 按语句分区                                       |
-| partition_info    | blob            | 分区信息                                       |
-| viewdef        | blob            | 视图定义语句                                   |
-| constraint        | varchar(5000)            | 与表相关的约束                       |
-| catalog_version | INT UNSIGNED(0)    | 系统表的版本号 |
+| 列属性      | 类型        | 描述                      |
+| ------------ | ------------ | ----------------------------- |
+| role_id      | int unsigned | 角色 ID，主键                  |
+| role_name    | varchar(100) | 角色名称                     |
+| creator      | int unsigned | 用户 ID                     |
+| owner        | int unsigned | MatrixOne 管理员/租户管理员拥有者 ID |
+| created_time | timestamp    | 创建时间                   |
+| comment     | text         | 注释                      |
 
-### mo_columns table
+### `mo_user_grant` 表
+
+| 列属性           | 类型        | 描述                            |
+| ----------------- | ------------ | ----------------------------------- |
+| role_id           | int unsigned | 被授权角色 ID，联合主键        |
+| user_id           | int unsigned | 获得授权角色的用户 ID，联合主键   |
+| granted_time      | timestamp    | 授权时间                       |
+| with_grant_option | bool         | 是否允许获得授权用户再授权给其他用户或角色 |
+
+### `mo_role_grant` 表
+
+| 列属性           | 类型        | 描述                            |
+| ----------------- | ------------ | ----------------------------------- |
+| granted_id        | int        | 被授予的角色 ID，联合主键             |
+| grantee_id        | int        | 要授予其他角色的角色 ID，联合主键            |
+| operation_role_id | int        | 操作角色 ID                   |
+| operation_user_id | int        | 操作用户 ID                  |
+| granted_time      | timestamp    | 授权时间                      |
+| with_grant_option | bool         | 是否允许获得授权角色再授权给其他用户或角色 |
+
+### `mo_role_privs` 表
+
+| 列属性           | 类型           | 描述                            |
+| ----------------- | --------------- | ----------------------------------- |
+| role_id           | int unsigned    | 角色 ID，联合主键                   |
+| role_name         | varchar(100)    | 角色名：accountadmin/public                           |
+| obj_type          | varchar(16)     | 对象类型：account/database/table，联合主键                         |
+| obj_id            | bigint unsigned | 对象 ID，联合主键                        |
+| privilege_id      | int             | 权限 ID，联合主键                     |
+| privilege_name    | varchar(100)    | 权限名：权限列表                                   |
+| privilege_level   | varchar(100)    | 权限级别，联合主键                                   |
+| operation_user_id | int unsigned    | 操作用户 ID                             |
+| granted_time      | timestamp       | 授权时间                                 |
+| with_grant_option | bool            | 是否允许授权|
+
+### `mo_user_defined_function` 表
+
+| 列属性            | 类型             | 描述               |
+| -----------------| --------------- | ----------------- |
+| function_id          | INT(32)       | 函数的 ID，主键    |
+| name                 | VARCHAR(100)  |  函数的名称        |
+| owner                | INT UNSIGNED(32) | 创建函数的角色 ID  |
+| args                 | TEXT(0)       |函数的参数列表       |
+| rettype              | VARCHAR(20)   | 函数的返回类型 |
+| body                 | TEXT(0)       |函数的函数体     |
+| language             | VARCHAR(20)   |  函数所使用的语言      |
+| db                   | VARCHAR(100)  | 函数所在的数据库    |
+| definer              | VARCHAR(50)   | 定义函数的用户名称     |
+| modified_time        | TIMESTAMP(0)  | 函数最后一次修改的时间  |
+| created_time         | TIMESTAMP(0)  | 函数的创建时间    |
+| type                 | VARCHAR(10)   |函数的类型，默认 FUNCTION   |
+| security_type        | VARCHAR(10)   | 安全处理方式，统一值 DEFINER  |
+| comment              | VARCHAR(5000) | 创建函数的注释 |
+| character_set_client | VARCHAR(64)   | 客户端字符集：utf8mb4  |
+| collation_connection | VARCHAR(64)   | 连接排序：utf8mb4_0900_ai_ci   |
+| database_collation   | VARCHAR(64)   | 数据库连接排序：utf8mb4_0900_ai_ci  |
+
+### `mo_mysql_compatbility_mode` 表
+
+| 列属性            | 类型             | 描述               |
+| -----------------| --------------- | ----------------- |
+| configuration_id | INT(32)       | 配置项 id，自增列，作为主键区分不同的配置 |
+| account_name     | VARCHAR(300)  | 配置所在的租户名称  |
+| dat_name         | VARCHAR(5000) | 配置所在的数据库名称  |
+| configuration    | JSON(0)       | 配置内容，以 JSON 形式保存   |
+
+### `mo_pubs` 表
+
+| 列属性            | 类型             | 描述               |
+| -----------------| --------------- | ----------------- |
+| pub_name      | VARCHAR(64)         | 发布名称|
+| database_name | VARCHAR(5000)       |  发布数据的名称 |
+| database_id   | BIGINT UNSIGNED(64) | 发布数据库的 ID，与 mo_database 表中的 dat_id 对应  |
+| all_table     | BOOL(0)             | 发布库是否包含 database_id 对应数据库内的所有表 |
+| all_account   | BOOL(0)             | 是否所有 account 都可以订阅该发布库 |
+| table_list    | TEXT(0)             | 在非 all table 时，发布库内包含的表清单，表名与 database_id 对应数据库下的表一一对应|
+| account_list  | TEXT(0)             |在非 all account 时，允许订阅该发布库的 account 清单|
+| created_time  | TIMESTAMP(0)        |创建发布库的时间   |
+| owner         | INT UNSIGNED(32)    | 创建发布库对应的角色 ID |
+| creator       | INT UNSIGNED(32)    |  创建发布库对应的用户 ID  |
+| comment       | TEXT(0)             | 创建发布库的备注信息  |
+
+### `mo_stages` 表
+
+| 列属性            | 类型             | 描述               |
+| -----------------| --------------- | ----------------- |
+| stage_id          | INT UNSIGNED(32) | 数据阶段 ID |
+| stage_name        | VARCHAR(64)      | 数据阶段名称 |
+| url               | TEXT(0)          | 对象存储的路径（不含认证）、文件系统的路径 |
+| stage_credentials | TEXT(0)          | 认证信息，加密后保存 |
+| stage_status      | VARCHAR(64)      | ENABLED/DISABLED  默认：DISABLED |
+| created_time      | TIMESTAMP(0)     | 创建时间 |
+| comment           | TEXT(0)          | 注释   |
+
+### `mo_sessions` 视图
+
+| 列名              | 数据类型          | 描述                                                         |
+| ----------------- | ----------------- | ------------------------------------------------------------ |
+| node_id           | VARCHAR(65535)   | MatrixOne 节点的唯一标识符。一经启动，不可更改。               |
+| conn_id           | INT UNSIGNED     | 在 MatrixOne 中与客户端 TCP 连接相关的唯一编号，由 Hakeeper 自动生成。 |
+| session_id        | VARCHAR(65535)   | 用于标识会话的唯一 UUID。每个新会话都会生成一个新的 UUID。         |
+| account           | VARCHAR(65535)   | 租户的名称。                                                |
+| user              | VARCHAR(65535)   | 用户的名称。                                                |
+| host              | VARCHAR(65535)   | CN 节点接收客户端请求的 IP 地址和端口。                       |
+| db                | VARCHAR(65535)   | 执行 SQL 时使用的数据库名称。                                 |
+| session_start     | VARCHAR(65535)   | 会话创建的时间戳。                                          |
+| command           | VARCHAR(65535)   | MySQL 命令的类型，如 COM_QUERY、COM_STMT_PREPARE、COM_STMT_EXECUTE 等。 |
+| info              | VARCHAR(65535)   | 执行的 SQL 语句。一个 SQL 中可能包含多个语句。                 |
+| txn_id            | VARCHAR(65535)   | 相关事务的唯一标识符。                                       |
+| statement_id      | VARCHAR(65535)   | SQL 语句的唯一标识符（UUID）。                                |
+| statement_type    | VARCHAR(65535)   | SQL 语句的类型，如 SELECT、INSERT、UPDATE 等。                   |
+| query_type        | VARCHAR(65535)   | SQL 语句的种类，如 DQL（数据查询语言）、TCL（事务控制语言）等。   |
+| sql_source_type   | VARCHAR(65535)   | SQL 语句的来源，如外部或内部。                                |
+| query_start       | VARCHAR(65535)   | SQL 语句开始执行的时间戳。                                   |
+| client_host       | VARCHAR(65535)   | 客户端的 IP 地址和端口号。                                    |
+| role              | VARCHAR(65535)   | 用户的角色名称。                                             |
+
+### `mo_configurations` 表
+
+| 列名          | 数据类型          | 描述                                  |
+| ------------- | --------------- | ------------------------------------ |
+| node_type     | VARCHAR(65535) |  节点的类型：cn（计算节点）、tn（事务节点）、log（日志节点）、proxy（代理）。   |
+| node_id       | VARCHAR(65535) |  节点的唯一标识符。  |
+| name          | VARCHAR(65535) |配置项的名称，可能会附带嵌套结构前缀。|
+| current_value | VARCHAR(65535) |  配置项的当前数值。   |
+| default_value | VARCHAR(65535) |  配置项的默认数值。   |
+| internal      | VARCHAR(65535) |  表示配置参数是否为内部参数。 |
+
+### `mo_locks` 视图
+
+| 列名          | 数据类型        | 描述                                             |
+| ------------- | --------------- | ------------------------------------------------ |
+| txn_id        | VARCHAR(65535) | 持有锁的事务。                                  |
+| table_id      | VARCHAR(65535) | 加锁的表。                                      |
+| lock_type     | VARCHAR(65535) | 锁类型。可以是 `point` 或 `range`。              |
+| lock_content  | VARCHAR(65535) | 锁定的内容，以 16 进制表示。对于 `range` 锁，表示一个区间；对于 `point` 锁，表示单个值。 |
+| lock_mode     | VARCHAR(65535) | 锁模式。可以是 `shared` 或 `exclusive`。         |
+| lock_status   | VARCHAR(65535) | 锁状态，可能为 `wait`、`acquired` 或 `none`。<br>wait。没有事务持有锁，但有事务等在锁上。<br>acquired。有事务持有锁。<br>none。没有事务持有锁，也没有事务等在锁上。     |
+| waiting_txns  | VARCHAR(65535) | 在此锁上等待的事务。                             |
+
+### `mo_variables` 视图
+
+| 列名             | 数据类型         | 描述                                  |
+| ---------------- | -------------- | ------------------------------------ |
+| configuration_id        | INT(32)        | 自增列，用于唯一标识每个配置项。   |
+| account_id          | INT(32)        | 标识租户的唯一标识符。              |
+| account_name        | VARCHAR(300)   | 租户的名称。                        |
+| dat_name       | VARCHAR(5000)  | 数据库的名称。                      |
+| variable_name          | VARCHAR(300)   | 配置变量的名称。                    |
+| variable_value         | VARCHAR(5000)  | 配置变量的数值。                    |
+| system_variables     | BOOL(0)        | 指示配置变量是否为系统级别的变量。 |
+
+### `mo_transactions` 视图
+
+| 列名          | 数据类型          | 描述                                  |
+| ------------- | --------------- | ------------------------------------ |
+| cn_id        | VARCHAR(65535) | 唯一标识 CN（Compute Node）的 ID。    |
+| txn_id       | VARCHAR(65535) | 唯一标识事务的 ID。                  |
+| create_ts    | VARCHAR(65535) | 记录事务创建时间戳，遵循 RFC3339Nano 格式 ("2006-01-02T15:04:05.999999999Z07:00")。   |
+| snapshot_ts  | VARCHAR(65535) | 表示事务的快照时间戳，以物理时间和逻辑时间的形式表示。   |
+| prepared_ts  | VARCHAR(65535) | 表示事务的 prepared 时间戳，以物理时间和逻辑时间的形式表示。  |
+| commit_ts    | VARCHAR(65535) | 表示事务的 commit 时间戳，以物理时间和逻辑时间的形式表示。|
+| txn_mode     | VARCHAR(65535) | 标识事务模式，可以是悲观事务或乐观事务。   |
+| isolation    | VARCHAR(65535) | 表示事务的隔离级别，可以是 SI（Snapshot Isolation）或 RC（Read Committed）。  |
+| user_txn     | VARCHAR(65535) | 指示用户事务，即用户通过客户端连接到 MatrixOne 并执行的 SQL 操作所创建的事务。   |
+| txn_status   | VARCHAR(65535) | 表示事务的当前状态，可能的取值包括 active（活跃）、committed（已提交）、aborting（中止中）、aborted（已中止）。在分布式事务 2PC 模式下，还会包括 prepared（已准备）和 committing（提交中）。  |
+| table_id     | VARCHAR(65535) | 表示事务所涉及的表的 ID。  |
+| lock_key     | VARCHAR(65535) | 表示锁的类型，可以是 range（范围锁）或 point（点锁）。   |
+| lock_content | VARCHAR(65535) | point 锁时表示单个值，range 锁时表示范围，通常以 "low - high" 形式表示。请注意，事务可能涉及多个锁，但此处仅展示第一个锁。|
+| lock_mode    | VARCHAR(65535) | 表示锁的模式，可以是互斥锁（exclusive）或共享锁（shared）。   |
+
+### `mo_columns` 表
 
 | 列属性           | 类型        | 描述                                               |
 | --------------------- | --------------- | ------------------------------------------------------------ |
@@ -73,176 +293,34 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | attr_update           | varchar(1024)   | 更新表达式                                            |
 | attr_is_clusterby     | tinyint(1)      | 此列是否作为 cluster by 关键字来建表   |
 
-### mo_table_partitions table
+### `mo_tables` 表
 
-| 列属性      | 类型        | 描述     |
-| ------------ | ------------ | ------------ |
-| table_id             | BIGINT UNSIGNED(64)   | 当前分区表的 ID   |
-| database_id          | BIGINT UNSIGNED(64)   | 当前分区表所属的数据库的 ID   |
-| number               | SMALLINT UNSIGNED(16) | 当前分区编号。所有分区都按照定义的顺序进行索引，其中 1 是分配给第一个分区的数字   |
-| name                 | VARCHAR(64)           | 分区的名称   |
-| partition_type       | VARCHAR(50)           | 存放表的分区类型信息，如果是分区表，其值枚举为"KEY"， "LINEAR_KEY"，"HASH"，"LINEAR_KEY_51"，"RANGE"，"RANGE_COLUMNS"，"LIST"，"LIST_COLUMNS"；如果不是分区表，partition_type 的值为空字符串。__Note:__ MatrixOne 暂不支持 `RANGE` 和 `LIST` 分区。   |
-| partition_expression | VARCHAR(2048)         | 创建分区表的的 `CREATE TABLE` 或 `ALTER TABLE` 语句中使用的分区函数的表达式。 |
-| description_utf8     | TEXT(0)               | 此列用于 `RANGE` 和 `LIST` 分区。对于 `RANGE` 分区，它包含分区的 `VALUES LESS THAN` 子句中设置的值，该值可以是整数或 `MAXVALUE`。对于 `LIST` 分区，此列包含分区的 `values in` 子句中定义的值，该子句是逗号分隔的整数值列表。对于不是 `RANGE` 或 `LIST` 的分区，此列始终为 NULL。__Note:__ MatrixOne 暂不支持 `RANGE` 和 `LIST` 分区，此列为 NULL |
-| comment              | VARCHAR(2048)         | 注释的文本。否则，此值为空。   |
-| options              | TEXT(0)               | 分区的选项信息，暂为 `NULL`  |
-| partition_table_name | VARCHAR(1024)         | 当前分区对应的分区子表名字   |
-
-### mo_account table (仅 `sys` 租户可见)
-
-| 列属性      | 类型        | 描述     |
-| ------------ | ------------ | ------------ |
-| account_id   | int unsigned | 租户 ID，主键  |
-| account_name | varchar(100) | 租户名  |
-| status       | varchar(100) | 开启/暂停/限制 |
-| created_time | timestamp    | 创建时间  |
-| comment     | varchar(256)  | 注释      |
-| suspended_time | TIMESTAMP    | 修改租户状态的时间|
-| version | bigint unsigned    | 当前租户版本状态|
-
-### mo_role table
-
-| 列属性      | 类型        | 描述                      |
-| ------------ | ------------ | ----------------------------- |
-| role_id      | int unsigned | 角色 ID，主键                  |
-| role_name    | varchar(100) | 角色名称                     |
-| creator      | int unsigned | 用户 ID                     |
-| owner        | int unsigned | MatrixOne 管理员/租户管理员拥有者 ID |
-| created_time | timestamp    | 创建时间                   |
-| comment     | text         | 注释                      |
-
-### mo_user table
-
-| 列属性               | 类型        | 描述            |
-| --------------------- | ------------ | ------------------- |
-| user_id               | int          | 用户 ID，主键         |
-| user_host             | varchar(100) |   用户主机地址                  |
-| user_name             | varchar(100) |    用户名                 |
-| authentication_string | varchar(100) |  密码加密的认证字符串     |
-| status                | varchar(8)   | 开启、锁定、失效 |
-| created_time          | timestamp    |    用户创建时间                 |
-| expired_time          | timestamp    |      用户过期时间               |
-| login_type            | varchar(16)  | ssl/密码/其他 |
-| creator               | int | 创建此用户的创建者 ID              |
-| owner                 | int | 此用户的管理员 ID      |
-| default_role          | int | 此用户的默认角色 ID          |
-
-### mo_user_grant table
-
-| 列属性           | 类型        | 描述                            |
-| ----------------- | ------------ | ----------------------------------- |
-| role_id           | int unsigned | 被授权角色 ID，联合主键        |
-| user_id           | int unsigned | 获得授权角色的用户 ID，联合主键   |
-| granted_time      | timestamp    | 授权时间                       |
-| with_grant_option | bool         | 是否允许获得授权用户再授权给其他用户或角色 |
-
-### mo_role_grant table
-
-| 列属性           | 类型        | 描述                            |
-| ----------------- | ------------ | ----------------------------------- |
-| granted_id        | int        | 被授予的角色 ID，联合主键             |
-| grantee_id        | int        | 要授予其他角色的角色 ID，联合主键            |
-| operation_role_id | int        | 操作角色 ID                   |
-| operation_user_id | int        | 操作用户 ID                  |
-| granted_time      | timestamp    | 授权时间                      |
-| with_grant_option | bool         | 是否允许获得授权角色再授权给其他用户或角色 |
-
-### mo_role_privs table
-
-| 列属性           | 类型           | 描述                            |
-| ----------------- | --------------- | ----------------------------------- |
-| role_id           | int unsigned    | 角色 ID，联合主键                   |
-| role_name         | varchar(100)    | 角色名：accountadmin/public                           |
-| obj_type          | varchar(16)     | 对象类型：account/database/table，联合主键                         |
-| obj_id            | bigint unsigned | 对象 ID，联合主键                        |
-| privilege_id      | int             | 权限 ID，联合主键                     |
-| privilege_name    | varchar(100)    | 权限名：权限列表                                   |
-| privilege_level   | varchar(100)    | 权限级别，联合主键                                   |
-| operation_user_id | int unsigned    | 操作用户 ID                             |
-| granted_time      | timestamp       | 授权时间                                 |
-| with_grant_option | bool            | 是否允许授权|
-
-### mo_stages table
-
-| 列属性            | 类型             | 描述               |
-| -----------------| --------------- | ----------------- |
-| stage_id          | INT UNSIGNED(32) | 数据阶段 ID |
-| stage_name        | VARCHAR(64)      | 数据阶段名称 |
-| url               | TEXT(0)          | 对象存储的路径（不含认证）、文件系统的路径 |
-| stage_credentials | TEXT(0)          | 认证信息，加密后保存 |
-| stage_status      | VARCHAR(64)      | ENABLED/DISABLED  默认：DISABLED |
-| created_time      | TIMESTAMP(0)     | 创建时间 |
-| comment           | TEXT(0)          | 注释   |
-
-### mo_user_defined_function table
-
-| 列属性            | 类型             | 描述               |
-| -----------------| --------------- | ----------------- |
-| function_id          | INT(32)       | 函数的 ID，主键    |
-| name                 | VARCHAR(100)  |  函数的名称        |
-| owner                | INT UNSIGNED(32) | 创建函数的角色 ID  |
-| args                 | TEXT(0)       |函数的参数列表       |
-| rettype              | VARCHAR(20)   | 函数的返回类型 |
-| body                 | TEXT(0)       |函数的函数体     |
-| language             | VARCHAR(20)   |  函数所使用的语言      |
-| db                   | VARCHAR(100)  | 函数所在的数据库    |
-| definer              | VARCHAR(50)   | 定义函数的用户名称     |
-| modified_time        | TIMESTAMP(0)  | 函数最后一次修改的时间  |
-| created_time         | TIMESTAMP(0)  | 函数的创建时间    |
-| type                 | VARCHAR(10)   |函数的类型，默认 FUNCTION   |
-| security_type        | VARCHAR(10)   | 安全处理方式，统一值 DEFINER  |
-| comment              | VARCHAR(5000) | 创建函数的注释 |
-| character_set_client | VARCHAR(64)   | 客户端字符集：utf8mb4  |
-| collation_connection | VARCHAR(64)   | 连接排序：utf8mb4_0900_ai_ci   |
-| database_collation   | VARCHAR(64)   | 数据库连接排序：utf8mb4_0900_ai_ci  |
-
-### mo_mysql_compatbility_mode table
-
-| 列属性            | 类型             | 描述               |
-| -----------------| --------------- | ----------------- |
-| configuration_id | INT(32)       | 配置项 id，自增列，作为主键区分不同的配置 |
-| account_name     | VARCHAR(300)  | 配置所在的租户名称  |
-| dat_name         | VARCHAR(5000) | 配置所在的数据库名称  |
-| configuration    | JSON(0)       | 配置内容，以 JSON 形式保存   |
-
-### mo_pubs table
-
-| 列属性            | 类型             | 描述               |
-| -----------------| --------------- | ----------------- |
-| pub_name      | VARCHAR(64)         | 发布名称|
-| database_name | VARCHAR(5000)       |  发布数据的名称 |
-| database_id   | BIGINT UNSIGNED(64) | 发布数据库的 ID，与 mo_database 表中的 dat_id 对应  |
-| all_table     | BOOL(0)             | 发布库是否包含 database_id 对应数据库内的所有表 |
-| all_account   | BOOL(0)             | 是否所有 account 都可以订阅该发布库 |
-| table_list    | TEXT(0)             | 在非 all table 时，发布库内包含的表清单，表名与 database_id 对应数据库下的表一一对应|
-| account_list  | TEXT(0)             |在非 all account 时，允许订阅该发布库的 account 清单|
-| created_time  | TIMESTAMP(0)        |创建发布库的时间   |
-| owner         | INT UNSIGNED(32)    | 创建发布库对应的角色 ID |
-| creator       | INT UNSIGNED(32)    |  创建发布库对应的用户 ID  |
-| comment       | TEXT(0)             | 创建发布库的备注信息  |
-
-### mo_indexes table
-
-| 列属性            | 类型             | 描述               |
-| -----------------| --------------- | ----------------- |
-| id               | BIGINT UNSIGNED(64) |    索引 ID            |
-| table_id         | BIGINT UNSIGNED(64) |    索引所在表的 ID            |
-| database_id      | BIGINT UNSIGNED(64) |    索引所在数据库的 ID            |
-| name             | VARCHAR(64)         |  索引的名字              |
-| type             | VARCHAR(11)         |  索引的类型，包括主键索引（PRIMARY），唯一索引（UNIQUE），次级索引（MULTIPLE）     |
-| is_visible       | TINYINT(8)          | 索引是否可见，1 为可见，0 不可见（目前 MatrixOne 的索引全部为可见索引）  |
-| hidden           | TINYINT(8)          | 索引是否为隐藏索引，1 为隐藏索引，0 为非隐藏索引|
-| comment          | VARCHAR(2048)       |  索引的注释信息     |
-| column_name      | VARCHAR(256)        | 索引的组成列的列名  |
-| ordinal_position | INT UNSIGNED(32)    | 索引中的列序号，从 1 开始    |
-| options          | TEXT(0)             | 索引的 options 选项信息   |
-| index_table_name | VARCHAR(5000)       |  该索引对应的索引表的表名，目前只有唯一索引含有索引表    |
+| 列属性        | 类型           | 描述                                                     |
+| -------------- | --------------- | ---------------------------------------------------- |
+| rel_id         | bigint unsigned | 主键，表 ID                                 |
+| relname        | varchar(100)    | 表、索引、视图等的名称                         |
+| reldatabase    | varchar(100)    | 包含此关系的数据库，参考 mo_database.datname |
+| reldatabase_id | bigint unsigned | 包含此关系的数据库 ID，参考 mo_database.datid |
+| relpersistence | varchar(100)    | p = 永久表<br> t = 临时表                     |
+| relkind        | varchar(100)    | r = 普通表<br> e = 外部表<br> i = 索引<br> S = 序列<br> v = 视图<br> m = 物化视图 |
+| rel_comment    | varchar(100)    |                                                              |
+| rel_createsql  | varchar(100)    | 创建表 SQL 语句                                 |
+| created_time   | timestamp       | 创建时间                                                |
+| creator        | int unsigned    | 创建者 ID                                                   |
+| owner          | int unsigned    | 创建者的默认角色 ID                                 |
+| account_id     | int unsigned    | 租户 id                                                    |
+| partitioned    | blob            | 按语句分区                                       |
+| partition_info    | blob            | 分区信息                                       |
+| viewdef        | blob            | 视图定义语句                                   |
+| constraint        | varchar(5000)            | 与表相关的约束                       |
+| rel_version     | INT UNSIGNED(0)    | 主键，表的版本号   |
+| catalog_version | INT UNSIGNED(0)    | 系统表的版本号 |
 
 ## `system_metrics` 数据库
 
 `system_metrics` 收集 SQL 语句、CPU 和内存资源使用的状态和统计信息。
 
-`system_metrics` 表一些相同的列类型，这些表中的字段描述如下：
+`metrics` 表一些相同的列类型，这些表中的字段描述如下：
 
 - collecttime：收集时间。
 

@@ -247,6 +247,7 @@ nav:
         - ENUM 类型: MatrixOne/Reference/Data-Types/enum-type.md
         - UUID 数据类型: MatrixOne/Reference/Data-Types/uuid-type.md
         - 精确数值类型-DECIMAL: MatrixOne/Reference/Data-Types/fixed-point-types.md
+        - 向量数据类型: MatrixOne/Reference/Data-Types/vector-type.md
       - SQL 目录:
         - SQL 语句的分类: MatrixOne/Reference/SQL-Reference/SQL-Type.md
         - 数据定义语言（DDL）:
@@ -515,6 +516,14 @@ nav:
               - REGEXP_LIKE(): MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/regexp-like.md
               - REGEXP_REPLACE(): MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/regexp-replace.md
               - REGEXP_SUBSTR(): MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/regexp-substr.md
+          - 向量类:
+            - 基本操作符: MatrixOne/Reference/Functions-and-Operators/Vector/arithmetic.md
+            - 数学计算: MatrixOne/Reference/Functions-and-Operators/Vector/misc.md
+            - 内积计算: MatrixOne/Reference/Functions-and-Operators/Vector/inner_product.md
+            - 余弦相似度计算: MatrixOne/Reference/Functions-and-Operators/Vector/cosine_similarity.md
+            - L1 范数函数: MatrixOne/Reference/Functions-and-Operators/Vector/l1_norm.md
+            - L2 范数函数: MatrixOne/Reference/Functions-and-Operators/Vector/l2_norm.md
+            - 维度函数: MatrixOne/Reference/Functions-and-Operators/Vector/vector_dims.md
           - 表函数:
             - UNNEST(): MatrixOne/Reference/Functions-and-Operators/Table/unnest.md
           - 窗口函数:
