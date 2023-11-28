@@ -1,12 +1,24 @@
-# 向量
+# 向量类型
 
-## 什么是向量
+## 什么是向量？
 
-在数据库中，向量通常是一组数字，它们以特定的方式排列，以表示某种数据或特征。这些向量可以是一维数组、多维数组或具有更高维度的数据结构。在机器学习和数据分析领域中，向量用于表示数据点、特征或模型参数。
+在数据库中，向量通常是一组数字，它们以特定的方式排列，以表示某种数据或特征。这些向量可以是一维数组、多维数组或具有更高维度的数据结构。在机器学习和数据分析领域中，向量用于表示数据点、特征或模型参数。它们通常是用来处理非结构化数据，如图片，语音，文本等，以通过机器学习模型，将非结构化数据转化为 embedding 向量，随后处理分析这些数据。
 
-## 向量的优点
 
-数据库拥有向量能力意味着数据库系统具备存储、查询和分析向量数据的能力。这些向量通常与复杂的数据分析、机器学习和数据挖掘任务相关。以下是数据库拥有向量能力的一些优点：
+![vector type](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/vector/vector_introduction.png)
+
+
+## 什么是向量检索？
+
+
+向量检索又称为近似最近邻搜索(Approximate Nearest Neighbor Search, ANNS)，是一种在大规模高维向量数据中 寻找与给定查询向量相似的向量的技术。向量检索在许多AI领域 具有广泛的应用，如图像检索、文本检索、语音识别、推荐系统等。向量检索与传统数据库检索有很大差别，传统数据库上的标量搜索主要针对结构化数据进行精确的数据查询，而向量搜索主要针对非结构化数据向量化之后的向量数据进行相似检索，只能近似获得最匹配的结果。
+
+![vector vs scalar](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/vector/vector_vs_scalar.png)
+
+
+## 向量检索的应用场景
+
+数据库拥有向量能力意味着数据库系统具备存储、查询和分析向量数据的能力。这些向量通常与复杂的数据分析、机器学习和数据挖掘任务相关。以下是数据库拥有向量处理能力后的应用场景：
 
 - **生成式 AI 应用程序**：这些数据库可以作为生成式 AI 应用程序的后端，使它们能够根据用户提供的查询获取最近邻结果，提高输出质量和相关性。
 
@@ -16,20 +28,22 @@
 
 - **异常检测**：向量数据库可以用来存储代表正常行为的特征向量。然后可以通过比较输入向量和存储向量来检测异常。这在网络安全和工业质量控制中很有用。
 
-## 开始前准备
 
-在阅读本页面之前，你需要准备以下事项：
+## MatrixOne 的向量数据类型
 
-- 了解并已经完成构建 MatrixOne 集群。
-- 了解什么是[数据库模式](overview.md)。
+在 MatrixOne 中，向量被设计成一种数据类型，它类似于编程语言中的 Array 数组( MatrixOne 目前还不支持数组类型)，但是是一种较为特殊的数组类型。首先，它是一个一维数组类型，意味着它不能用来构建 Matrix 矩阵。另外目前仅支持 `float32` 及 `float64` 类型的向量，分别称之为 `vecf32` 与 `vecf64` 而不支持字符串类型和整型类型的数字。
 
-## 如何使用向量
+创建一个向量列时，我们可以指定向量列的维度大小，如vecf32(3)，这个维度即向量的数组的长度大小，最大可支持到 65,536 维度。
+
+## 如何在 SQL 中使用向量类型
 
 使用向量的语法与常规建表、插入数据、查询数据相同：
 
 ### 创建向量列
 
 你可以按照下面的 SQL 语句创建了两个向量列，一个是 Float32 类型，另一个是 Float64 类型，并且可以将两个向量列的维度都设置为 3。
+
+目前向量类型不能作为主键或者唯一键。
 
 ```
 create table t1(a int, b vecf32(3), c vecf64(3));
@@ -89,6 +103,20 @@ mysql> select encode(b, "hex") from t1;
 +--------------------------+
 2 rows in set (0.00 sec)
 ```
+
+## 支持的算子与函数
+
+* 基本二元操作符：[`+`, `-`, `*`, `/`](../Functions-and-Operators/Vector/arithmetic.md).
+* 比较操作符：`=`,`!=`, `>`, `>=` , `<`, `<=`.
+* 一元函数: [`sqrt`, `abs`, `cast`](../Functions-and-Operators/Vector/misc.md).
+* 自动类型转换: 
+    * `vecf32` + `vecf64` = `vecf64`.
+    * `vecf32` + `varchar` = `vecf32`.
+* 向量一元函数：
+    * 求和函数 [`summation`](../Functions-and-Operators/Vector/misc.md), L1 范数函数 [`l1_norm`](../Functions-and-Operators/Vector/l1_norm.md), L2 范数函数 [`l2_norm`](../Functions-and-Operators/Vector/l2_norm.md), 维度函数 [`vector_dims`](../Functions-and-Operators/Vector/vector_dims.md).
+* 向量二元函数：
+    * 内积函数 [`inner_product`](../Functions-and-Operators/Vector/inner_product.md), 余弦相似度函数 [`cosine_similarity`](../Functions-and-Operators/Vector/cosine_similarity.md).
+* 聚合函数: `count`.
 
 ## 示例 - Top K 查询
 
@@ -193,20 +221,3 @@ mysql> SELECT * FROM t1 ORDER BY 1 - cosine_similarity(b, '[3,1,2]') LIMIT 5;
 
     这种方法可以显著提高数据插入的效率。
 
-## 限制
-
-- 目前，MatrixOne 向量类型支持 float32 和 float64 类型。
-- 向量不能作为主键或唯一键。
-- 向量的最大维度为 65536。
-
-## 参考文档
-
-更多关于向量函数的文档，参见：
-
-- [inner_product()](../../Reference/Functions-and-Operators/1.1-Vector/inner_product.md)
-- [l1_norm()](../../Reference/Functions-and-Operators/1.1-Vector/l1_norm.md)
-- [l2_norm()](../../Reference/Functions-and-Operators/1.1-Vector/l2_norm.md)
-- [cosine_similarity()](../../Reference/Functions-and-Operators/1.1-Vector/cosine_similarity.md)
-- [vector_dims()](../../Reference/Functions-and-Operators/1.1-Vector/vector_dims.md)
-- [Arithemetic Operators](../../Reference/Functions-and-Operators/1.1-Vector/arithmetic.md)
-- [Misc Functions](../../Reference/Functions-and-Operators/1.1-Vector/misc.md)
