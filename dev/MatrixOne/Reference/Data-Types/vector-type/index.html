@@ -9,20 +9,24 @@
       
       
       
+        <link rel="prev" href="../fixed-point-types/">
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      
+        <link rel="next" href="../../SQL-Reference/SQL-Type/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.21">
     
     
       
-        <title>CREATE STAGE - MatrixOne 中文文档</title>
+        <title>向量数据类型 - MatrixOne 中文文档</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -38,9 +42,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-stage" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +91,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://www.matrixorigin.cn" title="MatrixOne 中文文档" class="md-header__button md-logo" aria-label="MatrixOne 中文文档" data-md-component="logo">
       
-  <img src="../../../../../assets/new-logo.png" alt="logo">
+  <img src="../../../../assets/new-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -103,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CREATE STAGE
+              向量数据类型
             
           </span>
         </div>
@@ -197,13 +201,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
         MatrixOne
       </a>
     </li>
@@ -239,7 +245,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://www.matrixorigin.cn" title="MatrixOne 中文文档" class="md-nav__button md-logo" aria-label="MatrixOne 中文文档" data-md-component="logo">
       
-  <img src="../../../../../assets/new-logo.png" alt="logo">
+  <img src="../../../../assets/new-logo.png" alt="logo">
 
     </a>
     MatrixOne 中文文档
@@ -265,14 +271,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
       
       
       
@@ -281,7 +289,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           MatrixOne
@@ -294,7 +302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         主页
       </a>
     </li>
@@ -335,7 +343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/matrixone-introduction/" class="md-nav__link">
+      <a href="../../../Overview/matrixone-introduction/" class="md-nav__link">
         MatrixOne 简介
       </a>
     </li>
@@ -349,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/matrixone-feature-list/" class="md-nav__link">
+      <a href="../../../Overview/matrixone-feature-list/" class="md-nav__link">
         MatrixOne 功能清单
       </a>
     </li>
@@ -390,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/feature/key-feature-htap/" class="md-nav__link">
+      <a href="../../../Overview/feature/key-feature-htap/" class="md-nav__link">
         混合负载 HTAP
       </a>
     </li>
@@ -404,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/feature/key-feature-multi-accounts/" class="md-nav__link">
+      <a href="../../../Overview/feature/key-feature-multi-accounts/" class="md-nav__link">
         多租户
       </a>
     </li>
@@ -418,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/feature/scalability/" class="md-nav__link">
+      <a href="../../../Overview/feature/scalability/" class="md-nav__link">
         极致扩展性
       </a>
     </li>
@@ -432,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/feature/cost-effective/" class="md-nav__link">
+      <a href="../../../Overview/feature/cost-effective/" class="md-nav__link">
         高性价比
       </a>
     </li>
@@ -446,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/feature/high-availability/" class="md-nav__link">
+      <a href="../../../Overview/feature/high-availability/" class="md-nav__link">
         高可用
       </a>
     </li>
@@ -460,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/feature/mysql-compatibility/" class="md-nav__link">
+      <a href="../../../Overview/feature/mysql-compatibility/" class="md-nav__link">
         MySQL 兼容性
       </a>
     </li>
@@ -508,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/architecture/matrixone-architecture-design/" class="md-nav__link">
+      <a href="../../../Overview/architecture/matrixone-architecture-design/" class="md-nav__link">
         整体架构概述
       </a>
     </li>
@@ -522,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/architecture/architecture-tae/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-tae/" class="md-nav__link">
         存储引擎架构详解
       </a>
     </li>
@@ -536,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/architecture/architecture-logservice/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-logservice/" class="md-nav__link">
         Logservice 架构详解
       </a>
     </li>
@@ -550,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/architecture/architecture-logtail/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-logtail/" class="md-nav__link">
         Logtail 协议详解
       </a>
     </li>
@@ -564,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/architecture/architecture-transaction-lock/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-transaction-lock/" class="md-nav__link">
         事务与锁机制实现详解
       </a>
     </li>
@@ -578,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/architecture/architecture-proxy/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-proxy/" class="md-nav__link">
         Proxy 架构详解
       </a>
     </li>
@@ -592,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/architecture/architecture-cold-hot-data-separation/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-cold-hot-data-separation/" class="md-nav__link">
         数据缓存及冷热数据分离架构详解
       </a>
     </li>
@@ -606,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/architecture/streaming/" class="md-nav__link">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
         流引擎架构详解
       </a>
     </li>
@@ -627,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Overview/whats-new/" class="md-nav__link">
+      <a href="../../../Overview/whats-new/" class="md-nav__link">
         最新动态
       </a>
     </li>
@@ -702,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
+      <a href="../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
         单机部署 MatrixOne 概述
       </a>
     </li>
@@ -743,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/install-on-macos/install-on-macos-method1/" class="md-nav__link">
+      <a href="../../../Get-Started/install-on-macos/install-on-macos-method1/" class="md-nav__link">
         使用源代码部署
       </a>
     </li>
@@ -757,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/install-on-macos/install-on-macos-method2/" class="md-nav__link">
+      <a href="../../../Get-Started/install-on-macos/install-on-macos-method2/" class="md-nav__link">
         使用二进制包部署
       </a>
     </li>
@@ -771,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/install-on-macos/install-on-macos-method3/" class="md-nav__link">
+      <a href="../../../Get-Started/install-on-macos/install-on-macos-method3/" class="md-nav__link">
         使用 Docker 部署
       </a>
     </li>
@@ -819,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/install-on-linux/install-on-linux-method1/" class="md-nav__link">
+      <a href="../../../Get-Started/install-on-linux/install-on-linux-method1/" class="md-nav__link">
         使用源代码部署
       </a>
     </li>
@@ -833,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/install-on-linux/install-on-linux-method2/" class="md-nav__link">
+      <a href="../../../Get-Started/install-on-linux/install-on-linux-method2/" class="md-nav__link">
         使用二进制包部署
       </a>
     </li>
@@ -847,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/install-on-linux/install-on-linux-method3/" class="md-nav__link">
+      <a href="../../../Get-Started/install-on-linux/install-on-linux-method3/" class="md-nav__link">
         使用 Docker 部署
       </a>
     </li>
@@ -875,7 +883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Get-Started/basic-sql/" class="md-nav__link">
+      <a href="../../../Get-Started/basic-sql/" class="md-nav__link">
         SQL 的基本操作
       </a>
     </li>
@@ -923,7 +931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/develop-overview/" class="md-nav__link">
+      <a href="../../../Develop/develop-overview/" class="md-nav__link">
         概述
       </a>
     </li>
@@ -964,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/connect-mo/database-client-tools/" class="md-nav__link">
+      <a href="../../../Develop/connect-mo/database-client-tools/" class="md-nav__link">
         客户端工具连接
       </a>
     </li>
@@ -1005,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
+      <a href="../../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
         JDBC 连接
       </a>
     </li>
@@ -1019,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm/" class="md-nav__link">
+      <a href="../../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm/" class="md-nav__link">
         Java ORMs 连接
       </a>
     </li>
@@ -1040,7 +1048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/connect-mo/python-connect-to-matrixone/" class="md-nav__link">
+      <a href="../../../Develop/connect-mo/python-connect-to-matrixone/" class="md-nav__link">
         Python 连接
       </a>
     </li>
@@ -1054,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/connect-mo/connect-to-matrixone-with-go/" class="md-nav__link">
+      <a href="../../../Develop/connect-mo/connect-to-matrixone-with-go/" class="md-nav__link">
         Golang 连接
       </a>
     </li>
@@ -1102,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/overview/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/overview/" class="md-nav__link">
         概述
       </a>
     </li>
@@ -1116,7 +1124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/create-database/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/create-database/" class="md-nav__link">
         创建数据库
       </a>
     </li>
@@ -1130,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/create-table/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/create-table/" class="md-nav__link">
         创建表
       </a>
     </li>
@@ -1144,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/create-view/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/create-view/" class="md-nav__link">
         创建视图
       </a>
     </li>
@@ -1158,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/create-temporary-table/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/create-temporary-table/" class="md-nav__link">
         创建临时表
       </a>
     </li>
@@ -1172,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/create-secondary-index/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/create-secondary-index/" class="md-nav__link">
         创建次级索引
       </a>
     </li>
@@ -1213,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/data-integrity/overview-of-integrity-constraint-types/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/data-integrity/overview-of-integrity-constraint-types/" class="md-nav__link">
         约束概述
       </a>
     </li>
@@ -1227,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/data-integrity/not-null-constraints/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/data-integrity/not-null-constraints/" class="md-nav__link">
         NOT NULL 非空约束
       </a>
     </li>
@@ -1241,7 +1249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/data-integrity/unique-key-constraints/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/data-integrity/unique-key-constraints/" class="md-nav__link">
         UNIQUE KEY 唯一约束
       </a>
     </li>
@@ -1255,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/data-integrity/primary-key-constraints/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/data-integrity/primary-key-constraints/" class="md-nav__link">
         PRIMARY KEY 主键约束
       </a>
     </li>
@@ -1269,7 +1277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/data-integrity/foreign-key-constraints/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/data-integrity/foreign-key-constraints/" class="md-nav__link">
         FOREIGN KEY 外键约束
       </a>
     </li>
@@ -1283,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
+      <a href="../../../Develop/schema-design/data-integrity/auto-increment-integrity/" class="md-nav__link">
         AUTO INCREMENT 自增约束
       </a>
     </li>
@@ -1365,8 +1373,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/insert-data/" class="md-nav__link">
+      <a href="../../../Develop/import-data/insert-data/" class="md-nav__link">
         INSERT 插入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/stream-load/" class="md-nav__link">
+        流式导入
       </a>
     </li>
   
@@ -1384,17 +1406,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4_4_1_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4_4_1_3" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_4_4_1_2" id="__nav_1_4_4_1_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_4_4_1_3" id="__nav_1_4_4_1_3_label" tabindex="0">
           批量插入
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_4_4_1_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_4_4_1_2">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_4_4_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_4_4_1_3">
           <span class="md-nav__icon md-icon"></span>
           批量插入
         </label>
@@ -1406,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/bulk-load/bulk-load-overview/" class="md-nav__link">
+      <a href="../../../Develop/import-data/bulk-load/bulk-load-overview/" class="md-nav__link">
         批量插入概述
       </a>
     </li>
@@ -1420,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/bulk-load/load-csv/" class="md-nav__link">
+      <a href="../../../Develop/import-data/bulk-load/load-csv/" class="md-nav__link">
         插入 csv 文件
       </a>
     </li>
@@ -1434,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/bulk-load/load-jsonline/" class="md-nav__link">
+      <a href="../../../Develop/import-data/bulk-load/load-jsonline/" class="md-nav__link">
         插入 jsonlines 文件
       </a>
     </li>
@@ -1448,7 +1470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/bulk-load/load-s3/" class="md-nav__link">
+      <a href="../../../Develop/import-data/bulk-load/load-s3/" class="md-nav__link">
         从对象存储导入文件
       </a>
     </li>
@@ -1462,7 +1484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/bulk-load/using-source/" class="md-nav__link">
+      <a href="../../../Develop/import-data/bulk-load/using-source/" class="md-nav__link">
         Source 插入
       </a>
     </li>
@@ -1490,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/update-data/" class="md-nav__link">
+      <a href="../../../Develop/import-data/update-data/" class="md-nav__link">
         更新数据
       </a>
     </li>
@@ -1504,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/delete-data/" class="md-nav__link">
+      <a href="../../../Develop/import-data/delete-data/" class="md-nav__link">
         删除数据
       </a>
     </li>
@@ -1518,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/import-data/prepared/" class="md-nav__link">
+      <a href="../../../Develop/import-data/prepared/" class="md-nav__link">
         预处理
       </a>
     </li>
@@ -1566,7 +1588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/export-data/select-into-outfile/" class="md-nav__link">
+      <a href="../../../Develop/export-data/select-into-outfile/" class="md-nav__link">
         SELECT INTO 写出
       </a>
     </li>
@@ -1580,7 +1602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/export-data/modump/" class="md-nav__link">
+      <a href="../../../Develop/export-data/modump/" class="md-nav__link">
         MODUMP 工具写出
       </a>
     </li>
@@ -1628,7 +1650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/read-data/query-data-single-table/" class="md-nav__link">
+      <a href="../../../Develop/read-data/query-data-single-table/" class="md-nav__link">
         单表读取
       </a>
     </li>
@@ -1642,7 +1664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/read-data/multitable-join-query/" class="md-nav__link">
+      <a href="../../../Develop/read-data/multitable-join-query/" class="md-nav__link">
         多表连接查询
       </a>
     </li>
@@ -1656,7 +1678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/read-data/subquery/" class="md-nav__link">
+      <a href="../../../Develop/read-data/subquery/" class="md-nav__link">
         子查询
       </a>
     </li>
@@ -1670,7 +1692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/read-data/views/" class="md-nav__link">
+      <a href="../../../Develop/read-data/views/" class="md-nav__link">
         视图
       </a>
     </li>
@@ -1684,7 +1706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/read-data/cte/" class="md-nav__link">
+      <a href="../../../Develop/read-data/cte/" class="md-nav__link">
         公共表表达式
       </a>
     </li>
@@ -1698,7 +1720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/read-data/window-function/" class="md-nav__link">
+      <a href="../../../Develop/read-data/window-function/" class="md-nav__link">
         窗口函数
       </a>
     </li>
@@ -1746,7 +1768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Publish-Subscribe/multi-account-overview/" class="md-nav__link">
+      <a href="../../../Develop/Publish-Subscribe/multi-account-overview/" class="md-nav__link">
         多租户概述
       </a>
     </li>
@@ -1760,7 +1782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
+      <a href="../../../Develop/Publish-Subscribe/pub-sub-overview/" class="md-nav__link">
         发布订阅
       </a>
     </li>
@@ -1808,7 +1830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Transactions/common-transaction-overview/" class="md-nav__link">
+      <a href="../../../Develop/Transactions/common-transaction-overview/" class="md-nav__link">
         事务通用概念
       </a>
     </li>
@@ -1849,7 +1871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Transactions/matrixone-transaction-overview/overview/" class="md-nav__link">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/overview/" class="md-nav__link">
         概述
       </a>
     </li>
@@ -1863,7 +1885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Transactions/matrixone-transaction-overview/explicit-transaction/" class="md-nav__link">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/explicit-transaction/" class="md-nav__link">
         显式事务
       </a>
     </li>
@@ -1877,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Transactions/matrixone-transaction-overview/implicit-transaction/" class="md-nav__link">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/implicit-transaction/" class="md-nav__link">
         隐式事务
       </a>
     </li>
@@ -1891,7 +1913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Transactions/matrixone-transaction-overview/pessimistic-transaction/" class="md-nav__link">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/pessimistic-transaction/" class="md-nav__link">
         悲观事务
       </a>
     </li>
@@ -1905,7 +1927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Transactions/matrixone-transaction-overview/optimistic-transaction/" class="md-nav__link">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/optimistic-transaction/" class="md-nav__link">
         乐观事务
       </a>
     </li>
@@ -1919,7 +1941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Transactions/matrixone-transaction-overview/isolation-level/" class="md-nav__link">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/isolation-level/" class="md-nav__link">
         隔离级别
       </a>
     </li>
@@ -1933,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Transactions/matrixone-transaction-overview/mvcc/" class="md-nav__link">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/mvcc/" class="md-nav__link">
         MVCC
       </a>
     </li>
@@ -1974,7 +1996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Transactions/matrixone-transaction-overview/how-to-use/" class="md-nav__link">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/how-to-use/" class="md-nav__link">
         使用指南
       </a>
     </li>
@@ -1988,7 +2010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Transactions/matrixone-transaction-overview/scenario/" class="md-nav__link">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/scenario/" class="md-nav__link">
         应用场景
       </a>
     </li>
@@ -2050,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/develop-java-crud-demo/" class="md-nav__link">
+      <a href="../../../Tutorial/develop-java-crud-demo/" class="md-nav__link">
         Java 基础示例
       </a>
     </li>
@@ -2064,7 +2086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/springboot-hibernate-crud-demo/" class="md-nav__link">
+      <a href="../../../Tutorial/springboot-hibernate-crud-demo/" class="md-nav__link">
         SpringBoot 和 JPA 基础示例
       </a>
     </li>
@@ -2078,7 +2100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/springboot-mybatis-crud-demo/" class="md-nav__link">
+      <a href="../../../Tutorial/springboot-mybatis-crud-demo/" class="md-nav__link">
         SpringBoot 和 MyBatis 基础示例
       </a>
     </li>
@@ -2092,7 +2114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/develop-python-crud-demo/" class="md-nav__link">
+      <a href="../../../Tutorial/develop-python-crud-demo/" class="md-nav__link">
         Python 基础示例
       </a>
     </li>
@@ -2106,7 +2128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/sqlalchemy-python-crud-demo/" class="md-nav__link">
+      <a href="../../../Tutorial/sqlalchemy-python-crud-demo/" class="md-nav__link">
         SQLAlchemy 基础示例
       </a>
     </li>
@@ -2120,7 +2142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
+      <a href="../../../Tutorial/develop-golang-crud-demo/" class="md-nav__link">
         Golang 基础示例
       </a>
     </li>
@@ -2134,7 +2156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
+      <a href="../../../Tutorial/gorm-golang-crud-demo/" class="md-nav__link">
         Gorm 基础示例
       </a>
     </li>
@@ -2209,7 +2231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Ecological-Tools/BI-Connection/FineBI-connection/" class="md-nav__link">
+      <a href="../../../Develop/Ecological-Tools/BI-Connection/FineBI-connection/" class="md-nav__link">
         通过 FineBI 实现 MatrixOne 的可视化报表
       </a>
     </li>
@@ -2223,7 +2245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Ecological-Tools/BI-Connection/yonghong-connection/" class="md-nav__link">
+      <a href="../../../Develop/Ecological-Tools/BI-Connection/yonghong-connection/" class="md-nav__link">
         通过永洪 BI 实现 MatrixOne 的可视化报表
       </a>
     </li>
@@ -2237,7 +2259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Ecological-Tools/BI-Connection/Superset-connection/" class="md-nav__link">
+      <a href="../../../Develop/Ecological-Tools/BI-Connection/Superset-connection/" class="md-nav__link">
         通过 Superset 实现 MatrixOne 可视化监控
       </a>
     </li>
@@ -2285,7 +2307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Ecological-Tools/Computing-Engine/seatunnel-write/" class="md-nav__link">
+      <a href="../../../Develop/Ecological-Tools/Computing-Engine/seatunnel-write/" class="md-nav__link">
         使用 SeaTunnel 将数据写入 MatrixOne
       </a>
     </li>
@@ -2299,7 +2321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Ecological-Tools/Computing-Engine/DataX-write/" class="md-nav__link">
+      <a href="../../../Develop/Ecological-Tools/Computing-Engine/DataX-write/" class="md-nav__link">
         使用 DataX 将数据写入 MatrixOne
       </a>
     </li>
@@ -2347,7 +2369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Ecological-Tools/Computing-Engine/Spark/" class="md-nav__link">
+      <a href="../../../Develop/Ecological-Tools/Computing-Engine/Spark/" class="md-nav__link">
         使用 Spark 将批量数据写入 MatrixOne
       </a>
     </li>
@@ -2361,7 +2383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Ecological-Tools/Computing-Engine/Flink/" class="md-nav__link">
+      <a href="../../../Develop/Ecological-Tools/Computing-Engine/Flink/" class="md-nav__link">
         使用 Flink 将实时数据写入 MatrixOne
       </a>
     </li>
@@ -2409,7 +2431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Develop/Ecological-Tools/Scheduling-Tools/dolphinScheduler/" class="md-nav__link">
+      <a href="../../../Develop/Ecological-Tools/Scheduling-Tools/dolphinScheduler/" class="md-nav__link">
         使用 DolphinScheduler 连接 MatrixOne
       </a>
     </li>
@@ -2498,7 +2520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/deployment-topology/topology-overview/" class="md-nav__link">
+      <a href="../../../Deploy/deployment-topology/topology-overview/" class="md-nav__link">
         集群拓扑规划概述
       </a>
     </li>
@@ -2512,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/deployment-topology/experience-deployment-topology/" class="md-nav__link">
+      <a href="../../../Deploy/deployment-topology/experience-deployment-topology/" class="md-nav__link">
         体验环境
       </a>
     </li>
@@ -2526,7 +2548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/deployment-topology/minimal-deployment-topology/" class="md-nav__link">
+      <a href="../../../Deploy/deployment-topology/minimal-deployment-topology/" class="md-nav__link">
         最小生产环境
       </a>
     </li>
@@ -2540,7 +2562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/deployment-topology/recommended-prd-deployment-topology/" class="md-nav__link">
+      <a href="../../../Deploy/deployment-topology/recommended-prd-deployment-topology/" class="md-nav__link">
         推荐生产环境
       </a>
     </li>
@@ -2561,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/deploy-MatrixOne-cluster/" class="md-nav__link">
+      <a href="../../../Deploy/deploy-MatrixOne-cluster/" class="md-nav__link">
         集群部署指南
       </a>
     </li>
@@ -2602,7 +2624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/MatrixOne-start-stop/" class="md-nav__link">
+      <a href="../../../Deploy/MatrixOne-start-stop/" class="md-nav__link">
         启动与停服下线
       </a>
     </li>
@@ -2616,7 +2638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/update-MatrixOne-cluster/" class="md-nav__link">
+      <a href="../../../Deploy/update-MatrixOne-cluster/" class="md-nav__link">
         版本升级
       </a>
     </li>
@@ -2630,7 +2652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/health-check-resource-monitoring/" class="md-nav__link">
+      <a href="../../../Deploy/health-check-resource-monitoring/" class="md-nav__link">
         健康检查与资源监控
       </a>
     </li>
@@ -2644,7 +2666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/MatrixOne-cluster-Scale/" class="md-nav__link">
+      <a href="../../../Deploy/MatrixOne-cluster-Scale/" class="md-nav__link">
         集群扩缩容
       </a>
     </li>
@@ -2658,7 +2680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/mgmt-cn-group-using-proxy/" class="md-nav__link">
+      <a href="../../../Deploy/mgmt-cn-group-using-proxy/" class="md-nav__link">
         负载与租户隔离
       </a>
     </li>
@@ -2672,7 +2694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/import-data-from-minio-to-mo/" class="md-nav__link">
+      <a href="../../../Deploy/import-data-from-minio-to-mo/" class="md-nav__link">
         本地对象存储导入数据
       </a>
     </li>
@@ -2686,7 +2708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Deploy/MatrixOne-Operator-mgmt/" class="md-nav__link">
+      <a href="../../../Deploy/MatrixOne-Operator-mgmt/" class="md-nav__link">
         Operator 管理
       </a>
     </li>
@@ -2768,7 +2790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Maintain/backup-restore/backup-restore-overview/" class="md-nav__link">
+      <a href="../../../Maintain/backup-restore/backup-restore-overview/" class="md-nav__link">
         MatrixOne 备份与恢复概述
       </a>
     </li>
@@ -2782,7 +2804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Maintain/backup-restore/key-concepts/" class="md-nav__link">
+      <a href="../../../Maintain/backup-restore/key-concepts/" class="md-nav__link">
         备份与恢复相关概念
       </a>
     </li>
@@ -2796,7 +2818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Maintain/backup-restore/modump-backup-restore/" class="md-nav__link">
+      <a href="../../../Maintain/backup-restore/modump-backup-restore/" class="md-nav__link">
         mo-dump 备份与恢复
       </a>
     </li>
@@ -2844,7 +2866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Maintain/mount-data-by-docker/" class="md-nav__link">
+      <a href="../../../Maintain/mount-data-by-docker/" class="md-nav__link">
         挂载目录到 Docker 容器
       </a>
     </li>
@@ -2899,7 +2921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Migrate/migrate-overview/" class="md-nav__link">
+      <a href="../../../Migrate/migrate-overview/" class="md-nav__link">
         将数据迁移至 MatrixOne 概述
       </a>
     </li>
@@ -2913,7 +2935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Migrate/migrate-from-mysql-to-matrixone/" class="md-nav__link">
+      <a href="../../../Migrate/migrate-from-mysql-to-matrixone/" class="md-nav__link">
         将数据从 MySQL 迁移至 MatrixOne
       </a>
     </li>
@@ -2927,7 +2949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Migrate/migrate-from-oracle-to-matrixone/" class="md-nav__link">
+      <a href="../../../Migrate/migrate-from-oracle-to-matrixone/" class="md-nav__link">
         将数据从 Oracle 迁移至 MatrixOne
       </a>
     </li>
@@ -2941,7 +2963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Migrate/migrate-from-sqlserver-to-matrixone/" class="md-nav__link">
+      <a href="../../../Migrate/migrate-from-sqlserver-to-matrixone/" class="md-nav__link">
         将数据从 SQL Server 迁移至 MatrixOne
       </a>
     </li>
@@ -2955,7 +2977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Migrate/migrate-from-postgresql-to-matrixone/" class="md-nav__link">
+      <a href="../../../Migrate/migrate-from-postgresql-to-matrixone/" class="md-nav__link">
         将数据从 PostgreSQL 迁移至 MatrixOne
       </a>
     </li>
@@ -3030,7 +3052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Test/performance-testing/SSB-test-with-matrixone/" class="md-nav__link">
+      <a href="../../../Test/performance-testing/SSB-test-with-matrixone/" class="md-nav__link">
         SSB 测试
       </a>
     </li>
@@ -3044,7 +3066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Test/performance-testing/TPCH-test-with-matrixone/" class="md-nav__link">
+      <a href="../../../Test/performance-testing/TPCH-test-with-matrixone/" class="md-nav__link">
         TPCH 测试
       </a>
     </li>
@@ -3058,7 +3080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Test/performance-testing/TPCC-test-with-matrixone/" class="md-nav__link">
+      <a href="../../../Test/performance-testing/TPCC-test-with-matrixone/" class="md-nav__link">
         TPCC 测试
       </a>
     </li>
@@ -3106,7 +3128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Test/testing-tool/mo-tester/" class="md-nav__link">
+      <a href="../../../Test/testing-tool/mo-tester/" class="md-nav__link">
         MO-Tester
       </a>
     </li>
@@ -3120,7 +3142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Test/testing-tool/mo-tester-reference/" class="md-nav__link">
+      <a href="../../../Test/testing-tool/mo-tester-reference/" class="md-nav__link">
         MO-Tester 规范要求
       </a>
     </li>
@@ -3175,7 +3197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/performance-tuning-overview/" class="md-nav__link">
+      <a href="../../../Performance-Tuning/performance-tuning-overview/" class="md-nav__link">
         SQL 性能调优方法概述
       </a>
     </li>
@@ -3216,7 +3238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain/explain-overview/" class="md-nav__link">
+      <a href="../../../Performance-Tuning/explain/explain-overview/" class="md-nav__link">
         MatrixOne 执行计划概述
       </a>
     </li>
@@ -3230,7 +3252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain/explain-walkthrough/" class="md-nav__link">
+      <a href="../../../Performance-Tuning/explain/explain-walkthrough/" class="md-nav__link">
         使用 EXPLAIN 理解执行计划
       </a>
     </li>
@@ -3244,7 +3266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain/explain-joins/" class="md-nav__link">
+      <a href="../../../Performance-Tuning/explain/explain-joins/" class="md-nav__link">
         JOIN 查询的执行计划
       </a>
     </li>
@@ -3258,7 +3280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain/explain-subqueries/" class="md-nav__link">
+      <a href="../../../Performance-Tuning/explain/explain-subqueries/" class="md-nav__link">
         子查询的执行计划
       </a>
     </li>
@@ -3272,7 +3294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain/explain-aggregation/" class="md-nav__link">
+      <a href="../../../Performance-Tuning/explain/explain-aggregation/" class="md-nav__link">
         聚合查询的执行计划
       </a>
     </li>
@@ -3286,7 +3308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/explain/explain-views/" class="md-nav__link">
+      <a href="../../../Performance-Tuning/explain/explain-views/" class="md-nav__link">
         视图的执行计划
       </a>
     </li>
@@ -3334,7 +3356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/optimization-concepts/through-cluster-by/" class="md-nav__link">
+      <a href="../../../Performance-Tuning/optimization-concepts/through-cluster-by/" class="md-nav__link">
         使用 Cluster by 语句调优
       </a>
     </li>
@@ -3348,7 +3370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Performance-Tuning/optimization-concepts/through-CN-extensions/" class="md-nav__link">
+      <a href="../../../Performance-Tuning/optimization-concepts/through-CN-extensions/" class="md-nav__link">
         通过扩展 CN 提升性能
       </a>
     </li>
@@ -3403,7 +3425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/Security-Permission-Overview/" class="md-nav__link">
+      <a href="../../../Security/Security-Permission-Overview/" class="md-nav__link">
         安全与权限概览
       </a>
     </li>
@@ -3417,7 +3439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/Authentication/" class="md-nav__link">
+      <a href="../../../Security/Authentication/" class="md-nav__link">
         身份鉴别与认证
       </a>
     </li>
@@ -3431,7 +3453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/password-mgmt/" class="md-nav__link">
+      <a href="../../../Security/password-mgmt/" class="md-nav__link">
         密码管理
       </a>
     </li>
@@ -3472,7 +3494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/role-priviledge-management/about-privilege-management/" class="md-nav__link">
+      <a href="../../../Security/role-priviledge-management/about-privilege-management/" class="md-nav__link">
         权限管理概述
       </a>
     </li>
@@ -3486,7 +3508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/role-priviledge-management/app-scenarios/" class="md-nav__link">
+      <a href="../../../Security/role-priviledge-management/app-scenarios/" class="md-nav__link">
         场景案例
       </a>
     </li>
@@ -3500,7 +3522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/role-priviledge-management/best-practice/" class="md-nav__link">
+      <a href="../../../Security/role-priviledge-management/best-practice/" class="md-nav__link">
         最佳实践
       </a>
     </li>
@@ -3541,7 +3563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/how-tos/user-guide/" class="md-nav__link">
+      <a href="../../../Security/how-tos/user-guide/" class="md-nav__link">
         权限管理操作概述
       </a>
     </li>
@@ -3555,7 +3577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/how-tos/quick-start-create-account/" class="md-nav__link">
+      <a href="../../../Security/how-tos/quick-start-create-account/" class="md-nav__link">
         创建租户，验证资源隔离
       </a>
     </li>
@@ -3569,7 +3591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/how-tos/quick-start-create-user/" class="md-nav__link">
+      <a href="../../../Security/how-tos/quick-start-create-user/" class="md-nav__link">
         新租户创建用户、创建角色和授权
       </a>
     </li>
@@ -3597,7 +3619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/TLS-introduction/" class="md-nav__link">
+      <a href="../../../Security/TLS-introduction/" class="md-nav__link">
         数据加密传输
       </a>
     </li>
@@ -3611,7 +3633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Security/audit/" class="md-nav__link">
+      <a href="../../../Security/audit/" class="md-nav__link">
         安全审计
       </a>
     </li>
@@ -3630,14 +3652,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11" checked>
       
       
       
@@ -3646,7 +3670,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_11_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_11_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_11">
           <span class="md-nav__icon md-icon"></span>
           参考手册
@@ -3686,7 +3710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Variable/system-variables/system-variables-overview/" class="md-nav__link">
+      <a href="../../Variable/system-variables/system-variables-overview/" class="md-nav__link">
         系统变量概述
       </a>
     </li>
@@ -3727,7 +3751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Variable/system-variables/sql-mode/" class="md-nav__link">
+      <a href="../../Variable/system-variables/sql-mode/" class="md-nav__link">
         SQL 模式
       </a>
     </li>
@@ -3741,7 +3765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Variable/system-variables/save_query_result/" class="md-nav__link">
+      <a href="../../Variable/system-variables/save_query_result/" class="md-nav__link">
         保存查询结果支持
       </a>
     </li>
@@ -3755,7 +3779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Variable/system-variables/timezone/" class="md-nav__link">
+      <a href="../../Variable/system-variables/timezone/" class="md-nav__link">
         时区支持
       </a>
     </li>
@@ -3769,7 +3793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Variable/system-variables/lower_case_tables_name/" class="md-nav__link">
+      <a href="../../Variable/system-variables/lower_case_tables_name/" class="md-nav__link">
         大小写敏感支持
       </a>
     </li>
@@ -3790,7 +3814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Variable/custom-variable/" class="md-nav__link">
+      <a href="../../Variable/custom-variable/" class="md-nav__link">
         自定义变量
       </a>
     </li>
@@ -3838,7 +3862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Language-Structure/keywords/" class="md-nav__link">
+      <a href="../../Language-Structure/keywords/" class="md-nav__link">
         关键字
       </a>
     </li>
@@ -3852,7 +3876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Language-Structure/comment/" class="md-nav__link">
+      <a href="../../Language-Structure/comment/" class="md-nav__link">
         注释
       </a>
     </li>
@@ -3871,14 +3895,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_3" checked>
       
       
       
@@ -3887,7 +3913,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_11_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_11_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_11_3">
           <span class="md-nav__icon md-icon"></span>
           数据类型
@@ -3900,7 +3926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/data-types/" class="md-nav__link">
+      <a href="../data-types/" class="md-nav__link">
         数据类型概览
       </a>
     </li>
@@ -3914,7 +3940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/data-type-conversion/" class="md-nav__link">
+      <a href="../data-type-conversion/" class="md-nav__link">
         数据类型转换
       </a>
     </li>
@@ -3955,7 +3981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/date-time-data-types/timestamp-initialization/" class="md-nav__link">
+      <a href="../date-time-data-types/timestamp-initialization/" class="md-nav__link">
         TIMESTAMP 和 DATETIME 的自动初始化和更新
       </a>
     </li>
@@ -3969,7 +3995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/date-time-data-types/year-type/" class="md-nav__link">
+      <a href="../date-time-data-types/year-type/" class="md-nav__link">
         YEAR 类型
       </a>
     </li>
@@ -3990,7 +4016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/json-type/" class="md-nav__link">
+      <a href="../json-type/" class="md-nav__link">
         JSON 数据类型
       </a>
     </li>
@@ -4004,7 +4030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/blob-text-type/" class="md-nav__link">
+      <a href="../blob-text-type/" class="md-nav__link">
         BLOB 和 TEXT 数据类型
       </a>
     </li>
@@ -4018,7 +4044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/enum-type/" class="md-nav__link">
+      <a href="../enum-type/" class="md-nav__link">
         ENUM 类型
       </a>
     </li>
@@ -4032,7 +4058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/uuid-type/" class="md-nav__link">
+      <a href="../uuid-type/" class="md-nav__link">
         UUID 数据类型
       </a>
     </li>
@@ -4046,9 +4072,140 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Types/fixed-point-types/" class="md-nav__link">
+      <a href="../fixed-point-types/" class="md-nav__link">
         精确数值类型-DECIMAL
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          向量数据类型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        向量数据类型
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    什么是向量？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    什么是向量检索？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    向量检索的应用场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrixone" class="md-nav__link">
+    MatrixOne 的向量数据类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    如何在 SQL 中使用向量类型
+  </a>
+  
+    <nav class="md-nav" aria-label="如何在 SQL 中使用向量类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    创建向量列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    插入向量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    查询向量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    支持的算子与函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-top-k" class="md-nav__link">
+    示例 - Top K 查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    最佳实践
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4094,7 +4251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SQL-Type/" class="md-nav__link">
+      <a href="../../SQL-Reference/SQL-Type/" class="md-nav__link">
         SQL 语句的分类
       </a>
     </li>
@@ -4135,7 +4292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-database/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-database/" class="md-nav__link">
         CREATE DATABASE
       </a>
     </li>
@@ -4149,7 +4306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-index/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-index/" class="md-nav__link">
         CREATE INDEX
       </a>
     </li>
@@ -4163,7 +4320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-table/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-table/" class="md-nav__link">
         CREATE TABLE
       </a>
     </li>
@@ -4177,7 +4334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-external-table/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-external-table/" class="md-nav__link">
         CREATE EXTERNAL TABLE
       </a>
     </li>
@@ -4191,7 +4348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-publication/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-publication/" class="md-nav__link">
         CREATE PUBLICATION
       </a>
     </li>
@@ -4205,7 +4362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-sequence/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-sequence/" class="md-nav__link">
         CREATE SEQUENCE
       </a>
     </li>
@@ -4219,7 +4376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-stage/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-stage/" class="md-nav__link">
         CREATE STAGE
       </a>
     </li>
@@ -4233,7 +4390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-subscription/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-subscription/" class="md-nav__link">
         CREATE...FROM...PUBLICATION...
       </a>
     </li>
@@ -4247,7 +4404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-view/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-view/" class="md-nav__link">
         CREATE VIEW
       </a>
     </li>
@@ -4261,7 +4418,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../alter-table/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-replace-view/" class="md-nav__link">
+        CREATE OR REPLACE VIEW
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Definition-Language/alter-table/" class="md-nav__link">
         ALTER TABLE
       </a>
     </li>
@@ -4275,7 +4446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../alter-publication/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/alter-publication/" class="md-nav__link">
         ALTER PUBLICATION
       </a>
     </li>
@@ -4289,7 +4460,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../alter-stage/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/alter-sequence/" class="md-nav__link">
+        ALTER SEQUENCE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Definition-Language/alter-stage/" class="md-nav__link">
         ALTER STAGE
       </a>
     </li>
@@ -4303,7 +4488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../alter-view/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/alter-view/" class="md-nav__link">
         ALTER VIEW
       </a>
     </li>
@@ -4317,7 +4502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drop-database/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/drop-database/" class="md-nav__link">
         DROP DATABASE
       </a>
     </li>
@@ -4331,7 +4516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drop-index/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/drop-index/" class="md-nav__link">
         DROP INDEX
       </a>
     </li>
@@ -4345,7 +4530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drop-table/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/drop-table/" class="md-nav__link">
         DROP TABLE
       </a>
     </li>
@@ -4359,7 +4544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drop-publication/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/drop-publication/" class="md-nav__link">
         DROP PUBLICATION
       </a>
     </li>
@@ -4373,7 +4558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drop-sequence/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/drop-sequence/" class="md-nav__link">
         DROP SEQUENCE
       </a>
     </li>
@@ -4387,7 +4572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drop-stage/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/drop-stage/" class="md-nav__link">
         DROP STAGE
       </a>
     </li>
@@ -4401,7 +4586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drop-view/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/drop-view/" class="md-nav__link">
         DROP VIEW
       </a>
     </li>
@@ -4415,7 +4600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../truncate-table/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Definition-Language/truncate-table/" class="md-nav__link">
         TRUNCATE TABLE
       </a>
     </li>
@@ -4463,7 +4648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Language/insert/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/insert/" class="md-nav__link">
         INSERT
       </a>
     </li>
@@ -4477,7 +4662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Language/insert-into-select/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/insert-into-select/" class="md-nav__link">
         INSERT INTO SELECT
       </a>
     </li>
@@ -4491,7 +4676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Language/insert-on-duplicate/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/insert-on-duplicate/" class="md-nav__link">
         INSERT ON DUPLICATE KEY UPDATE
       </a>
     </li>
@@ -4505,7 +4690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Language/delete/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/delete/" class="md-nav__link">
         DELETE
       </a>
     </li>
@@ -4519,7 +4704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Language/update/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/update/" class="md-nav__link">
         UPDATE
       </a>
     </li>
@@ -4533,8 +4718,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Language/load-data/" class="md-nav__link">
-        LOAD DATA
+      <a href="../../SQL-Reference/Data-Manipulation-Language/load-data/" class="md-nav__link">
+        LOAD DATA INFILE
       </a>
     </li>
   
@@ -4547,7 +4732,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Language/replace/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/load-data-inline/" class="md-nav__link">
+        LOAD DATA INLINE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/replace/" class="md-nav__link">
         REPLACE
       </a>
     </li>
@@ -4566,17 +4765,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_9" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_4_3_8" id="__nav_1_11_4_3_8_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_4_3_9" id="__nav_1_11_4_3_9_label" tabindex="0">
           Information Functions
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_4_3_8">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_9">
           <span class="md-nav__icon md-icon"></span>
           Information Functions
         </label>
@@ -4588,7 +4787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Language/information-functions/last-query-id/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id/" class="md-nav__link">
         LAST_QUERY_ID()
       </a>
     </li>
@@ -4602,7 +4801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Manipulation-Language/information-functions/last-insert-id/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/information-functions/last-insert-id/" class="md-nav__link">
         LAST_INSERT_ID()
       </a>
     </li>
@@ -4657,7 +4856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/select/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/select/" class="md-nav__link">
         SELECT
       </a>
     </li>
@@ -4698,7 +4897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/subqueries/subquery/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/subquery/" class="md-nav__link">
         SUBQUERY 概述
       </a>
     </li>
@@ -4712,7 +4911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/subqueries/derived-tables/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/derived-tables/" class="md-nav__link">
         Derived Tables
       </a>
     </li>
@@ -4726,7 +4925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/subqueries/comparisons-using-subqueries/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/comparisons-using-subqueries/" class="md-nav__link">
         子查询与比较操作符的使用
       </a>
     </li>
@@ -4740,7 +4939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/subqueries/subquery-with-any-some/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/subquery-with-any-some/" class="md-nav__link">
         SUBQUERY with ANY or SOME
       </a>
     </li>
@@ -4754,7 +4953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/subqueries/subquery-with-all/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/subquery-with-all/" class="md-nav__link">
         SUBQUERY with ALL
       </a>
     </li>
@@ -4768,7 +4967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/subqueries/subquery-with-exists/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/subquery-with-exists/" class="md-nav__link">
         SUBQUERY with EXISTS
       </a>
     </li>
@@ -4782,7 +4981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/subqueries/subquery-with-in/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/subquery-with-in/" class="md-nav__link">
         SUBQUERY with IN
       </a>
     </li>
@@ -4830,7 +5029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/join/join/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/join/join/" class="md-nav__link">
         JOIN 概述
       </a>
     </li>
@@ -4844,7 +5043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/join/inner-join/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/join/inner-join/" class="md-nav__link">
         INNER JOIN
       </a>
     </li>
@@ -4858,7 +5057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/join/left-join/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/join/left-join/" class="md-nav__link">
         LEFT JOIN
       </a>
     </li>
@@ -4872,7 +5071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/join/right-join/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/join/right-join/" class="md-nav__link">
         RIGHT JOIN
       </a>
     </li>
@@ -4886,7 +5085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/join/full-join/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/join/full-join/" class="md-nav__link">
         FULL JOIN
       </a>
     </li>
@@ -4900,7 +5099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/join/outer-join/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/join/outer-join/" class="md-nav__link">
         OUTER JOIN
       </a>
     </li>
@@ -4914,7 +5113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/join/natural-join/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/join/natural-join/" class="md-nav__link">
         NATURAL JOIN
       </a>
     </li>
@@ -4935,7 +5134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/with-cte/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/with-cte/" class="md-nav__link">
         With CTE
       </a>
     </li>
@@ -4976,7 +5175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/union-intersect-minus-overview/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/union-intersect-minus-overview/" class="md-nav__link">
         联合查询概述
       </a>
     </li>
@@ -4990,7 +5189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/union/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/union/" class="md-nav__link">
         UNION
       </a>
     </li>
@@ -5004,7 +5203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/intersect/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/intersect/" class="md-nav__link">
         INTERSECT
       </a>
     </li>
@@ -5018,7 +5217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Query-Language/minus/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Query-Language/minus/" class="md-nav__link">
         MINUS
       </a>
     </li>
@@ -5073,7 +5272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Control-Language/create-account/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Control-Language/create-account/" class="md-nav__link">
         CREATE ACCOUNT
       </a>
     </li>
@@ -5087,7 +5286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Control-Language/alter-account/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Control-Language/alter-account/" class="md-nav__link">
         ALTER ACCOUNT
       </a>
     </li>
@@ -5101,7 +5300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Control-Language/create-role/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Control-Language/create-role/" class="md-nav__link">
         CREATE ROLE
       </a>
     </li>
@@ -5115,7 +5314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Control-Language/create-user/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Control-Language/create-user/" class="md-nav__link">
         CREATE USER
       </a>
     </li>
@@ -5129,7 +5328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Control-Language/alter-user/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Control-Language/alter-user/" class="md-nav__link">
         ALTER USER
       </a>
     </li>
@@ -5143,7 +5342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Control-Language/drop-account/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Control-Language/drop-account/" class="md-nav__link">
         DROP ACCOUNT
       </a>
     </li>
@@ -5157,7 +5356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Control-Language/drop-user/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Control-Language/drop-user/" class="md-nav__link">
         DROP USER
       </a>
     </li>
@@ -5171,7 +5370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Control-Language/drop-role/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Control-Language/drop-role/" class="md-nav__link">
         DROP ROLE
       </a>
     </li>
@@ -5185,7 +5384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Control-Language/grant/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Control-Language/grant/" class="md-nav__link">
         GRANT
       </a>
     </li>
@@ -5199,7 +5398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Control-Language/revoke/" class="md-nav__link">
+      <a href="../../SQL-Reference/Data-Control-Language/revoke/" class="md-nav__link">
         REVOKE
       </a>
     </li>
@@ -5274,7 +5473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-account/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-account/" class="md-nav__link">
         SHOW ACCOUNTS
       </a>
     </li>
@@ -5288,7 +5487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-databases/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-databases/" class="md-nav__link">
         SHOW DATABASES
       </a>
     </li>
@@ -5302,7 +5501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-create-table/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-create-table/" class="md-nav__link">
         SHOW CREATE TABLE
       </a>
     </li>
@@ -5316,7 +5515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-create-view/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-create-view/" class="md-nav__link">
         SHOW CREATE VIEW
       </a>
     </li>
@@ -5330,7 +5529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-create-publication/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-create-publication/" class="md-nav__link">
         SHOW CREATE PUBLICATION
       </a>
     </li>
@@ -5344,7 +5543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-tables/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-tables/" class="md-nav__link">
         SHOW TABLES
       </a>
     </li>
@@ -5358,7 +5557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-index/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-index/" class="md-nav__link">
         SHOW INDEX
       </a>
     </li>
@@ -5372,7 +5571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-collation/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-collation/" class="md-nav__link">
         SHOW COLLATION
       </a>
     </li>
@@ -5386,7 +5585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-columns/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-columns/" class="md-nav__link">
         SHOW COLUMNS
       </a>
     </li>
@@ -5400,7 +5599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-function-status/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-function-status/" class="md-nav__link">
         SHOW FUNCTION STATUS
       </a>
     </li>
@@ -5414,7 +5613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-grants/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-grants/" class="md-nav__link">
         SHOW GRANT
       </a>
     </li>
@@ -5428,7 +5627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-processlist/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-processlist/" class="md-nav__link">
         SHOW PROCESSLIST
       </a>
     </li>
@@ -5442,7 +5641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-publications/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-publications/" class="md-nav__link">
         SHOW PUBLICATIONS
       </a>
     </li>
@@ -5456,7 +5655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-roles/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-roles/" class="md-nav__link">
         SHOW ROLES
       </a>
     </li>
@@ -5470,7 +5669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-sequences/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-sequences/" class="md-nav__link">
         SHOW SEQUENCES
       </a>
     </li>
@@ -5484,7 +5683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-stage/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-stage/" class="md-nav__link">
         SHOW STAGE
       </a>
     </li>
@@ -5498,7 +5697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-subscriptions/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-subscriptions/" class="md-nav__link">
         SHOW SUBSCRIPTIONS
       </a>
     </li>
@@ -5512,7 +5711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/SHOW-Statements/show-variables/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-variables/" class="md-nav__link">
         SHOW VARIABLES
       </a>
     </li>
@@ -5560,7 +5759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/Set/set-role/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/Set/set-role/" class="md-nav__link">
         SET ROLE
       </a>
     </li>
@@ -5608,7 +5807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/use-database/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/use-database/" class="md-nav__link">
         USE DATABASE
       </a>
     </li>
@@ -5629,7 +5828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/kill/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/kill/" class="md-nav__link">
         KILL
       </a>
     </li>
@@ -5670,7 +5869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/Prepared-Statements/prepare/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
         PREPARE
       </a>
     </li>
@@ -5684,7 +5883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/Prepared-Statements/execute/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/Prepared-Statements/execute/" class="md-nav__link">
         EXECUTE
       </a>
     </li>
@@ -5698,7 +5897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/Prepared-Statements/deallocate/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/Prepared-Statements/deallocate/" class="md-nav__link">
         DEALLOCATE
       </a>
     </li>
@@ -5746,7 +5945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/Explain/explain/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/Explain/explain/" class="md-nav__link">
         EXPLAIN
       </a>
     </li>
@@ -5760,7 +5959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/Explain/explain-workflow/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/Explain/explain-workflow/" class="md-nav__link">
         EXPLAIN Output Format
       </a>
     </li>
@@ -5774,7 +5973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Other/Explain/explain-analyze/" class="md-nav__link">
+      <a href="../../SQL-Reference/Other/Explain/explain-analyze/" class="md-nav__link">
         Explain Analyze
       </a>
     </li>
@@ -5863,7 +6062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/interval/" class="md-nav__link">
+      <a href="../../Operators/interval/" class="md-nav__link">
         INTERVAL
       </a>
     </li>
@@ -5904,7 +6103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/operators/" class="md-nav__link">
+      <a href="../../Operators/operators/operators/" class="md-nav__link">
         运算符概述
       </a>
     </li>
@@ -5918,7 +6117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/operator-precedence/" class="md-nav__link">
+      <a href="../../Operators/operators/operator-precedence/" class="md-nav__link">
         运算符的优先级
       </a>
     </li>
@@ -5959,7 +6158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/arithmetic-operators/arithmetic-operators-overview/" class="md-nav__link">
+      <a href="../../Operators/operators/arithmetic-operators/arithmetic-operators-overview/" class="md-nav__link">
         算数运算符概述
       </a>
     </li>
@@ -5973,7 +6172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/arithmetic-operators/mod/" class="md-nav__link">
+      <a href="../../Operators/operators/arithmetic-operators/mod/" class="md-nav__link">
         %,MOD
       </a>
     </li>
@@ -5987,7 +6186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/arithmetic-operators/multiplication/" class="md-nav__link">
+      <a href="../../Operators/operators/arithmetic-operators/multiplication/" class="md-nav__link">
         *
       </a>
     </li>
@@ -6001,7 +6200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/arithmetic-operators/addition/" class="md-nav__link">
+      <a href="../../Operators/operators/arithmetic-operators/addition/" class="md-nav__link">
         +
       </a>
     </li>
@@ -6015,7 +6214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/arithmetic-operators/minus/" class="md-nav__link">
+      <a href="../../Operators/operators/arithmetic-operators/minus/" class="md-nav__link">
         -
       </a>
     </li>
@@ -6029,7 +6228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/arithmetic-operators/unary-minus/" class="md-nav__link">
+      <a href="../../Operators/operators/arithmetic-operators/unary-minus/" class="md-nav__link">
         -
       </a>
     </li>
@@ -6043,7 +6242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/arithmetic-operators/division/" class="md-nav__link">
+      <a href="../../Operators/operators/arithmetic-operators/division/" class="md-nav__link">
         /
       </a>
     </li>
@@ -6057,7 +6256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/arithmetic-operators/div/" class="md-nav__link">
+      <a href="../../Operators/operators/arithmetic-operators/div/" class="md-nav__link">
         DIV
       </a>
     </li>
@@ -6105,7 +6304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/assignment-operators/assignment-operators-overview/" class="md-nav__link">
+      <a href="../../Operators/operators/assignment-operators/assignment-operators-overview/" class="md-nav__link">
         赋值运算符概述
       </a>
     </li>
@@ -6119,7 +6318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/assignment-operators/equal/" class="md-nav__link">
+      <a href="../../Operators/operators/assignment-operators/equal/" class="md-nav__link">
         =
       </a>
     </li>
@@ -6167,7 +6366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/bit-functions-and-operators/bit-functions-and-operators-overview/" class="md-nav__link">
+      <a href="../../Operators/operators/bit-functions-and-operators/bit-functions-and-operators-overview/" class="md-nav__link">
         二进制运算符概述
       </a>
     </li>
@@ -6181,7 +6380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/bit-functions-and-operators/bitwise-and/" class="md-nav__link">
+      <a href="../../Operators/operators/bit-functions-and-operators/bitwise-and/" class="md-nav__link">
         &
       </a>
     </li>
@@ -6195,7 +6394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/bit-functions-and-operators/right-shift/" class="md-nav__link">
+      <a href="../../Operators/operators/bit-functions-and-operators/right-shift/" class="md-nav__link">
         >>
       </a>
     </li>
@@ -6209,7 +6408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/bit-functions-and-operators/left-shift/" class="md-nav__link">
+      <a href="../../Operators/operators/bit-functions-and-operators/left-shift/" class="md-nav__link">
         <<
       </a>
     </li>
@@ -6223,7 +6422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/bit-functions-and-operators/bitwise-xor/" class="md-nav__link">
+      <a href="../../Operators/operators/bit-functions-and-operators/bitwise-xor/" class="md-nav__link">
         ^
       </a>
     </li>
@@ -6237,7 +6436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/bit-functions-and-operators/bitwise-or/" class="md-nav__link">
+      <a href="../../Operators/operators/bit-functions-and-operators/bitwise-or/" class="md-nav__link">
         |
       </a>
     </li>
@@ -6251,7 +6450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/bit-functions-and-operators/bitwise-inversion/" class="md-nav__link">
+      <a href="../../Operators/operators/bit-functions-and-operators/bitwise-inversion/" class="md-nav__link">
         ~
       </a>
     </li>
@@ -6299,7 +6498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/cast-functions-and-operators/cast-functions-and-operators-overview/" class="md-nav__link">
+      <a href="../../Operators/operators/cast-functions-and-operators/cast-functions-and-operators-overview/" class="md-nav__link">
         强制转换函数和运算符概述
       </a>
     </li>
@@ -6313,7 +6512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/cast-functions-and-operators/binary/" class="md-nav__link">
+      <a href="../../Operators/operators/cast-functions-and-operators/binary/" class="md-nav__link">
         BINARY
       </a>
     </li>
@@ -6327,7 +6526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/cast-functions-and-operators/cast/" class="md-nav__link">
+      <a href="../../Operators/operators/cast-functions-and-operators/cast/" class="md-nav__link">
         CAST
       </a>
     </li>
@@ -6341,7 +6540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/cast-functions-and-operators/convert/" class="md-nav__link">
+      <a href="../../Operators/operators/cast-functions-and-operators/convert/" class="md-nav__link">
         CONVERT
       </a>
     </li>
@@ -6389,7 +6588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview/" class="md-nav__link">
         比较函数和运算符概述
       </a>
     </li>
@@ -6403,7 +6602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/greater-than/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/greater-than/" class="md-nav__link">
         >
       </a>
     </li>
@@ -6417,7 +6616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/greater-than-or-equal/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/greater-than-or-equal/" class="md-nav__link">
         >=
       </a>
     </li>
@@ -6431,7 +6630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/less-than/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/less-than/" class="md-nav__link">
         <
       </a>
     </li>
@@ -6445,7 +6644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/not-equal/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/not-equal/" class="md-nav__link">
         <>,!=
       </a>
     </li>
@@ -6459,7 +6658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/less-than-or-equal/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/less-than-or-equal/" class="md-nav__link">
         <=
       </a>
     </li>
@@ -6473,7 +6672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/assign-equal/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/assign-equal/" class="md-nav__link">
         =
       </a>
     </li>
@@ -6487,7 +6686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/between/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/between/" class="md-nav__link">
         BETWEEN ... AND ...
       </a>
     </li>
@@ -6501,7 +6700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/in/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/in/" class="md-nav__link">
         IN
       </a>
     </li>
@@ -6515,7 +6714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/is/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/is/" class="md-nav__link">
         IS
       </a>
     </li>
@@ -6529,7 +6728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/is-not/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/is-not/" class="md-nav__link">
         IS NOT
       </a>
     </li>
@@ -6543,7 +6742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/is-not-null/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/is-not-null/" class="md-nav__link">
         IS NOT NULL
       </a>
     </li>
@@ -6557,7 +6756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/is-null/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/is-null/" class="md-nav__link">
         IS NULL
       </a>
     </li>
@@ -6571,7 +6770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/function_isnull/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/function_isnull/" class="md-nav__link">
         ISNULL
       </a>
     </li>
@@ -6585,7 +6784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/ilike/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/ilike/" class="md-nav__link">
         ILIKE
       </a>
     </li>
@@ -6599,7 +6798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/like/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/like/" class="md-nav__link">
         LIKE
       </a>
     </li>
@@ -6613,7 +6812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/not-between/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/not-between/" class="md-nav__link">
         NOT BETWEEN ... AND ...
       </a>
     </li>
@@ -6627,7 +6826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/not-in/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/not-in/" class="md-nav__link">
         NOT IN
       </a>
     </li>
@@ -6641,7 +6840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/not-like/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/not-like/" class="md-nav__link">
         NOT LIKE
       </a>
     </li>
@@ -6655,7 +6854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/comparison-functions-and-operators/coalesce/" class="md-nav__link">
+      <a href="../../Operators/operators/comparison-functions-and-operators/coalesce/" class="md-nav__link">
         COALESCE
       </a>
     </li>
@@ -6703,7 +6902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/flow-control-functions/flow-control-functions-overview/" class="md-nav__link">
+      <a href="../../Operators/operators/flow-control-functions/flow-control-functions-overview/" class="md-nav__link">
         控制流函数概述
       </a>
     </li>
@@ -6717,7 +6916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/flow-control-functions/case-when/" class="md-nav__link">
+      <a href="../../Operators/operators/flow-control-functions/case-when/" class="md-nav__link">
         CASE WHEN
       </a>
     </li>
@@ -6731,7 +6930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/flow-control-functions/function_if/" class="md-nav__link">
+      <a href="../../Operators/operators/flow-control-functions/function_if/" class="md-nav__link">
         IF
       </a>
     </li>
@@ -6745,7 +6944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/flow-control-functions/function_ifnull/" class="md-nav__link">
+      <a href="../../Operators/operators/flow-control-functions/function_ifnull/" class="md-nav__link">
         IFNULL
       </a>
     </li>
@@ -6759,7 +6958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/flow-control-functions/function_nullif/" class="md-nav__link">
+      <a href="../../Operators/operators/flow-control-functions/function_nullif/" class="md-nav__link">
         NULLIF
       </a>
     </li>
@@ -6807,7 +7006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/logical-operators/logical-operators-overview/" class="md-nav__link">
+      <a href="../../Operators/operators/logical-operators/logical-operators-overview/" class="md-nav__link">
         逻辑运算符概述
       </a>
     </li>
@@ -6821,7 +7020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/logical-operators/and/" class="md-nav__link">
+      <a href="../../Operators/operators/logical-operators/and/" class="md-nav__link">
         AND,&&
       </a>
     </li>
@@ -6835,7 +7034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/logical-operators/not/" class="md-nav__link">
+      <a href="../../Operators/operators/logical-operators/not/" class="md-nav__link">
         NOT,!
       </a>
     </li>
@@ -6849,7 +7048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/logical-operators/or/" class="md-nav__link">
+      <a href="../../Operators/operators/logical-operators/or/" class="md-nav__link">
         OR
       </a>
     </li>
@@ -6863,7 +7062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Operators/operators/logical-operators/xor/" class="md-nav__link">
+      <a href="../../Operators/operators/logical-operators/xor/" class="md-nav__link">
         XOR
       </a>
     </li>
@@ -6952,7 +7151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/any-value/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/any-value/" class="md-nav__link">
         ANY_VALUE
       </a>
     </li>
@@ -6966,7 +7165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/avg/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/avg/" class="md-nav__link">
         AVG
       </a>
     </li>
@@ -6980,7 +7179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/bit_and/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/bit_and/" class="md-nav__link">
         BIT_AND
       </a>
     </li>
@@ -6994,7 +7193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/bit_or/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/bit_or/" class="md-nav__link">
         BIT_OR
       </a>
     </li>
@@ -7008,7 +7207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/bit_xor/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/bit_xor/" class="md-nav__link">
         BIT_XOR
       </a>
     </li>
@@ -7022,7 +7221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/count/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/count/" class="md-nav__link">
         COUNT
       </a>
     </li>
@@ -7036,7 +7235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/group-concat/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/group-concat/" class="md-nav__link">
         GROUP_CONCAT
       </a>
     </li>
@@ -7050,7 +7249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/max/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/max/" class="md-nav__link">
         MAX
       </a>
     </li>
@@ -7064,7 +7263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/median/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/median/" class="md-nav__link">
         MEDIAN
       </a>
     </li>
@@ -7078,7 +7277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/min/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/min/" class="md-nav__link">
         MIN
       </a>
     </li>
@@ -7092,7 +7291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/stddev_pop/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/stddev_pop/" class="md-nav__link">
         STDDEV_POP
       </a>
     </li>
@@ -7106,7 +7305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/sum/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/sum/" class="md-nav__link">
         SUM
       </a>
     </li>
@@ -7120,7 +7319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Aggregate-Functions/variance/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Aggregate-Functions/variance/" class="md-nav__link">
         VARIANCE
       </a>
     </li>
@@ -7168,7 +7367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/curdate/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/curdate/" class="md-nav__link">
         CURDATE()
       </a>
     </li>
@@ -7182,7 +7381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/current-timestamp/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/current-timestamp/" class="md-nav__link">
         CURRENT_TIMESTAMP()
       </a>
     </li>
@@ -7196,7 +7395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/date/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/date/" class="md-nav__link">
         DATE()
       </a>
     </li>
@@ -7210,7 +7409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/date-add/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/date-add/" class="md-nav__link">
         DATE_ADD()
       </a>
     </li>
@@ -7224,7 +7423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/date-format/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/date-format/" class="md-nav__link">
         DATE_FORMAT()
       </a>
     </li>
@@ -7238,7 +7437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/date-sub/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/date-sub/" class="md-nav__link">
         DATE_SUB()
       </a>
     </li>
@@ -7252,7 +7451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/datediff/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/datediff/" class="md-nav__link">
         DATEDIFF()
       </a>
     </li>
@@ -7266,7 +7465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/day/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/day/" class="md-nav__link">
         DAY()
       </a>
     </li>
@@ -7280,7 +7479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/dayofyear/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/dayofyear/" class="md-nav__link">
         DAYOFYEAR()
       </a>
     </li>
@@ -7294,7 +7493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/extract/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/extract/" class="md-nav__link">
         EXTRACT()
       </a>
     </li>
@@ -7308,7 +7507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/hour/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/hour/" class="md-nav__link">
         HOUR()
       </a>
     </li>
@@ -7322,7 +7521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/from-unixtime/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/from-unixtime/" class="md-nav__link">
         FROM_UNIXTIME
       </a>
     </li>
@@ -7336,7 +7535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/minute/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/minute/" class="md-nav__link">
         MINUTE()
       </a>
     </li>
@@ -7350,7 +7549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/month/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/month/" class="md-nav__link">
         MONTH()
       </a>
     </li>
@@ -7364,7 +7563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/second/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/second/" class="md-nav__link">
         SECOND()
       </a>
     </li>
@@ -7378,7 +7577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/time/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/time/" class="md-nav__link">
         TIME()
       </a>
     </li>
@@ -7392,7 +7591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/timediff/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/timediff/" class="md-nav__link">
         TIMEDIFF()
       </a>
     </li>
@@ -7406,7 +7605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/timestamp/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/timestamp/" class="md-nav__link">
         TIMESTAMP()
       </a>
     </li>
@@ -7420,7 +7619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/timestampdiff/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/timestampdiff/" class="md-nav__link">
         TIMESTAMPDIFF()
       </a>
     </li>
@@ -7434,7 +7633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/to-date/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/to-date/" class="md-nav__link">
         TO_DATE()
       </a>
     </li>
@@ -7448,7 +7647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/to-days/" class="md-nav__link">
         TO_DAYS()
       </a>
     </li>
@@ -7462,7 +7661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/to-seconds/" class="md-nav__link">
         TO_SECONDS()
       </a>
     </li>
@@ -7476,7 +7675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/unix-timestamp/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/unix-timestamp/" class="md-nav__link">
         UNIX_TIMESTAMP
       </a>
     </li>
@@ -7490,7 +7689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/utc-timestamp/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/utc-timestamp/" class="md-nav__link">
         UTC_TIMESTAMP()
       </a>
     </li>
@@ -7504,7 +7703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/week/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/week/" class="md-nav__link">
         WEEK()
       </a>
     </li>
@@ -7518,7 +7717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/weekday/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/weekday/" class="md-nav__link">
         WEEKDAY()
       </a>
     </li>
@@ -7532,7 +7731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Datetime/year/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Datetime/year/" class="md-nav__link">
         YEAR()
       </a>
     </li>
@@ -7580,7 +7779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/abs/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/abs/" class="md-nav__link">
         ABS()
       </a>
     </li>
@@ -7594,7 +7793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/acos/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/acos/" class="md-nav__link">
         ACOS()
       </a>
     </li>
@@ -7608,7 +7807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/atan/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/atan/" class="md-nav__link">
         ATAN()
       </a>
     </li>
@@ -7622,7 +7821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/ceil/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/ceil/" class="md-nav__link">
         CEIL()
       </a>
     </li>
@@ -7636,7 +7835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/cos/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/cos/" class="md-nav__link">
         COS()
       </a>
     </li>
@@ -7650,7 +7849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/cot/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/cot/" class="md-nav__link">
         COT()
       </a>
     </li>
@@ -7664,7 +7863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/exp/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/exp/" class="md-nav__link">
         EXP()
       </a>
     </li>
@@ -7678,7 +7877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/floor/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/floor/" class="md-nav__link">
         FLOOR()
       </a>
     </li>
@@ -7692,7 +7891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/ln/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/ln/" class="md-nav__link">
         LN()
       </a>
     </li>
@@ -7706,7 +7905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/log/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/log/" class="md-nav__link">
         LOG()
       </a>
     </li>
@@ -7720,7 +7919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/log2/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/log2/" class="md-nav__link">
         LOG2()
       </a>
     </li>
@@ -7734,7 +7933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/log10/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/log10/" class="md-nav__link">
         LOG10()
       </a>
     </li>
@@ -7748,7 +7947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/pi/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/pi/" class="md-nav__link">
         PI()
       </a>
     </li>
@@ -7762,7 +7961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/power/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/power/" class="md-nav__link">
         POWER()
       </a>
     </li>
@@ -7776,7 +7975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/round/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/round/" class="md-nav__link">
         ROUND()
       </a>
     </li>
@@ -7790,7 +7989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/rand/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/rand/" class="md-nav__link">
         RAND()
       </a>
     </li>
@@ -7804,7 +8003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/sin/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/sin/" class="md-nav__link">
         SIN()
       </a>
     </li>
@@ -7818,7 +8017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/sinh/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/sinh/" class="md-nav__link">
         SINH()
       </a>
     </li>
@@ -7832,7 +8031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Mathematical/tan/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Mathematical/tan/" class="md-nav__link">
         TAN()
       </a>
     </li>
@@ -7880,7 +8079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/bin/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/bin/" class="md-nav__link">
         BIN()
       </a>
     </li>
@@ -7894,7 +8093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/bit-length/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/bit-length/" class="md-nav__link">
         BIT_LENGTH()
       </a>
     </li>
@@ -7908,7 +8107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/char-length/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/char-length/" class="md-nav__link">
         CHAR_LENGTH()
       </a>
     </li>
@@ -7922,7 +8121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/concat/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/concat/" class="md-nav__link">
         CONCAT()
       </a>
     </li>
@@ -7936,7 +8135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/concat-ws/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/concat-ws/" class="md-nav__link">
         CONCAT_WS()
       </a>
     </li>
@@ -7950,7 +8149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/empty/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/empty/" class="md-nav__link">
         EMPTY()
       </a>
     </li>
@@ -7964,7 +8163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/endswith/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/endswith/" class="md-nav__link">
         ENDSWITH()
       </a>
     </li>
@@ -7978,7 +8177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/field/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/field/" class="md-nav__link">
         FIELD()
       </a>
     </li>
@@ -7992,7 +8191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/find-in-set/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/find-in-set/" class="md-nav__link">
         FIND_IN_SET()
       </a>
     </li>
@@ -8006,7 +8205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/format/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/format/" class="md-nav__link">
         FORMAT()
       </a>
     </li>
@@ -8020,7 +8219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/hex/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/hex/" class="md-nav__link">
         HEX()
       </a>
     </li>
@@ -8034,7 +8233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/instr/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/instr/" class="md-nav__link">
         INSTR()
       </a>
     </li>
@@ -8048,7 +8247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/left/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/left/" class="md-nav__link">
         LEFT()
       </a>
     </li>
@@ -8062,7 +8261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/length/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/length/" class="md-nav__link">
         LENGTH()
       </a>
     </li>
@@ -8076,7 +8275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/lpad/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/lpad/" class="md-nav__link">
         LPAD()
       </a>
     </li>
@@ -8090,7 +8289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/ltrim/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/ltrim/" class="md-nav__link">
         LTRIM()
       </a>
     </li>
@@ -8104,7 +8303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/oct/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/oct/" class="md-nav__link">
         OCT()
       </a>
     </li>
@@ -8118,7 +8317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/repeat/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/repeat/" class="md-nav__link">
         REPEAT()
       </a>
     </li>
@@ -8132,7 +8331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/reverse/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/reverse/" class="md-nav__link">
         REVERSE()
       </a>
     </li>
@@ -8146,7 +8345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/rpad/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/rpad/" class="md-nav__link">
         RPAD()
       </a>
     </li>
@@ -8160,7 +8359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/rtrim/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/rtrim/" class="md-nav__link">
         RTRIM()
       </a>
     </li>
@@ -8174,7 +8373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/space/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/space/" class="md-nav__link">
         SPACE()
       </a>
     </li>
@@ -8188,7 +8387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/split_part/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/split_part/" class="md-nav__link">
         SPLIT_PART()
       </a>
     </li>
@@ -8202,7 +8401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/startswith/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/startswith/" class="md-nav__link">
         STARTSWITH()
       </a>
     </li>
@@ -8216,7 +8415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/substring/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/substring/" class="md-nav__link">
         SUBSTRING()
       </a>
     </li>
@@ -8230,7 +8429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/substring-index/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/substring-index/" class="md-nav__link">
         SUBSTRING_INDEX()
       </a>
     </li>
@@ -8244,7 +8443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/trim/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/trim/" class="md-nav__link">
         TRIM()
       </a>
     </li>
@@ -8285,7 +8484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/Regular-Expressions/Regular-Expression-Functions-Overview/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/Regular-Expressions/Regular-Expression-Functions-Overview/" class="md-nav__link">
         正则表达式概述
       </a>
     </li>
@@ -8299,7 +8498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/Regular-Expressions/not-regexp/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/Regular-Expressions/not-regexp/" class="md-nav__link">
         NOT REGEXP
       </a>
     </li>
@@ -8313,7 +8512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/Regular-Expressions/regexp-instr/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/Regular-Expressions/regexp-instr/" class="md-nav__link">
         REGEXP_INSTR()
       </a>
     </li>
@@ -8327,7 +8526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/Regular-Expressions/regexp-like/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/Regular-Expressions/regexp-like/" class="md-nav__link">
         REGEXP_LIKE()
       </a>
     </li>
@@ -8341,7 +8540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/Regular-Expressions/regexp-replace/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/Regular-Expressions/regexp-replace/" class="md-nav__link">
         REGEXP_REPLACE()
       </a>
     </li>
@@ -8355,7 +8554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/String/Regular-Expressions/regexp-substr/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/String/Regular-Expressions/regexp-substr/" class="md-nav__link">
         REGEXP_SUBSTR()
       </a>
     </li>
@@ -8393,14 +8592,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_11_5_2_5" id="__nav_1_11_5_2_5_label" tabindex="0">
-          表函数
+          向量类
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_5_2_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_11_5_2_5">
           <span class="md-nav__icon md-icon"></span>
-          表函数
+          向量类
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -8410,8 +8609,92 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Table/unnest/" class="md-nav__link">
-        UNNEST()
+      <a href="../../Functions-and-Operators/Vector/arithmetic/" class="md-nav__link">
+        基本操作符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/Vector/misc/" class="md-nav__link">
+        数学计算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/Vector/inner_product/" class="md-nav__link">
+        内积计算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/Vector/cosine_similarity/" class="md-nav__link">
+        余弦相似度计算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/Vector/l1_norm/" class="md-nav__link">
+        L1 范数函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/Vector/l2_norm/" class="md-nav__link">
+        L2 范数函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/Vector/vector_dims/" class="md-nav__link">
+        维度函数
       </a>
     </li>
   
@@ -8441,12 +8724,60 @@
       
       
         <label class="md-nav__link" for="__nav_1_11_5_2_6" id="__nav_1_11_5_2_6_label" tabindex="0">
-          窗口函数
+          表函数
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_5_2_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_11_5_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          表函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/Table/unnest/" class="md-nav__link">
+        UNNEST()
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_5_2_7" id="__nav_1_11_5_2_7_label" tabindex="0">
+          窗口函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_5_2_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_5_2_7">
           <span class="md-nav__icon md-icon"></span>
           窗口函数
         </label>
@@ -8458,7 +8789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Window-Functions/dense_rank/" class="md-nav__link">
         DENSE_RANK()
       </a>
     </li>
@@ -8472,7 +8803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Window-Functions/rank/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Window-Functions/rank/" class="md-nav__link">
         RANK()
       </a>
     </li>
@@ -8486,7 +8817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Window-Functions/row_number/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Window-Functions/row_number/" class="md-nav__link">
         ROW_NUMBER()
       </a>
     </li>
@@ -8507,7 +8838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Json/json-functions/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Json/json-functions/" class="md-nav__link">
         JSON 函数
       </a>
     </li>
@@ -8526,17 +8857,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_9" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_5_2_8" id="__nav_1_11_5_2_8_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_5_2_9" id="__nav_1_11_5_2_9_label" tabindex="0">
           其他函数
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_5_2_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_5_2_8">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_5_2_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_5_2_9">
           <span class="md-nav__icon md-icon"></span>
           其他函数
         </label>
@@ -8548,7 +8879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Other/sleep/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Other/sleep/" class="md-nav__link">
         SLEEP
       </a>
     </li>
@@ -8562,7 +8893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/Other/uuid/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/Other/uuid/" class="md-nav__link">
         UUID()
       </a>
     </li>
@@ -8588,17 +8919,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_10" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_5_2_9" id="__nav_1_11_5_2_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_5_2_10" id="__nav_1_11_5_2_10_label" tabindex="0">
           系统运维函数
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_5_2_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_5_2_9">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_5_2_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_5_2_10">
           <span class="md-nav__icon md-icon"></span>
           系统运维函数
         </label>
@@ -8610,7 +8941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/system-ops/current_role_name/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/system-ops/current_role_name/" class="md-nav__link">
         CURRENT_ROLE_NAME()
       </a>
     </li>
@@ -8624,7 +8955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/system-ops/current_role/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/system-ops/current_role/" class="md-nav__link">
         CURRENT_ROLE()
       </a>
     </li>
@@ -8638,7 +8969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/system-ops/current_user_name/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/system-ops/current_user_name/" class="md-nav__link">
         CURRENT_USER_NAME()
       </a>
     </li>
@@ -8652,7 +8983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/system-ops/current_user/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/system-ops/current_user/" class="md-nav__link">
         CURRENT_USER()
       </a>
     </li>
@@ -8666,7 +8997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Functions-and-Operators/system-ops/purge_log/" class="md-nav__link">
+      <a href="../../Functions-and-Operators/system-ops/purge_log/" class="md-nav__link">
         PURGE_LOG()
       </a>
     </li>
@@ -8728,7 +9059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../System-Parameters/system-parameter/" class="md-nav__link">
+      <a href="../../System-Parameters/system-parameter/" class="md-nav__link">
         系统参数概述
       </a>
     </li>
@@ -8742,7 +9073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../System-Parameters/standalone-configuration-settings/" class="md-nav__link">
+      <a href="../../System-Parameters/standalone-configuration-settings/" class="md-nav__link">
         单机版通用参数配置
       </a>
     </li>
@@ -8756,7 +9087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../System-Parameters/distributed-configuration-settings/" class="md-nav__link">
+      <a href="../../System-Parameters/distributed-configuration-settings/" class="md-nav__link">
         分布式版通用参数配置
       </a>
     </li>
@@ -8777,7 +9108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../System-tables/" class="md-nav__link">
+      <a href="../../System-tables/" class="md-nav__link">
         系统表目录
       </a>
     </li>
@@ -8791,7 +9122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../access-control-type/" class="md-nav__link">
+      <a href="../../access-control-type/" class="md-nav__link">
         权限分类列表
       </a>
     </li>
@@ -8832,7 +9163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Limitations/mo-jdbc-feature-list/" class="md-nav__link">
+      <a href="../../Limitations/mo-jdbc-feature-list/" class="md-nav__link">
         MatrixOne 的 JDBC 功能支持列表
       </a>
     </li>
@@ -8846,7 +9177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Limitations/mo-partition-support/" class="md-nav__link">
+      <a href="../../Limitations/mo-partition-support/" class="md-nav__link">
         MatrixOne DDL 语句分区支持的说明
       </a>
     </li>
@@ -8867,7 +9198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Maintain/mo-directory-structure/" class="md-nav__link">
+      <a href="../../../Maintain/mo-directory-structure/" class="md-nav__link">
         MatrixOne 文件目录结构
       </a>
     </li>
@@ -8908,7 +9239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Maintain/mo_ctl/" class="md-nav__link">
+      <a href="../../../Maintain/mo_ctl/" class="md-nav__link">
         mo_ctl 工具
       </a>
     </li>
@@ -8963,7 +9294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Troubleshooting/slow-queries/" class="md-nav__link">
+      <a href="../../../Troubleshooting/slow-queries/" class="md-nav__link">
         慢查询
       </a>
     </li>
@@ -8977,7 +9308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Troubleshooting/common-statistics-query/" class="md-nav__link">
+      <a href="../../../Troubleshooting/common-statistics-query/" class="md-nav__link">
         常用统计数据查询
       </a>
     </li>
@@ -8991,7 +9322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Troubleshooting/query-table-statistics/" class="md-nav__link">
+      <a href="../../../Troubleshooting/query-table-statistics/" class="md-nav__link">
         数据库统计信息
       </a>
     </li>
@@ -9005,7 +9336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Troubleshooting/error-code/" class="md-nav__link">
+      <a href="../../../Troubleshooting/error-code/" class="md-nav__link">
         错误码
       </a>
     </li>
@@ -9053,7 +9384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../FAQs/product-faqs/" class="md-nav__link">
+      <a href="../../../FAQs/product-faqs/" class="md-nav__link">
         产品常见问题
       </a>
     </li>
@@ -9067,7 +9398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../FAQs/deployment-faqs/" class="md-nav__link">
+      <a href="../../../FAQs/deployment-faqs/" class="md-nav__link">
         部署常见问题
       </a>
     </li>
@@ -9081,7 +9412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../FAQs/sql-faqs/" class="md-nav__link">
+      <a href="../../../FAQs/sql-faqs/" class="md-nav__link">
         SQL 常见问题
       </a>
     </li>
@@ -9129,7 +9460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/release-timeline/" class="md-nav__link">
+      <a href="../../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
       </a>
     </li>
@@ -9143,7 +9474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v1.0.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v1.0.0/" class="md-nav__link">
         v1.0.0
       </a>
     </li>
@@ -9157,7 +9488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
+      <a href="../../../Release-Notes/v1.0.0-rc2/" class="md-nav__link">
         v1.0.0-rc2
       </a>
     </li>
@@ -9171,7 +9502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
+      <a href="../../../Release-Notes/v1.0.0-rc1/" class="md-nav__link">
         v1.0.0-rc1
       </a>
     </li>
@@ -9185,7 +9516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.8.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.8.0/" class="md-nav__link">
         v0.8.0
       </a>
     </li>
@@ -9199,7 +9530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.7.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.7.0/" class="md-nav__link">
         v0.7.0
       </a>
     </li>
@@ -9213,7 +9544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.6.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.6.0/" class="md-nav__link">
         v0.6.0
       </a>
     </li>
@@ -9227,7 +9558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.5.1/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.5.1/" class="md-nav__link">
         v0.5.1
       </a>
     </li>
@@ -9241,7 +9572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.5.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.5.0/" class="md-nav__link">
         v0.5.0
       </a>
     </li>
@@ -9255,7 +9586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.4.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.4.0/" class="md-nav__link">
         v0.4.0
       </a>
     </li>
@@ -9269,7 +9600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.3.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.3.0/" class="md-nav__link">
         v0.3.0
       </a>
     </li>
@@ -9283,7 +9614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.2.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.2.0/" class="md-nav__link">
         v0.2.0
       </a>
     </li>
@@ -9297,7 +9628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Release-Notes/v0.1.0/" class="md-nav__link">
+      <a href="../../../Release-Notes/v0.1.0/" class="md-nav__link">
         v0.1.0
       </a>
     </li>
@@ -9318,7 +9649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../glossary/" class="md-nav__link">
+      <a href="../../../glossary/" class="md-nav__link">
         名词术语表
       </a>
     </li>
@@ -9359,7 +9690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/make-your-first-contribution/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/make-your-first-contribution/" class="md-nav__link">
         快速贡献
       </a>
     </li>
@@ -9400,7 +9731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/types-of-contributions/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/types-of-contributions/" class="md-nav__link">
         有哪些贡献类型
       </a>
     </li>
@@ -9414,7 +9745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/preparation/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/preparation/" class="md-nav__link">
         贡献准备
       </a>
     </li>
@@ -9428,7 +9759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/report-an-issue/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/report-an-issue/" class="md-nav__link">
         报告 Issue
       </a>
     </li>
@@ -9442,7 +9773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/contribute-code/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/contribute-code/" class="md-nav__link">
         贡献代码
       </a>
     </li>
@@ -9456,7 +9787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/review-a-pull-request/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/review-a-pull-request/" class="md-nav__link">
         审核修改
       </a>
     </li>
@@ -9470,7 +9801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/contribute-documentation/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/contribute-documentation/" class="md-nav__link">
         文档贡献
       </a>
     </li>
@@ -9484,7 +9815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/How-to-Contribute/make-a-design/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/How-to-Contribute/make-a-design/" class="md-nav__link">
         提出设计草案
       </a>
     </li>
@@ -9532,7 +9863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/Code-Style/code-of-conduct/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/Code-Style/code-of-conduct/" class="md-nav__link">
         编码规范
       </a>
     </li>
@@ -9546,7 +9877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/Code-Style/code-comment-style/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/Code-Style/code-comment-style/" class="md-nav__link">
         注释规范
       </a>
     </li>
@@ -9560,7 +9891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Contribution-Guide/Code-Style/commit-pr-style/" class="md-nav__link">
+      <a href="../../../Contribution-Guide/Code-Style/commit-pr-style/" class="md-nav__link">
         提交规范
       </a>
     </li>
@@ -9615,29 +9946,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    语法说明
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    语法结构
+    什么是向量？
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    语法解释
+    什么是向量检索？
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    示例
+    向量检索的应用场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrixone" class="md-nav__link">
+    MatrixOne 的向量数据类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    如何在 SQL 中使用向量类型
+  </a>
+  
+    <nav class="md-nav" aria-label="如何在 SQL 中使用向量类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    创建向量列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    插入向量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    查询向量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    支持的算子与函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-top-k" class="md-nav__link">
+    示例 - Top K 查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    最佳实践
   </a>
   
 </li>
@@ -9657,7 +10043,7 @@
                   
 
   
-    <a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/1.1-create-stage.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Reference/Data-Types/vector-type.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -9665,106 +10051,190 @@
   
 
 
-<h1 id="create-stage"><strong>CREATE STAGE</strong></h1>
-<h2 id="_1"><strong>语法说明</strong></h2>
-<p><code>CREATE STAGE</code> 用于在 MatrixOne 数据库中创建一个命名的内部或外部数据阶段（Stage），用于<strong>数据导出</strong>，你可以创建一个数据阶段，通过将数据导出到数据阶段，你可以将数据文件下载到本地或将其存储在云存储服务中。</p>
+<h1 id="_1">向量类型</h1>
+<h2 id="_2">什么是向量？</h2>
+<p>在数据库中，向量通常是一组数字，它们以特定的方式排列，以表示某种数据或特征。这些向量可以是一维数组、多维数组或具有更高维度的数据结构。在机器学习和数据分析领域中，向量用于表示数据点、特征或模型参数。它们通常是用来处理非结构化数据，如图片，语音，文本等，以通过机器学习模型，将非结构化数据转化为 embedding 向量，随后处理分析这些数据。</p>
+<p><img alt="vector type" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/vector/vector_introduction.png" /></p>
+<h2 id="_3">什么是向量检索？</h2>
+<p>向量检索又称为近似最近邻搜索 (Approximate Nearest Neighbor Search, ANNS)，是一种在大规模高维向量数据中 寻找与给定查询向量相似的向量的技术。向量检索在许多 AI 领域 具有广泛的应用，如图像检索、文本检索、语音识别、推荐系统等。向量检索与传统数据库检索有很大差别，传统数据库上的标量搜索主要针对结构化数据进行精确的数据查询，而向量搜索主要针对非结构化数据向量化之后的向量数据进行相似检索，只能近似获得最匹配的结果。</p>
+<p><img alt="vector vs scalar" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/vector/vector_vs_scalar.png" /></p>
+<h2 id="_4">向量检索的应用场景</h2>
+<p>数据库拥有向量能力意味着数据库系统具备存储、查询和分析向量数据的能力。这些向量通常与复杂的数据分析、机器学习和数据挖掘任务相关。以下是数据库拥有向量处理能力后的应用场景：</p>
 <ul>
 <li>
-<p><strong>内部阶段（Internal Stage）</strong>：内部阶段将数据文件存储在 MatrixOne 内部。内部阶段可以是永久性的或临时性的。</p>
+<p><strong>生成式 AI 应用程序</strong>：这些数据库可以作为生成式 AI 应用程序的后端，使它们能够根据用户提供的查询获取最近邻结果，提高输出质量和相关性。</p>
 </li>
 <li>
-<p><strong>外部阶段（External Stage）</strong>：外部阶段引用存储在 MatrixOne 之外位置的数据文件。目前，支持以下云存储服务：</p>
-<ul>
-<li>Amazon S3 存储桶</li>
-<li>Aliyun 存储桶</li>
-</ul>
-</li>
-</ul>
-<p>存储位置可以是私有/受保护的，也可以是公开的。但是，无法访问需要恢复才能检索的存档云存储类别中的数据。</p>
-<p>内部或外部阶段可以包括一个目录表。目录表在云存储中存储分阶段文件的目录。</p>
-<ul>
-<li>
-<p>配置一个指定路径，控制用户 <code>SELECT INTO</code> 的写入权限，在创建之后，用户只能写入指定的 <code>STAGE</code> 路径</p>
+<p><strong>高级对象识别</strong>：它们对于开发识别不同数据集之间相似性的高级对象识别平台是无价的。这在抄袭检测、面部识别和 DNA 匹配等领域都有实际应用。</p>
 </li>
 <li>
-<p>如果不创建 <code>STAGE</code> 或全部 <code>STAGE</code> 都在 <code>DISABLED</code> 状态下，用户可以在操作系统或对象存储的权限允许情况下，写入任何路径。</p>
+<p><strong>个性化推荐系统</strong>：矢量数据库可以通过整合用户偏好和选择来增强推荐系统。这将带来更准确、更有针对性的推荐，从而改善用户体验和参与度。</p>
 </li>
 <li>
-<p>如果不使用 <code>STAGE</code>，用户 <code>SELECT INTO</code> 时必须强行加入 <code>credential</code> 信息。</p>
+<p><strong>异常检测</strong>：向量数据库可以用来存储代表正常行为的特征向量。然后可以通过比较输入向量和存储向量来检测异常。这在网络安全和工业质量控制中很有用。</p>
 </li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ol>
-<li>集群管理员（即 root 用户）和租户管理员可以创建数据阶段。</li>
-<li>创建完成数据阶段以后，数据表只能导入至 STAGE 指定路径。</li>
-</ol>
-</div>
-<h2 id="_2"><strong>语法结构</strong></h2>
-<div class="highlight"><pre><span></span><code>&gt; CREATE STAGE [ IF NOT EXISTS ] { stage_name }
-   { StageParams }
-   [ directoryTableParams ]
-   [ COMMENT = &#39;&lt;string_literal&gt;&#39; ]
-
-StageParams (for Amazon S3) :
-URL =  &quot;endpoint&quot;=&#39;&lt;string&gt;&#39; CREDENTIALS = {&quot;access_key_id&quot;=&#39;&lt;string&gt;&#39;, &quot;secret_access_key&quot;=&#39;&lt;string&gt;&#39;, &quot;filepath&quot;=&#39;&lt;string&gt;&#39;, &quot;region&quot;=&#39;&lt;string&gt;&#39;}
-
-StageParams (for Aliyun OSS) :
-URL =  &quot;endpoint&quot;=&#39;&lt;string&gt;&#39; CREDENTIALS = {&quot;access_key_id&quot;=&#39;&lt;string&gt;&#39;, &quot;secret_access_key&quot;=&#39;&lt;string&gt;&#39;}
-
-StageParams (for File System) :
-URL= &#39;filepath&#39;
-
-directoryTableParams :
-ENABLE = { TRUE | FALSE }
+<h2 id="matrixone">MatrixOne 的向量数据类型</h2>
+<p>在 MatrixOne 中，向量被设计成一种数据类型，它类似于编程语言中的 Array 数组 ( MatrixOne 目前还不支持数组类型)，但是是一种较为特殊的数组类型。首先，它是一个一维数组类型，意味着它不能用来构建 Matrix 矩阵。另外目前仅支持 <code>float32</code> 及 <code>float64</code> 类型的向量，分别称之为 <code>vecf32</code> 与 <code>vecf64</code> 而不支持字符串类型和整型类型的数字。</p>
+<p>创建一个向量列时，我们可以指定向量列的维度大小，如 vecf32(3)，这个维度即向量的数组的长度大小，最大可支持到 65,536 维度。</p>
+<h2 id="sql">如何在 SQL 中使用向量类型</h2>
+<p>使用向量的语法与常规建表、插入数据、查询数据相同：</p>
+<h3 id="_5">创建向量列</h3>
+<p>你可以按照下面的 SQL 语句创建了两个向量列，一个是 Float32 类型，另一个是 Float64 类型，并且可以将两个向量列的维度都设置为 3。</p>
+<p>目前向量类型不能作为主键或者唯一键。</p>
+<div class="highlight"><pre><span></span><code>create table t1(a int, b vecf32(3), c vecf64(3));
 </code></pre></div>
-<h2 id="_3">语法解释</h2>
-<ul>
-<li>
-<p><code>IF NOT EXISTS</code>：可选参数，用于在创建 Stage 时检查是否已存在同名的 Stage，避免重复创建。</p>
-</li>
-<li>
-<p><code>stage_name</code>：要创建的 Stage 的名称。</p>
-</li>
-<li>
-<p><code>StageParams</code>：这是一个参数组，用于指定 Stage 的配置参数。</p>
-<ul>
-<li>
-<p><code>endpoint</code>：Stage 的连接 URL，指定对象存储服务的位置。对于不同的对象存储服务（如 Amazon S3、Aliyun OSS、文件系统等），这个 URL 的内容可能有所不同。例如：s3.us-west-2.amazonaws.com</p>
-</li>
-<li>
-<p><code>CREDENTIALS</code>：这是一个 JSON 对象，包含连接到对象存储服务所需的凭证信息，</p>
-<ul>
-<li><code>access_key_id</code>：用于身份验证的访问密钥 ID。</li>
-<li><code>secret_access_key</code>：与访问密钥 ID 相关联的密钥。</li>
-<li><code>"filepath"='&lt;string&gt;</code>：指定 S3 存储中的文件路径或目录。</li>
-<li><code>"region"='&lt;string&gt;'</code>：指定 Amazon S3 存储所在的 AWS 区域。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><code>directoryTableParams</code>：这是一个参数组，用于指定 Stage 的目录表（directory table）的配置。</p>
-<ul>
-<li><code>ENABLE</code>：是否启用目录表，值为 <code>TRUE</code> 或 <code>FALSE</code>。</li>
-</ul>
-</li>
-</ul>
-<h2 id="_4"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="o">`</span><span class="n">user_name</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="o">`</span><span class="n">sex</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">user</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">user_name</span><span class="p">,</span><span class="n">sex</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;weder&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;man&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;tom&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;man&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;wederTom&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;man&#39;</span><span class="p">);</span>
-
-<span class="c1">-- 创建内部数据阶段</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="n">STAGE</span><span class="w"> </span><span class="n">stage1</span><span class="w"> </span><span class="n">URL</span><span class="o">=</span><span class="s1">&#39;/tmp&#39;</span><span class="w"> </span><span class="n">ENABLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">TRUE</span><span class="p">;</span>
-
-<span class="c1">-- 将数据从表导出到数据阶段</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">OUTFILE</span><span class="w"> </span><span class="s1">&#39;stage1:/user.csv&#39;</span><span class="p">;</span>
-<span class="c1">-- 你可以在你本地目录下看到你导出的表</span>
-
-<span class="c1">-- 当设置好数据阶段以后，数据表只能导出到指定路径，导出到其他路径将报错</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">OUTFILE</span><span class="w"> </span><span class="s1">&#39;~/tmp/csv2/user.txt&#39;</span><span class="p">;</span>
-<span class="n">ERROR</span><span class="w"> </span><span class="mi">20101</span><span class="w"> </span><span class="p">(</span><span class="n">HY000</span><span class="p">):</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">error</span><span class="p">:</span><span class="w"> </span><span class="n">stage</span><span class="w"> </span><span class="k">exists</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">try</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">check</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">stage</span><span class="w"> </span><span class="k">instead</span>
+<h3 id="_6">插入向量</h3>
+<p>MatrixOne 支持以两种格式插入向量。</p>
+<p><strong>文本格式</strong></p>
+<div class="highlight"><pre><span></span><code>insert into t1 values(1, &quot;[1,2,3]&quot;, &quot;[4,5,6]&quot;);
 </code></pre></div>
+<p><strong>二进制格式</strong></p>
+<p>如果你想使用 Python NumPy 数组，可以通过对数组进行十六进制编码，而不是将其转换为逗号分隔的文本格式，直接将该 NumPy 数组插入 MatrixOne。在插入维度较高的向量时，这种方式速度更快。</p>
+<div class="highlight"><pre><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">values</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">decode</span><span class="p">(</span><span class="ss">&quot;7e98b23e9e10383b2f41133f&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hex&quot;</span><span class="p">));</span>
+
+<span class="c1">-- &quot;7e98b23e9e10383b2f41133f&quot; 表示 []float32{0.34881967, 0.0028086076, 0.5752134}的小端十六进制编码</span>
+
+<span class="c1">-- &quot;hex&quot; 表示十六进制编码</span>
+</code></pre></div>
+<h3 id="_7">查询向量</h3>
+<p>向量列同样可以以两种格式读取。</p>
+<p><strong>文本格式</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+---------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">                                     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+---------------------------------------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">                             </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">34881967</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0028086076</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">5752134</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+---------------------------------------+</span>
+<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>二进制格式</strong></p>
+<p>如果你需要将向量结果集直接读取到 NumPy 数组中，以最小的转换成本，二进制格式非常有用。</p>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">encode</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hex&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">encode</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">hex</span><span class="p">)</span><span class="w">           </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="mi">0000803</span><span class="n">f0000004000004040</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="mi">7</span><span class="n">e98b23e9e10383b2f41133f</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------------+</span>
+<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="_8">支持的算子与函数</h2>
+<ul>
+<li>基本二元操作符：<a href="../../Functions-and-Operators/Vector/arithmetic/"><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code></a>.</li>
+<li>比较操作符：<code>=</code>,<code>!=</code>, <code>&gt;</code>, <code>&gt;=</code> , <code>&lt;</code>, <code>&lt;=</code>.</li>
+<li>一元函数：<a href="../../Functions-and-Operators/Vector/misc/"><code>sqrt</code>, <code>abs</code>, <code>cast</code></a>.</li>
+<li>自动类型转换：<ul>
+<li><code>vecf32</code> + <code>vecf64</code> = <code>vecf64</code>.</li>
+<li><code>vecf32</code> + <code>varchar</code> = <code>vecf32</code>.</li>
+</ul>
+</li>
+<li>向量一元函数：<ul>
+<li>求和函数 <a href="../../Functions-and-Operators/Vector/misc/"><code>summation</code></a>, L1 范数函数 <a href="../../Functions-and-Operators/Vector/l1_norm/"><code>l1_norm</code></a>, L2 范数函数 <a href="../../Functions-and-Operators/Vector/l2_norm/"><code>l2_norm</code></a>, 维度函数 <a href="../../Functions-and-Operators/Vector/vector_dims/"><code>vector_dims</code></a>.</li>
+</ul>
+</li>
+<li>向量二元函数：<ul>
+<li>内积函数 <a href="../../Functions-and-Operators/Vector/inner_product/"><code>inner_product</code></a>, 余弦相似度函数 <a href="../../Functions-and-Operators/Vector/cosine_similarity/"><code>cosine_similarity</code></a>.</li>
+</ul>
+</li>
+<li>聚合函数：<code>count</code>.</li>
+</ul>
+<h2 id="-top-k">示例 - Top K 查询</h2>
+<p>Top K 查询是一种数据库查询操作，用于检索数据库中排名前 K 的数据项或记录。Top K 查询可以应用于各种应用场景，包括推荐系统、搜索引擎、数据分析和排序。</p>
+<p>首先，我们创建了一个名为 <code>t1</code> 的表，其中包含了向量数据 <code>b</code>，并插入了一些示例数据。然后，我们使用给定的 SQL 语句执行基于 <code>l1_distance</code>、<code>l2_distance</code>、余弦相似度和余弦距离的 Top K 查询，将结果限制为前 5 个匹配项。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 包含向量数据&#39;b&#39;的示例表&#39;t1&#39;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="n">vecf64</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">-- 插入一些示例数据</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[1,2,3]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[4,5,6]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[2,1,1]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[7,8,9]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[0,0,0]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">);</span>
+
+<span class="c1">-- 使用 l1_distance 进行 Top K 查询</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">l1_norm</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">l1_norm</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="c1">-- 使用 l2_distance 进行 Top K 查询</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">l2_norm</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="c1">-- 使用余弦相似度进行 Top K 查询</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cosine_similarity</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="c1">-- 使用余弦距离进行 Top K 查询</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cosine_similarity</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<p>这些查询演示了如何使用不同的距离度量和相似度度量来检索与给定向量 <code>[3,1,2]</code> 最相似的前 5 个向量。通过这些查询，你可以根据不同的度量标准找到与目标向量最匹配的数据。</p>
+<h2 id="_9">最佳实践</h2>
+<ul>
+<li>
+<p><strong>向量类型转换</strong>：在将向量从一种类型转换为另一种类型时，建议同时指定维度。例如：</p>
+<div class="highlight"><pre><span></span><code>SELECT b + CAST(&quot;[1,2,3]&quot; AS vecf32(3)) FROM t1;
+</code></pre></div>
+<p>这种做法确保了向量类型转换的准确性和一致性。</p>
+</li>
+<li>
+<p><strong>使用二进制格式</strong>：为了提高整体插入性能，考虑使用二进制格式而不是文本格式。在转换为十六进制编码之前，确保数组采用小端序格式。以下是示例 Python 代码：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">binascii</span>
+
+<span class="c1"># &#39;value&#39; 是一个 NumPy 对象</span>
+<span class="k">def</span> <span class="nf">to_binary</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="c1"># 小端序浮点数组</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;&lt;f&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;期望 ndim 为 1&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">binascii</span><span class="o">.</span><span class="n">b2a_hex</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<p>这种方法可以显著提高数据插入的效率。</p>
+</li>
+</ul>
 
 
 
@@ -9781,6 +10251,42 @@ ENABLE = { TRUE | FALSE }
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../fixed-point-types/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 精确数值类型-DECIMAL" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                精确数值类型-DECIMAL
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../SQL-Reference/SQL-Type/" class="md-footer__link md-footer__link--next" aria-label="Next: SQL 语句的分类" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                SQL 语句的分类
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -9804,13 +10310,13 @@ ENABLE = { TRUE | FALSE }
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.code.copy", "content.action.edit", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer"], "search": "../../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.action.edit", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
-          <script src="../../../../../javascripts/extra.js"></script>
+          <script src="../../../../javascripts/extra.js"></script>
         
       
     
