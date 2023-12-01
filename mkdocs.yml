@@ -210,6 +210,9 @@ nav:
       - 性能调优最佳实践:
         - 使用 Cluster by 语句调优: MatrixOne/Performance-Tuning/optimization-concepts/through-cluster-by.md
         - 通过扩展 CN 提升性能: MatrixOne/Performance-Tuning/optimization-concepts/through-CN-extensions.md
+        - 通过分区表提升性能:
+          - 使用分区表调优: MatrixOne/Performance-Tuning/optimization-concepts/through-partition/through-partition-by.md
+          - 分区裁剪: MatrixOne/Performance-Tuning/optimization-concepts/through-partition/through-partition-pruning.md
     - 安全与权限:
       - 安全与权限概览: MatrixOne/Security/Security-Permission-Overview.md
       - 身份鉴别与认证: MatrixOne/Security/Authentication.md

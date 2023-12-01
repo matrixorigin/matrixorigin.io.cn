@@ -61,6 +61,4 @@ mysql> SELECT * FROM users WHERE name = 'John';
 1 row in set (0.00 sec)
 ```
 
-## 限制
 
-当前 MatrixOne 仅语法实现次级索引，并未实现性能提升。
