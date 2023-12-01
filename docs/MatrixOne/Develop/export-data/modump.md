@@ -9,7 +9,7 @@ MatrixOne 支持以下两种方式导出数据：
 
 ## 什么是 mo-dump
 
-`mo-dump` 是 MatrixOne 的一个客户端实用工具，与 `mysqldump` 一样，它可以被用于通过导出*.sql* 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。
+`mo-dump` 是 MatrixOne 的一个客户端实用工具，与 `mysqldump` 一样，它可以被用于通过导出 `.sql` 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。
 
 使用 `mo-dump` 工具，你必须能够访问运行 MatrixOne 实例的服务器。你还必须拥有导出的数据库的用户权限。
 
@@ -36,7 +36,7 @@ MatrixOne 支持以下两种方式导出数据：
 
 - **-net-buffer-length [数据包大小]**：数据包大小，即 SQL 语句字符的总大小。数据包是 SQL 导出数据的基本单位，如果不设置参数，则默认 1048576 Byte（1M），最大可设置 16777216 Byte（16M）。假如这里的参数设置为 16777216 Byte（16M），那么，当要导出大于 16M 的数据时，会把数据拆分成多个 16M 的数据包，除最后一个数据包之外，其它数据包大小都为 16M。
 
-- **-csv**：可选参数。当设置此参数时，表示导出的数据为 *CSV* 格式，并将所有的数据表的数据导出为当前目录下 *${databaseName} _${tableName}. csv*，如果参数为空，则默认以 DML 方式（INSERT 语句）导出数据。
+- **-csv**：可选参数。当设置此参数时，表示导出的数据为 *CSV* 格式，并将所有的数据表的数据导出为当前目录下 `${databaseName}_${tableName}.csv`，如果参数为空，则默认以 DML 方式（INSERT 语句）导出数据。
 
 - **--local-infile**：默认值为 true，仅在 **-csv** 参数存在时产生影响，否则无作用。具体来说此参数仅影响 modump 输出的 *importStatement.sql* 脚本中 `LOAD DATA [LOCAL] INFILE` 语句是否含有 `LOCAL`。
     - **--local-infile=true**：脚本中使用 `LOAD DATA LOCAL INFILE`，既适用于于本地数据导入本地 MatrixOne，也适用于本地数据导入远程 MatrixOne。
@@ -67,7 +67,7 @@ __Tips:__ 由于 `mo-dump` 是基于 Go 语言进行开发，所以你同时需�
 
 ## 如何使用 `mo-dump` 导出 MatrixOne 数据库
 
-`mo-dump` 在命令行中非常易用。参见以下步骤示例，导出*.sql* 文件格式完整数据库：
+`mo-dump` 在命令行中非常易用。参见以下步骤示例，导出 `.sql` 文件格式完整数据库：
 
 在你本地计算机上打开终端窗口，输入以下命令，连接到 MatrixOne，并且导出数据库：
 
