@@ -212,15 +212,15 @@ MatrixOne 擅长 HTAP 场景的事务处理和低延迟分析计算，ElasticSea
 
 ### 环境准备
 
-- MatrixOne版本：1.0.0
+- MatrixOne 版本：1.0.0
 
-- Elasticsearch版本：7.10.2
+- Elasticsearch 版本：7.10.2
 
-- DataX版本：[DataX_v202309](https://datax-opensource.oss-cn-hangzhou.aliyuncs.com/202309/datax.tar.gz)
+- DataX 版本：[DataX_v202309](https://datax-opensource.oss-cn-hangzhou.aliyuncs.com/202309/datax.tar.gz)
 
 ### 在 MatrixOne 中创建库和表
 
-创建数据库`mo`，并在该库创建数据表 person：
+创建数据库 `mo`，并在该库创建数据表 person：
 
 ```sql
 create database mo;
@@ -301,7 +301,7 @@ curl -u elastic:elastic -X GET http://127.0.0.1:9200/person/_search?pretty -H 'C
 
 ### 使用 DataX 导入数据
 
-#### 1.下载并解压 DataX
+#### 1. 下载并解压 DataX
 
 DataX 解压后目录如下：
 
@@ -323,7 +323,7 @@ drwxr-xr-x. 2 root root   24 Oct 11 09:55 tmp
 
 在进行后续的操作前，请先检查插件是否已正确分发在对应的位置中。
 
-#### 2.编写 ElasticSearch 至 MatrixOne 的迁移作业文件
+#### 2. 编写 ElasticSearch 至 MatrixOne 的迁移作业文件
 
 DataX 使用 json 文件来配置作业信息，编写作业文件例如 **es2mo.json**，习惯性的可以将其存放在 `datax/job` 目录中：
 
@@ -408,7 +408,7 @@ DataX 使用 json 文件来配置作业信息，编写作业文件例如 **es2mo
 }
 ```
 
-#### 3.执行迁移任务
+#### 3. 执行迁移任务
 
 进入 datax 安装目录，执行以下命令启动迁移作业：
 
@@ -431,7 +431,7 @@ python bin/datax.py job/es2mo.json
 读写失败总数                    :                   0
 ```
 
-#### 4.在 MatrixOne 中查看迁移后数据
+#### 4. 在 MatrixOne 中查看迁移后数据
 
 在 MatrixOne 数据库中查看目标表中的结果，确认迁移已完成：
 
@@ -447,7 +447,7 @@ mysql> select * from mo.person;
 3 rows in set (0.00 sec)
 ```
 
-#### 5.编写 MatrixOne 至 ElasticSearch 的作业文件
+#### 5. 编写 MatrixOne 至 ElasticSearch 的作业文件
 
 编写 datax 作业文件 **mo2es.json**，同样放在 `datax/job` 目录，MatrixOne 高度兼容 MySQL 协议，我们可以直接使用 mysqlreader 来通过 jdbc 方式读取 MatrixOne 中的数据：
 
@@ -533,7 +533,7 @@ INSERT into mo.person (id, name, birthday)
 VALUES(1, 'mo101', '2023-07-09'),(2, 'mo102', '2023-07-08'),(3, 'mo103', '2023-07-12');
 ```
 
-#### 7.执行 MatrixOne 向 ElasticSearch 的迁移任务
+#### 7. 执行 MatrixOne 向 ElasticSearch 的迁移任务
 
 进入 datax 安装目录，执行以下命令
 
@@ -556,7 +556,7 @@ python bin/datax.py job/mo2es.json
 读写失败总数                    :                   0
 ```
 
-#### 8.查看执行结果
+#### 8. 查看执行结果
 
 在 Elasticsearch 中查看结果
 
