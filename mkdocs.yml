@@ -56,6 +56,7 @@ nav:
         - 极致扩展性: MatrixOne/Overview/feature/scalability.md
         - 高性价比: MatrixOne/Overview/feature/cost-effective.md
         - 高可用: MatrixOne/Overview/feature/high-availability.md
+        - 时序: MatrixOne/Overview/feature/time-series.md
         - MySQL 兼容性: MatrixOne/Overview/feature/mysql-compatibility.md
       - MatrixOne 技术架构:
         - 整体架构概述: MatrixOne/Overview/architecture/matrixone-architecture-design.md
@@ -124,7 +125,9 @@ nav:
         - 子查询: MatrixOne/Develop/read-data/subquery.md
         - 视图: MatrixOne/Develop/read-data/views.md
         - 公共表表达式: MatrixOne/Develop/read-data/cte.md
-        - 窗口函数: MatrixOne/Develop/read-data/window-function.md
+        - 窗口函数: 
+          - 标准窗口: MatrixOne/Develop/read-data/window-function/window-function.md
+          - 时间窗口: MatrixOne/Develop/read-data/window-function/time-window.md
       - 租户设计:
         - 多租户概述: MatrixOne/Develop/Publish-Subscribe/multi-account-overview.md
         - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
@@ -535,6 +538,7 @@ nav:
             - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
           - JSON 函数: MatrixOne/Reference/Functions-and-Operators/Json/json-functions.md
           - 其他函数:
+            - SAMPLE: MatrixOne/Reference/Functions-and-Operators/Other/samples.md
             - SLEEP: MatrixOne/Reference/Functions-and-Operators/Other/sleep.md
             - UUID(): MatrixOne/Reference/Functions-and-Operators/Other/uuid.md
           - 系统运维函数:
