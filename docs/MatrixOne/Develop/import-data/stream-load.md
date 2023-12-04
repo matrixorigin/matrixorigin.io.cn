@@ -46,7 +46,7 @@ INTO TABLE tbl_name;
     ```
 
     !!! note
-        上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../../Security/password-mgmt.md)。
+        上述代码段中的登录账号为初始账号，请在登录 MatrixOne 后及时修改初始密码，参见[密码管理](../../Security/password-mgmt.md)。
 
 2. 在 MatrixOne 中执行 `LOAD DATA INLINE` 之前，需要提前在 MatrixOne 中创建完成数据表 `user`:
 
