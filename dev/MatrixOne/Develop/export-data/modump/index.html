@@ -468,6 +468,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Overview/feature/time-series/" class="md-nav__link">
+        时序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Overview/feature/mysql-compatibility/" class="md-nav__link">
         MySQL 兼容性
       </a>
@@ -1798,10 +1812,58 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4_6_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_6_6" id="__nav_1_4_6_6_label" tabindex="0">
+          窗口函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_4_6_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_4_6_6">
+          <span class="md-nav__icon md-icon"></span>
+          窗口函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../read-data/window-function/" class="md-nav__link">
-        窗口函数
+      <a href="../../read-data/window-function/window-function/" class="md-nav__link">
+        标准窗口
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../read-data/window-function/time-window/" class="md-nav__link">
+        时间窗口
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -3452,6 +3514,68 @@
       <a href="../../../Performance-Tuning/optimization-concepts/through-CN-extensions/" class="md-nav__link">
         通过扩展 CN 提升性能
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_9_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_9_3_3" id="__nav_1_9_3_3_label" tabindex="0">
+          通过分区表提升性能
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_9_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_9_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          通过分区表提升性能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Performance-Tuning/optimization-concepts/through-partition/through-partition-by/" class="md-nav__link">
+        使用分区表调优
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Performance-Tuning/optimization-concepts/through-partition/through-partition-pruning/" class="md-nav__link">
+        分区裁剪
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -8837,6 +8961,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Reference/Functions-and-Operators/Other/samples.md" class="md-nav__link">
+        SAMPLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Reference/Functions-and-Operators/Other/sleep/" class="md-nav__link">
         SLEEP
       </a>
@@ -9975,7 +10113,7 @@
 </ul>
 <p>本篇文档主要介绍如何使用 <code>mo-dump</code> 导出数据。</p>
 <h2 id="mo-dump">什么是 mo-dump</h2>
-<p><code>mo-dump</code> 是 MatrixOne 的一个客户端实用工具，与 <code>mysqldump</code> 一样，它可以被用于通过导出<em>.sql</em> 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。</p>
+<p><code>mo-dump</code> 是 MatrixOne 的一个客户端实用工具，与 <code>mysqldump</code> 一样，它可以被用于通过导出 <code>.sql</code> 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。</p>
 <p>使用 <code>mo-dump</code> 工具，你必须能够访问运行 MatrixOne 实例的服务器。你还必须拥有导出的数据库的用户权限。</p>
 <h3 id="_1">语法结构</h3>
 <div class="highlight"><pre><span></span><code>./mo-dump<span class="w"> </span>-u<span class="w"> </span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">password</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
@@ -10004,7 +10142,7 @@
 <p><strong>-net-buffer-length [数据包大小]</strong>：数据包大小，即 SQL 语句字符的总大小。数据包是 SQL 导出数据的基本单位，如果不设置参数，则默认 1048576 Byte（1M），最大可设置 16777216 Byte（16M）。假如这里的参数设置为 16777216 Byte（16M），那么，当要导出大于 16M 的数据时，会把数据拆分成多个 16M 的数据包，除最后一个数据包之外，其它数据包大小都为 16M。</p>
 </li>
 <li>
-<p><strong>-csv</strong>：可选参数。当设置此参数时，表示导出的数据为 <em>CSV</em> 格式，并将所有的数据表的数据导出为当前目录下 <em>${databaseName} _${tableName}. csv</em>，如果参数为空，则默认以 DML 方式（INSERT 语句）导出数据。</p>
+<p><strong>-csv</strong>：可选参数。当设置此参数时，表示导出的数据为 <em>CSV</em> 格式，并将所有的数据表的数据导出为当前目录下 <code>${databaseName}_${tableName}.csv</code>，如果参数为空，则默认以 DML 方式（INSERT 语句）导出数据。</p>
 </li>
 <li>
 <p><strong>--local-infile</strong>：默认值为 true，仅在 <strong>-csv</strong> 参数存在时产生影响，否则无作用。具体来说此参数仅影响 modump 输出的 <em>importStatement.sql</em> 脚本中 <code>LOAD DATA [LOCAL] INFILE</code> 语句是否含有 <code>LOCAL</code>。</p>
@@ -10040,7 +10178,7 @@ make build modump
 <p>构建好的 <code>mo-dump</code> 文件也可以在相同的硬件平台上工作。但是需要注意在 x86 平台中构建的 <code>mo-dump</code> 二进制文件在 Darwin ARM 平台中则无法正常工作。你可以在同一套操作系统和硬件平台内构建并使用 <code>mo-dump</code> 二进制文件。<code>mo-dump</code> 目前只支持 Linux 和 macOS。</p>
 </div>
 <h2 id="mo-dump-matrixone">如何使用 <code>mo-dump</code> 导出 MatrixOne 数据库</h2>
-<p><code>mo-dump</code> 在命令行中非常易用。参见以下步骤示例，导出<em>.sql</em> 文件格式完整数据库：</p>
+<p><code>mo-dump</code> 在命令行中非常易用。参见以下步骤示例，导出 <code>.sql</code> 文件格式完整数据库：</p>
 <p>在你本地计算机上打开终端窗口，输入以下命令，连接到 MatrixOne，并且导出数据库：</p>
 <div class="highlight"><pre><span></span><code>./mo-dump -u username -p password -h host_ip_address -P port -db database &gt; importStatement.sql
 </code></pre></div>

@@ -468,6 +468,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Overview/feature/time-series/" class="md-nav__link">
+        时序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Overview/feature/mysql-compatibility/" class="md-nav__link">
         MySQL 兼容性
       </a>
@@ -1721,10 +1735,58 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4_6_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_6_6" id="__nav_1_4_6_6_label" tabindex="0">
+          窗口函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_4_6_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_4_6_6">
+          <span class="md-nav__icon md-icon"></span>
+          窗口函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../read-data/window-function/" class="md-nav__link">
-        窗口函数
+      <a href="../../../read-data/window-function/window-function/" class="md-nav__link">
+        标准窗口
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../read-data/window-function/time-window/" class="md-nav__link">
+        时间窗口
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -2444,7 +2506,117 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#matrixone-elasticsearch" class="md-nav__link">
+    最佳实践：实现 MatrixOne 与 ElasticSearch 间的数据迁移
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践：实现 MatrixOne 与 ElasticSearch 间的数据迁移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
+    环境准备
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrixone_1" class="md-nav__link">
+    在 MatrixOne 中创建库和表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch" class="md-nav__link">
+    在 ElasticSearch 中创建索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch_1" class="md-nav__link">
+    为 ElasticSearch 索引添加数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datax_1" class="md-nav__link">
+    使用 DataX 导入数据
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 DataX 导入数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-datax" class="md-nav__link">
+    1. 下载并解压 DataX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-elasticsearch-matrixone" class="md-nav__link">
+    2. 编写 ElasticSearch 至 MatrixOne 的迁移作业文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 执行迁移任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-matrixone" class="md-nav__link">
+    4. 在 MatrixOne 中查看迁移后数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-matrixone-elasticsearch" class="md-nav__link">
+    5. 编写 MatrixOne 至 ElasticSearch 的作业文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6matrixone" class="md-nav__link">
+    6.MatrixOne 数据准备
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-matrixone-elasticsearch" class="md-nav__link">
+    7. 执行 MatrixOne 向 ElasticSearch 的迁移任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8. 查看执行结果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     常见问题
   </a>
   
@@ -3503,6 +3675,68 @@
       <a href="../../../../Performance-Tuning/optimization-concepts/through-CN-extensions/" class="md-nav__link">
         通过扩展 CN 提升性能
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_9_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_9_3_3" id="__nav_1_9_3_3_label" tabindex="0">
+          通过分区表提升性能
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_9_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_9_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          通过分区表提升性能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Performance-Tuning/optimization-concepts/through-partition/through-partition-by/" class="md-nav__link">
+        使用分区表调优
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Performance-Tuning/optimization-concepts/through-partition/through-partition-pruning/" class="md-nav__link">
+        分区裁剪
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -8888,6 +9122,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/Other/samples.md" class="md-nav__link">
+        SAMPLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/Functions-and-Operators/Other/sleep/" class="md-nav__link">
         SLEEP
       </a>
@@ -10038,7 +10286,117 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#matrixone-elasticsearch" class="md-nav__link">
+    最佳实践：实现 MatrixOne 与 ElasticSearch 间的数据迁移
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践：实现 MatrixOne 与 ElasticSearch 间的数据迁移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
+    环境准备
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrixone_1" class="md-nav__link">
+    在 MatrixOne 中创建库和表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch" class="md-nav__link">
+    在 ElasticSearch 中创建索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch_1" class="md-nav__link">
+    为 ElasticSearch 索引添加数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datax_1" class="md-nav__link">
+    使用 DataX 导入数据
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 DataX 导入数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-datax" class="md-nav__link">
+    1. 下载并解压 DataX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-elasticsearch-matrixone" class="md-nav__link">
+    2. 编写 ElasticSearch 至 MatrixOne 的迁移作业文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 执行迁移任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-matrixone" class="md-nav__link">
+    4. 在 MatrixOne 中查看迁移后数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-matrixone-elasticsearch" class="md-nav__link">
+    5. 编写 MatrixOne 至 ElasticSearch 的作业文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6matrixone" class="md-nav__link">
+    6.MatrixOne 数据准备
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-matrixone-elasticsearch" class="md-nav__link">
+    7. 执行 MatrixOne 向 ElasticSearch 的迁移任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8. 查看执行结果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     常见问题
   </a>
   
@@ -10319,7 +10677,358 @@ $<span class="w"> </span>python<span class="w"> </span>datax.py<span class="w"> 
 <p>在 DataX 中添加 MatrixOne Writer，那么你需要下载 <a href="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Computing-Engine/datax-write/matrixonewriter.zip">matrixonewriter.zip</a>，然后将其解压缩到 DataX 项目根目录的 <code>plugin/writer/</code> 目录下，即可开始使用。</p>
 </li>
 </ul>
-<h2 id="_10">常见问题</h2>
+<h2 id="matrixone-elasticsearch">最佳实践：实现 MatrixOne 与 ElasticSearch 间的数据迁移</h2>
+<p>MatrixOne 擅长 HTAP 场景的事务处理和低延迟分析计算，ElasticSearch 擅长全文检索，两者做为流行的搜索和分析引擎，结合起来可形成更完善的全场景分析解决方案。为了在不同场景间进行数据的高效流转，我们可通过 DataX 进行 MatrixOne 与 ElasticSearch 间的数据迁移。</p>
+<h3 id="_10">环境准备</h3>
+<ul>
+<li>
+<p>MatrixOne 版本：1.0.0</p>
+</li>
+<li>
+<p>Elasticsearch 版本：7.10.2</p>
+</li>
+<li>
+<p>DataX 版本：<a href="https://datax-opensource.oss-cn-hangzhou.aliyuncs.com/202309/datax.tar.gz">DataX_v202309</a></p>
+</li>
+</ul>
+<h3 id="matrixone_1">在 MatrixOne 中创建库和表</h3>
+<p>创建数据库 <code>mo</code>，并在该库创建数据表 person：</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">mo</span><span class="p">;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">mo</span><span class="p">.</span><span class="o">`</span><span class="n">person</span><span class="o">`</span><span class="w"> </span><span class="p">(</span>
+<span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="o">`</span><span class="n">birthday</span><span class="o">`</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+</code></pre></div>
+<h3 id="elasticsearch">在 ElasticSearch 中创建索引</h3>
+<p>创建名称为 person 的索引（下文 <code>-u</code> 参数后为 ElasticSearch 中的用户名和密码，本地测试时可按需进行修改或删除）：</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:9200/person&quot;</span><span class="w"> </span>-u<span class="w"> </span>elastic:elastic
+</code></pre></div>
+<p>输出如下信息表示创建成功：</p>
+<div class="highlight"><pre><span></span><code><span class="o">{</span><span class="s2">&quot;acknowledged&quot;</span>:true,<span class="s2">&quot;shards_acknowledged&quot;</span>:true,<span class="s2">&quot;index&quot;</span>:<span class="s2">&quot;person&quot;</span><span class="o">}</span>
+</code></pre></div>
+<p>给索引 person 添加字段：</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="s2">&quot;127.0.0.1:9200/person/_mapping&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span>-u<span class="w"> </span>elastic:elastic<span class="w"> </span>-d<span class="s1">&#39;</span>
+<span class="s1">{</span>
+<span class="s1">  &quot;properties&quot;: {</span>
+<span class="s1">    &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot; },</span>
+<span class="s1">    &quot;name&quot;: { &quot;type&quot;: &quot;text&quot; },</span>
+<span class="s1">    &quot;birthday&quot;: {&quot;type&quot;: &quot;date&quot;}</span>
+<span class="s1">  }</span>
+<span class="s1">}</span>
+<span class="s1">&#39;</span>
+</code></pre></div>
+<p>输出如下信息表示设置成功：</p>
+<div class="highlight"><pre><span></span><code><span class="o">{</span><span class="s2">&quot;acknowledged&quot;</span>:true<span class="o">}</span>
+</code></pre></div>
+<h3 id="elasticsearch_1">为 ElasticSearch 索引添加数据</h3>
+<p>通过 curl 命令添加三条数据：</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;127.0.0.1:9200/person/_bulk&#39;</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span>-u<span class="w"> </span>elastic:elastic<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">{&quot;index&quot;:{&quot;_index&quot;:&quot;person&quot;,&quot;_type&quot;:&quot;_doc&quot;,&quot;_id&quot;:1}}</span>
+<span class="s1">{&quot;id&quot;: 1,&quot;name&quot;: &quot;MatrixOne&quot;,&quot;birthday&quot;: &quot;1992-08-08&quot;}</span>
+<span class="s1">{&quot;index&quot;:{&quot;_index&quot;:&quot;person&quot;,&quot;_type&quot;:&quot;_doc&quot;,&quot;_id&quot;:2}}</span>
+<span class="s1">{&quot;id&quot;: 2,&quot;name&quot;: &quot;MO&quot;,&quot;birthday&quot;: &quot;1993-08-08&quot;}</span>
+<span class="s1">{&quot;index&quot;:{&quot;_index&quot;:&quot;person&quot;,&quot;_type&quot;:&quot;_doc&quot;,&quot;_id&quot;:3}}</span>
+<span class="s1">{&quot;id&quot;: 3,&quot;name&quot;: &quot;墨墨&quot;,&quot;birthday&quot;: &quot;1994-08-08&quot;}</span>
+<span class="s1">&#39;</span><span class="w"> </span>
+</code></pre></div>
+<p>输出如下信息表示执行成功：</p>
+<div class="highlight"><pre><span></span><code><span class="o">{</span><span class="s2">&quot;took&quot;</span>:5,<span class="s2">&quot;errors&quot;</span>:false,<span class="s2">&quot;items&quot;</span>:<span class="o">[{</span><span class="s2">&quot;index&quot;</span>:<span class="o">{</span><span class="s2">&quot;_index&quot;</span>:<span class="s2">&quot;person&quot;</span>,<span class="s2">&quot;_type&quot;</span>:<span class="s2">&quot;_doc&quot;</span>,<span class="s2">&quot;_id&quot;</span>:<span class="s2">&quot;1&quot;</span>,<span class="s2">&quot;_version&quot;</span>:1,<span class="s2">&quot;result&quot;</span>:<span class="s2">&quot;created&quot;</span>,<span class="s2">&quot;_shards&quot;</span>:<span class="o">{</span><span class="s2">&quot;total&quot;</span>:2,<span class="s2">&quot;successful&quot;</span>:1,<span class="s2">&quot;failed&quot;</span>:0<span class="o">}</span>,<span class="s2">&quot;_seq_no&quot;</span>:0,<span class="s2">&quot;_primary_term&quot;</span>:1,<span class="s2">&quot;status&quot;</span>:201<span class="o">}}</span>,<span class="o">{</span><span class="s2">&quot;index&quot;</span>:<span class="o">{</span><span class="s2">&quot;_index&quot;</span>:<span class="s2">&quot;person&quot;</span>,<span class="s2">&quot;_type&quot;</span>:<span class="s2">&quot;_doc&quot;</span>,<span class="s2">&quot;_id&quot;</span>:<span class="s2">&quot;2&quot;</span>,<span class="s2">&quot;_version&quot;</span>:1,<span class="s2">&quot;result&quot;</span>:<span class="s2">&quot;created&quot;</span>,<span class="s2">&quot;_shards&quot;</span>:<span class="o">{</span><span class="s2">&quot;total&quot;</span>:2,<span class="s2">&quot;successful&quot;</span>:1,<span class="s2">&quot;failed&quot;</span>:0<span class="o">}</span>,<span class="s2">&quot;_seq_no&quot;</span>:1,<span class="s2">&quot;_primary_term&quot;</span>:1,<span class="s2">&quot;status&quot;</span>:201<span class="o">}}</span>,<span class="o">{</span><span class="s2">&quot;index&quot;</span>:<span class="o">{</span><span class="s2">&quot;_index&quot;</span>:<span class="s2">&quot;person&quot;</span>,<span class="s2">&quot;_type&quot;</span>:<span class="s2">&quot;_doc&quot;</span>,<span class="s2">&quot;_id&quot;</span>:<span class="s2">&quot;3&quot;</span>,<span class="s2">&quot;_version&quot;</span>:1,<span class="s2">&quot;result&quot;</span>:<span class="s2">&quot;created&quot;</span>,<span class="s2">&quot;_shards&quot;</span>:<span class="o">{</span><span class="s2">&quot;total&quot;</span>:2,<span class="s2">&quot;successful&quot;</span>:1,<span class="s2">&quot;failed&quot;</span>:0<span class="o">}</span>,<span class="s2">&quot;_seq_no&quot;</span>:2,<span class="s2">&quot;_primary_term&quot;</span>:1,<span class="s2">&quot;status&quot;</span>:201<span class="o">}}]}</span>
+</code></pre></div>
+<p>查看索引中所有内容：</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>elastic:elastic<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>http://127.0.0.1:9200/person/_search?pretty<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span>-d<span class="s1">&#39;</span>
+<span class="s1">{</span>
+<span class="s1">  &quot;query&quot; : {</span>
+<span class="s1">    &quot;match_all&quot;: {}</span>
+<span class="s1">    }</span>
+<span class="s1">}&#39;</span>
+</code></pre></div>
+<p>可正常看到索引中新增的数据即表示执行成功。</p>
+<h3 id="datax_1">使用 DataX 导入数据</h3>
+<h4 id="1-datax">1. 下载并解压 DataX</h4>
+<p>DataX 解压后目录如下：</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@node01<span class="w"> </span>datax<span class="o">]</span><span class="c1"># ll</span>
+total<span class="w"> </span><span class="m">4</span>
+drwxr-xr-x.<span class="w"> </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">59</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">13</span>:48<span class="w"> </span>bin
+drwxr-xr-x.<span class="w"> </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">68</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">09</span>:55<span class="w"> </span>conf
+drwxr-xr-x.<span class="w"> </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">22</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">09</span>:55<span class="w"> </span>job
+drwxr-xr-x.<span class="w"> </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">09</span>:55<span class="w"> </span>lib
+drwxr-xr-x.<span class="w"> </span><span class="m">4</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">42</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">18</span>:42<span class="w"> </span>log
+drwxr-xr-x.<span class="w"> </span><span class="m">4</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">42</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">18</span>:42<span class="w"> </span>log_perf
+drwxr-xr-x.<span class="w"> </span><span class="m">4</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">34</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">09</span>:55<span class="w"> </span>plugin
+drwxr-xr-x.<span class="w"> </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">23</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">09</span>:55<span class="w"> </span>script
+drwxr-xr-x.<span class="w"> </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">24</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">09</span>:55<span class="w"> </span>tmp
+</code></pre></div>
+<p>为保证迁移的易用性和高效性，MatrixOne 社区开发了 <code>elasticsearchreader</code> 以及 <code>matrixonewriter</code> 两个插件，将 <a href="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/datax_es_mo/elasticsearchreader.zip">elasticsearchreader.zip</a> 下载后使用 <code>unzip</code> 命令解压至 <code>datax/plugin/reader</code> 目录下（注意不要在该目录中保留插件 zip 包，关于 elasticsearchreader 的详细介绍可参考插件包内的 elasticsearchreader.md 文档），同样，将 <a href="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/Computing-Engine/datax-write/matrixonewriter.zip">matrixonewriter.zip</a> 下载后解压至 <code>datax/plugin/writer</code> 目录下，matrixonewriter 是社区基于 mysqlwriter 的改造版，使用 mysql-connector-j-8.0.33.jar 驱动来保证更好的性能和兼容性，writer 部分的其语法可参考上文“参数说明”章节。</p>
+<p>在进行后续的操作前，请先检查插件是否已正确分发在对应的位置中。</p>
+<h4 id="2-elasticsearch-matrixone">2. 编写 ElasticSearch 至 MatrixOne 的迁移作业文件</h4>
+<p>DataX 使用 json 文件来配置作业信息，编写作业文件例如 <strong>es2mo.json</strong>，习惯性的可以将其存放在 <code>datax/job</code> 目录中：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;job&quot;</span><span class="p">:{</span>
+<span class="w">        </span><span class="nt">&quot;setting&quot;</span><span class="p">:{</span>
+<span class="w">            </span><span class="nt">&quot;speed&quot;</span><span class="p">:{</span>
+<span class="w">                </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="mi">1</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;errorLimit&quot;</span><span class="p">:{</span>
+<span class="w">                </span><span class="nt">&quot;record&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;percentage&quot;</span><span class="p">:</span><span class="mf">0.02</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;reader&quot;</span><span class="p">:{</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;elasticsearchreader&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;parameter&quot;</span><span class="p">:{</span>
+<span class="w">                        </span><span class="nt">&quot;endpoint&quot;</span><span class="p">:</span><span class="s2">&quot;http://127.0.0.1:9200&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;accessId&quot;</span><span class="p">:</span><span class="s2">&quot;elastic&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;accessKey&quot;</span><span class="p">:</span><span class="s2">&quot;elastic&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="s2">&quot;person&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;_doc&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;headers&quot;</span><span class="p">:{</span>
+
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="nt">&quot;scroll&quot;</span><span class="p">:</span><span class="s2">&quot;3m&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;search&quot;</span><span class="p">:[</span>
+<span class="w">                            </span><span class="p">{</span>
+<span class="w">                                </span><span class="nt">&quot;query&quot;</span><span class="p">:{</span>
+<span class="w">                                    </span><span class="nt">&quot;match_all&quot;</span><span class="p">:{</span>
+
+<span class="w">                                    </span><span class="p">}</span>
+<span class="w">                                </span><span class="p">}</span>
+<span class="w">                            </span><span class="p">}</span>
+<span class="w">                        </span><span class="p">],</span>
+<span class="w">                        </span><span class="nt">&quot;table&quot;</span><span class="p">:{</span>
+<span class="w">                            </span><span class="nt">&quot;filter&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;nameCase&quot;</span><span class="p">:</span><span class="s2">&quot;UPPERCASE&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;column&quot;</span><span class="p">:[</span>
+<span class="w">                                </span><span class="p">{</span>
+<span class="w">                                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;id&quot;</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span>
+<span class="w">                                </span><span class="p">},</span>
+<span class="w">                                </span><span class="p">{</span>
+<span class="w">                                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;text&quot;</span>
+<span class="w">                                </span><span class="p">},</span>
+<span class="w">                                </span><span class="p">{</span>
+<span class="w">                                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;birthday&quot;</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;date&quot;</span>
+<span class="w">                                </span><span class="p">}</span>
+<span class="w">                            </span><span class="p">]</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;writer&quot;</span><span class="p">:{</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;matrixonewriter&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;parameter&quot;</span><span class="p">:{</span>
+<span class="w">                        </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="s2">&quot;111&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;column&quot;</span><span class="p">:[</span>
+<span class="w">                            </span><span class="s2">&quot;id&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;birthday&quot;</span>
+<span class="w">                        </span><span class="p">],</span>
+<span class="w">                        </span><span class="nt">&quot;connection&quot;</span><span class="p">:[</span>
+<span class="w">                            </span><span class="p">{</span>
+<span class="w">                                </span><span class="nt">&quot;table&quot;</span><span class="p">:[</span>
+<span class="w">                                    </span><span class="s2">&quot;person&quot;</span>
+<span class="w">                                </span><span class="p">],</span>
+<span class="w">                                </span><span class="nt">&quot;jdbcUrl&quot;</span><span class="p">:</span><span class="s2">&quot;jdbc:mysql://127.0.0.1:6001/mo&quot;</span>
+<span class="w">                            </span><span class="p">}</span>
+<span class="w">                        </span><span class="p">]</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="3">3. 执行迁移任务</h4>
+<p>进入 datax 安装目录，执行以下命令启动迁移作业：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>datax
+python<span class="w"> </span>bin/datax.py<span class="w"> </span>job/es2mo.json
+</code></pre></div>
+<p>作业执行完成后，输出结果如下：</p>
+<div class="highlight"><pre><span></span><code><span class="m">2023</span>-11-28<span class="w"> </span><span class="m">15</span>:55:45.642<span class="w"> </span><span class="o">[</span>job-0<span class="o">]</span><span class="w"> </span>INFO<span class="w">  </span>StandAloneJobContainerCommunicator<span class="w"> </span>-<span class="w"> </span>Total<span class="w"> </span><span class="m">3</span><span class="w"> </span>records,<span class="w"> </span><span class="m">67</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span>Speed<span class="w"> </span>6B/s,<span class="w"> </span><span class="m">0</span><span class="w"> </span>records/s<span class="w"> </span><span class="p">|</span><span class="w"> </span>Error<span class="w"> </span><span class="m">0</span><span class="w"> </span>records,<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w">  </span>All<span class="w"> </span>Task<span class="w"> </span>WaitWriterTime<span class="w"> </span><span class="m">0</span>.000s<span class="w"> </span><span class="p">|</span><span class="w">  </span>All<span class="w"> </span>Task<span class="w"> </span>WaitReaderTime<span class="w"> </span><span class="m">0</span>.456s<span class="w"> </span><span class="p">|</span><span class="w"> </span>Percentage<span class="w"> </span><span class="m">100</span>.00%
+<span class="m">2023</span>-11-28<span class="w"> </span><span class="m">15</span>:55:45.644<span class="w"> </span><span class="o">[</span>job-0<span class="o">]</span><span class="w"> </span>INFO<span class="w">  </span>JobContainer<span class="w"> </span>-<span class="w"> </span>
+任务启动时刻<span class="w">                    </span>:<span class="w"> </span><span class="m">2023</span>-11-28<span class="w"> </span><span class="m">15</span>:55:31
+任务结束时刻<span class="w">                    </span>:<span class="w"> </span><span class="m">2023</span>-11-28<span class="w"> </span><span class="m">15</span>:55:45
+任务总计耗时<span class="w">                    </span>:<span class="w">                 </span>14s
+任务平均流量<span class="w">                    </span>:<span class="w">                </span>6B/s
+记录写入速度<span class="w">                    </span>:<span class="w">              </span>0rec/s
+读出记录总数<span class="w">                    </span>:<span class="w">                   </span><span class="m">3</span>
+读写失败总数<span class="w">                    </span>:<span class="w">                   </span><span class="m">0</span>
+</code></pre></div>
+<h4 id="4-matrixone">4. 在 MatrixOne 中查看迁移后数据</h4>
+<p>在 MatrixOne 数据库中查看目标表中的结果，确认迁移已完成：</p>
+<div class="highlight"><pre><span></span><code>mysql&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>mo.person<span class="p">;</span>
++------+-----------+------------+
+<span class="p">|</span><span class="w"> </span>id<span class="w">   </span><span class="p">|</span><span class="w"> </span>name<span class="w">      </span><span class="p">|</span><span class="w"> </span>birthday<span class="w">   </span><span class="p">|</span>
++------+-----------+------------+
+<span class="p">|</span><span class="w">    </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>MatrixOne<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1992</span>-08-08<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">    </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>MO<span class="w">        </span><span class="p">|</span><span class="w"> </span><span class="m">1993</span>-08-08<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">    </span><span class="m">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>墨墨<span class="w">      </span><span class="p">|</span><span class="w"> </span><span class="m">1994</span>-08-08<span class="w"> </span><span class="p">|</span>
++------+-----------+------------+
+<span class="m">3</span><span class="w"> </span>rows<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
+</code></pre></div>
+<h4 id="5-matrixone-elasticsearch">5. 编写 MatrixOne 至 ElasticSearch 的作业文件</h4>
+<p>编写 datax 作业文件 <strong>mo2es.json</strong>，同样放在 <code>datax/job</code> 目录，MatrixOne 高度兼容 MySQL 协议，我们可以直接使用 mysqlreader 来通过 jdbc 方式读取 MatrixOne 中的数据：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;job&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;setting&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;speed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;errorLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;record&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;percentage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">            </span><span class="nt">&quot;reader&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mysqlreader&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;parameter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;id&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;birthday&quot;</span>
+<span class="w">                    </span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;splitPk&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;connection&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">                        </span><span class="nt">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                            </span><span class="s2">&quot;person&quot;</span>
+<span class="w">                        </span><span class="p">],</span>
+<span class="w">                        </span><span class="nt">&quot;jdbcUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                            </span><span class="s2">&quot;jdbc:mysql://127.0.0.1:6001/mo&quot;</span>
+<span class="w">                        </span><span class="p">]</span>
+<span class="w">                    </span><span class="p">}]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;writer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;elasticsearchwriter&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;parameter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://127.0.0.1:9200&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;accessId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;elastic&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;accessKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;elastic&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;person&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_doc&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;cleanup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;number_of_shards&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;number_of_replicas&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="nt">&quot;discovery&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;batchSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;splitter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">                            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;birthday&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">]</span>
+
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="6matrixone">6.MatrixOne 数据准备</h4>
+<div class="highlight"><pre><span></span><code><span class="k">truncate</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">mo</span><span class="p">.</span><span class="n">person</span><span class="p">;</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">mo</span><span class="p">.</span><span class="n">person</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">birthday</span><span class="p">)</span>
+<span class="k">VALUES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mo101&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-07-09&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mo102&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-07-08&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mo103&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-07-12&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="7-matrixone-elasticsearch">7. 执行 MatrixOne 向 ElasticSearch 的迁移任务</h4>
+<p>进入 datax 安装目录，执行以下命令</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>datax
+python<span class="w"> </span>bin/datax.py<span class="w"> </span>job/mo2es.json
+</code></pre></div>
+<p>执行完成后，输出结果如下：</p>
+<div class="highlight"><pre><span></span><code><span class="m">2023</span>-11-28<span class="w"> </span><span class="m">17</span>:38:04.795<span class="w"> </span><span class="o">[</span>job-0<span class="o">]</span><span class="w"> </span>INFO<span class="w">  </span>StandAloneJobContainerCommunicator<span class="w"> </span>-<span class="w"> </span>Total<span class="w"> </span><span class="m">3</span><span class="w"> </span>records,<span class="w"> </span><span class="m">42</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span>Speed<span class="w"> </span>4B/s,<span class="w"> </span><span class="m">0</span><span class="w"> </span>records/s<span class="w"> </span><span class="p">|</span><span class="w"> </span>Error<span class="w"> </span><span class="m">0</span><span class="w"> </span>records,<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w">  </span>All<span class="w"> </span>Task<span class="w"> </span>WaitWriterTime<span class="w"> </span><span class="m">0</span>.000s<span class="w"> </span><span class="p">|</span><span class="w">  </span>All<span class="w"> </span>Task<span class="w"> </span>WaitReaderTime<span class="w"> </span><span class="m">0</span>.000s<span class="w"> </span><span class="p">|</span><span class="w"> </span>Percentage<span class="w"> </span><span class="m">100</span>.00%
+<span class="m">2023</span>-11-28<span class="w"> </span><span class="m">17</span>:38:04.799<span class="w"> </span><span class="o">[</span>job-0<span class="o">]</span><span class="w"> </span>INFO<span class="w">  </span>JobContainer<span class="w"> </span>-<span class="w"> </span>
+任务启动时刻<span class="w">                    </span>:<span class="w"> </span><span class="m">2023</span>-11-28<span class="w"> </span><span class="m">17</span>:37:49
+任务结束时刻<span class="w">                    </span>:<span class="w"> </span><span class="m">2023</span>-11-28<span class="w"> </span><span class="m">17</span>:38:04
+任务总计耗时<span class="w">                    </span>:<span class="w">                 </span>15s
+任务平均流量<span class="w">                    </span>:<span class="w">                </span>4B/s
+记录写入速度<span class="w">                    </span>:<span class="w">              </span>0rec/s
+读出记录总数<span class="w">                    </span>:<span class="w">                   </span><span class="m">3</span>
+读写失败总数<span class="w">                    </span>:<span class="w">                   </span><span class="m">0</span>
+</code></pre></div>
+<h4 id="8">8. 查看执行结果</h4>
+<p>在 Elasticsearch 中查看结果</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>elastic:elastic<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>http://127.0.0.1:9200/person/_search?pretty<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span>-d<span class="s1">&#39;</span>
+<span class="s1">{</span>
+<span class="s1">  &quot;query&quot; : {</span>
+<span class="s1">    &quot;match_all&quot;: {}</span>
+<span class="s1">    }</span>
+<span class="s1">}&#39;</span>
+</code></pre></div>
+<p>结果显示如下，表示迁移作业已正常完成：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;took&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;timed_out&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;_shards&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;total&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;successful&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;skipped&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;failed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;hits&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;total&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;relation&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eq&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;max_score&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;hits&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;_index&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;person&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_doc&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dv9QFYwBPwIzfbNQfgG1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_score&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;birthday&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-07-09T00:00:00.000+08:00&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mo101&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;_index&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;person&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_doc&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d_9QFYwBPwIzfbNQfgG1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_score&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;birthday&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-07-08T00:00:00.000+08:00&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mo102&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;_index&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;person&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_doc&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eP9QFYwBPwIzfbNQfgG1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_score&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;_source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;birthday&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-07-12T00:00:00.000+08:00&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mo103&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_11">常见问题</h2>
 <p><strong>Q: 在运行时，我遇到了“配置信息错误，您提供的配置文件/{YOUR_MATRIXONE_WRITER_PATH}/plugin.json 不存在”的问题该怎么处理？</strong></p>
 <p>A: DataX 在启动时会尝试查找相似的文件夹以寻找 plugin.json 文件。如果 matrixonewriter.zip 文件也存在于相同的目录下，DataX 将尝试从 <code>.../datax/plugin/writer/matrixonewriter.zip/plugin.json</code> 中查找。在 MacOS 环境下，DataX 还会尝试从 <code>.../datax/plugin/writer/.DS_Store/plugin.json</code> 中查找。此时，您需要删除这些多余的文件或文件夹。</p>
 
