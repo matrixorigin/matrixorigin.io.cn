@@ -10,4 +10,4 @@ MatrixOne 是一个面向未来的超融合云和边缘原生 DBMS，通过一�
 
 ## 文档预览
 
-见 [这里](CONTRIBUTING.md).
+见[这里](CONTRIBUTING.md).
