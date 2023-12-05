@@ -9,17 +9,13 @@
       
       
       
-        <link rel="prev" href="../high-availability/">
-      
-      
-        <link rel="next" href="../mysql-compatibility/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.21">
     
     
       
-        <title>时序 - MatrixOne 中文文档</title>
+        <title>通过唯一索引和次级索引提升性能 - MatrixOne 中文文档</title>
       
     
     
@@ -107,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              时序
+              通过唯一索引和次级索引提升性能
             
           </span>
         </div>
@@ -201,15 +197,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../../.." class="md-tabs__link">
         MatrixOne
       </a>
     </li>
@@ -271,16 +265,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
       
       
       
@@ -289,7 +281,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           MatrixOne
@@ -314,16 +306,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
       
       
       
@@ -332,7 +322,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_2">
           <span class="md-nav__icon md-icon"></span>
           关于 MatrixOne
@@ -345,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../matrixone-introduction/" class="md-nav__link">
+      <a href="../../../Overview/matrixone-introduction/" class="md-nav__link">
         MatrixOne 简介
       </a>
     </li>
@@ -359,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../matrixone-feature-list/" class="md-nav__link">
+      <a href="../../../Overview/matrixone-feature-list/" class="md-nav__link">
         MatrixOne 功能清单
       </a>
     </li>
@@ -371,16 +361,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_3" >
       
       
       
@@ -389,7 +377,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_2_3">
           <span class="md-nav__icon md-icon"></span>
           MatrixOne 功能概述
@@ -402,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../key-feature-htap/" class="md-nav__link">
+      <a href="../../../Overview/feature/key-feature-htap/" class="md-nav__link">
         混合负载 HTAP
       </a>
     </li>
@@ -416,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../key-feature-multi-accounts/" class="md-nav__link">
+      <a href="../../../Overview/feature/key-feature-multi-accounts/" class="md-nav__link">
         多租户
       </a>
     </li>
@@ -430,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scalability/" class="md-nav__link">
+      <a href="../../../Overview/feature/scalability/" class="md-nav__link">
         极致扩展性
       </a>
     </li>
@@ -444,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cost-effective/" class="md-nav__link">
+      <a href="../../../Overview/feature/cost-effective/" class="md-nav__link">
         高性价比
       </a>
     </li>
@@ -458,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../high-availability/" class="md-nav__link">
+      <a href="../../../Overview/feature/high-availability/" class="md-nav__link">
         高可用
       </a>
     </li>
@@ -470,59 +458,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          时序
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../Overview/feature/time-series/" class="md-nav__link">
         时序
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    时序数据的特点
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matrixone" class="md-nav__link">
-    MatrixOne 的时序能力
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -534,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mysql-compatibility/" class="md-nav__link">
+      <a href="../../../Overview/feature/mysql-compatibility/" class="md-nav__link">
         MySQL 兼容性
       </a>
     </li>
@@ -582,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/matrixone-architecture-design/" class="md-nav__link">
+      <a href="../../../Overview/architecture/matrixone-architecture-design/" class="md-nav__link">
         整体架构概述
       </a>
     </li>
@@ -596,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/architecture-tae/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-tae/" class="md-nav__link">
         存储引擎架构详解
       </a>
     </li>
@@ -610,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/architecture-logservice/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-logservice/" class="md-nav__link">
         Logservice 架构详解
       </a>
     </li>
@@ -624,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/architecture-logtail/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-logtail/" class="md-nav__link">
         Logtail 协议详解
       </a>
     </li>
@@ -638,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/architecture-transaction-lock/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-transaction-lock/" class="md-nav__link">
         事务与锁机制实现详解
       </a>
     </li>
@@ -652,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/architecture-proxy/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-proxy/" class="md-nav__link">
         Proxy 架构详解
       </a>
     </li>
@@ -666,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/architecture-cold-hot-data-separation/" class="md-nav__link">
+      <a href="../../../Overview/architecture/architecture-cold-hot-data-separation/" class="md-nav__link">
         数据缓存及冷热数据分离架构详解
       </a>
     </li>
@@ -680,7 +620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/streaming/" class="md-nav__link">
+      <a href="../../../Overview/architecture/streaming/" class="md-nav__link">
         流引擎架构详解
       </a>
     </li>
@@ -701,7 +641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../whats-new/" class="md-nav__link">
+      <a href="../../../Overview/whats-new/" class="md-nav__link">
         最新动态
       </a>
     </li>
@@ -3311,7 +3251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/performance-tuning-overview/" class="md-nav__link">
+      <a href="../../performance-tuning-overview/" class="md-nav__link">
         SQL 性能调优方法概述
       </a>
     </li>
@@ -3352,7 +3292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/explain/explain-overview/" class="md-nav__link">
+      <a href="../../explain/explain-overview/" class="md-nav__link">
         MatrixOne 执行计划概述
       </a>
     </li>
@@ -3366,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/explain/explain-walkthrough/" class="md-nav__link">
+      <a href="../../explain/explain-walkthrough/" class="md-nav__link">
         使用 EXPLAIN 理解执行计划
       </a>
     </li>
@@ -3380,7 +3320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/explain/explain-joins/" class="md-nav__link">
+      <a href="../../explain/explain-joins/" class="md-nav__link">
         JOIN 查询的执行计划
       </a>
     </li>
@@ -3394,7 +3334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/explain/explain-subqueries/" class="md-nav__link">
+      <a href="../../explain/explain-subqueries/" class="md-nav__link">
         子查询的执行计划
       </a>
     </li>
@@ -3408,7 +3348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/explain/explain-aggregation/" class="md-nav__link">
+      <a href="../../explain/explain-aggregation/" class="md-nav__link">
         聚合查询的执行计划
       </a>
     </li>
@@ -3422,7 +3362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/explain/explain-views/" class="md-nav__link">
+      <a href="../../explain/explain-views/" class="md-nav__link">
         视图的执行计划
       </a>
     </li>
@@ -3470,7 +3410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/optimization-concepts/through-cluster-by/" class="md-nav__link">
+      <a href="../through-cluster-by/" class="md-nav__link">
         使用 Cluster by 语句调优
       </a>
     </li>
@@ -3484,7 +3424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/optimization-concepts/through-CN-extensions/" class="md-nav__link">
+      <a href="../through-CN-extensions/" class="md-nav__link">
         通过扩展 CN 提升性能
       </a>
     </li>
@@ -3525,7 +3465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/optimization-concepts/through-partition/through-partition-by/" class="md-nav__link">
+      <a href="../through-partition/through-partition-by/" class="md-nav__link">
         使用分区表调优
       </a>
     </li>
@@ -3539,7 +3479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Performance-Tuning/optimization-concepts/through-partition/through-partition-pruning/" class="md-nav__link">
+      <a href="../through-partition/through-partition-pruning/" class="md-nav__link">
         分区裁剪
       </a>
     </li>
@@ -10016,15 +9956,137 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    时序数据的特点
+    唯一索引
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#matrixone" class="md-nav__link">
-    MatrixOne 的时序能力
+  <a href="#_3" class="md-nav__link">
+    次级索引
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    索引策略
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    示例
+  </a>
+  
+    <nav class="md-nav" aria-label="示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    场景一：电商网站的产品搜索
+  </a>
+  
+    <nav class="md-nav" aria-label="场景一：电商网站的产品搜索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    案例需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    实现策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL 示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    场景二：社交媒体平台的用户登录
+  </a>
+  
+    <nav class="md-nav" aria-label="场景二：社交媒体平台的用户登录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    案例需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    实现策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    SQL 示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    场景三：财务报告系统的交易数据分析
+  </a>
+  
+    <nav class="md-nav" aria-label="场景三：财务报告系统的交易数据分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    案例需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    实现策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql_2" class="md-nav__link">
+    SQL 示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -10043,7 +10105,7 @@
                   
 
   
-    <a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Overview/feature/time-series.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/main/docs/MatrixOne/Performance-Tuning/optimization-concepts/through-index.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -10051,34 +10113,127 @@
   
 
 
-<h1 id="_1">时序能力</h1>
-<h2 id="_2">时序数据的特点</h2>
-<p>随着物联网的发展，时序数据库的需求越来越多，比如智能汽车产生的数据，工厂的设备监控、金融行业的交易行情指标数据等。常见的业务场景包括：</p>
-<p>监控软件系统：虚拟机、容器、服务、应用；
-监控物理系统：水文监控、制造业工厂中的设备监控、国家安全相关的数据监控、通讯监控、传感器数据、血糖仪、血压变化、心率等；
-资产跟踪应用：汽车、卡车、物理容器、运货托盘；
-金融交易系统：传统证券、新兴的加密数字货币；
-事件应用程序：跟踪用户、客户的交互数据；
-商业智能工具：跟踪关键指标和业务的总体健康情况；
-互联网行业：也有着非常多的时序数据，例如用户访问网站的行为轨迹，应用程序产生的日志数据等。</p>
-<p>一方面由于时序数据库的时间属性，即随着时间的推移不断地产生新的数据；另一方面，时序的数据量巨大，每秒钟可能要写入千万、上亿条数据。这两方面的特性使得时序数据库在一些业务需求中会出现，常见的业务需求有：</p>
+<h1 id="_1">通过唯一索引和次级索引提升性能</h1>
+<h2 id="_2">唯一索引</h2>
+<p><strong>定义：</strong>
+唯一索引不仅确保了数据的唯一性，还提供了查询优化的机会。在有唯一性要求的列上创建索引可以加速查找和排序操作。</p>
+<p><strong>例子：</strong></p>
 <ol>
-<li>获取最新状态，查询最近的数据（例如传感器最新的状态）；</li>
-<li>展示区间统计，指定时间范围，查询统计信息，例如平均值、最大值、最小值、计数等；</li>
-<li>获取异常数据，根据指定条件，筛选异常数据。</li>
+<li><strong>用户账户表</strong>：
+   假设有一个名为 <code>users</code> 的表，其中 <code>email</code> 列需要保持唯一。创建唯一索引可以加快基于 <code>email</code> 的查找速度：</li>
 </ol>
-<h2 id="matrixone">MatrixOne 的时序能力</h2>
-<p>目前行业中已经有一些专用的 NoSQL 时序数据库，如 InfluxDB, OpenTSDB, TDEngine 等，而 MatrixOne 与它们不一样的地方在于 MatrixOne 仍然是一个通用数据库，以满足应用开发的增删改查及数据分析的 HTAP 为核心，同时也仍然是一个关系型数据的建模形式，使用的查询语言也仍然是经典的 SQL 语言，MatrixOne 是在通用数据库能力的基础增加了一些时序相关的能力，定位上来说有点类似于 TimeScaleDB。MatrixOne 在功能上支持时间窗口，降采样，插值，分区等时序常见的能力，性能上可以满足时序场景中对高吞吐，高压缩，实时分析，同时整体架构上的强扩展性，冷热分离，读写分离等特点也非常适合时序相关的场景使用，同时保持了传统数据库中对更新，事务的支持。因此，MatrixOne 更适合需要用普通的关系型数据库进行业务开发，但是同时有需要有一定时序处理能力的混合场景。</p>
-<p>MatrixOne 的时序能力体现在以下方面：</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
+</code></pre></div>
+<p>当通过 <code>email</code> 进行查询时，MatrixOne 可以快速定位到唯一的记录。</p>
+<ol>
+<li><strong>订单表</strong>：
+   在一个包含订单数据的 <code>orders</code> 表中，订单号 <code>order_id</code> 应该是唯一的。在这个列上创建唯一索引将加快基于订单号的搜索：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_order_id</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="p">(</span><span class="n">order_id</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="_3">次级索引</h2>
+<p><strong>定义：</strong>
+次级索引（非唯一索引）在没有唯一性要求的列上使用，可以加速对这些列的查询。</p>
+<p><strong>例子：</strong></p>
+<ol>
+<li><strong>产品分类</strong>：
+   假设有一个 <code>products</code> 表，产品可以按类别 <code>category</code> 分类。创建次级索引可以加速基于类别的查询：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_category</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">products</span><span class="p">(</span><span class="n">category</span><span class="p">);</span>
+</code></pre></div>
+<p>这样，查询特定类别的产品时，MatrixOne 可以使用索引来快速过滤结果。</p>
+<ol>
+<li><strong>日期范围查询</strong>：
+   在 <code>events</code> 表中，如果经常需要基于日期范围进行查询，比如查询某个月的事件，可以在日期列 <code>event_date</code> 上创建索引：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_event_date</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">events</span><span class="p">(</span><span class="n">event_date</span><span class="p">);</span>
+</code></pre></div>
+<p>这样，对于涉及日期范围的查询，MatrixOne 可以高效地定位和筛选出符合条件的行。</p>
+<h2 id="_4">索引策略</h2>
+<ol>
+<li>
+<p><strong>选择正确的列创建索引</strong>：
+   通常在经常用于 <code>WHERE</code> 子句、<code>JOIN</code> 条件或排序（<code>ORDER BY</code>）的列上创建索引。</p>
+</li>
+<li>
+<p><strong>组合索引</strong>：
+   在多个列上经常一起查询时，可以创建组合索引。例如，如果经常根据 <code>last_name</code> 和 <code>first_name</code> 查询 <code>users</code> 表，可以创建一个组合索引：</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_name</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">);</span>
+</code></pre></div>
+<ol>
+<li>
+<p><strong>注意索引的维护</strong>：
+   索引可以提升查询性能，但过多或不必要的索引会降低更新表时的性能，因为索引也需要更新。合理维护和定期审查索引很重要。</p>
+</li>
+<li>
+<p><strong>使用 EXPLAIN 分析查询</strong>：
+   使用 <code>EXPLAIN</code> 语句来分析您的查询如何使用索引。这有助于理解查询的性能并优化索引策略。</p>
+</li>
+</ol>
+<h2 id="_5">示例</h2>
+<p>使用唯一索引和次级索引可以显著提升 MatrixOne 数据库的查询效率。正确理解并实施索引策略，是优化数据库性能的关键步骤。索引也应根据具体的使用场景和查询模式来设计和优化。</p>
+<h3 id="_6">场景一：电商网站的产品搜索</h3>
+<h4 id="_7">案例需求</h4>
 <ul>
-<li>支持传统数据库中常见的字符串，数字，日期等数据类型，也同时支持新型负载的 JSON，向量等类型，详细可参见<a href="../../../Reference/Data-Types/data-types/">数据类型</a>.</li>
-<li>支持建立按时间戳作为主键的专用时序表，并支持任意的维度/指标列，详细可参见<a href="../../../Develop/read-data/window-function/time-window/">时间窗口</a>.</li>
-<li>提供常用的时间窗口能力，可以按不同的时间进行降采样查询，详细可参见<a href="../../../Develop/read-data/window-function/time-window/">时间窗口</a>.</li>
-<li>支持针对空值的插值能力，并提供不同策略的插值方法，详细可参见<a href="../../../Develop/read-data/window-function/time-window/">时间窗口</a>.</li>
-<li>支持各类传统数据库中的简单及复杂查询能力，详细可参见<a href="../../../Develop/read-data/query-data-single-table/">单表查询</a>, <a href="../../../Develop/read-data/multitable-join-query/">多表查询</a>, <a href="../../../Develop/read-data/subquery/">子查询</a>, <a href="../../../Develop/read-data/subquery/">视图</a>, <a href="../../../Develop/read-data/cte/">CTE</a>.</li>
-<li>支持高速的<a href="../../../Develop/import-data/bulk-load/bulk-load-overview/">离线导入</a>, <a href="../../../Develop/import-data/stream-load/">流式数据写入</a>, <a href="../../../Develop/import-data/insert-data/">Insert into 写入</a>等方式。</li>
-<li>支持各类<a href="../../../Reference/Functions-and-Operators/Aggregate-Functions/count/">聚合函数</a>, 以满足时序数据类型的计算。</li>
+<li>需要快速搜索产品名称。</li>
+<li>需要根据价格、类别等多个字段进行过滤。</li>
 </ul>
+<h4 id="_8">实现策略</h4>
+<ul>
+<li>在产品名称上使用<strong>次级索引</strong>以加速搜索。</li>
+<li>在价格和类别等字段上创建复合次级索引。</li>
+</ul>
+<h4 id="sql">SQL 示例</h4>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_product_name</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">products</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_product_category_price</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">products</span><span class="p">(</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">);</span>
+
+<span class="c1">-- 根据产品名称搜索</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%查询关键字%&#39;</span><span class="p">;</span>
+
+<span class="c1">-- 根据类别和价格过滤</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;特定类别&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="err">价格下限</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="err">价格上限</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="_9">场景二：社交媒体平台的用户登录</h3>
+<h4 id="_10">案例需求</h4>
+<ul>
+<li>快速验证用户名和密码。</li>
+<li>确保用户名的唯一性。</li>
+</ul>
+<h4 id="_11">实现策略</h4>
+<ul>
+<li>在用户名上使用<strong>唯一索引</strong>。</li>
+<li>对密码使用常规索引进行优化。</li>
+</ul>
+<h4 id="sql_1">SQL 示例</h4>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_username</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_password</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">password</span><span class="p">);</span>
+
+<span class="c1">-- 检查用户名和密码的匹配</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;用户输入的用户名&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;用户输入的密码&#39;</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="_12">场景三：财务报告系统的交易数据分析</h3>
+<h4 id="_13">案例需求</h4>
+<ul>
+<li>按月份和区域汇总交易数据。</li>
+<li>快速访问特定月份的交易记录。</li>
+</ul>
+<h4 id="_14">实现策略</h4>
+<ul>
+<li>对交易日期使用<strong>次级索引</strong>，以支持范围查询。</li>
+<li>使用区域作为复合索引的一部分。</li>
+</ul>
+<h4 id="sql_2">SQL 示例</h4>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_transaction_date</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">transactions</span><span class="p">(</span><span class="n">transaction_date</span><span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_region_date</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">transactions</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">transaction_date</span><span class="p">);</span>
+
+<span class="c1">-- 按月份查询交易</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">transactions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">transaction_date</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;月份开始日期&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;月份结束日期&#39;</span><span class="p">;</span>
+
+<span class="c1">-- 按区域和月份查询交易</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">transactions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;特定区域&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">transaction_date</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;月份开始日期&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;月份结束日期&#39;</span><span class="p">;</span>
+</code></pre></div>
 
 
 
@@ -10095,42 +10250,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../high-availability/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 高可用" rel="prev">
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                高可用
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../mysql-compatibility/" class="md-footer__link md-footer__link--next" aria-label="Next: MySQL 兼容性" rel="next">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                MySQL 兼容性
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">

@@ -1250,11 +1250,44 @@
     使用次级索引
   </a>
   
+    <nav class="md-nav" aria-label="使用次级索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL 示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    示例
+    复合次级索引
+  </a>
+  
+    <nav class="md-nav" aria-label="复合次级索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    SQL 示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    限制
   </a>
   
 </li>
@@ -10047,11 +10080,44 @@
     使用次级索引
   </a>
   
+    <nav class="md-nav" aria-label="使用次级索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL 示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    示例
+    复合次级索引
+  </a>
+  
+    <nav class="md-nav" aria-label="复合次级索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    SQL 示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    限制
   </a>
   
 </li>
@@ -10090,8 +10156,17 @@
 <li>了解什么是<a href="../overview/">数据库模式</a>。</li>
 </ul>
 <h2 id="_4">使用次级索引</h2>
-<p>创建次级索引可以通过 <code>CREATE INDEX</code> 语句创建次级索引，指定索引所针对的列以及其他索引选项。</p>
-<p>语法结构为：<code>CREATE INDEX index_name ON table_name (column_name);</code></p>
+<p>创建次级索引有两种方式，一种是在建表的时候就建立 <code>KEY</code> 次级索引，另一种可以在建表后通过 <code>CREATE INDEX</code> 或者 <code>ALTER TABLE ADD index</code> 语句动态创建次级索引，指定索引所针对的列以及其他索引选项。</p>
+<p>语法结构分别为：</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">col1</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">col2</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="k">KEY</span><span class="w"> </span><span class="n">index_name</span><span class="w"> </span><span class="p">(</span><span class="n">col2</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_name</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span><span class="k">column_name</span><span class="p">);</span>
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_name</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span><span class="k">column_name</span><span class="p">);</span>
+</code></pre></div>
 <p>其中，<code>index_name</code> 是索引的名称，<code>table_name</code> 是要在其上创建索引的表格名称，而 <code>column_name</code> 是用于创建索引的列名。</p>
 <p>例如，如果要在名为 <code>employees</code> 的表格的 <code>last_name</code> 列上创建一个次级索引，可以使用以下 SQL 语句：</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_lastname</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="n">last_name</span><span class="p">);</span>
@@ -10101,7 +10176,7 @@
 </code></pre></div>
 <p>在这个例子中，查询优化器会使用 <code>idx_lastname</code> 索引来定位 <code>last_name</code> 为 <code>Smith</code> 的数据行。</p>
 <p>需要注意的是，创建索引会增加数据库的存储和维护成本，并且在插入、更新和删除数据时也可能会影响性能。因此，在创建次级索引时需要仔细考虑其对数据库性能的影响，并进行必要的优化和调整。</p>
-<h2 id="_5">示例</h2>
+<h3 id="sql">SQL 示例</h3>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
 <span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
 <span class="w">  </span><span class="n">age</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
@@ -10122,6 +10197,29 @@
 <span class="o">+</span><span class="c1">------+------+------+----------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="_5">复合次级索引</h2>
+<p>MatrixOne 也支持复合次级索引，即在两个或更多列上创建的索引。它允许在一个索引中包含多个列，从而优化涉及这些列的查询。</p>
+<p>对于跨多个列的查询，复合索引可以大幅提高查询性能。它们在执行排序和过滤任务时特别有效，尤其是当这些操作涉及到多个字段时。如果查询只涉及索引中的列，数据库可以直接从索引中获取数据，而无需访问表中的行，这可以大大提高查询效率。</p>
+<p>复合次级索引使用注意事项：</p>
+<ol>
+<li><strong>列的顺序</strong>：在复合索引中，列的顺序非常重要。数据库在查找时会按照索引定义中列的顺序进行。</li>
+<li><strong>高基数</strong>：高基数的列（即具有许多唯一值的列）应该放在索引的前面。</li>
+<li><strong>写入性能影响</strong>：虽然读取操作可以受益于复合索引，但是它们可能会降低写入操作的性能，因为索引需要在插入或更新数据时更新。</li>
+</ol>
+<h3 id="sql_1">SQL 示例</h3>
+<p>假设有一个订单表 <code>orders</code>，其中包含 <code>customer_id</code>, <code>order_date</code>, 和 <code>status</code> 列。为了优化涉及这些列的查询，可以创建一个复合索引：</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_customer_date_status</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">);</span>
+</code></pre></div>
+<p>在这个例子中，如果有基于 <code>customer_id</code> 和 <code>order_date</code> 的查询，这个复合索引会非常有用。然而，如果查询只涉及 <code>order_date</code>，这个复合索引可能不会被有效利用，因为 <code>order_date</code> 不是索引中的第一个列。</p>
+<h2 id="_6">限制</h2>
+<ol>
+<li>
+<p>MatrixOne 暂时不支持 Online DDL。动态创建次级索引，无论是 <code>ALTER TABLE ADD INDEX</code> 还是 <code>CREATE INDEX</code> 都会导致原表上锁，其他事务的 DML 操作会被阻塞 (INSERT, UPDATE,DELETE, SELECT FOR UPDATE)。</p>
+</li>
+<li>
+<p>MatrixOne 目前不支持 FULLTEXT 及 SPATIAL 索引。</p>
+</li>
+</ol>
 
 
 
