@@ -16,6 +16,7 @@ jobs:
       uses: tj-actions/changed-files@v40
 
     - name: Check out code
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
       uses: actions/checkout@v4
       with:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
