@@ -7,7 +7,14 @@ jobs:
   lint-docs:
     name: Lint Docs
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
     steps:
+
+    - name: Get all changed markdown files
+      id: changed-markdown-files
+      uses: tj-actions/changed-files@v40
+
     - name: Check out code
       uses: actions/checkout@v4
       with:
@@ -15,14 +22,6 @@ jobs:
         ref: ${{ github.event.pull_request.head.ref }}
         # Assume PRs are less than 20 commits
         fetch-depth: 20
-
-    - name: Get all changed markdown files
-      id: changed-markdown-files
-      uses: tj-actions/changed-files@v40
-      with:
-        since_last_remote_commit: false 
-        files: |
-          **.md
 
     - name: Setup node
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
