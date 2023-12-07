@@ -14,6 +14,9 @@ jobs:
     - name: Get all changed markdown files
       id: changed-markdown-files
       uses: tj-actions/changed-files@v40
+      with:
+        files: |
+           **.md
 
     - name: Check out code
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
