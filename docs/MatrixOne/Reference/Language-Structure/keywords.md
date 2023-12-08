@@ -508,7 +508,7 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 
 - DAEMON
 - DATA
-- DATE %prec LOWER_THAN_STRING
+- DATE
 - DATETIME
 - DAY
 - DECIMAL
@@ -633,7 +633,7 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - PARALLEL
 - PARTIAL
 - PARTITIONS
-- PASSWORD %prec LOWER_THAN_EQ
+- PASSWORD
 - PAUSE
 - PERSIST
 - POINT
@@ -706,8 +706,8 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - TASK
 - TEXT
 - THAN
-- TIME %prec LOWER_THAN_STRING
-- TIMESTAMP %prec LOWER_THAN_STRING
+- TIME
+- TIMESTAMP
 - TINYBLOB
 - TINYINT
 - TINYTEXT
