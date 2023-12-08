@@ -55,23 +55,22 @@
       docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:1.0.0
       ```
 
-=== "开发版本的镜像"
-
-      获取最新开发版本的镜像，参见[Docker Hub](https://hub.docker.com/r/matrixorigin/matrixone/tags)，找到最新Tag，拉取镜像。拉取镜像代码示例如下：
+=== "开发版本的镜像（latest）"
 
       ```bash
-      docker pull matrixorigin/matrixone:nightly-commitnumber
-      docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:nightly-commitnumber
+      docker pull matrixorigin/matrixone:latest
+      docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:latest
       ```
 
       如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 开发版本镜像：
 
       ```bash
-      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:nightly-commitnumber
-      docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:nightly-commitnumber
+      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:latest
+      docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:latest
       ```
 
-      __Note__: 如上面代码所示，*nightly* 为标识的 Tag 版本每天都进行更新，请注意获取最新的镜像。
+
+      __Note__: 获取更多开发版本的镜像，参见[Docker Hub ](https://hub.docker.com/r/matrixorigin/matrixone/tags)。
 
 !!! note
     若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 ```docker run``` 命令中加上参数 ```--privileged=true```，如：
