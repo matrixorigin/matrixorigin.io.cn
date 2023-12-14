@@ -502,6 +502,7 @@ nav:
             - INSTR():  MatrixOne/Reference/Functions-and-Operators/String/instr.md
             - LEFT(): MatrixOne/Reference/Functions-and-Operators/String/left.md
             - LENGTH(): MatrixOne/Reference/Functions-and-Operators/String/length.md
+            - LOWER(): MatrixOne/Reference/Functions-and-Operators/String/lower.md
             - LPAD(): MatrixOne/Reference/Functions-and-Operators/String/lpad.md
             - LTRIM(): MatrixOne/Reference/Functions-and-Operators/String/ltrim.md
             - OCT(): MatrixOne/Reference/Functions-and-Operators/String/oct.md
@@ -515,6 +516,7 @@ nav:
             - SUBSTRING(): MatrixOne/Reference/Functions-and-Operators/String/substring.md
             - SUBSTRING_INDEX(): MatrixOne/Reference/Functions-and-Operators/String/substring-index.md
             - TRIM(): MatrixOne/Reference/Functions-and-Operators/String/trim.md
+            - UPPER(): MatrixOne/Reference/Functions-and-Operators/String/upper.md
             - 正则表达式:
               - 正则表达式概述: MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/Regular-Expression-Functions-Overview.md
               - NOT REGEXP: MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/not-regexp.md
