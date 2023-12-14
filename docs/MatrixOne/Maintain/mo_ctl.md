@@ -24,7 +24,7 @@
 | `mo_ctl stop`        | 停止所有 MatrixOne 服务进程                                                                            |
 | `mo_ctl restart`     | 重启 MatrixOne 服务                                                                                    |
 | `mo_ctl connect`     | 调用 MySQL Client 连接 MatrixOne 服务                                                                  |
-| `mo_ctl upgrade`     | 将MatrixOne从当前版本升级/降级到某个发布版本或者commit id 版本                                         |
+| `mo_ctl upgrade`     | 将 MatrixOne 从当前版本升级/降级到某个发布版本或者 commit id 版本                                         |
 | `mo_ctl set_conf`    | 设置各类使用参数                                                                                       |
 | `mo_ctl get_conf`    | 查看当前使用参数                                                                                       |
 | `mo_ctl uninstall`   | 从 MO_PATH 路径下卸载 MatrixOne                                                                        |

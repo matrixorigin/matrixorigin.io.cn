@@ -36,7 +36,7 @@ CREATE TABLE table_name (
 下面是一个创建带有自增列的表的示例：
 
 ```sql
--- 创建了一个名为`employees`的表，其中`id`列被定义为自增列。`id`列的数据类型为`INT`，并通过`AUTO_INCREMENT`关键字指定了自增约束。表的主键设置为`id`列
+-- 创建了一个名为 `employees`的表，其中 `id`列被定义为自增列。`id`列的数据类型为`INT`，并通过`AUTO_INCREMENT` 关键字指定了自增约束。表的主键设置为`id` 列
 CREATE TABLE employees (
   id INT AUTO_INCREMENT,
   name VARCHAR(50),
@@ -44,7 +44,7 @@ CREATE TABLE employees (
   PRIMARY KEY (id)
 );
 
--- 插入数据，并让自增列自动生成唯一的标识值，没有为`id`列指定值，而是通过插入数据时自动为`id`列生成递增的唯一值。每次插入新行时，`id`列的值将自动递增。
+-- 插入数据，并让自增列自动生成唯一的标识值，没有为 `id`列指定值，而是通过插入数据时自动为 `id` 列生成递增的唯一值。每次插入新行时，`id` 列的值将自动递增。
 
 INSERT INTO employees (name, department)
 VALUES ('John Doe', 'HR'),
