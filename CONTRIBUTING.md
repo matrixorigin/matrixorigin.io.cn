@@ -16,7 +16,7 @@
 
 ### Fork 仓库
 
-您需要先 Fork 本仓库至您的 GitHub 账户下，然后再进行修改。Fork 是您在 GitHub 上创建的一个副本，您可以在其中进行任何修改，而不会影响到原始仓库。您可以查阅[ GitHub 官方文档](https://guides.github.com/activities/forking/)以了解更多关于 Fork 的信息。
+您需要先 Fork 本仓库至您的 GitHub 账户下，然后再进行修改。Fork 是您在 GitHub 上创建的一个副本，您可以在其中进行任何修改，而不会影响到原始仓库。您可以查阅 [GitHub 官方文档](https://guides.github.com/activities/forking/)以了解更多关于 Fork 的信息。
 
 ### 本地开发环境搭建
 
