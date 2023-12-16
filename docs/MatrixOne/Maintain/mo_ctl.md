@@ -24,7 +24,7 @@
 | `mo_ctl stop`        | 停止所有 MatrixOne 服务进程                                                                            |
 | `mo_ctl restart`     | 重启 MatrixOne 服务                                                                                    |
 | `mo_ctl connect`     | 调用 MySQL Client 连接 MatrixOne 服务                                                                  |
-| `mo_ctl upgrade`     | 将MatrixOne从当前版本升级/降级到某个发布版本或者commit id 版本                                         |
+| `mo_ctl upgrade`     | 将 MatrixOne 从当前版本升级/降级到某个发布版本或者 commit id 版本                                         |
 | `mo_ctl set_conf`    | 设置各类使用参数                                                                                       |
 | `mo_ctl get_conf`    | 查看当前使用参数                                                                                       |
 | `mo_ctl uninstall`   | 从 MO_PATH 路径下卸载 MatrixOne                                                                        |
@@ -290,7 +290,7 @@ Usage         : mo_ctl getconf [conf_list] # get configurations
 | GCC_VERSION            | precheck 检查的 gcc 版本                               | 默认为 8.5.0                                          |
 | GO_VERSION             | precheck 检查的 go 版本                                | 默认为 1.20                                           |
 | MO_GIT_URL             | MatrixOne 的源码拉取地址                               | 默认为<https://github.com/matrixorigin/matrixone.git> |
-| MO_DEFAULT_VERSION     | 默认拉取的 MatrixOne 的版本                            | 默认为 1.0.0-rc1                                      |
+| MO_DEFAULT_VERSION     | 默认拉取的 MatrixOne 的版本                            | 默认为 1.0.0                                      |
 | GOPROXY                | GOPROXY 的地址，一般为国内加速拉取 golang 依赖包而使用 | 默认为<https://goproxy.cn>,direct                     |
 | STOP_INTERVAL          | 停止间隔，停止服务后检测服务状态等待时间               | 默认为 5 秒                                           |
 | START_INTERVAL         | 启动间隔，启动服务后检测服务状态等待时间               | 默认为 2 秒                                           |

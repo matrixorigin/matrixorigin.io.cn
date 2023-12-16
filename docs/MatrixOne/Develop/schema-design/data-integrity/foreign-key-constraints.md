@@ -137,8 +137,8 @@ CREATE TABLE Country (
 
 -- 创建一个名为"State"的表，用于存储州/省份信息
 CREATE TABLE State (
-    StateID INT, -- 州/省份ID字段，整型
-    StateName VARCHAR(100), -- 州/省份名字字段，最大长度100的字符串
+    StateID INT, -- 州/省份 ID 字段，整型
+    StateName VARCHAR(100), -- 州/省份名字字段，最大长度 100 的字符串
     CountryID INT, -- 国家 ID 字段，整型，与 Country 表的 CountryID 字段对应
     PRIMARY KEY (StateID), -- 将 StateID 设定为这个表的主键
     FOREIGN KEY (CountryID) REFERENCES Country(CountryID) -- 设置 CountryID 字段为外键，引用 Country 表的 CountryID 字段
@@ -148,7 +148,7 @@ CREATE TABLE State (
 CREATE TABLE City (
     CityID INT, -- 城市 ID 字段，整型
     CityName VARCHAR(100), -- 城市名字字段，最大长度 100 的字符串
-    StateID INT, -- 州/省份ID字段，整型，与State表的StateID字段对应
+    StateID INT, -- 州/省份 ID 字段，整型，与 State 表的 StateID 字段对应
     PRIMARY KEY (CityID), -- 将 CityID 设定为这个表的主键
     FOREIGN KEY (StateID) REFERENCES State(StateID) -- 设置 StateID 字段为外键，引用 State 表的 StateID 字段
 );
