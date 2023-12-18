@@ -9769,7 +9769,7 @@
 </ul>
 <h3 id="_2">示例</h3>
 <p>下面是一个创建带有自增列的表的示例：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- 创建了一个名为`employees`的表，其中`id`列被定义为自增列。`id`列的数据类型为`INT`，并通过`AUTO_INCREMENT`关键字指定了自增约束。表的主键设置为`id`列</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 创建了一个名为 `employees` 的表，其中 `id` 列被定义为自增列。`id` 列的数据类型为 `INT`，并通过 `AUTO_INCREMENT` 关键字指定了自增约束。表的主键设置为 `id` 列</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span>
 <span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
 <span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
@@ -9777,7 +9777,7 @@
 <span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
 <span class="p">);</span>
 
-<span class="c1">-- 插入数据，并让自增列自动生成唯一的标识值，没有为`id`列指定值，而是通过插入数据时自动为`id`列生成递增的唯一值。每次插入新行时，`id`列的值将自动递增。</span>
+<span class="c1">-- 插入数据，并让自增列自动生成唯一的标识值，没有为 `id` 列指定值，而是通过插入数据时自动为 `id` 列生成递增的唯一值。每次插入新行时，`id` 列的值将自动递增。</span>
 
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">department</span><span class="p">)</span>
 <span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;John Doe&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HR&#39;</span><span class="p">),</span>

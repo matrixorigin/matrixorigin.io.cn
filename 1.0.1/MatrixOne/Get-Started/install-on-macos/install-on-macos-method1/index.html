@@ -10051,7 +10051,7 @@ GCC_VERSION=&quot;8.5.0&quot;
 CLANG_VERSION=&quot;13.0&quot;
 GO_VERSION=&quot;1.20&quot;
 MO_GIT_URL=&quot;https://github.com/matrixorigin/matrixone.git&quot;
-MO_DEFAULT_VERSION=&quot;1.0.0-rc1&quot;
+MO_DEFAULT_VERSION=&quot;v1.0.1&quot;
 GOPROXY=&quot;https://goproxy.cn,direct&quot;
 STOP_INTERVAL=&quot;5&quot;
 START_INTERVAL=&quot;2&quot;
@@ -10064,7 +10064,7 @@ PPROF_PROFILE_DURATION=&quot;30&quot;
 <p>一般可能会需要调整的参数如下：</p>
 <div class="highlight"><pre><span></span><code>mo_ctl set_conf MO_PATH=&quot;/Users/username/mo/matrixone&quot; # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL=&quot;https://ghproxy.com/https://github.com/matrixorigin/matrixone.git&quot; #针对github原地址下载过慢问题，设置代理下载地址
-mo_ctl set_conf MO_DEFAULT_VERSION=&quot;v1.0.0&quot; # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEFAULT_VERSION=&quot;v1.0.1&quot; # 设置所下载的MatrixOne版本
 </code></pre></div>
 <h2 id="3-matrixone">步骤 3：一键安装 MatrixOne</h2>
 <p>根据您的需要，选择最新的开发版本，还是获得稳定版本的代码。</p>
@@ -10076,7 +10076,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION=&quot;v1.0.0&quot; # 设置所下载的Matrix
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mo_ctl deploy v1.0.0
+<div class="highlight"><pre><span></span><code>mo_ctl deploy v1.0.1
 </code></pre></div>
 </div>
 </div>
@@ -10107,7 +10107,7 @@ mo_ctl set_conf MO_DEFAULT_VERSION=&quot;v1.0.0&quot; # 设置所下载的Matrix
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v1.0.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.1 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
