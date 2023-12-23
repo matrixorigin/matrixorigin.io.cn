@@ -77,7 +77,7 @@
     Current pager:		stdout
     Using outfile:		''
     Using delimiter:	;
-    Server version:		8.0.30-MatrixOne-v1.0.1 MatrixOne
+    Server version:		8.0.30-MatrixOne-v1.0.2 MatrixOne
     Protocol version:	10
     Connection:		127.0.0.1 via TCP/IP
     Client characterset:	utf8mb4
