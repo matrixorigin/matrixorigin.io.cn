@@ -489,8 +489,8 @@ nav:
             - FORMAT(): MatrixOne/Reference/Functions-and-Operators/String/format.md
             - HEX(): MatrixOne/Reference/Functions-and-Operators/String/hex.md
             - INSTR():  MatrixOne/Reference/Functions-and-Operators/String/instr.md
-            - LEFT(): MatrixOne/Reference/Functions-and-Operators/String/left.md
             - LCASE(): MatrixOne/Reference/Functions-and-Operators/String/lcase.md
+            - LEFT(): MatrixOne/Reference/Functions-and-Operators/String/left.md
             - LENGTH(): MatrixOne/Reference/Functions-and-Operators/String/length.md
             - LOCATE(): MatrixOne/Reference/Functions-and-Operators/String/locate.md
             - LOWER(): MatrixOne/Reference/Functions-and-Operators/String/lower.md
