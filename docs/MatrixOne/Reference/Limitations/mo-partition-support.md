@@ -6,6 +6,10 @@
 
 - KEY Partitioning
 - HASH Partitioning
+- RANGE Partitioning
+- RANGE COLUMNS partitioning
+- LIST Partitioning
+- LIST COLUMNS partitioning
 
 目前支持子分区（Subpartitioning）语法，但是不支持计划构建。
 
@@ -60,7 +64,7 @@ ERROR 1503 (HY000): A PRIMARY KEY must include all columns in the table's partit
 
 2. 如果没有主键，但有 UNIQUE KEY，那么 UNIQUE KEY 用于分区键。
 
-​ 例如，以下建表语句中，KEY 分区分区键为 NULL，没有定义主键，但是含有唯一键，构建分区表达式时则使用唯一键作为分区键：
+​例如，以下建表语句中，KEY 分区分区键为 NULL，没有定义主键，但是含有唯一键，构建分区表达式时则使用唯一键作为分区键：
 
 ```sql
 CREATE TABLE t1 (
@@ -79,7 +83,7 @@ PARTITIONS 4;
 
 ## 3. 关于 MatrixOne 分区表达式的说明
 
-​ 在 DDL 语句构建分区表时，会针对每一种分区定义生成一个分区表达式，该分区表达式可用于计算数据的所属的分区。
+​在 DDL 语句构建分区表时，会针对每一种分区定义生成一个分区表达式，该分区表达式可用于计算数据的所属的分区。
 
 在计划构建阶段对 DDL 语句中的分区信息数据结构为 plan.PartitionInfo：
 
@@ -120,7 +124,7 @@ PARTITIONS 4;
 
 ### HASH Partitioning
 
-​ 与 KEY 分区类似，HASH 分区会根据分区函数和分区数量，构建一个分区表达式，分区表达式的计算结果为一个大于等于 0 的整数，代表分区序号，从零开始依次递增。
+​与 KEY 分区类似，HASH 分区会根据分区函数和分区数量，构建一个分区表达式，分区表达式的计算结果为一个大于等于 0 的整数，代表分区序号，从零开始依次递增。
 
 SQL 示例如下：
 
@@ -132,4 +136,85 @@ CREATE TABLE t1 (
 )
 PARTITION BY LINEAR HASH( YEAR(col3))
 PARTITIONS 6;
+```
+
+### RANGE Partitioning
+
+​RANGE 分区是基于列值的范围将表的数据划分到不同的分区中的一种方法。这种分区类型非常适合于那些可以根据特定列的值范围进行分段的数据。
+
+SQL 示例如下：
+
+```sql
+CREATE TABLE employees (
+	id INT NOT NULL,
+	fname VARCHAR(30),
+	lname VARCHAR(30),
+	hired DATE NOT NULL DEFAULT '1970-01-01',
+	separated DATE NOT NULL DEFAULT '9999-12-31',
+	job_code INT NOT NULL,
+	store_id INT NOT NULL
+)
+PARTITION BY RANGE (store_id) (
+	PARTITION p0 VALUES LESS THAN (6),
+	PARTITION p1 VALUES LESS THAN (11),
+	PARTITION p2 VALUES LESS THAN (16),
+	PARTITION p3 VALUES LESS THAN MAXVALUE
+);
+```
+
+### RANGE COLUMNS partitioning
+
+​RANGE COLUMNS 分区允许使用一个或多个列的组合作为分区键，每个分区定义了一个值范围，对应于分区键列的组合值，当插入数据时，根据这些列的值确定行所属的分区。
+
+SQL 示例如下：
+
+```sql
+CREATE TABLE rc (
+	a INT NOT NULL,
+	b INT NOT NULL
+)
+PARTITION BY RANGE COLUMNS(a,b) (
+	PARTITION p0 VALUES LESS THAN (10,5) COMMENT = 'Data for LESS THAN (10,5)',
+	PARTITION p1 VALUES LESS THAN (20,10) COMMENT = 'Data for LESS THAN (20,10)',
+	PARTITION p2 VALUES LESS THAN (50,MAXVALUE) COMMENT = 'Data for LESS THAN (50,MAXVALUE)',
+	PARTITION p3 VALUES LESS THAN (65,MAXVALUE) COMMENT = 'Data for LESS THAN (65,MAXVALUE)',
+	PARTITION p4 VALUES LESS THAN (MAXVALUE,MAXVALUE) COMMENT = 'Data for LESS THAN (MAXVALUE,MAXVALUE)'
+);
+```
+
+### LIST Partitioning
+
+​LIST 分区是基于单个列的离散值来划分数据，每个分区包含了列值的一个特定列表，当插入数据时，行根据该列的值被分配到相应的分区。
+
+SQL 示例如下：
+
+```sql
+CREATE TABLE client_firms (
+	id   INT,
+	name VARCHAR(35)
+)
+PARTITION BY LIST (id) (
+	PARTITION r0 VALUES IN (1, 5, 9, 13, 17, 21),
+	PARTITION r1 VALUES IN (2, 6, 10, 14, 18, 22),
+	PARTITION r2 VALUES IN (3, 7, 11, 15, 19, 23),
+	PARTITION r3 VALUES IN (4, 8, 12, 16, 20, 24)
+);
+```
+
+### LIST COLUMNS partitioning
+
+​LIST COLUMNS 分区类似于 LIST 分区，但允许使用一个或多个列的组合作为分区键，分区是基于列值组合的特定列表，插入行时，根据这些列的组合值来确定其分区。
+
+SQL 示例如下：
+
+```sql
+CREATE TABLE lc (
+	a INT NULL,
+	b INT NULL
+)
+PARTITION BY LIST COLUMNS(a,b) (
+	PARTITION p0 VALUES IN( (0,0), (NULL,NULL) ),
+	PARTITION p1 VALUES IN( (0,1), (0,2) ),
+	PARTITION p2 VALUES IN( (1,0), (2,0) )
+);
 ```
