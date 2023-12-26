@@ -2,7 +2,7 @@
 
 ### 概述
 
-分区裁剪是一种用于查询优化的方法，仅当目标表为分区表的情况。通过分析查询语句中的过滤条件，分区裁剪选择可能满足条件的分区，从而避免扫描不匹配条件的分区，大幅减少所需计算的数据量。
+分区裁剪（Partition Pruning）是数据库查询优化的一个过程，它能够识别并排除那些不必要的分区，从而减少查询需要扫描的数据量。当执行一个查询时，如果查询条件与表的分区键相关联，数据库系统能够自动确定并仅访问包含相关数据的分区，而忽略其它分区以大幅减少所需计算的数据量。
 
 例如：
 
@@ -97,7 +97,7 @@ mysql> EXPLAIN SELECT * FROM t1 WHERE col3 = 7990 OR col3 = 7988;
 
 #### 场景一
 
-无法确定查询结果在一个分区内的条件，如 `between`、`> < >= <=` 等条件，无法使用分区裁剪优化。
+Key分区由于内部使用哈希算法造成的无序性，不适用于连续查询，如 `between`、`> < >= <=` 等条件，无法使用分区裁剪优化。
 
 ```sql
 mysql> EXPLAIN SELECT * FROM t1 WHERE col3 >= 7782;
@@ -220,7 +220,7 @@ mysql> EXPLAIN SELECT * FROM employees WHERE store_id = 10;
 
 #### 场景一
 
-无法确定查询结果在一个分区内的条件，如 `between`、`> < >= <=` 等条件，无法使用分区裁剪优化。
+HASH分区由于内部使用哈希算法造成的无序性，不适用于连续查询，如 `between`、`> < >= <=` 等条件，无法使用分区裁剪优化。
 
 ```sql
 CREATE TABLE employees (
@@ -333,14 +333,14 @@ CREATE TABLE t1 (
 ) PARTITION BY KEY(col1, col3) PARTITIONS 4;
 
 mysql> EXPLAIN SELECT * FROM t1 WHERE col1 = 1 AND col3 = 7369;
-+------------------------------------------------+
-| QUERY PLAN                                     |
-+------------------------------------------------+
-| Project                                        |
-|   ->  Table Scan on db2.t1                     |
-|         Hit Partition: p0                      |
-|         Filter Cond: ((t1.col1 = 1) and (t1.col3 = 7369)) |
-+------------------------------------------------+
++------------------------------------------------------+
+| QUERY PLAN                                           |
++------------------------------------------------------+
+| Project                                              |
+|   ->  Table Scan on db2.t1                       	   |
+|         Hit Partition: p0                            |
+|         Filter Cond: (t1.col3 = 7369), (t1.col1 = 1) |
++------------------------------------------------------+
 5 rows in set (0.00 sec)
 ```
 
@@ -432,6 +432,4 @@ mysql> EXPLAIN SELECT * FROM t1 WHERE col1 > 5;
 
 MatrixOne 的分区表支持四种分区形式：Key、Hash、Range、List：
 
-- 但仅支持对 Key 和 Hash 两种分区表进行分区裁剪，其他分区表的裁剪将在后续逐步实现。
-
-- List 分区和 Rang 分区暂对查询性能无加速作用。
+- 仅支持对 Key 和 Hash 两种分区表进行分区裁剪，其他分区表的裁剪将在后续逐步实现。
