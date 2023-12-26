@@ -41,7 +41,9 @@
   PARTITION BY HASH(col3)
   PARTITIONS 4;
 ERROR 1503 (HY000): A PRIMARY KEY must include all columns in the table's partitioning function
+```
 
+```sql
 > CREATE TABLE t2 (
      col1 INT NOT NULL,
      col2 DATE NOT NULL,
@@ -64,7 +66,7 @@ ERROR 1503 (HY000): A PRIMARY KEY must include all columns in the table's partit
 
 2. 如果没有主键，但有 UNIQUE KEY，那么 UNIQUE KEY 用于分区键。
 
-​例如，以下建表语句中，KEY 分区分区键为 NULL，没有定义主键，但是含有唯一键，构建分区表达式时则使用唯一键作为分区键：
+​ 例如，以下建表语句中，KEY 分区分区键为 NULL，没有定义主键，但是含有唯一键，构建分区表达式时则使用唯一键作为分区键：
 
 ```sql
 CREATE TABLE t1 (
@@ -83,7 +85,7 @@ PARTITIONS 4;
 
 ## 3. 关于 MatrixOne 分区表达式的说明
 
-​在 DDL 语句构建分区表时，会针对每一种分区定义生成一个分区表达式，该分区表达式可用于计算数据的所属的分区。
+​ 在 DDL 语句构建分区表时，会针对每一种分区定义生成一个分区表达式，该分区表达式可用于计算数据的所属的分区。
 
 在计划构建阶段对 DDL 语句中的分区信息数据结构为 plan.PartitionInfo：
 
@@ -124,7 +126,7 @@ PARTITIONS 4;
 
 ### HASH Partitioning
 
-​与 KEY 分区类似，HASH 分区会根据分区函数和分区数量，构建一个分区表达式，分区表达式的计算结果为一个大于等于 0 的整数，代表分区序号，从零开始依次递增。
+​ 与 KEY 分区类似，HASH 分区会根据分区函数和分区数量，构建一个分区表达式，分区表达式的计算结果为一个大于等于 0 的整数，代表分区序号，从零开始依次递增。
 
 SQL 示例如下：
 

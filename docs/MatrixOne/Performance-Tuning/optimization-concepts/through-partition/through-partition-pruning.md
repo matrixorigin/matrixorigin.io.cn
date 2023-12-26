@@ -97,7 +97,7 @@ mysql> EXPLAIN SELECT * FROM t1 WHERE col3 = 7990 OR col3 = 7988;
 
 #### 场景一
 
-Key分区由于内部使用哈希算法造成的无序性，不适用于连续查询，如 `between`、`> < >= <=` 等条件，无法使用分区裁剪优化。
+Key 分区由于内部使用哈希算法造成的无序性，不适用于连续查询，如 `between`、`> < >= <=` 等条件，无法使用分区裁剪优化。
 
 ```sql
 mysql> EXPLAIN SELECT * FROM t1 WHERE col3 >= 7782;
@@ -220,7 +220,7 @@ mysql> EXPLAIN SELECT * FROM employees WHERE store_id = 10;
 
 #### 场景一
 
-HASH分区由于内部使用哈希算法造成的无序性，不适用于连续查询，如 `between`、`> < >= <=` 等条件，无法使用分区裁剪优化。
+HASH 分区由于内部使用哈希算法造成的无序性，不适用于连续查询，如 `between`、`> < >= <=` 等条件，无法使用分区裁剪优化。
 
 ```sql
 CREATE TABLE employees (
