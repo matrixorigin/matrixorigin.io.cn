@@ -4,14 +4,14 @@
 
 目前 MatrixOne 的 DDL 语句支持的 6 种分区类型，与 MySQL 官网基本一致，具体如下：
 
-- KEY Partitioning
-- HASH Partitioning
-- RANGE Partitioning
+- KEY partitioning
+- HASH partitioning
+- RANGE partitioning
 - RANGE COLUMNS partitioning
-- LIST Partitioning
+- LIST partitioning
 - LIST COLUMNS partitioning
 
-目前支持子分区（Subpartitioning）语法，但是不支持计划构建。
+<!-- 目前支持子分区（Subpartitioning）语法，但是不支持计划构建。 -->
 
 ## 2. 关于分区键的说明
 
