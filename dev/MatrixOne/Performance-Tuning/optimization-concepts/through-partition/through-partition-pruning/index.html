@@ -216,6 +216,18 @@
   
 
       
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://docs.matrixorigin.cn/zh/matrixonecloud" class="md-tabs__link">
+      MatrixOne Cloud
+    </a>
+  </li>
+
+      
     </ul>
   </div>
 </nav>
@@ -6203,6 +6215,54 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_6_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_4_6_7" id="__nav_1_11_4_6_7_label" tabindex="0">
+          Partition
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_6_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_6_7">
+          <span class="md-nav__icon md-icon"></span>
+          Partition
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Other/Partition/mo-partition-support/" class="md-nav__link">
+        Partition
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -8490,6 +8550,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/String/locate/" class="md-nav__link">
+        LOCATE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/String/lower/" class="md-nav__link">
+        LOWER()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/Functions-and-Operators/String/lpad/" class="md-nav__link">
         LPAD()
       </a>
@@ -8671,23 +8759,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/String/upper/" class="md-nav__link">
+        UPPER()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_4_28" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_4_31" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_5_2_4_28" id="__nav_1_11_5_2_4_28_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_5_2_4_31" id="__nav_1_11_5_2_4_31_label" tabindex="0">
           正则表达式
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_11_5_2_4_28_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_5_2_4_28">
+      <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_11_5_2_4_31_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_5_2_4_31">
           <span class="md-nav__icon md-icon"></span>
           正则表达式
         </label>
@@ -9394,20 +9496,6 @@
     <li class="md-nav__item">
       <a href="../../../../Reference/Limitations/mo-jdbc-feature-list/" class="md-nav__link">
         MatrixOne 的 JDBC 功能支持列表
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Reference/Limitations/mo-partition-support/" class="md-nav__link">
-        MatrixOne DDL 语句分区支持的说明
       </a>
     </li>
   
@@ -10148,6 +10236,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.matrixorigin.cn/zh/matrixonecloud" class="md-nav__link">
+        MatrixOne Cloud
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -10375,7 +10478,7 @@
 
 <h2 id="_1">分区裁剪</h2>
 <h3 id="_2">概述</h3>
-<p>分区裁剪是一种用于查询优化的方法，仅当目标表为分区表的情况。通过分析查询语句中的过滤条件，分区裁剪选择可能满足条件的分区，从而避免扫描不匹配条件的分区，大幅减少所需计算的数据量。</p>
+<p>分区裁剪（Partition Pruning）是数据库查询优化的一个过程，它能够识别并排除那些不必要的分区，从而减少查询需要扫描的数据量。当执行一个查询时，如果查询条件与表的分区键相关联，数据库系统能够自动确定并仅访问包含相关数据的分区，而忽略其它分区以大幅减少所需计算的数据量。</p>
 <p>例如：</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">col1</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
@@ -10457,7 +10560,7 @@
 <p>在这个 SQL 中，条件 <code>col3 = 7990</code> 可以确定所有结果都位于分区 p0 上。条件 <code>col3 = 7988</code> 可以确定所有结果都位于分区 p1 上。由于这两个条件的关系是 OR，因此只需要扫描 p0 和 p1 两个分区，分区裁剪的结果是 p0 和 p1。</p>
 <h3 id="key_2">不适用的 KEY 分区表场景</h3>
 <h4 id="_3">场景一</h4>
-<p>无法确定查询结果在一个分区内的条件，如 <code>between</code>、<code>&gt; &lt; &gt;= &lt;=</code> 等条件，无法使用分区裁剪优化。</p>
+<p>Key 分区由于内部使用哈希算法造成的无序性，不适用于连续查询，如 <code>between</code>、<code>&gt; &lt; &gt;= &lt;=</code> 等条件，无法使用分区裁剪优化。</p>
 <div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">col3</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">7782</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">----------------------------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                   </span><span class="o">|</span>
@@ -10564,7 +10667,7 @@
 <p>在这个 SQL 中，由于分区表的分区键为 <code>store_id</code>，条件 <code>store_id = 10</code> 可以确定所有结果都在一个分区中。数值 10 经过 Hash 后确定位于分区 p0 中。因此只需要扫描分区 p0，无需访问绝对不包含相关结果的 p1、p2、p3 分区。从执行计划中可见，只出现一个 <code>TableScan</code> 算子，其中指定了 <code>Hit Partition</code> 为 p0，确保了分区裁剪的生效。</p>
 <h3 id="hash_2">不适用的 HASH 分区表场景</h3>
 <h4 id="_5">场景一</h4>
-<p>无法确定查询结果在一个分区内的条件，如 <code>between</code>、<code>&gt; &lt; &gt;= &lt;=</code> 等条件，无法使用分区裁剪优化。</p>
+<p>HASH 分区由于内部使用哈希算法造成的无序性，不适用于连续查询，如 <code>between</code>、<code>&gt; &lt; &gt;= &lt;=</code> 等条件，无法使用分区裁剪优化。</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">    </span><span class="n">fname</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
@@ -10658,14 +10761,14 @@
 <span class="p">)</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="w"> </span><span class="n">col3</span><span class="p">)</span><span class="w"> </span><span class="n">PARTITIONS</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">col1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7369</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                     </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                        </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db2</span><span class="p">.</span><span class="n">t1</span><span class="w">                     </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="n">p0</span><span class="w">                      </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">((</span><span class="n">t1</span><span class="p">.</span><span class="n">col1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7369</span><span class="p">))</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------------------------------------------------+</span>
+<span class="o">+</span><span class="c1">------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                           </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                              </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db2</span><span class="p">.</span><span class="n">t1</span><span class="w">                           </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="n">p0</span><span class="w">                            </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7369</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------------------------------------------------------+</span>
 <span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>这个查询经过分区裁剪后，只会访问分区 p0，因为查询条件与 p0 中的数据匹配。</p>
@@ -10738,12 +10841,7 @@
 <h2 id="_9">限制</h2>
 <p>MatrixOne 的分区表支持四种分区形式：Key、Hash、Range、List：</p>
 <ul>
-<li>
-<p>但仅支持对 Key 和 Hash 两种分区表进行分区裁剪，其他分区表的裁剪将在后续逐步实现。</p>
-</li>
-<li>
-<p>List 分区和 Rang 分区暂对查询性能无加速作用。</p>
-</li>
+<li>仅支持对 Key 和 Hash 两种分区表进行分区裁剪，其他分区表的裁剪将在后续逐步实现。</li>
 </ul>
 
 

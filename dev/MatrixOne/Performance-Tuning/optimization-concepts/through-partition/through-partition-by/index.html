@@ -216,6 +216,18 @@
   
 
       
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://docs.matrixorigin.cn/zh/matrixonecloud" class="md-tabs__link">
+      MatrixOne Cloud
+    </a>
+  </li>
+
+      
     </ul>
   </div>
 </nav>
@@ -3577,28 +3589,42 @@
         
           <li class="md-nav__item">
   <a href="#range" class="md-nav__link">
-    范围 Range 分区
+    Range 分区
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    列表分区
+  <a href="#range-columns" class="md-nav__link">
+    Range Columns 分区
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    哈希分区
+  <a href="#list" class="md-nav__link">
+    List 分区
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    复合分区
+  <a href="#list-columns" class="md-nav__link">
+    List Columns 分区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    Hash 分区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    Key 分区
   </a>
   
 </li>
@@ -3609,7 +3635,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     限制
   </a>
   
@@ -6134,6 +6160,54 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_6_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_4_6_7" id="__nav_1_11_4_6_7_label" tabindex="0">
+          Partition
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_6_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_6_7">
+          <span class="md-nav__icon md-icon"></span>
+          Partition
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Other/Partition/mo-partition-support/" class="md-nav__link">
+        Partition
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -8421,6 +8495,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/String/locate/" class="md-nav__link">
+        LOCATE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/String/lower/" class="md-nav__link">
+        LOWER()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/Functions-and-Operators/String/lpad/" class="md-nav__link">
         LPAD()
       </a>
@@ -8602,23 +8704,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/String/upper/" class="md-nav__link">
+        UPPER()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_4_28" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_4_31" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_5_2_4_28" id="__nav_1_11_5_2_4_28_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_5_2_4_31" id="__nav_1_11_5_2_4_31_label" tabindex="0">
           正则表达式
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_11_5_2_4_28_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_5_2_4_28">
+      <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_11_5_2_4_31_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_5_2_4_31">
           <span class="md-nav__icon md-icon"></span>
           正则表达式
         </label>
@@ -9325,20 +9441,6 @@
     <li class="md-nav__item">
       <a href="../../../../Reference/Limitations/mo-jdbc-feature-list/" class="md-nav__link">
         MatrixOne 的 JDBC 功能支持列表
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Reference/Limitations/mo-partition-support/" class="md-nav__link">
-        MatrixOne DDL 语句分区支持的说明
       </a>
     </li>
   
@@ -10079,6 +10181,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.matrixorigin.cn/zh/matrixonecloud" class="md-nav__link">
+        MatrixOne Cloud
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -10170,28 +10287,42 @@
         
           <li class="md-nav__item">
   <a href="#range" class="md-nav__link">
-    范围 Range 分区
+    Range 分区
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    列表分区
+  <a href="#range-columns" class="md-nav__link">
+    Range Columns 分区
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    哈希分区
+  <a href="#list" class="md-nav__link">
+    List 分区
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    复合分区
+  <a href="#list-columns" class="md-nav__link">
+    List Columns 分区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    Hash 分区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    Key 分区
   </a>
   
 </li>
@@ -10202,7 +10333,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     限制
   </a>
   
@@ -10285,8 +10416,8 @@
 </ul>
 <h2 id="matrixone">MatrixOne 分区表类型</h2>
 <p>在 MatrixOne 中，可以支持多种对表的分区模式，每个模式对应的分区方法均有不同。</p>
-<h3 id="range">范围 Range 分区</h3>
-<p>范围分区是一种基于连续值的分区方式，分区键可以是整数类型或日期类型中的 DATE 或 DATETIME。分区之间必须是互不重叠的，分区的定义使用 <code>VALUES LESS THAN</code> 运算符。</p>
+<h3 id="range">Range 分区</h3>
+<p>范围分区是一种基于连续值的分区方式，分区之间必须是互不重叠的，分区的定义使用 <code>VALUES LESS THAN</code> 运算符。</p>
 <p><strong>示例</strong></p>
 <p>如下两张表，就是分别以整数列与日期列作为分区列使用：</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="p">(</span>
@@ -10304,8 +10435,27 @@
 <span class="p">)</span>
 </code></pre></div>
 <p>需要注意的是，如果插入或更新的数据中，分区列的值没有对应的分区，那么相应的插入或更新操作将会失败。举个例子，如果插入一行 <code>joined</code> 日期为 2000-01-01 的数据，但是因为找不到相应的分区，该操作将会因为无法定位分区而失败。因此，在执行插入或更新操作时，一定要确保分区列的值属于对应的分区。</p>
-<h3 id="_9">列表分区</h3>
-<p>列表分区要求每个分区必须由明确定义的值列表组成，且每个分区的列表成员不能有重复值。列表分区只能使用整数类型作为分区键。</p>
+<h3 id="range-columns">Range Columns 分区</h3>
+<p>范围列分区可以被视为范围分区的一个扩展或变体，它允许使用多个列的组合范围进行更复杂的数据分割。</p>
+<p><strong>示例</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">e_orders</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">customer_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">order_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">customer_level</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">total_amount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">product_id</span><span class="w"> </span><span class="nb">INT</span>
+<span class="p">)</span>
+<span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RANGE</span><span class="w"> </span><span class="n">COLUMNS</span><span class="p">(</span><span class="n">order_date</span><span class="p">,</span><span class="w"> </span><span class="n">customer_level</span><span class="p">)</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p0</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2023-01-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2023-01-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">),</span>
+<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2023-06-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2023-06-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">),</span>
+<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p4</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="k">MAXVALUE</span><span class="p">,</span><span class="w"> </span><span class="k">MAXVALUE</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+<h3 id="list">List 分区</h3>
+<p>列表分区要求每个分区必须由明确定义的值列表组成，且每个分区的列表成员不能有重复值。分区键的值应该是离散的，即分区定义能够清晰地列出所有可能的值或值的集合。</p>
 <p><strong>示例</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
@@ -10324,7 +10474,25 @@
 <span class="p">);</span>
 </code></pre></div>
 <p>需要注意的是，如果插入或更新的数据中，分区列的值没有对应分区，则会插入失败。</p>
-<h3 id="_10">哈希分区</h3>
+<h3 id="list-columns">List Columns 分区</h3>
+<p>列表列分区可以被视为列表分区的扩展，它允许使用多列的组合值进行更细致的数据分割。</p>
+<p><strong>示例</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">order_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">customer_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">region</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w">  </span><span class="c1">-- 北区或南区</span>
+<span class="w">    </span><span class="n">product_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span><span class="w">  </span><span class="c1">-- 电子产品、家居用品</span>
+<span class="w">    </span><span class="n">amount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">LIST</span><span class="w"> </span><span class="n">COLUMNS</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">product_type</span><span class="p">)</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">pNorthElectronics</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">((</span><span class="s1">&#39;北区&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;电子产品&#39;</span><span class="p">)),</span>
+<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">pNorthHomeGoods</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">((</span><span class="s1">&#39;北区&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;家居用品&#39;</span><span class="p">)),</span>
+<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">pSouthElectronics</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">((</span><span class="s1">&#39;南区&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;电子产品&#39;</span><span class="p">)),</span>
+<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">pSouthHomeGoods</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">((</span><span class="s1">&#39;南区&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;家居用品&#39;</span><span class="p">))</span>
+<span class="p">);</span>
+</code></pre></div>
+<h3 id="hash">Hash 分区</h3>
 <p>哈希分区通常用于将数据均匀分布在不同的分区中。常见的哈希分区有 HASH 函数分区和 KEY 函数分区。</p>
 <p>在 HASH 函数分区中，必须明确指定用于分区的列或表达式，该列或表达式的类型必须是整数，并且建议明确指定分区数量，该数量必须是正整数。</p>
 <p><strong>示例</strong></p>
@@ -10340,7 +10508,9 @@
 <span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">HASH</span><span class="p">(</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="n">hired</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
 <span class="n">PARTITIONS</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
 </code></pre></div>
+<h3 id="key">Key 分区</h3>
 <p>在使用 KEY 函数分区时，数据库服务内部提供了自有的哈希方式进行分区，因此不需要显式定义分区数量。与 HASH 函数分区不同的是，KEY 函数分区支持除大对象类型（TEXT/BLOB）之外的所有类型作为分区键，而且不一定需要指定分区数量。例如，可以通过以下语句创建一个分区键为 s1 的表：</p>
+<p><strong>示例</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tm1</span><span class="w"> </span><span class="p">(</span>
 <span class="n">s1</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span>
 <span class="p">)</span>
@@ -10352,46 +10522,11 @@
 <span class="p">)</span>
 <span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">KEY</span><span class="p">();</span>
 </code></pre></div>
-<h3 id="_11">复合分区</h3>
-<p>复合分区是范围分区和列表分区的一种变体，它允许在分区键中使用多个列的组合。根据分区键的类型，复合分区又分为范围复合分区和列表复合分区。</p>
-<p>在复合分区中，可以使用的类型列表包括：</p>
-<ul>
-<li>所有整数类型，包括 [UNSIGNED] SMALLINT/INT/BIGINT</li>
-<li>日期类型，包括 DATE 和 DATETIME</li>
-<li>字符类型，包括 CHAR、VARCHAR、BINARY 和 VARBINARY。</li>
-</ul>
-<p>范围复合分区允许多种类型的列进行组合，例如：</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">rcx</span><span class="w"> </span><span class="p">(</span>
-<span class="w">         </span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
-<span class="w">         </span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
-<span class="w">         </span><span class="k">c</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
-<span class="w">         </span><span class="n">d</span><span class="w"> </span><span class="nb">date</span>
-<span class="w">     </span><span class="p">)</span>
-<span class="w">     </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RANGE</span><span class="w"> </span><span class="n">COLUMNS</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="k">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span>
-<span class="w">         </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p0</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;2022-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;ggg&#39;</span><span class="p">),</span>
-<span class="w">         </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="s1">&#39;2012-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;mmm&#39;</span><span class="p">),</span>
-<span class="w">         </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="s1">&#39;2002-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;sss&#39;</span><span class="p">),</span>
-<span class="w">         </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="k">MAXVALUE</span><span class="p">,</span><span class="k">MAXVALUE</span><span class="p">,</span><span class="k">MAXVALUE</span><span class="p">)</span>
-<span class="w">     </span><span class="p">);</span>
-</code></pre></div>
-<p>列表复合分区允许用户在定义分区时，同样可以多个列组合的方式进行定义，例如：</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
-<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span>
-<span class="w">    </span><span class="k">c</span><span class="w"> </span><span class="nb">date</span>
-<span class="p">)</span>
-<span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">LIST</span><span class="w"> </span><span class="n">COLUMNS</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">floor</span><span class="p">(</span><span class="n">b</span><span class="p">),</span><span class="k">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p0</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">NULL</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">),</span>
-<span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
-<span class="p">);</span>
-</code></pre></div>
 <!--##分区调优最佳实践-->
 
-<h2 id="_12">限制</h2>
-<p>List / List column 暂不支持分区裁剪。
-Range/ Range Columns 暂不支持分区裁剪。</p>
+<h2 id="_9">限制</h2>
+<p>List / List column 暂不支持分区裁剪。</p>
+<p>Range/ Range Columns 暂不支持分区裁剪。</p>
 
 
 
