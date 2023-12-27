@@ -8,56 +8,47 @@ MatrixOne 流引擎技术架构如下所示：
 
 ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/stream-arch.png?raw=true)
 
-MatrixOne 实现了创建流式表的相关能力，同时实现了一个 Kafka 的连接器，用于满足大量时序场景的流式数据接入需求。
+MatrixOne 实现了创建流式表的相关能力，目前实现了对于 Kafka 的连接，用于满足大量时序场景的流式数据接入需求。
 
-### 连接器
+### Source
 
-连接器处理与外部数据源的连接，例如 MatrixOne 1.0 版本实现的 Kafka。
+Source 负责外部数据与 MatrixOne 数据表的连接与映射，创建一个 Source 的同时也会创建一个同名的 Source 表，这个动态表中的数据会随着外部的流式数据动态增长。
 
-MatrixOne 支持使用下面的语句实现连接器与外部数据源的连接：
+目前 MatrixOne 仅支持连接到 Kafka ，并使用 JSON 数据进行映射，以下是创建 Source 的语法：
 
 ```sql
-CREATE SOURCE | SINK CONNECTOR [IF NOT EXISTS] connector_name CONNECTOR_TYPE WITH（property_name = expression [, ...]）;
+CREATE [OR REPLACE] SOURCE [IF NOT EXISTS] stream_name 
+  ( { column_name data_type [KEY | HEADERS | HEADER(key)] } [, ...] )
+  WITH ( property_name = expression [, ...]);
+
 ```
 
-其中，参数 `CONNECTOR_TYPE` 用于指定目标。
-
-### 流
-
-流代表一个仅进行追加的数据流，可以将其视为带有无限事件的无界表。每个流在存储层中映射到一个事件组，例如 Kafkfa 中的主题或 MatrixOne 表。
-
-- 外部流：通过连接器使用外部存储层的流。
-- 内部流：使用 MatrixOne 表作为事件存储的流。
-
-MatrixOne 支持使用下面的语句**创建流**：
+例如使用下面的sql语句创建一个名为 stream_test 的 source：
 
 ```sql
-CREATE [OR REPLACE] [EXTERNAL] STREAM [IF NOT EXISTS] stream_name
-（{ column_name data_type [KEY | HEADERS | HEADER（key）] } [,...] ）
-WITH（property_name = expression [,...] ）;
+create source stream_test(c1 char(25),c2 varchar(500),c3 text,c4 tinytext,c5 mediumtext,c6 longtext )with(
+    "type"='kafka',
+    "topic"= 'test',
+    "partition" = '0',
+    "value"= 'json',
+    "bootstrap.servers"='127.0.0.1:9092'   
+)
 ```
 
-你可以看如下示例，例如：
+### 动态表 Dynamic Table
+
+动态表（Dynamic Table）是 MatrixOne 中的一个数据管道。
+
+可以使用下面的语法结构创建动态表：
 
 ```sql
-CREATE EXTERNAL STREAM STUDENTS（ID STRING KEY，SCORE INT）
-WITH（kafka_topic = 'students_topic'，value_format = 'JSON'，partitions = 4）;
+CREATE DYNAMIC TABLE [IF NOT EXISTS] table_name 
+AS SELECT ... from stream_name ;
+
 ```
 
-或：
+示例如下：
 
 ```sql
-CREATE STREAM STUDENTS（ID STRING KEY，SCORE INT）
-```
-
-你也可以查询流并与其他表和物化视图连接，例如：
-
-```sql
-SELECT * FROM STUDENTS WHERE rank > 5;
-```
-
-你也可以插入新事件，例如：
-
-```sql
-INSERT INTO foo（ROWTIME，KEY_COL，COL_A）VALUES（1510923225000，'key'，'A'）;
+create dynamic table dt_name as select * from stream_name;
 ```
