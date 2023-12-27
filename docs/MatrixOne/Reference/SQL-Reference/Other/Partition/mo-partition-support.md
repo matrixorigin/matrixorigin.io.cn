@@ -4,14 +4,14 @@
 
 目前 MatrixOne 的 DDL 语句支持的 6 种分区类型，与 MySQL 官网基本一致，具体如下：
 
-- KEY Partitioning
-- HASH Partitioning
-- RANGE Partitioning
+- KEY partitioning
+- HASH partitioning
+- RANGE partitioning
 - RANGE COLUMNS partitioning
-- LIST Partitioning
+- LIST partitioning
 - LIST COLUMNS partitioning
 
-目前支持子分区（Subpartitioning）语法，但是不支持计划构建。
+<!-- 目前支持子分区（Subpartitioning）语法，但是不支持计划构建。 -->
 
 ## 2. 关于分区键的说明
 
@@ -41,7 +41,9 @@
   PARTITION BY HASH(col3)
   PARTITIONS 4;
 ERROR 1503 (HY000): A PRIMARY KEY must include all columns in the table's partitioning function
+```
 
+```sql
 > CREATE TABLE t2 (
      col1 INT NOT NULL,
      col2 DATE NOT NULL,
@@ -140,7 +142,7 @@ PARTITIONS 6;
 
 ### RANGE Partitioning
 
-​RANGE 分区会根据分区函数，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 MySQL 语法，需要执行器报错：`Table has no partition for value xxx`。
+​RANGE 分区是基于列值的范围将表的数据划分到不同的分区中的一种方法。这种分区类型非常适合于那些可以根据特定列的值范围进行分段的数据。
 
 SQL 示例如下：
 
@@ -164,7 +166,7 @@ PARTITION BY RANGE (store_id) (
 
 ### RANGE COLUMNS partitioning
 
-​RANGE COLUMNS 分区会根据键列表，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 M 有 SQL 语法，需要执行器报错：`Table has no partition for value xxx`。
+​RANGE COLUMNS 分区允许使用一个或多个列的组合作为分区键，每个分区定义了一个值范围，对应于分区键列的组合值，当插入数据时，根据这些列的值确定行所属的分区。
 
 SQL 示例如下：
 
@@ -184,7 +186,7 @@ PARTITION BY RANGE COLUMNS(a,b) (
 
 ### LIST Partitioning
 
-​LIST 分区会根据分区键，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 MySQL 语法，需要执行器报错：`Table has no partition for value xxx`。
+​LIST 分区是基于单个列的离散值来划分数据，每个分区包含了列值的一个特定列表，当插入数据时，行根据该列的值被分配到相应的分区。
 
 SQL 示例如下：
 
@@ -203,7 +205,7 @@ PARTITION BY LIST (id) (
 
 ### LIST COLUMNS partitioning
 
-​LIST COLUMNS 分区会根据分区键列表，分区数量和分区项的定义，构建一个分区表达式，分区表达式的计算结果是一个整数，代表分区序号，正常的分区序号从零开始依次递增，如果分区表达式的计算结果为 -1，表示当前该数据不属于任何已定义分区，依 M 有 SQL 语法，需要执行器报错：`Table has no partition for value xxx`。
+​LIST COLUMNS 分区类似于 LIST 分区，但允许使用一个或多个列的组合作为分区键，分区是基于列值组合的特定列表，插入行时，根据这些列的组合值来确定其分区。
 
 SQL 示例如下：
 

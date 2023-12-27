@@ -360,6 +360,8 @@ nav:
             - EXPLAIN: MatrixOne/Reference/SQL-Reference/Other/Explain/explain.md
             - EXPLAIN Output Format: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-workflow.md
             - Explain Analyze: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-analyze.md
+          - Partition:
+            - Partition: MatrixOne/Reference/SQL-Reference/Other/Partition/mo-partition-support.md
       - 函数与操作符:
         - 运算符:
           - INTERVAL: MatrixOne/Reference/Operators/interval.md
@@ -558,7 +560,6 @@ nav:
       - 权限分类列表: MatrixOne/Reference/access-control-type.md
       - 使用限制:
         - MatrixOne 的 JDBC 功能支持列表: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
-        - MatrixOne DDL 语句分区支持的说明: MatrixOne/Reference/Limitations/mo-partition-support.md
       - MatrixOne 文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
       - MatrixOne 工具:
         - mo_ctl 工具: MatrixOne/Maintain/mo_ctl.md

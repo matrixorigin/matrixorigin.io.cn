@@ -138,7 +138,7 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 
 ## 分区支持
 
-* 仅支持 `KEY`，`HASH` 两种分区类型。
+* 支持 `KEY`，`HASH`，`RANGE`，`RANGE COLUMNS`，`LIST`，`LIST COLUMNS` 六种分区类型。
 * 子分区仅实现语法，未实现功能。
 
 ## 函数与操作符

@@ -62,9 +62,9 @@ MatrixOne 将表中的数据根据表的一个或多个列的键值划分到不�
 
 在 MatrixOne 中，可以支持多种对表的分区模式，每个模式对应的分区方法均有不同。
 
-### 范围 Range 分区
+### Range 分区
 
-范围分区是一种基于连续值的分区方式，分区键可以是整数类型或日期类型中的 DATE 或 DATETIME。分区之间必须是互不重叠的，分区的定义使用 `VALUES LESS THAN` 运算符。
+范围分区是一种基于连续值的分区方式，分区之间必须是互不重叠的，分区的定义使用 `VALUES LESS THAN` 运算符。
 
 **示例**
 
@@ -88,9 +88,33 @@ PARTITION BY RANGE COLUMNS(joined) (
 
 需要注意的是，如果插入或更新的数据中，分区列的值没有对应的分区，那么相应的插入或更新操作将会失败。举个例子，如果插入一行 `joined` 日期为 2000-01-01 的数据，但是因为找不到相应的分区，该操作将会因为无法定位分区而失败。因此，在执行插入或更新操作时，一定要确保分区列的值属于对应的分区。
 
-### 列表分区
+### Range Columns 分区
 
-列表分区要求每个分区必须由明确定义的值列表组成，且每个分区的列表成员不能有重复值。列表分区只能使用整数类型作为分区键。
+范围列分区可以被视为范围分区的一个扩展或变体，它允许使用多个列的组合范围进行更复杂的数据分割。
+
+**示例**
+
+```sql
+CREATE TABLE e_orders (
+    order_id INT NOT NULL,
+    customer_id INT NOT NULL,
+    order_date DATE NOT NULL,
+    customer_level INT,
+    total_amount DECIMAL(10, 2),
+    product_id INT
+)
+PARTITION BY RANGE COLUMNS(order_date, customer_level) (
+    PARTITION p0 VALUES LESS THAN ('2023-01-01', 2),
+    PARTITION p1 VALUES LESS THAN ('2023-01-01', 5),
+    PARTITION p2 VALUES LESS THAN ('2023-06-01', 2),
+    PARTITION p3 VALUES LESS THAN ('2023-06-01', 5),
+    PARTITION p4 VALUES LESS THAN (MAXVALUE, MAXVALUE)
+);
+```
+
+### List 分区
+
+列表分区要求每个分区必须由明确定义的值列表组成，且每个分区的列表成员不能有重复值。分区键的值应该是离散的，即分区定义能够清晰地列出所有可能的值或值的集合。
 
 **示例**
 
@@ -114,7 +138,30 @@ PARTITION BY LIST(store_id) (
 
 需要注意的是，如果插入或更新的数据中，分区列的值没有对应分区，则会插入失败。
 
-### 哈希分区
+### List Columns 分区
+
+列表列分区可以被视为列表分区的扩展，它允许使用多列的组合值进行更细致的数据分割。
+
+**示例**
+
+```sql
+CREATE TABLE orders (
+    order_id INT NOT NULL,
+    order_date DATE NOT NULL,
+    customer_id INT NOT NULL,
+    region VARCHAR(10),  -- 北区或南区
+    product_type VARCHAR(15),  -- 电子产品、家居用品
+    amount DECIMAL(10, 2)
+)
+PARTITION BY LIST COLUMNS(region, product_type) (
+    PARTITION pNorthElectronics VALUES IN (('北区', '电子产品')),
+    PARTITION pNorthHomeGoods VALUES IN (('北区', '家居用品')),
+    PARTITION pSouthElectronics VALUES IN (('南区', '电子产品')),
+    PARTITION pSouthHomeGoods VALUES IN (('南区', '家居用品'))
+);
+```
+
+### Hash 分区
 
 哈希分区通常用于将数据均匀分布在不同的分区中。常见的哈希分区有 HASH 函数分区和 KEY 函数分区。
 
@@ -136,7 +183,11 @@ PARTITION BY HASH( YEAR(hired) )
 PARTITIONS 4;
 ```
 
+### Key 分区
+
 在使用 KEY 函数分区时，数据库服务内部提供了自有的哈希方式进行分区，因此不需要显式定义分区数量。与 HASH 函数分区不同的是，KEY 函数分区支持除大对象类型（TEXT/BLOB）之外的所有类型作为分区键，而且不一定需要指定分区数量。例如，可以通过以下语句创建一个分区键为 s1 的表：
+
+**示例**
 
 ```sql
 CREATE TABLE tm1 (
@@ -154,52 +205,10 @@ CREATE TABLE tm1 (
 PARTITION BY KEY();
 ```
 
-### 复合分区
-
-复合分区是范围分区和列表分区的一种变体，它允许在分区键中使用多个列的组合。根据分区键的类型，复合分区又分为范围复合分区和列表复合分区。
-
-在复合分区中，可以使用的类型列表包括：
-
-- 所有整数类型，包括 [UNSIGNED] SMALLINT/INT/BIGINT
-- 日期类型，包括 DATE 和 DATETIME
-- 字符类型，包括 CHAR、VARCHAR、BINARY 和 VARBINARY。
-
-范围复合分区允许多种类型的列进行组合，例如：
-
-```sql
-CREATE TABLE rcx (
-         a INT,
-         b INT,
-         c CHAR(3),
-         d date
-     )
-     PARTITION BY RANGE COLUMNS(a,d,c) (
-         PARTITION p0 VALUES LESS THAN (5,'2022-01-01','ggg'),
-         PARTITION p1 VALUES LESS THAN (10,'2012-01-01','mmm'),
-         PARTITION p2 VALUES LESS THAN (15,'2002-01-01','sss'),
-         PARTITION p3 VALUES LESS THAN (MAXVALUE,MAXVALUE,MAXVALUE)
-     );
-```
-
-列表复合分区允许用户在定义分区时，同样可以多个列组合的方式进行定义，例如：
-
-```sql
-CREATE TABLE t1 (
-    a INT,
-    b int,
-    c date
-)
-PARTITION BY LIST COLUMNS(a,floor(b),c) (
-    PARTITION p0 VALUES IN( (0,0,NULL), (NULL,NULL,NULL) ),
-    PARTITION p1 VALUES IN( (0,1,'2000-01-01'), (0,2,'2000-01-01'), (0,3,'2000-01-01'), (1,1,'2000-01-01'), (1,2,'2000-01-01') ),
-    PARTITION p2 VALUES IN( (1,0,'2000-01-01'), (2,0,'2000-01-01'), (2,1,'2000-01-01'), (3,0,'2000-01-01'), (3,1,'2000-01-01') ),
-    PARTITION p3 VALUES IN( (1,3,'2000-01-01'), (2,2,'2000-01-01'), (2,3,'2000-01-01'), (3,2,'2000-01-01'), (3,3,'2000-01-01') )
-);
-```
-
 <!--##分区调优最佳实践-->
 
 ## 限制
 
 List / List column 暂不支持分区裁剪。
+
 Range/ Range Columns 暂不支持分区裁剪。
