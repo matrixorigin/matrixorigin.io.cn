@@ -10,12 +10,12 @@
 | 删除数据库 DROP DATABASE            | Y                                            |
 | 修改数据库 ALTER DATABASE           | N                                            |
 | 创建表 CREATE TABLE                 | Y                                            |
-| 修改表 ALTER TABLE                  | E，子句`CHANGE [COLUMN]`，`MODIFY [COLUMN]`，`RENAME COLUMN`，`ADD [CONSTRAINT [symbol]] PRIMARY KEY`，`DROP PRIMARY KEY` 和 `ALTER COLUMN ORDER BY` 可以在 ALTER TABLE 语句中自由组合使用，但暂时不支持与其他子句一起使用。  |
+| 修改表 ALTER TABLE                  | E    |
 | 修改表名 RENAME TABLE               | N，可用 ALTER TABLE tbl RENAME TO new_tbl 替代 |
 | 删除表 DROP TABLE                   | Y                                            |
-| 创建约束 CREATE INDEX               | Y，次级索引没有加速作用                      |
+| 创建约束 CREATE INDEX               | Y                     |
 | 删除约束 DROP INDEX                 | Y                                            |
-| 修改列 MODIFY COLUMN                | N                                            |
+| 修改列 MODIFY COLUMN                | Y                                            |
 | 主键 PRIMARY KEY                    | Y                                            |
 | 创建视图 CREATE VIEW                | Y                                            |
 | 修改视图 ALTER VIEW                 | Y                                            |
@@ -24,7 +24,7 @@
 | 自增列 AUTO_INCREMENT               | Y                                            |
 | 序列 SEQUENCE                       | Y                                            |
 | 临时表 TEMPORARY TABLE              | Y                                            |
-| 流式表 CREATE STREAM                | E，部分支持                                 |
+| 流式表 CREATE DYNAMIC TABLE              | E，部分支持                                 |
 | 分区表 PARTITION BY                 | E，部分类型支持                              |
 | 字符集和排序顺序 CHARSET，COLLATION   | N，仅默认支持 UTF8                            |
 
@@ -61,8 +61,29 @@
 | 存储过程 STORED PROCEDURE     | N                                  |
 | 触发器 TRIGGER                | N                                  |
 | 时间调度器 EVENT SCHEDULER     | N                                  |
-| 自定义函数 UDF                 | N                                  |
-| 增量物化视图 Materialized VIEW | N                                  |
+| 自定义函数 UDF                 | E                                  |
+| 物化视图 Materialized VIEW | N                                  |
+
+
+## 流计算
+
+| 流计算功能                 | 支持（Y）/不支持（N）/实验特性 (E) |
+| ----------------------------- | ---------------------------------- |
+| 动态表                 | N                                  |
+| Kafka连接器                 | E                                  |
+| 物化视图      | N                                  |
+| (增量)物化视图     | N                                  |
+
+
+## 时序
+| 流计算功能                 | 支持（Y）/不支持（N）/实验特性 (E) |
+| ----------------------------- | ---------------------------------- |
+| 时序表                 | Y                                 |
+| 滑动窗口                 | Y                                  |
+| 降采样      | Y                                  |
+| 插值     | Y                                  |
+| TTL（Time To Live）     | N                                  |
+| ROLLUP     | N                                  |
 
 ## 数据类型
 
@@ -77,7 +98,7 @@
 |              | BINARY                                 | Y                                  |
 |              | VARBINARY                              | Y                                  |
 |              | TINYTEXT/TEXT/MEDIUMTEXT/LONGTEXT      | Y                                  |
-|              | ENUM                                   | Y，不支持**过滤 ENUM 值**和**排序 ENUM 值**|
+|              | ENUM                                   | Y                                  |
 |              | SET                                    | N                                  |
 | 二进制类型   | TINYBLOB/BLOB/MEDIUMBLOB/LONGBLOB      | Y                                  |
 | 时间与日期   | DATE                                   | Y                                  |
@@ -88,8 +109,11 @@
 | Boolean      | BOOL                                   | Y                                  |
 | 定点类型     | DECIMAL                                | Y，最高到 38 位                      |
 | JSON 类型    | JSON                                   | Y                                  |
-| 向量类型     | VECTOR                                 | N                                  |
-| 空间类型     | SPATIAL                                | N                                  |
+| 向量类型     | VECTOR                                 | E                                  |
+| 数组类型     | ARRAY                                 | N（与MySQL一致，在JSON中提供数组操作）                 |
+| 位图类型   | BITMAP                                 |  N
+| 空间类型     | GEOMETRY/POINT/LINESTRING/POLYGON      | N                                  |
+
 
 ## 索引与约束
 
@@ -98,7 +122,7 @@
 | 主键约束         | Y                                  |
 | 复合主键         | Y                                  |
 | 唯一约束         | Y                                  |
-| 次级索引         | Y，仅语法实现，没有加速效果        |
+| 次级索引         | Y                                  |
 | 外键约束         | Y                                  |
 | 无效数据强制约束   | Y                                  |
 | ENUM 和 SET 约束 | N                                  |
@@ -109,11 +133,12 @@
 
 | 事务                       | 支持（Y）/不支持（N）/实验特性 (E) |
 | -------------------------- | ---------------------------------- |
-| 悲观事务                   | Y                                  |
+| 悲观事务                   | Y （默认模式）                                 |
 | 乐观事务                   | Y                                  |
+| 跨库事务                 | Y                                  |
 | 分布式事务                 | Y                                  |
 | 可重复读隔离（快照 SI 隔离）   | Y                                  |
-| 读已提交 RC 隔离             | Y                                  |
+| 读已提交 RC 隔离             | Y （默认模式）                                 |
 
 ## 函数与操作符
 
@@ -146,10 +171,13 @@
 
 | 数据导入和导出    | 支持（Y）/不支持（N）/实验特性 (E) |
 | ----------------- | ---------------------------------- |
-| 文件导入 LOAD DATA  | Y                                  |
+| INSERT INTO写入     | Y                                  |
 | SQL 导入 SOURCE     | Y                                  |
+| 文件导入 LOAD DATA INFILE  | Y                                  |
+| 流式导入LOAD DATA INLINE     | Y                                  |
 | 从对象存储导入      | Y                                  |
-| modump 工具导出 SQL  | Y                                  |
+| modump 工具导出 SQL/CSV  | Y                                  |
+| SELECT INTO导出CSV/JSON  | Y                                  |
 | mysqldump 原生工具  | N                                  |
 
 ## 安全与访问控制
@@ -167,7 +195,8 @@
 | 备份和恢复   | 支持（Y）/不支持（N）/实验特性 (E) |
 | ------------ | ---------------------------------- |
 | 逻辑备份恢复 | Y，仅支持 modump 工具                |
-| 物理备份恢复 | Y                                  |
+| 物理备份恢复 | Y，仅支持mobackup工具                |
+| CDC同步     | N（MatrixOne作为源端不支持）                                  |
 
 ## 管理工具
 
@@ -182,6 +211,8 @@
 | SQL 记录              | Y                                  |
 | Kubernetes operator  | Y                                  |
 
+
+
 ## 部署方式
 
 | 部署方式             | 支持（Y）/不支持（N）/实验特性 (E)  |
@@ -192,3 +223,48 @@
 | 腾讯云分布式自建部署 | Y，TKE+COS                          |
 | AWS 分布式自建部署    | Y，EKS+S3                           |
 | 公有云 Serverless     | Y，MatrixOne Cloud，支持 AWS，阿里云 |
+
+
+## 应用连接器及常见ORM
+
+| 应用连接器             | 支持（Y）/不支持（N） |
+| -------------------- | ----------------------------------- |
+| JDBC   | Y                                   |
+| ODBC | N    |
+| pymysql | Y                          |
+| go-sql-driver | Y                         |
+| MyBatis    | Y                         |
+| MyBatis-plus     | Y |
+| Spring-JPA     | Y |
+| Hibernate     | Y |
+| GORM     | Y |
+| SQL Alchemy     | Y |
+
+注意：未在上面标明的应用连接器或者ORM工具并不一定不支持，MatrixOne本身对MySQL 8.0高度兼容，因此如果连接MySQL可以正常运行的都基本可以适配MatrixOne，用户可以直接尝试基于MySQL可以跑通的成熟工具连接MatrixOne。
+
+## 生态工具适配
+
+| 工具种类 | 工具名称                               | 支持（Y）/不支持（N）|
+| ------------ | -------------------------------------- | ---------------------------------- |
+| 数据库管理IDE    | Navicat | Y                                  |
+|     | MySQL Workbench | Y                                  |
+|     | DBeaver | Y                                  |
+|     | HeidiSQL | Y                                  |
+|     | SQLyog | Y                                  |
+| ETL工具    | DataX | Y                                  |
+|      | Canal | Y                                  |
+|     | Kettle | Y                                  |
+|     | Seatunnel | Y                                  |
+|    | FlinkCDC | Y                                  |
+| 消息队列    | Kafka | Y                                  |
+| 计算引擎    | Spark | Y                                  |
+|      | Flink | Y                                  |
+| BI工具    | Superset | Y                                  |
+|      | Tableau | Y                                  |
+|      | FineBI | Y                                  |
+|      | 永洪BI | Y                                  |
+|      | Datafor | Y                                  |
+| 数据调度    | DolphinScheduler | Y                                  |
+| 可视化监控    | Grafana | Y                                  |
+
+注意：未在上面标明的生态工具并不一定不支持，MatrixOne本身对MySQL 8.0高度兼容，因此如果连接MySQL可以正常运行的都基本可以适配MatrixOne，用户可以直接尝试基于MySQL可以跑通的成熟工具连接MatrixOne。
