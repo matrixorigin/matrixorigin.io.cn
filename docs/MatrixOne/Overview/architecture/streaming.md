@@ -18,9 +18,8 @@ Source 负责外部数据与 MatrixOne 数据表的连接与映射，创建一�
 
 ```sql
 CREATE [OR REPLACE] SOURCE [IF NOT EXISTS] stream_name 
-  ( { column_name data_type [KEY | HEADERS | HEADER(key)] } [, ...] )
-  WITH ( property_name = expression [, ...]);
-
+( { column_name data_type [KEY | HEADERS | HEADER(key)] } [, ...] )
+WITH ( property_name = expression [, ...]);
 ```
 
 例如使用下面的sql语句创建一个名为 stream_test 的 source：
@@ -44,11 +43,10 @@ create source stream_test(c1 char(25),c2 varchar(500),c3 text,c4 tinytext,c5 med
 ```sql
 CREATE DYNAMIC TABLE [IF NOT EXISTS] table_name 
 AS SELECT ... from stream_name ;
-
 ```
 
 示例如下：
 
 ```sql
-create dynamic table dt_name as select * from stream_name;
+create dynamic table dt_test as select * from stream_test;
 ```
