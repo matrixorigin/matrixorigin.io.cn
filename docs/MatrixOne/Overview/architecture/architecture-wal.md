@@ -107,7 +107,7 @@ Log Backend 中通过 truncate 操作销毁日志，销毁指定 LSN 之前的�
 +---------+----------+------+
 ```
 
-**Transaction Commands**：事务中每种写操作对应一个或多个 command。log entry 会记录事务中所有的 command。
+**Transaction Commands**"：事务中每种写操作对应一个或多个 command。log entry 会记录事务中所有的 command。
 
 | Operator           | Command           |
 | :----------------- | :---------------- |
@@ -141,7 +141,7 @@ Catalog 从上到下每层分别是 database，table，segment 和 block。一�
 +-------------------+
 |   Update Catalog  |
 +-------+-----------+
-| Dest | EntryNode |
+| Dest  | EntryNode |
 +-------+-----------+
 ```
 
