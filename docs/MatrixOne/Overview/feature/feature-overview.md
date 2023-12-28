@@ -2,7 +2,7 @@
 
 ## MatrixOne 特性
 
-在 MatrixOne 版本 1.0.0 中，具有如下特性，让你在使用 MatrixOne 的过程中更加高效：
+在 MatrixOne 版本 1.0.2 中，具有如下特性，让你在使用 MatrixOne 的过程中更加高效：
 
 ### 分布式架构
 

@@ -36,7 +36,7 @@ Apache Flink 是一个强大的框架和分布式处理引擎，专注于进行�
 
 本次实践需要安装部署以下软件环境：
 
-- 完成[单机部署 MatrixOne](https://docs.matrixorigin.cn/1.0.0-rc1/MatrixOne/Get-Started/install-standalone-matrixone/)。
+- 完成[单机部署 MatrixOne](https://docs.matrixorigin.cn/1.0.2/MatrixOne/Get-Started/install-standalone-matrixone/)。
 - 下载安装 [lntelliJ IDEA(2022.2.1 or later version)](https://www.jetbrains.com/idea/download/)。
 - 根据你的系统环境选择 [JDK 8+ version](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html) 版本进行下载安装。
 - 下载并安装 [Kafka](https://archive.apache.org/dist/kafka/3.5.0/kafka_2.13-3.5.0.tgz)，推荐版本为 2.13 - 3.5.0。

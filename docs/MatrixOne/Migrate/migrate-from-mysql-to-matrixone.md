@@ -150,6 +150,6 @@ MatrixOne 中，数据类型在保持与 MySQL 命名一致的情况下，在精
 
 ## 限制
 
-MatrixOne 1.0.0-rc1 版本已经支持 MySQL 的建表语句，因此可以顺畅地将 MySQL 表迁移到 MatrixOne 上。不过需要注意，在迁移过程中，不兼容 MySQL 部分关键字，如 `engine=` 等，在 MatrixOne 中会被自动忽略，也不会影响表结构的迁移。
+MatrixOne 1.0.2 版本已经支持 MySQL 的建表语句，因此可以顺畅地将 MySQL 表迁移到 MatrixOne 上。不过需要注意，在迁移过程中，不兼容 MySQL 部分关键字，如 `engine=` 等，在 MatrixOne 中会被自动忽略，也不会影响表结构的迁移。
 
 但需要特别注意的是，尽管 MatrixOne 支持 MySQL 建表语句，如果迁移的表中包含不兼容的数据类型、触发器、函数或存储过程，仍需要手动修改。更多详细的兼容性信息，参见 [MySQL 兼容性](../Overview/feature/mysql-compatibility.md)。

@@ -476,7 +476,7 @@ __Note:__ 本章节均是在 master0 节点操作。
     ```
 
     !!! note
-        参数 VERSION 为要部署的 MatrixOne Operator 的版本号，如 1.0.0-alpha.2。
+        参数 VERSION 为要部署的 MatrixOne Operator 的版本号，如 1.0.2。
 
 5. 安装成功后，使用以下命令确认安装状态：
 
@@ -647,7 +647,7 @@ mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 163
-Server version: 8.0.30-MatrixOne-v1.0.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.0.2 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
