@@ -16,17 +16,16 @@ WITH ( property_name = expression [, ...]);
 
 - stream_name: SOURCE 名称。SOURCE 名称必须与当前数据库中任何现有的 SOURCE 名称不同。
 - column_name: 流式数据映射到 SOURCE 表中的列名。
-- data_type: column_name对应字段在数据表中的类型。
+- data_type: column_name 对应字段在数据表中的类型。
 - property_name = expression: 有关流式数据映射的具体配置项名以及对应的值，可配置项如下：
 
-
-|    property_name    |                                  expression描述                                  |
+|    property_name    |                                  expression 描述                                  |
 | :-----------------: | :------------------------------------------------------------------------------: |
 |       "type"        |                     仅支持'kafka':目前仅支持接受的源为 kafka                     |
 |       "topic"       |                            kafka 数据源中对应的 topic                            |
 |      "partion"      |                           kafka 数据源中对应的 partion                           |
 |       "value"       |                  仅支持'json':  目前仅支持接受的数据格式为 json                  |
-| "bootstrap.servers" |                            kafka 服务器对应的IP:PORT                             |
+| "bootstrap.servers" |                            kafka 服务器对应的 IP:PORT                             |
 |   "sasl.username"   | 指定连接到 Kafka 时使用的 SASL（Simple Authentication and Security Layer）用户名 |
 |   "sasl.password"   |               与 sasl.username 配对使用，这个参数提供了相应的密码                |
 |  "sasl.mechanisms"  |                        客户端和服务器之间认证的 SASL 机制                        |
@@ -48,4 +47,5 @@ Query OK, 0 rows affected (0.01 sec)
 ## 限制
 
 SOURCE 表目前不支持 drop 和 alter。
-创建 SOURCE 表时目前仅支持连接 kafka，且仅支持传输数据格式为json。
+
+创建 SOURCE 表时目前仅支持连接 kafka，且仅支持传输数据格式为 json。
