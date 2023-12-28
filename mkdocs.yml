@@ -154,6 +154,8 @@ nav:
         - Golang 基础示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
         - Gorm 基础示例: MatrixOne/Tutorial/gorm-golang-crud-demo.md
       - 生态工具:
+        - 消息队列工具:
+          - 使用 Kafka 连接 MatrixOne 实现数据持久化: MatrixOne/Develop/Ecological-Tools/Message-Queue/Kafka.md
         - BI 工具:
           - 通过 FineBI 实现 MatrixOne 的可视化报表: MatrixOne/Develop/Ecological-Tools/BI-Connection/FineBI-connection.md
           - 通过永洪 BI 实现 MatrixOne 的可视化报表: MatrixOne/Develop/Ecological-Tools/BI-Connection/yonghong-connection.md
