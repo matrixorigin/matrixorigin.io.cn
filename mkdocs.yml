@@ -65,6 +65,7 @@ nav:
         - Logtail 协议详解: MatrixOne/Overview/architecture/architecture-logtail.md
         - 事务与锁机制实现详解: MatrixOne/Overview/architecture/architecture-transaction-lock.md
         - Proxy 架构详解: MatrixOne/Overview/architecture/architecture-proxy.md
+        - WAL 技术详解: MatrixOne/Overview/architecture/architecture-wal.md
         - 数据缓存及冷热数据分离架构详解: MatrixOne/Overview/architecture/architecture-cold-hot-data-separation.md
         - 流引擎架构详解: MatrixOne/Overview/architecture/streaming.md
       - 最新动态: MatrixOne/Overview/whats-new.md
