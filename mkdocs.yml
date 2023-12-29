@@ -433,6 +433,7 @@ nav:
               - OR: MatrixOne/Reference/Operators/operators/logical-operators/or.md
               - XOR: MatrixOne/Reference/Operators/operators/logical-operators/xor.md
         - 函数:
+          - 函数总表: MatrixOne/Reference/Functions-and-Operators/matrixone-function-list.md
           - 聚合函数:
             - ANY_VALUE: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/any-value.md
             - AVG: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/avg.md
@@ -551,7 +552,7 @@ nav:
             - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
           - JSON 函数: MatrixOne/Reference/Functions-and-Operators/Json/json-functions.md
           - 其他函数:
-            - SAMPLE: MatrixOne/Reference/Functions-and-Operators/Other/samples.md
+            - SAMPLE: MatrixOne/Reference/Functions-and-Operators/Other/sample.md
             - SLEEP: MatrixOne/Reference/Functions-and-Operators/Other/sleep.md
             - UUID(): MatrixOne/Reference/Functions-and-Operators/Other/uuid.md
           - 系统运维函数:
