@@ -415,6 +415,7 @@ nav:
               - OR: MatrixOne/Reference/Operators/operators/logical-operators/or.md
               - XOR: MatrixOne/Reference/Operators/operators/logical-operators/xor.md
         - 函数:
+          - 函数总表: MatrixOne/Reference/Functions-and-Operators/matrixone-function-list.md
           - 聚合函数:
             - ANY_VALUE: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/any-value.md
             - AVG: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/avg.md
