@@ -10900,12 +10900,12 @@ Usage         : mo_ctl precheck # check pre-requisites for mo_ctl
 Usage         : mo_ctl deploy [mo_version] [force] # deploy mo onto the path configured
   [mo_version]: optional, specify an mo version to deploy
   [force]     : optional, if specified will delete all content under MO_PATH and deploy from beginning
-  e.g.        : mo_ctl deploy             # default, same as mo_ctl deploy 1.0.2
+  e.g.        : mo_ctl deploy             # default, same as mo_ctl deploy 1.1.0
               : mo_ctl deploy main        # deploy development latest version
               : mo_ctl deploy d29764a     # deploy development version d29764a
-              : mo_ctl deploy 1.0.2       # deploy stable verson 1.0.2
-              : mo_ctl deploy force       # delete all under MO_PATH and deploy verson 1.0.2
-              : mo_ctl deploy 1.0.2 force # delete all under MO_PATH and deploy stable verson 1.0.2 from beginning
+              : mo_ctl deploy 1.1.0       # deploy stable verson 1.1.0
+              : mo_ctl deploy force       # delete all under MO_PATH and deploy verson 1.1.0
+              : mo_ctl deploy 1.1.0 force # delete all under MO_PATH and deploy stable verson 1.1.0 from beginning
 </code></pre></div>
 <h3 id="start-matrixone">start - 启动 MatrixOne 服务</h3>
 <p>使用 <code>mo_ctl start</code> 启动 MatrixOne 服务，启动文件路径位于 <code>MO_PATH</code> 下。</p>
@@ -11051,7 +11051,7 @@ Usage         : mo_ctl getconf [conf_list] # get configurations
 <tr>
 <td>MO_DEFAULT_VERSION</td>
 <td>默认拉取的 MatrixOne 的版本</td>
-<td>默认为 1.0.2</td>
+<td>默认为 1.1.0</td>
 </tr>
 <tr>
 <td>GOPROXY</td>
@@ -11123,11 +11123,11 @@ Usage           : mo_ctl uninstall        # uninstall mo from path MO_PATH=/data
 <p>使用 <code>mo_ctl upgrade version</code> 或者 <code>mo_ctl upgrade commitid</code> 来将 MatrixOne 从当前版本升级或降级到某个稳定版本或者某个 commit id 版本。</p>
 <div class="highlight"><pre><span></span><code>mo_ctl upgrade help
 Usage           : mo_ctl upgrade [version_commitid]   # upgrade or downgrade mo from current version to a target commit id or stable version
- [commitid]     : a commit id such as &#39;38888f7&#39;, or a stable version such as &#39;1.0.2&#39;
+ [commitid]     : a commit id such as &#39;38888f7&#39;, or a stable version such as &#39;1.1.0&#39;
                 : use &#39;latest&#39; to upgrade to latest commit on main branch if you don&#39;t know the id
   e.g.          : mo_ctl upgrade 38888f7              # upgrade/downgrade to commit id 38888f7 on main branch
                 : mo_ctl upgrade latest               # upgrade/downgrade to latest commit on main branch
-                : mo_ctl upgrade 1.0.2                # upgrade/downgrade to stable version 1.0.2
+                : mo_ctl upgrade 1.1.0               # upgrade/downgrade to stable version 1.1.0
 </code></pre></div>
 <h3 id="watchdog-matrixone">watchdog - 保活 MatrixOne</h3>
 <p>使用 <code>mo_ctl watchdog [options]</code> 设置一个定时任务保证 MatrixOne 服务可用性，每分钟检查 MatrixOne 的状态，如果发现服务中止则自动拉起服务。</p>
