@@ -24,9 +24,6 @@
 | 自增列 AUTO_INCREMENT               | Y                                            |
 | 序列 SEQUENCE                       | Y                                            |
 | 临时表 TEMPORARY TABLE              | Y                                            |
-| 创建 SOURCE 表 CREATE SOURCE         | E，部分支持                                     |
-| 修改 SOURCE 表 ALTER SOURCE         | N                                           |
-| 删除 SOURCE 表 DROP SOURCE           | N                                               |
 | 流式表 CREATE DYNAMIC TABLE              | E，部分支持                                 |
 | 分区表 PARTITION BY                 | E，部分类型支持                              |
 | 字符集和排序顺序 CHARSET，COLLATION   | N，仅默认支持 UTF8                            |
