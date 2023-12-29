@@ -66,6 +66,7 @@ nav:
         - Logtail 协议详解: MatrixOne/Overview/architecture/architecture-logtail.md
         - 事务与锁机制实现详解: MatrixOne/Overview/architecture/architecture-transaction-lock.md
         - Proxy 架构详解: MatrixOne/Overview/architecture/architecture-proxy.md
+        - WAL 技术详解: MatrixOne/Overview/architecture/architecture-wal.md
         - 数据缓存及冷热数据分离架构详解: MatrixOne/Overview/architecture/architecture-cold-hot-data-separation.md
         - 流引擎架构详解: MatrixOne/Overview/architecture/streaming.md
       - 最新动态: MatrixOne/Overview/whats-new.md
@@ -507,6 +508,7 @@ nav:
             - FORMAT(): MatrixOne/Reference/Functions-and-Operators/String/format.md
             - HEX(): MatrixOne/Reference/Functions-and-Operators/String/hex.md
             - INSTR():  MatrixOne/Reference/Functions-and-Operators/String/instr.md
+            - LCASE(): MatrixOne/Reference/Functions-and-Operators/String/lcase.md
             - LEFT(): MatrixOne/Reference/Functions-and-Operators/String/left.md
             - LENGTH(): MatrixOne/Reference/Functions-and-Operators/String/length.md
             - LOCATE(): MatrixOne/Reference/Functions-and-Operators/String/locate.md
@@ -524,6 +526,7 @@ nav:
             - SUBSTRING(): MatrixOne/Reference/Functions-and-Operators/String/substring.md
             - SUBSTRING_INDEX(): MatrixOne/Reference/Functions-and-Operators/String/substring-index.md
             - TRIM(): MatrixOne/Reference/Functions-and-Operators/String/trim.md
+            - UCASE(): MatrixOne/Reference/Functions-and-Operators/String/ucase.md
             - UPPER(): MatrixOne/Reference/Functions-and-Operators/String/upper.md
             - 正则表达式:
               - 正则表达式概述: MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/Regular-Expression-Functions-Overview.md
@@ -579,6 +582,8 @@ nav:
       - SQL 常见问题: MatrixOne/FAQs/sql-faqs.md
     - 版本发布纪要:
       - 版本发布历史记录: MatrixOne/Release-Notes/release-timeline.md
+      - v1.0.2: MatrixOne/Release-Notes/v1.0.2.md
+      - v1.0.1: MatrixOne/Release-Notes/v1.0.1.md
       - v1.0.0: MatrixOne/Release-Notes/v1.0.0.md
       - v1.0.0-rc2: MatrixOne/Release-Notes/v1.0.0-rc2.md
       - v1.0.0-rc1: MatrixOne/Release-Notes/v1.0.0-rc1.md

@@ -175,7 +175,7 @@
 | 流式导入 LOAD DATA INLINE     | Y                                  |
 | 从对象存储导入      | Y                                  |
 | modump 工具导出 SQL/CSV  | Y                                  |
-| SELECT INTO导出CSV/JSON  | Y                                  |
+| SELECT INTO 导出 CSV/JSON  | Y                                  |
 | mysqldump 原生工具  | N                                  |
 
 ## 安全与访问控制

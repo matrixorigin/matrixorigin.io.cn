@@ -24,7 +24,7 @@
 | `mo_ctl stop`        | 停止所有 MatrixOne 服务进程                                                                            |
 | `mo_ctl restart`     | 重启 MatrixOne 服务                                                                                    |
 | `mo_ctl connect`     | 调用 MySQL Client 连接 MatrixOne 服务                                                                  |
-| `mo_ctl upgrade`     | 将MatrixOne从当前版本升级/降级到某个发布版本或者commit id 版本                                         |
+| `mo_ctl upgrade`     | 将 MatrixOne 从当前版本升级/降级到某个发布版本或者 commit id 版本                                         |
 | `mo_ctl set_conf`    | 设置各类使用参数                                                                                       |
 | `mo_ctl get_conf`    | 查看当前使用参数                                                                                       |
 | `mo_ctl uninstall`   | 从 MO_PATH 路径下卸载 MatrixOne                                                                        |
@@ -145,12 +145,12 @@ mo_ctl deploy help
 Usage         : mo_ctl deploy [mo_version] [force] # deploy mo onto the path configured
   [mo_version]: optional, specify an mo version to deploy
   [force]     : optional, if specified will delete all content under MO_PATH and deploy from beginning
-  e.g.        : mo_ctl deploy             # default, same as mo_ctl deploy 1.0.0-rc1
+  e.g.        : mo_ctl deploy             # default, same as mo_ctl deploy 1.0.2
               : mo_ctl deploy main        # deploy development latest version
               : mo_ctl deploy d29764a     # deploy development version d29764a
-              : mo_ctl deploy 1.0.0-rc1       # deploy stable verson 1.0.0-rc1
-              : mo_ctl deploy force       # delete all under MO_PATH and deploy verson 1.0.0-rc1
-              : mo_ctl deploy 1.0.0-rc1 force # delete all under MO_PATH and deploy stable verson 1.0.0-rc1 from beginning
+              : mo_ctl deploy 1.0.2       # deploy stable verson 1.0.2
+              : mo_ctl deploy force       # delete all under MO_PATH and deploy verson 1.0.2
+              : mo_ctl deploy 1.0.2 force # delete all under MO_PATH and deploy stable verson 1.0.2 from beginning
 ```
 
 ### start - 启动 MatrixOne 服务
@@ -290,7 +290,7 @@ Usage         : mo_ctl getconf [conf_list] # get configurations
 | GCC_VERSION            | precheck 检查的 gcc 版本                               | 默认为 8.5.0                                          |
 | GO_VERSION             | precheck 检查的 go 版本                                | 默认为 1.20                                           |
 | MO_GIT_URL             | MatrixOne 的源码拉取地址                               | 默认为<https://github.com/matrixorigin/matrixone.git> |
-| MO_DEFAULT_VERSION     | 默认拉取的 MatrixOne 的版本                            | 默认为 1.0.0-rc1                                      |
+| MO_DEFAULT_VERSION     | 默认拉取的 MatrixOne 的版本                            | 默认为 1.0.2                                      |
 | GOPROXY                | GOPROXY 的地址，一般为国内加速拉取 golang 依赖包而使用 | 默认为<https://goproxy.cn>,direct                     |
 | STOP_INTERVAL          | 停止间隔，停止服务后检测服务状态等待时间               | 默认为 5 秒                                           |
 | START_INTERVAL         | 启动间隔，启动服务后检测服务状态等待时间               | 默认为 2 秒                                           |
@@ -343,11 +343,11 @@ Usage           : mo_ctl uninstall        # uninstall mo from path MO_PATH=/data
 ```
 mo_ctl upgrade help
 Usage           : mo_ctl upgrade [version_commitid]   # upgrade or downgrade mo from current version to a target commit id or stable version
- [commitid]     : a commit id such as '38888f7', or a stable version such as '1.0.0-rc1'
+ [commitid]     : a commit id such as '38888f7', or a stable version such as '1.0.2'
                 : use 'latest' to upgrade to latest commit on main branch if you don't know the id
   e.g.          : mo_ctl upgrade 38888f7              # upgrade/downgrade to commit id 38888f7 on main branch
                 : mo_ctl upgrade latest               # upgrade/downgrade to latest commit on main branch
-                : mo_ctl upgrade 1.0.0-rc1                # upgrade/downgrade to stable version 1.0.0-rc1
+                : mo_ctl upgrade 1.0.2                # upgrade/downgrade to stable version 1.0.2
 ```
 
 ### watchdog - 保活 MatrixOne
