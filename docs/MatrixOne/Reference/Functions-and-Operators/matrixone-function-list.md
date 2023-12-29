@@ -1,8 +1,8 @@
-# MatrixOne 函数清单
+# 函数总表
 
 本文档列出了 MatrixOne 最新版本所支持的函数清单。
 
-## MatrixOne 聚合函数
+## 聚合函数
 
 | 函数名称                                                              | 作用                                     |
 | ---------------------------------------------------------------------|---------------------------------------- |
@@ -20,7 +20,7 @@
 | [SUM()](../Reference/Functions-and-Operators/Aggregate-Functions/sum.md)|用于计算一组值的和|
 | [VARIANCE()](../Reference/Functions-and-Operators/Aggregate-Functions/variance.md)      | 用于计算总体方差|
 
-## MatrixOne 日期时间类函数
+## 日期时间类函数
 
 | 函数名称                                                              | 作用                                     |
 | ---------------------------------------------------------------------|---------------------------------------- |
@@ -52,7 +52,7 @@
 | [WEEKDAY()](../Reference/Functions-and-Operators/Datetime/weekday.md)|返回日期的工作日索引（0 = 星期一，1 = 星期二，... 6 = 星期日）|
 | [YEAR()](../Reference/Functions-and-Operators/Datetime/year.md)|返回了给定日期的年份|
 
-## MatrixOne 数学类函数
+## 数学类函数
 
 | 函数名称                                                              | 作用                                     |
 | ---------------------------------------------------------------------|---------------------------------------- |
@@ -76,7 +76,7 @@
 | [SINH()](../Reference/Functions-and-Operators/Mathematical/sinh.md)  | 用于求输入参数（用弧度表示）的双曲正弦值|
 | [TAN()](../Reference/Functions-and-Operators/Mathematical/tan.md)    | 用于求输入参数（用弧度表示）的正切值。|
 
-## MatrixOne 字符串类函数
+## 字符串类函数
 
 | 函数名称                                                              | 作用                                     |
 | ---------------------------------------------------------------------|---------------------------------------- |
@@ -112,7 +112,7 @@
 | [UCASE()](../Reference/Functions-and-Operators/String/ucase.md)    | 用于将给定的字符串转换为大写形式。|
 | [UPPER()](../Reference/Functions-and-Operators/String/upper.md)    | 用于将给定的字符串转换为大写形式。|
 
-## MatrixOne 正则表达式
+## 正则表达式
 
 | 函数名称                                                              | 作用                                     |
 | ---------------------------------------------------------------------|---------------------------------------- |
@@ -122,13 +122,13 @@
 | [REGEXP_REPLACE()](../Reference/Functions-and-Operators/String/Regular-Expressions/regexp-replace.md)    | 用于将匹配给定正则表达式模式的字符串替换为指定的新字符串|
 | [REGEXP_SUBSTR()](../Reference/Functions-and-Operators/String/Regular-Expressions/regexp-substr.md)  | 用于返回字符串参数中匹配正则表达式参数的子字符串|
 
-## MatrixOne 表函数
+## 表函数
 
 | 函数名称                                                              | 作用                                     |
 | ---------------------------------------------------------------------|---------------------------------------- |
 | [UNNEST()](../Reference/Functions-and-Operators/Table/unnest.md)    | 用于将 JSON 类型数据内的数组类型的列或参数展开为一个表|
 
-## MatrixOne 窗口函数
+## 窗口函数
 
 | 函数名称                                                              | 作用                                     |
 | ---------------------------------------------------------------------|---------------------------------------- |
@@ -136,7 +136,7 @@
 | [RANK()](../Reference/Functions-and-Operators/Window-Functions/rank.md)  | 为数据集中的每一行提供一个唯一的排名|
 | [ROW_UNMBER()](../Reference/Functions-and-Operators/Window-Functions/row_number.md)  | 为数据集中的每一行提供一个唯一的序号|
 
-## MatrixOne JSON 函数
+## 函数
 
 | 函数名称                                                              | 作用                                     |
 | ---------------------------------------------------------------------|---------------------------------------- |
@@ -144,7 +144,7 @@
 | [JSON_QUOTE()](../Reference/Functions-and-Operators/Json/json-functions.md)  | 引用 JSON 文档|
 | [JSON_UNQUOTE()](../Reference/Functions-and-Operators/Json/json-functions.md)  | 取消引用 JSON 文档|
 
-## MatrixOne 系统运维函数
+## 系统运维函数
 
 | 函数名称                                                              | 作用                                     |
 | ---------------------------------------------------------------------|---------------------------------------- |
@@ -154,7 +154,7 @@
 | [CURRENT_USER()](../Reference/Functions-and-Operators/system-ops/current_user.md)    | 返回当前用户账户|
 | [PURGE_LOG()](../Reference/Functions-and-Operators/system-ops/purge_log.md)  | 用于删除记录于 MatrixOne 数据库系统表中的日志。|
 
-## MatrixOne 其他函数
+## 其他函数
 
 | 函数名称                                                              | 作用                                     |
 | ---------------------------------------------------------------------|---------------------------------------- |

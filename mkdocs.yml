@@ -50,7 +50,6 @@ nav:
     - 关于 MatrixOne:
       - MatrixOne 简介: MatrixOne/Overview/matrixone-introduction.md
       - MatrixOne 功能清单: MatrixOne/Overview/matrixone-feature-list.md
-      - MatrixOne 函数清单: MatrixOne/Overview/matrixone-function-list.md
       - MatrixOne 功能概述:
         - 混合负载 HTAP: MatrixOne/Overview/feature/key-feature-htap.md
         - 多租户: MatrixOne/Overview/feature/key-feature-multi-accounts.md
@@ -416,6 +415,7 @@ nav:
               - OR: MatrixOne/Reference/Operators/operators/logical-operators/or.md
               - XOR: MatrixOne/Reference/Operators/operators/logical-operators/xor.md
         - 函数:
+          - 函数总表: MatrixOne/Reference/Functions-and-Operators/matrixone-function-list.md
           - 聚合函数:
             - ANY_VALUE: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/any-value.md
             - AVG: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/avg.md
