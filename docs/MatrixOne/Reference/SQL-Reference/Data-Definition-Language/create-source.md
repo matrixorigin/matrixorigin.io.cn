@@ -2,7 +2,7 @@
 
 ## **语法说明**
 
-`CREATE SOURCE` 将一个新的 SOURCE 添加到当前数据库中。
+`CREATE SOURCE` 创建一个对流式数据的连接，并将一个新的 SOURCE 表添加到当前数据库中。
 
 ## **语法结构**
 
@@ -19,13 +19,13 @@ WITH ( property_name = expression [, ...]);
 - data_type: column_name 对应字段在数据表中的类型。
 - property_name = expression: 有关流式数据映射的具体配置项名以及对应的值，可配置项如下：
 
-|    property_name    |                                  expression 描述                                  |
+|    property_name    |                                 expression 描述                                  |
 | :-----------------: | :------------------------------------------------------------------------------: |
 |       "type"        |                     仅支持'kafka':目前仅支持接受的源为 kafka                     |
 |       "topic"       |                            kafka 数据源中对应的 topic                            |
 |      "partion"      |                           kafka 数据源中对应的 partion                           |
 |       "value"       |                  仅支持'json':  目前仅支持接受的数据格式为 json                  |
-| "bootstrap.servers" |                            kafka 服务器对应的 IP:PORT                             |
+| "bootstrap.servers" |                            kafka 服务器对应的 IP:PORT                            |
 |   "sasl.username"   | 指定连接到 Kafka 时使用的 SASL（Simple Authentication and Security Layer）用户名 |
 |   "sasl.password"   |               与 sasl.username 配对使用，这个参数提供了相应的密码                |
 |  "sasl.mechanisms"  |                        客户端和服务器之间认证的 SASL 机制                        |
