@@ -57,6 +57,7 @@ nav:
         - 高性价比: MatrixOne/Overview/feature/cost-effective.md
         - 高可用: MatrixOne/Overview/feature/high-availability.md
         - 时序: MatrixOne/Overview/feature/time-series.md
+        - 流: MatrixOne/Overview/feature/stream.md
         - MySQL 兼容性: MatrixOne/Overview/feature/mysql-compatibility.md
       - MatrixOne 技术架构:
         - 整体架构概述: MatrixOne/Overview/architecture/matrixone-architecture-design.md
@@ -153,6 +154,8 @@ nav:
         - Golang 基础示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
         - Gorm 基础示例: MatrixOne/Tutorial/gorm-golang-crud-demo.md
       - 生态工具:
+        - 消息队列工具:
+          - 使用 Kafka 连接 MatrixOne 实现数据持久化: MatrixOne/Develop/Ecological-Tools/Message-Queue/Kafka.md
         - BI 工具:
           - 通过 FineBI 实现 MatrixOne 的可视化报表: MatrixOne/Develop/Ecological-Tools/BI-Connection/FineBI-connection.md
           - 通过永洪 BI 实现 MatrixOne 的可视化报表: MatrixOne/Develop/Ecological-Tools/BI-Connection/yonghong-connection.md
@@ -267,6 +270,8 @@ nav:
           - CREATE...FROM...PUBLICATION...: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-subscription.md
           - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-view.md
           - CREATE OR REPLACE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-replace-view.md
+          - CREATE SOURCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-source.md
+          - CREATE DYNAMIC TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-dynamic-table.md
           - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
           - ALTER PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-publication.md
           - ALTER SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-sequence.md
