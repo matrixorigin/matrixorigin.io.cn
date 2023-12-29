@@ -57,7 +57,7 @@ MatrixOne 支持与 Apache Kafka 进行连接，本文将指导您如何通过 A
     {"c1": 21474,"c2":-20,"c3": 3,"c4":9090,"c5":42,"c6":53}
     ```
 
-### 第二步：创建 Source 表持久化数据
+### 第二步：创建 Source 表连接 Kafka
 
 1. 创建 Source 表
 
@@ -72,7 +72,7 @@ MatrixOne 支持与 Apache Kafka 进行连接，本文将指导您如何通过 A
     )    
     ```
 
-    查看是否进行了数据持久化：
+    查看是否接受了数据：
 
     ```sql
     select * from stream_test;
@@ -85,13 +85,13 @@ MatrixOne 支持与 Apache Kafka 进行连接，本文将指导您如何通过 A
     2 rows in set (0.37 sec)    
     ```
 
-2. 往 topic 中持续写入 json 数据，并检查是否继续实现数据持久化：
+2. 往 topic 中持续写入 json 数据，并检查是否继续接受了数据：
 
     ```bash
     {"c1": -3421474,"c2":92,"c3": 333,"c4":9,"c5":42233,"c6":87}
     ```
 
-    查看是否进行了数据持久化：
+    查看是否接受了数据：
 
     ```sql
     select * from stream_test;
