@@ -154,6 +154,8 @@
 | 其他函数       | Y                                  |
 | 操作符         | Y                                  |
 
+MatrixOne 的完整函数列表可以参见[该函数总表](../Reference/Functions-and-Operators/matrixone-function-list.md).
+
 ## 分区
 
 | 分区              | 支持（Y）/不支持（N）/实验特性 (E) |
