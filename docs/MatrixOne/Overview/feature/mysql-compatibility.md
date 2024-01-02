@@ -41,7 +41,6 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 
 ### VIEW 相关
 
-* 不支持 `CREATE OR REPLACE VIEW`。
 * 不支持 `with check option` 子句。
 * 不支持 `DEFINER` 与 `SQL SECURITY` 子句。
 
@@ -116,8 +115,13 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 * 不支持触发器。
 * 不支持存储过程。
 * 不支持事件调度器。
-* 不支持自定义函数。
 * 不支持物化视图。
+* 支持自定义函数，仅支持 Python, 与 MySQL 使用差异较大。
+
+## 流计算
+
+* 流计算属于 MatrixOne 独有功能，目前 1.1 版本仅支持 Kafka 连接器。
+* Kafka 连接器需要通过特殊语法创建及使用。
 
 ## 数据类型
 
@@ -133,23 +137,26 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 
 ## 索引和约束
 
-* 次级索引仅实现语法，并没有加速效果。
+* 次级索引在 `IN`, `Between and` 及 `Like` 语句中暂时不生效。
+* 外键不支持自引用。
 * 外键不支持 `ON CASCADE DELETE` 级联删除。
 
 ## 分区支持
 
 * 支持 `KEY`，`HASH`，`RANGE`，`RANGE COLUMNS`，`LIST`，`LIST COLUMNS` 六种分区类型。
+* 支持 `KEY`，`HASH` 两种分区裁剪，其他四种暂未实现。
 * 子分区仅实现语法，未实现功能。
+* `ADD/DROP/TRUNCATE PARTITION` 暂未支持。
+
+## 关键字
+
+* MatrixOne 中比 MySQL 多了三个保留关键字，`begin`, `reindex`, `ownership`, 用于 Database/Table/Column 创建时需要增加反引号。
 
 ## 函数与操作符
 
 ### 聚合函数
 
 * 支持 MatrixOne 特有的 Median 中位数函数。
-
-### 时间日期类函数
-
-* MatrixOne 的 `TO_DATE` 函数与 MySQL 的 `STR_TO_DATE` 函数起到相同功能。
 
 ### CAST 函数
 
@@ -184,11 +191,12 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 
 * MatrixOne 默认为悲观事务。
 * 与 MySQL 不同，MatrixOne 中的 DDL 语句是事务性的，可以在一个事务中回滚 DDL 操作。
+* MatrixOne 中不允许在一个事务中进行 SET 操作。
 * 不支持表级锁 `LOCK/UNLOCK TABLE`。
 
 ## 备份恢复
 
-* 支持物理备份。
+* 支持基于 mobackup 工具的物理备份。
 * 不支持 mysqldump 备份工具，仅支持 modump 工具。
 * 不支持 binlog 日志备份。
 * 不支持增量备份。
@@ -196,6 +204,14 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 ## 系统变量
 
 * MatrixOne 的 `lower_case_table_names` 有 5 种模式，默认为 1。
+
+## 系统表
+
+* MatrixOne 的系统表既有自己的独特系统表，也整体兼顾了 MySQL 的系统表。
+* MatrixOne 中默认的 `mysql` 和 `information_schema` 这两个系统库整体兼容了 MySQL 的使用模式。
+* MatrixOne 中的 `system_metrics` 系统库收集和存储了一系列 MatrixOne 服务的运行时状态监控数据。
+* MatrixOne 中的 `system` 系统库收集了 MatrixOne 中用户和系统执行的各类语句和系统运行日志。
+* MatrixOne 中的 `mo_catalog` 系统库存储了 MatrixOne 中的各种数据库对象和元数据。
 
 ## 编程语言
 
