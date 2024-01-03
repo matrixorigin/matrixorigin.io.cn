@@ -213,3 +213,31 @@ ulimit -n 65536
 通过 MySQL 客户端连接 MatrixOne 集群，你可以使用以下命令示例：`mysql -u root?workload=bk -p111 -h 10.206.16.10 -P 31429`。其中，`workload=bk` 为 CN 标签，使用 `=` 连接。
 
 同理，使用 `mo-dump` 工具导出数据的命令，你可以参考使用以下命令示例：`mo-dump -u "dump?workload=bk" -h 10.206.16.10 -P 31429 -db tpch_10g > /tmp/mo/tpch_10g.sql`。
+
+### **二进制包安装可以通过 mo_ctl 管理吗？**
+
+通过设置 MO_PATH 配置二进制包的路径，就可以使用 mo_ctl 进行管理了。
+
+### **mo_ctl 工具是否支持源码部署升级**
+
+通过 upgrade 命令可以指定对应的版本或者 commitid 进行细粒度升级，需要注意的设置当前版本 MO_PATH，以及编译环境。
+
+### **mo_ctl 工具是否支持部署 matrixOne 集群**
+
+当前还不支持，后续考虑加入集群部署和管理。
+
+### **helm 安装 operator，怎么样看是否安装成功了？**
+
+使用 helm list -A 就可以查看。
+
+### **helm 方式部署的 operator 如何进行卸载？**
+
+通过 helm uninstall 命令指定名称和命名空间进行卸载。
+
+### **安装最新的 operator，一直有一个叫 job-bucket 的 pod 起不来，请问应该怎么排查？**
+
+可以看看是否没有 secret。可能是没有配置 minio 连接信息导致没办法连接 minio。
+
+### **operator 的版本在部署的是否有要求？**
+
+operator 是用来管理 matrixOne 集群的，所以 operator 版本尽量与集群的版本保持一致，比如我们安装了 1.0.0-rc2 这个版本的集群，对应提前安装的 operator 版本也应该为 1.0.0-rc2。如未找到版本一致的 operator，建议使用相近版本的 operator。

@@ -4,13 +4,17 @@
 
 MatrixOne 在使用上保持对 MySQL 8.0 的高度兼容，包括 SQL 语法，传输协议，操作符与函数等等。与 MySQL 8.0 兼容性的差异列表可以详细参考 [MySQL 兼容性列表](../Overview/feature/mysql-compatibility.md)。
 
+* **对 MySQL 的兼容性怎么样，BI 里直接当 MySQL 用吗？**
+
+MatrixOne 与 MySQL 8.0 具有高度的兼容性，无论在通信协议，SQL 语法，连接工具，还是开发模式上，都与 MySQL 基本一致。管理和生态工具很多也都可以复用 MySQL 的工具。BI 里可以直接当 MySQL 用，详情请参考[通过 FineBI 实现 MatrixOne 的可视化报表](../Develop/Ecological-Tools/BI-Connection/FineBI-connection.md)，[通过永洪 BI 实现 MatrixOne 的可视化报表](../Develop/Ecological-Tools/BI-Connection/yonghong-connection.md)，[通过 Superset 实现 MatrixOne 可视化监控](../Develop/Ecological-Tools/BI-Connection/Superset-connection.md)。
+
 * **MatrixOne 支持哪些 SQL 语句？**
 
-MatrixOne 目前支持的 SQL 语句可以参考[该详细列表](../Reference/SQL-Reference/SQL-Type.md)。
+MatrixOne 目前支持的 SQL 语句可以参考 [SQL 语句的分类](../Reference/SQL-Reference/SQL-Type.md)。
 
 * **MatrixOne 支持哪些数据类型？**
 
-MatrixOne 目前支持常用的整型，浮点数，字符串，时间日期，布尔，枚举，二进制，JSON 类型，请参考[详细列表](../Reference/Data-Types/data-types.md)。
+MatrixOne 目前支持常用的整型，浮点数，字符串，时间日期，布尔，枚举，二进制，JSON 类型，请参考[数据类型概览](../Reference/Data-Types/data-types.md)。
 
 * **MatrixOne 支持什么类型的字符集？**
 
@@ -35,15 +39,17 @@ MatrixOne 支持大部分常用 SQL 查询：
 
 * **MatrixOne 有哪些保留关键字？**
 
-MatrixOne 的保留关键字列表可参见[该详细列表](../Reference/Language-Structure/keywords.md)。
+MatrixOne 的保留关键字列表可参见[关键字](../Reference/Language-Structure/keywords.md)。
 
 将保留关键字作为标识符使用时，必须使用反引号包裹，否则将产生报错。将非保留关键字作为标识符使用时，可以直接使用，无需使用反引号包裹。
 
+* **MatrixOne 支不支持物化视图？**
+
+MatrixOne 目前不支持物化视图，在目前的 AP 性能支撑下，直接进行分析也可以获得较高的分析体验。物化视图功能也已经在 MatrixOne 的 Roadmap 中，如果您对物化视图有刚性较高的需求，欢迎给我们提 Issue 来描述您的场景：<https://github.com/matrixorigin/matrixone/issues>
+
 * **MatrixOne 中的函数和关键字是否区分大小写？**
 
-不区分大小写。
-
-在 MatrixOne 中，只有一种情况需要区分大小写：如果你创建的表和属性带有 \`\`，\`\` 中的名称需要注意大小写。查询这个表名或属性名，那么表名和属性名也需要被包含在\`\`里。
+不区分大小写。在 MatrixOne 中，只有一种情况需要区分大小写：如果你创建的表和属性带有 \`\`，\`\` 中的名称需要注意大小写。查询这个表名或属性名，那么表名和属性名也需要被包含在\`\`里。
 
 * **如何将数据导入到 MatrixOne 中？**
 
@@ -52,6 +58,47 @@ MatrixOne 支持与 MySQL 相同的 [`INSERT`](../Develop/import-data/insert-dat
 * **如何将数据从 MatrixOne 导出到文件？**
 
 在 MatrixOne 中，你可以使用 [`mo-dump`](../Develop/export-data/modump.md) 这个二进制工具把数据导出成 SQL 或者 csv 文件，或者使用 [`SELECT INTO`](../Develop/export-data/select-into-outfile.md) 导出 `csv` 文件。
+
+* **如何通过 mo-dump 工具只导出表结构？**
+
+可以在导出命令后加-no-data 参数，指定不导出数据。
+
+* **使用 load data 导入的 json 对象中缺少某些字段，导入会报错吗？**
+
+会报错，导入 json 中，字段多于表中字段，可以正常导入，不过多出字段会被忽略，如果少于的话，则无法导入。
+
+* **在执行 source 导入的时候导入文件是否可以写相对路径？**
+
+可以，但是是相对于您使用 mysql 客户端的当前路径，防止出错，还是建议写全路径，另需注意文件权限问题。
+
+* **使用 load data 命令导入一个大文件时比较耗时，能否优化呢？**
+
+您可以在导入时候指定 PARALLEL 为 true 开启并行导入，例如，对于 2 个 G 的大文件，使用两个线程去进行加载，第 2 个线程先拆分定位到 1G 的位置，然后一直往后读取并进行加载。这样就可以做到两个线程同时读取大文件，每个线程读取 1G 的数据。也可以自己切分数据文件。
+
+* **load data 导入有事务吗？**
+
+所有的 load 语句都是有事务的。
+
+* **source 导入 sql 时涉及触发器和存储过程会执行生效吗？**
+
+目前如果 sql 中存在不兼容的数据类型、触发器、函数或存储过程，仍需要手动修改，否则执行会报错。
+
+* **mo-dump 支持批量导出多个数据库吗？**
+
+目前仅支持导出单个数据库的备份，如果你有多个数据库需要备份，需要手动运行 mo-dump 多次。
+
+* **MatrixOne 支持从 Minio 导入数据吗？**
+
+是支持的，load data 命令支持从本地文件、S3 对象存储服务以及 S3 兼容的对象存储服务中导入数据到 matrixone 中，
+而 Minio 也是基于 S3 协议的，所以也是支持的，详情参见[本地对象存储导入数据](https://docs.matrixorigin.cn/1.1.0/MatrixOne/Deploy/import-data-from-minio-to-mo/)
+
+* **MatrixOne 导入导出数据时，如果出现编码问题，导致数据乱码，我们一般是怎么解决的**
+
+由于 matrixone 默认只支持 UTF8 这一种编码且无法更改，所以在导入数据时如果出现了乱码，我们就不能通过修改数据库和表的字符集来解决，可以试着转换数据编码为 UTF8。常见的转换工具有 iconv 和 recode，比如：将 GBK 编码的数据转换为 UTF-8 编码：iconv -f GBK -t UTF8 t1.sql > t1_utf8.sql。
+
+* **MatrixOne 导入导出时，需要哪些权限？**
+
+如果是租户管理员的话，通过默认角色可以直接进行导入、导出操作。普通用户的话，导入时，需要导入表的 'insert' 权限；select...into outfile 方式导出时，需要导出表的 'select' 权限；mo-dump 导出时，需要所有表 (table*.*) 的 'select' 权限和所有库 (database*.*) 的 'show tables' 权限。
 
 * **MatrixOne 是否支持事务？支持的事务隔离级别是什么？**
 
