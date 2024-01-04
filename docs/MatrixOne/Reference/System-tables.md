@@ -217,7 +217,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | client_host       | VARCHAR(65535)   | 客户端的 IP 地址和端口号。                                    |
 | role              | VARCHAR(65535)   | 用户的角色名称。                                             |
 
-### `mo_configurations` 表
+### `mo_configurations` 视图
 
 | 列名          | 数据类型          | 描述                                  |
 | ------------- | --------------- | ------------------------------------ |
@@ -480,9 +480,9 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `DESCRIPTION`：字符集的描述。
 - `MAXLEN`：在此字符集中存储字符所需的最大长度。
 
-### `COLUMNS` 表
+### `COLUMNS` 视图
 
-`COLUMNS` 表中的列描述如下：
+`COLUMNS` 视图中的列描述如下：
 
 - `TABLE_CATALOG`：含有该列的表所属的目录的名称。该值始终为 `def`。
 - `TABLE_SCHEMA`：含有列的表所在的模式的名称。
@@ -522,9 +522,9 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `XA`：存储引擎是否支持 XA 事务。
 - `SAVEPOINTS`：存储引擎是否支持 `savepoints`。
 
-### `PARTITIONS` 表
+### `PARTITIONS` 视图
 
-`PARTITIONS` 表中的列描述如下：
+`PARTITIONS` 视图中的列描述如下：
 
 - `TABLE_CATALOG`：含有该列的表所属的目录的名称。该值始终为 def。
 - `TABLE_SCHEMA`：含有列的表所在的模式的名称。
@@ -552,15 +552,15 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `NODEGROUP`：该分区所属的节点组。
 - `TABLESPACE_NAME`：该分区所属的表空间的名称。该值始终为 `DEFAULT`。
 
-### `PROCESSLIST` 表
+### `PROCESSLIST` 视图
 
-`PROCESSLIST` 表中的字段描述如下：
+`PROCESSLIST` 视图中的字段描述如下：
 
 - `NODE_ID`：CN 节点 UUID
 - `CONN_ID`：用户连接的 ID
 - `SESSION_ID`：会话的 ID
 - `ACCOUNT`：租户名
-- `User`：用户名
+- `USER`：用户名
 - `HOST`：CN 节点的监听地址
 - `DB`：当前连接的数据库
 - `SESSION_START`：session 创建时间
@@ -574,9 +574,9 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `QUERY_START`：查询开始时间
 - `CLIENT_HOST`：客户端地址
 
-### `SCHEMATA` 表
+### `SCHEMATA` 视图
 
-`SCHEMATA` 表提供有关数据库的信息，表数据等同于 `SHOW DATABASES` 语句的结果。`SCHEMATA` 表中的字段描述如下：
+`SCHEMATA` 视图提供有关数据库的信息，数据等同于 `SHOW DATABASES` 语句的结果。`SCHEMATA` 视图中的字段描述如下：
 
 - `CATALOG_NAME`：数据库所属的目录。
 - `SCHEMA_NAME`：数据库名称。
@@ -585,9 +585,9 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `SQL_PATH`：此项的值始终为 `NULL`。
 - `DEFAULT_TABLE_ENCRYPTION`：定义数据库和通用表空间的 *default encryption* 设置。
 
-### `TABLES` 表
+### `TABLES` 视图
 
-`TABLES` 表中列的描述如下：
+`TABLES` 视图中列的描述如下：
 
 - `TABLE_CATALOG`：表所属目录的名称。该值始终为 `def`。
 - `TABLE_SCHEMA`：表所属的模式的名称。
@@ -622,7 +622,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `PRIVILEGE_TYPE`：要授予的权限类型。每行只显示一种权限类型。
 - `IS_GRANTABLE`：如果你有 `GRANT OPTION` 权限，该值为 `YES`，没有 `GRANT OPTION` 权限，该值为 `NO`。
 
-### `VIEWS` 表
+### `VIEWS` 视图
 
 - `TABLE_CATALOG`：视图所属目录的名称。值为 `def`。
 - `TABLE_SCHEMA`：视图所属的数据库的名称。
@@ -638,7 +638,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `IS_VISIBLE`：索引对优化器是否可见。目前该字段在 mo 中没有意义  
 - `EXPRESSION`：表示索引中的表达式或函数。目前该字段在 mo 中没有意义
 
-### `STATISTICS` 表
+### `STATISTICS` 视图
 
 获取有关数据库表索引和统计信息的详细信息。例如，可以检查索引是否唯一，了解索引中的列顺序，以及估计索引中的唯一值数量。
 
