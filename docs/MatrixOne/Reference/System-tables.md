@@ -14,18 +14,21 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 
 | 列属性            | 类型             | 描述               |
 | -----------------| --------------- | ----------------- |
-| id               | BIGINT UNSIGNED(64) |    索引 ID            |
-| table_id         | BIGINT UNSIGNED(64) |    索引所在表的 ID            |
-| database_id      | BIGINT UNSIGNED(64) |    索引所在数据库的 ID            |
-| name             | VARCHAR(64)         |  索引的名字              |
-| type             | VARCHAR(11)         |  索引的类型，包括主键索引（PRIMARY），唯一索引（UNIQUE），次级索引（MULTIPLE）     |
+| id               | BIGINT UNSIGNED(64) | 索引 ID            |
+| table_id         | BIGINT UNSIGNED(64) | 索引所在表的 ID            |
+| database_id      | BIGINT UNSIGNED(64) | 索引所在数据库的 ID            |
+| name             | VARCHAR(64)         | 索引的名字              |
+| type             | VARCHAR(11)         | 索引的类型，包括主键索引（PRIMARY），唯一索引（UNIQUE），次级索引（MULTIPLE|
+| algo             | VARCHAR(11)         | 创建索引的算法         |
+| algo_table_type  | VARCHAR(11)         | 多表索引的隐藏表类型        |
+| algo_params      | VARCHAR(2048)       | 索引算法参数       |
 | is_visible       | TINYINT(8)          | 索引是否可见，1 为可见，0 不可见（目前 MatrixOne 的索引全部为可见索引）  |
 | hidden           | TINYINT(8)          | 索引是否为隐藏索引，1 为隐藏索引，0 为非隐藏索引|
-| comment          | VARCHAR(2048)       |  索引的注释信息     |
+| comment          | VARCHAR(2048)       | 索引的注释信息     |
 | column_name      | VARCHAR(256)        | 索引的组成列的列名  |
 | ordinal_position | INT UNSIGNED(32)    | 索引中的列序号，从 1 开始    |
 | options          | TEXT(0)             | 索引的 options 选项信息   |
-| index_table_name | VARCHAR(5000)       |  该索引对应的索引表的表名，目前只有唯一索引含有索引表    |
+| index_table_name | VARCHAR(5000)       | 该索引对应的索引表的表名，目前只有唯一索引含有索引表    |
 
 ### `mo_table_partitions` 表
 
@@ -66,7 +69,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | account_name | varchar(100) | 租户名  |
 | status       | varchar(100) | 开启/暂停/限制 |
 | created_time | timestamp    | 创建时间  |
-| comment     | varchar(256)  | 注释      |
+| comments     | varchar(256)  | 注释      |
 | suspended_time | TIMESTAMP    | 修改租户状态的时间|
 | version | bigint unsigned    | 当前租户版本状态|
 
@@ -93,7 +96,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | creator      | int unsigned | 用户 ID                     |
 | owner        | int unsigned | MatrixOne 管理员/租户管理员拥有者 ID |
 | created_time | timestamp    | 创建时间                   |
-| comment     | text         | 注释                      |
+| comments     | text         | 注释                      |
 
 ### `mo_user_grant` 表
 
@@ -152,14 +155,17 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | collation_connection | VARCHAR(64)   | 连接排序：utf8mb4_0900_ai_ci   |
 | database_collation   | VARCHAR(64)   | 数据库连接排序：utf8mb4_0900_ai_ci  |
 
-### `mo_mysql_compatbility_mode` 表
+### `mo_mysql_compatibility_mode` 表
 
 | 列属性            | 类型             | 描述               |
 | -----------------| --------------- | ----------------- |
 | configuration_id | INT(32)       | 配置项 id，自增列，作为主键区分不同的配置 |
+| account_id       | INT(32)       | 配置所在的租户 id                  |
 | account_name     | VARCHAR(300)  | 配置所在的租户名称  |
 | dat_name         | VARCHAR(5000) | 配置所在的数据库名称  |
-| configuration    | JSON(0)       | 配置内容，以 JSON 形式保存   |
+| variable_name    | VARCHAR(300)  | 变量的名字               |
+| variable_value   | VARCHAR(5000) | 变量的值               |
+| system_variables | BOOL(0)       |  是否为系统变量 (除了系统变量，还添加的有兼容性变量） |
 
 ### `mo_pubs` 表
 
@@ -169,7 +175,6 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | database_name | VARCHAR(5000)       |  发布数据的名称 |
 | database_id   | BIGINT UNSIGNED(64) | 发布数据库的 ID，与 mo_database 表中的 dat_id 对应  |
 | all_table     | BOOL(0)             | 发布库是否包含 database_id 对应数据库内的所有表 |
-| all_account   | BOOL(0)             | 是否所有 account 都可以订阅该发布库 |
 | table_list    | TEXT(0)             | 在非 all table 时，发布库内包含的表清单，表名与 database_id 对应数据库下的表一一对应|
 | account_list  | TEXT(0)             |在非 all account 时，允许订阅该发布库的 account 清单|
 | created_time  | TIMESTAMP(0)        |创建发布库的时间   |
@@ -227,13 +232,14 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 
 | 列名          | 数据类型        | 描述                                             |
 | ------------- | --------------- | ------------------------------------------------ |
+| cn_id         | VARCHAR(65535) |   cn 的 uuid                              |
 | txn_id        | VARCHAR(65535) | 持有锁的事务。                                  |
 | table_id      | VARCHAR(65535) | 加锁的表。                                      |
-| lock_type     | VARCHAR(65535) | 锁类型。可以是 `point` 或 `range`。              |
+| lock_key      | VARCHAR(65535) | 锁类型。可以是 `point` 或 `range`。              |
 | lock_content  | VARCHAR(65535) | 锁定的内容，以 16 进制表示。对于 `range` 锁，表示一个区间；对于 `point` 锁，表示单个值。 |
 | lock_mode     | VARCHAR(65535) | 锁模式。可以是 `shared` 或 `exclusive`。         |
 | lock_status   | VARCHAR(65535) | 锁状态，可能为 `wait`、`acquired` 或 `none`。<br>wait。没有事务持有锁，但有事务等在锁上。<br>acquired。有事务持有锁。<br>none。没有事务持有锁，也没有事务等在锁上。     |
-| waiting_txns  | VARCHAR(65535) | 在此锁上等待的事务。                             |
+| lock_wait   | VARCHAR(65535) | 在此锁上等待的事务。                             |
 
 ### `mo_variables` 视图
 
@@ -292,6 +298,8 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | attr_has_update       | tinyint(1)      | 此列含有更新表达式                           |
 | attr_update           | varchar(1024)   | 更新表达式                                            |
 | attr_is_clusterby     | tinyint(1)      | 此列是否作为 cluster by 关键字来建表   |
+| attr_seqnum           | SMALLINT UNSIGNED(0) |  每个列的序列号          |
+| attr_enum             | varchar(65535)       | 若这个列的类型为 ENUM，则表示该列代表的 ENUM 类型的值，否则为空    |
 
 ### `mo_tables` 表
 
@@ -303,7 +311,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | reldatabase_id | bigint unsigned | 包含此关系的数据库 ID，参考 mo_database.datid |
 | relpersistence | varchar(100)    | p = 永久表<br> t = 临时表                     |
 | relkind        | varchar(100)    | r = 普通表<br> e = 外部表<br> i = 索引<br> S = 序列<br> v = 视图<br> m = 物化视图 |
-| rel_comment    | varchar(100)    |                                                              |
+| rel_comment    | varchar(100)    | 表注释                                                            |
 | rel_createsql  | varchar(100)    | 创建表 SQL 语句                                 |
 | created_time   | timestamp       | 创建时间                                                |
 | creator        | int unsigned    | 创建者 ID                                                   |
@@ -349,11 +357,10 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 以下表为 `metric` 表的视图：
 
 * `sql_statement_total` 表：执行 SQL 语句的计数器。
-* `sql_statement_hotspot` 表：记录了每分钟内各个租户执行的消耗时间最长的 SQL 查询。需要注意的是，只有那些执行时间未超过某个特定聚合阈值的 SQL 查询才会被纳入统计。
 * `sql_statement_errors` 表：执行错误的 SQL 语句的计数器。
 * `sql_transaction_total` 表：事务性 SQL 语句的计数器。
 * `sql_transaction_errors` 表：错误执行的事务性语句的计数器。
-* `server_connection` 表：服务器连接数。
+* `server_connections` 表：服务器连接数。
 * `server_storage_usage`：服务器存储使用情况。
 * `process_cpu_percent` 表：CPU 进程繁忙百分比。
 * `process_resident_memory_bytes` 表：驻留内存量，单位为字节。
@@ -375,7 +382,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 
 `statement_info` 表记录用户和系统的 SQL 语句和详细信息。
 
-| 列属性               | 类型         | 描述                                                     |
+| 列属性                 | 类型         | 描述                                                     |
 | --------------------- | ------------- | ------------------------------------------------------------ |
 | statement_id          | VARCHAR(36)   | 声明语句唯一 ID                                          |
 | transaction_id        | VARCHAR(36)   | 事务唯一 ID                                        |
@@ -401,9 +408,10 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | stats                 | JSON          | exec_plan 中的全局统计信息                                              |
 | statement_type        | VARCHAR(1024) | 语句类型，[Insert, Delete, Update, Drop Table, Drop User, ...] |
 | query_type            | VARCHAR(1024) | 查询类型，[DQL, DDL, DML, DCL, TCL]                                |
-| role_id               | BIGINT        | 角色 ID                                                                     |
-| sql_source_type       | TEXT          | SQL 语句源类型                                                   |
+| role_id               | BIGINT        | 角色 ID        |
+| sql_source_type       | TEXT          | SQL 语句源类型:internal_sql,external_sql,cloud_nonuser_sql |
 | result_count          | BIGINT(64)    | 统计 sql 执行结果的行数    |  
+| aggr_count            | BIGINT(64)    | 聚合条数  |
 
 ### `rawlog` 表
 
@@ -415,7 +423,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | node_uuid      | VARCHAR(36)   | 节点 uuid，即生成数据的某个节点                         |
 | node_type      | VARCHAR(64)   | 在 MatrixOne 内，var 所属的 TN/CN/Log 的节点类型                         |
 | span_id        | VARCHAR(16)   | span 的唯一 ID                                             |
-| statement_id   | VARCHAR(36)   | 声明语句唯一 ID                                         |
+| trace_id       | VARCHAR(36)   |  trace 唯一 uuid     |
 | logger_name    | VARCHAR(1024) | 日志记录器的名称                                                  |
 | timestamp      | DATETIME      | 时间戳的动作                                      |
 | level          | VARCHAR(1024) | 日志级别，例如：debug, info, warn, error, panic, fatal      |
@@ -424,13 +432,16 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | extra          | JSON          | 日志动态字段                                          |
 | err_code       | VARCHAR(1024) | 错误日志                                                   |
 | error          | TEXT          | 错误信息                                                |
-| stack          | VARCHAR(4096) |                                                              |
+| stack          | VARCHAR(4096) | log_info 和 error_info 的堆栈信息  |
 | span_name      | VARCHAR(1024) | span 名称，例如：step name of execution plan, function name in code, ... |
 | parent_span_id | VARCHAR(16)   | 父级 span 唯一的 ID                                        |
-| start_time     | DATETIME      |                                                              |
-| end_time       | DATETIME      |                                                              |
+| start_time     | DATETIME      |   span 开始的时间                                                           |
+| end_time       | DATETIME      |   span 结束的时间                                                           |
 | duration       | BIGINT        | 执行时间，单位：ns                                          |
 | resource       | JSON          | 静态资源信息                                  |
+| span_kind      | VARCHAR(1024)       | span 类型。internal: MO 内部的生成的 trace (默认值); statement: trace_id==statement_id; remote: 通过 morpc 通信|
+| statement_id   | VARCHAR(36)         |  声明语句的 ID            |
+| session_id     | VARCHAR(36)         |  会话的 ID           |
 
 其他 3 个表（`log_info`、`span_info` 和 `error_info`）是 `statement_info` 和 `rawlog` 表的视图。
 
@@ -490,10 +501,10 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `COLLATION_NAME`：字符串列的排序规则的名称。
 - `COLUMN_TYPE`：列类型。
 - `COLUMN_KEY`：该列是否被索引。该字段可能具有以下值：
-   - `Empty`：此列未编入索引，或者此列已编入索引并且是多列非唯一索引中的第二列。
-   - `PRI`：此列是主键或多个主键之一。
-   - `UNI`：此列是唯一索引的第一列。
-   - `MUL`：该列是非唯一索引的第一列，其中允许给定值多次出现。
+    - `Empty`：此列未编入索引，或者此列已编入索引并且是多列非唯一索引中的第二列。
+    - `PRI`：此列是主键或多个主键之一。
+    - `UNI`：此列是唯一索引的第一列。
+    - `MUL`：该列是非唯一索引的第一列，其中允许给定值多次出现。
 - `EXTRA`：给定列的任何附加信息。
 - `PRIVILEGES`：当前用户所拥有的对该列的权限。
 - `COLUMN_COMMENT`：列定义中包含的描述。
@@ -504,7 +515,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 
 `ENGINES` 表中的列描述如下：
 
-- `ENGINES`：存储引擎的名称。
+- `ENGINE`：存储引擎的名称。
 - `SUPPORT`：服务器对存储引擎的支持级别。
 - `COMMENT`：对存储引擎的简短评论。
 - `TRANSACTIONS`：存储引擎是否支持事务。
@@ -530,6 +541,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `TABLE_ROWS`：分区中的表行数。
 - `AVG_ROW_LENGTH`：存储在此分区或子分区中的行的平均长度，以字节为单位。这与 `DATA_LENGTH` 除以 `TABLE_ROWS` 得到的结果相同。
 - `DATA_LENGTH`：此分区或子分区中存储的所有行的总长度，以字节为单位；即存储在分区或子分区中的字节总数。
+- `MAX_DATA_LENGTH`: 分区中数据的最大长度
 - `INDEX_LENGTH`：此分区或子分区的索引文件长度，以字节为单位。
 - `DATA_FREE`：分配给分区或子分区但未使用的字节数。
 - `CREATE_TIME`：分区或子分区创建的时间。
@@ -544,14 +556,23 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 
 `PROCESSLIST` 表中的字段描述如下：
 
-- `ID`：用户连接的 ID。
-- `USER`：正在执行 `PROCESS` 的用户名。
-- `HOST`：用户连接的地址。
-- `DB`：当前连接的默认数据库的名称。
-- `COMMAND`：`PROCESS` 正在执行的命令类型。
-- `TIME`：`PROCESS` 的当前执行时长，以秒为单位。
-- `STATE`：当前连接状态。
-- `INFO`：正在处理的请求语句。
+- `NODE_ID`：CN 节点 UUID
+- `CONN_ID`：用户连接的 ID
+- `SESSION_ID`：会话的 ID
+- `ACCOUNT`：租户名
+- `User`：用户名
+- `HOST`：CN 节点的监听地址
+- `DB`：当前连接的数据库
+- `SESSION_START`：session 创建时间
+- `COMMAND`：语句的 MySQL 协议 Command
+- `INFO`：正在处理的 SQL 语句
+- `TXN_ID`：事务 ID
+- `STATEMENT_ID`：语句 ID
+- `STATEMENT_TYPE`：语句类型，Select/Update/Delete 等
+- `QUERY_TYPR`：查询类型，DQL/DDL/DML 等
+- `SQL_SOURCE_TYPE`：SQL 语句源类型，外部或者内部 SQL：external_sql/internal_sql
+- `QUERY_START`：查询开始时间
+- `CLIENT_HOST`：客户端地址
 
 ### `SCHEMATA` 表
 
@@ -601,7 +622,7 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `PRIVILEGE_TYPE`：要授予的权限类型。每行只显示一种权限类型。
 - `IS_GRANTABLE`：如果你有 `GRANT OPTION` 权限，该值为 `YES`，没有 `GRANT OPTION` 权限，该值为 `NO`。
 
-### `VIEW` 表
+### `VIEWS` 表
 
 - `TABLE_CATALOG`：视图所属目录的名称。值为 `def`。
 - `TABLE_SCHEMA`：视图所属的数据库的名称。
@@ -613,6 +634,9 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `SECURITY_TYPE`：视图 `SQL SECURITY` 特性。值为 `DEFINER` 或 `INVOKER`。
 - `CHARACTER_SET_CLIENT`：创建视图时 `character_set_client` 系统变量的会话值。
 - `COLLATION_CONNECTION`：创建视图时，`collation_connection` 系统变量的会话值。
+- `INDEX_COMMENT`：创建索引时为具有 comment 属性的索引提供的任何注释。
+- `IS_VISIBLE`：索引对优化器是否可见。目前该字段在 mo 中没有意义  
+- `EXPRESSION`：表示索引中的表达式或函数。目前该字段在 mo 中没有意义
 
 ### `STATISTICS` 表
 
@@ -633,6 +657,9 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 - `NULLABLE`：指示列是否允许 NULL 值。
 - `INDEX_TYPE`：索引的类型（如 BTREE、HASH 等）。
 - `COMMENT`：索引的注释信息。
+- `INDEX_COMMENT`：创建索引时为具有 comment 属性的索引提供的任何注释。
+- `IS_VISIBLE`：索引对优化器是否可见。目前该字段在 mo 中没有意义  
+- `EXPRESSION`：表示索引中的表达式或函数。目前该字段在 mo 中没有意义
 
 ## `mysql` 数据库
 
