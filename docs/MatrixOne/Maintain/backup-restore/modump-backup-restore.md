@@ -4,17 +4,17 @@
 
 另外，数据备份也作为升级 MatrixOne 安装之前的保障，同时数据备份也可以用于将 MatrixOne 安装转移到另一个系统。
 
-MatrixOne 支持通过 `modump` 实用程序进行逻辑备份。`modump` 是一个命令行实用程序，用于生成 MatrixOne 数据库的逻辑备份。它生成可用于重新创建数据库对象和数据的 SQL 语句。你可以在 [modump](../../Develop/export-data/modump.md) 章节中查找它的语法说明和使用指南。
+MatrixOne 支持通过 `mo-dump` 实用程序进行逻辑备份。`modump` 是一个命令行实用程序，用于生成 MatrixOne 数据库的逻辑备份。它生成可用于重新创建数据库对象和数据的 SQL 语句。你可以在 [mo-dump](../../Develop/export-data/modump.md) 章节中查找它的语法说明和使用指南。
 
-我们将通过一个简单的示例来讲述如何使用 `modump` 实用程序完成数据备份和还原的过程。
+我们将通过一个简单的示例来讲述如何使用 `mo-dump` 实用程序完成数据备份和还原的过程。
 
 ## 步骤
 
-### 1. [构建 modump 二进制文件](../../Develop/export-data/modump.md)
+### 1. [构建 mo-dump 二进制文件](../../Develop/export-data/modump.md)
 
-参见[构建 modump 二进制文件](../../Develop/export-data/modump.md)章节，完成 `modump` 二进制文件构建。
+参见[构建 mo-dump 二进制文件](../../Develop/export-data/modump.md)章节，完成 `mo-dump` 二进制文件构建。
 
-如果你已经完成了 `modump` 的构建，那么你可以继续阅读下一章节。
+如果你已经完成了 `mo-dump` 的构建，那么你可以继续阅读下一章节。
 
 ### 2. 生成单个数据库的备份
 
@@ -53,17 +53,17 @@ insert into t1 values (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '2019-01-01', '2019-01-01 0
 如果要生成单个数据库的备份，可以运行以下命令。该命令将生成命名为 *t* 的数据库的备份，其中包含 *t.sql* 文件中的结构和数据。
 
 ```
-./modump -u root -p 111 -h 127.0.0.1 -P 6001 -db t > t.sql
+./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db t > t.sql
 ```
 
 如果要在数据库中生成单个表的备份，可以运行以下命令。该命令将生成命名为 *t* 的数据库的 *t1* 表的备份，其中包含 *t.sql* 文件中的结构和数据。
 
 ```
-./modump -u root -p 111 -db t -tbl t1 > t1.sql
+./mo-dump -u root -p 111 -db t -tbl t1 > t1.sql
 ```
 
 !!! note
-    如果你有多个数据库，你需要多次运行 `modump` 来一条一条生成 SQL。
+    如果你有多个数据库，你需要多次运行 `mo-dump` 来一条一条生成 SQL。
 
 ### 3. 恢复备份到 MatrixOne 服务器
 
