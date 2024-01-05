@@ -22,13 +22,14 @@ MatrixOne 支持 Java、Python、Golang 语言和 ORM 连接，其他语言也�
 
 **请问低版本能否升级到最新的版本？**
 
-MatrixOne 当前低版本无法直接升级至最新版本，建议备份数据，进行重装后导入。
+MatrixOne 0.8.0 及以上版本皆可使用 `mo_ctl upgrade latest` 从低版本直接升级至最新版本，您可参考 [mo_ctl 工具](../Maintain/mo_ctl.md)。0.8.0 之前的版本如有升级需要，建议备份数据，进行重装后导入。
 
 **现在 MatrixOne 发稳定版了吗？推荐使用哪个版本？**
 
 MatrixOne 现已发布 1.1.0 版本，在稳定性上我们做了大量的优化工作，已经可以用于生产业务，欢迎大家试用反馈。
 
 **有没有 MatrixOne 云版本？想快速测试看看**
+
 有的。现 mo cloud 已经开始公测。详情查看 [MatrixOne Cloud 文档](https://docs.matrixorigin.cn/zh/matrixonecloud/MatrixOne-Cloud/Get-Started/quickstart/)
 
 ## 架构相关
@@ -40,12 +41,6 @@ MatrixOne 的权限管理是结合了基于角色的访问控制 (RBAC，Role-ba
 **高可用架构要怎么用？**
 
 MatrixOne 的单机版目前还没有高可用架构，主从版的高可用架构还在设计中。分布式版本来就是高可用的，k8s 和 s3 本来就都是高可用架构。MatrixOne 的节点里 cn 和 tn 都是无状态的，挂了可以随时拉起，log service 有状态，它的 3 节点是提供一个 raft group 的分布式架构，挂 1 个没关系，继续运行，挂 2 个系统才会不可用。
-
-## 功能相关
-
-**MatrxOne 支持哪些应用？**
-
-  MatrixOne 为用户提供了极致的 HTAP 服务，MatrixOne 可以被应用在企业数据中台，大数据分析等场景中。
 
 **k8s 集群节点当前 tn 节点是否支持扩容？**
 
@@ -59,6 +54,16 @@ MatrixOne 核心的组件有 4 个，proxy，cn，tn，log service。cn 就是�
 
 MatrixOne 的资源隔离核心是 ACCOUNT 可以对应到 CN Set 的资源组上，或者可以认为租户的隔离就是 CN 的容器隔离。除了多租户可以分配不同资源组以外，单个租户内部也可以根据业务类型进一步分配 CN 资源组，进行更细粒度的控制。关于资源隔离的完整描述，您可参见[负载与租户隔离](../Deploy/mgmt-cn-group-using-proxy.md)
 
+**MySQL 中的表引擎能直接迁移吗？兼容 InnoDB 等引擎吗？**
+
+MatrixOne 不支持 MySQL 的 InnoDB，MyISAM 等引擎，但可以直接使用 MySQL 的语句，MatrixOne 会忽略这些引擎，在 MatrixOne 中仅有 TAE 一种存储引擎，它是完全独立研发的，可以友好的适用于各类场景，无需使用 ENGINE=XXX 来更换引擎。
+
+## 功能相关
+
+**MatrxOne 支持哪些应用？**
+
+  MatrixOne 为用户提供了极致的 HTAP 服务，MatrixOne 可以被应用在企业数据中台，大数据分析等场景中。
+
 **MatrixOne 兼容哪个数据库？**
 
 MatrixOne 在使用上保持对 MySQL 8.0 的高度兼容，包括 SQL 语法，传输协议，操作符与函数等等。与 MySQL 8.0 兼容性的差异列表可以详细参考 [MySQL 兼容性列表](../Overview/feature/mysql-compatibility.md)。
@@ -66,10 +71,6 @@ MatrixOne 在使用上保持对 MySQL 8.0 的高度兼容，包括 SQL 语法，
 **对 MySQL 的兼容性怎么样，BI 里直接当 MySQL 用吗？**
 
 MatrixOne 与 MySQL 8.0 具有高度的兼容性，无论在通信协议，SQL 语法，连接工具，还是开发模式上，都与 MySQL 基本一致。管理和生态工具很多也都可以复用 MySQL 的工具。BI 里可以直接当 MySQL 用，详情请参考[通过 FineBI 实现 MatrixOne 的可视化报表](../Develop/Ecological-Tools/BI-Connection/FineBI-connection.md)，[通过永洪 BI 实现 MatrixOne 的可视化报表](../Develop/Ecological-Tools/BI-Connection/yonghong-connection.md)，[通过 Superset 实现 MatrixOne 可视化监控](../Develop/Ecological-Tools/BI-Connection/Superset-connection.md)。
-
-**MySQL 中的表引擎能直接迁移吗？兼容 InnoDB 等引擎吗？**
-
-MatrixOne 不支持 MySQL 的 InnoDB，MyISAM 等引擎，但可以直接使用 MySQL 的语句，MatrixOne 会忽略这些引擎，在 MatrixOne 中仅有 TAE 一种存储引擎，它是完全独立研发的，可以友好的适用于各类场景，无需使用 ENGINE=XXX 来更换引擎。
 
 ## 数据库对比相关
 

@@ -338,7 +338,7 @@ Usage           : mo_ctl uninstall        # uninstall mo from path MO_PATH=/data
 
 ### upgrade - 升级/降级 MatrixOne 版本
 
-使用 `mo_ctl upgrade version` 或者 `mo_ctl upgrade commitid` 来将 MatrixOne 从当前版本升级或降级到某个稳定版本或者某个 commit id 版本。
+MatrixOne 0.8 及更高版本可使用 `mo_ctl upgrade version` 或者 `mo_ctl upgrade commitid` 来将 MatrixOne 从当前版本升级或降级到某个稳定版本或者某个 commit id 版本。
 
 ```
 mo_ctl upgrade help
