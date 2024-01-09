@@ -48,8 +48,6 @@ MatrixOne 支持以下两种方式导出数据：
 
 ## 构建 mo-dump 二进制文件
 
-`mo-dump` 命令程序嵌入在 MatrixOne 源代码中，你首先需要从 MatrixOne 源代码构建二进制文件。
-
 __Tips:__ 由于 `mo-dump` 是基于 Go 语言进行开发，所以你同时需要安装部署 <a href="https://go.dev/doc/install" target="_blank">Go</a> 语言。
 
 1. 执行下面的代码即可从 MatrixOrigin/mo_dump 源代码构建 `mo-dump` 二进制文件：
