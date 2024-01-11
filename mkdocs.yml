@@ -551,6 +551,7 @@ nav:
             - RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/rank.md
             - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
           - JSON 函数: MatrixOne/Reference/Functions-and-Operators/Json/json-functions.md
+          - 自定义函数: MatrixOne/Reference/Functions-and-Operators/Udf.md
           - 其他函数:
             - SAMPLE: MatrixOne/Reference/Functions-and-Operators/Other/sample.md
             - SLEEP: MatrixOne/Reference/Functions-and-Operators/Other/sleep.md
