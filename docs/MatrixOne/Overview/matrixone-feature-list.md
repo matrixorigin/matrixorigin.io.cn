@@ -61,7 +61,7 @@
 | 存储过程 STORED PROCEDURE     | N                                  |
 | 触发器 TRIGGER                | N                                  |
 | 时间调度器 EVENT SCHEDULER     | N                                  |
-| 自定义函数 UDF                 | E                                  |
+| 自定义函数 UDF                 | Y                                  |
 | 物化视图 Materialized VIEW | N                                  |
 
 ## 流计算
