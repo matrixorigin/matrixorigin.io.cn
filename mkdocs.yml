@@ -146,6 +146,8 @@ nav:
           - 如何使用 MatrixOne 事务:
             - 使用指南: MatrixOne/Develop/Transactions/matrixone-transaction-overview/how-to-use.md
             - 应用场景: MatrixOne/Develop/Transactions/matrixone-transaction-overview/scenario.md
+      - UDF:
+        - python UDF: MatrixOne/Develop/udf/udf-python-demo.md
       - 应用开发示例:
         - Java 基础示例: MatrixOne/Tutorial/develop-java-crud-demo.md
         - SpringBoot 和 JPA 基础示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
