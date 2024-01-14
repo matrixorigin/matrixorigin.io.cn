@@ -8,7 +8,7 @@
 
 在你开始之前，确认你已经下载并安装了如下软件：
 
-- 确认你已完成安装 [Python 3.8(or plus)](https://www.python.org/downloads/),使用下面的代码检查 Python 版本确认安装成功：
+- 确认你已完成安装 [Python 3.8(or plus)](https://www.python.org/downloads/), 使用下面的代码检查 Python 版本确认安装成功：
 
     ```bash
 
@@ -17,8 +17,7 @@
 
     ```
 
-
-    !!! note 
+    !!! note
         若操作系统中同时拥有 Pyhon2 和 Python3，使用 UDF 前需要全局配置为 Python3，例如可以通过重命名`/usr/bin/python`，然后在该处创建同名的 python3 软链来实现全局配置，相关命令示例：
 
         ```bash
@@ -35,7 +34,7 @@
 
 - 确认你已完成安装 MySQL 客户端。
 
-### 启动MatrixOne
+### 启动 MatrixOne
 
 1. 按照[快速开始](../../Get-Started/install-standalone-matrixone.md)章节的步骤使用 mo_ctl 完成 MatrixOne 的部署。部署完成后执行如下命令修改 mo_ctl 的配置：
 
@@ -57,9 +56,9 @@
 
     连接成功后将进入 mysql client 命令行工具。
 
-## 嵌入式构建UDF
+## 嵌入式构建 UDF
 
-MatrixOne 支持在 SQL中通过 AS 关键字直接使用 Python 代码编写函数体来创建 UDF，以这种形式创建的 UDF 被称为**嵌入式 UDF**。
+MatrixOne 支持在 SQL 中通过 AS 关键字直接使用 Python 代码编写函数体来创建 UDF，以这种形式创建的 UDF 被称为**嵌入式 UDF**。
 
 1. 创建一个测试库
 
@@ -85,12 +84,12 @@ MatrixOne 支持在 SQL中通过 AS 关键字直接使用 Python 代码编写函
     handler 'add';
     ```
 
-    !!! note 
+    !!! note
         当前版本 matrixone 不会在创建 UDF 时检查 python 语法，用户需要自行保证 python 语法的正确性，否则在执行后续执行函数时会报错。
 
 3. 调用 UDF 函数
 
-    函数创建完成后，可使用**函数名+匹配类型的参数列表**来调用 UDF 函数，例如：
+    函数创建完成后，可使用**函数名 + 匹配类型的参数列表**来调用 UDF 函数，例如：
 
     ```mysql
     select py_add(12345,23456);
@@ -102,15 +101,15 @@ MatrixOne 支持在 SQL中通过 AS 关键字直接使用 Python 代码编写函
     1 row in set (0.02 sec)
     ```
 
-## 删除UDF
+## 删除 UDF
 
-可通过 `drop function` 命令对已创建的 UDF 函数进行删除。MatrixOne 通过**`函数名(参数列表)`**来完整标识一个 UDF 函数，因此删除 UDF 函数时需要显式指定**函数名**与**参数列表**，例如：
+可通过 `drop function` 命令对已创建的 UDF 函数进行删除。MatrixOne 通过 **`函数名(参数列表)`** 来完整标识一个 UDF 函数，因此删除 UDF 函数时需要显式指定**函数名**与**参数列表**，例如：
 
 ```mysql
 drop function py_add(int, int);
 ```
 
-## 查看UDF
+## 查看 UDF
 
 已创建 UDF 函数的信息会保存在 MatrixOne 的元数据中，可通过查询系统表 `mo_catalog.mo_user_defined_function` 来获取 MatrixOne 中已有的 UDF 详细信息，例如：
 
@@ -140,9 +139,6 @@ collation_connection: utf8mb4_0900_ai_ci
 
 有关 MatrixOne 中 UDF 的进阶用法，参见 [UDF 进阶用法](udf-python-advanced.md)。
 
-有关 MatrixOne 对 UDF 创建的具体参数，参见 [创建 UDF](../../Reference/SQL-Reference/Data-Definition-Language/create-function-python.md)。
+有关 MatrixOne 对 UDF 创建的具体参数，参见[创建 UDF](../../Reference/SQL-Reference/Data-Definition-Language/create-function-python.md)。
 
-有关 MatrixOne 对 UDF 删除的具体参数，参见 [删除 UDF](../../Reference/SQL-Reference/Data-Definition-Language/drop-function.md)。
-
-
-
+有关 MatrixOne 对 UDF 删除的具体参数，参见[删除 UDF](../../Reference/SQL-Reference/Data-Definition-Language/drop-function.md)。
