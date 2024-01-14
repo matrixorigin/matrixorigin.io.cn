@@ -1,6 +1,6 @@
 # UDF-Python
 
-您可以使用 Python 编写用户自定义函数 (UDF) 的处理程序。本篇文档将指导你如何创建一个简单 Python UDF，包括使用环境要求、UDF 创建、查看、使用和删除，以及 Python UDF 的进阶用法。
+您可以使用 Python 编写用户自定义函数 (UDF) 的处理程序。本篇文档将指导你如何创建一个简单 Python UDF，包括使用环境要求、UDF 创建、查看、使用和删除。
 
 ## 开始前准备
 
@@ -102,13 +102,47 @@ MatrixOne 支持在 SQL中通过 AS 关键字直接使用 Python 代码编写函
     1 row in set (0.02 sec)
     ```
 
+## 删除UDF
 
-## 导入phython文件以构建UDF
+可通过 `drop function` 命令对已创建的 UDF 函数进行删除。MatrixOne 通过**`函数名(参数列表)`**来完整标识一个 UDF 函数，因此删除 UDF 函数时需要显式指定**函数名**与**参数列表**，例如：
 
+```mysql
+drop function py_add(int, int);
+```
 
-## 导入whl包以构建UDF
+## 查看UDF
 
+已创建 UDF 函数的信息会保存在 MatrixOne 的元数据中，可通过查询系统表 `mo_catalog.mo_user_defined_function` 来获取 MatrixOne 中已有的 UDF 详细信息，例如：
 
+```mysql
+mysql> select * from mo_catalog.mo_user_defined_function\G
+*************************** 1. row ***************************
+         function_id: 9000016
+                name: py_add
+               owner: 0
+                args: [{"name": "a", "type": "int"}, {"name": "b", "type": "int"}]
+             rettype: int
+                body: {"handler":"add","import":false,"body":"\ndef add(a, b):\n  return a + b\n"}
+            language: python
+                  db: udf_test
+             definer: root
+       modified_time: 2023-12-26 13:59:39
+        created_time: 2023-12-26 13:59:39
+                type: FUNCTION
+       security_type: DEFINER
+             comment: 
+character_set_client: utf8mb4
+collation_connection: utf8mb4_0900_ai_ci
+  database_collation: utf8mb4_0900_ai_ci
+```
+
+## 参考文档
+
+有关 MatrixOne 中 UDF 的进阶用法，参见 [UDF 进阶用法](udf-python-advanced.md)。
+
+有关 MatrixOne 对 UDF 创建的具体参数，参见 [创建 UDF](../../Reference/SQL-Reference/Data-Definition-Language/create-function-python.md)。
+
+有关 MatrixOne 对 UDF 删除的具体参数，参见 [删除 UDF](../../Reference/SQL-Reference/Data-Definition-Language/drop-function.md)。
 
 
 
