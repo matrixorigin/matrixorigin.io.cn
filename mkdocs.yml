@@ -147,7 +147,7 @@ nav:
           - 如何使用 MatrixOne 事务:
             - 使用指南: MatrixOne/Develop/Transactions/matrixone-transaction-overview/how-to-use.md
             - 应用场景: MatrixOne/Develop/Transactions/matrixone-transaction-overview/scenario.md
-      - UDF:
+      - 用户定义函数:
         - UDF python: MatrixOne/Develop/udf/udf-python.md
         - UDF python 进阶: MatrixOne/Develop/udf/udf-python-advanced.md
       - 应用开发示例:
