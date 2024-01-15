@@ -58,6 +58,7 @@ nav:
         - 高可用: MatrixOne/Overview/feature/high-availability.md
         - 时序: MatrixOne/Overview/feature/time-series.md
         - 流: MatrixOne/Overview/feature/stream.md
+        - 用户定义函数: MatrixOne/Overview/feature/udf.md
         - MySQL 兼容性: MatrixOne/Overview/feature/mysql-compatibility.md
       - MatrixOne 技术架构:
         - 整体架构概述: MatrixOne/Overview/architecture/matrixone-architecture-design.md
@@ -146,6 +147,9 @@ nav:
           - 如何使用 MatrixOne 事务:
             - 使用指南: MatrixOne/Develop/Transactions/matrixone-transaction-overview/how-to-use.md
             - 应用场景: MatrixOne/Develop/Transactions/matrixone-transaction-overview/scenario.md
+      - 用户定义函数:
+        - UDF python: MatrixOne/Develop/udf/udf-python.md
+        - UDF python 进阶: MatrixOne/Develop/udf/udf-python-advanced.md
       - 应用开发示例:
         - Java 基础示例: MatrixOne/Tutorial/develop-java-crud-demo.md
         - SpringBoot 和 JPA 基础示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
