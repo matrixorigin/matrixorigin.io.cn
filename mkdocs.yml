@@ -58,6 +58,7 @@ nav:
         - 高可用: MatrixOne/Overview/feature/high-availability.md
         - 时序: MatrixOne/Overview/feature/time-series.md
         - 流: MatrixOne/Overview/feature/stream.md
+        - 用户定义函数: MatrixOne/Overview/feature/udf.md
         - MySQL 兼容性: MatrixOne/Overview/feature/mysql-compatibility.md
       - MatrixOne 技术架构:
         - 整体架构概述: MatrixOne/Overview/architecture/matrixone-architecture-design.md
