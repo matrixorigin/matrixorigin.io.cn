@@ -35,6 +35,23 @@ HANDLER = '<function_name>'
 
 - `HANDLIER <function_name>:` 指定调用的 python 函数名称。
 
+## 类型映射
+
+为确保编写 Python UDF 过程中使用的数据类型与 MatrixOne 支持的数据类型保持一致，您需要关注二者间的数据类型映射关系，具体映射关系如下：
+
+| MatrixOne  类型                                           | Python 类型          |
+| -------------------------------------------------------- | --------------------------- |
+| bool                                                     | bool                        |
+| int8, int16, int32, int64, uint8, uint16, uint32, uint64 | int                         |
+| float32, float64                                         | float                       |
+| char, varchar, text, uuid                                | str                         |
+| json                                                     | str, int, float, list, dict |
+| time                                                     | datetime.timedelta          |
+| date                                                     | datetime.date               |
+| datetime, timestamp                                      | datetime.datetime           |
+| decimal64, decimal128                                    | decimal.Decimal             |
+| binary, varbinary, blob                                  | bytes                       |
+
 ## **示例**
 
 ```sql
