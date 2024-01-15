@@ -79,7 +79,7 @@ MatrixOne 支持在 SQL 中通过 AS 关键字直接使用 Python 代码编写�
     create or replace function py_add(a int, b int) returns int language python as 
     $$
     def add(a, b):
-    return a + b
+        return a + b
     $$
     handler 'add';
     ```

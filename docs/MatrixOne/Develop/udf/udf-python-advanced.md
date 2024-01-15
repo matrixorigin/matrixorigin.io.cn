@@ -66,7 +66,7 @@
 
     ```python
     def add(a, b):
-    return a + b
+        return a + b
     ```
 
 2. 创建 UDF 函数
@@ -74,7 +74,10 @@
     使用如下命令来创建函数，我们使用 import 关键字来导入指定路径下的 add_func.py 文件。
 
     ```mysql
-    create or replace function py_add_2(a int, b int) returns int language python import 
+    create or replace function py_add_2(a int, b int) 
+    returns int 
+    language python 
+    import 
     '/opt/add_func.py' -- python 文件在操作系统中的绝对路径
     handler 'add';
     ```
@@ -125,7 +128,7 @@ WHL file 是用于 python 分发的标准内置包格式，允许在不构建源
     # function
 
     def add(a, b):
-    return a + b
+        return a + b
     ```
 
     `setup.py` 文件用来定义库的元数据和配置信息等，代码例如：
@@ -160,7 +163,10 @@ WHL file 是用于 python 分发的标准内置包格式，允许在不构建源
     将 whl 包拷贝至规划中的函数存放目录，例如路径为：`/opt/udf/udf-1.0.0-py3-none-any.whl`，在创建语句中使用该 whl 包创建 UDF 函数，创建语句示例如下：
 
     ```mysql
-    create or replace function py_add_3(a int, b int) returns int language python import 
+    create or replace function py_add_3(a int, b int) 
+    returns int 
+    language python 
+    import 
     '/opt/udf/udf-1.0.0-py3-none-any.whl'   -- wheel 包所在目录
     handler 'add_udf.add';   -- 指定调用 whl 包中 add_udf 模块的 add 函数
     ```
@@ -215,7 +221,7 @@ WHL file 是用于 python 分发的标准内置包格式，允许在不构建源
     create or replace function py_add_4(a int, b int) returns int language python as 
     $$
     def add(a, b):  # a, b are list
-    return [a[i] + b[i] for i in range(len(a))]
+        return [a[i] + b[i] for i in range(len(a))]
     add.vector = True
     $$
     handler 'add';
@@ -237,9 +243,6 @@ WHL file 是用于 python 分发的标准内置包格式，允许在不构建源
     ```
 
     使用 vector 选项，我们就可以自由的选择函数的处理形式，例如一次一元组，或者一次多元组。
-
-    !!! note
-        不论是否添加 vector 参数，MatrixOne UDF 都可以处理列，vector 只用于改变开发者编写 python 函数的逻辑，该选项是基于性能上的设计而非功能上的。
 
 ## 参考文档
 
