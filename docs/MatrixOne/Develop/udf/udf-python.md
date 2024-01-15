@@ -18,7 +18,7 @@
     ```
 
     !!! note
-        若操作系统中同时拥有 Pyhon2 和 Python3，使用 UDF 前需要全局配置为 Python3，例如可以通过重命名`/usr/bin/python`，然后在该处创建同名的 python3 软链来实现全局配置，相关命令示例：
+        若操作系统中同时拥有 Pyhon2 和 Python3，使用 UDF 前需要全局配置为 Python3，例如可以通过重命名 `/usr/bin/python`，然后在该处创建同名的 python3 软链来实现全局配置，相关命令示例：
 
         ```bash
         mv /usr/bin/python /usr/bin/python.bak
