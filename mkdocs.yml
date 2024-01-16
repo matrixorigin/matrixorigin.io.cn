@@ -270,7 +270,9 @@ nav:
           - CREATE STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-stage.md
           - CREATE...FROM...PUBLICATION...: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-subscription.md
           - CREATE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-view.md
+          - CREATE FUNCTION...LANGUAGE SQL AS: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-function-sql.md
           - CREATE FUNCTION...LANGUAGE PYTHON AS: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-function-python.md
+          - CREATE FUNCTION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/sql-udf.md
           - CREATE OR REPLACE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-replace-view.md
           - CREATE SOURCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-source.md
           - CREATE DYNAMIC TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-dynamic-table.md

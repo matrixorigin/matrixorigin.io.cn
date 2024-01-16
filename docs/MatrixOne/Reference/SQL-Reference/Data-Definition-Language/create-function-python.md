@@ -54,6 +54,8 @@ HANDLER = '<function_name>'
 
 ## **示例**
 
+**示例 1**
+
 ```sql
 --用 python UDF 实现两数之和
 create or replace function py_add(a int, b int) returns int language python as 
@@ -70,5 +72,24 @@ mysql> select py_add(1,2);
 +--------------+
 |            3 |
 +--------------+
+1 row in set (0.01 sec)
+```
+
+**示例 2**
+
+```sql
+create or replace function py_helloworld() returns varchar(255) language python as 
+$$
+def helloworld():
+  return "helloworld!"
+$$
+handler 'helloworld';
+
+mysql> select py_helloworld();
++-----------------+
+| py_helloworld() |
++-----------------+
+| helloworld!     |
++-----------------+
 1 row in set (0.01 sec)
 ```
