@@ -375,7 +375,7 @@ source /your_download_path/ddl.sql
     ```
 
     输出：
-    
+
     ```mysql
     +---------+----------+
     | id      | is_fraud |
