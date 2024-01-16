@@ -185,7 +185,7 @@ WHL file 是用于 python 分发的标准内置包格式，允许在不构建源
     1 row in set (0.02 sec)
     ```
 
-## 函数 Vector 选项
+## 函数 Vector
 
 在部分场景下，我们会希望 python 函数一次性接收多个元组来提高运行效率。如在模型推理时，我们通常是以一个 batch 为单位进行，这里的 batch 即为元组的 vector，MatrixOne 提供函数的 vector 选项来处理这种情况。我们仍以 py_add 函数为例，来展示 vector 选项的用法。
 
@@ -243,6 +243,159 @@ WHL file 是用于 python 分发的标准内置包格式，允许在不构建源
     ```
 
     使用 vector 选项，我们就可以自由的选择函数的处理形式，例如一次一元组，或者一次多元组。
+
+## 机器学习案例：信用卡欺诈检测
+
+本节以“信用卡欺诈检测”为例，讲述了 python UDF 在机器学习推理流水线中的应用。（相关代码详见 [github-demo](https://github.com/matrixorigin/matrixone/tree/main/pkg/udf/pythonservice/demo)，包含以下即将下载和编写的文件）
+
+### 环境配置
+
+在本节中，我们需要确保本地 python 环境已安装了 numpy 和 scikit-learn 以及 joblib。
+
+```bash
+pip install numpy
+pip install scikit-learn
+pip install joblib
+```
+
+### 背景及数据
+
+信用卡公司需要识别欺诈交易，以防止客户的信用卡被他人恶意使用。（详见 [kaggle Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)）
+
+数据集包含了 2013 年 9 月欧洲持卡人使用信用卡进行的交易记录。数据格式如下：
+
+| 列名 | 类型 | 含义 |
+| :--- | :--- | :--- |
+| Time | int | 此交易与数据集中的第一个交易之间经过的秒数 |
+| V1～V28 | double | 使用 PCA 提取的特征（以保护用户身份和敏感特征） |
+| Amount | double | 交易金额 |
+| Class | int | 1: 欺诈交易，0: 非欺诈交易 |
+
+我们把数据按照 8: 1: 1 的比例划分为训练集、验证集和测试集。由于训练过程不是本文的重点，不在此处进行过多的介绍。
+
+我们把测试集当作生产过程中新出现的数据存储到 MO 中，可以[点击此处](https://github.com/matrixorigin/matrixone/blob/main/pkg/udf/pythonservice/demo/ddl.sql)获得 `ddl.sql` 文件，使用以下语句导入数据表以及部分测试数据：
+
+```mysql
+source /your_download_path/ddl.sql
+```
+
+### 准备 python-whl 包
+
+1. 编写 `detection.py`:
+
+    ```python
+    # coding = utf-8
+    # -*- coding:utf-8 -*-
+    import decimal
+    import os
+    from typing import List
+
+    import joblib
+    import numpy as np
+
+    model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model_with_scaler')
+
+
+    def detect(featuresList: List[List[int]], amountList: List[decimal.Decimal]) -> List[bool]:
+        model_with_scaler = joblib.load(model_path)
+
+        columns_features = np.array(featuresList)
+        column_amount = np.array(amountList, dtype='float').reshape(-1, 1)
+        column_amount = model_with_scaler['amount_scaler'].transform(column_amount)
+        data = np.concatenate((columns_features, column_amount), axis=1)
+        predictions = model_with_scaler['model'].predict(data)
+        return [pred == 1 for pred in predictions.tolist()]
+
+
+    detect.vector = True
+    ```
+
+2. 编写 `__init__.py`:
+
+    ```python
+    # coding = utf-8
+    # -*- coding:utf-8 -*-
+    from .detection import detect
+
+    ```
+
+3. [点击下载](https://github.com/matrixorigin/matrixone/blob/main/pkg/udf/pythonservice/demo/credit/model_with_scaler)已经训练好的模型 `model_with_scaler`
+
+4. 编写 `setup.py`:
+
+    ```python
+    # coding = utf-8
+    # -*- coding:utf-8 -*-
+    from setuptools import setup, find_packages
+
+    setup(
+        name="detect",
+        version="1.0.0",
+        packages=find_packages(),
+        package_data={
+            'credit': ['model_with_scaler']
+        },
+    )
+
+    ```
+
+5. 将上述文件组织成下方的结构：
+
+    ```bash
+    |-- demo/
+        |-- credit/
+            |-- __init__.py
+            |-- detection.py		# 推理函数
+            |-- model_with_scaler	# 模型
+        |-- setup.py
+    ```
+
+6. 进入目录 `demo`，使用以下命令构建 wheel 包 detect-1.0.0-py3-none-any.whl：
+
+    ```bash
+    python setup.py bdist_wheel 
+    ```
+
+### 使用 udf 进行欺诈检测
+
+1. 创建 udf 函数：
+
+    ```mysql
+    create or replace function py_detect(features json, amount decimal) 
+    returns bool 
+    language python 
+    import 'your_code_path/detect-1.0.0-py3-none-any.whl' -- 替换为 wheel 包所在目录
+    handler 'credit.detect'; -- credit module 下的 detect 函数
+    ```
+
+2. 调用 udf 函数进行欺诈检测：
+
+    ```mysql
+    select id, py_detect(features, amount) as is_fraud from credit_card_transaction limit 10;
+    ```
+
+    输出：
+    
+    ```mysql
+    +---------+----------+
+    | id      | is_fraud |
+    +---------+----------+
+    |       1 | false    |
+    |       2 | false    |
+    |       3 | true     |
+    |       4 | false    |
+    |       5 | false    |
+    |       6 | false    |
+    |       7 | false    |
+    |       8 | true     |
+    |       9 | false    |
+    |      10 | false    |
+    +---------+----------+
+    ```
+
+至此，我们已经在 MO 中完成了信用卡欺诈检测任务的推理。
+
+通过该案例可以看出，我们可以方便地使用 python UDF 来处理 SQL 解决不了的任务。Python UDF 既扩展了 SQL 的语义，又避免了我们手动编写数据移动和转换的程序，极大地提高了开发效率。
 
 ## 参考文档
 
