@@ -19,6 +19,7 @@
 | [STDDEV_POP()](./Aggregate-Functions/stddev_pop.md)    | 用于计算总体标准差|
 | [SUM()](./Aggregate-Functions/sum.md)                  | 用于计算一组值的和|
 | [VARIANCE()](./Aggregate-Functions/variance.md)        | 用于计算总体方差|
+| [VAR_POP()](./Aggregate-Functions/var_pop.md)          | 用于计算总体方差|
   
 ## 日期时间类函数
 
