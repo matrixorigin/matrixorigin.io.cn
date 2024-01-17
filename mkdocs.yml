@@ -269,6 +269,7 @@ nav:
           - CREATE INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index.md
           - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table.md
           - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-external-table.md
+          - CREATE CLUSTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-cluster-table.md
           - CREATE PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-publication.md
           - CREATE SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-sequence.md
           - CREATE STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-stage.md
