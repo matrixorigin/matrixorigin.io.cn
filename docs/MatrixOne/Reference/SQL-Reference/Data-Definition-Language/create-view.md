@@ -13,7 +13,7 @@
 ## **语法结构**
 
 ```
-> CREATE VIEW view_name AS
+> CREATE [ OR REPLACE ] VIEW view_name AS
   SELECT column1, column2, ...
   FROM table_name
   WHERE condition;
@@ -31,7 +31,7 @@ CREATE TABLE t00(a INTEGER);
 INSERT INTO t00 VALUES (1),(2);
 CREATE TABLE t01(a INTEGER);
 INSERT INTO t01 VALUES (1);
-CREATE VIEW v0 AS SELECT t00.a, t01.a AS b FROM t00 LEFT JOIN t01 USING(a);
+CREATE OR REPLACE VIEW v0 AS SELECT t00.a, t01.a AS b FROM t00 LEFT JOIN t01 USING(a);
 
 mysql> SELECT t00.a, t01.a AS b FROM t00 LEFT JOIN t01 USING(a);
 +------+------+
@@ -51,11 +51,11 @@ mysql> SELECT * FROM v0 WHERE b >= 0;
 1 row in set (0.01 sec)
 
 mysql> SHOW CREATE VIEW v0;
-+------+----------------------------------------------------------------------------+
-| View | Create View                                                                |
-+------+----------------------------------------------------------------------------+
-| v0   | CREATE VIEW v0 AS SELECT t00.a, t01.a AS b FROM t00 LEFT JOIN t01 USING(a) |
-+------+----------------------------------------------------------------------------+
++------+---------------------------------------------------------------------------------------+
+| View | Create View                                                                           |
++------+---------------------------------------------------------------------------------------+
+| v0   | CREATE OR REPLACE VIEW v0 AS SELECT t00.a, t01.a AS b FROM t00 LEFT JOIN t01 USING(a) |
++------+---------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
 ```
 
