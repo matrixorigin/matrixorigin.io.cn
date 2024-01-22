@@ -455,6 +455,7 @@ nav:
             - STDDEV_POP: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/stddev_pop.md
             - SUM: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/sum.md
             - VARIANCE: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/variance.md
+            - VAR_POP: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/var_pop.md
           - 日期时间类:
             - CURDATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/curdate.md
             - CURRENT_TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/current-timestamp.md
