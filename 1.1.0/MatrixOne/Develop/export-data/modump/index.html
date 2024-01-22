@@ -1743,6 +1743,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     限制
   </a>
   
@@ -4582,6 +4589,20 @@
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Definition-Language/create-external-table/" class="md-nav__link">
         CREATE EXTERNAL TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Definition-Language/create-cluster-table/" class="md-nav__link">
+        CREATE CLUSTER TABLE
       </a>
     </li>
   
@@ -7705,6 +7726,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Functions-and-Operators/Aggregate-Functions/var_pop/" class="md-nav__link">
+        VAR_POP
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -10486,6 +10521,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     限制
   </a>
   
@@ -10527,7 +10569,8 @@
 <h3 id="_1">语法结构</h3>
 <div class="highlight"><pre><span></span><code>./mo-dump<span class="w"> </span>-u<span class="w"> </span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">password</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-h<span class="w"> </span><span class="si">${</span><span class="nv">host</span><span class="si">}</span><span class="w"> </span>-P<span class="w"> </span><span class="si">${</span><span class="nv">port</span><span class="si">}</span><span class="w"> </span>-db<span class="w"> </span><span class="si">${</span><span class="nv">database</span><span class="si">}</span><span class="se">\</span>
-<span class="w">    </span><span class="o">[</span>--local-infile<span class="o">=</span>true<span class="o">]</span><span class="w"> </span><span class="o">[</span>-csv<span class="o">]</span><span class="w"> </span><span class="o">[</span>-tbl<span class="w"> </span><span class="si">${</span><span class="nv">table</span><span class="si">}</span>...<span class="o">]</span><span class="se">\</span>
+<span class="w">    </span><span class="o">[</span>--local-infile<span class="o">=</span>true<span class="o">]</span><span class="w"> </span><span class="o">[</span>-csv<span class="o">]</span><span class="se">\</span>
+<span class="w">    </span><span class="o">[</span>-no-data<span class="o">]</span><span class="w"> </span><span class="o">[</span>-tbl<span class="w"> </span><span class="si">${</span><span class="nv">table</span><span class="si">}</span>...<span class="o">]</span><span class="se">\</span>
 <span class="w">    </span>-net-buffer-length<span class="w"> </span><span class="si">${</span><span class="nv">net</span><span class="p">-buffer-length</span><span class="si">}</span><span class="w"> </span>&gt;<span class="w"> </span><span class="o">{</span>importStatement.sql<span class="o">}</span>
 </code></pre></div>
 <p><strong>参数释义</strong></p>
@@ -10545,7 +10588,7 @@
 <p><strong>-P [port]</strong>：MatrixOne 服务器的端口。默认值：<code>6001</code>。</p>
 </li>
 <li>
-<p><strong>-db [databaseName]</strong>：必需参数。要备份的数据库的名称。</p>
+<p><strong>-db [databaseName]</strong>：必需参数。要备份的数据库的名称。可以指定多个数据库，数据库名称之间用 <code>,</code> 分隔。</p>
 </li>
 <li>
 <p><strong>-net-buffer-length [数据包大小]</strong>：数据包大小，即 SQL 语句字符的总大小。数据包是 SQL 导出数据的基本单位，如果不设置参数，则默认 1048576 Byte（1M），最大可设置 16777216 Byte（16M）。假如这里的参数设置为 16777216 Byte（16M），那么，当要导出大于 16M 的数据时，会把数据拆分成多个 16M 的数据包，除最后一个数据包之外，其它数据包大小都为 16M。</p>
@@ -10561,7 +10604,10 @@
 </ul>
 </li>
 <li>
-<p><strong>-tbl [tableName]</strong>：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中指定多个 <code>-tbl</code> 和 <code>tableName</code>。</p>
+<p><strong>-tbl [tableName]</strong>：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中添加参数 <code>-tbl</code> 和 <code>tableName</code>。如果指定多个表，表名之间用 <code>,</code> 分隔。</p>
+</li>
+<li>
+<p>-no-data：默认值为 false。当设置为 true 时表示不导出数据，仅导出表结构。</p>
 </li>
 <li>
 <p><strong>&gt; {importStatement.sql}</strong>：将输出的 SQL 语句存储到文件 <em>importStatement.sql</em> 中，否则在屏幕上输出。</p>
@@ -10590,23 +10636,26 @@ make build
 <p>在你本地计算机上打开终端窗口，输入以下命令，连接到 MatrixOne，并且导出数据库：</p>
 <div class="highlight"><pre><span></span><code>./mo-dump -u username -p password -h host_ip_address -P port -db database &gt; importStatement.sql
 </code></pre></div>
-<p>例如，如果你在与 MatrixOne 实例相同的服务器中启动终端，并且你想要生成单个数据库以及其中所有表的备份，请运行以下命令。该命令将在 <em>importMydb.sql</em> 文件中生成 <strong>mydb</strong> 数据库以及表的结构和数据的备份。<em>importMydb.sql</em> 文件会保存在当前目录下：</p>
-<div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db mydb &gt; importMydb.sql
+<h2 id="_2">示例</h2>
+<p><strong>示例 1</strong></p>
+<p>如果你在与 MatrixOne 实例相同的服务器中启动终端，并且你想要生成单个或多个数据库以及其中所有表的备份，请运行以下命令。该命令将在 <em>importMydb.sql</em> 文件中生成 <strong>mydb1</strong> 和 <strong>mydb2</strong> 数据库以及表的结构和数据的备份。<em>importMydb.sql</em> 文件会保存在当前目录下：</p>
+<div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db mydb1,mydb2 &gt; importMydb.sql
 </code></pre></div>
+<p><strong>示例 2</strong></p>
 <p>如果你想将数据库 <em>mydb</em> 内的表的数据导出为 <em>CSV</em> 格式，数据库 <em>mydb</em> 中的所有表的数据将会以 <code>${databaseName}_${tableName}.csv</code> 的格式导出在当前目录下，生成数据库和表结构以及导入的 SQL 语句将会保存在 <em>importMydbWithCsv.sql</em> 文件中：</p>
 <div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db mydb -csv &gt; importMydbWithCsv.sql
 </code></pre></div>
-<p>如果要在数据库中指定生成某一个表或者某几个表的备份，可以运行以下命令。该命令将生成数据库 <em>mall</em> 中 <em>products</em> 表和 <em>orders</em> 表的结构和数据备份，保存在 <em>importMall.sql</em> 文件中。</p>
-<div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db mall -tbl products -tbl orders &gt; importTbles.sql
+<p><strong>示例 3</strong></p>
+<p>如果要在数据库中指定生成某一个表或者某几个表的备份，可以运行以下命令。该命令将生成数据库 <em>db1</em> 中 <em>t1</em> 表和 <em>t2</em> 表的结构和数据备份，保存在 <em>tab2.sql</em> 文件中。</p>
+<div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -db db1 -tbl t1,t2 &gt; tab2.sql 
 </code></pre></div>
-<h2 id="_2">限制</h2>
+<p><strong>示例 4</strong></p>
+<p>如果要在数据库中某一个表或者某几个表的结构备份，可以运行以下命令。该命令将生成数据库 <em>db1</em> 中 <em>t1</em> 表和 <em>t2</em> 表的结构，保存在 <em>tab_nodata.sql</em> 文件中。</p>
+<div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -db db1  -no-data -tbl t1,t2 &gt; tab_nodata.sql
+</code></pre></div>
+<h2 id="_3">限制</h2>
 <ul>
-<li>
-<p><code>mo-dump</code> 仅支持导出单个数据库的备份，如果你有多个数据库需要备份，需要手动运行 <code>mo-dump</code> 多次。</p>
-</li>
-<li>
-<p><code>mo-dump</code> 暂不支持只导出数据库的结构或数据。如果你想在没有数据库结构的情况下生成数据的备份，或者仅想导出数据库结构，那么，你需要手动拆分 <code>.sql</code> 文件。</p>
-</li>
+<li><code>mo-dump</code> 暂不支持只导出数据。如果你想在没有数据库和表结构的情况下生成数据的备份，那么，你需要手动拆分 <code>.sql</code> 文件。</li>
 </ul>
 
 

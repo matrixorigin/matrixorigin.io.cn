@@ -4521,6 +4521,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../create-cluster-table/" class="md-nav__link">
+        CREATE CLUSTER TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../create-publication/" class="md-nav__link">
         CREATE PUBLICATION
       </a>
@@ -7687,6 +7701,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Functions-and-Operators/Aggregate-Functions/var_pop/" class="md-nav__link">
+        VAR_POP
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -10483,7 +10511,7 @@
 <p>您可以向视图添加 SQL 函数，<code>WHERE</code> 或者 <code>JOIN</code> 语句，也同样可以呈现数据，类似于这些数据来自于某个单一的表一样。</p>
 <p><code>CREATE VIEW</code> 语句用于创建一个视图。</p>
 <h2 id="_2"><strong>语法结构</strong></h2>
-<div class="highlight"><pre><span></span><code>&gt; CREATE VIEW view_name AS
+<div class="highlight"><pre><span></span><code>&gt; CREATE [ OR REPLACE ] VIEW view_name AS
   SELECT column1, column2, ...
   FROM table_name
   WHERE condition;
@@ -10500,7 +10528,7 @@
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t00</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">);</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t01</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">);</span>
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t01</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">v0</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">t00</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">t01</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t00</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">t01</span><span class="w"> </span><span class="k">USING</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">v0</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">t00</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">t01</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t00</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">t01</span><span class="w"> </span><span class="k">USING</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">t00</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">t01</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t00</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">t01</span><span class="w"> </span><span class="k">USING</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
 <span class="o">+</span><span class="c1">------+------+</span>
@@ -10520,11 +10548,11 @@
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">v0</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">------+----------------------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">View</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Create</span><span class="w"> </span><span class="k">View</span><span class="w">                                                                </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------+----------------------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">v0</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">v0</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">t00</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">t01</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t00</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">t01</span><span class="w"> </span><span class="k">USING</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------+----------------------------------------------------------------------------+</span>
+<span class="o">+</span><span class="c1">------+---------------------------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">View</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Create</span><span class="w"> </span><span class="k">View</span><span class="w">                                                                           </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+---------------------------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">v0</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">v0</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">t00</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">t01</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t00</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">t01</span><span class="w"> </span><span class="k">USING</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+---------------------------------------------------------------------------------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <ul>

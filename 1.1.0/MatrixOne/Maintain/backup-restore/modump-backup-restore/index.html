@@ -4587,6 +4587,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Definition-Language/create-cluster-table/" class="md-nav__link">
+        CREATE CLUSTER TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Definition-Language/create-publication/" class="md-nav__link">
         CREATE PUBLICATION
       </a>
@@ -7698,6 +7712,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Functions-and-Operators/Aggregate-Functions/var_pop/" class="md-nav__link">
+        VAR_POP
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -10547,7 +10575,7 @@ insert into t1 values (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, &#39;2019-01-01&#39;, &#39;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>如果你有多个数据库，你需要多次运行 <code>mo-dump</code> 来一条一条生成 SQL。</p>
+<p>如果你想生成多个数据库/表的备份，需要在数据库名/表名之间用 <code>,</code> 分隔。</p>
 </div>
 <h3 id="3-matrixone">3. 恢复备份到 MatrixOne 服务器</h3>
 <p>将导出的 <em>sql</em> 文件恢复至 MatrixOne 数据库相对简单。要恢复你的数据库，你必须先创建一个空数据库，并使用 <em>MySQL 客户端</em>进行恢复。</p>
