@@ -407,6 +407,8 @@ nav:
               - BINARY: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/binary.md
               - CAST: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/cast.md
               - CONVERT: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/convert.md
+              - DECODE: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/decode.md
+              - ENCODE: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/encode.md
             - 比较函数和运算符:
               - 比较函数和运算符概述: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview.md
               - '>': MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/greater-than.md
