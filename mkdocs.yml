@@ -530,6 +530,7 @@ nav:
             - REVERSE(): MatrixOne/Reference/Functions-and-Operators/String/reverse.md
             - RPAD(): MatrixOne/Reference/Functions-and-Operators/String/rpad.md
             - RTRIM(): MatrixOne/Reference/Functions-and-Operators/String/rtrim.md
+            - SHA2(): MatrixOne/Reference/Functions-and-Operators/String/sha2.md
             - SPACE(): MatrixOne/Reference/Functions-and-Operators/String/space.md
             - SPLIT_PART(): MatrixOne/Reference/Functions-and-Operators/String/split_part.md
             - STARTSWITH(): MatrixOne/Reference/Functions-and-Operators/String/startswith.md

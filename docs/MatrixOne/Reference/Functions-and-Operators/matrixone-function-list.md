@@ -104,6 +104,7 @@
 | [REVERSE()](./String/reverse.md)               | 将 str 字符串中的字符顺序翻转输出。|
 | [RPAD()](./String/rpad.md)                     | 用于在字符串右侧填充|
 | [RTRIM()](./String/rtrim.md)                   | 将输入字符串的后方空格去除|
+| [SHA2()](./String/sha2.md)                     | 返回输入字符串的 SHA2 哈希值。|
 | [SPACE()](./String/space.md)                   | 返回 N 个空格组成的字符串。|
 | [SPLIT_PART()](./String/split_part.md)         | 用于在给定的分隔符基础上将一个字符串分解成多个部分|
 | [STARTSWITH()](./String/startswith.md)         | 字符串如果以指定前缀开始返回 1，否则则返回 0。|
