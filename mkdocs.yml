@@ -298,6 +298,7 @@ nav:
           - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert.md
           - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-into-select.md
           - INSERT ON DUPLICATE KEY UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate.md
+          - INSERT ON DUPLICATE KEY IGNORE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate-ignore.md
           - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/delete.md
           - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/update.md
           - LOAD DATA INFILE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data.md
