@@ -25,6 +25,7 @@
 
 | 函数名称                                               | 作用                                     |
 | ----------------------------------------------------- | --------------------------------------- |
+| [CONVERT_TZ()](./Datetime/convert-tz.md)              |用于将给定的日期时间从一个时区转换为另一个时区。|
 | [CURDATE()](./Datetime/curdate.md)                    |返回当前日期的 YYYY-MM-DD 格式的值|
 | [CURRENT_TIMESTAMP()](./Datetime/current-timestamp.md)|将当前日期和时间以 YYYY-MM-DD hh:mm:ss 或 YYYYMMDDhhmmss 的格式返回|
 | [DATE()](./Datetime/date.md)                          |将 DATE 或者 DATETIME 格式的输入中的日期部分截取出来。|
