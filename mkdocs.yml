@@ -461,6 +461,7 @@ nav:
             - VARIANCE: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/variance.md
             - VAR_POP: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/var_pop.md
           - 日期时间类:
+            - CONVERT_TZ(): MatrixOne/Reference/Functions-and-Operators/Datetime/convert-tz.md
             - CURDATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/curdate.md
             - CURRENT_TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/current-timestamp.md
             - DATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/date.md

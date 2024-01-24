@@ -20,6 +20,10 @@ MatrixOne 目前主要使用 **Golang** 作为最主要的编程语言。
 
 MatrixOne 支持 Java、Python、Golang 语言和 ORM 连接，其他语言也可以将 MO 当作 MySQL 来进行连接。
 
+**MatrixOne 列存使用什么压缩算法？**
+
+MatrixOne 列存目前使用的是 LZ4 压缩算法，且不支持通过配置修改。
+
 **请问低版本能否升级到最新的版本？**
 
 MatrixOne 0.8.0 及以上版本皆可使用 `mo_ctl upgrade latest` 从低版本直接升级至最新版本，您可参考 [mo_ctl 工具](../Maintain/mo_ctl.md)。0.8.0 之前的版本如有升级需要，建议备份数据，进行重装后导入。
