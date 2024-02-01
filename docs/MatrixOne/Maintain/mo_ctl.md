@@ -46,7 +46,6 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/insta
 
 # 备用地址
 wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh && sudo bash +x install.sh
-
 ```
 
 对于在 macOS 环境中运行此命令的用户，如果您是非 root 用户，请以以下语句运行 `install.sh`:
