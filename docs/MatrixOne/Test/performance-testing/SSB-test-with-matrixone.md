@@ -10,6 +10,8 @@ SSB 星型模式基准测试是 OLAP 数据库性能测试的常用场景，通�
 
 ```
 git clone https://github.com/vadimtk/ssb-dbgen.git
+或者
+git clone https://githubfast.com/vadimtk/ssb-dbgen.git
 cd ssb-dbgen
 make
 ```

@@ -317,8 +317,15 @@ __Note:__ 本章节均是在 master0 节点操作。
     ```
     wget https://github.com/rancher/local-path-provisioner/archive/refs/tags/v0.0.23.zip
     unzip v0.0.23.zip
+    unzip v0.0.23.zip
     cd local-path-provisioner-0.0.23/deploy/chart/local-path-provisioner
     helm install --set nodePathMap[0].paths[0]="/opt/local-path-provisioner",nodePathMap[0].node=DEFAULT_PATH_FOR_NON_LISTED_NODES  --create-namespace --namespace local-path-storage local-path-storage ./
+    ```
+
+    如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
+
+    ```
+     wget https://githubfast.com/rancher/local-path-provisioner/archive/refs/tags/v0.0.23.zip
     ```
 
 2. 安装成功后，命令行显示如下所示：

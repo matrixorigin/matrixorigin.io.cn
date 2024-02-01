@@ -16,6 +16,8 @@ TPC Benchmark™H（TPC-H）是决策支持基准。它由一套面向业务的�
 
 ```
 git clone https://github.com/electrum/tpch-dbgen.git
+或者
+git clone https://githubfast.com/electrum/tpch-dbgen.git
 cd tpch-dbgen
 make
 ```

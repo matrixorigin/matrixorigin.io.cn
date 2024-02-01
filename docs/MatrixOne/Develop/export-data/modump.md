@@ -61,6 +61,12 @@ __Tips:__ 由于 `mo-dump` 是基于 Go 语言进行开发，所以你同时需�
     make build
     ```
 
+   如 github 原地址拉取过慢，您可尝试从以下镜像仓库拉取：
+
+    ```
+    git clone https://githubfast.com/matrixorigin/mo_dump.git
+    ```
+
 2. 你可以在 mo_dump 文件夹中找到 `mo-dump` 可执行文件：*mo-dump*。
 
 !!! note

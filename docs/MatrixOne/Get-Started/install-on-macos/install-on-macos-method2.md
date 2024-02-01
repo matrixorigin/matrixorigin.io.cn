@@ -108,7 +108,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
     如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
 
     ```
-    wget  https://download.fastgit.org/matrixorigin/matrixone/releases/download/v1.1.0/mo-v1.1.0-darwin-x86_64.zip
+    wget  https://githubfast.com/matrixorigin/matrixone/releases/download/v1.1.0/mo-v1.1.0-darwin-xxx.zip
     ```
 
 === "**下载方式二：`curl` 工具下载二进制包**"
@@ -132,7 +132,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
     如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
 
     ```
-    curl -OL  https://download.fastgit.org/matrixorigin/matrixone/releases/download/v1.1.0/mo-v1.1.0-darwin-x86_64.zip
+    curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v1.1.0/mo-v1.1.0-darwin-xxx.zip
     ```
 
 === "**下载方式三：页面下载**"

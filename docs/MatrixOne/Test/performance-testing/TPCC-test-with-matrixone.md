@@ -20,6 +20,8 @@ TPC-C 需要处理的交易事务有五种：NewOrder、Payment、OrderStatus、
 
 ```
 git clone https://github.com/matrixorigin/mo-tpcc.git
+或者
+git clone https://githubfast.com/matrixorigin/mo-tpcc.git
 ```
 
 ## 步骤

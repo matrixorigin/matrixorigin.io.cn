@@ -46,6 +46,7 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/insta
 
 # 备用地址
 wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh && sudo bash +x install.sh
+
 ```
 
 对于在 macOS 环境中运行此命令的用户，如果您是非 root 用户，请以以下语句运行 `install.sh`:
@@ -64,6 +65,10 @@ wget https://github.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.z
 # 备用地址
 wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh
 wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
+
+# 如 github 原地址下载过慢，您可尝试从以下镜像地址下载：
+wget https://githubfast.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh
+wget https://githubfast.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
 
 # 2. 从离线包安装
 bash +x ./install.sh mo_ctl.zip
