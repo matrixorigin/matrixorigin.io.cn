@@ -3,7 +3,7 @@
 MatrixOne 支持以下两种方式导出数据：
 
 - `SELECT INTO...OUTFILE`
-- `modump`
+- `mo-dump`
 
 本篇文档主要介绍如何使用 `SELECT INTO...OUTFILE` 导出数据。
 

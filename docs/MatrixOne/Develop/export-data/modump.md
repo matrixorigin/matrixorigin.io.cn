@@ -1,4 +1,4 @@
-# MODUMP 工具写出
+# mo-dump 工具写出
 
 MatrixOne 支持以下两种方式导出数据：
 
@@ -13,7 +13,7 @@ MatrixOne 支持以下两种方式导出数据：
 
 使用 `mo-dump` 工具，你必须能够访问运行 MatrixOne 实例的服务器。你还必须拥有导出的数据库的用户权限。
 
-### 语法结构
+## mo-dump 语法结构
 
 ```bash
 ./mo-dump -u ${user} -p ${password} \
@@ -39,38 +39,115 @@ MatrixOne 支持以下两种方式导出数据：
 
 - **-csv**：可选参数。当设置此参数时，表示导出的数据为 *CSV* 格式，并将所有的数据表的数据导出为当前目录下 `${databaseName}_${tableName}.csv`，如果参数为空，则默认以 DML 方式（INSERT 语句）导出数据。
 
-- **--local-infile**：默认值为 true，仅在 **-csv** 参数存在时产生影响，否则无作用。具体来说此参数仅影响 modump 输出的 *importStatement.sql* 脚本中 `LOAD DATA [LOCAL] INFILE` 语句是否含有 `LOCAL`。
+- **--local-infile**：默认值为 true，仅在 **-csv** 参数存在时产生影响，否则无作用。具体来说此参数仅影响 mo-dump 输出的 *importStatement.sql* 脚本中 `LOAD DATA [LOCAL] INFILE` 语句是否含有 `LOCAL`。
     - **--local-infile=true**：脚本中使用 `LOAD DATA LOCAL INFILE`，既适用于于本地数据导入本地 MatrixOne，也适用于本地数据导入远程 MatrixOne。
     - **--local-infile=false**：脚本中使用 `LOAD DATA INFILE`，仅适用于本地数据导入本地 MatrixOne，导入效率高于 `LOAD DATA LOCAL INFILE`，更多可参考 [LOAD DATA INFILE](../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md)。
 
 - **-tbl [tableName]**：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中添加参数 `-tbl` 和 `tableName`。如果指定多个表，表名之间用 `,` 分隔。
 
-- -no-data：默认值为 false。当设置为 true 时表示不导出数据，仅导出表结构。
+- **-no-data**：默认值为 false。当设置为 true 时表示不导出数据，仅导出表结构。
 
 - **> {importStatement.sql}**：将输出的 SQL 语句存储到文件 *importStatement.sql* 中，否则在屏幕上输出。
 
-## 构建 mo-dump 二进制文件
+## 安装 mo-dump 工具
 
-__Tips:__ 由于 `mo-dump` 是基于 Go 语言进行开发，所以你同时需要安装部署 <a href="https://go.dev/doc/install" target="_blank">Go</a> 语言。
+下载方式一和下载方式二需要先安装下载工具 wget 或 curl，如果你未安装，请先自行安装下载工具。
 
-1. 执行下面的代码即可从 MatrixOrigin/mo_dump 源代码构建 `mo-dump` 二进制文件：
+- macOS 下安装
+
+=== "**下载方式一：`wget` 工具下载二进制包**"
+
+     x86 架构系统安装包：
+
+     ```
+     wget https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-x86_64.zip
+     unzip mo-dump-1.0.0-darwin-x86_64.zip
+     ```
+
+     ARM 架构系统安装包：
+
+     ```
+     wget https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-arm64.zip
+     unzip mo-dump-1.0.0-darwin-arm64.zip
+     ```
+
+    如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
 
     ```
-    git clone https://github.com/matrixorigin/mo_dump.git
-    cd mo_dump
-    make build
+    wget  https://githubfast.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-xxx.zip
+    ```
+=== "**下载方式二：`curl` 工具下载二进制包**"
+
+     x86 架构系统安装包：
+
+     ```
+     curl -OL https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-x86_64.zip
+     unzip mo-dump-1.0.0-darwin-x86_64.zip
+     ```
+
+     ARM 架构系统安装包：
+
+     ```
+     curl -OL https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-arm64.zip
+     unzip mo-dump-1.0.0-darwin-arm64.zip
+     ```
+
+    如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
+
+    ```
+    curl -OL https://githubfast.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-xxx.zip
     ```
 
-2. 你可以在 mo_dump 文件夹中找到 `mo-dump` 可执行文件：*mo-dump*。
+- Linux 下安装
 
+=== "**下载方式一：`wget` 工具下载二进制包**"
+
+     x86 架构系统安装包：
+
+     ```
+     wget https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-x86_64.zip
+     unzip mo-dump-1.0.0-linux-x86_64.zip
+     ```
+
+     ARM 架构系统安装包：
+
+     ```
+     wget https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-arm64.zip
+     unzip mo-dump-1.0.0-linux-arm64.zip
+     ```
+
+    如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
+
+    ```
+    wget  https://githubfast.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-xxx.zip
+    ```
+=== "**下载方式二：`curl` 工具下载二进制包**"
+
+     x86 架构系统安装包：
+
+     ```
+     curl -OL https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-x86_64.zip
+     unzip mo-dump-1.0.0-linux-x86_64.zip
+     ```
+
+     ARM 架构系统安装包：
+
+     ```
+     curl -OL https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-arm64.zip
+     unzip mo-dump-1.0.0-linux-arm64.zip
+     ```
+
+    如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
+
+    ```
+    curl -OL https://githubfast.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-xxx.zip
+    ```
 !!! note
-    构建好的 `mo-dump` 文件也可以在相同的硬件平台上工作。但是需要注意在 x86 平台中构建的 `mo-dump` 二进制文件在 Darwin ARM 平台中则无法正常工作。你可以在同一套操作系统和硬件平台内构建并使用 `mo-dump` 二进制文件。`mo-dump` 目前只支持 Linux 和 macOS。
+    由于 linux 内核的限制，mo-dump 在低版本内核（低于 5.0）的 OS 上可能会出现无法正常运行的情况，此时需要升级您的内核版本。
 
 ## 如何使用 `mo-dump` 导出 MatrixOne 数据库
 
-`mo-dump` 在命令行中非常易用。参见以下步骤示例，导出 `.sql` 文件格式完整数据库：
-
-在你本地计算机上打开终端窗口，输入以下命令，连接到 MatrixOne，并且导出数据库：
+`mo-dump` 在命令行中非常易用。在你本地计算机上打开终端窗口，进入到解压后的 mo_dump 文件夹目录，找到 `mo-dump` 可执行文件：*mo-dump*，输入以下命令，连接到 MatrixOne，并且导出数据库：
 
 ```
 ./mo-dump -u username -p password -h host_ip_address -P port -db database > importStatement.sql

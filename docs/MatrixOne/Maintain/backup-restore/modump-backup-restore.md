@@ -10,11 +10,9 @@ MatrixOne 支持通过 `mo-dump` 实用程序进行逻辑备份。`modump` 是�
 
 ## 步骤
 
-### 1. [构建 mo-dump 二进制文件](../../Develop/export-data/modump.md)
+### 1. 部署 mo-dump
 
-参见[构建 mo-dump 二进制文件](../../Develop/export-data/modump.md)章节，完成 `mo-dump` 二进制文件构建。
-
-如果你已经完成了 `mo-dump` 的构建，那么你可以继续阅读下一章节。
+参见 [mo-dump 工具写出](../../Develop/export-data/modump.md)章节，完成 `mo-dump` 工具的部署。
 
 ### 2. 生成单个数据库的备份
 

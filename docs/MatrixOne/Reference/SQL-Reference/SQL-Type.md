@@ -102,7 +102,7 @@
 
 - [SELECT](Data-Query-Language/select.md)
 
-### 以及 modump 工具所对应的内部命令
+### 以及 mo-dump 工具所对应的内部命令
 
 - [Export Data](../../Develop/export-data/modump.md)
 

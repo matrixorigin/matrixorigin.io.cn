@@ -121,7 +121,7 @@ nav:
         - 预处理: MatrixOne/Develop/import-data/prepared.md
       - 数据写出:
         - SELECT INTO 写出: MatrixOne/Develop/export-data/select-into-outfile.md
-        - MODUMP 工具写出: MatrixOne/Develop/export-data/modump.md
+        - mo-dump 工具写出: MatrixOne/Develop/export-data/modump.md
       - 数据读取:
         - 单表读取: MatrixOne/Develop/read-data/query-data-single-table.md
         - 多表连接查询: MatrixOne/Develop/read-data/multitable-join-query.md
