@@ -50,7 +50,7 @@ MatrixOne 提供多种备份方式，可根据数据库需求、性能、资源�
 
 MatrixOne 数据库提供了多种备份工具，以满足不同场景和需求：
 
-1. **modump**: 用于导出数据库中的数据和模式。它生成可恢复的 SQL 脚本，用于逻辑备份。
+1. **mo-dump**: 用于导出数据库中的数据和模式。它生成可恢复的 SQL 脚本，用于逻辑备份。
 
 2. **mo-backup**: 用于物理备份和恢复。`mo-backup` 是 MatrixOne 企业级服务的物理备份与恢复工具，帮助你保护其 MatrixOne 数据库，并在需要时进行可靠的恢复操作。
 
@@ -65,11 +65,11 @@ MatrixOne 数据库提供了多种备份工具，以满足不同场景和需求�
 
 操作步骤及示例，参见 [`SELECT INTO...OUTFILE`](../../Develop/export-data/select-into-outfile.md)
 
-#### 使用 `modump` 备份
+#### 使用 `mo-dump` 备份
 
-MatrixOne 支持使用 `modump` 工具进行逻辑备份，生成可用于重新创建数据库对象和数据的 SQL 语句。
+MatrixOne 支持使用 `mo-dump` 工具进行逻辑备份，生成可用于重新创建数据库对象和数据的 SQL 语句。
 
-操作步骤及示例，参见 [`MODUMP`](../../Develop/export-data/modump.md)
+操作步骤及示例，参见 [`mo-dump 工具写出`](../../Develop/export-data/modump.md)
 
 #### 使用命令行批量导入恢复
 

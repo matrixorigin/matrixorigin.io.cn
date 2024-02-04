@@ -176,7 +176,7 @@ MatrixOne 的完整函数列表可以参见[该函数总表](../Reference/Functi
 | 文件导入 LOAD DATA INFILE  | Y                                  |
 | 流式导入 LOAD DATA INLINE     | Y                                  |
 | 从对象存储导入      | Y                                  |
-| modump 工具导出 SQL/CSV  | Y                                  |
+| mo-dump 工具导出 SQL/CSV  | Y                                  |
 | SELECT INTO 导出 CSV/JSON  | Y                                  |
 | mysqldump 原生工具  | N                                  |
 
@@ -194,7 +194,7 @@ MatrixOne 的完整函数列表可以参见[该函数总表](../Reference/Functi
 
 | 备份和恢复   | 支持（Y）/不支持（N）/实验特性 (E) |
 | ------------ | ---------------------------------- |
-| 逻辑备份恢复 | Y，仅支持 modump 工具                |
+| 逻辑备份恢复 | Y，仅支持 mo-dump 工具                |
 | 物理备份恢复 | Y，仅支持 mobackup 工具                |
 | CDC 同步     | N（MatrixOne 作为源端不支持）                                  |
 

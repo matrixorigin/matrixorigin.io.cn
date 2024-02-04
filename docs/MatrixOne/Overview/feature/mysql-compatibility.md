@@ -197,7 +197,7 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 ## 备份恢复
 
 * 支持基于 mobackup 工具的物理备份。
-* 不支持 mysqldump 备份工具，仅支持 modump 工具。
+* 不支持 mysqldump 备份工具，仅支持 mo-dump 工具。
 * 不支持 binlog 日志备份。
 * 不支持增量备份。
 
