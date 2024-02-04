@@ -1671,7 +1671,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Develop/export-data/modump/" class="md-nav__link">
-        MODUMP 工具写出
+        mo-dump 工具写出
       </a>
     </li>
   
@@ -3091,7 +3091,7 @@
         
           <li class="md-nav__item">
   <a href="#1-mo-dump" class="md-nav__link">
-    1. 构建 mo-dump 二进制文件
+    1. 部署 mo-dump
   </a>
   
 </li>
@@ -10551,7 +10551,7 @@
         
           <li class="md-nav__item">
   <a href="#1-mo-dump" class="md-nav__link">
-    1. 构建 mo-dump 二进制文件
+    1. 部署 mo-dump
   </a>
   
 </li>
@@ -10604,9 +10604,8 @@
 <p>MatrixOne 支持通过 <code>mo-dump</code> 实用程序进行逻辑备份。<code>modump</code> 是一个命令行实用程序，用于生成 MatrixOne 数据库的逻辑备份。它生成可用于重新创建数据库对象和数据的 SQL 语句。你可以在 <a href="../../../Develop/export-data/modump/">mo-dump</a> 章节中查找它的语法说明和使用指南。</p>
 <p>我们将通过一个简单的示例来讲述如何使用 <code>mo-dump</code> 实用程序完成数据备份和还原的过程。</p>
 <h2 id="_1">步骤</h2>
-<h3 id="1-mo-dump">1. <a href="../../../Develop/export-data/modump/">构建 mo-dump 二进制文件</a></h3>
-<p>参见<a href="../../../Develop/export-data/modump/">构建 mo-dump 二进制文件</a>章节，完成 <code>mo-dump</code> 二进制文件构建。</p>
-<p>如果你已经完成了 <code>mo-dump</code> 的构建，那么你可以继续阅读下一章节。</p>
+<h3 id="1-mo-dump">1. 部署 mo-dump</h3>
+<p>参见 <a href="../../../Develop/export-data/modump/">mo-dump 工具写出</a>章节，完成 <code>mo-dump</code> 工具的部署。</p>
 <h3 id="2">2. 生成单个数据库的备份</h3>
 <p>示例如下，使用以下 SQL 创建的数据库 <em>t</em> 及其表 <em>t1</em>：</p>
 <div class="highlight"><pre><span></span><code>DROP DATABASE IF EXISTS `t`;

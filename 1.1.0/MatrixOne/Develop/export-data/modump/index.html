@@ -19,7 +19,7 @@
     
     
       
-        <title>MODUMP 工具写出 - MatrixOne 中文文档</title>
+        <title>mo-dump 工具写出 - MatrixOne 中文文档</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#modump" class="md-skip">
+        <a href="#mo-dump" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MODUMP 工具写出
+              mo-dump 工具写出
             
           </span>
         </div>
@@ -1684,12 +1684,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          MODUMP 工具写出
+          mo-dump 工具写出
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        MODUMP 工具写出
+        mo-dump 工具写出
       </a>
       
         
@@ -1708,28 +1708,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mo-dump" class="md-nav__link">
+  <a href="#mo-dump_1" class="md-nav__link">
     什么是 mo-dump
   </a>
-  
-    <nav class="md-nav" aria-label="什么是 mo-dump">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    语法结构
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mo-dump_1" class="md-nav__link">
-    构建 mo-dump 二进制文件
+  <a href="#mo-dump_2" class="md-nav__link">
+    mo-dump 语法结构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mo-dump_3" class="md-nav__link">
+    安装 mo-dump 工具
   </a>
   
 </li>
@@ -1742,14 +1736,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     示例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     限制
   </a>
   
@@ -10556,28 +10550,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mo-dump" class="md-nav__link">
+  <a href="#mo-dump_1" class="md-nav__link">
     什么是 mo-dump
   </a>
-  
-    <nav class="md-nav" aria-label="什么是 mo-dump">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    语法结构
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mo-dump_1" class="md-nav__link">
-    构建 mo-dump 二进制文件
+  <a href="#mo-dump_2" class="md-nav__link">
+    mo-dump 语法结构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mo-dump_3" class="md-nav__link">
+    安装 mo-dump 工具
   </a>
   
 </li>
@@ -10590,14 +10578,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     示例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     限制
   </a>
   
@@ -10626,17 +10614,17 @@
   
 
 
-<h1 id="modump">MODUMP 工具写出</h1>
+<h1 id="mo-dump">mo-dump 工具写出</h1>
 <p>MatrixOne 支持以下两种方式导出数据：</p>
 <ul>
 <li><code>SELECT INTO...OUTFILE</code></li>
 <li><code>mo-dump</code></li>
 </ul>
 <p>本篇文档主要介绍如何使用 <code>mo-dump</code> 导出数据。</p>
-<h2 id="mo-dump">什么是 mo-dump</h2>
+<h2 id="mo-dump_1">什么是 mo-dump</h2>
 <p><code>mo-dump</code> 是 MatrixOne 的一个客户端实用工具，与 <code>mysqldump</code> 一样，它可以被用于通过导出 <code>.sql</code> 类型的文件来对 MatrixOne 数据库进行备份，该文件类型包含可执行以重新创建原始数据库的 SQL 语句。</p>
 <p>使用 <code>mo-dump</code> 工具，你必须能够访问运行 MatrixOne 实例的服务器。你还必须拥有导出的数据库的用户权限。</p>
-<h3 id="_1">语法结构</h3>
+<h2 id="mo-dump_2">mo-dump 语法结构</h2>
 <div class="highlight"><pre><span></span><code>./mo-dump<span class="w"> </span>-u<span class="w"> </span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">password</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-h<span class="w"> </span><span class="si">${</span><span class="nv">host</span><span class="si">}</span><span class="w"> </span>-P<span class="w"> </span><span class="si">${</span><span class="nv">port</span><span class="si">}</span><span class="w"> </span>-db<span class="w"> </span><span class="si">${</span><span class="nv">database</span><span class="si">}</span><span class="se">\</span>
 <span class="w">    </span><span class="o">[</span>--local-infile<span class="o">=</span>true<span class="o">]</span><span class="w"> </span><span class="o">[</span>-csv<span class="o">]</span><span class="se">\</span>
@@ -10667,7 +10655,7 @@
 <p><strong>-csv</strong>：可选参数。当设置此参数时，表示导出的数据为 <em>CSV</em> 格式，并将所有的数据表的数据导出为当前目录下 <code>${databaseName}_${tableName}.csv</code>，如果参数为空，则默认以 DML 方式（INSERT 语句）导出数据。</p>
 </li>
 <li>
-<p><strong>--local-infile</strong>：默认值为 true，仅在 <strong>-csv</strong> 参数存在时产生影响，否则无作用。具体来说此参数仅影响 modump 输出的 <em>importStatement.sql</em> 脚本中 <code>LOAD DATA [LOCAL] INFILE</code> 语句是否含有 <code>LOCAL</code>。</p>
+<p><strong>--local-infile</strong>：默认值为 true，仅在 <strong>-csv</strong> 参数存在时产生影响，否则无作用。具体来说此参数仅影响 mo-dump 输出的 <em>importStatement.sql</em> 脚本中 <code>LOAD DATA [LOCAL] INFILE</code> 语句是否含有 <code>LOCAL</code>。</p>
 <ul>
 <li><strong>--local-infile=true</strong>：脚本中使用 <code>LOAD DATA LOCAL INFILE</code>，既适用于于本地数据导入本地 MatrixOne，也适用于本地数据导入远程 MatrixOne。</li>
 <li><strong>--local-infile=false</strong>：脚本中使用 <code>LOAD DATA INFILE</code>，仅适用于本地数据导入本地 MatrixOne，导入效率高于 <code>LOAD DATA LOCAL INFILE</code>，更多可参考 <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data/">LOAD DATA INFILE</a>。</li>
@@ -10677,36 +10665,89 @@
 <p><strong>-tbl [tableName]</strong>：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中添加参数 <code>-tbl</code> 和 <code>tableName</code>。如果指定多个表，表名之间用 <code>,</code> 分隔。</p>
 </li>
 <li>
-<p>-no-data：默认值为 false。当设置为 true 时表示不导出数据，仅导出表结构。</p>
+<p><strong>-no-data</strong>：默认值为 false。当设置为 true 时表示不导出数据，仅导出表结构。</p>
 </li>
 <li>
 <p><strong>&gt; {importStatement.sql}</strong>：将输出的 SQL 语句存储到文件 <em>importStatement.sql</em> 中，否则在屏幕上输出。</p>
 </li>
 </ul>
-<h2 id="mo-dump_1">构建 mo-dump 二进制文件</h2>
-<p><strong>Tips:</strong> 由于 <code>mo-dump</code> 是基于 Go 语言进行开发，所以你同时需要安装部署 <a href="https://go.dev/doc/install" target="_blank">Go</a> 语言。</p>
-<ol>
-<li>
-<p>执行下面的代码即可从 MatrixOrigin/mo_dump 源代码构建 <code>mo-dump</code> 二进制文件：</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/matrixorigin/mo_dump.git
-cd mo_dump
-make build
+<h2 id="mo-dump_3">安装 mo-dump 工具</h2>
+<p>下载方式一和下载方式二需要先安装下载工具 wget 或 curl，如果你未安装，请先自行安装下载工具。</p>
+<ul>
+<li>macOS 下安装</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><strong>下载方式一：<code>wget</code> 工具下载二进制包</strong></label><label for="__tabbed_1_2"><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>x86 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-x86_64.zip
+unzip mo-dump-1.0.0-darwin-x86_64.zip
 </code></pre></div>
-</li>
-<li>
-<p>你可以在 mo_dump 文件夹中找到 <code>mo-dump</code> 可执行文件：<em>mo-dump</em>。</p>
-</li>
-</ol>
+<p>ARM 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-arm64.zip
+unzip mo-dump-1.0.0-darwin-arm64.zip
+</code></pre></div>
+<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
+<div class="highlight"><pre><span></span><code>wget  https://githubfast.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-xxx.zip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>x86 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>curl -OL https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-x86_64.zip
+unzip mo-dump-1.0.0-darwin-x86_64.zip
+</code></pre></div>
+<p>ARM 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>curl -OL https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-arm64.zip
+unzip mo-dump-1.0.0-darwin-arm64.zip
+</code></pre></div>
+<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
+<div class="highlight"><pre><span></span><code>curl -OL https://githubfast.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-darwin-xxx.zip
+</code></pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li>Linux 下安装</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><strong>下载方式一：<code>wget</code> 工具下载二进制包</strong></label><label for="__tabbed_2_2"><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>x86 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-x86_64.zip
+unzip mo-dump-1.0.0-linux-x86_64.zip
+</code></pre></div>
+<p>ARM 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>wget https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-arm64.zip
+unzip mo-dump-1.0.0-linux-arm64.zip
+</code></pre></div>
+<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
+<div class="highlight"><pre><span></span><code>wget  https://githubfast.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-xxx.zip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>x86 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>curl -OL https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-x86_64.zip
+unzip mo-dump-1.0.0-linux-x86_64.zip
+</code></pre></div>
+<p>ARM 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>curl -OL https://github.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-arm64.zip
+unzip mo-dump-1.0.0-linux-arm64.zip
+</code></pre></div>
+<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
+<div class="highlight"><pre><span></span><code>curl -OL https://githubfast.com/matrixorigin/mo_dump/releases/download/1.0.0/mo-dump-1.0.0-linux-xxx.zip
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>构建好的 <code>mo-dump</code> 文件也可以在相同的硬件平台上工作。但是需要注意在 x86 平台中构建的 <code>mo-dump</code> 二进制文件在 Darwin ARM 平台中则无法正常工作。你可以在同一套操作系统和硬件平台内构建并使用 <code>mo-dump</code> 二进制文件。<code>mo-dump</code> 目前只支持 Linux 和 macOS。</p>
+<p>由于 linux 内核的限制，mo-dump 在低版本内核（低于 5.0）的 OS 上可能会出现无法正常运行的情况，此时需要升级您的内核版本。</p>
 </div>
 <h2 id="mo-dump-matrixone">如何使用 <code>mo-dump</code> 导出 MatrixOne 数据库</h2>
-<p><code>mo-dump</code> 在命令行中非常易用。参见以下步骤示例，导出 <code>.sql</code> 文件格式完整数据库：</p>
-<p>在你本地计算机上打开终端窗口，输入以下命令，连接到 MatrixOne，并且导出数据库：</p>
+<p><code>mo-dump</code> 在命令行中非常易用。在你本地计算机上打开终端窗口，进入到解压后的 mo_dump 文件夹目录，找到 <code>mo-dump</code> 可执行文件：<em>mo-dump</em>，输入以下命令，连接到 MatrixOne，并且导出数据库：</p>
 <div class="highlight"><pre><span></span><code>./mo-dump -u username -p password -h host_ip_address -P port -db database &gt; importStatement.sql
 </code></pre></div>
-<h2 id="_2">示例</h2>
+<h2 id="_1">示例</h2>
 <p><strong>示例 1</strong></p>
 <p>如果你在与 MatrixOne 实例相同的服务器中启动终端，并且你想要生成单个或多个数据库以及其中所有表的备份，请运行以下命令。该命令将在 <em>importMydb.sql</em> 文件中生成 <strong>mydb1</strong> 和 <strong>mydb2</strong> 数据库以及表的结构和数据的备份。<em>importMydb.sql</em> 文件会保存在当前目录下：</p>
 <div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db mydb1,mydb2 &gt; importMydb.sql
@@ -10723,7 +10764,7 @@ make build
 <p>如果要在数据库中某一个表或者某几个表的结构备份，可以运行以下命令。该命令将生成数据库 <em>db1</em> 中 <em>t1</em> 表和 <em>t2</em> 表的结构，保存在 <em>tab_nodata.sql</em> 文件中。</p>
 <div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -db db1  -no-data -tbl t1,t2 &gt; tab_nodata.sql
 </code></pre></div>
-<h2 id="_3">限制</h2>
+<h2 id="_2">限制</h2>
 <ul>
 <li><code>mo-dump</code> 暂不支持只导出数据。如果你想在没有数据库和表结构的情况下生成数据的备份，那么，你需要手动拆分 <code>.sql</code> 文件。</li>
 </ul>

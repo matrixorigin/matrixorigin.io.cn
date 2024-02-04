@@ -1671,7 +1671,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Develop/export-data/modump/" class="md-nav__link">
-        MODUMP 工具写出
+        mo-dump 工具写出
       </a>
     </li>
   
@@ -3084,8 +3084,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#modump" class="md-nav__link">
-    使用 modump 备份
+  <a href="#mo-dump" class="md-nav__link">
+    使用 mo-dump 备份
   </a>
   
 </li>
@@ -10592,8 +10592,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#modump" class="md-nav__link">
-    使用 modump 备份
+  <a href="#mo-dump" class="md-nav__link">
+    使用 mo-dump 备份
   </a>
   
 </li>
@@ -10698,7 +10698,7 @@
 <p>MatrixOne 数据库提供了多种备份工具，以满足不同场景和需求：</p>
 <ol>
 <li>
-<p><strong>modump</strong>: 用于导出数据库中的数据和模式。它生成可恢复的 SQL 脚本，用于逻辑备份。</p>
+<p><strong>mo-dump</strong>: 用于导出数据库中的数据和模式。它生成可恢复的 SQL 脚本，用于逻辑备份。</p>
 </li>
 <li>
 <p><strong>mo-backup</strong>: 用于物理备份和恢复。<code>mo-backup</code> 是 MatrixOne 企业级服务的物理备份与恢复工具，帮助你保护其 MatrixOne 数据库，并在需要时进行可靠的恢复操作。</p>
@@ -10710,9 +10710,9 @@
 <h4 id="select-into-outfile">使用 <code>SELECT INTO OUTFILE</code> 备份</h4>
 <p>使用 <code>SELECT ... INTO OUTFILE</code> 命令将检索的数据按格式导出到文件，导出的文件由 MatrixOne 服务创建，仅在 MatrixOne 服务器主机上。不支持导出至客户端文件系统，导出目录勿重名文件，避免新文件覆盖。</p>
 <p>操作步骤及示例，参见 <a href="../../../Develop/export-data/select-into-outfile/"><code>SELECT INTO...OUTFILE</code></a></p>
-<h4 id="modump">使用 <code>modump</code> 备份</h4>
-<p>MatrixOne 支持使用 <code>modump</code> 工具进行逻辑备份，生成可用于重新创建数据库对象和数据的 SQL 语句。</p>
-<p>操作步骤及示例，参见 <a href="../../../Develop/export-data/modump/"><code>MODUMP</code></a></p>
+<h4 id="mo-dump">使用 <code>mo-dump</code> 备份</h4>
+<p>MatrixOne 支持使用 <code>mo-dump</code> 工具进行逻辑备份，生成可用于重新创建数据库对象和数据的 SQL 语句。</p>
+<p>操作步骤及示例，参见 <a href="../../../Develop/export-data/modump/"><code>mo-dump 工具写出</code></a></p>
 <h4 id="_4">使用命令行批量导入恢复</h4>
 <p>MatrixOne 支持使用 <code>LOAD DATA</code> 命令将大量行插入数据库表，也支持使用 <code>SOURCE</code> 命令导入表结构和数据至整个数据库。</p>
 <p>更多信息，参考<a href="../../../Develop/import-data/bulk-load/bulk-load-overview/">批量导入</a></p>
