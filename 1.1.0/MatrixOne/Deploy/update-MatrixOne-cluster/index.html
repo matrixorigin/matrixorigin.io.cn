@@ -10704,9 +10704,17 @@ kubectl edit matrixonecluster ${mo_cluster_name} -n${mo_ns}
 <p>${REPO_URL}：是 Matrixone 公开镜像仓库，默认为 matrixorigin/matrixone。假如目标版本在 MatrixOne 的公开镜像仓库不存在，则需要同时修改镜像仓库的 URL 为实际的仓库：</p>
 </li>
 </ul>
-<p><img alt="image-20230407094237806" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094237806.png" /></p>
-<p><img alt="image-20230407094251938" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094251938.png" /></p>
 </li>
+</ol>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094237806.png width=50% heigth=50%/>
+</div>
+
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094251938.png width=50% heigth=50%/>
+</div>
+
+<ol>
 <li>
 <p>修改完成后，按 <code>:wq</code> 保存即可，MatrixOne Operator 会自动拉取新版本的镜像，并重启组件服务，包括 Log Service，TN 和 CN，你也可以通过以下命令观察其运行状态。</p>
 <div class="highlight"><pre><span></span><code>watch -e &quot;kubectl get pod -n${mo_ns}&quot;

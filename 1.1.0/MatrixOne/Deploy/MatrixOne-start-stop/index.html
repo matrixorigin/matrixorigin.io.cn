@@ -10730,8 +10730,14 @@ kubectl get matrixonecluster -n${NS} ${MO_NAME}
 <p>如果 MatrixOne 集群状态不正常，可以使用以下命令来查看详细信息：</p>
 <div class="highlight"><pre><span></span><code>kubectl describe matrixonecluster -n${NS} ${MO_NAME}
 </code></pre></div>
-<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-4.png" /></p>
-<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-5.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-4.png width=50% heigth=50%/>
+</div>
+
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-5.png width=50% heigth=50%/>
+</div>
+
 <h4 id="tnsetcnsetlogset">检查 TNSet/CNSet/LogSet 状态</h4>
 <p>当前 MatrixOne 集群的组件主要有：TN、CN、Log Service，分别对应的自定义资源类型 TNSet、CNSet、LogSet。这些对象均由 MatrixOneCluster 控制器生成。</p>
 <p>可以使用以下命令来检查各组件的状态，以 TN 为例：</p>

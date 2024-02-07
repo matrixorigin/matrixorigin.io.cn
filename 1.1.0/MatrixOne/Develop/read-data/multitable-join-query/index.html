@@ -10770,20 +10770,18 @@
 <h2 id="join">Join 类型</h2>
 <h3 id="_4">内连接</h3>
 <p>内连接的连接结果只返回匹配连接条件的行。</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>图示</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SELECT <select_list> FROM TableA A INNER JOIN TableB B ON A.Key=B.Key</td>
-<td><img alt="innerjoin" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/inner_join.png" /></td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>语法</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">select_list</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span>
+</code></pre></div>
+<ul>
+<li>图示</li>
+</ul>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/inner_join.png width=30% heigth=30%/>
+</div>
+
 <p>内连接有两种书写方式，在结果上是完全等价的：</p>
 <div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w">   </span>
 <span class="w">    </span><span class="n">l_orderkey</span><span class="p">,</span>
@@ -10858,46 +10856,40 @@
 <li><code>LEFT JOIN</code></li>
 </ul>
 <p>左外连接会返回左表中的所有数据行，以及右表当中能够匹配连接条件的值，如果在右表当中没有找到能够匹配的行，则使用 NULL 填充。</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>图示</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key</td>
-<td><img alt="leftjoin" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join.png" /></td>
-</tr>
-<tr>
-<td>SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL</td>
-<td><img alt="leftjoinwhere" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join_where.png" /></td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>语法</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">select_list</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">select_list</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</code></pre></div>
+<ul>
+<li>图示</li>
+</ul>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join.png width=30% heigth=30%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join_where.png width=30% heigth=30%/>
+</div>
+
 <ul>
 <li><code>RIGHT JOIN</code></li>
 </ul>
 <p>右外连接返回右表中的所有记录，以及左表当中能够匹配连接条件的值，没有匹配的值则使用 NULL 填充。</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>图示</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key</td>
-<td><img alt="leftjoinwhere" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join.png" /></td>
-</tr>
-<tr>
-<td>SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL</td>
-<td><img alt="leftjoinwhere" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join_where.png" /></td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>语法</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">select_list</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">select_list</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</code></pre></div>
+<ul>
+<li>图示</li>
+</ul>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join.png width=30% heigth=30%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join_where.png width=30% heigth=30%/>
+</div>
+
 <p>语句示例如下：</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
 <span class="w">        </span><span class="n">c_custkey</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">o_orderkey</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">c_count</span>

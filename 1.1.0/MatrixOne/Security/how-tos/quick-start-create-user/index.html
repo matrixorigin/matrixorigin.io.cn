@@ -10747,9 +10747,12 @@ grant insert on table db1.t1 to r2;
 grant r2 to u2;
 </code></pre></div>
 <p>此时，新建的用户、角色、对象权限关系如下图所示：</p>
-<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/role-user.png" /></p>
 </li>
 </ol>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/role-user.png width=50% heigth=50%/>
+</div>
+
 <h3 id="_6">步骤三：验证授权生效</h3>
 <p>分别使用用户 <em>u1</em> 和 <em>u2</em> 登录租户 <em>a1</em>，验证权限是否生效。</p>
 <p>由于 <em>u2</em> 被授予了 <em>r2</em> 角色，且 <em>r2</em> 被授予了 <em>db1.t1</em> 的 <code>insert</code> 权限，所以 <em>u2</em> 具备 <em>db1.t1</em> 的 <code>insert</code> 权限，即可以向 <em>db1.t1</em> 插入数据，</p>
