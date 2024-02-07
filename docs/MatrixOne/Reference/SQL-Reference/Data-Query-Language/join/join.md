@@ -6,28 +6,76 @@
 
 下图展示了 ``LEFT JOIN``、``RIGHT JOIN``、``INNER JOIN``、和 ``OUTER JOIN``。
 
-- ``LEFT JOIN``
+**``LEFT JOIN``**
 
-|SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key|![leftjoin](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join.png)|
-|---|---|
-|SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL|![leftjoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join_where.png)|
+- 语法
 
-- ``RIGHT JOIN``
+```sql
+SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key
+```
 
-|SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key|![leftjoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join.png)|
-|---|---|
-|SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL|![leftjoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join_where.png)|
+```sql
+SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL
+```
 
-- ``INNER JOIN``
+- 图示
 
-|SELECT [select_list] FROM TableA A INNER JOIN TableB B ON A.Key=B.Key|![innerjoin](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/inner_join.png)|
-|---|---|
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join.png width=30% heigth=30%/>
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join_where.png width=30% heigth=30%/>
+    </div>  
 
-- ``FULL JOIN``
+**``RIGHT JOIN``**
 
-|SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key|![leftjoin](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/full_join.png)|
-|---|---|
-|SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL OR B.Key IS NULL|![fulljoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/full_join_where.png)|
+- 语法
+
+```sql
+SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key
+```
+
+```sql
+SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL
+```
+
+- 图示
+
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join.png width=30% heigth=30%/>
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join_where.png width=30% heigth=30%/>
+    </div>
+
+**``INNER JOIN``**
+
+- 语法
+
+```sql
+select_list] FROM TableA A INNER JOIN TableB B ON A.Key=B.Key
+```
+
+- 图示
+
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/inner_join.png width=30% heigth=30%/>
+    </div>
+
+**``FULL JOIN``**
+
+- 语法
+
+```sql
+SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key
+```
+
+```sql
+SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL OR B.Key IS NULL
+```
+
+- 图示
+
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/full_join.png width=30% heigth=30%/>
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/full_join_where.png width=30% heigth=30%/>
+    </div>
 
 更多信息，参考：
 

@@ -33,7 +33,7 @@ MatrixOne 社区欢迎所有开发者的加入和贡献！本章节旨在帮助�
 前往刚才您创建的 Fork 仓库，点击 `Code`，然后再点击**复制**图标，将库的网址复制到剪贴板。
 
 <div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/contribution-guide/contribution-guide-clone.pngwidth=50% heigth=50%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/contribution-guide/contribution-guide-clone.png width=50% heigth=50%/>
 </div>
 
 然后，在您本地挑选一个合适的工作目录，打开命令行输入以下 Git 命令将文件克隆至您本地的目录：
