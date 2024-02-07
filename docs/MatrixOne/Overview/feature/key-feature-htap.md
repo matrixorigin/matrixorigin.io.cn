@@ -20,7 +20,9 @@ MatrixOne 通过模块化的存储、计算和事务架构，多级存储体系�
 
 MatrixOne 的整体技术架构采用完全的存储和计算分离架构。通过模块化设计，将数据库的计算、存储、事务处理分离为单独的模块，从而组建出一套各组件都具有独立伸缩能力的数据库系统。如下图所示，MatrixOne 由三个独立层级构成：
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/mo-htap-arch.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/mo-htap-arch.png width=80% heigth=80%/>
+</div>
 
 - **计算层**，以计算节点 Compute Node 为单位，实现计算和事务处理的无服务器化，并有自己的 Cache，支持随意重启和扩缩容；多个 Compute Node 可以并行计算，提升查询效率。
 - **事务层**，由数据库节点 Transaction Node 和日志节点 Log Service 组成，提供完整的日志服务以及元数据信息，内置 Logtail 用于保存最近写入的新数据。
@@ -49,7 +51,7 @@ MatrixOne 的整体技术架构采用完全的存储和计算分离架构。通�
 ##### 写请求处理
 
 <div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/write.png width=50% heigth=50%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/write.png width=40% heigth=40%/>
 </div>
 
 如图所示，处理写请求（INSERT/UPDATE/DELETE）时：
@@ -65,7 +67,7 @@ MatrixOne 的整体技术架构采用完全的存储和计算分离架构。通�
 ##### 读请求处理
 
 <div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/read.png width=50% heigth=50%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/read.png width=40% heigth=40%/>
 </div>
 
 如图所示，处理读请求时，CN 节点会首先查看已订阅的 Logtail 数据，如果数据直接命中 Logtail，则说明数据位于最新的一部分写入数据中，可以直接返回。如果没有命中 Logtail，CN 会检查自己及其他可见 CN 的缓存，如果命中缓存，将直接返回结果。如果没有命中缓存，CN 会通过分析执行计划判断是否需要大量读取数据，如果超过一定的阈值（如 200 个 block size）则由多个 CN 节点并行从对象存储中读取，如果未超过阈值则由单个 CN 节点从对象存储中读取。

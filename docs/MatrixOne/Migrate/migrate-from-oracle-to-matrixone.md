@@ -186,7 +186,7 @@ MatrixOne 与 Oracle 自带的数据类型存在着较多的差异，这些差�
 1. 打开 DBeaver，中选择待迁移的表，鼠标右键点击后选择**导出数据**，将 Oracle 数据表导出为 CSV 格式文件：
 
     <div align="center">
-    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-2.png width=50% heigth=50%/>
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-2.png width=40% heigth=40%/>
     </div>
 
 2. 在**转化目标 > 导出目标**窗口选择 **CSV**，点击**下一步**：

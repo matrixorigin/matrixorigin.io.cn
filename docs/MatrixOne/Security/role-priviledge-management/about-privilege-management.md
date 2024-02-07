@@ -18,7 +18,7 @@ MatrixOne 的权限管理是结合了基于角色的访问控制 (RBAC，Role-ba
 - **自主访问控制（DAC）**：每个对象都有一个所有者，所有者可以设置和授予对该对象的访问权限。
 
 <div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/dac.png width=50% heigth=50%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/dac.png width=70% heigth=70%/>
 </div>
 
 ## 关键概念

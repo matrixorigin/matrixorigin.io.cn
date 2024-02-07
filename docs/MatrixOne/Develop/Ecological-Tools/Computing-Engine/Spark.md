@@ -60,9 +60,10 @@ Apache Spark 是一个为高效处理大规模数据而设计的分布式计算�
     - **Package name**：com.matrixone.demo
     - **JDK** 1.8
 
-<div align="center">
-<img src=hhttps://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/spark/matrixone-spark-demo.png width=50% heigth=50%/>
-</div>
+     <div align="center">
+     <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/spark/matrixone-spark-demo.png width=50% heigth=50%/>
+     </div>
+
 2. 添加项目依赖，在项目根目录下的 `pom.xml` 内容编辑如下：
 
 ```xml
@@ -314,9 +315,9 @@ select * from test.person;
     - **Package name**：com.matrixone.demo
     - **JDK** 1.8
 
-<div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/spark/matrixone-spark-demo.png width=50% heigth=50%/>
-</div>
+     <div align="center">
+     <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/spark/matrixone-spark-demo.png width=50% heigth=50%/>
+     </div>
 
 2. 添加项目依赖，在项目根目录下的 `pom.xml` 内容编辑如下：
 
@@ -412,7 +413,9 @@ CREATE TABLE `users` (
 
 将 Hadoop 根目录下的 "etc/hadoop/core-site.xml" 和 "hdfs-site.xml" 以及 Hive 根目录下的 "conf/hive-site.xml" 这三个配置文件复制到项目的 "resource" 目录中。
 
-![配置文件](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/spark/config-files.png)
+<div align="center">
+     <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/spark/config-files.png width=30% heigth=30%/>
+</div>
 
 ### 步骤五：编写代码
 

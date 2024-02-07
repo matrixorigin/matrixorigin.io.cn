@@ -45,7 +45,7 @@ MatrixOne 与 SQL Server 存在着诸多类型上的差异，这些差异有些�
 1. 打开 DBeaver，从 SQL Server 中选择待迁移的表，鼠标右键点击**导出数据**：
 
     <div align="center">
-    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-2.png width=50% heigth=50%/>
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-2.png width=40% heigth=40%/>
     </div>
 
 2. 在**转化目标 > 导出目标**窗口选择**数据库**，点击**下一步**；在**表映射**窗口选择**目标容器**，目标容器选择 MatrixOne 的数据库 *tpch*：
@@ -118,7 +118,7 @@ MatrixOne 与 SQL Server 存在着诸多类型上的差异，这些差异有些�
 1. 打开 DBeaver，中选择待迁移的表，鼠标右键点击后选择**导出数据**，将 SQL Server 数据表导出为 CSV 格式文件：
 
     <div align="center">
-    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-2.png width=50% heigth=50%/>
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-2.png width=40% heigth=40%/>
     </div>
 
 2. 在**转化目标 > 导出目标**窗口选择 **CSV**，点击**下一步**：

@@ -8,7 +8,9 @@ MatrixOne 是一款全新设计的数据库，其架构设计理念强调高性�
 
 MatrixOne 是专门设计用来解决混合负载问题的数据库。MatrixOne 能够在同一个集群中同时支持 OLTP 和 OLAP，真正实现混合事务/分析处理（Hybrid Transaction and Analytical Processing，HTAP）。用户不再需要分别搭建 OLTP 和 OLAP 两个数据库系统，只需一个数据库就能支持混合负载。这样一来，不仅避免了建设和维护两套系统的成本，还避免了将数据从 OLTP 系统同步到 OLAP 系统的 ETL 过程。用户能够在同一个集群中方便地处理业务和分析。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-cost-performance/HTAP.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-cost-performance/HTAP.png width=80% heigth=80%/>
+</div>
 
 ## 单一存储引擎实现 HTAP
 

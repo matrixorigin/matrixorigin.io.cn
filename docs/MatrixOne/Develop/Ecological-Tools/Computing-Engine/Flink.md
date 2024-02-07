@@ -60,9 +60,9 @@ Apache Flink 是一个强大的框架和分布式处理引擎，专注于进行�
 
     配置示例如下图所示：
 
-<div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/flink/matrixone-flink-demo.png width=50% heigth=50%/>
-</div>
+     <div align="center">
+     <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/flink/matrixone-flink-demo.png width=50% heigth=50%/>
+     </div>
 
 2. 添加项目依赖，编辑项目根目录下的 `pom.xml` 文件，将以下内容添加到文件中：
 

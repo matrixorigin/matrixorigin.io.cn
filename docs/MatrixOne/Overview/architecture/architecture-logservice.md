@@ -8,7 +8,9 @@ Logservice 使用基于 Raft 协议的 dragonboat 库（multi-raft group 的 Go 
 
 Logservice 的架构由客户端和服务端两部分组成。服务端包括 handler、dragonboat 和 RSM（Replicated State Machine）等模块，而客户端则包含多个关键接口。它们之间的协作关系如下图所示：
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/logserviece-arch.png)
+<div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/logserviece-arch.png width=80% heigth=80%/>
+</div>
 
 ### 客户端
 
@@ -90,7 +92,9 @@ Logservice 和 HAKeeper 的状态机都是基于内存的状态机模型，所�
 5. 当状态机操作完成后，将结果返回给客户端。
 6. Follower 节点在接收到来自 leader 的提交索引后，各自执行自己的状态机操作。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/write.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/write.png width=80% heigth=80%/>
+</div>
 
 #### 读流程
 
@@ -103,7 +107,9 @@ Logservice 和 HAKeeper 的状态机都是基于内存的状态机模型，所�
     - 等待应用索引（apply index）大于或等于提交索引（commit index）。
     - 一旦满足条件，可以读取状态机中的数据，并返回给客户端。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/read.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/read.png width=80% heigth=80%/>
+</div>
 
 - 从日志数据库（log db）中读取日志条目。
 
@@ -125,7 +131,7 @@ logservice 使用基于内存的状态机，状态机中只记录了一些元数
 在这种状态机分离的设计下，简单的快照（snapshot）机制会导致问题：
 
 <div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/truncation-1.png width=50% heigth=50%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/truncation-1.png width=60% heigth=60%/>
 </div>
 
 1. 当 TN 发送一个截断请求时，截断索引（truncate index）设为 100，但此时 logservice 状态机的应用索引（applied index）是 200，即会删除 200 之前的日志，并在该位置生成快照。注意：截断索引不等于应用索引。
@@ -135,7 +141,9 @@ logservice 使用基于内存的状态机，状态机中只记录了一些元数
 
 为解决上述问题，当前的截断工作流程如下：
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/truncation-2.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/truncation-2.png width=70% heigth=70%/>
+</div>
 
 1. TN 发送截断请求，更新 logservice 状态机中的截断 LSN（truncateLsn），此时仅更新该值，不执行快照/截断操作。
 2. 每个 logservice 服务器内部启动一个截断工作器（truncation worker），定期发送截断请求（Truncate Request）。需要注意的是，该请求中的参数 Exported 设置为 true，表示该快照对系统不可见，仅将快照导出到指定目录下。
