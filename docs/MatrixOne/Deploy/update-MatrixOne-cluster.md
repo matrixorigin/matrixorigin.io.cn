@@ -27,9 +27,13 @@
 
     - ${REPO_URL}：是 Matrixone 公开镜像仓库，默认为 matrixorigin/matrixone。假如目标版本在 MatrixOne 的公开镜像仓库不存在，则需要同时修改镜像仓库的 URL 为实际的仓库：
 
-    ![image-20230407094237806](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094237806.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094237806.png width=50% heigth=50%/>
+</div>
 
-    ![image-20230407094251938](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094251938.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-20230407094251938.png width=50% heigth=50%/>
+</div>
 
 3. 修改完成后，按 `:wq` 保存即可，MatrixOne Operator 会自动拉取新版本的镜像，并重启组件服务，包括 Log Service，TN 和 CN，你也可以通过以下命令观察其运行状态。
 

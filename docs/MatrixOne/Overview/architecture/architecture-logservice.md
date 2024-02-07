@@ -112,7 +112,9 @@ Logservice 和 HAKeeper 的状态机都是基于内存的状态机模型，所�
     - 该操作完成后，副本才能参与 leader 的选举。
     - 当集群选举出 leader 后，数据节点（TN）会连接到 logservice 集群，并从一个副本的日志数据库的上一次检查点位置开始读取日志条目，并将其回放（replay）到数据节点自身的内存数据中。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/logdb-read.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/logdb-read.png width=50% heigth=50%/>
+</div>
 
 ### 截断（Truncation）
 
@@ -122,7 +124,9 @@ logservice 使用基于内存的状态机，状态机中只记录了一些元数
 
 在这种状态机分离的设计下，简单的快照（snapshot）机制会导致问题：
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/truncation-1.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/logservice/truncation-1.png width=50% heigth=50%/>
+</div>
 
 1. 当 TN 发送一个截断请求时，截断索引（truncate index）设为 100，但此时 logservice 状态机的应用索引（applied index）是 200，即会删除 200 之前的日志，并在该位置生成快照。注意：截断索引不等于应用索引。
 2. 集群重启。

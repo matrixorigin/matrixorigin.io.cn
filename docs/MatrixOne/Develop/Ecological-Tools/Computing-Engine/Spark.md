@@ -60,8 +60,9 @@ Apache Spark 是一个为高效处理大规模数据而设计的分布式计算�
     - **Package name**：com.matrixone.demo
     - **JDK** 1.8
 
-    ![项目初始化](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/spark/matrixone-spark-demo.png)
-
+<div align="center">
+<img src=hhttps://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/spark/matrixone-spark-demo.png width=50% heigth=50%/>
+</div>
 2. 添加项目依赖，在项目根目录下的 `pom.xml` 内容编辑如下：
 
 ```xml
@@ -313,7 +314,9 @@ select * from test.person;
     - **Package name**：com.matrixone.demo
     - **JDK** 1.8
 
-    ![项目初始化](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/spark/matrixone-spark-demo.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/spark/matrixone-spark-demo.png width=50% heigth=50%/>
+</div>
 
 2. 添加项目依赖，在项目根目录下的 `pom.xml` 内容编辑如下：
 

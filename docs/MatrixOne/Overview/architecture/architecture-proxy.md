@@ -4,7 +4,9 @@ Proxy 作为 MatrixOne 中承担负载均衡与 SQL 请求分发的唯一组件�
 
 它的 SQL 请求分发架构图示如下：
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/proxy/proxy-arch.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/proxy/proxy-arch.png width=70% heigth=70%/>
+</div>
 
 - Kubernetes Library 层利用 Kubernetes 自带的功能，确保了 Proxy 层的高可用性和负载均衡。
 - SQL Proxy 实现长连接、白名单、SQL 请求分发，可完成对 CN 的负载均衡和请求转发。
@@ -14,7 +16,9 @@ Proxy 作为 MatrixOne 中承担负载均衡与 SQL 请求分发的唯一组件�
 
 依据 MatrixOne 存储计算分离的多 CN 架构以及 Proxy 的职责，在 HAKeeper 与 Proxy 中引入 CN 标签组的概念，即固定名称和数量的 CN 集合。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/proxy/proxy-arch-2.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/proxy/proxy-arch-2.png width=40% heigth=40%/>
+</div>
 
 由上图所示，技术实现流程解析如下：
 

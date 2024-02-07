@@ -48,7 +48,9 @@ MatrixOne 的整体技术架构采用完全的存储和计算分离架构。通�
 
 ##### 写请求处理
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/write.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/write.png width=50% heigth=50%/>
+</div>
 
 如图所示，处理写请求（INSERT/UPDATE/DELETE）时：
 
@@ -62,7 +64,9 @@ MatrixOne 的整体技术架构采用完全的存储和计算分离架构。通�
 
 ##### 读请求处理
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/read.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/htap/read.png width=50% heigth=50%/>
+</div>
 
 如图所示，处理读请求时，CN 节点会首先查看已订阅的 Logtail 数据，如果数据直接命中 Logtail，则说明数据位于最新的一部分写入数据中，可以直接返回。如果没有命中 Logtail，CN 会检查自己及其他可见 CN 的缓存，如果命中缓存，将直接返回结果。如果没有命中缓存，CN 会通过分析执行计划判断是否需要大量读取数据，如果超过一定的阈值（如 200 个 block size）则由多个 CN 节点并行从对象存储中读取，如果未超过阈值则由单个 CN 节点从对象存储中读取。
 

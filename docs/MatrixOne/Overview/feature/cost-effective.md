@@ -18,7 +18,9 @@ MatrixOne 是专门设计用来解决混合负载问题的数据库。MatrixOne 
 
 总的来说，用户写入 MatrixOne 的数据只存在一份，并通过单一的存储引擎进行处理，大幅度降低了存储和计算硬件的成本。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-cost-performance/HTAP-single-engine.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-cost-performance/HTAP-single-engine.png width=50% heigth=50%/>
+</div>
 
 ## 灵活的资源分配提高机器利用率
 
@@ -29,7 +31,9 @@ MatrixOne 是专门设计用来解决混合负载问题的数据库。MatrixOne 
 
 以下图为例，假设用户原先需要 3 个计算节点来处理 OLTP 业务，以及 3 个计算节点来处理 OLAP 业务，并且这些硬件资源是完全绑定的，即为 OLTP 服务的节点不能为 OLAP 提供服务，反之亦然，而且用户对机器资源的规划往往超出实际需求的上限。然而，在实际业务中，达到全峰需求的时间相当有限。如果设计使用 MatrixOne 集群支持这些业务，那么可以调整为总共 4 个计算节点，平时 3 个节点处理 OLTP 业务，1 个节点处理 OLAP 业务。然后，在月末等分析需求高峰时期，则可以调整为 1 个计算节点处理 OLTP 业务，3 个计算节点处理 OLAP 业务；高峰过后再恢复原始配置，这样可提高机器资源使用率 40%。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-cost-performance/usage-optimize.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-cost-performance/usage-optimize.png width=80% heigth=80%/>
+</div>
 
 ## 高效低成本的对象存储
 
@@ -37,8 +41,9 @@ MatrixOne 是专门设计用来解决混合负载问题的数据库。MatrixOne 
 
 在 MatrixOne 集群中，以私有化部署的 Minio 官方推荐的最小配置（4 节点 × 4 磁盘）为例，MatrixOne 最少可以支持 4 块磁盘作为纠删码磁盘，以及 12 块磁盘作为数据磁盘的架构，其冗余度为 1.33。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-cost-performance/erasure-code.png)
-
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/high-cost-performance/erasure-code.png width=80% heigth=80%/>
+</div>
 此外，对象存储还支持 HDD 磁盘等低成本存储介质。对于集群计算性能要求不高，以存储为主的使用场景中，可以进一步降低使用成本。
 
 ## 列式存储带来的高数据压缩比

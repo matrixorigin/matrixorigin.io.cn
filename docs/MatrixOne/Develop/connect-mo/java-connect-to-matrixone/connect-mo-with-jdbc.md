@@ -27,13 +27,19 @@
 
 2. 在 IDEA 中新建 Java 名称为 **testJDBC** 的项目并选择在 **Build System** 中选择 **Maven** 作为构建系统，点击 **Create**。
 
-    ![JDBC create project](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-create-project.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-create-project.png width=50% heigth=50%/>
+</div>
 
 3. 点击 **File > Project Structure**，进入到 **Project Setting**，点选 **Library**，并点击 **+** 按钮，添加 **From Maven**。
 
-    ![JDBC project structure](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-project-structure.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-project-structure.png width=50% heigth=50%/>
+</div>
 
-    ![JDBC add library](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-from-maven.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/JDBC_connect/JDBC-from-maven.png width=50% heigth=50%/>
+</div>
 
 4. 输入框中输入 **mysql-connector-java** 搜索整个库，选择 **mysql:mysql-connector-java:8.0.30**，应用到本项目中。
 
