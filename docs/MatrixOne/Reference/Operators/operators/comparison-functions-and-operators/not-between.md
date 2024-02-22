@@ -32,13 +32,15 @@ mysql> select count(*) from t where id>=8894754949779693574 and id =177908864984
 +----------+
 | count(*) |
 +----------+
-|        0 |
+|        1 |
 +----------+
+1 row in set (0.00 sec)
+
 mysql> select count(*) from t where id not between 8894754949779693574 and 17790886498483827171;
 +----------+
 | count(*) |
 +----------+
-|        3 |
+|        0 |
 +----------+
 1 row in set (0.00 sec)
 ```

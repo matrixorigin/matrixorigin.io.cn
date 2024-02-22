@@ -24,7 +24,7 @@
 |---|-----|
 | [&](bit-functions-and-operators/bitwise-and.md) | 位运算符与，按位与 |
 | [>>](bit-functions-and-operators/right-shift.md) | 位移运算符右移 |
-| [<<](bit-functions-and-operators/left-shift.md) |位移运算符右移 |
+| [<<](bit-functions-and-operators/left-shift.md) |位移运算符左移 |
 | [^](bit-functions-and-operators/bitwise-xor.md) |按位异或 |
 | [\|](bit-functions-and-operators/bitwise-or.md) |位运算符或，按位或|
 | [~](bit-functions-and-operators/bitwise-inversion.md) |一元运算符，二进制取反 |
@@ -65,10 +65,10 @@
 
 | 名称 | 描述|
 |---|-----|
-| [CASE](flow-control-functions/case-when.md) | Case 运算符 |
+| [CASE](flow-control-functions/case-when.md) | Case when 运算符 |
 | [IF()](flow-control-functions/function_if.md) | If/else 语句 |
 | [IFNULL()](flow-control-functions/function_ifnull.md) | If null/else 语句 |
-| [NULLIF()](flow-control-functions/function_nullif.md) | expr1 = expr2 时返回 NULL |
+| [NULLIF()](flow-control-functions/function_nullif.md) | expr1 = expr2 时返回 NULL，否则返回 expr1 |
 
 ## [**逻辑运算符**](logical-operators/logical-operators-overview.md)
 

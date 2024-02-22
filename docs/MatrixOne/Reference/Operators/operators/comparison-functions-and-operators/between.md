@@ -28,18 +28,19 @@ insert into t values(8894754949779693574,1);
 insert into t values(8894754949779693579,2);
 insert into t values(17790886498483827171,3);
 
-mysql> select count(*) from t where id>=8894754949779693574 and id =17790886498483827171 order by 1 asc;
+mysql>  select count(*) from t where id>=8894754949779693574 and id =17790886498483827171 order by 1 asc;
 +----------+
 | count(*) |
 +----------+
-|        0 |
+|        1 |
 +----------+
+1 row in set (0.00 sec)
 
 mysql> select count(*) from t where id between 8894754949779693574 and 17790886498483827171;
 +----------+
 | count(*) |
 +----------+
-|        0 |
+|        3 |
 +----------+
-1 row in set (0.01 sec)
+1 row in set (0.00 sec)
 ```
