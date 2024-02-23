@@ -107,7 +107,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
     如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
 
     ```
-    wget  https://download.fastgit.org/matrixorigin/matrixone/releases/download/v1.1.1/mo-v1.1.1-darwin-x86_64.zip
+    wget https://githubfast.com/matrixorigin/matrixone/releases/download/v1.1.1/mo-v1.1.1-linux-xxx.zip
     ```
 === "**下载方式二：`curl` 工具下载二进制包**"
 
@@ -130,7 +130,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
     如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
 
     ```
-    curl -OL https://download.fastgit.org/matrixorigin/matrixone/releases/download/v1.1.1/mo-v1.1.1-darwin-x86_64.zip
+    curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v1.1.1/mo-v1.1.1-linux-xxx.zip
     ```
 
 === "**下载方式三：页面下载**"

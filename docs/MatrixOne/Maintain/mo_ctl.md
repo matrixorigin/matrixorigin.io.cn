@@ -61,9 +61,9 @@ sudo -u $(whoami) bash +x ./install.sh
 wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh
 wget https://github.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
 
-# 备用地址
-wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh
-wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
+# 如 github 原地址下载过慢，您可尝试从以下镜像地址下载：
+wget https://githubfast.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh
+wget https://githubfast.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
 
 # 2. 从离线包安装
 bash +x ./install.sh mo_ctl.zip
@@ -80,9 +80,8 @@ bash +x ./install.sh mo_ctl.zip
 3. 使用命令 `mo_ctl get_conf` 设置相关参数，可能用到的参数配置如下所示：
 
     ```
-    # check default parameter values
-    mo_ctl set_conf MO_PATH="/data/mo/matrixone" # set your own mo path
-    mo_ctl set_conf MO_GIT_URL="https://ghproxy.com/https://github.com/matrixorigin/matrixone.git" # in case have network issues, you can set this conf by overwritting default value MO_GIT_URL="https://github.com/matrixorigin/matrixone.git"
+    mo_ctl set_conf MO_PATH="/data/mo/matrixone" #设置自定义的 MatrixOne 下载路径
+    mo_ctl set_conf MO_GIT_URL="https://githubfast.com/matrixorigin/matrixone.git" #针对 github 原地址下载过慢问题，设置镜像下载地址
     ```
 
 4. 使用命令 `mo_ctl deploy` 安装部署 MatrixOne 最新稳定版本。
