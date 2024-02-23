@@ -10594,18 +10594,18 @@
 
 <h1 id="_1"><strong>~</strong></h1>
 <h2 id="_2"><strong>运算符说明</strong></h2>
-<p>一元运算符，二进制取反。对每一个比特位执行非（NOT）操作。NOT a 结果为 a 的反转（即反码）。</p>
-<p>结果类型取决于参数是否被为二进制字符串或数字：</p>
+<p>一元运算符，二进制取反。对每一个比特位执行非（NOT）操作。NOT a 结果为 a 的反转（即反码），参数只能是数字或 NULL。</p>
+<p>结果类型取决于参数是否为二进制字符串或数字：</p>
 <ul>
 <li>
 <p>当参数为二进制字符串类型，并且其中至少一个不是十六进制 <code>literal</code>、位 <code>literal</code> 或 <code>NULL literal</code> 时，则进行二进制字符串求值计算；否则会进行数值求值计算，并根据需要将参数转换为无符号 64 位整数。</p>
 </li>
 <li>
-<p>二进制字符串求值产生一个与参数长度相同的二进制字符串。数值计算产生一个无符号的 64 位整数。</p>
+<p>二进制字符串求值产生一个与参数长度相同的二进制字符串。如果参数的长度不相等，则会发生 <code>ER_INVALID_BITWISE_OPERANDS_SIZE</code> 错误。数值计算产生一个无符号的 64 位整数。</p>
 </li>
 </ul>
 <h2 id="_3"><strong>语法结构</strong></h2>
-<div class="highlight"><pre><span></span><code>&gt; SELECT value1 ~ value2;
+<div class="highlight"><pre><span></span><code>&gt; SELECT ~value1;
 </code></pre></div>
 <h2 id="_4"><strong>示例</strong></h2>
 <div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">~-</span><span class="mi">5</span><span class="p">;</span>
