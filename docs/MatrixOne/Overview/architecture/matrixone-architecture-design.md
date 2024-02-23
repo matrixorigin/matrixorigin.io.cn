@@ -24,7 +24,9 @@ MatrixOne 实现了三个独立的层级，每个层级都有自己的对象单�
 - 事务处理：共享日志和 TN 节点共同完成对计算节点的事务支持。
 - 冷热分离：使用 S3 对象存储作为目标的 File Service，每个计算节点都有自己的缓存。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/architecture-3.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/architecture-3.png width=60% heigth=60%/>
+</div>
 
 计算引擎基于兼容 MySQL 的根本目标，对于节点调度、执行计划和 SQL 能力有着更高的要求。高性能计算引擎既具备实验架构中计算引擎的 MPP：
 

@@ -26,11 +26,15 @@ mysql> create database test;
 
 启动 IDEA，并创建一个新的 Java 项目，如下所示：
 
-![image-20220927104740221](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_create_project.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_create_project.png width=50% heigth=50%/>
+</div>
 
 进入菜单 **Project Setting > Libraries**，导入 *mysql-connector-java-8.0.30.jar* 文件。
 
-![image-20220927104904770](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_import_library.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/jdbc_import_library.png width=50% heigth=50%/>
+</div>
 
 ## 编写 Java 代码连接 MatrixOne
 

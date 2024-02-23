@@ -12,7 +12,9 @@ CN 组是由一组具有相同属性和大小的 CN 节点组成的逻辑 CN 组
 
 为确保 Proxy 的高可用性，需要在集群中设置至少 2 个副本。
 
-![proxy-cn-group](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/proxy-cn-group.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/proxy-cn-group.png width=80% heigth=80%/>
+</div>
 
 当对 CN 进行缩容时，Proxy 在 YAML 文件的行为如下：
 

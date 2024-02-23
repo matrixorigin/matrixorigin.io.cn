@@ -64,6 +64,12 @@ __Note:__ `LIKE` 运算符是用来模糊匹配查询字符串的，% 表示零�
 
 ## 变量参照表
 
+<style>
+table th:first-of-type {
+	width: 100px;
+}
+</style>
+
 | Variable_name | Cmd-Line(Y/N) | Option File(Y/N) | Variable Type | System Var(Y/N) | Var Scope(Global、Both/ Session) | Dynamic(Y/N) | Default Value | Optional value |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | auto_increment_increment | Y | N | int | Y | Both | Y | 1 | 1-65535 |

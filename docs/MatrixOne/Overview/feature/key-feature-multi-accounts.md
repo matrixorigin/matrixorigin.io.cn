@@ -43,7 +43,9 @@ MatrixOne 的分布式集群采用 Proxy 模块和 CN 资源组技术架构实�
 
 该架构图如下所示：
 
-![MatrixOne Architecture](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/multi-account-proxy.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/multi-account-proxy.png width=50% heigth=50%/>
+</div>
 
 ## 应用场景
 
@@ -57,7 +59,9 @@ MatrixOne 的多租户能力可在以下多个应用场景中体现优势。
 
 传统的多租户架构在数据库层面为每个租户存储和管理数据。通常有多种设计模式，如共享数据库模式（每个租户共享一个数据库，但拥有自己的数据表/列）或独立数据库模式（每个租户拥有自己的数据库）。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/traditional-arch.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/traditional-arch.png width=60% heigth=60%/>
+</div>
 
 这两种传统模式都存在一定挑战：
 
@@ -68,7 +72,9 @@ MatrixOne 的多租户能力可在以下多个应用场景中体现优势。
 
 MatrixOne 的多租户能力带来了全新的架构方式。租户仍然共享一个 MatrixOne 集群，并且可以通过系统租户进行统一的租户运维和管理。另外，通过自带的多租户能力实现数据及资源的隔离，同时每个租户可以独立进行资源扩缩容，进一步降低运维难度。这种方式不仅满足对隔离性的需求，还能满足低资源和运维成本的需求。
 
-<img width="1205" height="1686" style="max-width: min(100%, 16rem); display: block; margin: auto;" alt="mo-account-arch" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/mo-account-arch.png" >
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/mo-account-arch.png width=30% heigth=30%/>
+</div>
 
 |多租户模式 | 数据隔离程度 | 资源成本 | 资源隔离程度 | 运维复杂度|
 |---|---|---|---|---|
@@ -82,7 +88,9 @@ MatrixOne 的多租户能力带来了全新的架构方式。租户仍然共享�
 
 与 SaaS 应用不同，微服务应用同样会面临数据库共享或独立的问题。通常建议为每个微服务准备一个单独的数据库，这种模式更适合微服务架构，因为每个服务都是独立开发、部署和扩展的。当需要升级或更改数据架构时，不会影响其他服务。当需要对某个服务进行扩展时，也可以对该服务进行局部扩容。此外，如果某些服务需要特殊的数据库能力，如 Elastic Search 或向量搜索等，这种模式也提供了更灵活的可能性。
 
-![MatrixOne Architecture](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/microservice-arch.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/microservice-arch.png width=60% heigth=60%/>
+</div>
 
 然而，微服务最终服务于同一个业务，不同服务之间必然需要共享数据，因此也会遇到与 SaaS 应用多租户相同的困境。
 
@@ -92,7 +100,9 @@ MatrixOne 提供的多租户能力可以很好地平衡这两个矛盾点，既�
 
 许多集团公司采用区域子公司或业务部门来分离业务，这些子公司和业务部门通常都是独立运作的，拥有完整的生产、销售和技术支持团队，还会使用自己的 IT 系统。然而，集团公司需要全面掌握子公司的业务状况，因此需要子公司定期上报大量业务数据。
 
-![MatrixOne Architecture](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/business.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/business.png width=80% heigth=80%/>
+</div>
 
 这种 IT 架构在数据库设计方面面临与前两种场景完全相同的问题，即共享和隔离之间需要权衡。此外，在这种场景中还需要考虑地理位置因素，子公司通常有自己的区域属性，需要在附近提供服务。例如，制造企业通常位于北上广深等大城市，但是各个工厂可能分散在不同的二三线城市，这些工厂需要与 ERP、MES 等系统紧密配合。因此，这些系统往往需要在工厂本地部署，而总部需要清楚地掌握各个工厂的情况，因此这些系统需要向集团公司上报数据。传统的部署架构通常采用独立部署数据库的方法，而数据同步和上报则由应用层实现。
 

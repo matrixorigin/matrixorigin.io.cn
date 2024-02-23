@@ -18,7 +18,9 @@ MatrixOne Operator 通过 MatrixOneCluster 资源为用户提供了声明式的�
 
 MatrixOneCluster 集群由多个组件（如 Compute Node（CN）、Transaction Node（TN）和 Log Service）构成，这些组件对应于 CNSet、TNSet 和 LogSet 等子资源。因此，MatrixOneCluster 资源的控制器会编排这些子资源，并依赖这些子资源的控制器来完成它们的编排。
 
-![image-operator](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-operator.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/image-operator.png width=80% heigth=80%/>
+</div>
 
 ## 部署与运维
 

@@ -76,19 +76,29 @@ LOAD DATA URL s3option{"endpoint"='cos.ap-shanghai.myqcloud.com', "access_key_id
 
 1. 下载[数据文件](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/char_varchar_1.csv)。进入 **AWS S3 > buckets**，创建一个具有公共访问权限的存储桶 **test-loading** 并上传文件 *char_varchar_1.csv*。
 
-    <img src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/create_bucket.png"  style="zoom: 60%;" />
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/create_bucket.png width=70% heigth=70%/>
+</div>
 
-    ![public block](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/create_bucket_public_block.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/create_bucket_public_block.png width=70% heigth=70%/>
+</div>
 
 2. 获取或创建你的 AWS Access key。输入 **Your Account Name > Security Credentials**，获取你现有的访问密钥或创建一个新的访问密钥。
 
-    <img src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/security_credential.png"  style="zoom: 60%;" />
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/security_credential.png width=40% heigth=40%/>
+</div>
 
-    ![Access Key](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/access_key.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/access_key.png width=90% heigth=90%/>
+</div>
 
     你可以从下载的凭据或此网页中获取 `Access key` 和 `Secret access key`。
 
-    ![Retrieve Access Key](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/retrieve_access_key.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/retrieve_access_key.png width=70% heigth=70%/>
+</div>
 
 3. 启动 MySQL 客户端，在 MatrixOne 中创建表，SQL 示例如下：
 
@@ -190,19 +200,29 @@ create external table t1(col1 char(225)) url s3option{"endpoint"='cos.ap-shangha
 
 1. 下载[数据文件](https://github.com/matrixorigin/matrixone/blob/main/test/distributed/resources/load_data/char_varchar_1.csv)。进入 **AWS S3 > buckets**，创建一个具有公共访问权限的存储桶 **test-loading** 并上传文件 *char_varchar_1.csv*。
 
-    <img src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/create_bucket.png"  style="zoom: 60%;" />
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/create_bucket.png width=70% heigth=70%/>
+</div>
 
-    ![public block](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/create_bucket_public_block.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/create_bucket_public_block.png width=70% heigth=70%/>
+</div>
 
 2. 获取或创建你的 AWS Access key。输入 **Your Account Name > Security Credentials**，获取你现有的访问密钥或创建一个新的访问密钥。
 
-    <img src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/security_credential.png"  style="zoom: 60%;" />
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/security_credential.png width=40% heigth=40%/>
+</div>
 
-    ![Access Key](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/access_key.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/access_key.png width=90% heigth=90%/>
+</div>
 
     你可以从下载的凭据或此网页中获取 `Access key` 和 `Secret access key`。
 
-    ![Retrieve Access Key](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/retrieve_access_key.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/load_S3/retrieve_access_key.png width=70% heigth=70%/>
+</div>
 
 3. 启动 MySQL 客户端，指定 S3 文件到外部表：
 

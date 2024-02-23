@@ -6,11 +6,15 @@
 
 在 MatrixOne 的整体架构中，有两个部分负责持久化数据存储，一个是全体 MatrixOne 分布式集群共享的对象存储，它也是集群的主要存储设备；另一个是各计算节点（CN）上的本地存储，主要用于数据缓存。主存储包含整个集群的全量数据，而缓存则仅保存最近查询时从主存储中提取的数据。此外，CN 节点的内存也作为数据缓存的一部分来使用。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/hot-cold-separation/cold-hot-data-separation.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/hot-cold-separation/cold-hot-data-separation.png width=60% heigth=60%/>
+</div>
 
 当用户发起查询时，系统首先会检查用户所连接的 CN 的缓存中是否已经包含所需数据。如果存在，系统将直接返回结果给用户，查询优先级是先内存后磁盘。如果在当前连接的 CN 的缓存中没有找到所需数据，系统会查询全局元数据信息，看该用户其他可用的 CN 缓存中是否存在所需数据，检查顺序同样是先内存后磁盘。如果存在，系统将请求转向包含此数据的 CN，由它处理请求，并将结果返回给用户。如果所有可用 CN 的缓存中都没有所查找的数据，系统将发起对对象存储的读取请求，并将结果返回给用户。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/hot-cold-separation/query-order.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/hot-cold-separation/query-order.png width=80% heigth=80%/>
+</div>
 
 当用户查询对象存储的数据时，查询到的数据块 (block) 会根据缓存的查询顺序，依次填充到相应位置。例如，用户从对象存储中查询出了 100M 的数据，这 100M 的数据会首先写入用户所连接的 CN 节点的内存，然后再写入这个 CN 节点的磁盘缓存。每次有新查询产生时，都会按照这个规则更新缓存中的数据。无论是内存还是磁盘，CN 缓存中数据的替换都遵循 LRU（最近最少使用）原则。通过这样的机制，最新的数据始终处于最易获取的位置，而相对冷门的数据则会逐步从缓存中移除。
 

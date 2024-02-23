@@ -60,7 +60,9 @@ MatrixOne 分布式系统依赖于以下组件：
 
 整体的部署架构如下图所示：
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-overall.png)
+ <div align="center">
+  <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-overall.png width=80% heigth=80%/>
+ </div>
 
 整体架构由以下组件组成：
 
@@ -84,7 +86,9 @@ MatrixOne 根据 Operator 的规则创建一系列的 Kubernetes 对象，这些
 
 - PV：PV（Persistent Volume）是存储介质的抽象表示，可以看作是存储单元。在 PVC 的申请后，通过实现 CSI 接口的软件创建 PV，并将其与申请资源的 PVC 进行绑定。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-pod.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-pod.png width=80% heigth=80%/>
+</div>
 
 ## **1. 部署 Kubernetes 集群**
 

@@ -10,7 +10,9 @@ MatrixOne 是一种分布式数据库，最显著的特点是可以通过节点�
 
 一个最小型的 MatrixOne 分布式集群架构如下图所示：
 
-![mo_arch_minimum](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/mo_arch_minimum.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/mo_arch_minimum.png width=60% heigth=60%/>
+</div>
 
 用户的查询请求主要由 CN 承担计算工作，因此 CN 节点的资源大小与算力成正比，最直接的扩展方法就是垂直扩展单个 CN 节点的资源。同时，查询的数据缓存在 CN 的缓存中，作为热数据。如果命中缓存，查询就可以直接从缓存中返回，而不必从对象存储中获取冷数据。缓存只有在超过容量上限后才会以 LRU 算法替换其中数据，因此缓存大小对提升性能也有帮助。
 

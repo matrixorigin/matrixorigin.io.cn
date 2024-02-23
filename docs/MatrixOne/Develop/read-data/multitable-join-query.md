@@ -127,9 +127,18 @@
 
 内连接的连接结果只返回匹配连接条件的行。
 
-|语法 | 图示 |
-|---|---|
-|SELECT <select_list> FROM TableA A INNER JOIN TableB B ON A.Key=B.Key|![innerjoin](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/inner_join.png)|
+- 语法
+
+```sql
+SELECT <select_list> FROM TableA A INNER JOIN TableB B ON A.Key=B.Key
+
+```
+
+- 图示
+
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/inner_join.png width=30% heigth=30%/>
+</div>
 
 内连接有两种书写方式，在结果上是完全等价的：
 
@@ -213,19 +222,43 @@ LIMIT 10;
 
 左外连接会返回左表中的所有数据行，以及右表当中能够匹配连接条件的值，如果在右表当中没有找到能够匹配的行，则使用 NULL 填充。
 
-|语法 | 图示 |
-|---|---|
-|SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key|![leftjoin](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join.png)|
-|SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL|![leftjoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join_where.png)|
+- 语法
+
+```sql
+SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key
+```
+
+```sql
+SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL
+```
+
+- 图示
+
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join.png width=30% heigth=30%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join_where.png width=30% heigth=30%/>
+</div>
 
 - `RIGHT JOIN`
 
 右外连接返回右表中的所有记录，以及左表当中能够匹配连接条件的值，没有匹配的值则使用 NULL 填充。
 
-|语法 | 图示 |
-|---|---|
-|SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key|![leftjoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join.png)|
-|SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL|![leftjoinwhere](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join_where.png)|
+- 语法
+
+```sql
+SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key
+```
+
+```sql
+SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL
+```
+
+- 图示
+
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join.png width=30% heigth=30%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join_where.png width=30% heigth=30%/>
+</div>
 
 语句示例如下：
 

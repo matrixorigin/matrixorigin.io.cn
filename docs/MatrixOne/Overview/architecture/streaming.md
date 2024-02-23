@@ -6,7 +6,9 @@ MatrixOne 内置流引擎，用于实时查询、处理和/或丰富传入的一
 
 MatrixOne 流引擎技术架构如下所示：
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/stream-arch.png?raw=true)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/stream-arch.png width=80% heigth=80%/>
+</div>
 
 MatrixOne 已成功开发出一套高效的流式表创建机制，目前特别针对 Kafka 进行了深度整合。此举旨在优化大规模时序数据场景下的流式数据处理能力。
 

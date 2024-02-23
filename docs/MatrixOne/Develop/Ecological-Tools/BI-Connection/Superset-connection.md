@@ -98,7 +98,9 @@ MatrixOne 1.0 版本现在支持与数据可视化工具 Superset 集成。本�
 
     填写 MatrixOne 数据库的连接信息，包括主机、端口、用户名和密码。
 
-    ![创建数据库连接](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/bi-connection/superset/superset-create-db-connection.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/develop/bi-connection/superset/superset-create-db-connection.png width=40% heigth=40%/>
+    </div>
 
     填写完毕后，点击 **CONNECT** 按钮，然后再点击 **FINISH**。
 
