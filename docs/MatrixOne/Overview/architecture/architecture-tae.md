@@ -31,7 +31,9 @@ TAE，如传统列存储引擎一样，在块（Block）和段（Segment）级�
 
 在段级索引中，有两种类型的段，一种可以进行追加修改，另一种不可修改。对于不可修改的段，段级索引是一个包含 Bloomfilter 和 Zonemap 的两级结构。对于可追加修改的段，它至少由一个可追加的块和多个不可追加的块组成。可追加的块索引是一个常驻内存的 ART-tree（Adaptive Radix Tree）结构和 Zonemap，而不可追加的则是 Bloomfilter 和 Zonemap。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/Tae/index-metadata.png?raw=true)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/Tae/index-metadata.png width=80% heigth=80%/>
+</div>
 
 ## 缓存区管理
 

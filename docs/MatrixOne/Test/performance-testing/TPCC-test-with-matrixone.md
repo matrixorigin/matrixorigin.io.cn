@@ -6,7 +6,9 @@
 
 TPC-C 是一种衡量在线事务处理（OLTP）系统性能和可伸缩性的基准测试规范。TPC-C 模拟了一个比较有代表意义的 OLTP 应用环境：在线订单处理系统。TPC-C 基准测试中使用的数据库由 Warehouse、Customer、Order、Item 等九个表组成（参见下图）。除 Item 表外，每条记录都以每个 Warehouse 为基础进行填充，并且仓库的数量按比例配置。
 
-![TPCC diagram](https://miro.medium.com/max/1400/1*oZOCQB2c84bVxOqbCW1Fsw.webp)
+<div align="center">
+<img src=https://miro.medium.com/max/1400/1*oZOCQB2c84bVxOqbCW1Fsw.webp width=80% heigth=80%/>
+</div>
 
 TPC-C 需要处理的交易事务有五种：NewOrder、Payment、OrderStatus、Delivery 和 StockLevel。TPC-C 定义了每种事务的请求率，其中几乎 90% 请求率的事务为写密集型的 NewOrder 和 Payment。TPC-C 事务主要访问单个（本地）仓库，但大约 10% 的事务与另一个（远程）仓库交互。
 

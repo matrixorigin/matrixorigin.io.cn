@@ -149,7 +149,9 @@
 
     此时，新建的用户、角色、对象权限关系如下图所示：
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/role-user.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/security/role-user.png width=50% heigth=50%/>
+</div>
 
 ### 步骤三：验证授权生效
 

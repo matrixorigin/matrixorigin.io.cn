@@ -30,7 +30,9 @@ mysql> create database test;
 
 选择 **Spring Initializer**，按需命名项目名称。
 
-![image-20221027094625081](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027094625081.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027094625081.png width=50% heigth=50%/>
+</div>
 
 选择如下依赖项：
 
@@ -39,7 +41,9 @@ mysql> create database test;
 - **Spring Data JPA**
 - **MySQL Driver**
 
-![image-20221027101504418](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027101504418.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027101504418.png width=50% heigth=50%/>
+</div>
 
 点击 **Create** 创建项目。依赖项列在 *pom.xml* 文件中。通常你无需修改任何东西。
 
@@ -196,7 +200,9 @@ mysql> INSERT INTO `book` (`id`, `author`, `category`, `name`, `pages`, `price`,
 
 我们将为这个演示应用程序编写创建、更新、插入、删除和选择操作。
 
-![image-20221027105233860](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027105233860.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027105233860.png width=40% heigth=40%/>
+</div>
 
 ### 1. BookStoreController.java
 
@@ -573,7 +579,9 @@ public class JpademoApplication {
 
 构建并启动这个项目。
 
-![image-20221027110133726](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027110133726.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027110133726.png width=80% heigth=80%/>
+</div>
 
 当出现下面的消息示例时，表示应用程序已经正常启动，你可以使用 Postman 调用 REST 端口。
 
@@ -610,7 +618,9 @@ public class JpademoApplication {
 http://localhost:8080/bookservice/books
 ```
 
-![image-20221027112426189](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027112426189.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027112426189.png width=80% heigth=80%/>
+</div>
 
 ### 2. 创建一个新 Book，使用 POST 请求调用以下接口
 
@@ -631,7 +641,9 @@ http://localhost:8080/bookservice/books
   }
 ```
 
-![image-20221027115733788](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115733788.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115733788.png width=80% heigth=80%/>
+</div>
 
 ### 3. 如需获取特定 Book，使用 GET 请求调用以下接口
 
@@ -639,7 +651,9 @@ http://localhost:8080/bookservice/books
   http://localhost:8080/bookservice/books/<id>
 ```
 
-![image-20221027115844378](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115844378.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115844378.png width=80% heigth=80%/>
+</div>
 
 ### 4. 在数据库中升级 Book，使用 PUT 请求调用以下接口
 
@@ -662,7 +676,9 @@ http://localhost:8080/bookservice/books
   }
 ```
 
-![image-20221027120144112](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120144112.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120144112.png width=80% heigth=80%/>
+</div>
 
 ### 5. 如需从数据库中删除特定的 Book，使用 DELETE 请求调用以下接口
 
@@ -670,7 +686,9 @@ http://localhost:8080/bookservice/books
   http://localhost:8080/bookservice/books/<id>
 ```
 
-![image-20221027120306830](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120306830.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120306830.png width=80% heigth=80%/>
+</div>
 
 ```
 mysql> select * from book;

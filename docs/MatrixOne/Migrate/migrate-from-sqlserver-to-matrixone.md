@@ -44,19 +44,29 @@ MatrixOne 与 SQL Server 存在着诸多类型上的差异，这些差异有些�
 
 1. 打开 DBeaver，从 SQL Server 中选择待迁移的表，鼠标右键点击**导出数据**：
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-2.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-2.png width=40% heigth=40%/>
+    </div>
 
 2. 在**转化目标 > 导出目标**窗口选择**数据库**，点击**下一步**；在**表映射**窗口选择**目标容器**，目标容器选择 MatrixOne 的数据库 *tpch*：
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-3.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-3.png width=50% heigth=50%/>
+    </div>
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-4.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-4.png width=50% heigth=50%/>
+    </div>
 
 3. 在**抽取设置**和**数据加载设置**窗口，设置选择抽取和插入的数量，为了触发 MatrixOne 的直接写 S3 策略，建议填写 5000：
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-5.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-5.png width=50% heigth=50%/>
+    </div>
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-6.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-6.png width=50% heigth=50%/>
+    </div>
 
 4. 完成设置后，DBeaver 开始对数据进行迁移，在完成后 DBeaver 将会提示迁移成功。
 
@@ -85,7 +95,9 @@ MatrixOne 与 SQL Server 存在着诸多类型上的差异，这些差异有些�
 
 1. 打开 DBeaver，从 SQL Server 中选择待迁移的表，鼠标右键点击后选择**生成 SQL > DDL > 复制**，先将这段 SQL 复制到一个文本编辑器内，给文本编辑器命名为 *sqlserver_ddl.sql*，保存到跳板机本地。
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-1.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-1.png width=50% heigth=50%/>
+    </div>
 
 2. 连接到 MatrixOne，在 MatrixOne 中创建新的数据库和表：
 
@@ -105,15 +117,23 @@ MatrixOne 与 SQL Server 存在着诸多类型上的差异，这些差异有些�
 
 1. 打开 DBeaver，中选择待迁移的表，鼠标右键点击后选择**导出数据**，将 SQL Server 数据表导出为 CSV 格式文件：
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-2.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-2.png width=40% heigth=40%/>
+    </div>
 
 2. 在**转化目标 > 导出目标**窗口选择 **CSV**，点击**下一步**：
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-7.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-7.png width=50% heigth=50%/>
+    </div>
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-8.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-8.png width=50% heigth=50%/>
+    </div>
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-9.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-9.png width=50% heigth=50%/>
+    </div>
 
 2. 连接到 MatrixOne，将导出的 CSV 数据导入至 MatrixOne：
 
@@ -136,11 +156,17 @@ MatrixOne 与 SQL Server 存在着诸多类型上的差异，这些差异有些�
 
 1. 使用 DBeaver 导出数据：打开 DBeaver，从 SQL Server 中选择待迁移的表，鼠标右键点击后选择**导出数据 > SQL**，为了确保插入时触发 MatrixOne 的直接写 S3，建议批量插入参数**每条语句的数据行数**设置为 5000：
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-10.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-10.png width=50% heigth=50%/>
+    </div>
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-11.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-11.png width=50% heigth=50%/>
+    </div>
 
-    ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-12.png)
+    <div align="center">
+    <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/migrate/mysql-12.png width=50% heigth=50%/>
+    </div>
 
 2. 使用下面的命令替换 *sqlserver_ddl.sql* 文件内 MatrixOne 不支持的关键字：
 

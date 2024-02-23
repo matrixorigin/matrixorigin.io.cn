@@ -61,7 +61,9 @@ Logtail 协议分为两个部分：内存数据和元数据，其主要区别在
 
 3. 将收集到的日志信息，按照 logtail 协议格式转换，作为响应返回给 CN。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/logtail-arch-1.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/logtail-arch-1.png width=70% heigth=70%/>
+</div>
 
 ```
 type RespBuilder interface {

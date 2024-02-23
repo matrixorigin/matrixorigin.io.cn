@@ -29,11 +29,15 @@ Checkpoint 将脏数据写入 Storage，销毁旧的 log entry，释放空间。
 
 - 转存 DML 修改。DML 更改存在 memtable 中的各个 block 中。Logtail Mgr 是一个内存模块，记录着每个事务改动了哪些 block。在 Logtail Mgr 上扫描 [t0,t1] 之间的事务，发起后台事务把这些 block 转存到 Storage 上，在元数据中记录地址。这样，所有 t1 前提交的 DML 更改都能通过元数据中的地址查到。为了及时做 checkpoint，不让 WAL 无限增长，哪怕区间中 block 只改动了一行，也需要转存。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/wal_Checkpoint1.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/wal_Checkpoint1.png width=80% heigth=80%/>
+</div>
 
 - 扫描 Catalog 转存 DDL 和元数据更改。Catalog 是一棵树，记录了所有的 DDL 和元数据信息，树上的每个节点都会记录更改发生的时间戳。扫描时收集所有落在 [t0,t1] 之间的更改。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/wal_Checkpoint2.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/wal_Checkpoint2.png width=80% heigth=80%/>
+</div>
 
 - 销毁旧的 WAL entry。Logtail Mgr 中存了每个事务对应的 LSN。根据时间戳，找到 t1 前最后一个事务，然后通知 Log Backend 清理这个事务的 LSN 之前的所有日志。
 

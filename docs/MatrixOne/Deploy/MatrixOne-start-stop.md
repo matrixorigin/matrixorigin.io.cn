@@ -69,9 +69,13 @@ kubectl get matrixonecluster -n${NS} ${MO_NAME}
 kubectl describe matrixonecluster -n${NS} ${MO_NAME}
 ```
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-4.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-4.png width=60% heigth=60%/>
+</div>
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-5.png)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/start-stop-5.png width=60% heigth=60%/>
+</div>
 
 #### 检查 TNSet/CNSet/LogSet 状态
 
