@@ -94,14 +94,15 @@
 | [FORMAT()](./String/format.md)                 | 用于将数字格式设置为 "#,###,###.##" 格式，并四舍五入到小数点后一位。|
 | [HEX()](./String/hex.md)                       | 返回参数的十六进制字符串形式|
 | [INSTR()](./String/instr.md)                   | 返回子字符串在给定字符串中首次出现的位置。|
+| [LCASE()](./String/lcase.md)                   | 用于将给定的字符串转换为小写形式。|
 | [LEFT()](./String/left.md)                     | 返回 str 字符串中最左边的长度字符。|
 | [LENGTH()](./String/length.md)                 | 返回了字符串的长度。|
 | [LOCATE()](./String/locate.md)                 | 用于在字符串中查找子字符串所在位置的函数。|
-| [LOWER()](./String/lower.md)                   | 用于在字符串左侧填充|
-| [LPAD()](./String/lpad.md)                     | ROUND() 函数返回了某个数字在特定位数四舍五入后的数值|
+| [LOWER()](./String/lower.md)                   | 用于将给定的字符串转换为小写形式。|
+| [LPAD()](./String/lpad.md)                     | 用于在字符串左侧填充。|
 | [LTRIM()](./String/ltrim.md)                   | 将输入字符串的前部空格去除，返回处理后的字符。|
-| [OCT()](./String/oct.md)                       |返回参数的八进制值的字符串|
-| [REPEAT()](./String/repeat.md)                 |用于将输入的字符串重复 n 次，并返回一个新的字符串|
+| [OCT()](./String/oct.md)                       | 返回参数的八进制值的字符串|
+| [REPEAT()](./String/repeat.md)                 | 用于将输入的字符串重复 n 次，并返回一个新的字符串|
 | [REVERSE()](./String/reverse.md)               | 将 str 字符串中的字符顺序翻转输出。|
 | [RPAD()](./String/rpad.md)                     | 用于在字符串右侧填充|
 | [RTRIM()](./String/rtrim.md)                   | 将输入字符串的后方空格去除|

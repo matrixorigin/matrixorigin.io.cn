@@ -32,7 +32,7 @@ WHERE columnN LIKE pattern;
 drop table t1;
 create table t1(a varchar(20));
 insert into t1 values ('abc'), ('ABC'), ('abC');
-select * from t1 where a ilike '%abC%';
+select * from t1 where a like '%abC%';
 
 mysql> select * from t1 where a like '%abC%';
 +------+

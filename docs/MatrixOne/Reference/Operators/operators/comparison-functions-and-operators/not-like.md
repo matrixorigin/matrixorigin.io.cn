@@ -39,7 +39,12 @@ mysql> select * from t1 where a not like "%d_\_";
 +--------+
 | a      |
 +--------+
+| abcdef |
+| _bcdef |
+| a_cdef |
+| ab_def |
 | abc_ef |
+| abcd_f |
 +--------+
-1 row in set (0.01 sec)
+6 rows in set (0.01 sec)
 ```
