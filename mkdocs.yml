@@ -477,6 +477,7 @@ nav:
             - MINUTE(): MatrixOne/Reference/Functions-and-Operators/Datetime/minute.md
             - MONTH(): MatrixOne/Reference/Functions-and-Operators/Datetime/month.md
             - SECOND(): MatrixOne/Reference/Functions-and-Operators/Datetime/second.md
+            - STR_TO_DATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/str-to-date.md
             - TIME(): MatrixOne/Reference/Functions-and-Operators/Datetime/time.md
             - TIMEDIFF(): MatrixOne/Reference/Functions-and-Operators/Datetime/timediff.md
             - TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/timestamp.md
