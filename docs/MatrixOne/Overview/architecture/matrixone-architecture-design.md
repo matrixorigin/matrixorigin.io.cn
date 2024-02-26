@@ -24,7 +24,6 @@ MatrixOne 是一款超融合异构云原生数据库。
     * TN 节点：MatrixOne 的 CN 节点没有任何差异，任何 CN 节点均可以接受写入请求，而为了保证 ACID 特性，TN 会保证整体的写入事务，对不同的 CN 节点的写入请求进行事务裁决，判断写入冲突可能性及获取锁的先后顺序等，同时会接受最终的事务 commit 请求，以确保事务完整性。同时针对新写入的数据，在数据量较小的情况下，TN 会将新写入的数据先存在内存中，达到一定规模后再异步持久化到对象存储中。如果写入数据量超过一定的量级，TN 在进行仲裁判断后会允许 CN 直接写入对象存储，并在获取 commit 信息的时候同时获取 S3 存入的文件地址。TN 节点本身也是无状态的，可以任意启停和纵向扩展。
     * LS 服务：而针对存储在 TN 内存中的一小段新数据，我们称之为 Logtail 数据，它的可靠性并没有完全得到保证，因此我们需要 LS 服务来记录与之对应的写入日志。LS 服务是由三个节点组成的 Raft group，通过三副本的 Raft 协议和 Leader 选举的机制，可以确保在一个节点失效的情况下仍然服务可用。
 
-
 ## **MatrixOne 系统组件**
 
 ![MatrixOne Component](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/mo-component.png)
@@ -54,7 +53,7 @@ Log Service 是 MatrixOne 中专门用于处理事务日志的组件，它具有
 Transaction Node（TN），是用来运行 MatrixOne 的分布式存储引擎 TAE 的载体，它提供了如下特性：
 
 - 管理 MatrixOne 中的元数据信息以及 Log Service 中保存的事务日志内容。
-- 接收 Computing Node（CN） 发来的分布式事务请求，对分布式事务的读写请求进行裁决，将事务裁决结果推给 CN，将事务内容推给 Log Service，确保事务的 ACID 特性。
+- 接收 Computing Node（CN）发来的分布式事务请求，对分布式事务的读写请求进行裁决，将事务裁决结果推给 CN，将事务内容推给 Log Service，确保事务的 ACID 特性。
 - 在事务中根据检查点生成快照，确保事务的快照隔离性，在事务结束后将快照信息释放。
 
 ### **Computing Node**
