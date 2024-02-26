@@ -10664,7 +10664,10 @@
 </ul>
 <p>从索引粒度来看，TAE 可以分为两类：表级索引和段级索引。例如，可以有一个表级索引，或者每个段都有一个索引。由于 TAE 的表数据由多个段组成，每个段的数据都会经历从 L1 到 L3，从无序到有序的压缩/合并过程，这对表级索引不友好，因此，TAE 的索引建立在段级。</p>
 <p>在段级索引中，有两种类型的段，一种可以进行追加修改，另一种不可修改。对于不可修改的段，段级索引是一个包含 Bloomfilter 和 Zonemap 的两级结构。对于可追加修改的段，它至少由一个可追加的块和多个不可追加的块组成。可追加的块索引是一个常驻内存的 ART-tree（Adaptive Radix Tree）结构和 Zonemap，而不可追加的则是 Bloomfilter 和 Zonemap。</p>
-<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/Tae/index-metadata.png?raw=true" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/Tae/index-metadata.png width=80% heigth=80%/>
+</div>
+
 <h2 id="_5">缓存区管理</h2>
 <p>在稳定的存储引擎中，精细的内存管理离不开缓存区管理。虽然缓存区管理在理论上只是一个最近最少使用（LRU）缓存的概念，但数据库不会直接使用操作系统的页缓存（Page Cache）来代替缓存管理器，尤其是对于事务处理（TP）类型的数据库。</p>
 <p>在 MatrixOne 中，使用缓存管理器对内存缓冲区进行管理。每个缓冲区节点（buffer node）具有固定的大小，并分配给以下四个区域：</p>

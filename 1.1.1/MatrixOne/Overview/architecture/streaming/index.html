@@ -10602,7 +10602,10 @@
 <p>MatrixOne 内置流引擎，用于实时查询、处理和/或丰富传入的一系列数据点（即数据流）的数据存储。开发人员现在可以使用 SQL 来定义和创建流处理管道，并作为实时数据后端提供服务；开发人员还可以使用 SQL 查询流中的数据，并与非流式数据集连接，从而进一步简化数据堆栈。</p>
 <h2 id="_2">技术架构</h2>
 <p>MatrixOne 流引擎技术架构如下所示：</p>
-<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/stream-arch.png?raw=true" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/stream-arch.png width=80% heigth=80%/>
+</div>
+
 <p>MatrixOne 已成功开发出一套高效的流式表创建机制，目前特别针对 Kafka 进行了深度整合。此举旨在优化大规模时序数据场景下的流式数据处理能力。</p>
 <p>从技术细节来看，MatrixOne 通过 Source 功能实现与外部流式数据源的高效连接与集成。通过动态表与 Source 的链接，MatrixOne 不仅能够实现数据的持久化存储，还能对流入数据执行复杂操作，从而提升数据处理的灵活性和效率。</p>
 <h3 id="source">Source</h3>

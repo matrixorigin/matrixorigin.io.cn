@@ -10699,7 +10699,10 @@
 <p>如下图所示，用户首先连接到 Proxy 模块。Proxy 组件根据用户连接串中的身份和标签信息，将用户的数据库连接（connection）分发到相应的 CN 组。其他 CN 组不会接收到此用户连接，也不会参与该连接的计算过程。</p>
 <p>CN 组是由一组具有相同属性和大小的 CN 节点组成的逻辑 CN 组，它是 MatrixOne 集群中用于隔离不同资源组的单位。每个 CN 组可包含 1 个到无限个 CN 节点，并可使用一系列标签定义其属性，例如定义某租户对应的 Account 标签，将连接转发至带有相应标签的 CN 组，便可实现租户资源隔离和业务负载隔离功能。结合 CN 组中 CN 节点可无限水平扩展的特性，可实现针对租户或指定负载的独立扩展。</p>
 <p>为确保 Proxy 的高可用性，需要在集群中设置至少 2 个副本。</p>
-<p><img alt="proxy-cn-group" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/proxy-cn-group.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/proxy-cn-group.png width=80% heigth=80%/>
+</div>
+
 <p>当对 CN 进行缩容时，Proxy 在 YAML 文件的行为如下：</p>
 <ul>
 <li>

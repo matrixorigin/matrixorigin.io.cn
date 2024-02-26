@@ -11055,9 +11055,9 @@ wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/blob/
 wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh
 wget https://github.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
 
-# 备用地址
-wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh
-wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
+# 如 github 原地址下载过慢，您可尝试从以下镜像地址下载：
+wget https://githubfast.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh
+wget https://githubfast.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
 
 # 2. 从离线包安装
 bash +x ./install.sh mo_ctl.zip
@@ -11073,9 +11073,8 @@ bash +x ./install.sh mo_ctl.zip
 </li>
 <li>
 <p>使用命令 <code>mo_ctl get_conf</code> 设置相关参数，可能用到的参数配置如下所示：</p>
-<div class="highlight"><pre><span></span><code># check default parameter values
-mo_ctl set_conf MO_PATH=&quot;/data/mo/matrixone&quot; # set your own mo path
-mo_ctl set_conf MO_GIT_URL=&quot;https://ghproxy.com/https://github.com/matrixorigin/matrixone.git&quot; # in case have network issues, you can set this conf by overwritting default value MO_GIT_URL=&quot;https://github.com/matrixorigin/matrixone.git&quot;
+<div class="highlight"><pre><span></span><code>mo_ctl set_conf MO_PATH=&quot;/data/mo/matrixone&quot; #设置自定义的 MatrixOne 下载路径
+mo_ctl set_conf MO_GIT_URL=&quot;https://githubfast.com/matrixorigin/matrixone.git&quot; #针对 github 原地址下载过慢问题，设置镜像下载地址
 </code></pre></div>
 </li>
 <li>

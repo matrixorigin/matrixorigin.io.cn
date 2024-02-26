@@ -11034,7 +11034,10 @@
 </ul>
 <h3 id="_6">整体架构</h3>
 <p>整体的部署架构如下图所示：</p>
-<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-overall.png" /></p>
+<div align="center">
+  <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-overall.png width=80% heigth=80%/>
+ </div>
+
 <p>整体架构由以下组件组成：</p>
 <ul>
 <li>
@@ -11066,7 +11069,10 @@
 <p>PV：PV（Persistent Volume）是存储介质的抽象表示，可以看作是存储单元。在 PVC 的申请后，通过实现 CSI 接口的软件创建 PV，并将其与申请资源的 PVC 进行绑定。</p>
 </li>
 </ul>
-<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-pod.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-pod.png width=80% heigth=80%/>
+</div>
+
 <h2 id="1-kubernetes"><strong>1. 部署 Kubernetes 集群</strong></h2>
 <p>由于 MatrixOne 的分布式部署依赖于 Kubernetes 集群，因此我们需要一个 Kubernetes 集群。本篇文章将指导你通过使用 <strong>Kuboard-Spray</strong> 的方式搭建一个 Kubernetes 集群。</p>
 <h3 id="_7"><strong>准备集群环境</strong></h3>
@@ -11305,6 +11311,9 @@ version.BuildInfo{Version:&quot;v3.10.2&quot;, GitCommit:&quot;50f003e5ee8704ec9
 unzip v0.0.23.zip
 cd local-path-provisioner-0.0.23/deploy/chart/local-path-provisioner
 helm install --set nodePathMap[0].paths[0]=&quot;/opt/local-path-provisioner&quot;,nodePathMap[0].node=DEFAULT_PATH_FOR_NON_LISTED_NODES  --create-namespace --namespace local-path-storage local-path-storage ./
+</code></pre></div>
+<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
+<div class="highlight"><pre><span></span><code> wget https://githubfast.com/rancher/local-path-provisioner/archive/refs/tags/v0.0.23.zip
 </code></pre></div>
 </li>
 <li>

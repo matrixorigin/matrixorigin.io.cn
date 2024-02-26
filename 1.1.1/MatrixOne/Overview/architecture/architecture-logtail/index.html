@@ -10720,7 +10720,10 @@
 <p>将收集到的日志信息，按照 logtail 协议格式转换，作为响应返回给 CN。</p>
 </li>
 </ol>
-<p><img alt="" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/logtail-arch-1.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture/logtail-arch-1.png width=70% heigth=70%/>
+</div>
+
 <div class="highlight"><pre><span></span><code>type RespBuilder interface {
   OnDatabase(database *DBEntry) error
   OnPostDatabase(database *DBEntry) error

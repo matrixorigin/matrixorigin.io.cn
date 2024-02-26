@@ -10566,74 +10566,71 @@
 <h2 id="_1"><strong>语法说明</strong></h2>
 <p><code>JOIN</code> 用于把来自两个或多个表的行结合起来。</p>
 <p>下图展示了 <code>LEFT JOIN</code>、<code>RIGHT JOIN</code>、<code>INNER JOIN</code>、和 <code>OUTER JOIN</code>。</p>
+<p><strong><code>LEFT JOIN</code></strong></p>
 <ul>
-<li><code>LEFT JOIN</code></li>
+<li>语法</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key</th>
-<th><img alt="leftjoin" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join.png" /></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SELECT [select_list] FROM TableA A LEFT JOIN TableB B ON A.Key=B.Key WHERE B.Key IS NULL</td>
-<td><img alt="leftjoinwhere" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join_where.png" /></td>
-</tr>
-</tbody>
-</table>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">select_list</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">select_list</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</code></pre></div>
 <ul>
-<li><code>RIGHT JOIN</code></li>
+<li>
+<p>图示</p>
+<p><div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join.png width=30% heigth=30%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/left_join_where.png width=30% heigth=30%/>
+</div>  </p>
+</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key</th>
-<th><img alt="leftjoinwhere" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join.png" /></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SELECT [select_list] FROM TableA A RIGHT JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL</td>
-<td><img alt="leftjoinwhere" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join_where.png" /></td>
-</tr>
-</tbody>
-</table>
+<p><strong><code>RIGHT JOIN</code></strong></p>
 <ul>
-<li><code>INNER JOIN</code></li>
+<li>语法</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>SELECT [select_list] FROM TableA A INNER JOIN TableB B ON A.Key=B.Key</th>
-<th><img alt="innerjoin" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/inner_join.png" /></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">select_list</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">select_list</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</code></pre></div>
 <ul>
-<li><code>FULL JOIN</code></li>
+<li>
+<p>图示</p>
+<p><div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join.png width=30% heigth=30%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/right_join_where.png width=30% heigth=30%/>
+</div></p>
+</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key</th>
-<th><img alt="leftjoin" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/full_join.png" /></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SELECT [select_list] FROM TableA A FULL OUTER JOIN TableB B ON A.Key=B.Key WHERE A.Key IS NULL OR B.Key IS NULL</td>
-<td><img alt="fulljoinwhere" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/full_join_where.png" /></td>
-</tr>
-</tbody>
-</table>
+<p><strong><code>INNER JOIN</code></strong></p>
+<ul>
+<li>语法</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">select_list</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span>
+</code></pre></div>
+<ul>
+<li>
+<p>图示</p>
+<p><div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/inner_join.png width=30% heigth=30%/>
+</div></p>
+</li>
+</ul>
+<p><strong><code>FULL JOIN</code></strong></p>
+<ul>
+<li>语法</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">select_list</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">FULL</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">select_list</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableA</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">FULL</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TableB</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="o">=</span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</code></pre></div>
+<ul>
+<li>
+<p>图示</p>
+<p><div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/full_join.png width=30% heigth=30%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/full_join_where.png width=30% heigth=30%/>
+</div></p>
+</li>
+</ul>
 <p>更多信息，参考：</p>
 <ul>
 <li><a href="../left-join/">LEFT JOIN</a></li>

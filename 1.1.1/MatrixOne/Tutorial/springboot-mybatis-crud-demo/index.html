@@ -10857,7 +10857,10 @@
 </code></pre></div>
 <h3 id="2-intellij-idea-spring-boot">2. 使用 IntelliJ IDEA 创建一个新的 Spring Boot 项目</h3>
 <p>选择 <strong>Spring Initializer</strong>，按需命名项目名称。</p>
-<p><img alt="image-20221026152318567" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026152318567.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026152318567.png width=50% heigth=50%/>
+</div>
+
 <p>选择如下依赖项：</p>
 <ul>
 <li><strong>Spring Web</strong></li>
@@ -10865,7 +10868,10 @@
 <li><strong>JDBC API</strong></li>
 <li><strong>MySQL Driver</strong></li>
 </ul>
-<p><img alt="image-20221026152447954" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026152447954.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026152447954.png width=50% heigth=50%/>
+</div>
+
 <p>点击 <strong>Create</strong> 创建项目。依赖项列在 <em>pom.xml</em> 文件中。通常你无需修改任何东西。</p>
 <div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -10988,7 +10994,10 @@ server.port=8080
 <p>完成环境配置后，我们编写代码来实现一个简单的 CRUD 应用程序。</p>
 <p>在完成编写代码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。</p>
 <p>我们将为这个演示应用程序编写创建、更新、插入、删除和选择操作。</p>
-<p><img alt="image-20221026155656694" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026155656694.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026155656694.png width=40% heigth=40%/>
+</div>
+
 <h3 id="1-usercontrollerjava">1. UserController.java</h3>
 <div class="highlight"><pre><span></span><code>package com.example.mybatisdemo.controller;
 
@@ -11271,7 +11280,10 @@ public class MyBatisDemoApplication {
 </code></pre></div>
 <h2 id="_4">测试</h2>
 <p>构建并启动这个项目。</p>
-<p><img alt="image-20221026161226923" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026161226923.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026161226923.png width=80% heigth=80%/>
+</div>
+
 <p>当出现下面的消息示例时，表示应用程序已经正常启动，你可以打开浏览器并发送 HTTP 请求。</p>
 <div class="highlight"><pre><span></span><code>2022-10-26 16:13:24.030  INFO 60253 --- [           main] c.e.mybatisdemo.MyBatisDemoApplication   : Starting MyBatisDemoApplication on username-macbookpro.local with PID 60253 (/Users/username/IdeaProjects/MyBatisDemo/target/classes started by username in /Users/username/IdeaProjects/MyBatisDemo)
 2022-10-26 16:13:24.035  INFO 60253 --- [           main] c.e.mybatisdemo.MyBatisDemoApplication   : No active profile set, falling back to default profiles: default
@@ -11286,7 +11298,10 @@ public class MyBatisDemoApplication {
 </code></pre></div>
 <h3 id="1">1. 测试新建表</h3>
 <p>打开你的的浏览器并输入网址：<code>http://localhost:8080/test/create</code></p>
-<p><img alt="image-20221026161929338" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026161929338.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026161929338.png width=80% heigth=80%/>
+</div>
+
 <p>在 MySQL 客户端中，验证表是否已成功创建。</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; use test;
 Reading table information for completion of table and column names
@@ -11317,7 +11332,10 @@ PRIMARY KEY (`id`)
 </code></pre></div>
 <h3 id="2">2. 测试增加用户</h3>
 <p>打开你的浏览器并输入网址：<code>http://localhost:8080/test/add?username=tom&amp;password=123456&amp;address=shanghai</code></p>
-<p><img alt="image-20221026162317800" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162317800.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162317800.png width=80% heigth=80%/>
+</div>
+
 <p>在 MySQL 客户端中，使用如下命令验证是否成功添加记录：</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from user;
 +------+----------+----------+----------+
@@ -11329,11 +11347,17 @@ PRIMARY KEY (`id`)
 </code></pre></div>
 <h3 id="3">3. 测试查询用户</h3>
 <p>打开你的浏览器并输入网址：<code>http://localhost:8080/test/selectUserByid?id=1</code></p>
-<p><img alt="image-20221026162455058" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162455058.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162455058.png width=80% heigth=80%/>
+</div>
+
 <p>你可以直接从浏览器中获取查询结果。</p>
 <h3 id="4">4. 测试更新用户</h3>
 <p>打开你的浏览器并输入网址：<code>http://localhost:8080/test/update?id=1&amp;username=tom&amp;password=654321&amp;address=beijing</code></p>
-<p><img alt="image-20221026162613066" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162613066.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162613066.png width=80% heigth=80%/>
+</div>
+
 <p>在 MySQL 客户端中，使用如下命令验证是否成功更新记录：</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from user;
 +------+----------+----------+---------+
@@ -11345,7 +11369,10 @@ PRIMARY KEY (`id`)
 </code></pre></div>
 <h3 id="5">5. 测试删除用户</h3>
 <p>打开你的浏览器并输入网址：<code>http://localhost:8080/test/delete?id=1</code></p>
-<p><img alt="image-20221026162756460" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162756460.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/mybatis/image-20221026162756460.png width=80% heigth=80%/>
+</div>
+
 <p>在 MySQL 客户端中，使用如下命令验证是否成功删除记录：</p>
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from user;
 Empty set (0.00 sec)

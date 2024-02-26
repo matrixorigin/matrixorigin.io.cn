@@ -10888,7 +10888,10 @@
 </code></pre></div>
 <h3 id="2-intellij-idea-spring-boot">2. 使用 IntelliJ IDEA 创建一个新的 Spring Boot 项目</h3>
 <p>选择 <strong>Spring Initializer</strong>，按需命名项目名称。</p>
-<p><img alt="image-20221027094625081" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027094625081.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027094625081.png width=50% heigth=50%/>
+</div>
+
 <p>选择如下依赖项：</p>
 <ul>
 <li><strong>Spring Web</strong></li>
@@ -10896,7 +10899,10 @@
 <li><strong>Spring Data JPA</strong></li>
 <li><strong>MySQL Driver</strong></li>
 </ul>
-<p><img alt="image-20221027101504418" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027101504418.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027101504418.png width=50% heigth=50%/>
+</div>
+
 <p>点击 <strong>Create</strong> 创建项目。依赖项列在 <em>pom.xml</em> 文件中。通常你无需修改任何东西。</p>
 <div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -11037,7 +11043,10 @@ mysql&gt; INSERT INTO `book` (`id`, `author`, `category`, `name`, `pages`, `pric
 <p>完成环境配置后，我们编写代码来实现一个简单的 CRUD 应用程序。</p>
 <p>在完成编写代码后，你将拥有一个如下所示的项目结构。你可以预先创建这些包和 java 类。</p>
 <p>我们将为这个演示应用程序编写创建、更新、插入、删除和选择操作。</p>
-<p><img alt="image-20221027105233860" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027105233860.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027105233860.png width=40% heigth=40%/>
+</div>
+
 <h3 id="1-bookstorecontrollerjava">1. BookStoreController.java</h3>
 <div class="highlight"><pre><span></span><code>package com.example.jpademo.controller;
 
@@ -11388,7 +11397,10 @@ public class JpademoApplication {
 </code></pre></div>
 <h2 id="_4">测试</h2>
 <p>构建并启动这个项目。</p>
-<p><img alt="image-20221027110133726" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027110133726.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027110133726.png width=80% heigth=80%/>
+</div>
+
 <p>当出现下面的消息示例时，表示应用程序已经正常启动，你可以使用 Postman 调用 REST 端口。</p>
 <div class="highlight"><pre><span></span><code>2022-10-27 11:16:16.793  INFO 93488 --- [           main] com.example.jpademo.JpademoApplication   : Starting JpademoApplication on username-macbookpro.local with PID 93488 (/Users/username/IdeaProjects/jpademo/target/classes started by username in /Users/username/IdeaProjects/jpademo)
 2022-10-27 11:16:16.796  INFO 93488 --- [           main] com.example.jpademo.JpademoApplication   : No active profile set, falling back to default profiles: default
@@ -11418,7 +11430,10 @@ public class JpademoApplication {
 <h3 id="1-book-get">1. 获取 Book 列表，使用 GET 请求调用以下接口</h3>
 <div class="highlight"><pre><span></span><code>http://localhost:8080/bookservice/books
 </code></pre></div>
-<p><img alt="image-20221027112426189" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027112426189.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027112426189.png width=80% heigth=80%/>
+</div>
+
 <h3 id="2-book-post">2. 创建一个新 Book，使用 POST 请求调用以下接口</h3>
 <div class="highlight"><pre><span></span><code>http://localhost:8080/bookservice/books
 </code></pre></div>
@@ -11432,11 +11447,17 @@ public class JpademoApplication {
     &quot;price&quot;: 10
   }
 </code></pre></div>
-<p><img alt="image-20221027115733788" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115733788.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115733788.png width=80% heigth=80%/>
+</div>
+
 <h3 id="3-book-get">3. 如需获取特定 Book，使用 GET 请求调用以下接口</h3>
 <div class="highlight"><pre><span></span><code>  http://localhost:8080/bookservice/books/&lt;id&gt;
 </code></pre></div>
-<p><img alt="image-20221027115844378" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115844378.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027115844378.png width=80% heigth=80%/>
+</div>
+
 <h3 id="4-book-put">4. 在数据库中升级 Book，使用 PUT 请求调用以下接口</h3>
 <div class="highlight"><pre><span></span><code>    http://localhost:8080/bookservice/books/&lt;id&gt;
 </code></pre></div>
@@ -11457,11 +11478,17 @@ public class JpademoApplication {
     &quot;price&quot;: 12
   }
 </code></pre></div>
-<p><img alt="image-20221027120144112" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120144112.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120144112.png width=80% heigth=80%/>
+</div>
+
 <h3 id="5-book-delete">5. 如需从数据库中删除特定的 Book，使用 DELETE 请求调用以下接口</h3>
 <div class="highlight"><pre><span></span><code>  http://localhost:8080/bookservice/books/&lt;id&gt;
 </code></pre></div>
-<p><img alt="image-20221027120306830" src="https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120306830.png" /></p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/hibernate/image-20221027120306830.png width=80% heigth=80%/>
+</div>
+
 <div class="highlight"><pre><span></span><code>mysql&gt; select * from book;
 +----+--------------------------+----------+----------------------------------+-------+-------+-------------+
 | id | author                   | category | name                             | pages | price | publication |
