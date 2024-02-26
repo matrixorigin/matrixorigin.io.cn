@@ -28,12 +28,16 @@ MO-Tester 相关用例、结果和报告的放在 [MatrixOne](https://github.com
 
    ```
    git clone https://github.com/matrixorigin/mo-tester.git
+   或者  
+   git clone https://githubfast.com/matrixorigin/mo-tester.git
    ```
 
 * 克隆 *matrixone* 仓库。
 
    ```
    git clone https://github.com/matrixorigin/matrixone.git
+   或者
+   git clone https://githubfast.com/matrixorigin/matrixone.git
    ```
 
 ### 2. 配置 MO-Tester
@@ -150,6 +154,8 @@ c	d
    ```
    cd matrixone
    git pull https://github.com/matrixorigin/matrixone.git
+   或者
+   git pull https://githubfast.com/matrixorigin/matrixone.git
    ```
 
 2. 先切换进入到 *mo-tester* 仓库，运行如下命令，即可运行 *matrixone* 仓库内所有的测试用例：
@@ -172,6 +178,8 @@ c	d
    ```
    cd matrixone
    git pull https://github.com/matrixorigin/matrixone.git
+   或者
+   git pull https://githubfast.com/matrixorigin/matrixone.git
    ```
 
 2. 先切换进入到 *mo-tester* 仓库，运行如下命令，即可运行 *matrixone* 仓库内 *cases/transaction/* 路径的所有测试用例：
@@ -206,6 +214,8 @@ c	d
    ```
    cd matrixone
    git pull https://github.com/matrixorigin/matrixone.git
+   或者
+   git pull https://githubfast.com/matrixorigin/matrixone.git
    ```
 
 2. 先切换进入到 *mo-tester* 仓库，运行如下命令，即可运行 *mo-tester* 仓库内 *cases/transaction/atomicity.sql* 测试用例：
@@ -237,6 +247,8 @@ c	d
    ```
    cd matrixone
    git pull https://github.com/matrixorigin/matrixone.git
+   或者
+   git pull https://githubfast.com/matrixorigin/matrixone.git
    ```
 
 2. 生成测试结果：

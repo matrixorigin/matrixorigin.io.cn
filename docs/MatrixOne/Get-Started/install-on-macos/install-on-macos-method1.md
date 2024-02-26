@@ -183,7 +183,7 @@ PPROF_PROFILE_DURATION="30"
 
 ```
 mo_ctl set_conf MO_PATH="/Users/username/mo/matrixone" # 设置自定义的MatrixOne下载路径
-mo_ctl set_conf MO_GIT_URL="https://ghproxy.com/https://github.com/matrixorigin/matrixone.git" #针对github原地址下载过慢问题，设置代理下载地址
+mo_ctl set_conf MO_GIT_URL="https://githubfast.com/matrixorigin/matrixone.git" #针对github原地址下载过慢问题，设置镜像下载地址
 mo_ctl set_conf MO_DEFAULT_VERSION="v1.1.1" # 设置所下载的MatrixOne版本
 ```
 
