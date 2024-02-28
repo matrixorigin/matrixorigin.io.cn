@@ -2264,6 +2264,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Tutorial/develop-python-crud-demo/" class="md-nav__link">
+        Python 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Tutorial/springboot-hibernate-crud-demo/" class="md-nav__link">
         SpringBoot 和 JPA 基础示例
       </a>
@@ -2292,8 +2306,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/develop-python-crud-demo/" class="md-nav__link">
-        Python 基础示例
+      <a href="../../../../Tutorial/sqlalchemy-python-crud-demo/" class="md-nav__link">
+        SQLAlchemy 基础示例
       </a>
     </li>
   
@@ -2306,8 +2320,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Tutorial/sqlalchemy-python-crud-demo/" class="md-nav__link">
-        SQLAlchemy 基础示例
+      <a href="../../../../Tutorial/django-python-crud-demo/" class="md-nav__link">
+        Django 基础示例
       </a>
     </li>
   
@@ -7968,6 +7982,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../str-to-date/" class="md-nav__link">
+        STR_TO_DATE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../time/" class="md-nav__link">
         TIME()
       </a>
@@ -8081,13 +8109,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     示例
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    限制
   </a>
   
 </li>
@@ -10588,13 +10609,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    限制
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -10620,8 +10634,9 @@
 
 <h1 id="to_date"><strong>TO_DATE()</strong></h1>
 <h2 id="_1"><strong>函数说明</strong></h2>
-<p><code>TO_DATE()</code> 函数按照指定日期或时间显示格式，将字符串转换为日期或日期时间类型。</p>
-<p>格式字符串可以包含文字字符和以%开头的格式说明符。format 中的字面字符必须匹配 str 中的字面字符。format 中的格式说明符必须匹配 str 中的日期或时间部分。</p>
+<p><code>TO_DATE()</code> 函数按照指定日期或时间显示格式，将字符串转换为日期或日期时间类型，与 <a href="../str-to-date/"><code>STR_TO_DATE()</code></a> 同义。</p>
+<p>格式字符串可以包含文字字符和以%开头的格式说明符。format 中的字面字符与格式说明符必须与 str 匹配，如果不能按照 format 解析 str 或者其中任何一个参数为 NULL，<code>TO_DATE</code> 函数将返回 NULL。</p>
+<p>有关可以使用的格式说明符，请参阅 <a href="../date-format/"><code>DATE_FORMATE()</code></a> 函数描述。</p>
 <h2 id="_2"><strong>函数语法</strong></h2>
 <div class="highlight"><pre><span></span><code>&gt; TO_DATE(str,format)
 </code></pre></div>
@@ -10629,22 +10644,21 @@
 <table>
 <thead>
 <tr>
-<th>Arguments</th>
-<th>Description</th>
+<th>参数</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>str</td>
-<td>Required.  <br>如果 <code>str</code> 为 <code>NULL</code>，则函数返回 <code>NULL</code>。 <br>如果从 <code>str</code> 中的 <code>date</code> 或 <code>datetime</code> 值不合法，则 <code>TO_DATE()</code> 将返回 <code>NULL</code> 并产生警告。</td>
+<td>要格式化为日期的字符串 (输入字符串)</td>
 </tr>
 <tr>
 <td>format</td>
-<td>可选参数。表示返回值格式的格式字符串。<br> 如果省略 format，则返回一个 <code>DATETIME</code> 值。 <br>如果 format 为空，则返回 <code>NULL</code>。<br>如果 format 已存在指定格式，则返回值为 <code>VARCHAR</code>。</td>
+<td>要使用的格式字符串</td>
 </tr>
 </tbody>
 </table>
-<p>说明：格式字符串可以包含文字字符和以 <em>%</em> 开头的格式说明符。<code>format</code> 中的字面字符必须匹配 <code>str</code> 中的字面字符。<code>format</code> 中的格式说明符必须匹配 <code>str</code> 中的日期或时间部分。</p>
 <h2 id="_4"><strong>示例</strong></h2>
 <div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;2022-01-06 10:20:30&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-%d %H:%i:%s&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">result</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">---------------------+</span>
@@ -10652,10 +10666,41 @@
 <span class="o">+</span><span class="c1">---------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="mi">2022</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">06</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">30</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">---------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">                </span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;2022/11/01&#39;</span><span class="p">,</span><span class="s1">&#39;%Y/%m/%d&#39;</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">-------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">to_date</span><span class="p">(</span><span class="mi">2022</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="mi">01</span><span class="p">,</span><span class="w"> </span><span class="o">%</span><span class="n">Y</span><span class="o">/%</span><span class="n">m</span><span class="o">/%</span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="mi">2022</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">01</span><span class="w">                    </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------------------</span>
+
+<span class="c1">-- format 参数支持表达式</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">to_date</span><span class="p">(</span><span class="s1">&#39;2008-01-01&#39;</span><span class="p">,</span><span class="k">replace</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">,</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">,</span><span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">result</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">result</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="mi">2008</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="c1">--TO_DATE 函数在根据格式字符串 format 解析输入字符串 str 时，忽略输入字符串 str 末尾的额外字符</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;25,5,2022 extra characters&#39;</span><span class="p">,</span><span class="s1">&#39;%d,%m,%Y&#39;</span><span class="p">);</span><span class="w"> </span>
+<span class="o">+</span><span class="c1">-----------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">to_date</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2022</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">characters</span><span class="p">,</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="p">,</span><span class="o">%</span><span class="n">m</span><span class="p">,</span><span class="o">%</span><span class="n">Y</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="mi">2022</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span><span class="w">                                    </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------------------------------------------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;2022&#39;</span><span class="p">,</span><span class="s1">&#39;%Y&#39;</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">-------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">to_date</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="w"> </span><span class="o">%</span><span class="n">Y</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">              </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="_5"><strong>限制</strong></h2>
-<p>目前 date 格式只支持 <code>yyyy-mm-dd</code> 和 <code>yyyymmdd</code> 的数据格式。  </p>
 
 
 

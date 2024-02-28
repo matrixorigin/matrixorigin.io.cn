@@ -2344,6 +2344,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Tutorial/develop-python-crud-demo/" class="md-nav__link">
+        Python 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Tutorial/springboot-hibernate-crud-demo/" class="md-nav__link">
         SpringBoot 和 JPA 基础示例
       </a>
@@ -2372,8 +2386,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tutorial/develop-python-crud-demo/" class="md-nav__link">
-        Python 基础示例
+      <a href="../../../Tutorial/sqlalchemy-python-crud-demo/" class="md-nav__link">
+        SQLAlchemy 基础示例
       </a>
     </li>
   
@@ -2386,8 +2400,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tutorial/sqlalchemy-python-crud-demo/" class="md-nav__link">
-        SQLAlchemy 基础示例
+      <a href="../../../Tutorial/django-python-crud-demo/" class="md-nav__link">
+        Django 基础示例
       </a>
     </li>
   
@@ -8040,6 +8054,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Reference/Functions-and-Operators/Datetime/str-to-date/" class="md-nav__link">
+        STR_TO_DATE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Reference/Functions-and-Operators/Datetime/time/" class="md-nav__link">
         TIME()
       </a>
@@ -10666,14 +10694,10 @@
 <p><strong>-net-buffer-length [数据包大小]</strong>：数据包大小，即 SQL 语句字符的总大小。数据包是 SQL 导出数据的基本单位，如果不设置参数，则默认 1048576 Byte（1M），最大可设置 16777216 Byte（16M）。假如这里的参数设置为 16777216 Byte（16M），那么，当要导出大于 16M 的数据时，会把数据拆分成多个 16M 的数据包，除最后一个数据包之外，其它数据包大小都为 16M。</p>
 </li>
 <li>
-<p><strong>-csv</strong>：可选参数。当设置此参数时，表示导出的数据为 <em>CSV</em> 格式，并将所有的数据表的数据导出为当前目录下 <code>${databaseName}_${tableName}.csv</code>，如果参数为空，则默认以 DML 方式（INSERT 语句）导出数据。</p>
+<p><strong>-csv</strong>：默认值为 false。当设置为 true 时表示导出的数据为 csv 格式，生成数据库和表结构以及导入的 SQL 语句将会保存在生成的 sql 文件中，而数据则导出到当前目录下生成的 ${databaseName} _${tableName}. csv 文件中。</p>
 </li>
 <li>
-<p><strong>--local-infile</strong>：默认值为 true，仅在 <strong>-csv</strong> 参数存在时产生影响，否则无作用。具体来说此参数仅影响 mo-dump 输出的 <em>importStatement.sql</em> 脚本中 <code>LOAD DATA [LOCAL] INFILE</code> 语句是否含有 <code>LOCAL</code>。</p>
-<ul>
-<li><strong>--local-infile=true</strong>：脚本中使用 <code>LOAD DATA LOCAL INFILE</code>，既适用于于本地数据导入本地 MatrixOne，也适用于本地数据导入远程 MatrixOne。</li>
-<li><strong>--local-infile=false</strong>：脚本中使用 <code>LOAD DATA INFILE</code>，仅适用于本地数据导入本地 MatrixOne，导入效率高于 <code>LOAD DATA LOCAL INFILE</code>，更多可参考 <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data/">LOAD DATA INFILE</a>。</li>
-</ul>
+<p><strong>--local-infile</strong>：默认值为 true，仅在参数 -csv 设置为 true 时生效。当参数为 true 时，mo-dump 输出的 sql 文件脚本中为 LOAD DATA LOCAL INFILE。当参数为 false 时，mo-dump 输出的 sql 文件脚本中为 LOAD DATA INFILE。</p>
 </li>
 <li>
 <p><strong>-tbl [tableName]</strong>：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中添加参数 <code>-tbl</code> 和 <code>tableName</code>。如果指定多个表，表名之间用 <code>,</code> 分隔。</p>
@@ -10767,8 +10791,8 @@ unzip mo-dump-1.0.0-linux-arm64.zip
 <div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db mydb1,mydb2 &gt; importMydb.sql
 </code></pre></div>
 <p><strong>示例 2</strong></p>
-<p>如果你想将数据库 <em>mydb</em> 内的表的数据导出为 <em>CSV</em> 格式，数据库 <em>mydb</em> 中的所有表的数据将会以 <code>${databaseName}_${tableName}.csv</code> 的格式导出在当前目录下，生成数据库和表结构以及导入的 SQL 语句将会保存在 <em>importMydbWithCsv.sql</em> 文件中：</p>
-<div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db mydb -csv &gt; importMydbWithCsv.sql
+<p>如果你想将数据库 <em>mydb</em> 内的表的数据导出为 <em>CSV</em> 格式，数据库 <em>mydb</em> 中的所有表的数据将会以 <code>${databaseName}_${tableName}.csv</code> 的格式导出在当前目录下，生成数据库和表结构以及导入的 SQL 语句将会保存在 <em>mydb.sql</em> 文件中：</p>
+<div class="highlight"><pre><span></span><code>./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db mydb -csv &gt; mydb.sql
 </code></pre></div>
 <p><strong>示例 3</strong></p>
 <p>如果要在数据库中指定生成某一个表或者某几个表的备份，可以运行以下命令。该命令将生成数据库 <em>db1</em> 中 <em>t1</em> 表和 <em>t2</em> 表的结构和数据备份，保存在 <em>tab2.sql</em> 文件中。</p>
