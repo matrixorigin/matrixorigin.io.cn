@@ -152,10 +152,11 @@ nav:
         - UDF python 进阶: MatrixOne/Develop/udf/udf-python-advanced.md
       - 应用开发示例:
         - Java 基础示例: MatrixOne/Tutorial/develop-java-crud-demo.md
+        - Python 基础示例: MatrixOne/Tutorial/develop-python-crud-demo.md
         - SpringBoot 和 JPA 基础示例: MatrixOne/Tutorial/springboot-hibernate-crud-demo.md
         - SpringBoot 和 MyBatis 基础示例: MatrixOne/Tutorial/springboot-mybatis-crud-demo.md
-        - Python 基础示例: MatrixOne/Tutorial/develop-python-crud-demo.md
         - SQLAlchemy 基础示例: MatrixOne/Tutorial/sqlalchemy-python-crud-demo.md
+        - Django 基础示例: MatrixOne/Tutorial/django-python-crud-demo.md
         - Golang 基础示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
         - Gorm 基础示例: MatrixOne/Tutorial/gorm-golang-crud-demo.md
       - 生态工具:
