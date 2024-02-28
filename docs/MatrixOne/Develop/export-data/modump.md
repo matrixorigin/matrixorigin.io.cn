@@ -37,9 +37,9 @@ MatrixOne 支持以下两种方式导出数据：
 
 - **-net-buffer-length [数据包大小]**：数据包大小，即 SQL 语句字符的总大小。数据包是 SQL 导出数据的基本单位，如果不设置参数，则默认 1048576 Byte（1M），最大可设置 16777216 Byte（16M）。假如这里的参数设置为 16777216 Byte（16M），那么，当要导出大于 16M 的数据时，会把数据拆分成多个 16M 的数据包，除最后一个数据包之外，其它数据包大小都为 16M。
 
-- **-csv**：默认值为 false。当设置为 true 时表示导出的数据为 csv 格式，生成数据库和表结构以及导入的 SQL 语句将会保存在生成的 csv 文件中，而数据则导出到当前目录下生成的 ${databaseName} _${tableName}. csv 文件中。
+- **-csv**：默认值为 false。当设置为 true 时表示导出的数据为 csv 格式，生成数据库和表结构以及导入的 SQL 语句将会保存在生成的 sql 文件中，而数据则导出到当前目录下生成的 ${databaseName} _${tableName}. csv 文件中。
 
-- **--local-infile**：默认值为 true，仅在参数 -csv 设置为 true 时生效。当参数为 true 时，mo-dump 输出的 csv 文件脚本中为 LOAD DATA LOCAL INFILE。当参数为 false 时，mo-dump 输出的 csv 文件脚本中为 LOAD DATA INFILE。
+- **--local-infile**：默认值为 true，仅在参数 -csv 设置为 true 时生效。当参数为 true 时，mo-dump 输出的 sql 文件脚本中为 LOAD DATA LOCAL INFILE。当参数为 false 时，mo-dump 输出的 sql 文件脚本中为 LOAD DATA INFILE。
 
 - **-tbl [tableName]**：可选参数。如果参数为空，则导出整个数据库。如果要备份指定表，则可以在命令中添加参数 `-tbl` 和 `tableName`。如果指定多个表，表名之间用 `,` 分隔。
 
@@ -163,10 +163,10 @@ MatrixOne 支持以下两种方式导出数据：
 
 **示例 2**
 
-如果你想将数据库 *mydb* 内的表的数据导出为 *CSV* 格式，数据库 *mydb* 中的所有表的数据将会以 `${databaseName}_${tableName}.csv` 的格式导出在当前目录下，生成数据库和表结构以及导入的 SQL 语句将会保存在 *mydb.csv* 文件中：
+如果你想将数据库 *mydb* 内的表的数据导出为 *CSV* 格式，数据库 *mydb* 中的所有表的数据将会以 `${databaseName}_${tableName}.csv` 的格式导出在当前目录下，生成数据库和表结构以及导入的 SQL 语句将会保存在 *mydb.sql* 文件中：
 
 ```
-./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db mydb -csv > mydb.csv
+./mo-dump -u root -p 111 -h 127.0.0.1 -P 6001 -db mydb -csv > mydb.sql
 ```
 
 **示例 3**
