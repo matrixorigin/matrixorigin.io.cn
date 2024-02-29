@@ -36,7 +36,7 @@ mysql> CREATE TABLE test.select (ACCOUNT int);
 ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; check the manual that corresponds to your MatrixOne server version for the right syntax to use. syntax error at line 1 column 24 near "select (ACCOUNT int)";
 ```
 
-下面的列表显示了 Matrixone 中的保留关键字和非保留关键字，其中，在 MySQL 中不为关键字的用  **(M)** 标记。
+下面的列表显示了 Matrixone 中的保留关键字和非保留关键字，其中，在 MySQL 中不为关键字的用 **(M)** 标记。
 
 ## 保留关键字
 
@@ -290,7 +290,7 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 
 ### _
 
-- _BINARY  **(M)**
+- _BINARY **(M)**
 
 ## 非保留关键字
 
