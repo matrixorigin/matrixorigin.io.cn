@@ -68,7 +68,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - CHECK
 - COLLATE
 - COLUMN
-- COMMENT
 - CONFIG **(M)**
 - CONSTRAINT
 - CONVERT
@@ -341,6 +340,7 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - COLUMN_FORMAT
 - COLUMN_NUMBER **(M)**
 - COLUMNS
+- COMMENT
 - COMMIT
 - COMMITTED
 - COMPACT
