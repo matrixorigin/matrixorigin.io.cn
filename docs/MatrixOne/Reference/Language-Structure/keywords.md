@@ -23,8 +23,8 @@ Query OK, 0 rows affected (0.02 sec)
    将非保留关键字作为标识符使用时，可以直接使用，无需使用反引号包裹。
 
 ```
-\\BEGIN 未非保留关键字，可以无需使用反引号包裹
-mysql> CREATE TABLE `select` (BEGIN int);
+\\ACCOUNT 为非保留关键字，可以无需使用反引号包裹
+mysql> CREATE TABLE `select` (ACCOUNT int);
 Query OK, 0 rows affected (0.01 sec)
 ```
 
@@ -32,15 +32,16 @@ Query OK, 0 rows affected (0.01 sec)
     与 MySQL 不同，在 MatrixOne 中，如果使用了限定符*.*，保留关键字如果不使用反引号包裹也会产生报错，建议在创建表和数据库时，避免使用保留关键字：
 
 ```
-mysql> CREATE TABLE test.select (BEGIN int);
-ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; check the manual that corresponds to your MatrixOne server version for the right syntax to use. syntax error at line 1 column 24 near "select (BEGIN int)";
+mysql> CREATE TABLE test.select (ACCOUNT int);
+ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; check the manual that corresponds to your MatrixOne server version for the right syntax to use. syntax error at line 1 column 24 near "select (ACCOUNT int)";
 ```
+
+下面的列表显示了 Matrixone 中的保留关键字和非保留关键字，其中，在 MySQL 中不为关键字的用 **(M)** 标记。
 
 ## 保留关键字
 
 ### A
 
-- ACCESSIBLE
 - ADD
 - ALL
 - ALTER
@@ -48,23 +49,18 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - AND
 - AS
 - ASC
-- ASENSITIVE
 
 ### B
 
-- BEFORE
 - BEGIN
 - BETWEEN
-- BIGINT
 - BINARY
-- BLOB
 - BOTH
 - BY
 
 ### C
 
 - CALL
-- CASCADE
 - CASE
 - CHANGE
 - CHAR
@@ -72,19 +68,16 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - CHECK
 - COLLATE
 - COLUMN
-- CONDITION
-- CONFIG
+- CONFIG **(M)**
 - CONSTRAINT
-- CONTINUE
 - CONVERT
 - CREATE
 - CROSS
 - CURRENT_DATE
-- CURRENT_ROLE
+- CURRENT_ROLE **(M)**
 - CURRENT_TIME
 - CURRENT_TIMESTAMP
 - CURRENT_USER
-- CURSOR
 
 ### D
 
@@ -94,8 +87,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - DAY_MICROSECOND
 - DAY_MINUTE
 - DAY_SECOND
-- DEC
-- DECIMAL
 - DECLARE
 - DEFAULT
 - DELAYED
@@ -103,16 +94,12 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - DENSE_RANK
 - DESC
 - DESCRIBE
-- DETERMINISTIC
 - DISTINCT
-- DISTINCTROW
 - DIV
-- DOUBLE
 - DROP
 
 ### E
 
-- EACH
 - ELSE
 - ELSEIF
 - ENCLOSED
@@ -121,16 +108,11 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - ESCAPED
 - EXCEPT
 - EXISTS
-- EXIT
 - EXPLAIN
 
 ### F
 
-- FALSE
-- FETCH
-- FLOAT
-- FLOAT4
-- FLOAT8
+- FALSE **(M)**
 - FOR
 - FORCE
 - FOREIGN
@@ -140,9 +122,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 
 ### G
 
-- GENERATED
-- GET
-- GRANT
 - GROUP
 - GROUPS
 
@@ -158,25 +137,21 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 
 - IF
 - IGNORE
-- ILIKE
+- ILIKE **(M)**
 - IN
 - INDEX
 - INFILE
 - INNER
 - INOUT
-- INSENSITIVE
 - INSERT
-- INT
 - INT1
 - INT2
 - INT3
 - INT4
 - INT8
-- INTEGER
 - INTERSECT
 - INTERVAL
 - INTO
-- IO_AFTER_GTIDS
 - IS
 - ITERATE
 
@@ -187,7 +162,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 ### K
 
 - KEY
-- KEYS
 - KILL
 
 ### L
@@ -197,47 +171,32 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - LEFT
 - LIKE
 - LIMIT
-- LINEAR
 - LINES
 - LOAD
 - LOCALTIME
 - LOCALTIMESTAMP
 - LOCK
-- LONG
-- LONGBLOB
-- LONGTEXT
 - LOOP
 - LOW_PRIORITY
 
 ### M
 
-- MASTER_BIND
 - MATCH
 - MAXVALUE
-- MEDIUMBLOB
-- MEDIUMINT
-- MEDIUMTEXT
-- MIDDLEINT
-- MINUS
+- MINUS **(M)**
 - MINUTE_MICROSECOND
 - MINUTE_SECOND
 - MOD
-- MODIFIES
 
 ### N
 
 - NATURAL
 - NOT
-- NO_WRITE_TO_BINLOG
 - NULL
-- NUMERIC
 
 ### O
 
 - ON
-- OPTIMIZE
-- OPTIMIZER_COSTS
-- OPTION
 - OPTIONALLY
 - OR
 - ORDER
@@ -249,9 +208,7 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 ### P
 
 - PARTITION
-- PRECISION
 - PRIMARY
-- PROCEDURE
 
 ### Q
 
@@ -259,29 +216,19 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 
 ### R
 
-- RANGE
 - RANK
-- READ
-- READS
-- READ_WRITE
-- REAL
 - RECURSIVE
 - REFERENCES
 - REGEXP
-- RELEASE
 - RENAME
 - REPEAT
 - REPLACE
 - REQUIRE
-- RESIGNAL
-- RESTRICT
-- RETURN
-- REVOKE
 - RIGHT
 - RLIKE
 - ROW
-- ROWS
 - ROW_NUMBER
+- ROWS
 
 ### S
 
@@ -289,25 +236,14 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - SCHEMAS
 - SECOND_MICROSECOND
 - SELECT
-- SENSITIVE
 - SEPARATOR
 - SET
 - SHOW
-- SIGNAL
-- SMALLINT
-- SPATIAL
-- SPECIFIC
-- SQL
-- SQLEXCEPTION
-- SQLSTATE
-- SQLWARNING
 - SQL_BIG_RESULT
 - SQL_BUFFER_RESULT
-- SQL_CALC_FOUND_ROWS
 - SQL_SMALL_RESULT
 - SSL
 - STARTING
-- STORED
 - STRAIGHT_JOIN
 
 ### T
@@ -316,21 +252,14 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - TEMPORARY
 - TERMINATED
 - THEN
-- TINYBLOB
-- TINYINT
-- TINYTEXT
 - TO
 - TRAILING
-- TRIGGER
-- TRUE
+- TRUE **(M)**
 
 ### U
 
-- UNDO
 - UNION
 - UNIQUE
-- UNLOCK
-- UNSIGNED
 - UNTIL
 - UPDATE
 - USAGE
@@ -343,11 +272,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 ### V
 
 - VALUES
-- VARBINARY
-- VARCHAR
-- VARCHARACTER
-- VARYING
-- VIRTUAL
 
 ### W
 
@@ -355,7 +279,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - WHERE
 - WHILE
 - WITH
-- WRITE
 
 ### X
 
@@ -365,95 +288,83 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 
 - YEAR_MONTH
 
-### Z
+### _
 
-- ZEROFILL
+- _BINARY **(M)**
 
 ## 非保留关键字
 
 ### A
 
 - ACCOUNT
-- ACCOUNTS
+- ACCOUNTS **(M)**
 - ACTION
-- ADDDATE
-- ADMIN_NAME
+- ADMIN_NAME **(M)**
 - AFTER
 - AGAINST
 - ALGORITHM
 - ANY
-- APPROX_COUNT
-- APPROX_COUNT_DISTINCT
-- APPROX_PERCENTILE
 - ASCII
 - ATTRIBUTE
-- AUTOEXTEND_SIZE
 - AUTO_INCREMENT
-- AUTO_RANDOM
-- AVG
+- AUTO_RANDOM **(M)**
+- AUTOEXTEND_SIZE
 - AVG_ROW_LENGTH
 
 ### B
 
-- BACKEND
+- BACKEND **(M)**
 - BACKUP
-- BINDINGS
+- BIGINT
+- BINDINGS **(M)**
 - BIT
-- BIT_AND
-- BIT_CAST
-- BIT_OR
+- BLOB
 - BOOL
 - BOOLEAN
-- BSI
+- BSI **(M)**
 - BTREE
 
 ### C
 
-- CANCEL
+- CANCEL **(M)**
+- CASCADE
 - CASCADED
-- CAST
 - CHAIN
 - CHARSET
 - CHECKSUM
 - CIPHER
 - CLIENT
-- CLUSTER
-- CLUSTER_CENTERS
+- CLUSTER **(M)**
 - COALESCE
 - COLLATION
-- COLUMNS
 - COLUMN_FORMAT
-- COLUMN_NUMBER
+- COLUMN_NUMBER **(M)**
+- COLUMNS
 - COMMENT
 - COMMIT
 - COMMITTED
 - COMPACT
 - COMPRESSED
 - COMPRESSION
-- CONNECT
+- CONNECT **(M)**
 - CONNECTION
-- CONNECTOR
-- CONNECTORS
+- CONNECTOR **(M)**
+- CONNECTORS **(M)**
 - CONSISTENT
-- COPY
-- COUNT
-- CREDENTIALS
-- CURDATE
+- COPY **(M)**
+- CREDENTIALS **(M)**
 - CURRENT
-- CURRVAL
-- CURTIME
-- CYCLE
+- CYCLE **(M)**
 
 ### D
 
-- DAEMON
+- DAEMON **(M)**
 - DATA
 - DATE
 - DATETIME
-- DATE_ADD
-- DATE_SUB
 - DAY
 - DEALLOCATE
+- DECIMAL
 - DEFINER
 - DELAY_KEY_WRITE
 - DIRECTORY
@@ -461,7 +372,8 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - DISCARD
 - DISK
 - DO
-- DRAINER
+- DOUBLE
+- DRAINER **(M)**
 - DUPLICATE
 - DYNAMIC
 
@@ -471,32 +383,32 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - ENCRYPTION
 - ENFORCED
 - ENGINE
-- ENGINES
 - ENGINE_ATTRIBUTE
+- ENGINES
 - ENUM
 - ERRORS
 - EVENT
 - EVENTS
-- EXCLUSIVE
+- EXCLUSIVE **(M)**
 - EXECUTE
-- EXPANSION
+- EXPANSION **(M)**
 - EXPIRE
 - EXTENDED
 - EXTENSION
-- EXTERNAL
-- EXTRACT
+- EXTERNAL **(M)**
 
 ### F
 
 - FAILED_LOGIN_ATTEMPTS
 - FIELDS
 - FILE
-- FILESYSTEM
-- FILL
+- FILESYSTEM **(M)**
+- FILL **(M)**
 - FIRST
 - FIXED
+- FLOAT
 - FOLLOWING
-- FORCE_QUOTE
+- FORCE_QUOTE **(M)**
 - FORMAT
 - FULL
 
@@ -505,15 +417,14 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - GEOMETRY
 - GEOMETRYCOLLECTION
 - GLOBAL
+- GRANT
 - GRANTS
-- GROUP_CONCAT
 
 ### H
 
 - HANDLER
 - HASH
-- HEADER
-- HEADERS
+- HEADER **(M)**
 - HISTORY
 - HOUR
 
@@ -521,68 +432,74 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 
 - IDENTIFIED
 - IMPORT
-- INCREMENT
+- INCREMENT **(M)**
 - INDEXES
-- INLINE
-- INPLACE
+- INLINE **(M)**
+- INPLACE **(M)**
 - INSERT_METHOD
-- INSTANT
+- INSTANT **(M)**
+- INT
+- INTEGER
 - INVISIBLE
 - INVOKER
 - ISOLATION
 - ISSUER
-- IVFFLAT
+- IVFFLAT **(M)**
 
 ### J
 
 - JSON
-- JSONTYPE
+- JSONTYPE **(M)**
 
 ### K
 
 - KEY_BLOCK_SIZE
+- KEYS
 
 ### L
 
 - LANGUAGE
 - LAST
-- LASTVAL
 - LESS
 - LEVEL
+- LINEAR
 - LINESTRING
 - LIST
-- LISTS
+- LISTS **(M)**
 - LOCAL
 - LOCKS
-- LOW_CARDINALITY
+- LONGBLOB
+- LONGTEXT
+- LOW_CARDINALITY **(M)**
 
 ### M
 
-- MANAGE
-- MAX
+- MANAGE **(M)**
+- MASTER
 - MAX_CONNECTIONS_PER_HOUR
-- MAX_FILE_SIZE
+- MAX_FILE_SIZE **(M)**
 - MAX_QUERIES_PER_HOUR
 - MAX_ROWS
-- MAX_UPDATE_PER_HOUR
+- MAX_UPDATE_PER_HOUR **(M)**
 - MAX_USER_CONNECTIONS
-- MEDIAN
+- MEDIAN **(M)**
+- MEDIUMBLOB
+- MEDIUMINT
+- MEDIUMTEXT
 - MEMORY
 - MERGE
 - MICROSECOND
-- MID
-- MIN
-- MINUTE
-- MINVALUE
 - MIN_ROWS
+- MINUTE
+- MINVALUE **(M)**
 - MODE
 - MODIFY
-- MODUMP
+- MODUMP **(M)**
 - MONTH
 - MULTILINESTRING
 - MULTIPOINT
 - MULTIPOLYGON
-- MYSQL_COMPATIBILITY_MODE
+- MYSQL_COMPATIBILITY_MODE **(M)**
 
 ### N
 
@@ -590,75 +507,82 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - NCHAR
 - NEVER
 - NEXT
-- NEXTVAL
 - NO
-- NODE
+- NODE **(M)**
 - NONE
-- NOW
 - NULLS
+- NUMERIC
 
 ### O
 
 - OFFSET
 - ONLY
+- OP_TYPE **(M)**
 - OPEN
+- OPTIMIZE
+- OPTION
 - OPTIONAL
-- OP_TYPE
-- OWNERSHIP
+- OWNERSHIP **(M)**
 
 ### P
 
 - PACK_KEYS
-- PARALLEL
+- PARALLEL **(M)**
+- PARALLELISM **(M)**
 - PARSER
 - PARTIAL
 - PARTITIONS
 - PASSWORD
 - PASSWORD_LOCK_TIME
-- PAUSE
-- PERCENT
+- PAUSE **(M)**
+- PERCENT **(M)**
 - PERSIST
 - PLUGINS
 - POINT
 - POLYGON
-- POSITION
 - PRECEDING
 - PREPARE
 - PREV
 - PRIVILEGES
+- PROCEDURE
 - PROCESSLIST
 - PROFILES
-- PROPERTIES
+- PROPERTIES **(M)**
 - PROXY
-- PUBLICATION
-- PUBLICATIONS
-- PUMP
+- PUBLICATION **(M)**
+- PUBLICATIONS **(M)**
+- PUMP **(M)**
 
 ### Q
 
 - QUARTER
 - QUERY
-- QUERY_RESULT
+- QUERY_RESULT **(M)**
 
 ### R
 
 - RANDOM
+- RANGE
+- READ
+- REAL
 - REDUNDANT
 - REFERENCE
-- REINDEX
+- RELEASE
 - RELOAD
 - REORGANIZE
 - REPAIR
 - REPEATABLE
 - REPLICATION
 - RESET
-- RESTRICTED
+- RESTRICT
+- RESTRICTED **(M)**
 - RESUME
 - RETURNS
 - REUSE
 - REVERSE
+- REVOKE
 - ROLE
-- ROLES
+- ROLES **(M)**
 - ROLLBACK
 - ROUTINE
 - ROW_COUNT
@@ -667,31 +591,31 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 
 ### S
 
-- S3OPTION
-- SAMPLE
-- SAN
+- S3OPTION **(M)**
+- SAMPLE **(M)**
+- SAN **(M)**
 - SECOND
 - SECONDARY
 - SECONDARY_ENGINE_ATTRIBUTE
 - SECURITY
-- SEQUENCE
-- SEQUENCES
+- SEQUENCE **(M)**
+- SEQUENCES **(M)**
 - SERIALIZABLE
-- SERVERS
+- SERVERS **(M)**
 - SESSION
-- SESSION_USER
-- SETVAL
 - SHARE
-- SHARED
+- SHARED **(M)**
 - SHUTDOWN
 - SIGNED
 - SIMPLE
 - SLAVE
-- SLIDING
+- SLIDING **(M)**
+- SMALLINT
 - SNAPSHOT
 - SOME
 - SOURCE
-- SPHERICAL_KMEANS
+- SPATIAL
+- SQL
 - SQL_CACHE
 - SQL_NO_CACHE
 - SQL_TSI_DAY
@@ -702,51 +626,42 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - SQL_TSI_SECOND
 - SQL_TSI_WEEK
 - SQL_TSI_YEAR
-- STAGE
-- STAGEOPTION
-- STAGES
+- STAGE **(M)**
+- STAGEOPTION **(M)**
+- STAGES **(M)**
 - START
 - STATS_AUTO_RECALC
 - STATS_PERSISTENT
 - STATS_SAMPLE_PAGES
 - STATUS
-- STD
-- STDDEV
-- STDDEV_POP
-- STDDEV_SAMP
 - STORAGE
 - STREAM
-- SUBDATE
 - SUBJECT
 - SUBPARTITION
 - SUBPARTITIONS
-- SUBSCRIPTIONS
-- SUBSTR
-- SUBSTRING
-- SUM
+- SUBSCRIPTIONS **(M)**
 - SUPER
 - SUSPEND
-- SYSDATE
-- SYSTEM_USER
 
 ### T
 
+- TABLE_NUMBER **(M)**
+- TABLE_SIZE **(M)**
+- TABLE_VALUES **(M)**
 - TABLES
 - TABLESPACE
-- TABLE_NUMBER
-- TABLE_SIZE
-- TABLE_VALUES
-- TASK
+- TASK **(M)**
 - TEMPTABLE
 - TEXT
 - THAN
 - TIME
 - TIMESTAMP
-- TIMESTAMPDIFF
+- TINYBLOB
+- TINYINT
+- TINYTEXT
 - TRANSACTION
-- TRANSLATE
+- TRIGGER
 - TRIGGERS
-- TRIM
 - TRUNCATE
 - TYPE
 
@@ -756,21 +671,22 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - UNCOMMITTED
 - UNDEFINED
 - UNKNOWN
+- UNLOCK
+- UNSIGNED
 - URL
 - USER
-- UUID
+- UUID **(M)**
 
 ### V
 
 - VALIDATION
 - VALUE
+- VARBINARY
+- VARCHAR
 - VARIABLES
-- VARIANCE
-- VAR_POP
-- VAR_SAMP
-- VECF32
-- VECF64
-- VERBOSE
+- VECF32 **(M)**
+- VECF64 **(M)**
+- VERBOSE **(M)**
 - VIEW
 - VISIBLE
 
@@ -780,6 +696,7 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - WEEK
 - WITHOUT
 - WORK
+- WRITE
 
 ### X
 
@@ -791,8 +708,5 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 
 ### Z
 
-- ZONEMAP
-
-### _
-
-- _BINARY
+- ZEROFILL
+- ZONEMAP **(M)**
