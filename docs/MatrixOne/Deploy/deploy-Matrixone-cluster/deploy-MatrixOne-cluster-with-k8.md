@@ -154,7 +154,7 @@ __Note__: 以下操作如无说明，均在客户端机器执行。
     kubectl -n ${ns} create secret generic ${ca_secret_name} --from-file=${ca_file_name}=${ca_file_path}
     ```
 
-    - 在 MO 集群对象的 yaml 文件中配置 spec.logService.sharedStorage.s3.certificateRef 中配置相关的设置，如下：
+    - 在  MatrixOne 集群对象的 yaml 文件（下述部署步骤中的 mo.yaml 和 values.yaml 文件）中配置 spec.logService.sharedStorage.s3.certificateRef 中配置相关的设置，如下：
 
     ```
     sharedStorage:
