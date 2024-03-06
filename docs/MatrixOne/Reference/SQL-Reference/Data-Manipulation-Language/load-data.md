@@ -218,6 +218,9 @@ __Note:__ `LOAD` 语句中如果不加 `PARALLEL` 字段，对于 *CSV* 文件�
 
 有关导入这两种格式的文档，参见[导入*. csv* 格式数据](../../../Develop/import-data/bulk-load/load-csv.md)和[导入 JSONLines 数据](../../../Develop/import-data/bulk-load/load-jsonline.md)。
 
+!!! note
+    `LOAD DATA` 支持导入压缩文件的类型有`lz4`，`gz`，`bz2`，`zlib`，`flate`，暂不支持导入以 `.tar`或者`.tar.xx`结尾的压缩文件。
+
 ### *CSV* 格式标准说明
 
 MatrixOne 加载 *CSV* 格式符合 RFC4180 标准，规定 *CSV* 格式如下：
