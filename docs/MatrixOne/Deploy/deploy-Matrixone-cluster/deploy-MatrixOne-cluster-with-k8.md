@@ -113,7 +113,7 @@ __Note__: 以下操作如无说明，均在客户端机器执行。
 
 ## 部署 MatrixOne
 
-本节介绍了 YMAL 和 Chart 两种部署 MatrixOne 的方式。
+本节介绍了 YAML 和 Chart 两种部署 MatrixOne 的方式。
 
 ### 开始前准备
 
