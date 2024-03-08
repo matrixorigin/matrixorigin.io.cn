@@ -91,17 +91,15 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      x86 架构系统安装包：
 
      ```bash
-     mkdir -p /root/matrixone & cd /root/
      wget https://github.com/matrixorigin/matrixone/releases/download/v1.1.1/mo-v1.1.1-linux-x86_64.zip
-     unzip -d matrixone/ mo-v1.1.1-linux-x86_64.zip
+     unzip mo-v1.1.1-linux-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
-     mkdir -p /root/matrixone & cd /root/
      wget https://github.com/matrixorigin/matrixone/releases/download/v1.1.1/mo-v1.1.1-linux-arm64.zip
-     unzip -d matrixone/ mo-v1.1.1-linux-arm64.zip
+     unzip mo-v1.1.1-linux-arm64.zip
      ```
 
     如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
@@ -114,17 +112,15 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
      x86 架构系统安装包：
 
      ```bash
-     mkdir -p /root/matrixone & cd /root/
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.1.1/mo-v1.1.1-linux-x86_64.zip
-     unzip -d matrixone/ mo-v1.1.1-linux-x86_64.zip
+     unzip mo-v1.1.1-linux-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
-     mkdir -p /root/matrixone & cd /root/
      curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.1.1/mo-v1.1.1-linux-arm64.zip
-     unzip -d matrixone/ mo-v1.1.1-linux-arm64.zip
+     unzip mo-v1.1.1-linux-arm64.zip
      ```
 
     如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
@@ -151,28 +147,32 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/insta
 
 ### 2. 设置 mo_ctl 的配置参数
 
-通过以下命令将 MatrixOne 的二进制解压文件目录设置到 mo_ctl 的 `MO_PATH` 参数上。mo_ctl 会自动寻找位于 `MO_PATH` 中的 `matrixone` 文件夹。
+通过以下命令调整参数：
 
 ```
-mo_ctl set_conf MO_PATH="/root"
+mo_ctl set_conf MO_PATH="/yourpath/mo-v1.1.1-xx-xx" #设置MatrixOne路径为二进制解压文件目录
+mo_ctl set_conf MO_CONF_FILE="/yourpath/mo-v1.1.1-xx-xx/etc/launch/launch.toml" #设置MatrixOne配置文件路径
+mo_ctl set_conf MO_DEPLOY_MODE=binary #设置MatrixOne部署方式，此为二进制部署方式
 ```
 
 ## 步骤 4：启动 MatrixOne 服务
 
 通过 `mo_ctl start` 命令一键启动 MatrixOne 服务。
 
-如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 `/data/mo/logs/` 中。
+如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 `/yourpath/mo-v1.1.1-xx-xx/matrixone/logs/` 中。
 
 ```
-root@VM-16-2-debian:~# mo_ctl start
-2023-07-07_09:55:01    [INFO]    No mo-service is running
-2023-07-07_09:55:01    [INFO]    Starting mo-service: cd /data/mo//matrixone/ && /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch/launch.toml >/data/mo//logs/stdout-20230707_095501.log 2>/data/mo//logs/stderr-20230707_095501.log
-2023-07-07_09:55:01    [INFO]    Wait for 2 seconds
-2023-07-07_09:55:03    [INFO]    At least one mo-service is running. Process info:
-2023-07-07_09:55:03    [INFO]    root      748128       1  2 09:55 ?        00:00:00 /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch/launch.toml
-2023-07-07_09:55:03    [INFO]    Pids:
-2023-07-07_09:55:03    [INFO]    748128
-2023-07-07_09:55:03    [INFO]    Start succeeded
+> mo_ctl start
+2024-03-07 14:34:04.942 UTC+0800    [INFO]    No mo-service is running
+2024-03-07 14:34:04.998 UTC+0800    [INFO]    Get conf succeeded: MO_DEPLOY_MODE="binary"
+2024-03-07 14:34:05.024 UTC+0800    [INFO]    GO memory limit(Mi): 14745
+2024-03-07 14:34:05.072 UTC+0800    [INFO]    Starting mo-service: cd /Users/admin/mo-v1.1.1-linux-arm64/ && GOMEMLIMIT=14745MiB /Users/admin/mo-v1.1.1-linux-arm64/mo-service -daemon -debug-http :9876 -launch /Users/admin/mo-v1.1.1-linux-arm64/etc/launch/launch.toml >/Users/admin/mo-v1.1.1-linux-arm64/matrixone/logs/stdout-20240307_143405.log 2>/Users/admin/mo-v1.1.1-linux-arm64/matrixone/logs/stderr-20240307_143405.log
+2024-03-07 14:34:05.137 UTC+0800    [INFO]    Wait for 2 seconds
+2024-03-07 14:34:07.261 UTC+0800    [INFO]    At least one mo-service is running. Process info: 
+  501 27145     1   0  2:34下午 ??         0:00.18 /Users/admin/mo-v1.1.1-linux-arm64/mo-service -daemon -debug-http :9876 -launch /Users/admin/mo-v1.1.1-linux-arm64/etc/launch/launch.toml
+2024-03-07 14:34:07.284 UTC+0800    [INFO]    List of pid(s): 
+27145
+2024-03-07 14:34:07.308 UTC+0800    [INFO]    Start succeeded
 ```
 
 !!! note
@@ -185,15 +185,14 @@ root@VM-16-2-debian:~# mo_ctl start
 这条命令将调用 MySQL Client 工具自动连接到 MatrixOne 服务。
 
 ```
-root@VM-16-2-debian:~# mo_ctl connect
-2023-07-07_10:30:20    [INFO]    Checking connectivity
-2023-07-07_10:30:20    [INFO]    Ok, connecting for user ...
-mysql: [Warning] Using a password on the command line interface can be insecure.
+> mo_ctl connect
+2024-03-07 14:34:59.902 UTC+0800    [INFO]    Checking connectivity
+2024-03-07 14:34:59.942 UTC+0800    [INFO]    Ok, connecting for user ... 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 15
+Your MySQL connection id is 426
 Server version: 8.0.30-MatrixOne-v1.1.1 MatrixOne
 
-Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
