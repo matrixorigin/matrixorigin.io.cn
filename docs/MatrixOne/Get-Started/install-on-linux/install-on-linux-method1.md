@@ -131,35 +131,44 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/insta
 安装完成以后，通过 `mo_ctl` 命令验证是否安装成功：
 
 ```
-root@VM-16-2-debian:~# mo_ctl
-Usage             : mo_ctl [option_1] [option_2]
+> mo_ctl
+  Usage             : mo_ctl [option_1] [option_2]
 
-[option_1]      : available: connect | ddl_connect | deploy | get_branch | get_cid | get_conf | help | pprof | precheck | restart | set_conf | sql | start | status | stop | uninstall | upgrade | watchdog
-  1) connect      : connect to mo via mysql client using connection info configured
-  2) ddl_convert  : convert ddl file to mo format from other types of database
-  3) deploy       : deploy mo onto the path configured
-  4) get_branch   : upgrade or downgrade mo from current version to a target commit id or stable version
-  5) get_cid      : print mo git commit id from the path configured
-  6) get_conf     : get configurations
-  7) help         : print help information
-  8) pprof        : collect pprof information
-  9) precheck     : check pre-requisites for mo_ctl
-  10) restart     : a combination operation of stop and start
-  11) set_conf    : set configurations
-  12) sql         : execute sql from string, or a file or a path containg multiple files
-  13) start       : start mo-service from the path configured
-  14) status      : check if there's any mo process running on this machine
-  15) stop        : stop all mo-service processes found on this machine
-  16) uninstall   : uninstall mo from path MO_PATH=/data/mo//matrixone
-  17) upgrade     : upgrade or downgrade mo from current version to a target commit id or stable version
-  18) watchdog    : setup a watchdog crontab task for mo-service to keep it alive
+  [option_1]      : available: auto_backup | auto_clean_logs | backup | clean_backup | clean_logs | connect | csv_convert | ddl_convert | deploy | get_branch | get_cid | get_conf | help | monitor | pprof | precheck | restart | set_conf | sql | start | status | stop | uninstall | upgrade | version | watchdog
+  auto_backup     : setup a crontab task to backup your databases automatically
+  auto_clean_logs : set up a crontab task to clean system log table data automatically
+  backup          : create a backup of your databases manually
+  build_image     : build an MO image from source code
+  clean_backup    : clean old backups older than conf 31 days manually
+  clean_logs      : clean system log table data manually
+  connect         : connect to mo via mysql client using connection info configured
+  csv_convert     : convert a csv file to a sql file in format "insert into values" or "load data inline format='csv'"
+  ddl_convert     : convert a ddl file to mo format from other types of database
+  deploy          : deploy mo onto the path configured
+  get_branch      : upgrade or downgrade mo from current version to a target commit id or stable version
+  get_cid         : print mo git commit id from the path configured
+  get_conf        : get configurations
+  help            : print help information
+  monitor         : monitor system related operations
+  pprof           : collect pprof information
+  precheck        : check pre-requisites for mo_ctl
+  restart         : a combination operation of stop and start
+  set_conf        : set configurations
+  sql             : execute sql from string, or a file or a path containg multiple files
+  start           : start mo-service from the path configured
+  status          : check if there's any mo process running on this machine
+  stop            : stop all mo-service processes found on this machine
+  uninstall       : uninstall mo from path MO_PATH=/Users/admin/mo//matrixone
+  upgrade         : upgrade or downgrade mo from current version to a target commit id or stable version
+  version         : show mo_ctl and matrixone version
+  watchdog        : setup a watchdog crontab task for mo-service to keep it alive
   e.g.            : mo_ctl status
 
   [option_2]      : Use " mo_ctl [option_1] help " to get more info
   e.g.            : mo_ctl deploy help
 ```
 
-### 2. 设置 mo_ctl 的配置参数（选做）
+### 2. 设置 mo_ctl 的配置参数
 
 mo_ctl 工具中有部分参数可能需要你进行调整设置，通过 `mo_ctl get_conf` 可以查看所有当前参数。
 
@@ -198,9 +207,10 @@ PPROF_PROFILE_DURATION="30"
 一般可能会需要调整的参数如下：
 
 ```
-mo_ctl set_conf MO_PATH="/data/mo/matrixone" # 设置自定义的MatrixOne下载路径
+mo_ctl set_conf MO_PATH="yourpath" # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL="https://githubfast.com/matrixorigin/matrixone.git" #针对github原地址下载过慢问题，设置镜像下载地址
 mo_ctl set_conf MO_DEFAULT_VERSION="v1.1.1" # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEPLOY_MODE=git #设置MatrixOne部署方式，此为源码部署方式
 ```
 
 ## 步骤 3：一键安装 MatrixOne
@@ -225,15 +235,15 @@ mo_ctl set_conf MO_DEFAULT_VERSION="v1.1.1" # 设置所下载的MatrixOne版本
 
 通过 `mo_ctl start` 命令一键启动 MatrixOne 服务。
 
-如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 `/data/mo/logs/` 中。
+如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 `/yourpath/matrixone/logs/` 中。
 
 ```
 root@VM-16-2-debian:~# mo_ctl start
 2023-07-07_09:55:01    [INFO]    No mo-service is running
-2023-07-07_09:55:01    [INFO]    Starting mo-service: cd /data/mo//matrixone/ && /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch/launch.toml >/data/mo//logs/stdout-20230707_095501.log 2>/data/mo//logs/stderr-20230707_095501.log
+2023-07-07_09:55:01    [INFO]    Starting mo-service: cd /data/mo/matrixone/matrixone/ && /data/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo/matrixone/matrixone/etc/launch/launch.toml >/data/mo/matrixone/logs/stdout-20230707_095501.log 2>/data/mo/matrixone/logs/stderr-20230707_095501.log
 2023-07-07_09:55:01    [INFO]    Wait for 2 seconds
 2023-07-07_09:55:03    [INFO]    At least one mo-service is running. Process info:
-2023-07-07_09:55:03    [INFO]    root      748128       1  2 09:55 ?        00:00:00 /data/mo//matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo//matrixone/etc/launch/launch.toml
+2023-07-07_09:55:03    [INFO]    root      748128       1  2 09:55 ?        00:00:00 /data/mo/matrixone/matrixone/mo-service -daemon -debug-http :9876 -launch /data/mo/matrixone/matrixone/etc/launch/launch.toml
 2023-07-07_09:55:03    [INFO]    Pids:
 2023-07-07_09:55:03    [INFO]    748128
 2023-07-07_09:55:03    [INFO]    Start succeeded

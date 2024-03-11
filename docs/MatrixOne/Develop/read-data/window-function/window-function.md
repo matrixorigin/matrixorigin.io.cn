@@ -14,7 +14,7 @@ SQL 窗口函数在多种业务场景中都有其广泛的应用：
 
 - 大多数聚合函数也可以用作窗口函数，例如，`SUM()`、`AVG()`、`COUNT()` 这些聚合函数可以与窗口函数一起使用，以在窗口内计算某个列的总和、平均值或计数。MatrixOne 支持的可做窗口函数的聚合函数和参考文档参见：
 
-    * [AVG] (../../../Reference/Functions-and-Operators/Aggregate-Functions/avg.md)
+    * [AVG](../../../Reference/Functions-and-Operators/Aggregate-Functions/avg.md)
     * [COUNT](../../../Reference/Functions-and-Operators/Aggregate-Functions/count.md)
     * [MAX](../../../Reference/Functions-and-Operators/Aggregate-Functions/max.md)
     * [SUM](../../../Reference/Functions-and-Operators/Aggregate-Functions/sum.md)
