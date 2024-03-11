@@ -114,7 +114,7 @@ set global time_zone = '+08:00';
 set time_zone = '+08:00';
 ```
 
-- `set global time_zone = '+08:00';`：修改 mysql 全局时区为北京时间，即我们所在的东 8 区。
+- `set global time_zone = '+08:00';`：修改 MatrixOne 全局时区为北京时间，即我们所在的东 8 区。
 - `set time_zone = '+08:00';`：修改当前会话时区。
 
 ## 限制
