@@ -11032,6 +11032,10 @@ null,wederTom,&quot;man&quot;
 <h2 id="_3">支持的文件格式</h2>
 <p>在 MatrixOne 当前版本中，<code>LOAD DATA</code> 支持 <em>CSV</em> 格式和 <em>JSONLines</em> 格式文件。</p>
 <p>有关导入这两种格式的文档，参见<a href="../../../../Develop/import-data/bulk-load/load-csv/">导入<em>. csv</em> 格式数据</a>和<a href="../../../../Develop/import-data/bulk-load/load-jsonline/">导入 JSONLines 数据</a>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>LOAD DATA</code> 支持导入压缩文件的类型有 <code>lz4</code>，<code>gz</code>，<code>bz2</code>，<code>zlib</code>，<code>flate</code>，暂不支持导入以 <code>.tar</code> 或者 <code>.tar.xx</code> 结尾的压缩文件。</p>
+</div>
 <h3 id="csv"><em>CSV</em> 格式标准说明</h3>
 <p>MatrixOne 加载 <em>CSV</em> 格式符合 RFC4180 标准，规定 <em>CSV</em> 格式如下：</p>
 <ol>

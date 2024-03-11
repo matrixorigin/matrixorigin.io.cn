@@ -4383,8 +4383,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#z" class="md-nav__link">
-    Z
+  <a href="#_" class="md-nav__link">
+    _
   </a>
   
 </li>
@@ -4578,15 +4578,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#z_1" class="md-nav__link">
+  <a href="#z" class="md-nav__link">
     Z
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_" class="md-nav__link">
-    _
   </a>
   
 </li>
@@ -11130,8 +11123,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#z" class="md-nav__link">
-    Z
+  <a href="#_" class="md-nav__link">
+    _
   </a>
   
 </li>
@@ -11325,15 +11318,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#z_1" class="md-nav__link">
+  <a href="#z" class="md-nav__link">
     Z
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_" class="md-nav__link">
-    _
   </a>
   
 </li>
@@ -11385,21 +11371,21 @@ Query OK, 0 rows affected (0.02 sec)
 <li><strong>非保留关键字</strong>：关键字中可以直接作为标识符，被称为非保留关键字。</li>
 </ul>
 <p>将非保留关键字作为标识符使用时，可以直接使用，无需使用反引号包裹。</p>
-<div class="highlight"><pre><span></span><code>\\BEGIN 未非保留关键字，可以无需使用反引号包裹
-mysql&gt; CREATE TABLE `select` (BEGIN int);
+<div class="highlight"><pre><span></span><code>\\ACCOUNT 为非保留关键字，可以无需使用反引号包裹
+mysql&gt; CREATE TABLE `select` (ACCOUNT int);
 Query OK, 0 rows affected (0.01 sec)
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>与 MySQL 不同，在 MatrixOne 中，如果使用了限定符<em>.</em>，保留关键字如果不使用反引号包裹也会产生报错，建议在创建表和数据库时，避免使用保留关键字：</p>
 </div>
-<div class="highlight"><pre><span></span><code>mysql&gt; CREATE TABLE test.select (BEGIN int);
-ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; check the manual that corresponds to your MatrixOne server version for the right syntax to use. syntax error at line 1 column 24 near &quot;select (BEGIN int)&quot;;
+<div class="highlight"><pre><span></span><code>mysql&gt; CREATE TABLE test.select (ACCOUNT int);
+ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; check the manual that corresponds to your MatrixOne server version for the right syntax to use. syntax error at line 1 column 24 near &quot;select (ACCOUNT int)&quot;;
 </code></pre></div>
+<p>下面的列表显示了 Matrixone 中的保留关键字和非保留关键字，其中，在 MySQL 中不为关键字的用 <strong>(M)</strong> 标记。</p>
 <h2 id="_2">保留关键字</h2>
 <h3 id="a">A</h3>
 <ul>
-<li>ACCESSIBLE</li>
 <li>ADD</li>
 <li>ALL</li>
 <li>ALTER</li>
@@ -11407,23 +11393,18 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>AND</li>
 <li>AS</li>
 <li>ASC</li>
-<li>ASENSITIVE</li>
 </ul>
 <h3 id="b">B</h3>
 <ul>
-<li>BEFORE</li>
 <li>BEGIN</li>
 <li>BETWEEN</li>
-<li>BIGINT</li>
 <li>BINARY</li>
-<li>BLOB</li>
 <li>BOTH</li>
 <li>BY</li>
 </ul>
 <h3 id="c">C</h3>
 <ul>
 <li>CALL</li>
-<li>CASCADE</li>
 <li>CASE</li>
 <li>CHANGE</li>
 <li>CHAR</li>
@@ -11431,19 +11412,16 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>CHECK</li>
 <li>COLLATE</li>
 <li>COLUMN</li>
-<li>CONDITION</li>
-<li>CONFIG</li>
+<li>CONFIG <strong>(M)</strong></li>
 <li>CONSTRAINT</li>
-<li>CONTINUE</li>
 <li>CONVERT</li>
 <li>CREATE</li>
 <li>CROSS</li>
 <li>CURRENT_DATE</li>
-<li>CURRENT_ROLE</li>
+<li>CURRENT_ROLE <strong>(M)</strong></li>
 <li>CURRENT_TIME</li>
 <li>CURRENT_TIMESTAMP</li>
 <li>CURRENT_USER</li>
-<li>CURSOR</li>
 </ul>
 <h3 id="d">D</h3>
 <ul>
@@ -11453,8 +11431,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>DAY_MICROSECOND</li>
 <li>DAY_MINUTE</li>
 <li>DAY_SECOND</li>
-<li>DEC</li>
-<li>DECIMAL</li>
 <li>DECLARE</li>
 <li>DEFAULT</li>
 <li>DELAYED</li>
@@ -11462,16 +11438,12 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>DENSE_RANK</li>
 <li>DESC</li>
 <li>DESCRIBE</li>
-<li>DETERMINISTIC</li>
 <li>DISTINCT</li>
-<li>DISTINCTROW</li>
 <li>DIV</li>
-<li>DOUBLE</li>
 <li>DROP</li>
 </ul>
 <h3 id="e">E</h3>
 <ul>
-<li>EACH</li>
 <li>ELSE</li>
 <li>ELSEIF</li>
 <li>ENCLOSED</li>
@@ -11480,16 +11452,11 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>ESCAPED</li>
 <li>EXCEPT</li>
 <li>EXISTS</li>
-<li>EXIT</li>
 <li>EXPLAIN</li>
 </ul>
 <h3 id="f">F</h3>
 <ul>
-<li>FALSE</li>
-<li>FETCH</li>
-<li>FLOAT</li>
-<li>FLOAT4</li>
-<li>FLOAT8</li>
+<li>FALSE <strong>(M)</strong></li>
 <li>FOR</li>
 <li>FORCE</li>
 <li>FOREIGN</li>
@@ -11499,9 +11466,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 </ul>
 <h3 id="g">G</h3>
 <ul>
-<li>GENERATED</li>
-<li>GET</li>
-<li>GRANT</li>
 <li>GROUP</li>
 <li>GROUPS</li>
 </ul>
@@ -11517,25 +11481,21 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <ul>
 <li>IF</li>
 <li>IGNORE</li>
-<li>ILIKE</li>
+<li>ILIKE <strong>(M)</strong></li>
 <li>IN</li>
 <li>INDEX</li>
 <li>INFILE</li>
 <li>INNER</li>
 <li>INOUT</li>
-<li>INSENSITIVE</li>
 <li>INSERT</li>
-<li>INT</li>
 <li>INT1</li>
 <li>INT2</li>
 <li>INT3</li>
 <li>INT4</li>
 <li>INT8</li>
-<li>INTEGER</li>
 <li>INTERSECT</li>
 <li>INTERVAL</li>
 <li>INTO</li>
-<li>IO_AFTER_GTIDS</li>
 <li>IS</li>
 <li>ITERATE</li>
 </ul>
@@ -11546,7 +11506,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <h3 id="k">K</h3>
 <ul>
 <li>KEY</li>
-<li>KEYS</li>
 <li>KILL</li>
 </ul>
 <h3 id="l">L</h3>
@@ -11556,47 +11515,32 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>LEFT</li>
 <li>LIKE</li>
 <li>LIMIT</li>
-<li>LINEAR</li>
 <li>LINES</li>
 <li>LOAD</li>
 <li>LOCALTIME</li>
 <li>LOCALTIMESTAMP</li>
 <li>LOCK</li>
-<li>LONG</li>
-<li>LONGBLOB</li>
-<li>LONGTEXT</li>
 <li>LOOP</li>
 <li>LOW_PRIORITY</li>
 </ul>
 <h3 id="m">M</h3>
 <ul>
-<li>MASTER_BIND</li>
 <li>MATCH</li>
 <li>MAXVALUE</li>
-<li>MEDIUMBLOB</li>
-<li>MEDIUMINT</li>
-<li>MEDIUMTEXT</li>
-<li>MIDDLEINT</li>
-<li>MINUS</li>
+<li>MINUS <strong>(M)</strong></li>
 <li>MINUTE_MICROSECOND</li>
 <li>MINUTE_SECOND</li>
 <li>MOD</li>
-<li>MODIFIES</li>
 </ul>
 <h3 id="n">N</h3>
 <ul>
 <li>NATURAL</li>
 <li>NOT</li>
-<li>NO_WRITE_TO_BINLOG</li>
 <li>NULL</li>
-<li>NUMERIC</li>
 </ul>
 <h3 id="o">O</h3>
 <ul>
 <li>ON</li>
-<li>OPTIMIZE</li>
-<li>OPTIMIZER_COSTS</li>
-<li>OPTION</li>
 <li>OPTIONALLY</li>
 <li>OR</li>
 <li>ORDER</li>
@@ -11608,9 +11552,7 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <h3 id="p">P</h3>
 <ul>
 <li>PARTITION</li>
-<li>PRECISION</li>
 <li>PRIMARY</li>
-<li>PROCEDURE</li>
 </ul>
 <h3 id="q">Q</h3>
 <ul>
@@ -11618,29 +11560,19 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 </ul>
 <h3 id="r">R</h3>
 <ul>
-<li>RANGE</li>
 <li>RANK</li>
-<li>READ</li>
-<li>READS</li>
-<li>READ_WRITE</li>
-<li>REAL</li>
 <li>RECURSIVE</li>
 <li>REFERENCES</li>
 <li>REGEXP</li>
-<li>RELEASE</li>
 <li>RENAME</li>
 <li>REPEAT</li>
 <li>REPLACE</li>
 <li>REQUIRE</li>
-<li>RESIGNAL</li>
-<li>RESTRICT</li>
-<li>RETURN</li>
-<li>REVOKE</li>
 <li>RIGHT</li>
 <li>RLIKE</li>
 <li>ROW</li>
-<li>ROWS</li>
 <li>ROW_NUMBER</li>
+<li>ROWS</li>
 </ul>
 <h3 id="s">S</h3>
 <ul>
@@ -11648,25 +11580,14 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>SCHEMAS</li>
 <li>SECOND_MICROSECOND</li>
 <li>SELECT</li>
-<li>SENSITIVE</li>
 <li>SEPARATOR</li>
 <li>SET</li>
 <li>SHOW</li>
-<li>SIGNAL</li>
-<li>SMALLINT</li>
-<li>SPATIAL</li>
-<li>SPECIFIC</li>
-<li>SQL</li>
-<li>SQLEXCEPTION</li>
-<li>SQLSTATE</li>
-<li>SQLWARNING</li>
 <li>SQL_BIG_RESULT</li>
 <li>SQL_BUFFER_RESULT</li>
-<li>SQL_CALC_FOUND_ROWS</li>
 <li>SQL_SMALL_RESULT</li>
 <li>SSL</li>
 <li>STARTING</li>
-<li>STORED</li>
 <li>STRAIGHT_JOIN</li>
 </ul>
 <h3 id="t">T</h3>
@@ -11675,21 +11596,14 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>TEMPORARY</li>
 <li>TERMINATED</li>
 <li>THEN</li>
-<li>TINYBLOB</li>
-<li>TINYINT</li>
-<li>TINYTEXT</li>
 <li>TO</li>
 <li>TRAILING</li>
-<li>TRIGGER</li>
-<li>TRUE</li>
+<li>TRUE <strong>(M)</strong></li>
 </ul>
 <h3 id="u">U</h3>
 <ul>
-<li>UNDO</li>
 <li>UNION</li>
 <li>UNIQUE</li>
-<li>UNLOCK</li>
-<li>UNSIGNED</li>
 <li>UNTIL</li>
 <li>UPDATE</li>
 <li>USAGE</li>
@@ -11702,11 +11616,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <h3 id="v">V</h3>
 <ul>
 <li>VALUES</li>
-<li>VARBINARY</li>
-<li>VARCHAR</li>
-<li>VARCHARACTER</li>
-<li>VARYING</li>
-<li>VIRTUAL</li>
 </ul>
 <h3 id="w">W</h3>
 <ul>
@@ -11714,7 +11623,6 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>WHERE</li>
 <li>WHILE</li>
 <li>WITH</li>
-<li>WRITE</li>
 </ul>
 <h3 id="x">X</h3>
 <ul>
@@ -11724,94 +11632,82 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <ul>
 <li>YEAR_MONTH</li>
 </ul>
-<h3 id="z">Z</h3>
+<h3 id="_">_</h3>
 <ul>
-<li>ZEROFILL</li>
+<li>_BINARY <strong>(M)</strong></li>
 </ul>
 <h2 id="_3">非保留关键字</h2>
 <h3 id="a_1">A</h3>
 <ul>
 <li>ACCOUNT</li>
-<li>ACCOUNTS</li>
+<li>ACCOUNTS <strong>(M)</strong></li>
 <li>ACTION</li>
-<li>ADDDATE</li>
-<li>ADMIN_NAME</li>
+<li>ADMIN_NAME <strong>(M)</strong></li>
 <li>AFTER</li>
 <li>AGAINST</li>
 <li>ALGORITHM</li>
 <li>ANY</li>
-<li>APPROX_COUNT</li>
-<li>APPROX_COUNT_DISTINCT</li>
-<li>APPROX_PERCENTILE</li>
 <li>ASCII</li>
 <li>ATTRIBUTE</li>
-<li>AUTOEXTEND_SIZE</li>
 <li>AUTO_INCREMENT</li>
-<li>AUTO_RANDOM</li>
-<li>AVG</li>
+<li>AUTO_RANDOM <strong>(M)</strong></li>
+<li>AUTOEXTEND_SIZE</li>
 <li>AVG_ROW_LENGTH</li>
 </ul>
 <h3 id="b_1">B</h3>
 <ul>
-<li>BACKEND</li>
+<li>BACKEND <strong>(M)</strong></li>
 <li>BACKUP</li>
-<li>BINDINGS</li>
+<li>BIGINT</li>
+<li>BINDINGS <strong>(M)</strong></li>
 <li>BIT</li>
-<li>BIT_AND</li>
-<li>BIT_CAST</li>
-<li>BIT_OR</li>
+<li>BLOB</li>
 <li>BOOL</li>
 <li>BOOLEAN</li>
-<li>BSI</li>
+<li>BSI <strong>(M)</strong></li>
 <li>BTREE</li>
 </ul>
 <h3 id="c_1">C</h3>
 <ul>
-<li>CANCEL</li>
+<li>CANCEL <strong>(M)</strong></li>
+<li>CASCADE</li>
 <li>CASCADED</li>
-<li>CAST</li>
 <li>CHAIN</li>
 <li>CHARSET</li>
 <li>CHECKSUM</li>
 <li>CIPHER</li>
 <li>CLIENT</li>
-<li>CLUSTER</li>
-<li>CLUSTER_CENTERS</li>
+<li>CLUSTER <strong>(M)</strong></li>
 <li>COALESCE</li>
 <li>COLLATION</li>
-<li>COLUMNS</li>
 <li>COLUMN_FORMAT</li>
-<li>COLUMN_NUMBER</li>
+<li>COLUMN_NUMBER <strong>(M)</strong></li>
+<li>COLUMNS</li>
 <li>COMMENT</li>
 <li>COMMIT</li>
 <li>COMMITTED</li>
 <li>COMPACT</li>
 <li>COMPRESSED</li>
 <li>COMPRESSION</li>
-<li>CONNECT</li>
+<li>CONNECT <strong>(M)</strong></li>
 <li>CONNECTION</li>
-<li>CONNECTOR</li>
-<li>CONNECTORS</li>
+<li>CONNECTOR <strong>(M)</strong></li>
+<li>CONNECTORS <strong>(M)</strong></li>
 <li>CONSISTENT</li>
-<li>COPY</li>
-<li>COUNT</li>
-<li>CREDENTIALS</li>
-<li>CURDATE</li>
+<li>COPY <strong>(M)</strong></li>
+<li>CREDENTIALS <strong>(M)</strong></li>
 <li>CURRENT</li>
-<li>CURRVAL</li>
-<li>CURTIME</li>
-<li>CYCLE</li>
+<li>CYCLE <strong>(M)</strong></li>
 </ul>
 <h3 id="d_1">D</h3>
 <ul>
-<li>DAEMON</li>
+<li>DAEMON <strong>(M)</strong></li>
 <li>DATA</li>
 <li>DATE</li>
 <li>DATETIME</li>
-<li>DATE_ADD</li>
-<li>DATE_SUB</li>
 <li>DAY</li>
 <li>DEALLOCATE</li>
+<li>DECIMAL</li>
 <li>DEFINER</li>
 <li>DELAY_KEY_WRITE</li>
 <li>DIRECTORY</li>
@@ -11819,7 +11715,8 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>DISCARD</li>
 <li>DISK</li>
 <li>DO</li>
-<li>DRAINER</li>
+<li>DOUBLE</li>
+<li>DRAINER <strong>(M)</strong></li>
 <li>DUPLICATE</li>
 <li>DYNAMIC</li>
 </ul>
@@ -11829,32 +11726,32 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>ENCRYPTION</li>
 <li>ENFORCED</li>
 <li>ENGINE</li>
-<li>ENGINES</li>
 <li>ENGINE_ATTRIBUTE</li>
+<li>ENGINES</li>
 <li>ENUM</li>
 <li>ERRORS</li>
 <li>EVENT</li>
 <li>EVENTS</li>
-<li>EXCLUSIVE</li>
+<li>EXCLUSIVE <strong>(M)</strong></li>
 <li>EXECUTE</li>
-<li>EXPANSION</li>
+<li>EXPANSION <strong>(M)</strong></li>
 <li>EXPIRE</li>
 <li>EXTENDED</li>
 <li>EXTENSION</li>
-<li>EXTERNAL</li>
-<li>EXTRACT</li>
+<li>EXTERNAL <strong>(M)</strong></li>
 </ul>
 <h3 id="f_1">F</h3>
 <ul>
 <li>FAILED_LOGIN_ATTEMPTS</li>
 <li>FIELDS</li>
 <li>FILE</li>
-<li>FILESYSTEM</li>
-<li>FILL</li>
+<li>FILESYSTEM <strong>(M)</strong></li>
+<li>FILL <strong>(M)</strong></li>
 <li>FIRST</li>
 <li>FIXED</li>
+<li>FLOAT</li>
 <li>FOLLOWING</li>
-<li>FORCE_QUOTE</li>
+<li>FORCE_QUOTE <strong>(M)</strong></li>
 <li>FORMAT</li>
 <li>FULL</li>
 </ul>
@@ -11863,15 +11760,14 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>GEOMETRY</li>
 <li>GEOMETRYCOLLECTION</li>
 <li>GLOBAL</li>
+<li>GRANT</li>
 <li>GRANTS</li>
-<li>GROUP_CONCAT</li>
 </ul>
 <h3 id="h_1">H</h3>
 <ul>
 <li>HANDLER</li>
 <li>HASH</li>
-<li>HEADER</li>
-<li>HEADERS</li>
+<li>HEADER <strong>(M)</strong></li>
 <li>HISTORY</li>
 <li>HOUR</li>
 </ul>
@@ -11879,68 +11775,74 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <ul>
 <li>IDENTIFIED</li>
 <li>IMPORT</li>
-<li>INCREMENT</li>
+<li>INCREMENT <strong>(M)</strong></li>
 <li>INDEXES</li>
-<li>INLINE</li>
-<li>INPLACE</li>
+<li>INLINE <strong>(M)</strong></li>
+<li>INPLACE <strong>(M)</strong></li>
 <li>INSERT_METHOD</li>
-<li>INSTANT</li>
+<li>INSTANT <strong>(M)</strong></li>
+<li>INT</li>
+<li>INTEGER</li>
 <li>INVISIBLE</li>
 <li>INVOKER</li>
 <li>ISOLATION</li>
 <li>ISSUER</li>
-<li>IVFFLAT</li>
+<li>IVFFLAT <strong>(M)</strong></li>
 </ul>
 <h3 id="j_1">J</h3>
 <ul>
 <li>JSON</li>
-<li>JSONTYPE</li>
+<li>JSONTYPE <strong>(M)</strong></li>
 </ul>
 <h3 id="k_1">K</h3>
 <ul>
 <li>KEY_BLOCK_SIZE</li>
+<li>KEYS</li>
 </ul>
 <h3 id="l_1">L</h3>
 <ul>
 <li>LANGUAGE</li>
 <li>LAST</li>
-<li>LASTVAL</li>
 <li>LESS</li>
 <li>LEVEL</li>
+<li>LINEAR</li>
 <li>LINESTRING</li>
 <li>LIST</li>
-<li>LISTS</li>
+<li>LISTS <strong>(M)</strong></li>
 <li>LOCAL</li>
 <li>LOCKS</li>
-<li>LOW_CARDINALITY</li>
+<li>LONGBLOB</li>
+<li>LONGTEXT</li>
+<li>LOW_CARDINALITY <strong>(M)</strong></li>
 </ul>
 <h3 id="m_1">M</h3>
 <ul>
-<li>MANAGE</li>
-<li>MAX</li>
+<li>MANAGE <strong>(M)</strong></li>
+<li>MASTER</li>
 <li>MAX_CONNECTIONS_PER_HOUR</li>
-<li>MAX_FILE_SIZE</li>
+<li>MAX_FILE_SIZE <strong>(M)</strong></li>
 <li>MAX_QUERIES_PER_HOUR</li>
 <li>MAX_ROWS</li>
-<li>MAX_UPDATE_PER_HOUR</li>
+<li>MAX_UPDATE_PER_HOUR <strong>(M)</strong></li>
 <li>MAX_USER_CONNECTIONS</li>
-<li>MEDIAN</li>
+<li>MEDIAN <strong>(M)</strong></li>
+<li>MEDIUMBLOB</li>
+<li>MEDIUMINT</li>
+<li>MEDIUMTEXT</li>
 <li>MEMORY</li>
 <li>MERGE</li>
 <li>MICROSECOND</li>
-<li>MID</li>
-<li>MIN</li>
-<li>MINUTE</li>
-<li>MINVALUE</li>
 <li>MIN_ROWS</li>
+<li>MINUTE</li>
+<li>MINVALUE <strong>(M)</strong></li>
 <li>MODE</li>
 <li>MODIFY</li>
-<li>MODUMP</li>
+<li>MODUMP <strong>(M)</strong></li>
 <li>MONTH</li>
 <li>MULTILINESTRING</li>
 <li>MULTIPOINT</li>
 <li>MULTIPOLYGON</li>
-<li>MYSQL_COMPATIBILITY_MODE</li>
+<li>MYSQL_COMPATIBILITY_MODE <strong>(M)</strong></li>
 </ul>
 <h3 id="n_1">N</h3>
 <ul>
@@ -11948,75 +11850,82 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>NCHAR</li>
 <li>NEVER</li>
 <li>NEXT</li>
-<li>NEXTVAL</li>
 <li>NO</li>
-<li>NODE</li>
+<li>NODE <strong>(M)</strong></li>
 <li>NONE</li>
-<li>NOW</li>
 <li>NULLS</li>
+<li>NUMERIC</li>
 </ul>
 <h3 id="o_1">O</h3>
 <ul>
 <li>OFFSET</li>
 <li>ONLY</li>
+<li>OP_TYPE <strong>(M)</strong></li>
 <li>OPEN</li>
+<li>OPTIMIZE</li>
+<li>OPTION</li>
 <li>OPTIONAL</li>
-<li>OP_TYPE</li>
-<li>OWNERSHIP</li>
+<li>OWNERSHIP <strong>(M)</strong></li>
 </ul>
 <h3 id="p_1">P</h3>
 <ul>
 <li>PACK_KEYS</li>
-<li>PARALLEL</li>
+<li>PARALLEL <strong>(M)</strong></li>
+<li>PARALLELISM <strong>(M)</strong></li>
 <li>PARSER</li>
 <li>PARTIAL</li>
 <li>PARTITIONS</li>
 <li>PASSWORD</li>
 <li>PASSWORD_LOCK_TIME</li>
-<li>PAUSE</li>
-<li>PERCENT</li>
+<li>PAUSE <strong>(M)</strong></li>
+<li>PERCENT <strong>(M)</strong></li>
 <li>PERSIST</li>
 <li>PLUGINS</li>
 <li>POINT</li>
 <li>POLYGON</li>
-<li>POSITION</li>
 <li>PRECEDING</li>
 <li>PREPARE</li>
 <li>PREV</li>
 <li>PRIVILEGES</li>
+<li>PROCEDURE</li>
 <li>PROCESSLIST</li>
 <li>PROFILES</li>
-<li>PROPERTIES</li>
+<li>PROPERTIES <strong>(M)</strong></li>
 <li>PROXY</li>
-<li>PUBLICATION</li>
-<li>PUBLICATIONS</li>
-<li>PUMP</li>
+<li>PUBLICATION <strong>(M)</strong></li>
+<li>PUBLICATIONS <strong>(M)</strong></li>
+<li>PUMP <strong>(M)</strong></li>
 </ul>
 <h3 id="q_1">Q</h3>
 <ul>
 <li>QUARTER</li>
 <li>QUERY</li>
-<li>QUERY_RESULT</li>
+<li>QUERY_RESULT <strong>(M)</strong></li>
 </ul>
 <h3 id="r_1">R</h3>
 <ul>
 <li>RANDOM</li>
+<li>RANGE</li>
+<li>READ</li>
+<li>REAL</li>
 <li>REDUNDANT</li>
 <li>REFERENCE</li>
-<li>REINDEX</li>
+<li>RELEASE</li>
 <li>RELOAD</li>
 <li>REORGANIZE</li>
 <li>REPAIR</li>
 <li>REPEATABLE</li>
 <li>REPLICATION</li>
 <li>RESET</li>
-<li>RESTRICTED</li>
+<li>RESTRICT</li>
+<li>RESTRICTED <strong>(M)</strong></li>
 <li>RESUME</li>
 <li>RETURNS</li>
 <li>REUSE</li>
 <li>REVERSE</li>
+<li>REVOKE</li>
 <li>ROLE</li>
-<li>ROLES</li>
+<li>ROLES <strong>(M)</strong></li>
 <li>ROLLBACK</li>
 <li>ROUTINE</li>
 <li>ROW_COUNT</li>
@@ -12025,31 +11934,31 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 </ul>
 <h3 id="s_1">S</h3>
 <ul>
-<li>S3OPTION</li>
-<li>SAMPLE</li>
-<li>SAN</li>
+<li>S3OPTION <strong>(M)</strong></li>
+<li>SAMPLE <strong>(M)</strong></li>
+<li>SAN <strong>(M)</strong></li>
 <li>SECOND</li>
 <li>SECONDARY</li>
 <li>SECONDARY_ENGINE_ATTRIBUTE</li>
 <li>SECURITY</li>
-<li>SEQUENCE</li>
-<li>SEQUENCES</li>
+<li>SEQUENCE <strong>(M)</strong></li>
+<li>SEQUENCES <strong>(M)</strong></li>
 <li>SERIALIZABLE</li>
-<li>SERVERS</li>
+<li>SERVERS <strong>(M)</strong></li>
 <li>SESSION</li>
-<li>SESSION_USER</li>
-<li>SETVAL</li>
 <li>SHARE</li>
-<li>SHARED</li>
+<li>SHARED <strong>(M)</strong></li>
 <li>SHUTDOWN</li>
 <li>SIGNED</li>
 <li>SIMPLE</li>
 <li>SLAVE</li>
-<li>SLIDING</li>
+<li>SLIDING <strong>(M)</strong></li>
+<li>SMALLINT</li>
 <li>SNAPSHOT</li>
 <li>SOME</li>
 <li>SOURCE</li>
-<li>SPHERICAL_KMEANS</li>
+<li>SPATIAL</li>
+<li>SQL</li>
 <li>SQL_CACHE</li>
 <li>SQL_NO_CACHE</li>
 <li>SQL_TSI_DAY</li>
@@ -12060,51 +11969,42 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>SQL_TSI_SECOND</li>
 <li>SQL_TSI_WEEK</li>
 <li>SQL_TSI_YEAR</li>
-<li>STAGE</li>
-<li>STAGEOPTION</li>
-<li>STAGES</li>
+<li>STAGE <strong>(M)</strong></li>
+<li>STAGEOPTION <strong>(M)</strong></li>
+<li>STAGES <strong>(M)</strong></li>
 <li>START</li>
 <li>STATS_AUTO_RECALC</li>
 <li>STATS_PERSISTENT</li>
 <li>STATS_SAMPLE_PAGES</li>
 <li>STATUS</li>
-<li>STD</li>
-<li>STDDEV</li>
-<li>STDDEV_POP</li>
-<li>STDDEV_SAMP</li>
 <li>STORAGE</li>
 <li>STREAM</li>
-<li>SUBDATE</li>
 <li>SUBJECT</li>
 <li>SUBPARTITION</li>
 <li>SUBPARTITIONS</li>
-<li>SUBSCRIPTIONS</li>
-<li>SUBSTR</li>
-<li>SUBSTRING</li>
-<li>SUM</li>
+<li>SUBSCRIPTIONS <strong>(M)</strong></li>
 <li>SUPER</li>
 <li>SUSPEND</li>
-<li>SYSDATE</li>
-<li>SYSTEM_USER</li>
 </ul>
 <h3 id="t_1">T</h3>
 <ul>
+<li>TABLE_NUMBER <strong>(M)</strong></li>
+<li>TABLE_SIZE <strong>(M)</strong></li>
+<li>TABLE_VALUES <strong>(M)</strong></li>
 <li>TABLES</li>
 <li>TABLESPACE</li>
-<li>TABLE_NUMBER</li>
-<li>TABLE_SIZE</li>
-<li>TABLE_VALUES</li>
-<li>TASK</li>
+<li>TASK <strong>(M)</strong></li>
 <li>TEMPTABLE</li>
 <li>TEXT</li>
 <li>THAN</li>
 <li>TIME</li>
 <li>TIMESTAMP</li>
-<li>TIMESTAMPDIFF</li>
+<li>TINYBLOB</li>
+<li>TINYINT</li>
+<li>TINYTEXT</li>
 <li>TRANSACTION</li>
-<li>TRANSLATE</li>
+<li>TRIGGER</li>
 <li>TRIGGERS</li>
-<li>TRIM</li>
 <li>TRUNCATE</li>
 <li>TYPE</li>
 </ul>
@@ -12114,21 +12014,22 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>UNCOMMITTED</li>
 <li>UNDEFINED</li>
 <li>UNKNOWN</li>
+<li>UNLOCK</li>
+<li>UNSIGNED</li>
 <li>URL</li>
 <li>USER</li>
-<li>UUID</li>
+<li>UUID <strong>(M)</strong></li>
 </ul>
 <h3 id="v_1">V</h3>
 <ul>
 <li>VALIDATION</li>
 <li>VALUE</li>
+<li>VARBINARY</li>
+<li>VARCHAR</li>
 <li>VARIABLES</li>
-<li>VARIANCE</li>
-<li>VAR_POP</li>
-<li>VAR_SAMP</li>
-<li>VECF32</li>
-<li>VECF64</li>
-<li>VERBOSE</li>
+<li>VECF32 <strong>(M)</strong></li>
+<li>VECF64 <strong>(M)</strong></li>
+<li>VERBOSE <strong>(M)</strong></li>
 <li>VIEW</li>
 <li>VISIBLE</li>
 </ul>
@@ -12138,6 +12039,7 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <li>WEEK</li>
 <li>WITHOUT</li>
 <li>WORK</li>
+<li>WRITE</li>
 </ul>
 <h3 id="x_1">X</h3>
 <ul>
@@ -12147,13 +12049,10 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 <ul>
 <li>YEAR</li>
 </ul>
-<h3 id="z_1">Z</h3>
+<h3 id="z">Z</h3>
 <ul>
-<li>ZONEMAP</li>
-</ul>
-<h3 id="_">_</h3>
-<ul>
-<li>_BINARY</li>
+<li>ZEROFILL</li>
+<li>ZONEMAP <strong>(M)</strong></li>
 </ul>
 
 
