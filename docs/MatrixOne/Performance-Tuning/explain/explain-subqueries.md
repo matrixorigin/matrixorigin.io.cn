@@ -72,19 +72,18 @@ MatrixOne 会执行多种子查询相关的优化，以提升子查询的执行�
 7 rows in set (0.02 sec)
 
 > explain select * from t1 where t1.id in (select t2.id from t2 where t2.id>=3);
-+---------------------------------------------------------------+
-| QUERY PLAN                                                    |
-+---------------------------------------------------------------+
-| Project                                                       |
-|   ->  Join                                                    |
-|         Join Type: SEMI                                       |
-|         Join Cond: (t1.id = t2.id)                            |
-|         ->  Table Scan on db1.t1                              |
-|         ->  Project                                           |
-|               ->  Table Scan on db1.t2                        |
-|                     Filter Cond: (CAST(t2.id AS BIGINT) >= 3) |
-+---------------------------------------------------------------+
-8 rows in set (0.00 sec)
++-----------------------------------------+
+| QUERY PLAN                              |
++-----------------------------------------+
+| Project                                 |
+|   ->  Join                              |
+|         Join Type: SEMI                 |
+|         Join Cond: (t1.id = t2.id)      |
+|         ->  Table Scan on db1.t1        |
+|         ->  Table Scan on db1.t2        |
+|               Filter Cond: (t2.id >= 3) |
++-----------------------------------------+
+7 rows in set (0.01 sec)
 ```
 
 可以看到这个执行计划的执行顺序是：
@@ -116,13 +115,12 @@ mysql> explain SELECT * FROM t1 WHERE id in (SELECT id FROM t2 WHERE t1.ti = t2.
 | Project                                                       |
 |   ->  Join                                                    |
 |         Join Type: SEMI                                       |
-|         Join Cond: (t1.ti = t2.ti), (t1.id = t2.id)           |
+|         Join Cond: ((t1.ti = t2.ti) IS TRUE), (t1.id = t2.id) |
 |         ->  Table Scan on db1.t1                              |
-|         ->  Project                                           |
-|               ->  Table Scan on db1.t2                        |
-|                     Filter Cond: (CAST(t2.id AS BIGINT) >= 4) |
+|         ->  Table Scan on db1.t2                              |
+|               Filter Cond: (t2.id >= 4)                       |
 +---------------------------------------------------------------+
-8 rows in set (0.01 sec)
+7 rows in set (0.00 sec)
 ```
 
 MatrixOne 在处理该 SQL 语句时会将其改写为等价的 `JOIN` 查询：`select t1.* from t1 join t2 on t1.id=t2.id where t2.id>=4;`，可以看到这个执行计划的执行顺序是：
