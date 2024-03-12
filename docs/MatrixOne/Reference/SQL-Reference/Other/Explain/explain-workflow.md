@@ -377,6 +377,20 @@ mysql> explain select * from t5 minus  select * from t6;
 6 rows in set (0.00 sec)
 ```
 
+### Table Function
+
+```sql
+mysql>  explain select * from unnest('{"a":1}') u;
++-------------------------------------+
+| QUERY PLAN                          |
++-------------------------------------+
+| Project                             |
+|   ->  Table Function on unnest      |
+|         ->  Values Scan "*VALUES*"  |
++-------------------------------------+
+3 rows in set (0.10 sec)
+```
+
 ### PreInsert UniqueKey & Fuzzy Filter for duplicate key
 
 ```sql
