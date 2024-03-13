@@ -46,14 +46,14 @@
 
 ### CHARACTER SET
 
-如果文件内容使用与默认值不同的字符集，可使用`CHARACTER SET`指定字符集。例如，你可以使用`CHARACTER SET utf8`指定导入内容字符集为 utf8：
+如果文件内容使用与默认值不同的字符集，可使用 `CHARACTER SET` 指定字符集。例如，你可以使用 `CHARACTER SET utf8` 指定导入内容字符集为 utf8：
 
 ```
 LOAD DATA INFILE 'yourfilepath' INTO TABLE xx CHARACTER SET utf8;
 ```
 
 !!! note
-    除了 utf8 外，`LOAD DATA`还支持指定 utf_8、UTF_16、UTF_xx、gbk、abcd 等字符集。暂不支持指定带有 **-**（如 utf-8,UTF-16) 的字符集。
+    除了 utf8 外，`LOAD DATA` 还支持指定 utf_8、UTF_16、UTF_xx、gbk、abcd 等字符集。暂不支持指定带有 **-**（如 utf-8,UTF-16) 的字符集。
 
 ### IGNORE LINES
 
