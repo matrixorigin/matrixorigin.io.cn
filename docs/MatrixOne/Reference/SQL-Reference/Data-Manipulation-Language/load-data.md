@@ -14,6 +14,7 @@
 > LOAD DATA [LOCAL]
     INFILE 'file_name'
     INTO TABLE tbl_name
+    [CHARACTER SET charset_name]
     [{FIELDS | COLUMNS}
         [TERMINATED BY 'string']
         [[OPTIONALLY] ENCLOSED BY 'char']
@@ -42,6 +43,17 @@
 
    **命令行使用场景**：需要加载的数据文件与 MatrixOne 主机服务器不在同一台机器上，即，数据文件在客户机上。
    `file_name` 可以是文件的存放位置的相对路径名称，也可以是绝对路径名称。
+
+### CHARACTER SET
+
+如果文件内容使用与默认值不同的字符集，可使用`CHARACTER SET`指定字符集。例如，你可以使用`CHARACTER SET utf8`指定导入内容字符集为 utf8：
+
+```
+LOAD DATA INFILE 'yourfilepath' INTO TABLE xx CHARACTER SET utf8;
+```
+
+!!! note
+    除了 utf8 外，`LOAD DATA`还支持指定 utf_8、UTF_16、UTF_xx、gbk、abcd 等字符集。暂不支持指定带有 **-**（如 utf-8,UTF-16) 的字符集。
 
 ### IGNORE LINES
 
