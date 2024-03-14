@@ -41,4 +41,4 @@ where option can be one of:
 
 * STATEMENT
 
-MatrixOne 支持任何 `SELECT`，`UPDATE`，`DELETE` 语句执行计划。
+MatrixOne 支持任何 `SELECT`，`INSERT`，`UPDATE`，`DELETE` 语句执行计划。
