@@ -298,13 +298,15 @@ nav:
         - 数据修改语言（DML）:
           - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert.md
           - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-into-select.md
-          - INSERT ON DUPLICATE KEY UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate.md
-          - INSERT ON DUPLICATE KEY IGNORE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate-ignore.md
           - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/delete.md
           - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/update.md
           - LOAD DATA INFILE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data.md
           - LOAD DATA INLINE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data-inline.md
-          - REPLACE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/replace.md
+          - UPSERT: 
+            - UPSERT 概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/upsert/upsert.md
+            - INSERT ON DUPLICATE KEY UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate.md
+            - INSERT ON DUPLICATE KEY IGNORE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate-ignore.md
+            - REPLACE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/upsert/replace.md
           - Information Functions:
             - LAST_QUERY_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id.md
             - LAST_INSERT_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-insert-id.md
