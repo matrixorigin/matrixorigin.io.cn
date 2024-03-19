@@ -52,9 +52,9 @@ mysql> EXPLAIN VERBOSE SELECT * FROM t1 WHERE (col1 = 1 AND col3 = 7369) OR (col
 +-----------------------------------------------------------------------------------------------------+
 | QUERY PLAN                                                                                          |
 +-----------------------------------------------------------------------------------------------------+
-| Project (cost=1000.00 outcnt=1000.00 selectivity=1.0000)                                            |
+| Project (cost=1000.00 outcnt=1000.00 selectivity=1.0000 blockNum=1)                                 |
 |   Output: t1.col1, t1.col2, t1.col3                                                                 |
-|   ->  Table Scan on db2.t1 (cost=1000.00 outcnt=1000.00 selectivity=1.0000 blockNum=1)              |
+|   ->  Table Scan on db1.t1 (cost=1000.00 outcnt=1000.00 selectivity=1.0000 blockNum=1)              |
 |         Output: t1.col1, t1.col2, t1.col3                                                           |
 |         Table: 't1' (0:'col1', 1:'col2', 2:'col3')                                                  |
 |         Hit Partition: p0, p2                                                                       |
@@ -79,16 +79,15 @@ CREATE TABLE t1 (
 ) PARTITION BY KEY(col3) PARTITIONS 4;
 
 mysql> EXPLAIN SELECT * FROM t1 WHERE col3 = 7990 OR col3 = 7988;
-+-------------------------------------------------------------------+
-| QUERY PLAN                                                        |
-+-------------------------------------------------------------------+
-| Project                                                           |
-|   ->  Table Scan on db1.t1                                        |
-|         Hit Partition: p0, p1                                     |
-|         Filter Cond: ((t1.col3 = 7990) or (t1.col3 = 7988))       |
-|         Block Filter Cond: ((t1.col3 = 7990) or (t1.col3 = 7988)) |
-+-------------------------------------------------------------------+
-5 rows in set (0.00 sec)
++-------------------------------------------------------------+
+| QUERY PLAN                                                  |
++-------------------------------------------------------------+
+| Project                                                     |
+|   ->  Table Scan on db1.t1                                  |
+|         Hit Partition: p0, p1                               |
+|         Filter Cond: ((t1.col3 = 7990) or (t1.col3 = 7988)) |
++-------------------------------------------------------------+
+4 rows in set (0.01 sec)
 ```
 
 在这个 SQL 中，条件 `col3 = 7990` 可以确定所有结果都位于分区 p0 上。条件 `col3 = 7988` 可以确定所有结果都位于分区 p1 上。由于这两个条件的关系是 OR，因此只需要扫描 p0 和 p1 两个分区，分区裁剪的结果是 p0 和 p1。
@@ -101,16 +100,15 @@ Key 分区由于内部使用哈希算法造成的无序性，不适用于连续�
 
 ```sql
 mysql> EXPLAIN SELECT * FROM t1 WHERE col3 >= 7782;
-+----------------------------------------------+
-| QUERY PLAN                                   |
-+----------------------------------------------+
-| Project                                      |
-|   ->  Table Scan on db1.t1                   |
-|         Hit Partition: all partitions        |
-|         Filter Cond: (t1.col3 >= 7782)       |
-|         Block Filter Cond: (t1.col3 >= 7782) |
-+----------------------------------------------+
-5 rows in set (0.00 sec)
++----------------------------------------+
+| QUERY PLAN                             |
++----------------------------------------+
+| Project                                |
+|   ->  Table Scan on db1.t1             |
+|         Hit Partition: all partitions  |
+|         Filter Cond: (t1.col3 >= 7782) |
++----------------------------------------+
+4 rows in set (0.00 sec)
 ```
 
 #### 场景二
@@ -119,25 +117,22 @@ mysql> EXPLAIN SELECT * FROM t1 WHERE col3 >= 7782;
 
 ```sql
 mysql> EXPLAIN SELECT * FROM t1 WHERE col3 = (SELECT col3 FROM t2 WHERE t1.col3 = t2.col3 AND t2.col1 < 5);
-+------------------------------------------------------+
-| QUERY PLAN                                           |
-+------------------------------------------------------+
-| Project                                              |
-|   ->  Filter                                         |
-|         Filter Cond: (t1.col3 = t2.col3
-
-)             |
-|         ->  Join                                     |
-|               Join Type: SINGLE                      |
-|               Join Cond: (t1.col3 = t2.col3)         |
-|               ->  Table Scan on db1.t1               |
-|                     Hit Partition: all partitions    |
-|               ->  Table Scan on db1.t2               |
-|                     Hit Partition: all partitions    |
-|                     Filter Cond: (t2.col1 < 5)       |
-|                     Block Filter Cond: (t2.col1 < 5) |
-+------------------------------------------------------+
-12 rows in set (0.00 sec)
++---------------------------------------------------+
+| QUERY PLAN                                        |
++---------------------------------------------------+
+| Project                                           |
+|   ->  Filter                                      |
+|         Filter Cond: (t1.col3 = t2.col3)          |
+|         ->  Join                                  |
+|               Join Type: SINGLE                   |
+|               Join Cond: (t1.col3 = t2.col3)      |
+|               ->  Table Scan on db1.t1            |
+|                     Hit Partition: all partitions |
+|               ->  Table Scan on db1.t2            |
+|                     Hit Partition: all partitions |
+|                     Filter Cond: (t2.col1 < 5)    |
++---------------------------------------------------+
+11 rows in set (0.00 sec)
 ```
 
 这个查询每读取一行数据，都会从子查询中获取结果并构建等值过滤条件 `col3 = ?`。然而，分区裁剪只在查询计划生成阶段生效，而不是执行阶段，因此无法进行分区裁剪。

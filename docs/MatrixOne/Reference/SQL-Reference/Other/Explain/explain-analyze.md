@@ -20,7 +20,7 @@
 
 - 循环数
 
-查询执行信息使用 `TREE` 输出格式显示，其中节点代表迭代器。`EXPLAIN ANALYZE` 始终使用 `TREE` 输出格式，也可以选择使用 `FORMAT=TREE;` 显式指定。其他格式 `TREE` 暂不支持。
+查询执行信息使用 `TREE` 输出格式显示，其中节点代表迭代器。`EXPLAIN ANALYZE` 始终使用 `TREE` 输出格式。
 
 `EXPLAIN ANALYZE` 可以与 `SELECT` 语句一起使用，也可以与多表 `UPDATE` 和 `DELETE` 语句一起使用。
 
@@ -52,54 +52,52 @@ CREATE TABLE t3 (
 **表输出结果**：
 
 ```sql
-> EXPLAIN ANALYZE SELECT * FROM t1 JOIN t2 ON (t1.c1 = t2.c2)\G
+> mysql> EXPLAIN ANALYZE SELECT * FROM t1 JOIN t2 ON (t1.c1 = t2.c2)\G
 *************************** 1. row ***************************
 QUERY PLAN: Project
 *************************** 2. row ***************************
-QUERY PLAN:   Analyze: timeConsumed=0us inputRows=0 outputRows=0 inputSize=0bytes outputSize=0bytes memorySize=0bytes
+QUERY PLAN:   Analyze: timeConsumed=0ms waitTime=0ms inputRows=0 outputRows=0 InputSize=0bytes OutputSize=0bytes MemorySize=0bytes
 *************************** 3. row ***************************
 QUERY PLAN:   ->  Join
 *************************** 4. row ***************************
-QUERY PLAN:         Analyze: timeConsumed=5053us inputRows=0 outputRows=0 inputSize=0bytes outputSize=0bytes memorySize=0bytes
+QUERY PLAN:         Analyze: timeConsumed=0ms waitTime=0ms inputRows=0 outputRows=0 InputSize=0bytes OutputSize=0bytes MemorySize=16441bytes
 *************************** 5. row ***************************
 QUERY PLAN:         Join Type: INNER
 *************************** 6. row ***************************
 QUERY PLAN:         Join Cond: (t1.c1 = t2.c2)
 *************************** 7. row ***************************
-QUERY PLAN:         ->  Table Scan on aaa.t1
+QUERY PLAN:         ->  Table Scan on tpch.t1
 *************************** 8. row ***************************
-QUERY PLAN:               Analyze: timeConsumed=2176us inputRows=0 outputRows=0 inputSize=0bytes outputSize=0bytes memorySize=0bytes
+QUERY PLAN:               Analyze: timeConsumed=0ms waitTime=0ms inputRows=0 outputRows=0 InputSize=0bytes OutputSize=0bytes MemorySize=0bytes
 *************************** 9. row ***************************
-QUERY PLAN:         ->  Table Scan on aaa.t2
+QUERY PLAN:         ->  Table Scan on tpch.t2
 *************************** 10. row ***************************
-QUERY PLAN:               Analyze: timeConsumed=0us inputRows=0 outputRows=0 inputSize=0bytes outputSize=0bytes memorySize=0bytes
+QUERY PLAN:               Analyze: timeConsumed=0ms waitTime=0ms inputRows=0 outputRows=0 InputSize=0bytes OutputSize=0bytes MemorySize=0bytes
 10 rows in set (0.00 sec)
 
 > EXPLAIN ANALYZE SELECT * FROM t3 WHERE i > 8\G
 *************************** 1. row ***************************
 QUERY PLAN: Project
 *************************** 2. row ***************************
-QUERY PLAN:   Analyze: timeConsumed=0us inputRows=0 outputRows=0 inputSize=0bytes outputSize=0bytes memorySize=0bytes
+QUERY PLAN:   Analyze: timeConsumed=0ms waitTime=0ms inputRows=0 outputRows=0 InputSize=0bytes OutputSize=0bytes MemorySize=0bytes
 *************************** 3. row ***************************
-QUERY PLAN:   ->  Table Scan on aaa.t3
+QUERY PLAN:   ->  Table Scan on tpch.t3
 *************************** 4. row ***************************
-QUERY PLAN:         Analyze: timeConsumed=154us inputRows=0 outputRows=0 inputSize=0bytes outputSize=0bytes memorySize=0bytes
+QUERY PLAN:         Analyze: timeConsumed=0ms waitTime=0ms inputRows=0 outputRows=0 InputSize=0bytes OutputSize=0bytes MemorySize=0bytes
 *************************** 5. row ***************************
-QUERY PLAN:         Filter Cond: (CAST(t3.i AS BIGINT) > 8)
+QUERY PLAN:         Filter Cond: (t3.i > 8)
 5 rows in set (0.00 sec)
 
 > EXPLAIN ANALYZE SELECT * FROM t3 WHERE pk > 17\G
 *************************** 1. row ***************************
 QUERY PLAN: Project
 *************************** 2. row ***************************
-QUERY PLAN:   Analyze: timeConsumed=0us inputRows=0 outputRows=0 inputSize=0bytes outputSize=0bytes memorySize=0bytes
+QUERY PLAN:   Analyze: timeConsumed=0ms waitTime=0ms inputRows=0 outputRows=0 InputSize=0bytes OutputSize=0bytes MemorySize=0bytes
 *************************** 3. row ***************************
-QUERY PLAN:   ->  Table Scan on aaa.t3
+QUERY PLAN:   ->  Table Scan on tpch.t3
 *************************** 4. row ***************************
-QUERY PLAN:         Analyze: timeConsumed=309us inputRows=0 outputRows=0 inputSize=0bytes outputSize=0bytes memorySize=0bytes
+QUERY PLAN:         Analyze: timeConsumed=0ms waitTime=0ms inputRows=0 outputRows=0 InputSize=0bytes OutputSize=0bytes MemorySize=0bytes
 *************************** 5. row ***************************
-QUERY PLAN:         Filter Cond: (CAST(t3.pk AS BIGINT) > 17)
-5 rows in set (0.00 sec)
+QUERY PLAN:         Filter Cond: (t3.pk > 17)
+5 rows in set (0.01 sec)
 ```
-
-该语句输出中显示的实际时间值以毫秒为单位。

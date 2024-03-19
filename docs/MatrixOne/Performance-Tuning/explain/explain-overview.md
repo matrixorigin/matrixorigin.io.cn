@@ -30,13 +30,14 @@ EXPLAIN SELECT * FROM t WHERE a = 1;
 **返回结果**：
 
 ```sql
-+------------------------------------------------+
-| QUERY PLAN                                     |
-+------------------------------------------------+
-| Project                                        |
-|   ->  Table Scan on aab.t                      |
-|         Filter Cond: (CAST(t.a AS BIGINT) = 1) |
-+------------------------------------------------+
++--------------------------------+
+| QUERY PLAN                     |
++--------------------------------+
+| Project                        |
+|   ->  Table Scan on db1.t      |
+|         Filter Cond: (t.a = 1) |
++--------------------------------+
+3 rows in set (0.01 sec)
 ```
 
 `EXPLAIN` 实际不会执行查询。`EXPLAIN ANALYZE` 可用于实际执行查询并显示执行计划。如果 MatrixOne 所选的执行计划非最优，可用 `EXPLAIN` 或 `EXPLAIN ANALYZE` 来进行诊断。

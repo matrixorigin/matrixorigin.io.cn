@@ -36,13 +36,14 @@ Hash Aggregation 算法在执行聚合时使用 Hash 表存储中间结果。此
 1 row in set (0.01 sec)
 
 mysql> EXPLAIN SELECT /*+ HASH_AGG() */ count(*) FROM t1;
-+-------------------------------------------+
-| QUERY PLAN                                |
-+-------------------------------------------+
-| Project                                   |
-|   ->  Aggregate                           |
-|         Aggregate Functions: starcount(1) |
-|         ->  Table Scan on db1.t1          |
-+-------------------------------------------+
-4 rows in set (0.01 sec)
++-------------------------------------------------+
+| QUERY PLAN                                      |
++-------------------------------------------------+
+| Project                                         |
+|   ->  Aggregate                                 |
+|         Aggregate Functions: starcount(1)       |
+|         ->  Table Scan on db1.t1                |
+|               Aggregate Functions: starcount(1) |
++-------------------------------------------------+
+5 rows in set (0.00 sec)
 ```
