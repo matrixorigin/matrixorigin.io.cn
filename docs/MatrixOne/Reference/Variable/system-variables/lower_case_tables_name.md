@@ -1,6 +1,6 @@
 # lower_case_table_names 大小写敏感支持
 
-关于 MatrixOne 大小写模式有 5 种，大小写参数 `lower_case_table_names` 可以设置为 0，1，2，3 和 4。
+`lower_case_table_names` 是 MatrixOne 设置大小写是否敏感的一个参数。
 
 !!! note
     与 mysql 不同的是，MatrixOne 暂时只支持 **0** 和 **1** 两种模式，且在 linux 和 mac 系统下默认值都为 1。
