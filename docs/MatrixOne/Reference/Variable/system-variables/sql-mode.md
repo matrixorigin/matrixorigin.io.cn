@@ -19,7 +19,7 @@ SELECT @@session.sql_mode;--会话模式
 在 MatrixOne 中使用以下命令设置 sql_mode：
 
 ```sql
-set global sql_mode = 'xxx' --全局模式
+set global sql_mode = 'xxx' --全局模式，重新连接数据库生效
 set session sql_mode = 'xxx'--会话模式
 ```
 
@@ -38,7 +38,7 @@ INSERT INTO student values(1,'tom',18,'上海'),(2,'jan',19,'上海'),(3,'jen',2
 mysql> select * from student group by nation;--在`ONLY_FULL_GROUP_BY`模式下不支持进行此操作
 ERROR 1149 (HY000): SQL syntax error: column "student.id" must appear in the GROUP BY clause or be used in an aggregate function
 
-mysql> SET global sql_mode='ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,STRICT_TRANS_TAB
+mysql> SET session sql_mode='ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,STRICT_TRANS_TAB
 LES';
 Query OK, 0 rows affected (0.02 sec)
 
