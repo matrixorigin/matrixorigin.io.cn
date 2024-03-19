@@ -7,14 +7,7 @@
 
 ## 配置
 
-- 可以在数据库启动前做初始化配置。
-
-```sql
-[cn.frontend]
-lowerCaseTableNames = "0" // 默认为 1
-```
-
-- 通过命令行修改
+在命令行执行以下语句：
 
 ```sql
 set global lower_case_table_names = 0;// 默认为 1，重新连接数据库生效
