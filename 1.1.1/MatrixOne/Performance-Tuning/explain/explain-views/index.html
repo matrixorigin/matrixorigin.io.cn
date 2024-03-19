@@ -4986,34 +4986,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate/" class="md-nav__link">
-        INSERT ON DUPLICATE KEY UPDATE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate-ignore/" class="md-nav__link">
-        INSERT ON DUPLICATE KEY IGNORE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/delete/" class="md-nav__link">
         DELETE
       </a>
@@ -5069,10 +5041,86 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_4_3_7" id="__nav_1_11_4_3_7_label" tabindex="0">
+          UPSERT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          UPSERT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/replace/" class="md-nav__link">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/upsert/" class="md-nav__link">
+        UPSERT 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate/" class="md-nav__link">
+        INSERT ON DUPLICATE KEY UPDATE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate-ignore/" class="md-nav__link">
+        INSERT ON DUPLICATE KEY IGNORE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/replace/" class="md-nav__link">
         REPLACE
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -5089,17 +5137,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_8" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_4_3_10" id="__nav_1_11_4_3_10_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_4_3_8" id="__nav_1_11_4_3_8_label" tabindex="0">
           Information Functions
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_4_3_10">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_8">
           <span class="md-nav__icon md-icon"></span>
           Information Functions
         </label>
@@ -10628,17 +10676,15 @@
 <span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>如上述示例所示，新建了一个命名为 <em>v1</em> 的 VIEW，并查询 <em>v1</em> 的结果。那么我们看一下这个视图的执行过程：</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">explain</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">--------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                                   </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">--------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                                      </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="n">Project</span><span class="w">                                                </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="n">Project</span><span class="w">                                          </span><span class="o">|</span>
-<span class="o">|</span><span class="w">               </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">                       </span><span class="o">|</span>
-<span class="o">|</span><span class="w">                     </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">--------------------------------------------------------------+</span>
-<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w">  </span><span class="k">explain</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                       </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                          </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">       </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------------------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>可以看到 Project 为这次查询过程中的执行顺序的父节点，首先是从缩进最多的子节点开始计算，完成后“流入”它的上层父节点，最终“流入”Project 父节点。</p>
 <p>先执行：</p>
@@ -10651,15 +10697,14 @@
 </ul>
 <p>下面的查询的执行方式与上述执行方式类似：</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">explain</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span><span class="w"> </span><span class="n">sub</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">--------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                             </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">--------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                                </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="n">Project</span><span class="w">                                          </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">                       </span><span class="o">|</span>
-<span class="o">|</span><span class="w">               </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">--------------------------------------------------------+</span>
-<span class="mi">4</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="o">+</span><span class="c1">----------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                       </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                          </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">       </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------------------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 
 

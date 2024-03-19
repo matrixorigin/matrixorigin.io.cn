@@ -5153,34 +5153,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate/" class="md-nav__link">
-        INSERT ON DUPLICATE KEY UPDATE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate-ignore/" class="md-nav__link">
-        INSERT ON DUPLICATE KEY IGNORE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/delete/" class="md-nav__link">
         DELETE
       </a>
@@ -5236,10 +5208,86 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_4_3_7" id="__nav_1_11_4_3_7_label" tabindex="0">
+          UPSERT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          UPSERT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/replace/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/upsert/" class="md-nav__link">
+        UPSERT 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate/" class="md-nav__link">
+        INSERT ON DUPLICATE KEY UPDATE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate-ignore/" class="md-nav__link">
+        INSERT ON DUPLICATE KEY IGNORE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/replace/" class="md-nav__link">
         REPLACE
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -5256,17 +5304,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_8" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_4_3_10" id="__nav_1_11_4_3_10_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_4_3_8" id="__nav_1_11_4_3_8_label" tabindex="0">
           Information Functions
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_4_3_10">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_8">
           <span class="md-nav__icon md-icon"></span>
           Information Functions
         </label>
@@ -10971,9 +11019,9 @@
 <span class="o">+</span><span class="c1">-----------------------------------------------------------------------------------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                                                                          </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------------------------------------------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">1000</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">outcnt</span><span class="o">=</span><span class="mi">1000</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">selectivity</span><span class="o">=</span><span class="mi">1</span><span class="p">.</span><span class="mi">0000</span><span class="p">)</span><span class="w">                                            </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">1000</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">outcnt</span><span class="o">=</span><span class="mi">1000</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">selectivity</span><span class="o">=</span><span class="mi">1</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="n">blockNum</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w">                                 </span><span class="o">|</span>
 <span class="o">|</span><span class="w">   </span><span class="k">Output</span><span class="p">:</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">col1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">col2</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w">                                                                 </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db2</span><span class="p">.</span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">1000</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">outcnt</span><span class="o">=</span><span class="mi">1000</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">selectivity</span><span class="o">=</span><span class="mi">1</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="n">blockNum</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w">              </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">1000</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">outcnt</span><span class="o">=</span><span class="mi">1000</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">selectivity</span><span class="o">=</span><span class="mi">1</span><span class="p">.</span><span class="mi">0000</span><span class="w"> </span><span class="n">blockNum</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w">              </span><span class="o">|</span>
 <span class="o">|</span><span class="w">         </span><span class="k">Output</span><span class="p">:</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">col1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">col2</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w">                                                           </span><span class="o">|</span>
 <span class="o">|</span><span class="w">         </span><span class="k">Table</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;t1&#39;</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;col2&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;col3&#39;</span><span class="p">)</span><span class="w">                                                  </span><span class="o">|</span>
 <span class="o">|</span><span class="w">         </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="n">p0</span><span class="p">,</span><span class="w"> </span><span class="n">p2</span><span class="w">                                                                       </span><span class="o">|</span>
@@ -10992,55 +11040,50 @@
 <span class="p">)</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">col3</span><span class="p">)</span><span class="w"> </span><span class="n">PARTITIONS</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7990</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7988</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">-------------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                                        </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                                           </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">                                        </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="n">p0</span><span class="p">,</span><span class="w"> </span><span class="n">p1</span><span class="w">                                     </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">((</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7990</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7988</span><span class="p">))</span><span class="w">       </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="n">Block</span><span class="w"> </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">((</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7990</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7988</span><span class="p">))</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------------------------------------------------+</span>
-<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="o">+</span><span class="c1">-------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                                  </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                                     </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">                                  </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="n">p0</span><span class="p">,</span><span class="w"> </span><span class="n">p1</span><span class="w">                               </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">((</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7990</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7988</span><span class="p">))</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------------------------------------------------------+</span>
+<span class="mi">4</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>在这个 SQL 中，条件 <code>col3 = 7990</code> 可以确定所有结果都位于分区 p0 上。条件 <code>col3 = 7988</code> 可以确定所有结果都位于分区 p1 上。由于这两个条件的关系是 OR，因此只需要扫描 p0 和 p1 两个分区，分区裁剪的结果是 p0 和 p1。</p>
 <h3 id="key_2">不适用的 KEY 分区表场景</h3>
 <h4 id="_3">场景一</h4>
 <p>Key 分区由于内部使用哈希算法造成的无序性，不适用于连续查询，如 <code>between</code>、<code>&gt; &lt; &gt;= &lt;=</code> 等条件，无法使用分区裁剪优化。</p>
 <div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">col3</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">7782</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">----------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                   </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">----------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                      </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">                   </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="n">partitions</span><span class="w">        </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">7782</span><span class="p">)</span><span class="w">       </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="n">Block</span><span class="w"> </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">7782</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">----------------------------------------------+</span>
-<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="o">+</span><span class="c1">----------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                             </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">             </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="n">partitions</span><span class="w">  </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">7782</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------------------------+</span>
+<span class="mi">4</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="_4">场景二</h4>
 <p>对于只能在执行计划生成阶段获取过滤条件的场景，无法利用分区裁剪优化。</p>
 <div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">col3</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">col1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
-<span class="o">+</span><span class="c1">------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                           </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                              </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="n">Filter</span><span class="w">                                         </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">col3</span>
-
-<span class="p">)</span><span class="w">             </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Join</span><span class="w">                                     </span><span class="o">|</span>
-<span class="o">|</span><span class="w">               </span><span class="k">Join</span><span class="w"> </span><span class="k">Type</span><span class="p">:</span><span class="w"> </span><span class="n">SINGLE</span><span class="w">                      </span><span class="o">|</span>
-<span class="o">|</span><span class="w">               </span><span class="k">Join</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">col3</span><span class="p">)</span><span class="w">         </span><span class="o">|</span>
-<span class="o">|</span><span class="w">               </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">               </span><span class="o">|</span>
-<span class="o">|</span><span class="w">                     </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="n">partitions</span><span class="w">    </span><span class="o">|</span>
-<span class="o">|</span><span class="w">               </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t2</span><span class="w">               </span><span class="o">|</span>
-<span class="o">|</span><span class="w">                     </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="n">partitions</span><span class="w">    </span><span class="o">|</span>
-<span class="o">|</span><span class="w">                     </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t2</span><span class="p">.</span><span class="n">col1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w">       </span><span class="o">|</span>
-<span class="o">|</span><span class="w">                     </span><span class="n">Block</span><span class="w"> </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t2</span><span class="p">.</span><span class="n">col1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------------------------------------------------------+</span>
-<span class="mi">12</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="o">+</span><span class="c1">---------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                        </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                           </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="n">Filter</span><span class="w">                                      </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">col3</span><span class="p">)</span><span class="w">          </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Join</span><span class="w">                                  </span><span class="o">|</span>
+<span class="o">|</span><span class="w">               </span><span class="k">Join</span><span class="w"> </span><span class="k">Type</span><span class="p">:</span><span class="w"> </span><span class="n">SINGLE</span><span class="w">                   </span><span class="o">|</span>
+<span class="o">|</span><span class="w">               </span><span class="k">Join</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">col3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">col3</span><span class="p">)</span><span class="w">      </span><span class="o">|</span>
+<span class="o">|</span><span class="w">               </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">            </span><span class="o">|</span>
+<span class="o">|</span><span class="w">                     </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">               </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t2</span><span class="w">            </span><span class="o">|</span>
+<span class="o">|</span><span class="w">                     </span><span class="n">Hit</span><span class="w"> </span><span class="n">Partition</span><span class="p">:</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">                     </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t2</span><span class="p">.</span><span class="n">col1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w">    </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------------------------------------------+</span>
+<span class="mi">11</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>这个查询每读取一行数据，都会从子查询中获取结果并构建等值过滤条件 <code>col3 = ?</code>。然而，分区裁剪只在查询计划生成阶段生效，而不是执行阶段，因此无法进行分区裁剪。</p>
 <h2 id="hash">分区裁剪在 Hash 分区表上的应用</h2>

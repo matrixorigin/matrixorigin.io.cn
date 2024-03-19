@@ -4999,34 +4999,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate/" class="md-nav__link">
-        INSERT ON DUPLICATE KEY UPDATE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate-ignore/" class="md-nav__link">
-        INSERT ON DUPLICATE KEY IGNORE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/delete/" class="md-nav__link">
         DELETE
       </a>
@@ -5082,10 +5054,86 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_4_3_7" id="__nav_1_11_4_3_7_label" tabindex="0">
+          UPSERT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          UPSERT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/replace/" class="md-nav__link">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/upsert/" class="md-nav__link">
+        UPSERT 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate/" class="md-nav__link">
+        INSERT ON DUPLICATE KEY UPDATE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate-ignore/" class="md-nav__link">
+        INSERT ON DUPLICATE KEY IGNORE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/replace/" class="md-nav__link">
         REPLACE
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -5102,17 +5150,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_8" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_4_3_10" id="__nav_1_11_4_3_10_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_4_3_8" id="__nav_1_11_4_3_8_label" tabindex="0">
           Information Functions
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_4_3_10">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_8">
           <span class="md-nav__icon md-icon"></span>
           Information Functions
         </label>
@@ -10640,15 +10688,16 @@
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="cm">/*+ HASH_AGG() */</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">-------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                   </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Aggregate</span><span class="w">                           </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="k">Aggregate</span><span class="w"> </span><span class="n">Functions</span><span class="p">:</span><span class="w"> </span><span class="n">starcount</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">          </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------------------------+</span>
-<span class="mi">4</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="o">+</span><span class="c1">-------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                      </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                         </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Aggregate</span><span class="w">                                 </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="k">Aggregate</span><span class="w"> </span><span class="n">Functions</span><span class="p">:</span><span class="w"> </span><span class="n">starcount</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">       </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w">                </span><span class="o">|</span>
+<span class="o">|</span><span class="w">               </span><span class="k">Aggregate</span><span class="w"> </span><span class="n">Functions</span><span class="p">:</span><span class="w"> </span><span class="n">starcount</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------------------------------------------+</span>
+<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 
 

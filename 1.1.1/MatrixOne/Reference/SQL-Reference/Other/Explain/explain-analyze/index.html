@@ -4945,34 +4945,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Manipulation-Language/insert-on-duplicate/" class="md-nav__link">
-        INSERT ON DUPLICATE KEY UPDATE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Data-Manipulation-Language/insert-on-duplicate-ignore/" class="md-nav__link">
-        INSERT ON DUPLICATE KEY IGNORE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Data-Manipulation-Language/delete/" class="md-nav__link">
         DELETE
       </a>
@@ -5028,10 +5000,86 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_4_3_7" id="__nav_1_11_4_3_7_label" tabindex="0">
+          UPSERT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          UPSERT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../Data-Manipulation-Language/replace/" class="md-nav__link">
+      <a href="../../../Data-Manipulation-Language/upsert/upsert/" class="md-nav__link">
+        UPSERT 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Data-Manipulation-Language/upsert/insert-on-duplicate/" class="md-nav__link">
+        INSERT ON DUPLICATE KEY UPDATE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Data-Manipulation-Language/upsert/insert-on-duplicate-ignore/" class="md-nav__link">
+        INSERT ON DUPLICATE KEY IGNORE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Data-Manipulation-Language/upsert/replace/" class="md-nav__link">
         REPLACE
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -5048,17 +5096,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_8" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_4_3_10" id="__nav_1_11_4_3_10_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_4_3_8" id="__nav_1_11_4_3_8_label" tabindex="0">
           Information Functions
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_4_3_10">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_8">
           <span class="md-nav__icon md-icon"></span>
           Information Functions
         </label>
@@ -10615,7 +10663,7 @@
 <p>循环数</p>
 </li>
 </ul>
-<p>查询执行信息使用 <code>TREE</code> 输出格式显示，其中节点代表迭代器。<code>EXPLAIN ANALYZE</code> 始终使用 <code>TREE</code> 输出格式，也可以选择使用 <code>FORMAT=TREE;</code> 显式指定。其他格式 <code>TREE</code> 暂不支持。</p>
+<p>查询执行信息使用 <code>TREE</code> 输出格式显示，其中节点代表迭代器。<code>EXPLAIN ANALYZE</code> 始终使用 <code>TREE</code> 输出格式。</p>
 <p><code>EXPLAIN ANALYZE</code> 可以与 <code>SELECT</code> 语句一起使用，也可以与多表 <code>UPDATE</code> 和 <code>DELETE</code> 语句一起使用。</p>
 <p>你可以使用 <code>KILL QUERY</code> 或 <code>CTRL-C</code> 终止此语句。</p>
 <p><code>EXPLAIN ANALYZE</code> 不能与 <code>FOR CONNECTION</code> 一起使用。</p>
@@ -10637,56 +10685,55 @@
 <span class="p">);</span>
 </code></pre></div>
 <p><strong>表输出结果</strong>：</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">c2</span><span class="p">)</span><span class="err">\</span><span class="k">G</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">c2</span><span class="p">)</span><span class="err">\</span><span class="k">G</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
 <span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
 <span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Join</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">5053</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">16441</span><span class="n">bytes</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
 <span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="k">Join</span><span class="w"> </span><span class="k">Type</span><span class="p">:</span><span class="w"> </span><span class="k">INNER</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
 <span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="k">Join</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">c2</span><span class="p">)</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">7</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">aaa</span><span class="p">.</span><span class="n">t1</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">tpch</span><span class="p">.</span><span class="n">t1</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">8</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">               </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">2176</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">               </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">9</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">aaa</span><span class="p">.</span><span class="n">t2</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">tpch</span><span class="p">.</span><span class="n">t2</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">               </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">               </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
 <span class="mi">10</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="err">\</span><span class="k">G</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
 <span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">aaa</span><span class="p">.</span><span class="n">t3</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">tpch</span><span class="p">.</span><span class="n">t3</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">154</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">t3</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t3</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
 <span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">pk</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">17</span><span class="err">\</span><span class="k">G</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
 <span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">aaa</span><span class="p">.</span><span class="n">t3</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">tpch</span><span class="p">.</span><span class="n">t3</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">309</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">0</span><span class="n">bytes</span>
 <span class="o">***************************</span><span class="w"> </span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span>
-<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">t3</span><span class="p">.</span><span class="n">pk</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">17</span><span class="p">)</span>
-<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="p">:</span><span class="w">         </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">t3</span><span class="p">.</span><span class="n">pk</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">17</span><span class="p">)</span>
+<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
-<p>该语句输出中显示的实际时间值以毫秒为单位。</p>
 
 
 

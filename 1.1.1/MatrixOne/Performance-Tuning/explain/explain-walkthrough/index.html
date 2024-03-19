@@ -5019,34 +5019,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate/" class="md-nav__link">
-        INSERT ON DUPLICATE KEY UPDATE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/insert-on-duplicate-ignore/" class="md-nav__link">
-        INSERT ON DUPLICATE KEY IGNORE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/delete/" class="md-nav__link">
         DELETE
       </a>
@@ -5102,10 +5074,86 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_4_3_7" id="__nav_1_11_4_3_7_label" tabindex="0">
+          UPSERT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          UPSERT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/replace/" class="md-nav__link">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/upsert/" class="md-nav__link">
+        UPSERT 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate/" class="md-nav__link">
+        INSERT ON DUPLICATE KEY UPDATE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate-ignore/" class="md-nav__link">
+        INSERT ON DUPLICATE KEY IGNORE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/upsert/replace/" class="md-nav__link">
         REPLACE
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -5122,17 +5170,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_3_8" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_4_3_10" id="__nav_1_11_4_3_10_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_4_3_8" id="__nav_1_11_4_3_8_label" tabindex="0">
           Information Functions
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_4_3_10">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_3_8">
           <span class="md-nav__icon md-icon"></span>
           Information Functions
         </label>
@@ -10668,21 +10716,21 @@
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="o">&gt;</span><span class="w"> </span><span class="k">explain</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="o">&gt;=</span><span class="mi">2</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="o">&lt;=</span><span class="mi">8</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">-----------------------------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                                                        </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-----------------------------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                                                           </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Aggregate</span><span class="w">                                                                   </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="k">Aggregate</span><span class="w"> </span><span class="n">Functions</span><span class="p">:</span><span class="w"> </span><span class="n">starcount</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">                                         </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">aab</span><span class="p">.</span><span class="n">a</span><span class="w">                                                   </span><span class="o">|</span>
-<span class="o">|</span><span class="w">               </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-----------------------------------------------------------------------------------+</span>
-<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="o">+</span><span class="c1">---------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                        </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                           </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Aggregate</span><span class="w">                                   </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="k">Aggregate</span><span class="w"> </span><span class="n">Functions</span><span class="p">:</span><span class="w"> </span><span class="n">starcount</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">         </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">a</span><span class="w">                   </span><span class="o">|</span>
+<span class="o">|</span><span class="w">               </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------------------------------------------+</span>
+<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>以上是该查询的执行计划结果。从 <code>Filter Cond</code> 算子开始向上看，查询的执行过程如下：</p>
 <ol>
-<li>先执行过滤条件 <code>Filter Cond</code>：即过滤出数据类型为 <code>BIGINT</code> 且大于等于 2，小于等于 8 的整数，按照计算推理，应该为 <code>(2),(3),(4),(5),(6),(7),(8)</code>。</li>
-<li>扫描数据库 aab 中的表 a。</li>
+<li>先执行过滤条件 <code>Filter Cond</code>：即过滤出数据字段为 <code>a</code> 且大于等于 2，小于等于 8 的整数，按照计算推理，应该为 <code>(2),(3),(4),(5),(6),(7),(8)</code>。</li>
+<li>扫描数据库 db1 中的表 a。</li>
 <li>聚合计算满足条件整数的个数，为 7 个。</li>
 </ol>
 <p>最终，得到查询结果为 7，即 <code>count(*)</code> = 7。</p>
@@ -10694,18 +10742,18 @@
 <h4 id="_3">如何使用它？</h4>
 <p>这里还是继续使用上述示例，你可以执行下面的代码：</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">explain</span><span class="w"> </span><span class="k">analyze</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="o">&gt;=</span><span class="mi">2</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="o">&lt;=</span><span class="mi">8</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">-------------------------------------------------------------------------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                                                                                                    </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------------------------------------------------------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                                                                                                       </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">8</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">8</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">8</span><span class="n">bytes</span><span class="w">                     </span><span class="o">|</span>
-<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Aggregate</span><span class="w">                                                                                                               </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">3317</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">2</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">2</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">8</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">16</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">16</span><span class="n">bytes</span><span class="w">          </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="k">Aggregate</span><span class="w"> </span><span class="n">Functions</span><span class="p">:</span><span class="w"> </span><span class="n">starcount</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">                                                                                     </span><span class="o">|</span>
-<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">aab</span><span class="p">.</span><span class="n">a</span><span class="w">                                                                                               </span><span class="o">|</span>
-<span class="o">|</span><span class="w">               </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">6643</span><span class="n">us</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">31</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">24</span><span class="w"> </span><span class="n">inputSize</span><span class="o">=</span><span class="mi">96</span><span class="n">bytes</span><span class="w"> </span><span class="n">outputSize</span><span class="o">=</span><span class="mi">64</span><span class="n">bytes</span><span class="w"> </span><span class="n">memorySize</span><span class="o">=</span><span class="mi">64</span><span class="n">bytes</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w">               </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w">                                             </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------------------------------------------------------------------------------------------------------------+</span>
+<span class="o">+</span><span class="c1">---------------------------------------------------------------------------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="n">PLAN</span><span class="w">                                                                                                                            </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------------------------------------------------------------------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Project</span><span class="w">                                                                                                                               </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">8</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">8</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">8</span><span class="n">bytes</span><span class="w">                </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Aggregate</span><span class="w">                                                                                                                       </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">7</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">28</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">8</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">16</span><span class="n">bytes</span><span class="w">        </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="k">Aggregate</span><span class="w"> </span><span class="n">Functions</span><span class="p">:</span><span class="w"> </span><span class="n">starcount</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">                                                                                             </span><span class="o">|</span>
+<span class="o">|</span><span class="w">         </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Table</span><span class="w"> </span><span class="n">Scan</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">a</span><span class="w">                                                                                                       </span><span class="o">|</span>
+<span class="o">|</span><span class="w">               </span><span class="k">Analyze</span><span class="p">:</span><span class="w"> </span><span class="n">timeConsumed</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">waitTime</span><span class="o">=</span><span class="mi">0</span><span class="n">ms</span><span class="w"> </span><span class="n">inputRows</span><span class="o">=</span><span class="mi">8</span><span class="w"> </span><span class="n">outputRows</span><span class="o">=</span><span class="mi">7</span><span class="w"> </span><span class="n">InputSize</span><span class="o">=</span><span class="mi">32</span><span class="n">bytes</span><span class="w"> </span><span class="n">OutputSize</span><span class="o">=</span><span class="mi">28</span><span class="n">bytes</span><span class="w"> </span><span class="n">MemorySize</span><span class="o">=</span><span class="mi">75</span><span class="n">bytes</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">               </span><span class="n">Filter</span><span class="w"> </span><span class="n">Cond</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w">                                                                                     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------------------------------------------------------------------------------------------------------------------------------+</span>
 <span class="mi">8</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>从打印的执行结果来看，当分别执行聚合计算和扫描表时，都会得出以下几个测量值，这些测量值可以作为参考项：</p>
