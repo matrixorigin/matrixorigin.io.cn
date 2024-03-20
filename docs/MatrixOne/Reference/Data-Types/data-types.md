@@ -1,9 +1,9 @@
-# **数据类型**
+# 数据类型
 
 MatrixOne 的数据类型与 MySQL 数据类型的定义一致，可参考：
 <https://dev.mysql.com/doc/refman/8.0/en/data-types.html>
 
-## **整数类型**
+## 整数类型
 
 |  数据类型   | 存储空间  |  最小值  | 最大值  |
 |  ----  | ----  |  ----  | ----  |
@@ -16,7 +16,7 @@ MatrixOne 的数据类型与 MySQL 数据类型的定义一致，可参考：
 | INT UNSIGNED | 4 byte | 0	  | 4294967295 |
 | BIGINT UNSIGNED | 8 byte | 0	  | 18446744073709551615 |
 
-### **示例**
+### 示例
 
 - TINYINT and TINYINT UNSIGNED
 
@@ -97,14 +97,14 @@ mysql> select * from inttable;
 2 rows in set (0.01 sec)
 ```
 
-## **浮点类型**
+## 浮点类型
 
 |  数据类型   | 存储空间  |  精度  | 最小值 | 最大值 | 语法表示 |
 |  ----  | ----  |  ----  | ----  |----  |----  |
 | FLOAT32  | 4 bytes | 	23 bits  |-3.40282e+038|3.40282e+038| FLOAT(M, D)<br> M 表示的是最大长度，D 表示的显示的小数位数。M 的取值范围为（1=< M <=255）。<br> D 的取值范围为（1=< D <=30），且 M >= D。<br> 带精度的浮点数展示出要求精度的位数，在位数不足时，会进行末尾补 0。|
 | FLOAT64  | 8 bytes |  53 bits  |-1.79769e+308|1.79769e+308| DOUBLE(M, D) <br>  M 表示的是最大长度，D 表示的显示的小数位数。M 的取值范围为（1=< M <=255）。<br> D 的取值范围为（1=< D <=30），且 M >= D。<br> 带精度的浮点数展示出要求精度的位数，在位数不足时，会进行末尾补 0。|
 
-### **示例**
+### 示例
 
 ```sql
 -- Create a table named "floatt1" with precision, a trailing zero is added when the number of bits falls short
@@ -145,7 +145,7 @@ mysql> select min(big),max(big),max(big)-1 from floattable;
 1 row in set (0.05 sec)
 ```
 
-## **字符串类型**
+## 字符串类型
 
 |  数据类型  | 存储空间 | 长度 | 语法表示 | 描述|
 |  ----  | ---- | --- |   ----  |----  |
@@ -157,7 +157,7 @@ mysql> select min(big),max(big),max(big)-1 from floattable;
 | blob    | 1 GB | other types mapping  |BLOB|二进制的长文本数据，不区分 TINY BLOB、MEDIUM BLOB  和 LONGBLOB|
 | enum  | 1 byte 或 2 bytes | 0 ~ 65535 | enum  | 一个枚举类型。它是一个字符串对象，只能从 `value1`、`value2` 等值列表中选择一个值，或者是 `NULL` 或特殊的 '' 错误值。枚举值在内部表示为整数。 |
 
-### **示例**
+### 示例
 
 - CHAR 和 VARCHAR
 
@@ -262,14 +262,14 @@ mysql> SELECT * FROM enumtest WHERE color = 'green';
 1 row in set (0.01 sec)
 ```
 
-## **JSON 数据类型**
+## JSON 数据类型
 
 |JSON 数据类型 | 解释 |
 |---|---|
 |对象 |对象使用 `{}` 括起来，元素之间用 `,` 分隔。JSON 对象中的值/键可以为 String、Nubmber、Bool、时间。|
 |数组 | 数组使用 `[]` 括起来，元素之间用逗号 `,` 分隔。JSON 数组中值可以为 String、Nubmber、Bool、时间。|
 
-### **示例**
+### 示例
 
 ```sql
 -- Create a table named "jsontest" with 1 attribute of a "json"
@@ -286,33 +286,42 @@ mysql> select * from jsontest;
 2 rows in set (0.01 sec)
 ```
 
-## **时间与日期**
+## 时间与日期类型
 
 |  数据类型  | 存储空间  | 精度 |  最小值   | 最大值  | 语法表示 |
 |  ----  | ----  |   ----  |  ----  | ----  |   ----  |
-|  Time  | 8 byte  |   microsecond  |  -2562047787:59:59.999999 | 2562047787:59:59.999999  |   hh:mm:ss.ssssss  |
+| Time  | 8 byte  |   microsecond  |  -2562047787:59:59.999999 | 2562047787:59:59.999999  |   hh:mm:ss.ssssss  |
 | Date  | 4 byte | day | 0001-01-01  | 9999-12-31 | YYYY-MM-DD/YYYYMMDD |
 | DateTime  | 8 byte | microsecond | 0001-01-01 00:00:00.000000  | 9999-12-31 23:59:59.999999 | YYYY-MM-DD hh:mi:ssssss |
 | TIMESTAMP|8 byte|microsecond|0001-01-01 00:00:00.000000|9999-12-31 23:59:59.999999|YYYYMMDD hh:mi:ss.ssssss|
 
-### **示例**
+时间与日期部分类型支持在插入数据时添加以下 hint 值：
+
+- `Time`：{t 'xx'}，{time 'xx'}
+
+- `Date`：{d 'xx'}，{date 'xx'}
+
+- `TIMESTAMP`：{ts 'xx'}，{timestamp 'xx'}
+
+### 示例
 
 - TIME
 
 ```sql
 -- Create a table named "timetest" with 1 attributes of a "time"
 create table time_02(t1 time);
-insert into time_02 values(200);
-insert into time_02 values("");
+insert into time_02 values(200),(time'23:29:30'),({t'12:11:12'}),('');
 
 mysql> select * from time_02;
 +----------+
 | t1       |
 +----------+
 | 00:02:00 |
+| 23:29:30 |
+| 12:11:12 |
 | NULL     |
 +----------+
-2 rows in set (0.00 sec)
+4 rows in set (0.01 sec)
 ```
 
 - DATE
@@ -320,17 +329,17 @@ mysql> select * from time_02;
 ```sql
 -- Create a table named "datetest" with 1 attributes of a "date"
 create table datetest (a date not null, primary key(a));
-insert into datetest values ('2022-01-01'), ('20220102'),('2022-01-03'),('20220104');
-
-mysql> select * from datetest order by a asc;
+insert into datetest values ({d'2022-01-01'}), ('20220102'),(date'2022-01-03'),({d now()});
+mysql> select * from datetest;
 +------------+
 | a          |
 +------------+
 | 2022-01-01 |
 | 2022-01-02 |
 | 2022-01-03 |
-| 2022-01-04 |
+| 2024-03-19 |
 +------------+
+4 rows in set (0.00 sec)
 ```
 
 - DATETIME
@@ -357,27 +366,28 @@ mysql> select * from datetimetest order by a asc;
 ```sql
 -- Create a table named "timestamptest" with 1 attribute of a "timestamp"
 create table timestamptest (a timestamp(0) not null, primary key(a));
-insert into timestamptest values ('20200101000000'), ('2022-01-02'), ('2022-01-02 00:00:01'), ('2022-01-02 00:00:01.512345');
+insert into timestamptest values ('20200101000000'), (timestamp'2022-01-02 11:30:40'), ({ts'2022-01-02 00:00:01'}), ({ts current_timestamp});
 
 mysql> select * from timestamptest;
 +---------------------+
 | a                   |
 +---------------------+
 | 2020-01-01 00:00:00 |
-| 2022-01-02 00:00:00 |
+| 2022-01-02 11:30:40 |
 | 2022-01-02 00:00:01 |
-| 2022-01-02 00:00:02 |
+| 2024-03-19 17:22:08 |
 +---------------------+
+4 rows in set (0.00 sec)
 ```
 
-## **Bool**
+## Bool 类型
 
 |  数据类型  | 存储空间  |
 |  ----  | ----  |
 | True  | 1 byte |
 |False|1 byte|
 
-### **示例**
+### 示例
 
 ```sql
 -- Create a table named "booltest" with 2 attribute of a "boolean" and b "bool"
@@ -397,14 +407,14 @@ mysql> select * from booltest;
 5 rows in set (0.00 sec)
 ```
 
-## **定点类型 Decimal**
+## 定点类型 Decimal
 
 |  数据类型   | 存储空间  |  精度   | 语法表示 |
 |  ----  | ----  |  ----  | ----  |
 | Decimal64  | 8 byte | 	18 位  | Decimal(N,S) <br> N 表示数字位数的总数，范围是 (1 ~ 18)，小数点和 -（负数）符号不包括在 N 中。<br>如果 N 被省略，默认值应该取最大，即取值 18。<br>S 表示是小数点（标度）后面的位数，范围是 (0 ~ N)<br>如果 S 是 0，则值没有小数点或分数部分。如果 S 被省略，默认是 0，例如 Decimal(10)，等同于 Decimal(10, 0) <br>例如 Decimal(10,8)，即表示数字总长度为 10，小数位为 8。|
 | Decimal128  | 16 byte | 	38 位  | Decimal(N,S) <br> N 表示数字位数的总数，范围是 (18 ~ 38)，小数点和 -（负数）符号不包括在 N 中。<br>如果 N 被省略，默认值应该取最大，即取值 38。<br>S 表示是小数点（标度）后面的位数，范围是 (0 ~ N)<br>如果 S 是 0，则值没有小数点或分数部分。如果 S 被省略，默认是 0，例如 Decimal(20)，等同于 Decimal(20, 0)。<br>例如 Decimal(20,19)，即表示数字总长度为 20，小数位为 19。 |
 
-### **示例**
+### 示例
 
 ```sql
 -- Create a table named "decimalTest" with 2 attribute of a "decimal" and b "decimal"
@@ -420,13 +430,13 @@ mysql> select * from decimalTest;
 1 row in set (0.01 sec)
 ```
 
-## **UUID 类型**
+## UUID 类型
 
 |UUID 类型 | 解释 |
 |---|---|
 |[UUID](uuid-type.md) | 由 32 个 16 进制数字和 4 个连字符‘-’组成 UUID 值，形式为 8-4-4-4-12，标准的 UUID 示例：`a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11`。|
 
-### **示例**
+### 示例
 
 ```sql
 -- 创建一个名为 't1' 的新表，并设置 'a' 列为 UUID 类型，同时将 'a' 列设置为主键
@@ -451,5 +461,27 @@ mysql> select * from t1;
 +--------------------------------------+
 | 948d8e4e-1b00-11ee-b656-5ad2460dea50 |
 +--------------------------------------+
+1 row in set (0.00 sec)
+```
+
+## 向量数据类型
+
+|类型         | 解释                  |
+|------------|---------------------  |
+|vecf32      | 向量列类型为 float32     |
+|vecf64      | 向量列类型为 float64     |
+
+### 示例
+
+```sql
+create table t1(n1 vecf32(3), n2 vecf64(2));
+insert into t1 values("[1,2,3]",'[4,5]');
+
+mysql> select * from t1;
++-----------+--------+
+| n1        | n2     |
++-----------+--------+
+| [1, 2, 3] | [4, 5] |
++-----------+--------+
 1 row in set (0.00 sec)
 ```
