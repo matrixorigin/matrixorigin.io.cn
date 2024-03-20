@@ -39,10 +39,10 @@ mysql> select * from student group by nation;--在`ONLY_FULL_GROUP_BY`模式下�
 ERROR 1149 (HY000): SQL syntax error: column "student.id" must appear in the GROUP BY clause or be used in an aggregate function
 
 mysql> SET session sql_mode='ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,STRICT_TRANS_TAB
-LES';
+LES';--关闭当前会话的 ONLY_FULL_GROUP_BY 模式
 Query OK, 0 rows affected (0.02 sec)
 
-mysql> select * from student group by nation;--关闭`ONLY_FULL_GROUP_BY`模式操作成功
+mysql> select * from student group by nation;--在当前会话关闭`ONLY_FULL_GROUP_BY`模式立即生效
 +------+------+------+--------+
 | id   | name | age  | nation |
 +------+------+------+--------+
@@ -51,4 +51,22 @@ mysql> select * from student group by nation;--关闭`ONLY_FULL_GROUP_BY`模式�
 |    5 | tim  |   20 | 广州   |
 +------+------+------+--------+
 3 rows in set (0.00 sec)
+
+mysql> SET global sql_mode='ONLY_FULL_GROUP_BY';--设置全局开启 ONLY_FULL_GROUP_BY 模式
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from student group by nation;--ONLY_FULL_GROUP_BY 模式未生效，因为全局模式开启后需要重连数据库方可生效
++------+------+------+--------+
+| id   | name | age  | nation |
++------+------+------+--------+
+|    1 | tom  |   18 | 上海   |
+|    3 | jen  |   20 | 北京   |
+|    5 | tim  |   20 | 广州   |
++------+------+------+--------+
+3 rows in set (0.00 sec)
+
+mysql> exit --退出当前会话
+
+mysql> select * from student group by nation;--重连数据库后执行查询操作，ONLY_FULL_GROUP_BY 模式成功开启
+ERROR 1149 (HY000): SQL syntax error: column "student.id" must appear in the GROUP BY clause or be used in an aggregate function
 ```
