@@ -1,6 +1,6 @@
 # FOREIGN KEY 外键约束
 
-FOREIGN KEY 约束可用于在跨表交叉引用相关数据时，保持相关数据的一致性。
+FOREIGN KEY 外键约束允许表内或跨表交叉引用相关数据，有助于保持相关数据的一致性。
 
 **遵循规则**
 
@@ -21,6 +21,8 @@ FOREIGN KEY 约束可用于在跨表交叉引用相关数据时，保持相关�
 - 外键的值必须跟主表主键的值保持一致。
 
 **外键特性**
+
+- 外键自引用：是指一个表中的列引用同一个表的主键。这种设计通常用于表示层级关系或父子关系，比如组织结构、分类目录等。
 
 - 多列外键：这种外键是在一个表中两个或更多的列联合起来引用另一个表的主键。也就是说，这些列共同定义了对另一个表的引用。它们必须以组的形式存在，且需要同时满足外键约束。
 
@@ -96,7 +98,45 @@ ERROR 20101 (HY000): internal error: Cannot add or update a child row: a foreign
 
 **示例解释**：在上述示例中，t2 的 c 列只能引用 t1 中 a 列的值或空值，因此插入 t2 的前 3 行操作都能够成功插入，但是第 4 行中的 103 并不是 t1 中 a 列的某个值，违反了外键约束，因此插入失败。
 
-### 示例 2 - 多列外键
+### 示例 2 - 外键自引用
+
+```sql
+-- 创建名为 categories 的表，用于存储商品分类信息
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,--id 是主键，用于唯一标识每个分类
+    name VARCHAR(255) NOT NULL,--name 是分类的名称
+    parent_id INT,
+    FOREIGN KEY (parent_id) REFERENCES categories(id)--parent_id 是一个外键，它引用了 categories 表中的 id 列
+);
+
+--parent_id 列允许我们指定一个分类的父分类。如果没有父分类（即顶级分类），parent_id 可以设置为 NULL。接下来，我们可以插入一些数据来展示这种层级关系：
+
+--插入顶级分类
+mysql> INSERT INTO categories (name) VALUES ('Electronics'),('Books');
+Query OK, 2 rows affected (0.01 sec)
+
+--插入子分类
+mysql> INSERT INTO categories (name, parent_id) VALUES ('Laptops', 1),('Smartphones', 1),('Science Fiction', 2),('Mystery', 2);
+Query OK, 4 rows affected (0.01 sec)
+
+mysql> select * from categories;
++------+-----------------+-----------+
+| id   | name            | parent_id |
++------+-----------------+-----------+
+|    1 | Electronics     |      NULL |
+|    2 | Books           |      NULL |
+|    3 | Laptops         |         1 |
+|    4 | Smartphones     |         1 |
+|    5 | Science Fiction |         2 |
+|    6 | Mystery         |         2 |
++------+-----------------+-----------+
+6 rows in set (0.01 sec)
+
+```
+
+**示例解释**：上述代码中，我们了创建名为 `categories` 的表，用于存储商品分类信息，首先插入了两个顶级分类 `Electronics` 和 `Books`。然后，我们为每个顶级分类添加了子分类，比如 `Laptops` 和 `Smartphones` 是 `Electronics` 的子分类，而 `Science Fiction` 和 `Mystery` 是 `Books` 的子分类。
+
+### 示例 3 - 多列外键
 
 ```sql
 -- 创建一个名为"Student"的表，用于存储学生信息
@@ -125,7 +165,7 @@ CREATE TABLE StudentCourse (
 
 **示例解释**：上述示例中，一个是学生表 (Student)，一个是课程表 (Course)，还有一个选课表 (StudentCourse) 用于记录哪个学生选择了哪门课程。在这种情况下，选课表中的学生 ID 和课程 ID 可以作为外键，共同引用学生表和课程表的主键。
 
-### 示例 3 - 多层外键
+### 示例 4 - 多层外键
 
 ```sql
 -- 创建一个名为"Country"的表，用于存储国家信息
