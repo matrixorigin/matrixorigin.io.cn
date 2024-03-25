@@ -305,7 +305,7 @@ nav:
           - UPSERT: 
             - UPSERT 概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/upsert/upsert.md
             - INSERT ON DUPLICATE KEY UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate.md
-            - INSERT ON DUPLICATE KEY IGNORE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-on-duplicate-ignore.md
+            - INSERT IGNORE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/upsert/insert-ignore.md
             - REPLACE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/upsert/replace.md
           - Information Functions:
             - LAST_QUERY_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id.md

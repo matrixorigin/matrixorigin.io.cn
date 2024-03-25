@@ -24,15 +24,15 @@
 
 然而，`UPSERT` 命令在 Matrixone 中不存在，但仍然可以实现 `UPSERT`。默认情况下，Matrixone 提供了以下三种方式来实现 Matrixone UPSERT 操作：
 
-- [INSERT ON DUPLICATE KEY IGNORE](insert-on-duplicate-ignore.md)
+- [INSERT IGNORE](insert-ignore.md)
 
 - [INSERT ON DUPLICATE KEY UPDATE](insert-on-duplicate.md)
 
 - [REPLACE](replace.md)
 
-## INSERT ON DUPLICATE KEY IGNORE
+## INSERT IGNORE
 
-当我们向表中插入非法行时，`INSERT ON DUPLICATE KEY IGNORE` 语句会忽略执行时的 error。比如，主键列不允许我们存储重复值。当我们使用 INSERT 向表中插入一条数据，而这条数据的主键已经在表中存在了，此时 Matrixone 服务器生成 error，语句执行失败。然而，当我们使用 `INSERT ON DUPLICATE KEY IGNORE` 来执行此语句时，Matrixone 服务器将不会生成 error。
+当我们向表中插入非法行时，`INSERT IGNORE` 语句会忽略执行时的 error。比如，主键列不允许我们存储重复值。当我们使用 INSERT 向表中插入一条数据，而这条数据的主键已经在表中存在了，此时 Matrixone 服务器生成 error，语句执行失败。然而，当我们使用 `INSERT IGNORE` 来执行此语句时，Matrixone 服务器将不会生成 error。
 
 ## REPLACE
 
