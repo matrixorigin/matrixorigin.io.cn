@@ -59,6 +59,9 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
     mysql  Ver 8.0.33 for Linux on x86_64 (MySQL Community Server - GPL)
     ```
 
+!!! note
+    为了提高 Matrixone 在 Linux 中运行的稳定性，我们建议您调整系统参数 `vm.max_map_count` 值，它定义了一个进程可以拥有的最大内存映射区域的数量，推荐值为 `262144`，您可以通过命令 `sysctl -w vm.max_map_count = 262144` 使其临时生效，或修改配置文件 `/etc/sysctl.conf` 使其永久生效。
+
 ## 步骤 2：部署 Matrixone
 
 此节介绍使用 docker 直接拉取 MatrixOne 镜像和使用 mo_ctl 工具两种部署方式
