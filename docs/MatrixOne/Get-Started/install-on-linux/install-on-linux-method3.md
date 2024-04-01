@@ -60,7 +60,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
     ```
 
 !!! note
-    为了提高 Matrixone 在 Linux 中运行的稳定性，我们建议您调整系统参数 `vm.max_map_count` 值，它定义了一个进程可以拥有的最大内存映射区域的数量，推荐值为 `262144`，您可以通过命令 `sysctl -w vm.max_map_count = 262144` 使其临时生效，或修改配置文件 `/etc/sysctl.conf` 使其永久生效。
+    数据库系统在处理大量数据时（如 TPC-H 100G 测试），会使用内存映射文件来提高 I/O 性能。Linux 系统参数 vm.max_map_count 定义了进程可以拥有的虚拟内存区域数量，如果这个值设置得太低，数据库系统可能无法创建足够的内存映射区域来处理其日常操作，这可能导致数据库无法正常工作，如内存不足 (OOM) 和进程崩溃。为了提高 Matrixone 在 Linux 中运行的稳定性，建议将 vm.max_map_count 设置为一个较高的值，推荐值为 **262144**，这个值适用于大多数需要大量内存映射的场景。您可以通过命令 `sysctl -w vm.max_map_count = 262144` 使其临时生效，或修改配置文件 `/etc/sysctl.conf` 使其永久生效。
 
 ## 步骤 2：部署 Matrixone
 
