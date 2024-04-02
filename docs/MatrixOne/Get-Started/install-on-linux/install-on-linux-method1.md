@@ -116,6 +116,9 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
     mysql  Ver 8.0.33 for Linux on x86_64 (MySQL Community Server - GPL)
     ```
 
+!!! note
+    数据库系统在处理大量数据时（如 TPC-H 100G 测试），会使用内存映射文件来提高 I/O 性能。Linux 系统参数 vm.max_map_count 定义了进程可以拥有的虚拟内存区域数量，如果这个值设置得太低，数据库系统可能无法创建足够的内存映射区域来处理其日常操作，这可能导致数据库无法正常工作，如内存不足 (OOM) 和进程崩溃。为了提高 Matrixone 在 Linux 中运行的稳定性，建议将 vm.max_map_count 设置为一个较高的值，推荐值为 **262144**，这个值适用于大多数需要大量内存映射的场景。您可以通过命令 `sysctl -w vm.max_map_count = 262144` 使其临时生效，或修改配置文件 `/etc/sysctl.conf` 使其永久生效。
+
 ## 步骤 2: 安装 mo_ctl 工具
 
 [mo_ctl](https://github.com/matrixorigin/mo_ctl_standalone) 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。
