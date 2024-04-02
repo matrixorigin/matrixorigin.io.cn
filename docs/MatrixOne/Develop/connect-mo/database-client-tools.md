@@ -39,7 +39,7 @@ MatrixOne 现在支持通过以下几种数据库客户端工具的方式连接 
 
     ```
     Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 1031
-    Server version: 8.0.30-MatrixOne-v1.1.1 MatrixOne
+    Server version: 8.0.30-MatrixOne-v1.1.2 MatrixOne
     Copyright (c) 2000, 2022, Oracle and/or its affiliates.
 
     Oracle is a registered trademark of Oracle Corporation and/or its affiliates. Other names may be trademarks of their respective owners.
