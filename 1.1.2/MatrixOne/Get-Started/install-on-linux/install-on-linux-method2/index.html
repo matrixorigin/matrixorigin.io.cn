@@ -987,6 +987,26 @@
     步骤 2：下载二进制包并解压
   </a>
   
+    <nav class="md-nav" aria-label="步骤 2：下载二进制包并解压">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#glibc" class="md-nav__link">
+    基于 glibc 构建的二进制包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#musl-libc" class="md-nav__link">
+    基于 musl libc 构建的二进制包
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -10734,6 +10754,26 @@
     步骤 2：下载二进制包并解压
   </a>
   
+    <nav class="md-nav" aria-label="步骤 2：下载二进制包并解压">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#glibc" class="md-nav__link">
+    基于 glibc 构建的二进制包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#musl-libc" class="md-nav__link">
+    基于 musl libc 构建的二进制包
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -10855,7 +10895,6 @@ Release-Date: 2022-06-27
 </div>
 </div>
 <h3 id="2-mysql-client">2. 安装 MySQL Client</h3>
-<p>Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安装。</p>
 <ol>
 <li>
 <p>依次执行以下命令：</p>
@@ -10877,7 +10916,8 @@ mysql  Ver 8.0.33 for Linux on x86_64 (MySQL Community Server - GPL)
 <p>数据库系统在处理大量数据时（如 TPC-H 100G 测试），会使用内存映射文件来提高 I/O 性能。Linux 系统参数 vm.max_map_count 定义了进程可以拥有的虚拟内存区域数量，如果这个值设置得太低，数据库系统可能无法创建足够的内存映射区域来处理其日常操作，这可能导致数据库无法正常工作，如内存不足 (OOM) 和进程崩溃。为了提高 Matrixone 在 Linux 中运行的稳定性，建议将 vm.max_map_count 设置为一个较高的值，推荐值为 <strong>262144</strong>，这个值适用于大多数需要大量内存映射的场景。您可以通过命令 <code>sysctl -w vm.max_map_count = 262144</code> 使其临时生效，或修改配置文件 <code>/etc/sysctl.conf</code> 使其永久生效。</p>
 </div>
 <h2 id="2">步骤 2：下载二进制包并解压</h2>
-<p><strong>下载方式一</strong>和<strong>下载方式二</strong>需要先安装下载工具 <code>wget</code> 或 <code>curl</code>，如果你未安装，请参考上面的章节先安装下载工具。</p>
+<p>我们提供了两类二进制包：一类是依托 glibc 构建的，另一类是基于 musl libc 构建的。对于使用较旧操作系统版本的用户，可以选择使用基于 musl libc 构建的二进制包来进行部署。接下来，我们将详细解释两种安装包的下载流程：</p>
+<h3 id="glibc">基于 glibc 构建的二进制包</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><strong>下载方式一：<code>wget</code> 工具下载安装二进制包</strong></label><label for="__tabbed_2_2"><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></label><label for="__tabbed_2_3"><strong>下载方式三：页面下载</strong></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -10908,6 +10948,40 @@ unzip<span class="w"> </span>mo-v1.1.2-linux-arm64.zip
 </div>
 <div class="tabbed-block">
 <p>如果你想通过更直观的页面下载的方式下载，直接点击进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v1.1.2">版本 1.1.2</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v1.1.2-linux-x86_64.zip</em> 或者 <em>mo-v1.1.2-linux-arm64.zip</em> 下载再使用 <code>unzip</code> 命令解压即可。</p>
+</div>
+</div>
+</div>
+<h3 id="musl-libc">基于 musl libc 构建的二进制包</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><strong>下载方式一：<code>wget</code> 工具下载安装二进制包</strong></label><label for="__tabbed_3_2"><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></label><label for="__tabbed_3_3"><strong>下载方式三：页面下载</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>x86 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.1.2/mo-v1.1.2-musl-x86_64.zip
+unzip<span class="w"> </span>mo-v1.1.2-musl-x86_64.zip
+</code></pre></div>
+<p>ARM 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.1.2/mo-v1.1.2-musl-arm64.zip
+unzip<span class="w"> </span>mo-v1.1.2-musl-arm64.zip
+</code></pre></div>
+<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
+<div class="highlight"><pre><span></span><code>wget https://githubfast.com/matrixorigin/matrixone/releases/download/v1.1.2/mo-v1.1.2-musl-xxx.zip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>x86 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.1.2/mo-v1.1.2-musl-x86_64.zip
+unzip<span class="w"> </span>mo-v1.1.2-musl-x86_64.zip
+</code></pre></div>
+<p>ARM 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.1.2/mo-v1.1.2-musl-arm64.zip
+unzip<span class="w"> </span>mo-v1.1.2-musl-arm64.zip
+</code></pre></div>
+<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
+<div class="highlight"><pre><span></span><code>curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v1.1.2/mo-v1.1.2-musl-xxx.zip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>如果你想通过更直观的页面下载的方式下载，直接点击进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v1.1.2">版本 1.1.2</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v1.1.2-musl-x86_64.zip</em> 或者 <em>mo-v1.1.2-musl-arm64.zip</em> 下载再使用 <code>unzip</code> 命令解压即可。</p>
 </div>
 </div>
 </div>

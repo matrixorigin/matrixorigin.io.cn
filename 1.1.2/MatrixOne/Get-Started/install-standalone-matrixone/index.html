@@ -10703,6 +10703,12 @@
 <td style="text-align: left;">16 GB</td>
 </tr>
 <tr>
+<td style="text-align: left;">CentOS</td>
+<td style="text-align: left;">7 及以上</td>
+<td style="text-align: left;">x86 / ARM CPU；4 核</td>
+<td style="text-align: left;">16 GB</td>
+</tr>
+<tr>
 <td style="text-align: left;">macOS</td>
 <td style="text-align: left;">Monterey 12.3 及以上</td>
 <td style="text-align: left;">x86 / ARM CPU；4 核</td>
@@ -10710,6 +10716,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果您当前使用的 Linux 系统内核版本较低（低于 5.0），由于 linux 内核的限制，使用基于 glibc 构建的二进制包进行 Matrixone 的部署时可能会报与 glibc 相关的错误，这时候您可以选择使用<a href="../install-on-linux/install-on-linux-method2/">二进制包部署</a>中的<strong>基于 musl libc 构建的二进制包</strong>进行部署。musl libc 是一个为 Linux 系统设计的轻量级 C 标准库，使用 musl libc 打包应用程序可以让你生成不依赖于系统 C 库的静态二进制文件。此外，由于 CentOS 8 已经停止官方支持，且 CentOS 7 也将在 2024 年 6 月 30 日结束维护周期，目前使用这些版本的用户可能会面临一些风险。因此，我们建议用户使用其他操作系统版本。</p>
+</div>
 <p>你也可以查阅<a href="../../FAQs/deployment-faqs/">硬件与操作系统要求</a>，查看更多关于硬件规格推荐，选用合适的硬件环境。</p>
 <h2 id="macos"><strong>在 macOS 上部署</strong></h2>
 <p>你可以在以下三种方式中选择最适合你的一种，在 macOS 上安装并连接 MatrixOne：</p>
