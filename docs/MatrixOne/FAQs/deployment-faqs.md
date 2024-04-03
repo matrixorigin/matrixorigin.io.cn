@@ -12,6 +12,9 @@
 | Ubuntu LTS               | 20.04 or later            |
 | Red Hat Enterprise Linux | 9.0 or later releases |
 | Oracle Enterprise Linux  | 9.0 or later releases |
+| CentOS                   | 7.0 or later releases |
+
+对于低版本内核的 Linux 系统，如果使用二进制包安装部署方式，推荐使用基于 musl libc 构建的二进制包进行部署，详情可见[单机部署 Matrixone 概述](../Get-Started/install-standalone-matrixone.md)中的**推荐安装环境**章节。
 
 - MatrixOne 也支持 macOS 操作系统，当前仅建议在测试和开发环境运行。
 
