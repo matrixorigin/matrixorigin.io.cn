@@ -4,6 +4,9 @@
 
 MatrixOne 支持 x86 及 ARM 的 Linux 系统。本文以 Debian11.1 x86 架构为例，展示如何完成全流程。如果使用 Ubuntu 系统，需要注意的是默认没有 root 权限，建议全流程命令都加 `sudo` 进行。
 
+!!! note
+    如果您当前使用的 Linux 系统内核版本较低，推荐使用[二进制包部署](./install-on-linux-method2.md)中的**基于 musl libc 构建的二进制包**进行部署。详情可见[单机部署 Matrixone 概述](../install-standalone-matrixone.md)中的**推荐安装环境**章节。
+
 ## 前置依赖参考
 
 通过源码安装及使用单机版 MatrixOne，需要依赖于以下一些软件包。
