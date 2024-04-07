@@ -557,11 +557,12 @@ nav:
           - 向量类:
             - 基本操作符: MatrixOne/Reference/Functions-and-Operators/Vector/arithmetic.md
             - 数学计算: MatrixOne/Reference/Functions-and-Operators/Vector/misc.md
-            - 内积计算: MatrixOne/Reference/Functions-and-Operators/Vector/inner_product.md
-            - 余弦相似度计算: MatrixOne/Reference/Functions-and-Operators/Vector/cosine_similarity.md
-            - L1 范数函数: MatrixOne/Reference/Functions-and-Operators/Vector/l1_norm.md
-            - L2 范数函数: MatrixOne/Reference/Functions-and-Operators/Vector/l2_norm.md
-            - 维度函数: MatrixOne/Reference/Functions-and-Operators/Vector/vector_dims.md
+            - COSINE_SIMILARITY(): MatrixOne/Reference/Functions-and-Operators/Vector/cosine_similarity.md
+            - INNER_PRODUCT(): MatrixOne/Reference/Functions-and-Operators/Vector/inner_product.md
+            - L1_NORM(): MatrixOne/Reference/Functions-and-Operators/Vector/l1_norm.md
+            - L2_NORM(): MatrixOne/Reference/Functions-and-Operators/Vector/l2_norm.md
+            - SUBVECTOR(): MatrixOne/Reference/Functions-and-Operators/Vector/subvector.md
+            - VECTOR_DIMS(): MatrixOne/Reference/Functions-and-Operators/Vector/vector_dims.md
           - 表函数:
             - UNNEST(): MatrixOne/Reference/Functions-and-Operators/Table/unnest.md
           - 窗口函数:
