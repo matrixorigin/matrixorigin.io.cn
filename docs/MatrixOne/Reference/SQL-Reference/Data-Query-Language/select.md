@@ -26,6 +26,10 @@ SELECT
 
 `SELECT` 语句中最常用的子句或条件释义如下：
 
+#### `all` & `distinct`
+
+`all` 和 `distinct` 修饰符指定是否应返回重复的行。`all`（默认值）指定应返回所有匹配的行，包括重复行。`distinct` 指定从结果集中删除重复的行。
+
 #### `select_expr`
 
 每个 `select_expr` 表达式表示你需要查询的列，并且必须至少有一个 `select_expr`。
@@ -116,6 +120,32 @@ insert into t1 values (1,1,5);
 insert into t1 values (4,6,10);
 insert into t1 values (5,11,99);
 insert into t1 values (null,0,99);
+
+mysql> SELECT spID FROM t1;
++------+
+| spid |
++------+
+|    1 |
+|    2 |
+|    2 |
+|    3 |
+|    1 |
+|    4 |
+|    5 |
+| NULL |
++------+
+
+mysql> SELECT DISTINCT spID FROM t1;
++------+
+| spid |
++------+
+|    1 |
+|    2 |
+|    3 |
+|    4 |
+|    5 |
+| NULL |
++------+
 
 mysql> SELECT * FROM t1 WHERE spID>2 AND userID <2 || userID >=2 OR userID < 2 LIMIT 3;
 +------+--------+-------+
