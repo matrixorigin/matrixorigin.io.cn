@@ -8,6 +8,7 @@
 | ------------------------------------------------------ | --------------------------------------- |
 | [ANY_VALUE()](./Aggregate-Functions/any-value.md)      | 在参数范围内任选一个值返回|
 | [AVG()](./Aggregate-Functions/avg.md)                  | 计算参数列的算术平均值。|
+| [BITMAP](./Aggregate-Functions/bitmap.md)              | 一组用于处理位图的内置函数，主要用于计算不同值|
 | [BIT_AND()](./Aggregate-Functions/bit_and.md)          | 计算了列中所有位的按位与|
 | [BIT_OR()](./Aggregate-Functions/bit_or.md)            | 计算了列中所有位的按位或|
 | [BIT_XOR()](./Aggregate-Functions/bit_xor.md)          | 计算了列中所有位的按位异或|

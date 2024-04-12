@@ -451,6 +451,7 @@ nav:
           - 聚合函数:
             - ANY_VALUE: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/any-value.md
             - AVG: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/avg.md
+            - BITMAP: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/bitmap.md
             - BIT_AND: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/bit_and.md
             - BIT_OR: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/bit_or.md
             - BIT_XOR: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/bit_xor.md
