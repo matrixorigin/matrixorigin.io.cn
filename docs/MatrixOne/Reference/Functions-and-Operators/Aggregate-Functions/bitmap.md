@@ -1,4 +1,4 @@
-# bitmap 函数
+# BITMAP 函数
 
 ## 函数说明
 
