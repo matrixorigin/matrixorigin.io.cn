@@ -212,7 +212,7 @@ MatrixOne 擅长 HTAP 场景的事务处理和低延迟分析计算，ElasticSea
 
 ### 环境准备
 
-- MatrixOne 版本：1.1.2
+- MatrixOne 版本：1.1.3
 
 - Elasticsearch 版本：7.10.2
 
