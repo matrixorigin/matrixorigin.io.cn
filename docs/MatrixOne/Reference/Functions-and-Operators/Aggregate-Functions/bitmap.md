@@ -118,7 +118,7 @@ mysql> select bin(bitmap_bucket_number(40000)), bin(bitmap_bit_position(40000)),
 
 `BITMAP_COUNT()` 函数一般结合下述的 `BITMAP_CONSTRUCT_AGG()`、`BITMAP_OR_AGG()` 函数使用。
 
-### `BITMAP_CONSTRUCT_AGG`
+### BITMAP_CONSTRUCT_AGG
 
 `BITMAP_CONSTRUCT_AGG()` 是一个聚合函数，它在数据库中用于构建 bitmap。
 
