@@ -524,6 +524,7 @@ nav:
             - FIELD(): MatrixOne/Reference/Functions-and-Operators/String/field.md
             - FIND_IN_SET(): MatrixOne/Reference/Functions-and-Operators/String/find-in-set.md
             - FORMAT(): MatrixOne/Reference/Functions-and-Operators/String/format.md
+            - FROM_BASE64(): MatrixOne/Reference/Functions-and-Operators/String/from_base64.md
             - HEX(): MatrixOne/Reference/Functions-and-Operators/String/hex.md
             - INSTR():  MatrixOne/Reference/Functions-and-Operators/String/instr.md
             - LCASE(): MatrixOne/Reference/Functions-and-Operators/String/lcase.md
@@ -544,6 +545,7 @@ nav:
             - STARTSWITH(): MatrixOne/Reference/Functions-and-Operators/String/startswith.md
             - SUBSTRING(): MatrixOne/Reference/Functions-and-Operators/String/substring.md
             - SUBSTRING_INDEX(): MatrixOne/Reference/Functions-and-Operators/String/substring-index.md
+            - TO_BASE64(): MatrixOne/Reference/Functions-and-Operators/String/to_base64.md
             - TRIM(): MatrixOne/Reference/Functions-and-Operators/String/trim.md
             - UCASE(): MatrixOne/Reference/Functions-and-Operators/String/ucase.md
             - UPPER(): MatrixOne/Reference/Functions-and-Operators/String/upper.md

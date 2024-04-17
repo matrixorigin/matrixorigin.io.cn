@@ -93,6 +93,7 @@
 | [FIELD()](./String/field.md)                   | 返回第一个字符串 str 在字符串列表 (str1,str2,str3,...) 中的位置 |
 | [FIND_IN_SET()](./String/find-in-set.md)       | 在逗号分隔的字符串列表中查找指定字符串的位置。|
 | [FORMAT()](./String/format.md)                 | 用于将数字格式设置为 "#,###,###.##" 格式，并四舍五入到小数点后一位。|
+| [FROM_BASE64()](./String/from_base64.md)       | 用于将 Base64 编码的字符串转换回原始的二进制数据（或文本数据）。|
 | [HEX()](./String/hex.md)                       | 返回参数的十六进制字符串形式|
 | [INSTR()](./String/instr.md)                   | 返回子字符串在给定字符串中首次出现的位置。|
 | [LCASE()](./String/lcase.md)                   | 用于将给定的字符串转换为小写形式。|
@@ -113,6 +114,7 @@
 | [STARTSWITH()](./String/startswith.md)         | 字符串如果以指定前缀开始返回 1，否则则返回 0。|
 | [SUBSTRING()](./String/substring.md)           | 返回一个从指定位置开始的子字符串|
 | [SUBSTRING_INDEX()](./String/substring-index.md)| 以分隔符为索引，获取不同索引位的字符。|
+| [TO_BASE64()](./String/to_base64.md)           | 用于将字符串转换为 Base64 编码的字符串|
 | [TRIM()](./String/trim.md)                     | 返回一个字符串，删除不需要的字符。|
 | [UCASE()](./String/ucase.md)                   | 用于将给定的字符串转换为大写形式。|
 | [UPPER()](./String/upper.md)                   | 用于将给定的字符串转换为大写形式。|
