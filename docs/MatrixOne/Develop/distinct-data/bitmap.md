@@ -80,19 +80,18 @@ mysql> SELECT
 +----------+------------+---------------------------+
 6 rows in set (0.01 sec)
 
-mysql> select behavior,occur_year,count(distinct user_id) from user_behavior_table group by
-behavior,occur_year;
-+----------+------------+-------------------------+
-| behavior | occur_year | count(distinct user_id) |
-+----------+------------+-------------------------+
-| purchase | 2022       |                  669474 |
-| browser  | 2022       |                  939995 |
-| browser  | 2023       |                 1003173 |
-| purchase | 2023       |                  660605 |
-| returns  | 2023       |                    4910 |
-| returns  | 2022       |                    4350 |
-+----------+------------+-------------------------+
-6 rows in set (2.19 sec)
+mysql> select behavior,occur_year,count(distinct user_id) from user_behavior_table group by behavior,occur_year;
++----------+------------+---------------------------+
+| behavior | occur_year | sum(bitmap_count(bitmap)) |
++----------+------------+---------------------------+
+| browser  | 2022       |                    939995 |
+| browser  | 2023       |                   1003173 |
+| purchase | 2022       |                    669474 |
+| purchase | 2023       |                    660605 |
+| returns  | 2023       |                      4910 |
+| returns  | 2022       |                      4350 |
++----------+------------+---------------------------+
+6 rows in set (3.26 sec)
 ```
 
 计算 2022-2023 年进行商品浏览、购买和退货的用户数量。
