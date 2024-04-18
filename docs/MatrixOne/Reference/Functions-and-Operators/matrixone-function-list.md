@@ -137,9 +137,12 @@
 | [CAST()](./Vector/misc.md)                           | 用于显式将一个向量从一个向量类型转换为另一个向量类型|
 | [SUMMATION()](./Vector/misc.md)                      | 返回向量中所有元素的总和|
 | [INNER_PRODUCT()](./Vector/inner_product.md)         | 用于计算两个向量之间的内积/点积|
+| [COSINE_DISTANCE()](./Vector/cosine_distance.md)     | 用于计算两个向量的余弦距离。|
 | [COSINE_SIMILARITY()](./Vector/cosine_similarity.md) | 衡量了两个向量之间夹角的余弦值，通过它们在多维空间中的接近程度来表示它们的相似性|
+| [L2_DISTANCE()](./Vector/l2_distance.md)             |用于计算两个向量之间的欧几里得距离|
 | [L1_NORM()](./Vector/l1_norm.md)                     | 用于计算 l1/曼哈顿/TaxiCab 范数|
 | [L2_NORM()](./Vector/l2_norm.md)                     | 用于计算 l2/欧几里得范数|
+| [NORMALIZE_L2()](./Vector/normalize_l2.md)           | 用于执行欧几里得归一化|
 | [VECTOR_DIMS()](./Vector/vector_dims.md)             | 用于确定向量的维度|
 
 ## 表函数

@@ -144,17 +144,17 @@ mysql> SELECT * FROM t1 ORDER BY l1_norm(b - '[3,1,2]') LIMIT 5;
 5 rows in set (0.00 sec)
 
 -- 使用 l2_distance 进行 Top K 查询
-mysql> SELECT * FROM t1 ORDER BY l2_norm(b - '[3,1,2]') LIMIT 5;
+mysql> SELECT * FROM t1 ORDER BY l2_distance(b,'[3,1,2]') LIMIT 5;
 +------+-----------+
 | id   | b         |
 +------+-----------+
-| NULL | [3, 1, 2] |
-| NULL | [2, 1, 1] |
-| NULL | [1, 2, 3] |
-| NULL | [0, 0, 0] |
-| NULL | [4, 5, 6] |
+|    6 | [3, 1, 2] |
+|    3 | [2, 1, 1] |
+|    1 | [1, 2, 3] |
+|    5 | [0, 0, 0] |
+|    2 | [4, 5, 6] |
 +------+-----------+
-5 rows in set (0.00 sec)
+5 rows in set (0.01 sec)
 
 -- 使用余弦相似度进行 Top K 查询
 mysql> SELECT * FROM t1 ORDER BY cosine_similarity(b, '[3,1,2]') LIMIT 5;
