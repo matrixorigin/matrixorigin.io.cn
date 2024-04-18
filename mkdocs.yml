@@ -562,7 +562,7 @@ nav:
             - 余弦距离计算: MatrixOne/Reference/Functions-and-Operators/Vector/cosine_distance.md
             - L1 范数函数: MatrixOne/Reference/Functions-and-Operators/Vector/l1_norm.md
             - L2 范数函数: MatrixOne/Reference/Functions-and-Operators/Vector/l2_norm.md
-            - L2 范数归一化: MatrixOne/Reference/Functions-and-Operators/Vector/normalize_l2.md
+            - L2 归一化: MatrixOne/Reference/Functions-and-Operators/Vector/normalize_l2.md
             - L2 距离计算: MatrixOne/Reference/Functions-and-Operators/Vector/l2_distance.md
             - 维度函数: MatrixOne/Reference/Functions-and-Operators/Vector/vector_dims.md
           - 表函数:
