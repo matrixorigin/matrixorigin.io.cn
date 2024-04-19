@@ -90,6 +90,7 @@ nav:
         - Java 连接:
           - JDBC 连接: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc.md
           - Java ORMs 连接: MatrixOne/Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm.md
+        - C# 连接: MatrixOne/Develop/connect-mo/connect-to-matrixone-with-c#.md
         - Python 连接: MatrixOne/Develop/connect-mo/python-connect-to-matrixone.md
         - Golang 连接: MatrixOne/Develop/connect-mo/connect-to-matrixone-with-go.md
       - 数据库模式设计:
@@ -159,6 +160,7 @@ nav:
         - Django 基础示例: MatrixOne/Tutorial/django-python-crud-demo.md
         - Golang 基础示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
         - Gorm 基础示例: MatrixOne/Tutorial/gorm-golang-crud-demo.md
+        - C# 基础示例: MatrixOne/Tutorial/c-net-crud-demo.md
       - 生态工具:
         - 消息队列工具:
           - 使用 Kafka 连接 MatrixOne 实现数据持久化: MatrixOne/Develop/Ecological-Tools/Message-Queue/Kafka.md
