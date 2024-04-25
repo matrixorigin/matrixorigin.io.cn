@@ -7,13 +7,15 @@
 
 ## 查看 lower_case_table_names
 
-在 MatrixOne 中使用以下命令查看 sql_mode：
+在 MatrixOne 中使用以下命令查看 `lower_case_table_names`：
 
 ```sql
 show variables like "lower_case_table_names";--默认为 1
 ```
 
 ## 设置 lower_case_table_names
+
+在 MatrixOne 中使用以下命令设置 `lower_case_table_names`：
 
 ```sql
 set global lower_case_table_names = 0;--默认为 1，重新连接数据库生效
@@ -28,7 +30,7 @@ set global lower_case_table_names = 0;--默认为 1，重新连接数据库生�
 **示例**
 
 ```sql
-mysql> show variables like "lower_case_table_names";--查看默认参数，默认值为1
+mysql> show variables like "lower_case_table_names";--查看默认参数，默认值为 1
 +------------------------+-------+
 | Variable_name          | Value |
 +------------------------+-------+
