@@ -1,4 +1,4 @@
-# SERIAL()
+# SERIAL_FULL()
 
 ## 函数说明
 
