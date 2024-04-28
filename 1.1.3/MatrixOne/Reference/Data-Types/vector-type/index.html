@@ -4513,7 +4513,7 @@
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    支持的算子与函数
+    支持的操作与函数
   </a>
   
 </li>
@@ -9357,6 +9357,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/Vector/cosine_distance/" class="md-nav__link">
+        余弦距离计算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Functions-and-Operators/Vector/l1_norm/" class="md-nav__link">
         L1 范数函数
       </a>
@@ -9373,6 +9387,34 @@
     <li class="md-nav__item">
       <a href="../../Functions-and-Operators/Vector/l2_norm/" class="md-nav__link">
         L2 范数函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/Vector/normalize_l2/" class="md-nav__link">
+        L2 归一化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/Vector/l2_distance/" class="md-nav__link">
+        L2 距离计算
       </a>
     </li>
   
@@ -10800,7 +10842,7 @@
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    支持的算子与函数
+    支持的操作与函数
   </a>
   
 </li>
@@ -10867,7 +10909,7 @@
 </ul>
 <h2 id="matrixone">MatrixOne 的向量数据类型</h2>
 <p>在 MatrixOne 中，向量被设计成一种数据类型，它类似于编程语言中的 Array 数组 (MatrixOne 目前还不支持数组类型)，但是是一种较为特殊的数组类型。首先，它是一个一维数组类型，意味着它不能用来构建 Matrix 矩阵。另外目前仅支持 <code>float32</code> 及 <code>float64</code> 类型的向量，分别称之为 <code>vecf32</code> 与 <code>vecf64</code> 而不支持字符串类型和整型类型的数字。</p>
-<p>创建一个向量列时，我们可以指定向量列的维度大小，如 vecf32(3)，这个维度即向量的数组的长度大小，最大可支持到 65,536 维度。</p>
+<p>创建一个向量列时，我们可以指定向量列的维度大小，如 vecf32(3)，这个维度即向量的数组的长度大小，最大可支持到 65,535 维度。</p>
 <h2 id="sql">如何在 SQL 中使用向量类型</h2>
 <p>使用向量的语法与常规建表、插入数据、查询数据相同：</p>
 <h3 id="_5">创建向量列</h3>
@@ -10912,25 +10954,24 @@
 <span class="o">+</span><span class="c1">--------------------------+</span>
 <span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="_8">支持的算子与函数</h2>
+<h2 id="_8">支持的操作与函数</h2>
 <ul>
-<li>基本二元操作符：<a href="../../Functions-and-Operators/Vector/arithmetic/"><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code></a>.</li>
+<li>基本二元操作符：<a href="../../Functions-and-Operators/Vector/arithmetic/"><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code></a></li>
 <li>比较操作符：<code>=</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>.</li>
-<li>一元函数：<a href="../../Functions-and-Operators/Vector/misc/"><code>sqrt</code>, <code>abs</code>, <code>cast</code></a>.</li>
+<li>一元函数：<a href="../../Functions-and-Operators/Vector/misc/"><code>sqrt</code>, <code>abs</code>, <code>cast</code></a></li>
 <li>自动类型转换：<ul>
-<li><code>vecf32</code> + <code>vecf64</code> = <code>vecf64</code>.</li>
-<li><code>vecf32</code> + <code>varchar</code> = <code>vecf32</code>.</li>
+<li><code>vecf32</code> + <code>vecf64</code> = <code>vecf64</code></li>
+<li><code>vecf32</code> + <code>varchar</code> = <code>vecf32</code></li>
 </ul>
 </li>
 <li>向量一元函数：<ul>
-<li>求和函数 <a href="../../Functions-and-Operators/Vector/misc/"><code>summation</code></a>, L1 范数函数 <a href="../../Functions-and-Operators/Vector/l1_norm/"><code>l1_norm</code></a>, L2 范数函数 <a href="../../Functions-and-Operators/Vector/l2_norm/"><code>l2_norm</code></a>, 维度函数 <a href="../../Functions-and-Operators/Vector/vector_dims/"><code>vector_dims</code></a>.</li>
+<li>求和函数 <a href="../../Functions-and-Operators/Vector/misc/"><code>summation</code></a>，L1 范数函数 <a href="../../Functions-and-Operators/Vector/l1_norm/"><code>l1_norm</code></a>，L2 范数函数 <a href="../../Functions-and-Operators/Vector/l2_norm/"><code>l2_norm</code></a>，L2 归一化函数 <a href="../../Functions-and-Operators/Vector/normalize_l2/"><code>normalize_l2</code></a>，维度函数 <a href="../../Functions-and-Operators/Vector/vector_dims/"><code>vector_dims</code></a></li>
 </ul>
 </li>
 <li>向量二元函数：<ul>
-<li>内积函数 <a href="../../Functions-and-Operators/Vector/inner_product/"><code>inner_product</code></a>, 余弦相似度函数 <a href="../../Functions-and-Operators/Vector/cosine_similarity/"><code>cosine_similarity</code></a>.</li>
+<li>内积函数 <a href="../../Functions-and-Operators/Vector/inner_product/"><code>inner_product</code></a>，余弦相似度函数 <a href="../../Functions-and-Operators/Vector/cosine_similarity/"><code>cosine_similarity</code></a>，余弦距离函数 <a href="../../Functions-and-Operators/Vector/cosine_distance/"><code>cosine_distance</code></a>，L2 距离函数 <a href="../../Functions-and-Operators/Vector/l2_distance/"><code>l2_distance</code></a></li>
 </ul>
 </li>
-<li>聚合函数：<code>count</code>.</li>
 </ul>
 <h2 id="-top-k">示例 - Top K 查询</h2>
 <p>Top K 查询是一种数据库查询操作，用于检索数据库中排名前 K 的数据项或记录。Top K 查询可以应用于各种应用场景，包括推荐系统、搜索引擎、数据分析和排序。</p>
@@ -10942,32 +10983,44 @@
 <span class="p">);</span>
 
 <span class="c1">-- 插入一些示例数据</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[1,2,3]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[4,5,6]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[2,1,1]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[7,8,9]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[0,0,0]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[1,2,3]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[4,5,6]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[2,1,1]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[7,8,9]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[2,2,2]&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">);</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-----------+</span>
+<span class="mi">6</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="c1">-- 使用 l1_distance 进行 Top K 查询</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">l1_norm</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">l1_norm</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">         </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
 <span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="c1">-- 使用 l2_distance 进行 Top K 查询</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">l2_norm</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">l2_distance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">         </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
 <span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
@@ -10976,24 +11029,24 @@
 <span class="o">+</span><span class="c1">------+-----------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">         </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
 <span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="c1">-- 使用余弦距离进行 Top K 查询</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cosine_similarity</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cosine_distance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[3,1,2]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">         </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+-----------+</span>
 <span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
