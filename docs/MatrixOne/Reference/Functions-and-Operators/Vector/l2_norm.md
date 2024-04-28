@@ -4,7 +4,9 @@
 
 `l2_norm` 函数用于计算 `l2`/欧几里得范数。`l2` 范数通过对向量元素的平方和进行平方根运算得到。
 
-![l2_normy](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/vector/l2_norm.png?raw=true)
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/vector/l2_norm.png?raw=true width=50% heigth=50%/>
+</div>
 
 ## **函数语法**
 
