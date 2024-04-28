@@ -28,7 +28,7 @@
 
 在 MatrixOne 中，向量被设计成一种数据类型，它类似于编程语言中的 Array 数组 (MatrixOne 目前还不支持数组类型)，但是是一种较为特殊的数组类型。首先，它是一个一维数组类型，意味着它不能用来构建 Matrix 矩阵。另外目前仅支持 `float32` 及 `float64` 类型的向量，分别称之为 `vecf32` 与 `vecf64` 而不支持字符串类型和整型类型的数字。
 
-创建一个向量列时，我们可以指定向量列的维度大小，如 vecf32(3)，这个维度即向量的数组的长度大小，最大可支持到 65,536 维度。
+创建一个向量列时，我们可以指定向量列的维度大小，如 vecf32(3)，这个维度即向量的数组的长度大小，最大可支持到 65,535 维度。
 
 ## 如何在 SQL 中使用向量类型
 
@@ -99,19 +99,18 @@ mysql> select encode(b, "hex") from t1;
 2 rows in set (0.00 sec)
 ```
 
-## 支持的算子与函数
+## 支持的操作与函数
 
-* 基本二元操作符：[`+`, `-`, `*`, `/`](../Functions-and-Operators/Vector/arithmetic.md).
+* 基本二元操作符：[`+`, `-`, `*`, `/`](../Functions-and-Operators/Vector/arithmetic.md)
 * 比较操作符：`=`, `!=`, `>`, `>=`, `<`, `<=`.
-* 一元函数：[`sqrt`, `abs`, `cast`](../Functions-and-Operators/Vector/misc.md).
+* 一元函数：[`sqrt`, `abs`, `cast`](../Functions-and-Operators/Vector/misc.md)
 * 自动类型转换：
-    * `vecf32` + `vecf64` = `vecf64`.
-    * `vecf32` + `varchar` = `vecf32`.
+    * `vecf32` + `vecf64` = `vecf64`
+    * `vecf32` + `varchar` = `vecf32`
 * 向量一元函数：
-    * 求和函数 [`summation`](../Functions-and-Operators/Vector/misc.md), L1 范数函数 [`l1_norm`](../Functions-and-Operators/Vector/l1_norm.md), L2 范数函数 [`l2_norm`](../Functions-and-Operators/Vector/l2_norm.md), 维度函数 [`vector_dims`](../Functions-and-Operators/Vector/vector_dims.md).
+    * 求和函数 [`summation`](../Functions-and-Operators/Vector/misc.md)，L1 范数函数 [`l1_norm`](../Functions-and-Operators/Vector/l1_norm.md)，L2 范数函数 [`l2_norm`](../Functions-and-Operators/Vector/l2_norm.md)，L2 归一化函数 [`normalize_l2`](../Functions-and-Operators/Vector/normalize_l2.md)，维度函数 [`vector_dims`](../Functions-and-Operators/Vector/vector_dims.md)
 * 向量二元函数：
-    * 内积函数 [`inner_product`](../Functions-and-Operators/Vector/inner_product.md), 余弦相似度函数 [`cosine_similarity`](../Functions-and-Operators/Vector/cosine_similarity.md).
-* 聚合函数：`count`.
+    * 内积函数 [`inner_product`](../Functions-and-Operators/Vector/inner_product.md)，余弦相似度函数 [`cosine_similarity`](../Functions-and-Operators/Vector/cosine_similarity.md)，余弦距离函数 [`cosine_distance`](../Functions-and-Operators/Vector/cosine_distance.md)，L2 距离函数 [`l2_distance`](../Functions-and-Operators/Vector/l2_distance.md)
 
 ## 示例 - Top K 查询
 
@@ -127,32 +126,44 @@ CREATE TABLE t1 (
 );
 
 -- 插入一些示例数据
-INSERT INTO t1 (id,b) VALUES (1, '[1,2,3]'), (2, '[4,5,6]'), (3, '[2,1,1]'), (4, '[7,8,9]'), (5, '[0,0,0]'), (6, '[3,1,2]');
+INSERT INTO t1 (id,b) VALUES (1, '[1,2,3]'), (2, '[4,5,6]'), (3, '[2,1,1]'), (4, '[7,8,9]'), (5, '[2,2,2]'), (6, '[3,1,2]');
+
+mysql> select * from t1;
++------+-----------+
+| id   | b         |
++------+-----------+
+|    1 | [1, 2, 3] |
+|    2 | [4, 5, 6] |
+|    3 | [2, 1, 1] |
+|    4 | [7, 8, 9] |
+|    5 | [2, 2, 2] |
+|    6 | [3, 1, 2] |
++------+-----------+
+6 rows in set (0.01 sec)
 
 -- 使用 l1_distance 进行 Top K 查询
-SELECT * FROM t1 ORDER BY l1_norm(b - '[3,1,2]') LIMIT 5;
 mysql> SELECT * FROM t1 ORDER BY l1_norm(b - '[3,1,2]') LIMIT 5;
 +------+-----------+
 | id   | b         |
 +------+-----------+
-| NULL | [3, 1, 2] |
-| NULL | [2, 1, 1] |
-| NULL | [1, 2, 3] |
-| NULL | [0, 0, 0] |
-| NULL | [4, 5, 6] |
+|    6 | [3, 1, 2] |
+|    5 | [2, 2, 2] |
+|    3 | [2, 1, 1] |
+|    1 | [1, 2, 3] |
+|    2 | [4, 5, 6] |
 +------+-----------+
 5 rows in set (0.00 sec)
 
 -- 使用 l2_distance 进行 Top K 查询
-mysql> SELECT * FROM t1 ORDER BY l2_norm(b - '[3,1,2]') LIMIT 5;
+mysql> SELECT * FROM t1 ORDER BY l2_distance(b,'[3,1,2]') LIMIT 5;
 +------+-----------+
 | id   | b         |
 +------+-----------+
-| NULL | [3, 1, 2] |
-| NULL | [2, 1, 1] |
-| NULL | [1, 2, 3] |
-| NULL | [0, 0, 0] |
-| NULL | [4, 5, 6] |
+|    6 | [3, 1, 2] |
+|    5 | [2, 2, 2] |
+|    3 | [2, 1, 1] |
+|    1 | [1, 2, 3] |
+|    2 | [4, 5, 6] |
 +------+-----------+
 5 rows in set (0.00 sec)
 
@@ -161,24 +172,24 @@ mysql> SELECT * FROM t1 ORDER BY cosine_similarity(b, '[3,1,2]') LIMIT 5;
 +------+-----------+
 | id   | b         |
 +------+-----------+
-| NULL | [1, 2, 3] |
-| NULL | [0, 0, 0] |
-| NULL | [4, 5, 6] |
-| NULL | [7, 8, 9] |
-| NULL | [2, 1, 1] |
+|    1 | [1, 2, 3] |
+|    2 | [4, 5, 6] |
+|    4 | [7, 8, 9] |
+|    5 | [2, 2, 2] |
+|    3 | [2, 1, 1] |
 +------+-----------+
 5 rows in set (0.00 sec)
 
 -- 使用余弦距离进行 Top K 查询
-mysql> SELECT * FROM t1 ORDER BY 1 - cosine_similarity(b, '[3,1,2]') LIMIT 5;
+mysql> SELECT * FROM t1 ORDER BY cosine_distance(b, '[3,1,2]') LIMIT 5;
 +------+-----------+
 | id   | b         |
 +------+-----------+
-| NULL | [3, 1, 2] |
-| NULL | [0, 0, 0] |
-| NULL | [2, 1, 1] |
-| NULL | [7, 8, 9] |
-| NULL | [4, 5, 6] |
+|    6 | [3, 1, 2] |
+|    3 | [2, 1, 1] |
+|    5 | [2, 2, 2] |
+|    4 | [7, 8, 9] |
+|    2 | [4, 5, 6] |
 +------+-----------+
 5 rows in set (0.00 sec)
 ```
