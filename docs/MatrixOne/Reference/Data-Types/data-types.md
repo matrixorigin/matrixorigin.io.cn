@@ -149,7 +149,7 @@ mysql> select min(big),max(big),max(big)-1 from floattable;
 
 |  数据类型 | 存储空间 | 最小值 | 最大值                | 语法表示  | 描述    |
 | --------| --------| ----- | -------------------- | -------- | ----  |
-| BIT     | 1bytes  | 0     | 18446744073709551615 | BIT(M)   | 存储 bit 数据的数据类型，M 支持的范围：1 到 64。M 默认为 1，如果存储的数据不足 M bits，则靠左补 0 补齐长度｜
+| BIT     | 1bytes  | 0     | 18446744073709551615 | BIT(M)   | 存储 bit 数据的数据类型，M 支持的范围：1 到 64。M 默认为 1，如果存储的数据不足 M bits，则靠左补 0 补齐长度 |
 
 - BIT
 
@@ -180,8 +180,8 @@ mysql> select * from t2;
 truncate table t2;
 
 --用 hex-value literal 语法赋值
-insert into t1 values (0x10);
-insert into t1 values (x'10');
+insert into t2 values (0x10);
+insert into t2 values (x'10');
 mysql> select * from t2;
 +------------+
 | a          |
