@@ -14,6 +14,9 @@ Matrixone 目前支持使用以下距离度量函数进行向量检索：
 - 余弦距离函数 [`cosine_distance`](../../Reference/Functions-and-Operators/Vector/cosine_distance.md)
 - L2 距离函数 [`l2_distance`](../../Reference/Functions-and-Operators/Vector/l2_distance.md)
 
+!!! note
+    Matrixone 目前只支持在 l2_distance 度量上使用向量索引进行快速 KNN 查询。
+
 ## 向量检索的应用场景
 
 数据库拥有向量能力意味着数据库系统具备存储、查询和分析向量数据的能力。这些向量通常与复杂的数据分析、机器学习和数据挖掘任务相关。以下是数据库拥有向量处理能力后的部分应用场景：

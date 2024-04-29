@@ -136,10 +136,14 @@
 | [ABS()](./Vector/misc.md)                            | 用于计算向量的绝对值|
 | [CAST()](./Vector/misc.md)                           | 用于显式将一个向量从一个向量类型转换为另一个向量类型|
 | [SUMMATION()](./Vector/misc.md)                      | 返回向量中所有元素的总和|
-| [COSINE_SIMILARITY()](./Vector/cosine_similarity.md) | 衡量了两个向量之间夹角的余弦值，通过它们在多维空间中的接近程度来表示它们的相似性|
 | [INNER_PRODUCT()](./Vector/inner_product.md)         | 用于计算两个向量之间的内积/点积|
+| [CLUSTER_CENTERS()](./Vector/cluster_centers.md)       | 用于确定向量列的 K 个聚类中心 |
+| [COSINE_DISTANCE()](./Vector/cosine_distance.md)     | 用于计算两个向量的余弦距离。|
+| [COSINE_SIMILARITY()](./Vector/cosine_similarity.md) | 衡量了两个向量之间夹角的余弦值，通过它们在多维空间中的接近程度来表示它们的相似性|
+| [L2_DISTANCE()](./Vector/l2_distance.md)             |用于计算两个向量之间的欧几里得距离|
 | [L1_NORM()](./Vector/l1_norm.md)                     | 用于计算 l1/曼哈顿/TaxiCab 范数|
 | [L2_NORM()](./Vector/l2_norm.md)                     | 用于计算 l2/欧几里得范数|
+| [NORMALIZE_L2()](./Vector/normalize_l2.md)           | 用于执行欧几里得归一化|
 | [SUBVECTOR()](./Vector/subvector.md)                 | 用于从向量中提取子向量|
 | [VECTOR_DIMS()](./Vector/vector_dims.md)             | 用于确定向量的维度|
 
