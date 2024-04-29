@@ -151,7 +151,7 @@ mysql> select min(big),max(big),max(big)-1 from floattable;
 | --------| --------| ----- | -------------------- | -------- | ----  |
 | BIT     | 1bytes  | 0     | 18446744073709551615 | BIT(M)   | 存储 bit 数据的数据类型，M 支持的范围：1 到 64。M 默认为 1，如果存储的数据不足 M bits，则靠左补 0 补齐长度 |
 
-- BIT
+### 示例
 
 ```sql
 create table t1 (a bit);
