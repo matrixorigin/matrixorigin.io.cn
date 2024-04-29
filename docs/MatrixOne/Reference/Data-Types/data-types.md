@@ -145,6 +145,95 @@ mysql> select min(big),max(big),max(big)-1 from floattable;
 1 row in set (0.05 sec)
 ```
 
+## 二进制类型
+
+|  数据类型 | 存储空间 | 最小值 | 最大值                | 语法表示  | 描述    |
+| --------| --------| ----- | -------------------- | -------- | ----  |
+| BIT     | 1bytes  | 0     | 18446744073709551615 | BIT(M)   | 存储 bit 数据的数据类型，M 支持的范围：1 到 64。M 默认为 1，如果存储的数据不足 M bits，则靠左补 0 补齐长度｜
+
+- BIT
+
+```sql
+create table t1 (a bit);
+mysql> desc  t1;--bit(M) 默认 M 为 1
++-------+--------+------+------+---------+-------+---------+
+| Field | Type   | Null | Key  | Default | Extra | Comment |
++-------+--------+------+------+---------+-------+---------+
+| a     | BIT(1) | YES  |      | NULL    |       |         |
++-------+--------+------+------+---------+-------+---------+
+1 row in set (0.01 sec)
+
+create table t2 (a bit(8));
+
+-- 用 bit-value literal 语法赋值
+insert into t2 values (0b1);
+insert into t2 values (b'1');
+mysql> select * from t2;
++------------+
+| a          |
++------------+
+| 0x01       |
+| 0x01       |
++------------+
+2 rows in set (0.00 sec)
+
+truncate table t2;
+
+--用 hex-value literal 语法赋值
+insert into t1 values (0x10);
+insert into t1 values (x'10');
+mysql> select * from t2;
++------------+
+| a          |
++------------+
+| 0x10       |
+| 0x10       |
++------------+
+2 rows in set (0.00 sec)
+
+truncate table t2;
+
+--支持用 int 类型赋值，但是 int 的二进制表示长度不能超过 bit 类型的长度
+insert into t2 values (255);--a = b'11111111'
+mysql> insert into t2 values (256);--256 的 2 进制表示长度超过 8
+ERROR 20301 (HY000): invalid input: data too long, type width = 8, val = 100000000
+
+mysql> select * from t2;
++------------+
+| a          |
++------------+
+| 0xFF       |
++------------+
+1 row in set (0.00 sec)
+
+truncate table t2;
+
+--浮点型数据，会先将浮点型四舍五入转成 int 型，然后按照 int 类型赋值
+insert into t2 values (2.1);--a = b'00000010'
+mysql> select * from t2;
++------------+
+| a          |
++------------+
+| 0x02       |
++------------+
+1 row in set (0.00 sec)
+
+truncate table t2;
+
+--字符型数据存储的是其编码值，同样整个字符串转换成的编码总长度不能超过 bit 类型
+insert into t2 values ('a');--a = b'01100001' 
+mysql> insert into t2 values ('啊');--utf8('啊') = 0xe5958a；
+ERROR 20301 (HY000): invalid input: data too long, type width = 8, val = 111001011001010110001010
+
+mysql> select * from t2;
++------------+
+| a          |
++------------+
+| 0x61       |
++------------+
+1 row in set (0.00 sec)
+```
+
 ## 字符串类型
 
 |  数据类型  | 存储空间 | 长度 | 语法表示 | 描述|
