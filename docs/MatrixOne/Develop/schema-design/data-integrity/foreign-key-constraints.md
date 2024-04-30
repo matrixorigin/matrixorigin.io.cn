@@ -1,6 +1,8 @@
-# FOREIGN KEY 外键约束
+# FOREIGN Key 外键约束
 
 FOREIGN KEY 外键约束允许表内或跨表交叉引用相关数据，有助于保持相关数据的一致性。
+
+当建立外键时，Matrixone 默认会检查外键约束的完整性。如需禁用外键约束检查，请参考章节[外键约束检查](../../../Reference/Variable/system-variables/foreign_key_checks.md)。
 
 **遵循规则**
 
