@@ -41,8 +41,10 @@
 | [FROM_UNIXTIME()](./Datetime/from-unixtime.md)        |把内部 UNIX 时间戳值转换为普通格式的日期时间值，以 YYYY-MM-DD HH:MM:SS 或 YYYYMMDDHHMMSS 格式来显示|
 | [MINUTE()](./Datetime/minute.md)                      |返回时间参数的分钟|
 | [MONTH()](./Datetime/month.md)                        |返回日期参数的月份|
+| [NOW()](./Datetime/now.md)                            |返回当前日期和时间的 'YYYY-MM-DD HH:MM:SS' 格式的值。|
 | [SECOND()](./Datetime/second.md)                      |返回时间参数的秒数|
-| [STR_TO_DATE()](./Datetime/str-to-date.md)                |按照指定日期或时间显示格式，将字符串转换为日期或日期时间类型|
+| [STR_TO_DATE()](./Datetime/str-to-date.md)            |按照指定日期或时间显示格式，将字符串转换为日期或日期时间类型|
+| [SYSDATE()](./Datetime/sysdate.md)                    |返回当前日期和时间的 'YYYY-MM-DD HH:MM:SS' 格式的值。|
 | [TIME()](./Datetime/time.md)                          |提取时间或日期时间的时间部分并将其作为字符串返回|
 | [TIMEDIFF()](./Datetime/timediff.md)                  |返回两个时间参数之间的差值|
 | [TIMESTAMP()](./Datetime/timestamp.md)                |将日期或日期时间参数作为日期时间值返回|
