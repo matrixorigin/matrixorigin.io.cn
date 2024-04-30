@@ -132,6 +132,9 @@ nav:
         - 窗口函数: 
           - 标准窗口: MatrixOne/Develop/read-data/window-function/window-function.md
           - 时间窗口: MatrixOne/Develop/read-data/window-function/time-window.md
+      - 数据去重:
+         - COUNT(DISTINCT): MatrixOne/Develop/distinct-data/count-distinct.md
+         - BITMAP: MatrixOne/Develop/distinct-data/bitmap.md
       - 租户设计:
         - 多租户概述: MatrixOne/Develop/Publish-Subscribe/multi-account-overview.md
         - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
@@ -460,6 +463,7 @@ nav:
           - 聚合函数:
             - ANY_VALUE: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/any-value.md
             - AVG: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/avg.md
+            - BITMAP: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/bitmap.md
             - BIT_AND: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/bit_and.md
             - BIT_OR: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/bit_or.md
             - BIT_XOR: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/bit_xor.md
