@@ -32,39 +32,36 @@ insert into sys_tbl_1 values(1),(2),(3);
 create view v1 as (select * from sys_tbl_1);
 create publication sys_pub_1 database sys_db_1;
 mysql> show publications;
-+-----------+----------+
-| Name      | Database |
-+-----------+----------+
-| sys_pub_1 | sys_db_1 |
-+-----------+----------+
++-------------+----------+---------------------+-------------+-------------+----------+
+| publication | database | create_time         | update_time | sub_account | comments |
++-------------+----------+---------------------+-------------+-------------+----------+
+| sys_pub_1   | sys_db_1 | 2024-04-24 11:54:36 | NULL        | *           |          |
++-------------+----------+---------------------+-------------+-------------+----------+
 1 row in set (0.01 sec)
 
 -- 再开启一个新的会话，假设会话 2 为订阅方，由订阅方订阅已发布的数据库
 mysql -h 127.0.0.1 -P 6001 -u acc1:root -p  --登录租户账号
-create database sub1 from sys publication pub1;
 
-mysql> create database sub1 from sys publication sys_pub_1;
-Query OK, 1 row affected (0.02 sec)
-
+create database sub1 from sys publication sys_pub_1;
 mysql> show databases;
 +--------------------+
 | Database           |
 +--------------------+
+| information_schema |
+| mo_catalog         |
+| mysql              |
+| sub1               |
 | system             |
 | system_metrics     |
-| information_schema |
-| mysql              |
-| mo_catalog         |
-| sub1               |
 +--------------------+
-6 rows in set (0.00 sec)
+6 rows in set (0.01 sec)
 
 mysql> show subscriptions;
-+------+--------------+
-| Name | From_Account |
-+------+--------------+
-| sub1 | sys          |
-+------+--------------+
++-----------+-------------+--------------+---------------------+----------+---------------------+
+| pub_name  | pub_account | pub_database | pub_time            | sub_name | sub_time            |
++-----------+-------------+--------------+---------------------+----------+---------------------+
+| sys_pub_1 | sys         | sys_db_1     | 2024-04-24 11:54:36 | sub1     | 2024-04-24 11:56:05 |
++-----------+-------------+--------------+---------------------+----------+---------------------+
 1 row in set (0.01 sec)
 
 mysql> use sub1;
