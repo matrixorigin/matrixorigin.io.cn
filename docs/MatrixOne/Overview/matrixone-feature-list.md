@@ -108,7 +108,7 @@
 | Boolean      | BOOL                                   | Y                                  |
 | 定点类型     | DECIMAL                                | Y，最高到 38 位                      |
 | JSON 类型    | JSON                                   | Y                                  |
-| 向量类型     | VECTOR                                 | E                                  |
+| 向量类型     | VECTOR                                 | Y                                  |
 | 数组类型     | ARRAY                                 | N（与 MySQL 一致，在 JSON 中提供数组操作）                 |
 | 位图类型   | BITMAP                                 |  N
 | 空间类型     | GEOMETRY/POINT/LINESTRING/POLYGON      | N                                  |
@@ -121,6 +121,7 @@
 | 复合主键         | Y                                  |
 | 唯一约束         | Y                                  |
 | 次级索引         | Y                                  |
+| 向量索引         | Y                                  |
 | 外键约束         | Y                                  |
 | 无效数据强制约束   | Y                                  |
 | ENUM 和 SET 约束 | N                                  |
@@ -150,6 +151,7 @@
 | 流程控制函数   | E                                  |
 | 窗口函数       | Y                                  |
 | JSON 函数       | Y                                  |
+| 向量函数       | Y                                  |
 | 系统函数       | Y                                  |
 | 其他函数       | Y                                  |
 | 操作符         | Y                                  |

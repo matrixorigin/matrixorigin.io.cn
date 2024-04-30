@@ -151,6 +151,10 @@ nav:
       - 用户定义函数:
         - UDF python: MatrixOne/Develop/udf/udf-python.md
         - UDF python 进阶: MatrixOne/Develop/udf/udf-python-advanced.md
+      - 向量:
+        - 向量类型: MatrixOne/Develop/Vector/vector_type.md
+        - 向量检索: MatrixOne/Develop/Vector/vector_search.md
+        - 聚类中心: MatrixOne/Develop/Vector/cluster_centers.md
       - 应用开发示例:
         - Java 基础示例: MatrixOne/Tutorial/develop-java-crud-demo.md
         - Python 基础示例: MatrixOne/Tutorial/develop-python-crud-demo.md
@@ -270,6 +274,7 @@ nav:
         - 数据定义语言（DDL）:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md
           - CREATE INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index.md
+          - CREATE INDEX...USING IVFFLAT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index-ivfflat.md
           - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table.md
           - CREATE TABLE ... LIKE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table-like.md         
           - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-external-table.md
@@ -285,6 +290,7 @@ nav:
           - CREATE SOURCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-source.md
           - CREATE DYNAMIC TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-dynamic-table.md
           - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
+          - ALTER TABLE ... ALTER REINDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-reindex.md
           - ALTER PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-publication.md
           - ALTER SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-sequence.md
           - ALTER STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-stage.md
@@ -562,10 +568,14 @@ nav:
           - 向量类:
             - 基本操作符: MatrixOne/Reference/Functions-and-Operators/Vector/arithmetic.md
             - 数学计算: MatrixOne/Reference/Functions-and-Operators/Vector/misc.md
+            - CLUSTER_CENTERS(): MatrixOne/Reference/Functions-and-Operators/Vector/cluster_centers.md
             - COSINE_SIMILARITY(): MatrixOne/Reference/Functions-and-Operators/Vector/cosine_similarity.md
+            - COSINE_DISTANCE(): MatrixOne/Reference/Functions-and-Operators/Vector/cosine_distance.md
             - INNER_PRODUCT(): MatrixOne/Reference/Functions-and-Operators/Vector/inner_product.md
             - L1_NORM(): MatrixOne/Reference/Functions-and-Operators/Vector/l1_norm.md
             - L2_NORM(): MatrixOne/Reference/Functions-and-Operators/Vector/l2_norm.md
+            - L2_DISTANCE(): MatrixOne/Reference/Functions-and-Operators/Vector/l2_distance.md
+            - NORMALIZE_L2(): MatrixOne/Reference/Functions-and-Operators/Vector/normalize_l2.md
             - SUBVECTOR(): MatrixOne/Reference/Functions-and-Operators/Vector/subvector.md
             - VECTOR_DIMS(): MatrixOne/Reference/Functions-and-Operators/Vector/vector_dims.md
           - 表函数:
