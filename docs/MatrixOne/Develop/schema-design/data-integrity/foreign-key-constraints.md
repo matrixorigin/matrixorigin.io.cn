@@ -1,4 +1,4 @@
-# FOREIGN Key 外键约束
+# FOREIGN KEY 外键约束
 
 FOREIGN KEY 外键约束允许表内或跨表交叉引用相关数据，有助于保持相关数据的一致性。
 
