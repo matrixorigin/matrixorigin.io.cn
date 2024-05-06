@@ -182,7 +182,9 @@ nav:
         - 体验环境: MatrixOne/Deploy/deployment-topology/experience-deployment-topology.md
         - 最小生产环境: MatrixOne/Deploy/deployment-topology/minimal-deployment-topology.md
         - 推荐生产环境: MatrixOne/Deploy/deployment-topology/recommended-prd-deployment-topology.md
-      - 集群部署指南: MatrixOne/Deploy/deploy-MatrixOne-cluster.md
+      - 集群部署指南: 
+        - 未部署 Kubernetes 和对象存储环境: MatrixOne/Deploy/deploy-Matrixone-cluster/deploy-MatrixOne-cluster-without-k8.md
+        - 已部署 Kubernetes 和对象存储环境: MatrixOne/Deploy/deploy-Matrixone-cluster/deploy-MatrixOne-cluster-with-k8.md
       - 集群运维管理:
         - 启动与停服下线: MatrixOne/Deploy/MatrixOne-start-stop.md
         - 版本升级: MatrixOne/Deploy/update-MatrixOne-cluster.md

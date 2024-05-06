@@ -2,13 +2,13 @@
 
 本篇文档将主要讲述如何从 0 开始部署一个基于**私有化 Kubernetes 集群的云原生存算分离的分布式数据库 MatrixOne**。
 
-## **主要步骤**
+## 主要步骤
 
 1. 部署 Kubernetes 集群
 2. 部署对象存储 MinIO  
 3. 创建并连接 MatrixOne 集群
 
-## **名词解释**
+## 名词解释
 
 由于该文档会涉及到众多 Kubernetes 相关的名词，为了让大家能够理解搭建流程，这里对涉及到的重要名词进行简单解释，如果需要详细了解 Kubernetes 相关的内容，可以直接参考 [Kubernetes 中文社区 | 中文文档](http://docs.kubernetes.org.cn/)
 
@@ -90,11 +90,11 @@ MatrixOne 根据 Operator 的规则创建一系列的 Kubernetes 对象，这些
 <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-arch-pod.png width=80% heigth=80%/>
 </div>
 
-## **1. 部署 Kubernetes 集群**
+## 1. 部署 Kubernetes 集群
 
 由于 MatrixOne 的分布式部署依赖于 Kubernetes 集群，因此我们需要一个 Kubernetes 集群。本篇文章将指导你通过使用 **Kuboard-Spray** 的方式搭建一个 Kubernetes 集群。
 
-### **准备集群环境**
+### 准备集群环境
 
 对于集群环境，需要做如下准备：
 
@@ -110,11 +110,11 @@ MatrixOne 根据 Operator 的规则创建一系列的 Kubernetes 对象，这些
 | master0      | 10.206.134.8  | 118.195.255.252 | 8G      | 2C      | 50G      | master etcd |
 | node0        | 10.206.134.14 | 1.13.13.199     | 8G      | 2C      | 50G      | worker      |
 
-#### **跳板机部署 Kuboard Spray**
+#### 跳板机部署 Kuboard Spray
 
 Kuboard-Spray 是用来可视化部署 Kubernetes 集群的一个工具。它会使用 Docker 快速拉起一个能够可视化部署 Kubernetes 集群的 Web 应用。Kubernetes 集群环境部署完成后，可以将该 Docker 应用停掉。
 
-##### **跳板机环境准备**
+##### 跳板机环境准备
 
 1. 安装 Docker：由于会使用到 Docker，因此需要具备 Docker 的环境。使用以下命令在跳板机安装并启动 Docker：
 
@@ -151,7 +151,7 @@ Kuboard-Spray 是用来可视化部署 Kubernetes 集群的一个工具。它会
 
 环境准备完成后，即可部署 Kuboard-Spray。
 
-#### **部署 Kuboard-Spray**
+#### 部署 Kuboard-Spray
 
 执行以下命令安装 Kuboard-Spray：
 
@@ -185,11 +185,11 @@ docker run -d \
 
 登录之后，即可开始部署 Kubernetes 集群。
 
-### **可视化部署 Kubernetes 集群**
+### 可视化部署 Kubernetes 集群
 
 登录 Kuboard-Spray 界面之后，即可开始可视化部署 Kubernetes 集群。
 
-#### **导入 Kubernetes 相关资源包**
+#### 导入 Kubernetes 相关资源包
 
 安装界面会通过在线下载的方式，下载 Kubernetes 集群所对应的资源包，以实现离线安装 Kubernetes 集群。
 
@@ -214,7 +214,7 @@ docker run -d \
 
     ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-5.png)
 
-#### **安装 Kubernetes 集群**
+#### 安装 Kubernetes 集群
 
 本章节将指导你进行 Kubernetes 集群的安装。
 
@@ -226,7 +226,7 @@ docker run -d \
 
     ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-7.png)
 
-##### **集群规划**
+##### 集群规划
 
 按照事先定义好的角色分类，Kubernetes 集群采用 `1 master + 1 worker +1 etcd` 的模式进行部署。
 
@@ -247,7 +247,7 @@ docker run -d \
 
 3. 填写完所有的角色之后，点击**保存**。接下来就可以准备安装 Kubernetes 集群了。
 
-#### **开始安装 Kubernetes 集群**
+#### 开始安装 Kubernetes 集群
 
 在上一步填写完成所有角色，并**保存**后，点击**执行**，即可开始 Kubernetes 集群的安装。
 
@@ -278,7 +278,7 @@ docker run -d \
 
     ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-10-1.png)
 
-## **2. 部署 helm**
+## 2. 部署 helm
 
 Helm 是一个用于管理 Kubernetes 应用程序的包管理工具。它通过使用 chart（预先配置的安装包资源）来简化应用程序的部署和管理过程。类似于 Ubuntu 的 APT 和 CentOS 的 YUM，Helm 提供了一种便捷的方式来安装、升级和管理 Kubernetes 应用程序。
 
@@ -310,7 +310,7 @@ __Note:__ 本章节均是在 master0 节点操作。
 
     出现上面所示版本信息即表示安装完成。
 
-## **3. CSI 部署**
+## 3. CSI 部署
 
 CSI 为 Kubernetes 的存储插件，为 MinIO 和 MarixOne 提供存储服务。本章节将指导你使用 `local-path-provisioner` 插件。
 
@@ -355,13 +355,13 @@ __Note:__ 本章节均是在 master0 节点操作。
     local-path (default)   cluster.local/local-path-storage-local-path-provisioner   Delete          WaitForFirstConsumer   true                   115s
     ```
 
-## **4. MinIO 部署**
+## 4. MinIO 部署
 
  MinIO 的作用是为 MatrixOne 提供对象存储。本章节将指导你部署一个单节点的 MinIO。
 
 __Note:__ 本章节均是在 master0 节点操作。
 
-### **安装启动**
+### 安装启动
 
 1. 安装并启动 MinIO 的命令行如下：
 
@@ -449,13 +449,13 @@ __Note:__ 本章节均是在 master0 节点操作。
 
     ![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/deploy/deploy-mo-cluster-14.png)
 
-## **5. MatrixOne 集群部署**
+## 5. MatrixOne 集群部署
 
 本章节将指导你部署 MatrixOne 集群。
 
 __Note:__ 本章节均是在 master0 节点操作。
 
-#### **安装 MatrixOne-Operator**
+#### 安装 MatrixOne-Operator
 
 [MatrixOne Operator](https://github.com/matrixorigin/matrixone-operator) 是一个在 Kubernetes 上部署和管理 MatrixOne 集群的独立软件工具。你可以从项目的 [Release 列表](https://github.com/matrixorigin/matrixone-operator/releases)中选择最新的 Operator Release 安装包进行安装。
 
@@ -504,7 +504,7 @@ __Note:__ 本章节均是在 master0 节点操作。
 
 如上代码行所示，对应 Pod 状态均正常。
 
-### **创建 MatrixOne 集群**
+### 创建 MatrixOne 集群
 
 1. 首先创建 MatrixOne 的命名空间：
 
@@ -628,7 +628,7 @@ __Note:__ 本章节均是在 master0 节点操作。
     mo-tp-cn-0                           1/1     Running   0             50s
     ```
 
-## **6. 连接 MatrixOne 集群**
+## 6. 连接 MatrixOne 集群
 
 为了连接 MatrixOne 集群，您需要将对应服务的端口映射到 MatrixOne 节点上。以下是使用 `kubectl port-forward` 连接 MatrixOne 集群的指导：
 
@@ -657,7 +657,7 @@ mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 163
-Server version: 8.0.30-MatrixOne-v1.1.3 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.1.1 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
