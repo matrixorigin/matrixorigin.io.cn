@@ -256,6 +256,7 @@ nav:
           - 保存查询结果支持: MatrixOne/Reference/Variable/system-variables/save_query_result.md
           - 时区支持: MatrixOne/Reference/Variable/system-variables/timezone.md
           - 大小写敏感支持: MatrixOne/Reference/Variable/system-variables/lower_case_tables_name.md
+          - 外键检查支持: MatrixOne/Reference/Variable/system-variables/foreign_key_checks.md
         - 自定义变量: MatrixOne/Reference/Variable/custom-variable.md
       - SQL 结构与语法:
         - 关键字: MatrixOne/Reference/Language-Structure/keywords.md
