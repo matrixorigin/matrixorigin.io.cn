@@ -72,6 +72,7 @@ nav:
         - 流引擎架构详解: MatrixOne/Overview/architecture/streaming.md
       - MatrixOne 与其它数据库对比:
         -  MatrixOne 的定位: MatrixOne/Overview/matrixone-vs-other_databases/matrixone-positioning.md
+        - MatrixOne与常见OLTP数据库的对比: MatrixOne/Overview/matrixone-vs-other_databases/matrixone-vs-oltp.md
       - 最新动态: MatrixOne/Overview/whats-new.md
     - 快速开始:
       - 单机部署 MatrixOne:
