@@ -702,6 +702,68 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_5" id="__nav_1_2_5_label" tabindex="0">
+          MatrixOne 与其它数据库对比
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          MatrixOne 与其它数据库对比
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Overview/matrixone-vs-other_databases/matrixone-positioning/" class="md-nav__link">
+        MatrixOne 的定位
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Overview/matrixone-vs-other_databases/matrixone-vs-oltp/" class="md-nav__link">
+        MatrixOne与常见OLTP数据库的对比
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../../../../Overview/whats-new/" class="md-nav__link">
         最新动态
@@ -7765,13 +7827,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    限制
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11098,13 +11153,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    限制
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11130,9 +11178,9 @@
 
 <h1 id="not"><strong>NOT,!</strong></h1>
 <h2 id="_1"><strong>运算符说明</strong></h2>
-<p><code>NOT,!</code> 逻辑运算符用作于<em>逻辑非</em>运算。如果操作数为零，则返回结果为 <code>true</code>；如果操作数非零，则返回结果为 <code>false</code>；若果操作数为 <code>NOT NUL</code> 则返回 <code>NULL</code>。</p>
+<p><code>NOT,!</code> 逻辑运算符用作于<em>逻辑非</em>运算。如果操作数为零，则返回结果为 <code>true</code>；如果操作数非零，则返回结果为 <code>false</code>；如果操作数为 <code>NOT NUL</code> 则返回 <code>NULL</code>。</p>
 <h2 id="_2"><strong>语法结构</strong></h2>
-<div class="highlight"><pre><span></span><code>&gt; SELECT not column_name FROM table_name;
+<div class="highlight"><pre><span></span><code>&gt; NOT|! value
 </code></pre></div>
 <h2 id="_3"><strong>示例</strong></h2>
 <div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -11142,16 +11190,18 @@
 <span class="o">|</span><span class="w"> </span><span class="k">true</span><span class="w">  </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">     </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">----------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="o">!</span><span class="k">null</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">  </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-------+</span>
+<span class="o">|</span><span class="w"> </span><span class="o">!</span><span class="mi">1</span><span class="w">    </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------+</span>
 <span class="o">|</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------+</span>
@@ -11159,6 +11209,17 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">boolean</span><span class="p">,</span><span class="n">b</span><span class="w"> </span><span class="n">bool</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="k">true</span><span class="p">,</span><span class="k">false</span><span class="p">),(</span><span class="k">true</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="k">false</span><span class="p">),(</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">);</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">T1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-------+-------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------+-------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">true</span><span class="w">  </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">true</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">true</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">true</span><span class="w">  </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">  </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------+-------+</span>
+<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">-----------------+</span>
@@ -11171,9 +11232,16 @@
 <span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">            </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------------+</span>
 <span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="k">false</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">------+-------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">true</span><span class="w">  </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-------+</span>
+<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="_4"><strong>限制</strong></h2>
-<p>MatrixOne 暂时还不支持 <code>!</code> 运算符。</p>
 
 
 
