@@ -631,6 +631,7 @@ nav:
       - SQL 常见问题: MatrixOne/FAQs/sql-faqs.md
     - 版本发布纪要:
       - 版本发布历史记录: MatrixOne/Release-Notes/release-timeline.md
+      - v1.2.0: MatrixOne/Release-Notes/v1.2.0.md
       - v1.1.3: MatrixOne/Release-Notes/v1.1.3.md
       - v1.1.2: MatrixOne/Release-Notes/v1.1.2.md
       - v1.1.1: MatrixOne/Release-Notes/v1.1.1.md
