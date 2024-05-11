@@ -20,9 +20,6 @@
 | 创建视图 CREATE VIEW                | Y                                            |
 | 修改视图 ALTER VIEW                 | Y                                            |
 | 删除视图 DROP VIEW                  | Y                                            |
-| 创建快照 CREATE SNAPSHOT            | Y                                            |
-| 删除快照 DROP SNAPSHOT              | Y                                            |
-| 恢复快照 RESTORE SNAPSHOT           | Y                                            |
 | 清空表 TRUNCATE TABLE               | Y                                            |
 | 自增列 AUTO_INCREMENT               | Y                                            |
 | 序列 SEQUENCE                       | Y                                            |
@@ -65,6 +62,7 @@
 | 触发器 TRIGGER                | N                                  |
 | 时间调度器 EVENT SCHEDULER     | N                                  |
 | 自定义函数 UDF                 | Y                                  |
+| 快照 SNAPSHOT                 | Y                                  |
 | 物化视图 Materialized VIEW | N                                  |
 
 ## 流计算
