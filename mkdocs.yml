@@ -139,6 +139,10 @@ nav:
       - 数据去重:
          - COUNT(DISTINCT): MatrixOne/Develop/distinct-data/count-distinct.md
          - BITMAP: MatrixOne/Develop/distinct-data/bitmap.md
+      - 快照:
+         - 概述: MatrixOne/Develop/snapshot/snapshot-overview.md
+         - 使用sql进行快照备份恢复: MatrixOne/Develop/snapshot/sql-snapshot.md
+         - 使用mo_br工具进行快照备份恢复: MatrixOne/Develop/snapshot/mo-backup-snapshot.md
       - 租户设计:
         - 多租户概述: MatrixOne/Develop/Publish-Subscribe/multi-account-overview.md
         - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
@@ -298,6 +302,7 @@ nav:
           - CREATE OR REPLACE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-replace-view.md
           - CREATE SOURCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-source.md
           - CREATE DYNAMIC TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-dynamic-table.md
+          - CREATE SNAPSHOT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-snapshot.md
           - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
           - ALTER TABLE ... ALTER REINDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-reindex.md
           - ALTER PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-publication.md
@@ -310,9 +315,11 @@ nav:
           - DROP PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-publication.md
           - DROP SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-sequence.md
           - DROP STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-stage.md
+          - DROP SNAPSHOT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-snapshot.md
           - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-view.md
           - DROP FUNCTION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-function.md
           - TRUNCATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/truncate-table.md
+          - RESTORE ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/restore-account.md
         - 数据修改语言（DML）:
           - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert.md
           - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-into-select.md
@@ -380,6 +387,7 @@ nav:
             - SHOW PUBLICATIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-publications.md
             - SHOW ROLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-roles.md
             - SHOW SEQUENCES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-sequences.md
+            - SHOW SNAPSHOTS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-snapshots.md
             - SHOW STAGE: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-stage.md
             - SHOW SUBSCRIPTIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-subscriptions.md
             - SHOW VARIABLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-variables.md

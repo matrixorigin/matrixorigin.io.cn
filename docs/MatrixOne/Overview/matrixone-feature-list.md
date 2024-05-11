@@ -20,6 +20,9 @@
 | 创建视图 CREATE VIEW                | Y                                            |
 | 修改视图 ALTER VIEW                 | Y                                            |
 | 删除视图 DROP VIEW                  | Y                                            |
+| 创建快照 CREATE SNAPSHOT            | Y                                            |
+| 删除快照 DROP SNAPSHOT              | Y                                            |
+| 恢复快照 RESTORE SNAPSHOT           | Y                                            |
 | 清空表 TRUNCATE TABLE               | Y                                            |
 | 自增列 AUTO_INCREMENT               | Y                                            |
 | 序列 SEQUENCE                       | Y                                            |
