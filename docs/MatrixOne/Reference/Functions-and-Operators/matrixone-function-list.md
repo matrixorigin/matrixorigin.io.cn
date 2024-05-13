@@ -106,11 +106,13 @@
 | [LOWER()](./String/lower.md)                   | 用于将给定的字符串转换为小写形式。|
 | [LPAD()](./String/lpad.md)                     | 用于在字符串左侧填充。|
 | [LTRIM()](./String/ltrim.md)                   | 将输入字符串的前部空格去除，返回处理后的字符。|
+| [MD5()](./String/md5.md)                       | 将输入字符串生成一个 32 字符长的十六进制 MD5 哈希值。|
 | [OCT()](./String/oct.md)                       | 返回参数的八进制值的字符串|
 | [REPEAT()](./String/repeat.md)                 | 用于将输入的字符串重复 n 次，并返回一个新的字符串|
 | [REVERSE()](./String/reverse.md)               | 将 str 字符串中的字符顺序翻转输出。|
 | [RPAD()](./String/rpad.md)                     | 用于在字符串右侧填充|
 | [RTRIM()](./String/rtrim.md)                   | 将输入字符串的后方空格去除|
+| [SHA1()/SHA()](./String/sha1.md)               | 用于计算并返回给定字符串的 SHA-1 哈希值。|
 | [SHA2()](./String/sha2.md)                     | 返回输入字符串的 SHA2 哈希值。|
 | [SPACE()](./String/space.md)                   | 返回 N 个空格组成的字符串。|
 | [SPLIT_PART()](./String/split_part.md)         | 用于在给定的分隔符基础上将一个字符串分解成多个部分|

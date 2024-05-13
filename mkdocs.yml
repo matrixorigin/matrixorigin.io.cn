@@ -429,8 +429,6 @@ nav:
               - BINARY: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/binary.md
               - CAST: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/cast.md
               - CONVERT: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/convert.md
-              - DECODE: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/decode.md
-              - ENCODE: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/encode.md
               - SERIAL: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/serial.md
               - SERIAL_FULL: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/serial_full.md
             - 比较函数和运算符:
@@ -557,11 +555,13 @@ nav:
             - LOWER(): MatrixOne/Reference/Functions-and-Operators/String/lower.md
             - LPAD(): MatrixOne/Reference/Functions-and-Operators/String/lpad.md
             - LTRIM(): MatrixOne/Reference/Functions-and-Operators/String/ltrim.md
+            - MD5(): MatrixOne/Reference/Functions-and-Operators/String/md5.md
             - OCT(): MatrixOne/Reference/Functions-and-Operators/String/oct.md
             - REPEAT(): MatrixOne/Reference/Functions-and-Operators/String/repeat.md
             - REVERSE(): MatrixOne/Reference/Functions-and-Operators/String/reverse.md
             - RPAD(): MatrixOne/Reference/Functions-and-Operators/String/rpad.md
             - RTRIM(): MatrixOne/Reference/Functions-and-Operators/String/rtrim.md
+            - SHA1()/SHA(): MatrixOne/Reference/Functions-and-Operators/String/sha1.md
             - SHA2(): MatrixOne/Reference/Functions-and-Operators/String/sha2.md
             - SPACE(): MatrixOne/Reference/Functions-and-Operators/String/space.md
             - SPLIT_PART(): MatrixOne/Reference/Functions-and-Operators/String/split_part.md
