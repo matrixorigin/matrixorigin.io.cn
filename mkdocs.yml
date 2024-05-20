@@ -208,6 +208,10 @@ nav:
         - MatrixOne 备份与恢复概述: MatrixOne/Maintain/backup-restore/backup-restore-overview.md
         - 备份与恢复相关概念: MatrixOne/Maintain/backup-restore/key-concepts.md
         - mo-dump 备份与恢复: MatrixOne/Maintain/backup-restore/modump-backup-restore.md
+        - mo_br 备份与恢复:
+          - mo_br 使用指南: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr.md
+          - mo_br 常规物理备份恢复: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-physical-backup-restore.md
+          - mo_br 快照备份恢复: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-snapshot-backup-restore.md
       - 数据挂载:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:
@@ -300,6 +304,7 @@ nav:
           - CREATE OR REPLACE VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-replace-view.md
           - CREATE SOURCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-source.md
           - CREATE DYNAMIC TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-dynamic-table.md
+          - CREATE SNAPSHOT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-snapshot.md
           - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
           - ALTER TABLE ... ALTER REINDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-reindex.md
           - ALTER PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-publication.md
@@ -312,9 +317,11 @@ nav:
           - DROP PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-publication.md
           - DROP SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-sequence.md
           - DROP STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-stage.md
+          - DROP SNAPSHOT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-snapshot.md
           - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-view.md
           - DROP FUNCTION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-function.md
           - TRUNCATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/truncate-table.md
+          - RESTORE ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/restore-account.md
         - 数据修改语言（DML）:
           - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert.md
           - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-into-select.md
@@ -382,6 +389,7 @@ nav:
             - SHOW PUBLICATIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-publications.md
             - SHOW ROLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-roles.md
             - SHOW SEQUENCES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-sequences.md
+            - SHOW SNAPSHOTS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-snapshots.md
             - SHOW STAGE: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-stage.md
             - SHOW SUBSCRIPTIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-subscriptions.md
             - SHOW VARIABLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-variables.md
@@ -623,6 +631,7 @@ nav:
       - MatrixOne 文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
       - MatrixOne 工具:
         - mo_ctl 工具: MatrixOne/Maintain/mo_ctl.md
+        - mo_br 工具: MatrixOne/Maintain/mo_br.md
     - 故障诊断:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
