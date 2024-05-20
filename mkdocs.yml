@@ -139,10 +139,6 @@ nav:
       - 数据去重:
          - COUNT(DISTINCT): MatrixOne/Develop/distinct-data/count-distinct.md
          - BITMAP: MatrixOne/Develop/distinct-data/bitmap.md
-      - 快照:
-         - 概述: MatrixOne/Develop/snapshot/snapshot-overview.md
-         - 使用sql进行快照备份恢复: MatrixOne/Develop/snapshot/sql-snapshot.md
-         - 使用mo_br工具进行快照备份恢复: MatrixOne/Develop/snapshot/mo-backup-snapshot.md
       - 租户设计:
         - 多租户概述: MatrixOne/Develop/Publish-Subscribe/multi-account-overview.md
         - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
@@ -211,6 +207,10 @@ nav:
         - MatrixOne 备份与恢复概述: MatrixOne/Maintain/backup-restore/backup-restore-overview.md
         - 备份与恢复相关概念: MatrixOne/Maintain/backup-restore/key-concepts.md
         - mo-dump 备份与恢复: MatrixOne/Maintain/backup-restore/modump-backup-restore.md
+        - mo_br 备份与恢复:
+          - mo_br 使用指南: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr.md
+          - mo_br 常规物理备份恢复: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-physical-backup-restore.md
+          - mo_br 快照备份恢复: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-snapshot-backup-restore.md
       - 数据挂载:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:
@@ -629,6 +629,7 @@ nav:
       - MatrixOne 文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
       - MatrixOne 工具:
         - mo_ctl 工具: MatrixOne/Maintain/mo_ctl.md
+        - mo_br 工具: MatrixOne/Maintain/mo_br.md
     - 故障诊断:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md

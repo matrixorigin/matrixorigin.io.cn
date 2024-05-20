@@ -55,7 +55,7 @@ MatrixOne 数据库提供了多种备份工具，以满足不同场景和需求�
 2. **mo-backup**: 用于物理备份和恢复。`mo-backup` 是 MatrixOne 企业级服务的物理备份与恢复工具，帮助你保护其 MatrixOne 数据库，并在需要时进行可靠的恢复操作。
 
    !!! note
-       **mo-backup** 企业级服务的物理备份与恢复工具，你需要联系你的 MatrixOne 客户经理，获取工具下载路径和使用说明。
+       **mo-backup** 企业级服务的物理备份与恢复工具，你需要联系你的 MatrixOne 客户经理，获取工具下载路径。
 
 ### 逻辑备份与恢复
 
@@ -76,3 +76,22 @@ MatrixOne 支持使用 `mo-dump` 工具进行逻辑备份，生成可用于重�
 MatrixOne 支持使用 `LOAD DATA` 命令将大量行插入数据库表，也支持使用 `SOURCE` 命令导入表结构和数据至整个数据库。
 
 更多信息，参考[批量导入](../../Develop/import-data/bulk-load/bulk-load-overview.md)
+
+### 物理备份与恢复
+
+#### 使用 `mo_br` 备份与恢复
+
+MatrixOne 支持使用 `mo_br` 工具进行常规物理备份和快照备份。
+
+操作步骤及示例，参见 [`mo-br 使用指南`](../backup-restore/mobr-backup-restore/mobr.md)
+
+#### 使用 SQL 备份与恢复
+
+MatrixOne 支持使用 SQL 进行快照备份与恢复。
+
+有关使用 SQL 进行快照备份与恢复的方法，请参考文档：
+
+- [CREATE SNAPSHOT](../../Reference/SQL-Reference/Data-Definition-Language/create-snapshot.md)
+- [DROP SNAPSHOT](../../Reference/SQL-Reference/Data-Definition-Language/drop-snapshot.md)
+- [SHOW SNAPSHOTS](../../Reference/SQL-Reference/Data-Definition-Language/create-snapshot.md)
+- [RESTORE ACCOUNT](../../Reference/SQL-Reference/Data-Definition-Language/restore-account.md)

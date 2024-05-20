@@ -62,7 +62,6 @@
 | 触发器 TRIGGER                | N                                  |
 | 时间调度器 EVENT SCHEDULER     | N                                  |
 | 自定义函数 UDF                 | Y                                  |
-| 快照 SNAPSHOT                 | Y                                  |
 | 物化视图 Materialized VIEW | N                                  |
 
 ## 流计算
@@ -199,6 +198,7 @@ MatrixOne 的完整函数列表可以参见[该函数总表](../Reference/Functi
 | ------------ | ---------------------------------- |
 | 逻辑备份恢复 | Y，仅支持 mo-dump 工具                |
 | 物理备份恢复 | Y，仅支持 mobackup 工具                |
+| 快照备份恢复 | Y，支持 mobackup 工具 和 SQL               |
 | CDC 同步     | N（MatrixOne 作为源端不支持）                                  |
 
 ## 管理工具
