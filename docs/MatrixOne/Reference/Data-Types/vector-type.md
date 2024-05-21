@@ -37,7 +37,6 @@ insert into t1 values(1, "[1,2,3]", "[4,5,6]");
 ```sql
 insert into t1 (a, b) values (2, cast(unhex("7e98b23e9e10383b2f41133f") as blob));
 -- "7e98b23e9e10383b2f41133f" 表示 []float32{0.34881967, 0.0028086076, 0.5752134}的小端十六进制编码
--- "hex" 表示十六进制编码
 ```
 
 ### 查询向量
