@@ -35,11 +35,8 @@ insert into t1 values(1, "[1,2,3]", "[4,5,6]");
 如果你想使用 Python NumPy 数组，可以通过对数组进行十六进制编码，而不是将其转换为逗号分隔的文本格式，直接将该 NumPy 数组插入 MatrixOne。在插入维度较高的向量时，这种方式速度更快。
 
 ```sql
-insert into t1 (a, b) values
-(2, decode("7e98b23e9e10383b2f41133f", "hex"));
-
+insert into t1 (a, b) values (2, cast(unhex("7e98b23e9e10383b2f41133f") as blob));
 -- "7e98b23e9e10383b2f41133f" 表示 []float32{0.34881967, 0.0028086076, 0.5752134}的小端十六进制编码
-
 -- "hex" 表示十六进制编码
 ```
 
@@ -65,9 +62,9 @@ mysql> select a, b from t1;
 如果你需要将向量结果集直接读取到 NumPy 数组中，以最小的转换成本，二进制格式非常有用。
 
 ```sql
-mysql> select encode(b, "hex") from t1;
+mysql> select hex(b) from t1;
 +--------------------------+
-| encode(b, hex)           |
+| hex(b)                   |
 +--------------------------+
 | 0000803f0000004000004040 |
 | 7e98b23e9e10383b2f41133f |

@@ -584,6 +584,7 @@ nav:
             - TO_BASE64(): MatrixOne/Reference/Functions-and-Operators/String/to_base64.md
             - TRIM(): MatrixOne/Reference/Functions-and-Operators/String/trim.md
             - UCASE(): MatrixOne/Reference/Functions-and-Operators/String/ucase.md
+            - UNHEX(): MatrixOne/Reference/Functions-and-Operators/String/unhex.md
             - UPPER(): MatrixOne/Reference/Functions-and-Operators/String/upper.md
             - 正则表达式:
               - 正则表达式概述: MatrixOne/Reference/Functions-and-Operators/String/Regular-Expressions/Regular-Expression-Functions-Overview.md
