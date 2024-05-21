@@ -43,6 +43,8 @@ Matrixone 目前支持 `float32` 及 `float64` 类型的向量，分别称之为
 
     这种方法可以显著提高数据插入的效率。
 
+- **构建 RAG 应用**：详情请查看应用开发示例中的 [RAG 应用基础示例](../../Tutorial/rag-demo.md)。
+
 ## 参考文档
 
 [向量数据类型](../../Reference/Data-Types/vector-type.md)
