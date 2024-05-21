@@ -2706,27 +2706,48 @@
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    编写应用代码
+    建表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrixone" class="md-nav__link">
+    文本向量化存储到 MatrixOne
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rag_tab" class="md-nav__link">
+    查看 rag_tab 表中数量
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    运行应用
+    向量检索
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    查看运行结果
+    增强生成
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    参考文档
+  </a>
   
 </li>
       
@@ -11495,27 +11516,48 @@
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    编写应用代码
+    建表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrixone" class="md-nav__link">
+    文本向量化存储到 MatrixOne
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rag_tab" class="md-nav__link">
+    查看 rag_tab 表中数量
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    运行应用
+    向量检索
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    查看运行结果
+    增强生成
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    参考文档
+  </a>
   
 </li>
       
@@ -11544,17 +11586,30 @@
 
 <h1 id="rag">RAG 应用基础示例</h1>
 <h2 id="rag_1">什么是 RAG?</h2>
-<p>RAG，全称为 Retrieval-Augmented Generation（检索增强生成），是一种结合了信息检索和文本生成的技术，用于提高大型语言模型（LLM）生成文本的准确性和相关性。LLM 由于其训练数据的局限性，可能无法获取最新的信息，例如在模型训练完成后发生的新闻事件。此外，这些模型有时也可能产生误导性的信息，生成与事实不符的内容。RAG 的核心思想是让模型在生成回答时，不仅依赖于其在训练阶段学到的知识，还能利用外部的、最新的、专有的信息源。</p>
-<p>RAG 的工作流程通常包括以下几个步骤：</p>
-<ul>
-<li>检索（Retrieve）：根据用户的查询，从外部知识源（如数据库、知识库）检索相关的上下文信息。</li>
-<li>增强（Augment）：将检索到的信息与用户查询结合起来，形成一个新的提示（prompt），这个提示将包含问题的上下文。</li>
-<li>生成（Generate）：将这个增强后的提示输入到大型语言模型中，生成最终的回答。</li>
-</ul>
+<p>RAG，全称为 Retrieval-Augmented Generation（检索增强生成），是一种结合了信息检索和文本生成的技术，用于提高大型语言模型（LLM）生成文本的准确性和相关性。LLM 由于其训练数据的局限性，可能无法获取最新的信息。</p>
+<p>例如我向 GPT 询问 MatrixOne 的最新版本时，它并不能给出答案。</p>
 <div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/rag.png width=80% heigth=80%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/rag-1.png width=80% heigth=80%/>
 </div>
 
+<p>此外，这些模型有时也可能产生误导性的信息，生成与事实不符的内容。例如当我询问鲁迅和周树人的关系时，GPT 开始了一本正经地胡说八道。</p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/rag-2.png width=80% heigth=80%/>
+</div>
+
+<p>要解决上述问题，我们可以把 LLM 模型重新再训练一遍，但成本是高昂的。而 RAG 的主要优势在于可以避免针对特定任务再次进行训练，其高可用性和低门槛使之成为 LLM 系统中最受欢迎的方案之一，许多 LLM 应用都会基于 RAG 构建。RAG 的核心思想是让模型在生成回答时，不仅依赖于其在训练阶段学到的知识，还能利用外部的、最新的、专有的信息源，因此用户可以根据实际情况额外附加外部知识库，丰富输入，从而优化模型的输出效果。</p>
+<p>RAG 的工作流程通常包括以下几个步骤：</p>
+<ul>
+<li>检索（Retrieve）：从大型数据集或知识库中查找并提取与当前查询最相关的信息。</li>
+<li>增强（Augment）：将检索到的信息或数据集与 LLM 结合的，以增强 LLM 的性能和输出的准确性。</li>
+<li>生成（Generate）：使用检索到的信息利用 LLM 来生成新的文本或响应。</li>
+</ul>
+<p>以下为 Native RAG 的流程图：</p>
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/rag-3.png width=80% heigth=80%/>
+</div>
+
+<p>可以看到，检索环节在 RAG 架构中扮演着至关重要的角色，MatrixOne 具有向量检索的能力，这为构建 RAG 应用提供了强大的数据检索支持。</p>
 <h2 id="matrixone-rag">Matrixone 在 RAG 中的作用</h2>
 <p>Matrxione 作为超融合数据库，自带向量能力，这在 RAG 应用中起着重要的作用，主要体现在以下几个方面：</p>
 <ul>
@@ -11574,7 +11629,7 @@
 <p>简化开发流程：使用 Matrxione 可以简化 RAG 应用的开发流程，因为它提供了存储和检索向量化数据的高效机制，从而减少了开发者在数据管理方面的工作负担。</p>
 </li>
 </ul>
-<p>本文基于 Ollama，结合 Llama2 和 Mxbai-embed-large，利用 Matrixone 的向量能力快速构建一个 RAG 应用。</p>
+<p>本文基于 Ollama，结合 Llama2 和 Mxbai-embed-large，利用 Matrixone 的向量能力快速构建一个 Native RAG 应用。</p>
 <h2 id="_1">开始前准备</h2>
 <h3 id="_2">相关知识</h3>
 <p><strong>Ollama</strong>: Ollama 是一个开源的大型语言模型服务工具，它允许用户在自己的硬件环境中轻松部署和使用大规模预训练模型。Ollama 的主要功能是在 Docker 容器内部署和管理大型语言模型（LLM），使用户能够快速地在本地运行这些模型。Ollama 简化了部署过程，通过简单的安装指令，用户可以执行一条命令就在本地运行开源大型语言模型。</p>
@@ -11614,8 +11669,12 @@
 ollama pull mxbai-embed-large
 </code></pre></div>
 <h2 id="_4">构建应用</h2>
-<h3 id="_5">编写应用代码</h3>
-<p>创建文件 <code>rag_example.py</code>，输入以下代码：</p>
+<h3 id="_5">建表</h3>
+<p>连接 MatrixOne，建立一个名为 <code>rag_tab</code> 的表来存储文本信息和对应的向量信息。</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">rag_tab</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="n">embedding</span><span class="w"> </span><span class="n">vecf32</span><span class="p">(</span><span class="mi">1024</span><span class="p">));</span>
+</code></pre></div>
+<h3 id="matrixone">文本向量化存储到 MatrixOne</h3>
+<p>创建 python 文件 rag_example.py，利用 mxbai-embed-large 嵌入模型将文本信息切分和向量化，然后存到 MatrixOne 的 <code>rag_tab</code> 表中。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ollama</span>
 <span class="kn">import</span> <span class="nn">pymysql.cursors</span>
 
@@ -11627,11 +11686,7 @@ ollama pull mxbai-embed-large
         <span class="n">db</span><span class="o">=</span><span class="s1">&#39;db1&#39;</span><span class="p">,</span>
         <span class="n">autocommit</span><span class="o">=</span><span class="kc">True</span>
         <span class="p">)</span>
-
 <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;drop table if exists rag_tab&quot;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;create table rag_tab(content text,embedding vecf64(1024))&quot;</span><span class="p">)</span>
 
 <span class="c1">#生成 embeddings</span>
 <span class="n">documents</span> <span class="o">=</span> <span class="p">[</span>
@@ -11639,6 +11694,8 @@ ollama pull mxbai-embed-large
 <span class="s2">&quot;MatrixOne touts significant features, including real-time HTAP, multi-tenancy, stream computation, extreme scalability, cost-effectiveness, enterprise-grade availability, and extensive MySQL compatibility. MatrixOne unifies tasks traditionally performed by multiple databases into one system by offering a comprehensive ultra-hybrid data solution. This consolidation simplifies development and operations, minimizes data fragmentation, and boosts development agility.&quot;</span><span class="p">,</span>
 <span class="s2">&quot;MatrixOne is optimally suited for scenarios requiring real-time data input, large data scales, frequent load fluctuations, and a mix of procedural and analytical business operations. It caters to use cases such as mobile internet apps, IoT data applications, real-time data warehouses, SaaS platforms, and more.&quot;</span><span class="p">,</span>
 <span class="s2">&quot;Matrix is a collection of complex or real numbers arranged in a rectangular array.&quot;</span><span class="p">,</span>
+<span class="s2">&quot;The lastest version of MatrixOne is 1.2.0, releases on 20th May, 2024.&quot;</span>
+<span class="s2">&quot;We are excited to announce MatrixOne 0.8.0 release on 2023/6/30.&quot;</span>
 <span class="p">]</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">documents</span><span class="p">):</span>
@@ -11647,22 +11704,41 @@ ollama pull mxbai-embed-large
   <span class="n">insert_sql</span> <span class="o">=</span> <span class="s2">&quot;insert into rag_tab(content,embedding) values (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span>
   <span class="n">data_to_insert</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">embedding</span><span class="p">))</span>
   <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">insert_sql</span><span class="p">,</span> <span class="n">data_to_insert</span><span class="p">)</span>
-
-<span class="c1">#检索</span>
-<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;What is MatrixOne?&quot;</span>
+</code></pre></div>
+<h3 id="rag_tab">查看 <code>rag_tab</code> 表中数量</h3>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">rag_tab</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+</span>
+<span class="o">|</span><span class="w">        </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<p>可以看到，数据成功存储到数据库中。</p>
+<ul>
+<li>索引建立（非必需）</li>
+</ul>
+<p>在大规模高维数据检索时，如果采用全量搜索，需要对每个查询都执行与整个数据集中每个向量的相似度计算，这会导致巨大的性能开销和延迟。而使用向量索引可以有效地解决上述问题，通过建立高效的数据结构和算法来优化搜索过程，提高检索性能，降低计算和存储成本，同时提升用户体验。因此，我们为向量字段建立 IVF-FLAT 向量索引</p>
+<div class="highlight"><pre><span></span><code><span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">experimental_ivf_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="c1">--开启向量索引</span>
+<span class="k">create</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="n">idx_rag</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">ivfflat</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">rag_tab</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span><span class="w">  </span><span class="n">lists</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="n">op_type</span><span class="w"> </span><span class="ss">&quot;vector_l2_ops&quot;</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="_6">向量检索</h3>
+<p>数据准备好以后就可以根据我们提出的问题在数据库搜索最相似的内容，这一步主要依赖 MatrixOne 的向量检索能力，MatrixOne 支持多种相似度搜索，在这里我们使用 <code>l2_distance</code> 来检索，并设置返回结果数量为 3。</p>
+<div class="highlight"><pre><span></span><code><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;What is the latest version of MatrixOne?&quot;</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">embeddings</span><span class="p">(</span>
   <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
   <span class="n">model</span><span class="o">=</span><span class="s2">&quot;mxbai-embed-large&quot;</span>
 <span class="p">)</span>
 <span class="n">query_embedding</span><span class="o">=</span> <span class="n">embedding</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;embedding&quot;</span><span class="p">]</span>
-
 <span class="n">query_sql</span> <span class="o">=</span> <span class="s2">&quot;select content from rag_tab order by l2_distance(embedding,</span><span class="si">%s</span><span class="s2">) asc limit 3&quot;</span>
 <span class="n">data_to_query</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">query_embedding</span><span class="p">)</span>
 <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query_sql</span><span class="p">,</span> <span class="n">data_to_query</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-
-<span class="c1">#增强生成</span>
+</code></pre></div>
+<h3 id="_7">增强生成</h3>
+<p>我们将上一步检索到的内容与 LLM 结合，生成答案。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#增强生成</span>
 <span class="n">output</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
   <span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama2&quot;</span><span class="p">,</span>
   <span class="n">prompt</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Using this data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">. Respond to this prompt: </span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -11670,26 +11746,17 @@ ollama pull mxbai-embed-large
 
 <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">])</span>
 </code></pre></div>
-<h3 id="_6">运行应用</h3>
-<p>在终端输入以下命令运行应用：</p>
-<div class="highlight"><pre><span></span><code>python3 rag_example.py
-</code></pre></div>
-<h3 id="_7">查看运行结果</h3>
 <p>控制台输出相关回答：</p>
-<div class="highlight"><pre><span></span><code>Based on the provided data, MatrixOne appears to be a unified data solution that offers several significant features and benefits. Here are some key points about MatrixOne:
-
-1. Real-time HTAP (Hybrid Transactional and Analytical Processing): MatrixOne provides real-time data processing capabilities for both transactional and analytical workloads, making it an ideal choice for applications that require immediate data insights.
-2. Multi-tenancy: MatrixOne supports multi-tenancy, allowing multiple users to access the same database simultaneously without compromising performance or data security.
-3. Stream computation: MatrixOne enables stream computing, which enables real-time data processing and analysis of large datasets.
-4. Extreme scalability: MatrixOne is designed to handle large datasets and can scale horizontally by adding more nodes to the cluster, making it an ideal choice for applications that require high levels of performance and scalability.
-5. Cost-effectiveness: MatrixOne offers a cost-effective solution compared to traditional database systems, as it eliminates the need for multiple databases and reduces operational complexity.
-6. Enterprise-grade availability: MatrixOne provides an enterprise-grade availability guarantee, ensuring that data is always available when needed.
-7. MySQL compatibility: MatrixOne supports extensive MySQL compatibility, making it easier to migrate existing applications or integrate with new ones.
-8. Hyper-converged architecture: MatrixOne features a hyper-converged architecture that separates storage, computation, and transactions into a consolidated HSTAP data engine. This allows for efficient data processing and minimizes data fragmentation.
-9. Cloud and edge compatibility: MatrixOne supports deployment and utilization across public, private, and edge clouds, ensuring compatibility with diverse infrastructures.
-
-In summary, MatrixOne is a unified data solution that offers real-time data processing capabilities, multi-tenancy, stream computation, extreme scalability, cost-effectiveness, enterprise-grade availability, and MySQL compatibility. Its hyper-converged architecture and cloud and edge compatibility make it a versatile choice for various applications such as mobile internet apps, IoT data applications, real-time data warehouses, SaaS platforms, and more.
+<div class="highlight"><pre><span></span><code>Based on the provided data, the latest version of MatrixOne is 1.2.0, which was released on May 20th, 2024.
 </code></pre></div>
+<p>在增强后，模型生成了正确答案。</p>
+<h2 id="_8">参考文档</h2>
+<ul>
+<li><a href="../../Develop/Vector/vector_type/">向量类型</a></li>
+<li><a href="../../Develop/Vector/vector_search/">向量检索</a></li>
+<li><a href="../../Reference/SQL-Reference/Data-Definition-Language/create-index-ivfflat/">CREATE INDEX...USING IVFFLAT</a></li>
+<li><a href="../../Reference/Functions-and-Operators/Vector/l2_distance/">L2_DISTANCE()</a></li>
+</ul>
 
 
 
