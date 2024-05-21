@@ -122,6 +122,7 @@
 | [TO_BASE64()](./String/to_base64.md)           | 用于将字符串转换为 Base64 编码的字符串|
 | [TRIM()](./String/trim.md)                     | 返回一个字符串，删除不需要的字符。|
 | [UCASE()](./String/ucase.md)                   | 用于将给定的字符串转换为大写形式。|
+| [UNHEX()](./String/unhex.md)                   | 用于将十六进制字符串转换为相应的二进制字符串。|
 | [UPPER()](./String/upper.md)                   | 用于将给定的字符串转换为大写形式。|
 
 ## 正则表达式
