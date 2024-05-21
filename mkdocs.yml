@@ -173,6 +173,7 @@ nav:
         - Golang 基础示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
         - Gorm 基础示例: MatrixOne/Tutorial/gorm-golang-crud-demo.md
         - C# 基础示例: MatrixOne/Tutorial/c-net-crud-demo.md
+        - RAG 应用基础示例: MatrixOne/Tutorial/rag-demo.md
       - 生态工具:
         - 消息队列工具:
           - 使用 Kafka 连接 MatrixOne 实现数据持久化: MatrixOne/Develop/Ecological-Tools/Message-Queue/Kafka.md
