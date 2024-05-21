@@ -2,17 +2,35 @@
 
 ## 什么是 RAG?
 
-RAG，全称为 Retrieval-Augmented Generation（检索增强生成），是一种结合了信息检索和文本生成的技术，用于提高大型语言模型（LLM）生成文本的准确性和相关性。LLM 由于其训练数据的局限性，可能无法获取最新的信息，例如在模型训练完成后发生的新闻事件。此外，这些模型有时也可能产生误导性的信息，生成与事实不符的内容。RAG 的核心思想是让模型在生成回答时，不仅依赖于其在训练阶段学到的知识，还能利用外部的、最新的、专有的信息源。
+RAG，全称为 Retrieval-Augmented Generation（检索增强生成），是一种结合了信息检索和文本生成的技术，用于提高大型语言模型（LLM）生成文本的准确性和相关性。LLM 由于其训练数据的局限性，可能无法获取最新的信息。
+
+例如我向 GPT 询问 MatrixOne 的最新版本时，它并不能给出答案。
+
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/rag-1.png width=80% heigth=80%/>
+</div>
+
+此外，这些模型有时也可能产生误导性的信息，生成与事实不符的内容。例如当我询问鲁迅和周树人的关系时，GPT 开始了一本正经地胡说八道。
+
+<div align="center">
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/rag-2.png width=80% heigth=80%/>
+</div>
+
+要解决上述问题，我们可以把 LLM 模型重新再训练一遍，但成本是高昂的。而 RAG 的主要优势在于可以避免针对特定任务再次进行训练，其高可用性和低门槛使之成为 LLM 系统中最受欢迎的方案之一，许多 LLM 应用都会基于 RAG 构建。RAG 的核心思想是让模型在生成回答时，不仅依赖于其在训练阶段学到的知识，还能利用外部的、最新的、专有的信息源，因此用户可以根据实际情况额外附加外部知识库，丰富输入，从而优化模型的输出效果。
 
 RAG 的工作流程通常包括以下几个步骤：
 
-- 检索（Retrieve）：根据用户的查询，从外部知识源（如数据库、知识库）检索相关的上下文信息。
-- 增强（Augment）：将检索到的信息与用户查询结合起来，形成一个新的提示（prompt），这个提示将包含问题的上下文。
-- 生成（Generate）：将这个增强后的提示输入到大型语言模型中，生成最终的回答。
+- 检索（Retrieve）：从大型数据集或知识库中查找并提取与当前查询最相关的信息。
+- 增强（Augment）：将检索到的信息或数据集与 LLM 结合的，以增强 LLM 的性能和输出的准确性。
+- 生成（Generate）：使用检索到的信息利用 LLM 来生成新的文本或响应。
+
+以下为 Native RAG 的流程图：
 
 <div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/rag.png width=80% heigth=80%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/rag-3.png width=80% heigth=80%/>
 </div>
+
+可以看到，检索环节在 RAG 架构中扮演着至关重要的角色，MatrixOne 具有向量检索的能力，这为构建 RAG 应用提供了强大的数据检索支持。
 
 ## Matrixone 在 RAG 中的作用
 
@@ -28,7 +46,7 @@ Matrxione 作为超融合数据库，自带向量能力，这在 RAG 应用中�
 
 - 简化开发流程：使用 Matrxione 可以简化 RAG 应用的开发流程，因为它提供了存储和检索向量化数据的高效机制，从而减少了开发者在数据管理方面的工作负担。
 
-本文基于 Ollama，结合 Llama2 和 Mxbai-embed-large，利用 Matrixone 的向量能力快速构建一个 RAG 应用。
+本文基于 Ollama，结合 Llama2 和 Mxbai-embed-large，利用 Matrixone 的向量能力快速构建一个 Native RAG 应用。
 
 ## 开始前准备
 
@@ -75,9 +93,17 @@ ollama pull mxbai-embed-large
 
 ## 构建应用
 
-### 编写应用代码
+### 建表
 
-创建文件 `rag_example.py`，输入以下代码：
+连接 MatrixOne，建立一个名为 `rag_tab` 的表来存储文本信息和对应的向量信息。
+
+```sql
+create table rag_tab(content text,embedding vecf32(1024));
+```
+
+### 文本向量化存储到 MatrixOne
+
+创建 python 文件 rag_example.py，利用 mxbai-embed-large 嵌入模型将文本信息切分和向量化，然后存到 MatrixOne 的 `rag_tab` 表中。
 
 ```python
 import ollama
@@ -91,11 +117,7 @@ conn = pymysql.connect(
         db='db1',
         autocommit=True
         )
-
 cursor = conn.cursor()
-
-cursor.execute("drop table if exists rag_tab")
-cursor.execute("create table rag_tab(content text,embedding vecf64(1024))")
 
 #生成 embeddings
 documents = [
@@ -103,6 +125,8 @@ documents = [
 "MatrixOne touts significant features, including real-time HTAP, multi-tenancy, stream computation, extreme scalability, cost-effectiveness, enterprise-grade availability, and extensive MySQL compatibility. MatrixOne unifies tasks traditionally performed by multiple databases into one system by offering a comprehensive ultra-hybrid data solution. This consolidation simplifies development and operations, minimizes data fragmentation, and boosts development agility.",
 "MatrixOne is optimally suited for scenarios requiring real-time data input, large data scales, frequent load fluctuations, and a mix of procedural and analytical business operations. It caters to use cases such as mobile internet apps, IoT data applications, real-time data warehouses, SaaS platforms, and more.",
 "Matrix is a collection of complex or real numbers arranged in a rectangular array.",
+"The lastest version of MatrixOne is 1.2.0, releases on 20th May, 2024."
+"We are excited to announce MatrixOne 0.8.0 release on 2023/6/30."
 ]
 
 for i,d in enumerate(documents):
@@ -111,21 +135,54 @@ for i,d in enumerate(documents):
   insert_sql = "insert into rag_tab(content,embedding) values (%s, %s)"
   data_to_insert = (d, str(embedding))
   cursor.execute(insert_sql, data_to_insert)
+```
 
-#检索
-prompt = "What is MatrixOne?"
+### 查看 `rag_tab` 表中数量
+
+```sql
+mysql> select count(*) from rag_tab;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+```
+
+可以看到，数据成功存储到数据库中。
+
+- 索引建立（非必需）
+
+在大规模高维数据检索时，如果采用全量搜索，需要对每个查询都执行与整个数据集中每个向量的相似度计算，这会导致巨大的性能开销和延迟。而使用向量索引可以有效地解决上述问题，通过建立高效的数据结构和算法来优化搜索过程，提高检索性能，降低计算和存储成本，同时提升用户体验。因此，我们为向量字段建立 IVF-FLAT 向量索引
+
+```sql
+SET GLOBAL experimental_ivf_index = 1;--开启向量索引
+create index idx_rag using ivfflat on rag_tab(embedding)  lists=1 op_type "vector_l2_ops";
+```
+
+### 向量检索
+
+数据准备好以后就可以根据我们提出的问题在数据库搜索最相似的内容，这一步主要依赖 MatrixOne 的向量检索能力，MatrixOne 支持多种相似度搜索，在这里我们使用 `l2_distance` 来检索，并设置返回结果数量为 3。
+
+```python
+prompt = "What is the latest version of MatrixOne?"
 
 response = ollama.embeddings(
   prompt=prompt,
   model="mxbai-embed-large"
 )
 query_embedding= embedding = response["embedding"]
-
 query_sql = "select content from rag_tab order by l2_distance(embedding,%s) asc limit 3"
 data_to_query = str(query_embedding)
 cursor.execute(query_sql, data_to_query)
 data = cursor.fetchall()
+```
 
+### 增强生成
+
+我们将上一步检索到的内容与 LLM 结合，生成答案。
+
+```python
 #增强生成
 output = ollama.generate(
   model="llama2",
@@ -135,31 +192,17 @@ output = ollama.generate(
 print(output['response'])
 ```
 
-### 运行应用
-
-在终端输入以下命令运行应用：
-
-```
-python3 rag_example.py
-```
-
-### 查看运行结果
-
 控制台输出相关回答：
 
 ```
-Based on the provided data, MatrixOne appears to be a unified data solution that offers several significant features and benefits. Here are some key points about MatrixOne:
-
-1. Real-time HTAP (Hybrid Transactional and Analytical Processing): MatrixOne provides real-time data processing capabilities for both transactional and analytical workloads, making it an ideal choice for applications that require immediate data insights.
-2. Multi-tenancy: MatrixOne supports multi-tenancy, allowing multiple users to access the same database simultaneously without compromising performance or data security.
-3. Stream computation: MatrixOne enables stream computing, which enables real-time data processing and analysis of large datasets.
-4. Extreme scalability: MatrixOne is designed to handle large datasets and can scale horizontally by adding more nodes to the cluster, making it an ideal choice for applications that require high levels of performance and scalability.
-5. Cost-effectiveness: MatrixOne offers a cost-effective solution compared to traditional database systems, as it eliminates the need for multiple databases and reduces operational complexity.
-6. Enterprise-grade availability: MatrixOne provides an enterprise-grade availability guarantee, ensuring that data is always available when needed.
-7. MySQL compatibility: MatrixOne supports extensive MySQL compatibility, making it easier to migrate existing applications or integrate with new ones.
-8. Hyper-converged architecture: MatrixOne features a hyper-converged architecture that separates storage, computation, and transactions into a consolidated HSTAP data engine. This allows for efficient data processing and minimizes data fragmentation.
-9. Cloud and edge compatibility: MatrixOne supports deployment and utilization across public, private, and edge clouds, ensuring compatibility with diverse infrastructures.
-
-In summary, MatrixOne is a unified data solution that offers real-time data processing capabilities, multi-tenancy, stream computation, extreme scalability, cost-effectiveness, enterprise-grade availability, and MySQL compatibility. Its hyper-converged architecture and cloud and edge compatibility make it a versatile choice for various applications such as mobile internet apps, IoT data applications, real-time data warehouses, SaaS platforms, and more.
-
+Based on the provided data, the latest version of MatrixOne is 1.2.0, which was released on May 20th, 2024.
 ```
+
+在增强后，模型生成了正确答案。
+
+## 参考文档
+
+- [向量类型](../Develop/Vector/vector_type.md)
+- [向量检索](../Develop/Vector/vector_search.md)
+- [CREATE INDEX...USING IVFFLAT](../Reference/SQL-Reference/Data-Definition-Language/create-index-ivfflat.md)
+- [L2_DISTANCE()](../Reference/Functions-and-Operators/Vector/l2_distance.md)
