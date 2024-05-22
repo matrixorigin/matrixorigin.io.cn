@@ -5,7 +5,7 @@
 在数据库中，向量通常是一组数字，它们以特定的方式排列，以表示某种数据或特征。这些向量可以是一维数组、多维数组或具有更高维度的数据结构。在机器学习和数据分析领域中，向量用于表示数据点、特征或模型参数。它们通常是用来处理非结构化数据，如图片，语音，文本等，以通过机器学习模型，将非结构化数据转化为 embedding 向量，随后处理分析这些数据。
 
 <div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/search-image.png width=80% heigth=80%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/reference/vector/vector_introduction.png width=80% heigth=80%/>
 </div>
 
 ## Matrixone 支持向量类型
