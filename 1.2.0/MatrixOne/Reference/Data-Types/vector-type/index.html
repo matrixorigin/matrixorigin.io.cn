@@ -9690,6 +9690,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Functions-and-Operators/String/unhex/" class="md-nav__link">
+        UNHEX()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Functions-and-Operators/String/upper/" class="md-nav__link">
         UPPER()
       </a>
@@ -9709,17 +9723,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_5_38" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_5_39" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_5_2_5_38" id="__nav_1_11_5_2_5_38_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_5_2_5_39" id="__nav_1_11_5_2_5_39_label" tabindex="0">
           正则表达式
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_11_5_2_5_38_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_5_2_5_38">
+      <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_11_5_2_5_39_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_5_2_5_39">
           <span class="md-nav__icon md-icon"></span>
           正则表达式
         </label>
@@ -11478,12 +11492,8 @@
 </code></pre></div>
 <p><strong>二进制格式</strong></p>
 <p>如果你想使用 Python NumPy 数组，可以通过对数组进行十六进制编码，而不是将其转换为逗号分隔的文本格式，直接将该 NumPy 数组插入 MatrixOne。在插入维度较高的向量时，这种方式速度更快。</p>
-<div class="highlight"><pre><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">values</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">decode</span><span class="p">(</span><span class="ss">&quot;7e98b23e9e10383b2f41133f&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hex&quot;</span><span class="p">));</span>
-
+<div class="highlight"><pre><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="n">unhex</span><span class="p">(</span><span class="ss">&quot;7e98b23e9e10383b2f41133f&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">blob</span><span class="p">));</span>
 <span class="c1">-- &quot;7e98b23e9e10383b2f41133f&quot; 表示 []float32{0.34881967, 0.0028086076, 0.5752134}的小端十六进制编码</span>
-
-<span class="c1">-- &quot;hex&quot; 表示十六进制编码</span>
 </code></pre></div>
 <h3 id="_4">查询向量</h3>
 <p>向量列同样可以以两种格式读取。</p>
@@ -11499,9 +11509,9 @@
 </code></pre></div>
 <p><strong>二进制格式</strong></p>
 <p>如果你需要将向量结果集直接读取到 NumPy 数组中，以最小的转换成本，二进制格式非常有用。</p>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">encode</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hex&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">hex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">--------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">encode</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">hex</span><span class="p">)</span><span class="w">           </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">hex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">                   </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">--------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="mi">0000803</span><span class="n">f0000004000004040</span><span class="w"> </span><span class="o">|</span>
 <span class="o">|</span><span class="w"> </span><span class="mi">7</span><span class="n">e98b23e9e10383b2f41133f</span><span class="w"> </span><span class="o">|</span>
