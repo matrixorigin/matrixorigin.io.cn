@@ -2626,6 +2626,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/search-picture-demo/" class="md-nav__link">
+        以图（文）搜图应用基础示例
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5585,6 +5599,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#strict" class="md-nav__link">
+    STRICT
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5633,15 +5654,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     增加条件导入示例
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -9814,6 +9835,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Functions-and-Operators/String/unhex/" class="md-nav__link">
+        UNHEX()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Functions-and-Operators/String/upper/" class="md-nav__link">
         UPPER()
       </a>
@@ -9833,17 +9868,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_5_38" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_5_39" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_5_2_5_38" id="__nav_1_11_5_2_5_38_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_5_2_5_39" id="__nav_1_11_5_2_5_39_label" tabindex="0">
           正则表达式
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_11_5_2_5_38_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_5_2_5_38">
+      <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_11_5_2_5_39_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_5_2_5_39">
           <span class="md-nav__icon md-icon"></span>
           正则表达式
         </label>
@@ -11584,6 +11619,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#strict" class="md-nav__link">
+    STRICT
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -11632,15 +11674,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     增加条件导入示例
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -11722,6 +11764,7 @@
     [{FIELDS | COLUMNS}
         [TERMINATED BY &#39;string&#39;]
         [[OPTIONALLY] ENCLOSED BY &#39;char&#39;]
+        [ENCASPED BY &#39;char&#39;]
     ]
     [LINES
         [STARTING BY &#39;string&#39;]
@@ -11730,6 +11773,7 @@
     [IGNORE number {LINES | ROWS}]
     [SET column_name_1=nullif(column_name_1, expr1), column_name_2=nullif(column_name_2, expr2)...]
     [PARALLEL {&#39;TRUE&#39; | &#39;FALSE&#39;}]
+    [STRICT {&#39;TRUE&#39; | &#39;FALSE&#39;}]
 </code></pre></div>
 <p><strong>参数解释</strong></p>
 <p>上述语法结构中的参数解释如下：</p>
@@ -11762,34 +11806,25 @@
 <p>如果指定 <code>FIELDS</code> 子句，那么 <code>FIELDS</code> 的每个子句（<code>TERMINATED BY</code>、<code>[OPTIONALLY] ENCLOSED BY</code>）也是可选的，除非你必须至少指定其中一个。</p>
 <p><code>LOAD DATA</code> 也支持使用十六进制 <code>ASCII</code> 字符表达式或二进制 <code>ASCII</code> 字符表达式作为 <code>FIELDS ENCLOSED BY</code> 和 <code>FIELDS TERMINATED BY</code> 的参数。</p>
 <p>如果不指定处理数据的参数，则使用默认值如下：</p>
-<div class="highlight"><pre><span></span><code>FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;
+<div class="highlight"><pre><span></span><code>FIELDS TERMINATED BY &#39;\t&#39; ENCLOSED BY &#39;&quot;&#39; ESCAPED BY &#39;\\&#39; LINES TERMINATED BY &#39;\n&#39;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><code>FIELDS TERMINATED BY ','</code>：以且仅以 <code>,</code>、<code>|</code> 或 <code>\t</code> 作为分隔符。</li>
+<li><code>FIELDS TERMINATED BY '\t'</code>：以且仅以 <code>\t</code> 作为分隔符。</li>
 <li><code>ENCLOSED BY '"'</code>：以且仅以 <code>"</code> 作为包括符。</li>
+<li><code>ESCAPED BY '\\'</code>：以且仅以 <code>\</code> 作为转义符。</li>
 <li><code>LINES TERMINATED BY '\n'</code>：以且仅以 <code>\n</code> 或 <code>\r\n</code> 作为行间分隔符。</li>
 </ul>
 </div>
 <p><strong>FIELDS TERMINATED BY</strong></p>
 <p><code>FIELDS TERMINATED BY</code> 表示字段与字段之间的分隔符，使用 <code>FIELDS TERMINATED BY</code> 就可以指定每个数据的分隔符号。</p>
 <p><code>FIELDS TERMINATED BY</code> 指定的值可以超过一个字符。</p>
-<ul>
-<li><strong>正确示例</strong>：</li>
-</ul>
+<p><strong>示例</strong>：</p>
 <p>例如，读取使用<em>逗号</em>分隔的文件，语法是：</p>
 <div class="highlight"><pre><span></span><code>LOAD DATA INFILE &#39;data.txt&#39; INTO TABLE table1
   FIELDS TERMINATED BY &#39;,&#39;;
 </code></pre></div>
-<ul>
-<li><strong>错误示例</strong>：</li>
-</ul>
-<p>如果你使用如下所示的语句读取文件，将会产生报错，因为它表示的是 <code>LOAD DATA</code> 查找字段之间的制表符：</p>
-<div class="highlight"><pre><span></span><code>LOAD DATA INFILE &#39;data.txt&#39; INTO TABLE table1
-  FIELDS TERMINATED BY &#39;\t&#39;;
-</code></pre></div>
-<p>这样可能会导致结果被解释为每个输入行都是一个字段，你可能会遇到 <code>ERROR 20101 (HY000): internal error: the table column is larger than input data column</code> 错误。</p>
 <p><strong>FIELDS ENCLOSED BY</strong></p>
 <p><code>FIELDS TERMINATED BY</code> 指定的值包含输入值的字符。<code>ENCLOSED BY</code> 指定的值必须是单个字符；如果输入值不一定包含在引号中，需要在 <code>ENCLOSED BY</code> 选项之前使用 <code>OPTIONALLY</code>。</p>
 <p>如下面的例子所示，即表示一部分输入值用可以用引号括起来，另一些可以不用引号括起来：</p>
@@ -11797,6 +11832,140 @@
   FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39;;
 </code></pre></div>
 <p>如果 <code>ENCLOSED BY</code> 前不加 <code>OPTIONALLY</code>，比如说，<code>ENCLOSED BY '"'</code> 就表示使用双引号把各个字段都括起来。</p>
+<p><strong>FIELDS ESCAPED BY</strong></p>
+<p><code>FIELDS ESCAPED BY</code> 允许你指定一个转义字符，默认值 <code>\\</code>，代表 <code>\</code> 是个转义符号，如果 <code>FIELDS ESCAPED BY</code> 字符不为空，则删除该字符，并且后续字符将按字面意思作为字段值的一部分。</p>
+<p>但一些双字符序列有着特殊含义，如下表：</p>
+<table>
+<thead>
+<tr>
+<th>转义序列</th>
+<th>序列表示的字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\0</td>
+<td>空格符</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>制表符</td>
+</tr>
+<tr>
+<td>\z</td>
+<td>结束符（Ctl+Z）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<ul>
+<li>示例 1</li>
+</ul>
+<p>data.txt 内容如下：</p>
+<div class="highlight"><pre><span></span><code>(base) admin@admindeMacBook-Pro case % cat data.txt 
+1   a\\b
+</code></pre></div>
+<p>连接 mo 执行以下语句，将 data.txt 内容导入到 t1：</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
+<span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;Users/admin/test/case/data.txt&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">n1</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">n2</span><span class="w">   </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="err">\</span><span class="n">b</span><span class="w">  </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<p>n2 的结果为 <code>a\b</code>，因为第一个 <code>\</code> 为转义符，被删除了。</p>
+<ul>
+<li>示例 2</li>
+</ul>
+<p>data.txt 内容如下：</p>
+<div class="highlight"><pre><span></span><code>(base) admin@admindeMacBook-Pro case % cat data.txt 
+1   a\\b
+</code></pre></div>
+<p>连接 mo 执行以下语句，将 data.txt 内容导入到 t2：</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
+<span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;Users/admin/test/case/data.txt&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">escaped</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">n1</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">n2</span><span class="w">   </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">\\</span><span class="n">b</span><span class="w">  </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<p>n2 的结果为 <code>\\b</code>，因为在这里我们指定了转义符为 <code>a</code>，所以 <code>a</code> 被删除了。</p>
+<ul>
+<li>示例 3</li>
+</ul>
+<p>data.txt 内容如下：</p>
+<div class="highlight"><pre><span></span><code>(base) admin@admindeMacBook-Pro case % cat data.txt 
+1   a\\ b
+</code></pre></div>
+<p>连接 mo 执行以下语句，将 data.txt 内容导入到 t1：</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t3</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
+<span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;Users/admin/test/case/data.txt&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">escaped</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t3</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">n1</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">n2</span><span class="w">   </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="err">\\</span><span class="n">b</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<p>n2 的结果为 <code>a\\b</code>，当 ESCAPED BY 为空时，原样读取不对字符做转义处理。</p>
+<ul>
+<li>示例 4</li>
+</ul>
+<p>data.txt 内容如下：</p>
+<div class="highlight"><pre><span></span><code>(base) admin@admindeMacBook-Pro case % cat data.txt 
+1   a\0b
+2   c\bd
+3   a\nb
+4   a\rb
+5   a\tb
+6   a\Zb
+</code></pre></div>
+<p>连接 mo 执行以下语句，将 data.txt 内容导入到 t4：</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t3</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
+<span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;Users/admin/test/case/data.txt&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t4</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">n1</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">n2</span><span class="w">   </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w">  </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">d</span><span class="w">  </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span>
+<span class="n">b</span><span class="w">  </span><span class="o">|</span>
+<span class="n">b</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">  </span><span class="n">b</span><span class="w">  </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ab</span><span class="w">  </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="mi">6</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<p>n1=1 时，n2 的结果为 <code>a b</code>，因为 <code>\0</code> 为空格符；</p>
+<p>n=2 时，n2 的结果为 <code>d</code>，因为 <code>\b</code> 为退格符，<code>a</code> 被删除；</p>
+<p>n=3 时，n2 的结果为 <code>a</code> 加换行后的 <code>b</code>，因为 <code>\n</code> 为换行符；</p>
+<p>n=4 时，n2 的结果为 <code>a</code> 加换回车后的 <code>b</code>，因为 <code>\r</code> 为回车符；</p>
+<p>n=5 时，n2 的结果为 <code>a  b</code> 的 b，因为 <code>\t</code> 为制表；</p>
+<p>n=6 时，n2 的结果为 <code>ab</code>，因为 <code>\z</code> 为结束符。</p>
 <p><strong>LINES TERMINATED BY</strong></p>
 <p><code>LINES TERMINATED BY</code> 用于指定一行的结束符。<code>LINES TERMINATED BY</code> 值可以超过一个字符。</p>
 <p>例如，<em>csv</em> 文件中的行以回车符/换行符对结束，你在加载它时，可以使用 <code>LINES TERMINATED BY '\r\n'</code> 或 <code>LINES TERMINATED BY '\n'</code>：</p>
@@ -11857,7 +12026,7 @@ null,wederTom,&quot;man&quot;
 <h3 id="parallel">PARALLEL</h3>
 <p>对于一个格式良好的大文件，例如 <em>JSONLines</em> 文件，或者一行数据中没有换行符的 <em>CSV</em> 文件，都可以使用 <code>PARALLEL</code> 对该文件进行并行加载，以加快加载速度。</p>
 <p>例如，对于 2 个 G 的大文件，使用两个线程去进行加载，第 2 个线程先拆分定位到 1G 的位置，然后一直往后读取并进行加载。这样就可以做到两个线程同时读取大文件，每个线程读取 1G 的数据。</p>
-<p><strong>开启/关闭并行加载命令行示例</strong>：</p>
+<p><strong>示例</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">--  打开并行加载</span>
 <span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;file_name&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tbl_name</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="k">IGNORE</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"> </span><span class="s1">&#39;TRUE&#39;</span><span class="p">;</span>
 
@@ -11872,6 +12041,15 @@ null,wederTom,&quot;man&quot;
 <p><code>[PARALLEL {'TRUE' | 'FALSE'}]</code> 内字段，当前仅支持 <code>TRUE</code> 或 <code>FALSE</code>，且大小写不敏感。</p>
 </div>
 <p><strong>Note:</strong> <code>LOAD</code> 语句中如果不加 <code>PARALLEL</code> 字段，对于 <em>CSV</em> 文件，是默认关闭并行加载；对于 <em>JSONLines</em> 文件，默认开启并行加载。如果 <em>CSV</em> 文件中有行结束符，比如 '\n'，那么有可能会导致文件加载时数据出错。如果文件过大，建议从换行符为起止点手动拆分文件后再开启并行加载。</p>
+<h3 id="strict">STRICT</h3>
+<p>MO 支持使用 <code>STRICT</code> 参数指定文件并行切割的方式，只有在 <code>PARALLEL</code> 为 <code>TRUE</code> 时有效。<code>STRICT</code> 的默认值为 <code>FALSE</code>，表明在切分文件并行导入时利用换行符（默认为\n）进行切割，在数据有换行符情况下，就有可能会切分出错。而当参数为 <code>TRUE</code> 时，则使用预读检测的方式切割，它不仅依赖于换行符进行分割，还会进行预读，以验证其是否与表的列定义相匹配，只有当数据符合列定义时，才会将其作为有效的分割点进行处理。</p>
+<p><strong>示例</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 开启预读模式</span>
+<span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;file_name&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tbl_name</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"> </span><span class="s1">&#39;TRUE&#39;</span><span class="w"> </span><span class="k">STRICT</span><span class="w"> </span><span class="s1">&#39;TRUE&#39;</span><span class="p">;</span>
+
+<span class="c1">-- 关闭预读模式</span>
+<span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;file_name&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tbl_name</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"> </span><span class="s1">&#39;TRUE&#39;</span><span class="w"> </span><span class="k">STRICT</span><span class="w"> </span><span class="s1">&#39;FALSE&#39;</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="_3">支持的文件格式</h2>
 <p>在 MatrixOne 当前版本中，<code>LOAD DATA</code> 支持 <em>CSV</em> 格式和 <em>JSONLines</em> 格式文件。</p>
 <p>有关导入这两种格式的文档，参见<a href="../../../../Develop/import-data/bulk-load/load-csv/">导入<em>. csv</em> 格式数据</a>和<a href="../../../../Develop/import-data/bulk-load/load-jsonline/">导入 JSONLines 数据</a>。</p>
@@ -12068,7 +12246,7 @@ aa&quot;aa|bb&quot;bb|cc&quot;cc|dd&quot;dd
 +-----------+-----------+-----------+-----------+
 20 rows in set (0.00 sec)
 </code></pre></div>
-<h3 id="_6">增加条件导入示例</h3>
+<h4 id="_6">增加条件导入示例</h4>
 <p>沿用上面的简单示例，你可以修改一下 LOAD DATA 语句，在末尾增加条件 <code>LINES STARTING BY 'aa' ignore 10 lines;</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
 <span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;&lt;your-local-file-path&gt;/char_varchar.csv&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="k">by</span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">STARTING</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;aa&#39;</span><span class="w"> </span><span class="k">ignore</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">lines</span><span class="p">;</span>
@@ -12142,7 +12320,6 @@ load data infile {&#39;filepath&#39;=&#39;&lt;your-local-file-path&gt;/jsonline_
 <li>开启并行加载操作时必须要保证文件中每行数据中不包含指定的行结束符，比如 '\n'，否则有可能会导致文件加载时数据出错。</li>
 <li>文件的并行加载要求文件必须是非压缩格式，暂不支持并行加载压缩格式的文件。</li>
 <li>如果你需要用 <code>LOAD DATA LOCAL</code> 进行本地加载，则需要使用命令行连接 MatrixOne 服务主机：<code>mysql -h &lt;mo-host -ip&gt; -P 6001 -uroot -p111 --local-infile</code>。</li>
-<li>MatrixOne 当前暂不支持 <code>ESCAPED BY</code>，写入或读取特殊字符与 MySQL 存在一定的差异。</li>
 </ol>
 
 
