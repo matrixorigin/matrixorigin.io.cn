@@ -21,7 +21,7 @@ RAG，全称为 Retrieval-Augmented Generation（检索增强生成），是一�
 RAG 的工作流程通常包括以下几个步骤：
 
 - 检索（Retrieve）：从大型数据集或知识库中查找并提取与当前查询最相关的信息。
-- 增强（Augment）：将检索到的信息或数据集与 LLM 结合的，以增强 LLM 的性能和输出的准确性。
+- 增强（Augment）：将检索到的信息或数据集与 LLM 结合，以增强 LLM 的性能和输出的准确性。
 - 生成（Generate）：使用检索到的信息利用 LLM 来生成新的文本或响应。
 
 以下为 Native RAG 的流程图：
