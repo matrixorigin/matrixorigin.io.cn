@@ -12044,7 +12044,6 @@
 </ul>
 <h3 id="table">TABLE 相关</h3>
 <ul>
-<li>不支持 <code>CREATE TABLE .. AS SELECT</code> 语句。</li>
 <li>不支持表定义中的 <code>ENGINE=</code>，但 MatrixOne 会直接忽略 <code>ENGINE=</code>。</li>
 <li>ALTER TABLE 中的这些子句：<code>CHANGE [COLUMN]</code>，<code>MODIFY [COLUMN]</code>，<code>RENAME COLUMN</code>，<code>ADD [CONSTRAINT [symbol]] PRIMARY KEY</code>，<code>DROP PRIMARY KEY</code> 和 <code>ALTER COLUMN ORDER BY</code> 可以在 ALTER TABLE 语句中自由组合使用，但不支持与其他子句一起使用。</li>
 <li>临时表暂不支持使用 <code>ALTER TABLE</code> 修改表结构。</li>
@@ -12088,7 +12087,7 @@
 <p><code>SELECT...FOR UPDATE</code> 当前仅支持单表查询。</p>
 <h3 id="insert">INSERT 相关</h3>
 <ul>
-<li>MatrixOne 不支持 <code>LOW_PRIORITY</code>，<code>DELAYED</code>，<code>HIGH_PRIORITY</code>，<code>IGNORE</code> 等修饰符。</li>
+<li>MatrixOne 不支持 <code>LOW_PRIORITY</code>，<code>DELAYED</code>，<code>HIGH_PRIORITY</code> 等修饰符。</li>
 </ul>
 <h3 id="update">UPDATE 相关</h3>
 <ul>
@@ -12105,7 +12104,6 @@
 <h3 id="load">LOAD 相关</h3>
 <ul>
 <li>MatrixOne 支持 <code>SET</code>，但只支持 <code>SET columns_name=nullif(expr1,expr2)</code> 的形式。</li>
-<li>MatrixOne 不支持 <code>ESCAPED BY</code>。</li>
 <li>MatrixOne 支持客户端执行 <code>LOAD DATA LOCAL</code>，但在连接时必须加入 <code>--local-infile</code> 参数。</li>
 <li>MatrixOne 支持导入 <code>JSONlines</code> 文件，但需要使用一些特殊的语法。</li>
 <li>MatrixOne 支持从对象存储导入文件，但需要使用一些特殊的语法。</li>
@@ -12129,7 +12127,7 @@
 </ul>
 <h2 id="_4">流计算</h2>
 <ul>
-<li>流计算属于 MatrixOne 独有功能，目前 1.1 版本仅支持 Kafka 连接器。</li>
+<li>流计算属于 MatrixOne 独有功能，目前 1.2.0 版本仅支持 Kafka 连接器。</li>
 <li>Kafka 连接器需要通过特殊语法创建及使用。</li>
 </ul>
 <h2 id="_5">数据类型</h2>
@@ -12140,14 +12138,15 @@
 <li>DATETIME: MySQL 的最大取值范围为 <code>'1000-01-01 00:00:00'</code> 到 <code>'9999-12-31 23:59:59'</code>，MatrixOne 的最大范围为 <code>'0001-01-01 00:00:00'</code> 到 <code>'9999-12-31 23:59:59'</code>。</li>
 <li>TIMESTAMP: MySQL 的最大取值范围是 <code>'1970-01-01 00:00:01.000000'</code> UTC 到 <code>'2038-01-19 03:14:07.999999'</code> UTC，MatrixOne 的最大范围 <code>'0001-01-01 00:00:00'</code> UTC 到 <code>'9999-12-31 23:59:59'</code> UTC。</li>
 <li>MatrixOne 支持 UUID 类型。</li>
+<li>MatrixOne 支持向量类型。</li>
 <li>不支持空间 Spatial 类型。</li>
-<li>不支持 BIT，SET 类型。</li>
+<li>不支持 SET 类型。</li>
 <li>不支持 MEDIUMINT 类型。</li>
 </ul>
 <h2 id="_6">索引和约束</h2>
 <ul>
+<li>MatrixOne 支持向量索引。</li>
 <li>次级索引在 <code>IN</code>, <code>Between and</code> 及 <code>Like</code> 语句中暂时不生效。</li>
-<li>外键不支持自引用。</li>
 <li>外键不支持 <code>ON CASCADE DELETE</code> 级联删除。</li>
 </ul>
 <h2 id="_7">分区支持</h2>
@@ -12159,7 +12158,7 @@
 </ul>
 <h2 id="_8">关键字</h2>
 <ul>
-<li>MatrixOne 中比 MySQL 多了三个保留关键字，<code>begin</code>, <code>reindex</code>, <code>ownership</code>, 用于 Database/Table/Column 创建时需要增加反引号。</li>
+<li>MatrixOne 与 MySQL 关键字差异较多，请参考 <a href="../../../Reference/Language-Structure/keywords/">MatrixOne 关键字</a>。</li>
 </ul>
 <h2 id="_9">函数与操作符</h2>
 <h3 id="_10">聚合函数</h3>
@@ -12205,13 +12204,14 @@
 <h2 id="_16">备份恢复</h2>
 <ul>
 <li>支持基于 mobackup 工具的物理备份。</li>
+<li>支持快照备份</li>
 <li>不支持 mysqldump 备份工具，仅支持 mo-dump 工具。</li>
 <li>不支持 binlog 日志备份。</li>
-<li>不支持增量备份。</li>
 </ul>
 <h2 id="_17">系统变量</h2>
 <ul>
-<li>MatrixOne 的 <code>lower_case_table_names</code> 有 5 种模式，默认为 1。</li>
+<li>MatrixOne 的 <code>lower_case_table_names</code> 有 2 种模式，默认为 1。</li>
+<li>MatrixOne 的 <code>sql_mode</code> 只支持 <code>ONLY_FULL_GROUP_BY</code> 一种模式</li>
 </ul>
 <h2 id="_18">系统表</h2>
 <ul>
@@ -12223,7 +12223,7 @@
 </ul>
 <h2 id="_19">编程语言</h2>
 <ul>
-<li>Java，Python，Golang 连接器和 ORM 基本支持，其他语言的连接器及 ORM 可能会碰到兼容性问题。</li>
+<li>Java，Python，C#，Golang 连接器和 ORM 基本支持，其他语言的连接器及 ORM 可能会碰到兼容性问题。</li>
 </ul>
 <h2 id="_20">其他支持工具</h2>
 <ul>
