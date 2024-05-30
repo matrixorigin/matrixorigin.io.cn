@@ -410,6 +410,7 @@ nav:
             - EXPLAIN: MatrixOne/Reference/SQL-Reference/Other/Explain/explain.md
             - EXPLAIN Output Format: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-workflow.md
             - Explain Analyze: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-analyze.md
+            - Explain Prepared: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-prepared.md
           - Partition:
             - Partition: MatrixOne/Reference/SQL-Reference/Other/Partition/mo-partition-support.md
       - 函数与操作符:
