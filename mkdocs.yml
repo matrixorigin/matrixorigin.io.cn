@@ -410,6 +410,7 @@ nav:
             - EXPLAIN: MatrixOne/Reference/SQL-Reference/Other/Explain/explain.md
             - EXPLAIN Output Format: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-workflow.md
             - Explain Analyze: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-analyze.md
+            - Explain Prepared: MatrixOne/Reference/SQL-Reference/Other/Explain/explain-prepared.md
           - Partition:
             - Partition: MatrixOne/Reference/SQL-Reference/Other/Partition/mo-partition-support.md
       - 函数与操作符:
@@ -636,7 +637,6 @@ nav:
       - MatrixOne 文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
       - MatrixOne 工具:
         - mo_ctl 工具: MatrixOne/Maintain/mo_ctl.md
-        - mo_br 工具: MatrixOne/Maintain/mo_br.md
     - 故障诊断:
       - 慢查询: MatrixOne/Troubleshooting/slow-queries.md
       - 常用统计数据查询: MatrixOne/Troubleshooting/common-statistics-query.md
