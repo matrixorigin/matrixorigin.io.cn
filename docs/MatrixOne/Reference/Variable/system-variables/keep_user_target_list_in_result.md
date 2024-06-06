@@ -9,7 +9,9 @@
 在 MatrixOne 中使用以下命令查看 `keep_user_target_list_in_result`：
 
 ```sql
-show variables like "keep_user_target_list_in_result";--默认为 0
+--默认为 1
+show variables like "keep_user_target_list_in_result";
+select @@keep_user_target_list_in_result;
 ```
 
 ## 设置 keep_user_target_list_in_result
@@ -17,15 +19,8 @@ show variables like "keep_user_target_list_in_result";--默认为 0
 在 MatrixOne 中使用以下命令设置 `keep_user_target_list_in_result`：
 
 ```sql
-set global keep_user_target_list_in_result = 0;--默认为 0，重新连接数据库生效
-```
-
-## 配置
-
-在命令行执行以下语句：
-
-```sql
-set global keep_user_target_list_in_result = 1;// 默认为 0，重新连接数据库生效
+--默认为 1，重新连接数据库生效
+set global keep_user_target_list_in_result = 0;
 ```
 
 ## 示例
@@ -42,13 +37,34 @@ mysql> select * from t1;
 +------+------+------+------+--------+
 1 row in set (0.00 sec)
 
-mysql> select @@keep_user_target_list_in_result;--查询参数值，默认关闭
+mysql> select @@keep_user_target_list_in_result; --查询参数值，默认开启
 +-----------------------------------+
 | @@keep_user_target_list_in_result |
 +-----------------------------------+
-| 0                                 |
+| 1                                 |
 +-----------------------------------+
 1 row in set (0.01 sec)
+
+mysql> select aA, bB, CC, abc, a_Bc_D from t1;--在开启情况下，查询结果集列名与用户指定的名称大小写一致
++------+------+------+------+--------+
+| aA   | bB   | CC   | abc  | a_Bc_D |
++------+------+------+------+--------+
+|    1 |    2 |    3 | A    |   10.9 |
++------+------+------+------+--------+
+1 row in set (0.00 sec)
+
+mysql> set global keep_user_target_list_in_result =0;--关闭查询结果集列名与用户指定的名称大小一致设置
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> exit;--退出数据库重新连接后参数生效
+
+mysql> show variables like "keep_user_target_list_in_result";
++---------------------------------+-------+
+| Variable_name                   | Value |
++---------------------------------+-------+
+| keep_user_target_list_in_result | 0     |
++---------------------------------+-------+
+1 row in set (0.00 sec)
 
 mysql> select aA, bB, CC, abc, a_Bc_D from t1;--在设置关闭情况下，查询结果集列名与用户指定的名称大小写不一致
 +------+------+------+------+--------+
@@ -57,26 +73,4 @@ mysql> select aA, bB, CC, abc, a_Bc_D from t1;--在设置关闭情况下，查�
 |    1 |    2 |    3 | A    |   10.9 |
 +------+------+------+------+--------+
 1 row in set (0.00 sec)
-
-mysql> set global keep_user_target_list_in_result =1;--开启查询结果集列名与用户指定的名称大小一致设置
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> exit;--退出数据库重新连接后参数生效
-
-mysql> select @@keep_user_target_list_in_result;--查询参数值，开启成功
-+-----------------------------------+
-| @@keep_user_target_list_in_result |
-+-----------------------------------+
-| 1                                 |
-+-----------------------------------+
-1 row in set (0.00 sec)
-
-mysql> select aA, bB, CC, abc, a_Bc_D from t1;--在设置开启情况下，查询结果集列名与用户指定的名称大小写一致
-+------+------+------+------+--------+
-| aA   | bB   | CC   | abc  | a_Bc_D |
-+------+------+------+------+--------+
-|    1 |    2 |    3 | A    |   10.9 |
-+------+------+------+------+--------+
-1 row in set (0.00 sec)
-
 ```
