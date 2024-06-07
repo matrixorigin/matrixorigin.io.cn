@@ -63,7 +63,7 @@ mo-write -T -r -n -retry -mode -txc -tType -wType -wType
 
 ### 示例
 
-- 示例 1
+- **示例 1**
 
 使用默认配置写数据，即：7 个客户端使用 load data inline 的方式，分别向无主键的时序表（d0、d1…… d6）多表写入 500000 条数据（总共写入数据量：500000*7），每次写入 10000 行数据，测试一组数据：
 
@@ -91,7 +91,7 @@ spend time:7.405524 s
 ======== avg test: 472620.159086/1 = 472620.159086 records/second txc=0 ===========
 ```
 
-- 示例 2
+- **示例 2**
 
 2 个客户端使用 insert into 的方式，分别向有主键的时序表（d0）单表写 100000 条数据：
 
@@ -114,7 +114,7 @@ spend time:11.388648 s
 ======== avg test: 17561.347089/1 = 17561.347089 records/second txc=0 ===========
 ```
 
-- 示例 3
+- **示例 3**
 
 1 个客户端使用 load data inline 的方式，向主键为 int 类型的普通表（d0）写 500000 条数据，测试一组数据：
 
@@ -136,7 +136,7 @@ spend time:5.062582 s
 ======== avg test: 98763.826906/1 = 98763.826906 records/second txc=0 ===========
 ```
 
-- 示例 4
+- **示例 4**
 
 8 个客户端使用 load data inline 的方式，通过事务提交（每次提交 10 次写入）向无主键的时序表（d0……d7）多表写 500000 条数据，自动测试 3 组求平均值：
 
@@ -195,7 +195,6 @@ mo-query -T
 ### 示例
 
 ```bash
-root@host-10-222-4-8:~/soft/perf/mo_ts_perf_test-1.0.0/matrixone/mo-query# ./mo-query -T 5
 root@host-10-222-4-8:~/soft/perf/mo_ts_perf_test-1.0.1/matrixone/mo-query# ./mo-query -T 5
 T=5 
 dbConfig:{127.0.0.1 6001 root 111 d '2017-07-14 10:40:06.379'   /root/soft/perf/}
