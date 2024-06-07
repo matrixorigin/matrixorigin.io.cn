@@ -287,7 +287,7 @@ Usage         : mo_ctl getconf [conf_list] # get configurations
 | MO_PW                  | 连接 MatrixOne 服务使用的密码                          | 密码，默认为 111                                      |
 | CHECK_LIST             | precheck 需要的检查依赖项                              | 默认为 ("go" "gcc" "git" "mysql")                     |
 | GCC_VERSION            | precheck 检查的 gcc 版本                               | 默认为 8.5.0                                          |
-| GO_VERSION             | precheck 检查的 go 版本                                | 默认为 1.20                                           |
+| GO_VERSION             | precheck 检查的 go 版本                                | 默认为 1.22.3                                           |
 | MO_GIT_URL             | MatrixOne 的源码拉取地址                               | 默认为<https://github.com/matrixorigin/matrixone.git> |
 | MO_DEFAULT_VERSION     | 默认拉取的 MatrixOne 的版本                            | 默认为 1.2.0                                      |
 | GOPROXY                | GOPROXY 的地址，一般为国内加速拉取 golang 依赖包而使用 | 默认为<https://goproxy.cn>,direct                     |
