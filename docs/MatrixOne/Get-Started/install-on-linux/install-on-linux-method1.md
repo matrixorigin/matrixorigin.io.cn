@@ -10,7 +10,7 @@ MatrixOne 支持 x86 及 ARM 的 Linux 系统。本文以 Debian11.1 x86 架构�
 
 | 依赖软件     | 版本          |
 | ------------ | ------------- |
-| golang       | 1.20 及以上   |
+| golang       | 1.22.3 及以上   |
 | gcc          | gcc8.5 及以上 |
 | git          | 2.20 及以上   |
 | MySQL Client | 8.0 及以上    |
@@ -24,7 +24,7 @@ MatrixOne 支持 x86 及 ARM 的 Linux 系统。本文以 Debian11.1 x86 架构�
 2. 验证 **Go** 是否安装，请执行代码 `go version`，安装成功代码行示例如下：
 
     ```
-    go version go1.20.4 linux/amd64
+    go version go1.22.3 linux/amd64
     ```
 
 ### 2. 安装 GCC
@@ -194,7 +194,7 @@ MO_CONTAINER_DEBUG_PORT="12345"
 CHECK_LIST=("go" "gcc" "git" "mysql" "docker")
 GCC_VERSION="8.5.0"
 CLANG_VERSION="13.0"
-GO_VERSION="1.20"
+GO_VERSION="1.22.3"
 MO_GIT_URL="https://github.com/matrixorigin/matrixone.git"
 MO_DEFAULT_VERSION="v1.2.0"
 GOPROXY="https://goproxy.cn,direct"
