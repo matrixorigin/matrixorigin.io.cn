@@ -4,7 +4,7 @@ MatrixOne 是一款超融合异构分布式数据库，通过云原生化和存�
 
 MatrixOne 具备实时 HTAP，多租户，流式计算，极致扩展性，高性价比，企业级高可用及 MySQL 高度兼容等重要特性，通过为用户提供一站式超融合数据解决方案，可以将过去由多个数据库完成的工作合并到一个数据库里，从而简化开发运维，消减数据碎片，提高开发敏捷度。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/mo-new-arch.png)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/Release-Notes/release-notes-1.1.0.png)
 
 MatrixOne 适用于需要实时数据写入，数据规模较大，负载波动频繁，同时拥有流程型业务和分析型业务的场景，比如移动互联网 APP、IoT 数据应用、实时数据仓库、SaaS 平台等。
 

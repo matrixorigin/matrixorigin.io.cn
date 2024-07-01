@@ -125,7 +125,7 @@ documents = [
 "MatrixOne touts significant features, including real-time HTAP, multi-tenancy, stream computation, extreme scalability, cost-effectiveness, enterprise-grade availability, and extensive MySQL compatibility. MatrixOne unifies tasks traditionally performed by multiple databases into one system by offering a comprehensive ultra-hybrid data solution. This consolidation simplifies development and operations, minimizes data fragmentation, and boosts development agility.",
 "MatrixOne is optimally suited for scenarios requiring real-time data input, large data scales, frequent load fluctuations, and a mix of procedural and analytical business operations. It caters to use cases such as mobile internet apps, IoT data applications, real-time data warehouses, SaaS platforms, and more.",
 "Matrix is a collection of complex or real numbers arranged in a rectangular array.",
-"The lastest version of MatrixOne is 1.2.0, releases on 20th May, 2024."
+"The lastest version of MatrixOne is 1.2.1, releases on 30th June, 2024.",
 "We are excited to announce MatrixOne 0.8.0 release on 2023/6/30."
 ]
 
@@ -171,7 +171,7 @@ response = ollama.embeddings(
   prompt=prompt,
   model="mxbai-embed-large"
 )
-query_embedding= embedding = response["embedding"]
+query_embedding= response["embedding"]
 query_sql = "select content from rag_tab order by l2_distance(embedding,%s) asc limit 3"
 data_to_query = str(query_embedding)
 cursor.execute(query_sql, data_to_query)
@@ -195,7 +195,7 @@ print(output['response'])
 控制台输出相关回答：
 
 ```
-Based on the provided data, the latest version of MatrixOne is 1.2.0, which was released on May 20th, 2024.
+Based on the provided data, the latest version of MatrixOne is 1.2.1, which was released on June 30th, 2024.
 ```
 
 在增强后，模型生成了正确答案。
