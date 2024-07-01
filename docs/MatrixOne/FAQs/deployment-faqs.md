@@ -22,6 +22,17 @@
 | :---- | :--------------------- |
 | macOS | Monterey 12.3 or later |
 
+- 作为一款国产数据库，MatrixOne 目前能够与以下国产操作系统兼容并提供支持：
+
+|操作系统 |操作系统版本 | CPU     | 内存 |
+| :------ |:------ | :------ | :----- |
+|OpenCloudOS| v8.0 / v9.0 | x86 CPU；4 核 | 16 GB |
+|openEuler  | 20.03 | x86 / ARM CPU；4 核 | 16 GB |
+|TencentOS Server | v2.4 / v3.1 | x86 CPU；4 核 | 16 GB |
+|统信  | V20 |  ARM CPU；4 核 | 16 GB |
+|银河麒麟 | V10 |  ARM CPU；4 核 | 16 GB |
+|麒麟信安 | v3.4 | x86 / ARM CPU；4 核 | 16 GB |
+
 **可以在红帽系，比如 CentOS 7 下正常使用 MatrixOne 吗？**
 
 MatrixOne 对操作系统的要求不严格，支持在 CentOS 7 下使用，但 CentOS 7 在 24 年 6 月底就停止维护了，推荐大家使用更新版本的操作系统。
