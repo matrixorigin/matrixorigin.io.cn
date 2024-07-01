@@ -183,11 +183,37 @@ nav:
           - 通过永洪 BI 实现 MatrixOne 的可视化报表: MatrixOne/Develop/Ecological-Tools/BI-Connection/yonghong-connection.md
           - 通过 Superset 实现 MatrixOne 可视化监控: MatrixOne/Develop/Ecological-Tools/BI-Connection/Superset-connection.md
         - ETL 工具:
-          - 使用 SeaTunnel 将数据写入 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/seatunnel-write.md
-          - 使用 DataX 将数据写入 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/DataX-write.md
+          - 使用 SeaTunnel 将数据写入 MatrixOne:
+            - 概述: MatrixOne/Develop/Ecological-Tools/Etl/Seatunnel/seatunnel-overview.md
+            - 从 MySQL 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/Seatunnel/seatunnel-mysql-matrixone.md
+            - 从 Oracle 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/Seatunnel/seatunnel-oracle-matrixone.md
+          - 使用 DataX 将数据写入 MatrixOne:
+            - 概述: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-overview.md
+            - 从 MySQL 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-mysql-matrixone.md
+            - 从 Oracle 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-oracle-matrixone.md
+            - 从 PostgreSQL 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-postgresql-matrixone.md
+            - 从 SQL Server 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-sqlserver-matrixone.md
+            - 从 MongoDB 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-mongodb-matrixone.md
+            - 从 TiDB 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-tidb-matrixone.md
+            - 从 ClickHouse 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-clickhouse-matrixone.md
+            - 从 Doris 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-doris-matrixone.md
+            - 从 InfluxDB 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-influxdb-matrixone.md
+            - 从 Elasticsearch 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Etl/DataX/datax-elasticsearch-matrixone.md
         - 计算引擎:
-          - 使用 Spark 将批量数据写入 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Spark.md
-          - 使用 Flink 将实时数据写入 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink.md
+          - 使用 Spark 将批量数据写入 MatrixOne: 
+            - 概述: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Spark/spark-overview.md
+            - 从 MySQL 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Spark/spark-mysql-matrixone.md
+            - 从 Hive 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Spark/spark-hive-matrixone.md
+            - 从 Doris 写入数据到 MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Spark/spark-doris-matrixone.md
+          - 使用 Flink 将实时数据写入 MatrixOne:
+            - 概述: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink/flink-overview.md
+            - 从 MySQL 写入数据到MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink/flink-mysql-matrixone.md
+            - 从 Oracle 写入数据到MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink/flink-oracle-matrixone.md
+            - 从 SQL Server 写入数据到MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink/flink-sqlserver-matrixone.md
+            - 从 PostgreSQL 写入数据到MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink/flink-postgresql-matrixone.md
+            - 从 MongoDB 写入数据到MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink/flink-mongo-matrixone.md
+            - 从 TiDB 写入数据到MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink/flink-tidb-matrixone.md
+            - 从 Kafka 写入数据到MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink/flink-kafka-matrixone.md
         - 调度工具:
           - 使用 DolphinScheduler 连接 MatrixOne: MatrixOne/Develop/Ecological-Tools/Scheduling-Tools/dolphinScheduler.md
     - 部署指南:
