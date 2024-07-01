@@ -196,7 +196,7 @@ GCC_VERSION="8.5.0"
 CLANG_VERSION="13.0"
 GO_VERSION="1.22.3"
 MO_GIT_URL="https://github.com/matrixorigin/matrixone.git"
-MO_DEFAULT_VERSION="v1.2.0"
+MO_DEFAULT_VERSION="v1.2.1"
 GOPROXY="https://goproxy.cn,direct"
 STOP_INTERVAL="5"
 START_INTERVAL="2"
@@ -212,7 +212,7 @@ PPROF_PROFILE_DURATION="30"
 ```
 mo_ctl set_conf MO_PATH="yourpath" # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL="https://githubfast.com/matrixorigin/matrixone.git" #针对github原地址下载过慢问题，设置镜像下载地址
-mo_ctl set_conf MO_DEFAULT_VERSION="v1.2.0" # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEFAULT_VERSION="v1.2.1" # 设置所下载的MatrixOne版本
 mo_ctl set_conf MO_DEPLOY_MODE=git #设置MatrixOne部署方式，此为源码部署方式
 ```
 
@@ -231,7 +231,7 @@ mo_ctl set_conf MO_DEPLOY_MODE=git #设置MatrixOne部署方式，此为源码�
 === "通过 MatrixOne (稳定版本) 代码安装"
 
      ```
-     mo_ctl deploy v1.2.0
+     mo_ctl deploy v1.2.1
      ```
 
 ## 步骤 4：启动 MatrixOne 服务
@@ -268,7 +268,7 @@ root@VM-16-2-debian:~# mo_ctl connect
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v1.2.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.2.1 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
