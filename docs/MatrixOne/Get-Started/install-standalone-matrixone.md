@@ -14,7 +14,6 @@
 |Ubuntu| 20.04 及以上 | x86 / ARM CPU；4 核 | 16 GB |
 |CentOS| 7 及以上 | x86 / ARM CPU；4 核 | 16 GB |
 |macOS| Monterey 12.3 及以上 | x86 / ARM CPU；4 核 | 16 GB |
-|OpenCloudOS| 8 及以上 | x86 / ARM CPU；4 核 | 16 GB |
 
 !!! note
     如果您当前使用的 Linux 系统内核版本较低（低于 5.0），由于 linux 内核的限制，使用基于 glibc 构建的二进制包进行 Matrixone 的部署时可能会报与 glibc 相关的错误，这时候您可以选择使用[二进制包部署](./install-on-linux/install-on-linux-method2.md)中的**基于 musl libc 构建的二进制包**进行部署。musl libc 是一个为 Linux 系统设计的轻量级 C 标准库，使用 musl libc 打包应用程序可以让你生成不依赖于系统 C 库的静态二进制文件。此外，由于 CentOS 8 已经停止官方支持，且 CentOS 7 也将在 2024 年 6 月 30 日结束维护周期，目前使用这些版本的用户可能会面临一些风险。因此，我们建议用户使用其他操作系统版本。
