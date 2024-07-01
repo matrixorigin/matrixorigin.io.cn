@@ -1,14 +1,8 @@
-# 使用 SeaTunnel 将数据写入 MatrixOne
+# 使用 SeaTunnel 将 MySQL 数据写入 MatrixOne
 
-## 概述
-
-[SeaTunnel](https://seatunnel.apache.org/) 是一个分布式、高性能、易扩展的数据集成平台，专注于海量数据（包括离线和实时数据）同步和转化。MatrixOne 支持使用 SeaTunnel 从其他数据库同步数据，可以稳定高效地处理数百亿条数据。
-
-本文档将介绍如何使用 SeaTunnel 向 MatrixOne 中写入数据。
+本章节将介绍如何使用 SeaTunnel 将 MySQL 数据写入到 MatrixOne。
 
 ## 开始前准备
-
-在使用 SeaTunnel 向 MatrixOne 写入数据之前，请确保完成以下准备工作：
 
 - 已完成[安装和启动 MatrixOne](../../../Get-Started/install-standalone-matrixone.md)。
 
@@ -17,6 +11,10 @@
 ```shell
 export SEATNUNNEL_HOME="/root/seatunnel"
 ```
+
+- 下载并安装 [MySQL](https://downloads.mysql.com/archives/get/p/23/file/mysql-server_8.0.33-1ubuntu23.04_amd64.deb-bundle.tar)。
+
+- 下载 [mysql-connector-java-8.0.33.jar](https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-j-8.0.33.zip)，并将文件复制到 `${SEATNUNNEL_HOME}/plugins/jdbc/lib/` 目录下。
 
 ## 操作步骤
 
@@ -41,7 +39,7 @@ export SEATNUNNEL_HOME="/root/seatunnel"
 
 ### 安装 Connectors 插件
 
-本篇文档中将介绍如何使用 SeaTunnel 的 `connector-jdbc` 连接插件连接 MatrixOne。
+使用 SeaTunnel 的 `connector-jdbc` 连接插件连接 MatrixOne。
 
 1. 在 SeaTunnel 的 `${SEATNUNNEL_HOME}/config/plugin_config` 文件中，添加以下内容：
 
@@ -59,7 +57,7 @@ export SEATNUNNEL_HOME="/root/seatunnel"
 
     __Note:__ 本篇文档中使用 SeaTunnel 引擎将数据写入 MatrixOne，无需依赖 Flink 或 Spark。
 
-## 定义任务配置文件
+### 定义任务配置文件
 
 在本篇文档中，我们使用 MySQL 数据库的 `test_table` 表作为数据源，不进行数据处理，直接将数据写入 MatrixOne 数据库的 `test_table` 表中。
 
@@ -75,7 +73,7 @@ env {
 
 source {
     Jdbc {
-        url = "jdbc:mysql://192.168.110.40:3306/test"
+        url = "jdbc:mysql://xx.xx.xx.xx:3306/test"
         driver = "com.mysql.cj.jdbc.Driver"
         connection_check_timeout_sec = 100
         user = "root"
@@ -90,7 +88,7 @@ transform {
 
 sink {
    jdbc {
-        url = "jdbc:mysql://192.168.110.248:6001/test"
+        url = "jdbc:mysql://xx.xx.xx.xx:6001/test"
         driver = "com.mysql.cj.jdbc.Driver"
         user = "root"
         password = "111"
@@ -98,10 +96,6 @@ sink {
    }
 }
 ```
-
-### 安装数据库依赖项
-
-下载 [mysql-connector-java-8.0.33.jar](https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-j-8.0.33.zip)，并将文件复制到 `${SEATNUNNEL_HOME}/plugins/jdbc/lib/` 目录下。
 
 ### 运行 SeaTunnel 应用
 
