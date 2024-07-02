@@ -10532,8 +10532,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../Maintain/mo_ctl/" class="md-nav__link">
+      <a href="../Reference/mo-tools/mo_ctl/" class="md-nav__link">
         mo_ctl 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/mo-tools/mo_datax_writer/" class="md-nav__link">
+        mo_datax_writer 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/mo-tools/mo_ssb_open/" class="md-nav__link">
+        mo_ssb_open 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/mo-tools/mo_tpch_open/" class="md-nav__link">
+        mo_tpch_open 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reference/mo-tools/mo_ts_perf_test/" class="md-nav__link">
+        mo_ts_perf_test 工具
       </a>
     </li>
   
@@ -10755,6 +10811,20 @@
     <li class="md-nav__item">
       <a href="../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Release-Notes/v1.2.1/" class="md-nav__link">
+        v1.2.1
       </a>
     </li>
   
@@ -11487,16 +11557,16 @@
 <h1 id="parser"><strong>Parser</strong></h1>
 <h2 id="golang-and-mo-start">Golang and MO start</h2>
 <h3 id="1-make-sure-your-golang-environment">1. Make sure your golang environment</h3>
-<p>To build MatrixOne locally, golang 1.20 is required. You can follow these steps to make sure your golang whether is ready.</p>
+<p>To build MatrixOne locally, golang 1.22.3 is required. You can follow these steps to make sure your golang whether is ready.</p>
 <div class="highlight"><pre><span></span><code>$ go version
 </code></pre></div>
-<p>If the result is like <code>'go version go1.20 xxxxxx'</code>, you can skip step 2 and build your MatrixOne. If lower than go 1.20 or no golang, your can follow step 2 to configure your own golang 1.20 environment locally.</p>
+<p>If the result is like <code>'go version go1.22.3 xxxxxx'</code>, you can skip step 2 and build your MatrixOne. If lower than go 1.22.3 or no golang, your can follow step 2 to configure your own golang 1.22.3 environment locally.</p>
 <h3 id="2-configure-your-golang-environment">2. Configure your golang environment</h3>
 <p>If your OS is Mac OS, download the installation package directly with this url: <a href="https://go.dev/dl">https://go.dev/dl</a>
 After installation, use step 1 to make sure again.</p>
 <p>If your OS is Linux, still download golang package and modify your profile. Here is a sampe as following. The path can be modified as your preferred.</p>
-<div class="highlight"><pre><span></span><code>$ wget https://go.dev/dl/go1.20.1.linux-amd64.tar.gz
-$ sudo tar -zxvf go1.20.1.linux-amd64.tar.gz -C /usr/local
+<div class="highlight"><pre><span></span><code>$ wget https://go.dev/dl/go1.22.3.linux-amd64.tar.gz
+$ sudo tar -zxvf go1.22.3.linux-amd64.tar.gz -C /usr/local
 $ cat &gt;&gt; /etc/profile &lt;&lt; EOF
 export GOROOT=/usr/local/go  
 export PATH=$GOROOT/bin:$PATH

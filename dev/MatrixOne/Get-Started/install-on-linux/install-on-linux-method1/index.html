@@ -10676,8 +10676,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Maintain/mo_ctl/" class="md-nav__link">
+      <a href="../../../Reference/mo-tools/mo_ctl/" class="md-nav__link">
         mo_ctl 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/mo-tools/mo_datax_writer/" class="md-nav__link">
+        mo_datax_writer 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/mo-tools/mo_ssb_open/" class="md-nav__link">
+        mo_ssb_open 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/mo-tools/mo_tpch_open/" class="md-nav__link">
+        mo_tpch_open 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/mo-tools/mo_ts_perf_test/" class="md-nav__link">
+        mo_ts_perf_test 工具
       </a>
     </li>
   
@@ -10899,6 +10955,20 @@
     <li class="md-nav__item">
       <a href="../../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v1.2.1/" class="md-nav__link">
+        v1.2.1
       </a>
     </li>
   
@@ -11629,7 +11699,7 @@
 <tbody>
 <tr>
 <td>golang</td>
-<td>1.20 及以上</td>
+<td>1.22.3 及以上</td>
 </tr>
 <tr>
 <td>gcc</td>
@@ -11653,7 +11723,7 @@
 </li>
 <li>
 <p>验证 <strong>Go</strong> 是否安装，请执行代码 <code>go version</code>，安装成功代码行示例如下：</p>
-<div class="highlight"><pre><span></span><code>go version go1.20.4 linux/amd64
+<div class="highlight"><pre><span></span><code>go version go1.22.3 linux/amd64
 </code></pre></div>
 </li>
 </ol>
@@ -11739,7 +11809,7 @@ mysql  Ver 8.0.33 for Linux on x86_64 (MySQL Community Server - GPL)
 <p>数据库系统在处理大量数据时（如 TPC-H 100G 测试），会使用内存映射文件来提高 I/O 性能。Linux 系统参数 vm.max_map_count 定义了进程可以拥有的虚拟内存区域数量，如果这个值设置得太低，数据库系统可能无法创建足够的内存映射区域来处理其日常操作，这可能导致数据库无法正常工作，如内存不足 (OOM) 和进程崩溃。为了提高 Matrixone 在 Linux 中运行的稳定性，建议将 vm.max_map_count 设置为一个较高的值，推荐值为 <strong>262144</strong>，这个值适用于大多数需要大量内存映射的场景。您可以通过命令 <code>sysctl -w vm.max_map_count = 262144</code> 使其临时生效，或修改配置文件 <code>/etc/sysctl.conf</code> 使其永久生效。</p>
 </div>
 <h2 id="2-mo_ctl">步骤 2: 安装 mo_ctl 工具</h2>
-<p><a href="https://github.com/matrixorigin/mo_ctl_standalone">mo_ctl</a> 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 <a href="../../../Maintain/mo_ctl/">mo_ctl 工具指南</a>。</p>
+<p><a href="https://github.com/matrixorigin/mo_ctl_standalone">mo_ctl</a> 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 <a href="../../Maintain/mo_ctl.md">mo_ctl 工具指南</a>。</p>
 <h3 id="1-mo_ctl">1. 一键安装 mo_ctl 工具</h3>
 <p>通过以下命令可以一键安装 mo_ctl 工具：</p>
 <div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh &amp;&amp; bash +x ./install.sh
@@ -11801,9 +11871,9 @@ MO_CONTAINER_DEBUG_PORT=&quot;12345&quot;
 CHECK_LIST=(&quot;go&quot; &quot;gcc&quot; &quot;git&quot; &quot;mysql&quot; &quot;docker&quot;)
 GCC_VERSION=&quot;8.5.0&quot;
 CLANG_VERSION=&quot;13.0&quot;
-GO_VERSION=&quot;1.20&quot;
+GO_VERSION=&quot;1.22.3&quot;
 MO_GIT_URL=&quot;https://github.com/matrixorigin/matrixone.git&quot;
-MO_DEFAULT_VERSION=&quot;v1.2.0&quot;
+MO_DEFAULT_VERSION=&quot;v1.2.1&quot;
 GOPROXY=&quot;https://goproxy.cn,direct&quot;
 STOP_INTERVAL=&quot;5&quot;
 START_INTERVAL=&quot;2&quot;
@@ -11816,7 +11886,7 @@ PPROF_PROFILE_DURATION=&quot;30&quot;
 <p>一般可能会需要调整的参数如下：</p>
 <div class="highlight"><pre><span></span><code>mo_ctl set_conf MO_PATH=&quot;yourpath&quot; # 设置自定义的MatrixOne下载路径
 mo_ctl set_conf MO_GIT_URL=&quot;https://githubfast.com/matrixorigin/matrixone.git&quot; #针对github原地址下载过慢问题，设置镜像下载地址
-mo_ctl set_conf MO_DEFAULT_VERSION=&quot;v1.2.0&quot; # 设置所下载的MatrixOne版本
+mo_ctl set_conf MO_DEFAULT_VERSION=&quot;v1.2.1&quot; # 设置所下载的MatrixOne版本
 mo_ctl set_conf MO_DEPLOY_MODE=git #设置MatrixOne部署方式，此为源码部署方式
 </code></pre></div>
 <h2 id="3-matrixone">步骤 3：一键安装 MatrixOne</h2>
@@ -11829,7 +11899,7 @@ mo_ctl set_conf MO_DEPLOY_MODE=git #设置MatrixOne部署方式，此为源码�
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mo_ctl deploy v1.2.0
+<div class="highlight"><pre><span></span><code>mo_ctl deploy v1.2.1
 </code></pre></div>
 </div>
 </div>
@@ -11860,7 +11930,7 @@ mo_ctl set_conf MO_DEPLOY_MODE=git #设置MatrixOne部署方式，此为源码�
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 15
-Server version: 8.0.30-MatrixOne-v1.2.0 MatrixOne
+Server version: 8.0.30-MatrixOne-v1.2.1 MatrixOne
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
@@ -11874,7 +11944,7 @@ mysql&gt;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>上述的连接和登录账号为初始账号 <code>root</code> 和密码 <code>111</code>，请在登录 MatrixOne 后及时修改初始密码，参见<a href="../../../Security/password-mgmt/">密码管理</a>。修改登录用户名或密码后重新登录同样需要通过 <code>mo_ctl set_conf</code> 的方式设置新的用户名和密码，详情可以参考 <a href="../../../Maintain/mo_ctl/">mo_ctl 工具指南</a>。</p>
+<p>上述的连接和登录账号为初始账号 <code>root</code> 和密码 <code>111</code>，请在登录 MatrixOne 后及时修改初始密码，参见<a href="../../../Security/password-mgmt/">密码管理</a>。修改登录用户名或密码后重新登录同样需要通过 <code>mo_ctl set_conf</code> 的方式设置新的用户名和密码，详情可以参考 <a href="../../Maintain/mo_ctl.md">mo_ctl 工具指南</a>。</p>
 </div>
 
 

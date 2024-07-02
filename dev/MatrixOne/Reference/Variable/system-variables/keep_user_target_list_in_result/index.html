@@ -4584,13 +4584,6 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    配置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     示例
   </a>
   
@@ -10608,8 +10601,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Maintain/mo_ctl/" class="md-nav__link">
+      <a href="../../../mo-tools/mo_ctl/" class="md-nav__link">
         mo_ctl 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mo-tools/mo_datax_writer/" class="md-nav__link">
+        mo_datax_writer 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mo-tools/mo_ssb_open/" class="md-nav__link">
+        mo_ssb_open 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mo-tools/mo_tpch_open/" class="md-nav__link">
+        mo_tpch_open 工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mo-tools/mo_ts_perf_test/" class="md-nav__link">
+        mo_ts_perf_test 工具
       </a>
     </li>
   
@@ -10831,6 +10880,20 @@
     <li class="md-nav__item">
       <a href="../../../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v1.2.1/" class="md-nav__link">
+        v1.2.1
       </a>
     </li>
   
@@ -11443,13 +11506,6 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    配置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     示例
   </a>
   
@@ -11483,17 +11539,16 @@
 <p><code>keep_user_target_list_in_result</code> 是 MatrixOne 设置查询结果集列名与用户指定的名称大小写是否一致的一个全局参数。</p>
 <h2 id="keep_user_target_list_in_result_1">查看 keep_user_target_list_in_result</h2>
 <p>在 MatrixOne 中使用以下命令查看 <code>keep_user_target_list_in_result</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="k">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="ss">&quot;keep_user_target_list_in_result&quot;</span><span class="p">;</span><span class="c1">--默认为 0</span>
+<div class="highlight"><pre><span></span><code><span class="c1">--默认为 1</span>
+<span class="k">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="ss">&quot;keep_user_target_list_in_result&quot;</span><span class="p">;</span>
+<span class="k">select</span><span class="w"> </span><span class="o">@@</span><span class="n">keep_user_target_list_in_result</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="keep_user_target_list_in_result_2">设置 keep_user_target_list_in_result</h2>
 <p>在 MatrixOne 中使用以下命令设置 <code>keep_user_target_list_in_result</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">keep_user_target_list_in_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="c1">--默认为 0，重新连接数据库生效</span>
+<div class="highlight"><pre><span></span><code><span class="c1">--默认为 1，重新连接数据库生效</span>
+<span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">keep_user_target_list_in_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="_1">配置</h2>
-<p>在命令行执行以下语句：</p>
-<div class="highlight"><pre><span></span><code><span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">keep_user_target_list_in_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="o">//</span><span class="w"> </span><span class="err">默认为</span><span class="w"> </span><span class="mi">0</span><span class="err">，重新连接数据库生效</span>
-</code></pre></div>
-<h2 id="_2">示例</h2>
+<h2 id="_1">示例</h2>
 <div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">aa</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">bb</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">cc</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">AbC</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span><span class="w"> </span><span class="n">A_BC_d</span><span class="w"> </span><span class="n">double</span><span class="p">);</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">.</span><span class="mi">9</span><span class="p">);</span>
 
@@ -11505,38 +11560,38 @@
 <span class="o">+</span><span class="c1">------+------+------+------+--------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">@@</span><span class="n">keep_user_target_list_in_result</span><span class="p">;</span><span class="c1">--查询参数值，默认关闭</span>
-<span class="o">+</span><span class="c1">-----------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="o">@@</span><span class="n">keep_user_target_list_in_result</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-----------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">0</span><span class="w">                                 </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-----------------------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">aA</span><span class="p">,</span><span class="w"> </span><span class="n">bB</span><span class="p">,</span><span class="w"> </span><span class="n">CC</span><span class="p">,</span><span class="w"> </span><span class="n">abc</span><span class="p">,</span><span class="w"> </span><span class="n">a_Bc_D</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="c1">--在设置关闭情况下，查询结果集列名与用户指定的名称大小写不一致</span>
-<span class="o">+</span><span class="c1">------+------+------+------+--------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">aa</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">bb</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">cc</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">abc</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">a_bc_d</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------+------+------+------+--------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">A</span><span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="mi">10</span><span class="p">.</span><span class="mi">9</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------+------+------+------+--------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">keep_user_target_list_in_result</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="c1">--开启查询结果集列名与用户指定的名称大小一致设置</span>
-<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">exit</span><span class="p">;</span><span class="c1">--退出数据库重新连接后参数生效</span>
-
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">@@</span><span class="n">keep_user_target_list_in_result</span><span class="p">;</span><span class="c1">--查询参数值，开启成功</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">@@</span><span class="n">keep_user_target_list_in_result</span><span class="p">;</span><span class="w"> </span><span class="c1">--查询参数值，默认开启</span>
 <span class="o">+</span><span class="c1">-----------------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="o">@@</span><span class="n">keep_user_target_list_in_result</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="mi">1</span><span class="w">                                 </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-----------------------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">aA</span><span class="p">,</span><span class="w"> </span><span class="n">bB</span><span class="p">,</span><span class="w"> </span><span class="n">CC</span><span class="p">,</span><span class="w"> </span><span class="n">abc</span><span class="p">,</span><span class="w"> </span><span class="n">a_Bc_D</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="c1">--在设置开启情况下，查询结果集列名与用户指定的名称大小写一致</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">aA</span><span class="p">,</span><span class="w"> </span><span class="n">bB</span><span class="p">,</span><span class="w"> </span><span class="n">CC</span><span class="p">,</span><span class="w"> </span><span class="n">abc</span><span class="p">,</span><span class="w"> </span><span class="n">a_Bc_D</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="c1">--在开启情况下，查询结果集列名与用户指定的名称大小写一致</span>
 <span class="o">+</span><span class="c1">------+------+------+------+--------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">aA</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">bB</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">CC</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">abc</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">a_Bc_D</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+------+------+--------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">A</span><span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="mi">10</span><span class="p">.</span><span class="mi">9</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+------+------+--------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">keep_user_target_list_in_result</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="c1">--关闭查询结果集列名与用户指定的名称大小一致设置</span>
+<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">exit</span><span class="p">;</span><span class="c1">--退出数据库重新连接后参数生效</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="ss">&quot;keep_user_target_list_in_result&quot;</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">---------------------------------+-------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">Variable_name</span><span class="w">                   </span><span class="o">|</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------------------------+-------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">keep_user_target_list_in_result</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------------------------+-------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">aA</span><span class="p">,</span><span class="w"> </span><span class="n">bB</span><span class="p">,</span><span class="w"> </span><span class="n">CC</span><span class="p">,</span><span class="w"> </span><span class="n">abc</span><span class="p">,</span><span class="w"> </span><span class="n">a_Bc_D</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="c1">--在设置关闭情况下，查询结果集列名与用户指定的名称大小写不一致</span>
+<span class="o">+</span><span class="c1">------+------+------+------+--------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">aa</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">bb</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">cc</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">abc</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">a_bc_d</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+------+------+------+--------+</span>
 <span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">A</span><span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="mi">10</span><span class="p">.</span><span class="mi">9</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+------+------+------+--------+</span>
