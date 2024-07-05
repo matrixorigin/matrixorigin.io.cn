@@ -636,7 +636,8 @@ nav:
         - MatrixOne 的 JDBC 功能支持列表: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
       - MatrixOne 文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
       - MatrixOne 工具:
-        - mo_ctl 工具: MatrixOne/Reference/mo-tools/mo_ctl.md
+        - mo_ctl 单机工具: MatrixOne/Reference/mo-tools/mo_ctl_standalone.md
+        - mo_ctl 分布式工具: MatrixOne/Reference/mo-tools/mo_ctl.md
         - mo_datax_writer 工具: MatrixOne/Reference/mo-tools/mo_datax_writer.md
         - mo_ssb_open 工具: MatrixOne/Reference/mo-tools/mo_ssb_open.md
         - mo_tpch_open 工具: MatrixOne/Reference/mo-tools/mo_tpch_open.md
