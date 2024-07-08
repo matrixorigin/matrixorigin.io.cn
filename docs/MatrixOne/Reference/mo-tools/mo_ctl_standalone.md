@@ -11,6 +11,12 @@
 | Debian   | 11 及以上            |
 | Ubuntu   | 20.04 及以上         |
 | macOS    | Monterey 12.3 及以上 |
+|OpenCloudOS| v8.0 / v9.0 |
+|Open  EulerOS  | 20.03 |
+|TencentOS Server | v2.4 / v3.1 |
+|统信  | V20 |
+|银河麒麟 | V10 |
+|麒麟信安 | v3.0 |
 
 `mo_ctl` 目前的功能列表如下表所示。
 
