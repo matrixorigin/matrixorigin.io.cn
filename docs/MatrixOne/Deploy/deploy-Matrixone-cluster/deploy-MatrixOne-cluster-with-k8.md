@@ -146,8 +146,8 @@ __Note__: 以下操作如无说明，均在客户端机器执行。
 
     上述依赖的 docker 镜像清单为：
 
-    - moc-pub/matrixone-operator
-    - openkruise/kruise-manager
+    - matrixone-operator
+    - kruise-manager
   
     如果无法从 dockerhub 拉取镜像，可以使用以下命令从阿里云拉取：
 
