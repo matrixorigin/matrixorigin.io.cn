@@ -464,7 +464,7 @@ __Note:__ 本章节均是在 master0 节点操作。
 1. 添加 matrixone-operator 地址到 helm 仓库：
 
     ```
-    helm repo add matrixone-operator https://matrixorigin.github.io/matrixone-operator
+    helm repo add matrixone-operator registry.cn-hangzhou.aliyuncs.com/moc-pub/matrixone-operator
     ```
 
 2. 更新仓库：
