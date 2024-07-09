@@ -58,7 +58,7 @@ MatrixOne 集群推荐环境具备高可用性、可靠性和强大的性能，�
 
 __Note__: 以下操作如无说明，均在客户端机器执行。
 
-#### 安装 MatrixOne-Operator
+## 安装 MatrixOne-Operator
 
 [MatrixOne Operator](https://github.com/matrixorigin/matrixone-operator) 是一个在 Kubernetes 上部署和管理 MatrixOne 集群的独立软件工具。您可选择在线部署或离线部署。
 
