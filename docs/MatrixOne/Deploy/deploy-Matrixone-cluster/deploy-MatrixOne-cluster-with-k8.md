@@ -58,9 +58,60 @@ MatrixOne 集群推荐环境具备高可用性、可靠性和强大的性能，�
 
 __Note__: 以下操作如无说明，均在客户端机器执行。
 
-## 部署 MatrixOne Operator
+#### 安装 MatrixOne-Operator
 
-[MatrixOne Operator](https://github.com/matrixorigin/matrixone-operator) 是一个在 Kubernetes 上部署和管理 MatrixOne 集群的独立软件工具，安装步骤如下：
+[MatrixOne Operator](https://github.com/matrixorigin/matrixone-operator) 是一个在 Kubernetes 上部署和管理 MatrixOne 集群的独立软件工具。您可选择在线部署或离线部署。
+
+- **在线部署**
+
+按照以下步骤在 master0 上安装 MatrixOne Operator。我们将为 Operator 创建一个独立的命名空间 `matrixone-operator`。
+
+1. 添加 matrixone-operator 地址到 helm 仓库：
+
+    ```
+    helm repo add matrixone-operator https://matrixorigin.github.io/matrixone-operator
+    ```
+
+2. 更新仓库：
+
+    ```
+    helm repo update
+    ```
+
+3. 查看 MatrixOne Operator 版本：
+
+    ```
+    helm search repo matrixone-operator/matrixone-operator --versions --devel
+    ```
+
+4. 指定发布版本安装 MatrixOne Operator：
+
+    ```
+    helm install matrixone-operator matrixone-operator/matrixone-operator --version <VERSION> --create-namespace --namespace matrixone-operator
+    ```
+
+    !!! note
+        参数 VERSION 为要部署的 MatrixOne Operator 的版本号，如 1.0.0-alpha.2。
+
+5. 安装成功后，使用以下命令确认安装状态：
+
+    ```
+    kubectl get pod -n matrixone-operator
+    ```
+
+    确保上述命令输出中的所有 Pod 状态都为 Running。
+
+    ```
+    [root@master0 matrixone-operator]# kubectl get pod -n matrixone-operator
+    NAME                                 READY   STATUS    RESTARTS   AGE
+    matrixone-operator-f8496ff5c-fp6zm   1/1     Running   0          3m26s
+    ```
+
+如上代码行所示，对应 Pod 状态均正常。
+
+- **离线部署**
+
+你可以从项目的 [Release 列表](https://github.com/matrixorigin/matrixone-operator/releases)中选择您需要的 Operator Release 版本安装包进行离线部署。
 
 1. 为 Operator 创建一个独立的命名空间 mo-op
 
@@ -90,14 +141,19 @@ __Note__: 以下操作如无说明，均在客户端机器执行。
     ```
     NS="mo-op"
     cd matrixone-operator/
-    helm install -n ${NS} mo-op ./ --dependency-update # 成功应返回 deployed 的状态
+    helm install -n ${NS} mo-op ./charts/matrixone-operator --dependency-update # 成功应返回 deployed 的状态
     ```
 
     上述依赖的 docker 镜像清单为：
 
-    - matrixorigin/matrixone-operator:1.1.0-alpha.2
-    - matrixorigin/mobr:1.0.0-rc1
+    - moc-pub/matrixone-operator
     - openkruise/kruise-manager
+  
+    如果无法从 dockerhub 拉取镜像，可以使用以下命令从阿里云拉取：
+
+    ```
+    helm -n ${NS} install mo-op ./charts/matrixone-operator --dependency-update -set image.repository="registry.cn-hangzhou.aliyuncs.com/moc-pub/matrixone-operator" --set kruise.manager.image.repository="registry.cn-hangzhou.aliyuncs.com/moc-pub/kruise-manager"
+    ```
 
     详情可查看 matrixone-operator/values.yaml。
 
