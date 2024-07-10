@@ -353,6 +353,7 @@ nav:
             - SUBQUERY with IN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-in.md
           - JOIN:
             - JOIN 概述: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/join.md
+            - CROSS JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/cross-join.md
             - INNER JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/inner-join.md
             - LEFT JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/left-join.md
             - RIGHT JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/right-join.md
