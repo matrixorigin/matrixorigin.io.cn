@@ -31,13 +31,6 @@ set save_query_result = on
 set global save_query_result = on  
 ```
 
-全局开启也可在启动 MatrixOne 之前，修改配置文件 `cn.toml`，插入以下代码并保存：
-
-```
-[cn.frontend]
-saveQueryResult = "on"  // 默认为 off
-```
-
 ## 设置保存时间
 
 设置保存时间单位为小时。
@@ -54,13 +47,6 @@ set query_result_timeout = 48
 ```sql
 -- 默认为 24
 set global query_result_timeout = 48
-```
-
-全局开启也可在启动 MatrixOne 之前，修改配置文件 `cn.toml`，插入以下代码并保存：
-
-```
-[cn.frontend]
-queryResultTimeout = 48  // 默认为 24
 ```
 
 __Note:__ 保存时间如果设置的值比上一次设置的短，不影响之前的保存结果。
@@ -81,13 +67,6 @@ set query_result_maxsize = 200
 ```sql
 -- 默认为 100
 set global query_result_maxsize = 200
-```
-
-全局开启也可在启动 MatrixOne 之前，修改配置文件 `cn.toml`，插入以下代码并保存：
-
-```
-[cn.frontend]
-queryResultMaxsize = 200 // 默认为 100
 ```
 
 __Note:__ 单个查询结果的最大值如果设置的值比上一次设置的小，不影响之前的保存结果大小。
