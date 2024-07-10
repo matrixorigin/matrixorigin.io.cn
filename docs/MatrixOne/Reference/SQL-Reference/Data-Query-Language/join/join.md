@@ -4,7 +4,7 @@
 
 ``JOIN`` 用于把来自两个或多个表的行结合起来。
 
-下图展示了 ``LEFT JOIN``、``RIGHT JOIN``、``INNER JOIN``、和 ``JOIN``。
+下图展示了 ``LEFT JOIN``、``RIGHT JOIN``、``INNER JOIN``、和 ``OUTER JOIN``。
 
 **``LEFT JOIN``**
 
