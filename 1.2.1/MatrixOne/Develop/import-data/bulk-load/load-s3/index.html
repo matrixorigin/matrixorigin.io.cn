@@ -5606,7 +5606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data/" class="md-nav__link">
+      <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md" class="md-nav__link">
         LOAD DATA INFILE
       </a>
     </li>
@@ -5995,6 +5995,20 @@
     <li class="md-nav__item">
       <a href="../../../../Reference/SQL-Reference/Data-Query-Language/join/join/" class="md-nav__link">
         JOIN 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Query-Language/join/cross-join/" class="md-nav__link">
+        CROSS JOIN
       </a>
     </li>
   
@@ -11686,7 +11700,7 @@
 </tr>
 </tbody>
 </table>
-<p>其他参数与通用 <code>LOAD DATA</code> 参数相同，更多信息，参见 <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data/">LOAD DATA</a>。</p>
+<p>其他参数与通用 <code>LOAD DATA</code> 参数相同，更多信息，参见 <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md">LOAD DATA</a>。</p>
 <p><strong>语法示例</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">LOAD</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">AWS</span><span class="w"> </span><span class="n">S3</span><span class="w"> </span><span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">test</span><span class="o">-</span><span class="k">load</span><span class="o">-</span><span class="n">mo</span><span class="w"> </span><span class="n">bucket</span><span class="p">,</span><span class="w"> </span><span class="k">without</span><span class="w"> </span><span class="n">compression</span>
 <span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">s3option</span><span class="err">{</span><span class="ss">&quot;endpoint&quot;</span><span class="o">=</span><span class="s1">&#39;s3.us-east-1.amazonaws.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;access_key_id&quot;</span><span class="o">=</span><span class="s1">&#39;XXXXXX&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;secret_access_key&quot;</span><span class="o">=</span><span class="s1">&#39;XXXXXX&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;bucket&quot;</span><span class="o">=</span><span class="s1">&#39;test-load-mo&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;filepath&quot;</span><span class="o">=</span><span class="s1">&#39;test.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;region&quot;</span><span class="o">=</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;compression&quot;</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="err">}</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="n">FIELDS</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\&quot;&#39;</span><span class="w"> </span><span class="n">LINES</span><span class="w"> </span><span class="n">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span>
@@ -11837,7 +11851,7 @@
 </tr>
 </tbody>
 </table>
-<p>其他参数与通用 <code>LOAD DATA</code> 参数相同，更多信息，参见 <a href="../../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data/">LOAD DATA</a>。</p>
+<p>其他参数与通用 <code>LOAD DATA</code> 参数相同，更多信息，参见 <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md">LOAD DATA</a>。</p>
 <p>有关外部表的更多信息，参见<a href="../../../../Reference/SQL-Reference/Data-Definition-Language/create-external-table/">创建外部表</a>。</p>
 <p><strong>语法示例</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="o">##</span><span class="w"> </span><span class="k">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">external</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">.</span><span class="n">csv</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">AWS</span><span class="w"> </span><span class="n">S3</span>

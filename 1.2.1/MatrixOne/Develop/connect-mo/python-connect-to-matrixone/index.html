@@ -5562,7 +5562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data/" class="md-nav__link">
+      <a href="../../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md" class="md-nav__link">
         LOAD DATA INFILE
       </a>
     </li>
@@ -5951,6 +5951,20 @@
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Query-Language/join/join/" class="md-nav__link">
         JOIN 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Query-Language/join/cross-join/" class="md-nav__link">
+        CROSS JOIN
       </a>
     </li>
   
@@ -11618,35 +11632,45 @@ pip3 install sqlalchemy -i https://pypi.tuna.tsinghua.edu.cn/simple
 <p>使用 MySQL 客户端连接 MatrixOne。新建一个名称为 <em>test</em> 数据库，并且新建一个名称为 <em>student</em> 表，然后插入两条数据：</p>
 <div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;tom&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;10&quot;</span><span class="p">);</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="n">name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="ss">&quot;tom&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="ss">&quot;alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;10&quot;</span><span class="p">);</span>
 </code></pre></div>
 </li>
 <li>
 <p>创建一个纯文本文件 <em>sqlalchemy_connect_matrixone.py</em> 并将代码写入文件：</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/python3</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span> <span class="n">text</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">declarative_base</span> <span class="k">as</span> <span class="n">_declarative_base</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
 
-<span class="c1"># Open database connection</span>
-<span class="n">my_conn</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;mysql+mysqldb://root:111@127.0.0.1:6001/test&quot;</span><span class="p">)</span>
+<span class="c1">#使用 SQLAlchemy 创建到 MatrixOne 的连接字符串，并创建一个引擎（Engine）</span>
+<span class="n">connection_string</span> <span class="o">=</span> <span class="s1">&#39;mysql+pymysql://root:111@127.0.0.1:6001/test&#39;</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">connection_string</span><span class="p">)</span>
 
-<span class="c1"># execute SQL query using execute() method.</span>
-<span class="n">query</span><span class="o">=</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM student LIMIT 0,10&quot;</span><span class="p">)</span>
-<span class="n">my_data</span><span class="o">=</span><span class="n">my_conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">Base</span> <span class="o">=</span> <span class="n">_declarative_base</span><span class="p">()</span>
 
-<span class="c1"># print SQL result</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">my_data</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name:&quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;age:&quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+<span class="c1">#定义一个 Python 类来映射 student 表。</span>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
+
+<span class="c1">#使用 sessionmaker 创建一个会话来执行查询</span>
+<span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+
+<span class="c1">#使用 SQLAlchemy 的查询接口来查询 student 表中的数据。</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Student</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ID: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">, Name: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">, Age: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
 <p>打开一个终端，在终端内执行下面的命令：</p>
 <div class="highlight"><pre><span></span><code>python3 sqlalchemy_connect_matrixone.py
-name: tom
-age: 11
-name: alice
-age: 10
+ID: 1, Name: tom, Age: 11
+ID: 2, Name: alice, Age: 10
 </code></pre></div>
 </li>
 </ol>
