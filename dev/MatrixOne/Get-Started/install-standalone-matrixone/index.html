@@ -892,6 +892,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    安装环境
+  </a>
+  
+    <nav class="md-nav" aria-label="安装环境">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    推荐安装环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    支持国产系统
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#macos" class="md-nav__link">
     在 macOS 上部署
   </a>
@@ -906,7 +933,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     参考文档
   </a>
   
@@ -5562,7 +5589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/load-data/" class="md-nav__link">
+      <a href="../../Reference/SQL-Reference/Data-Manipulation-Language/load-data.md" class="md-nav__link">
         LOAD DATA INFILE
       </a>
     </li>
@@ -5951,6 +5978,20 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Query-Language/join/join/" class="md-nav__link">
         JOIN 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Query-Language/join/cross-join/" class="md-nav__link">
+        CROSS JOIN
       </a>
     </li>
   
@@ -11489,6 +11530,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    安装环境
+  </a>
+  
+    <nav class="md-nav" aria-label="安装环境">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    推荐安装环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    支持国产系统
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#macos" class="md-nav__link">
     在 macOS 上部署
   </a>
@@ -11503,7 +11571,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     参考文档
   </a>
   
@@ -11534,7 +11602,8 @@
 
 <h1 id="matrixone"><strong>单机部署 MatrixOne</strong></h1>
 <p>单机版 MatrixOne 适用场景即是使用单台开发机器部署 MatrixOne，体验 MatrixOne 的基本功能，与单机版使用一个 MySQL 基本相同。</p>
-<p><strong>推荐安装环境</strong>：</p>
+<h2 id="_1"><strong>安装环境</strong></h2>
+<h3 id="_2"><strong>推荐安装环境</strong></h3>
 <p>作为一款开源数据库，MatrixOne 目前支持主流的 <strong>Linux</strong> 和 <strong>MacOS</strong> 系统。为了快速上手，本文档中优先推荐如下硬件规格：</p>
 <table>
 <thead>
@@ -11577,6 +11646,57 @@
 <p>如果您当前使用的 Linux 系统内核版本较低（低于 5.0），由于 linux 内核的限制，使用基于 glibc 构建的二进制包进行 Matrixone 的部署时可能会报与 glibc 相关的错误，这时候您可以选择使用<a href="../install-on-linux/install-on-linux-method2/">二进制包部署</a>中的<strong>基于 musl libc 构建的二进制包</strong>进行部署。musl libc 是一个为 Linux 系统设计的轻量级 C 标准库，使用 musl libc 打包应用程序可以让你生成不依赖于系统 C 库的静态二进制文件。此外，由于 CentOS 8 已经停止官方支持，且 CentOS 7 也将在 2024 年 6 月 30 日结束维护周期，目前使用这些版本的用户可能会面临一些风险。因此，我们建议用户使用其他操作系统版本。</p>
 </div>
 <p>你也可以查阅<a href="../../FAQs/deployment-faqs/">硬件与操作系统要求</a>，查看更多关于硬件规格推荐，选用合适的硬件环境。</p>
+<h3 id="_3"><strong>支持国产系统</strong></h3>
+<p>作为一款国产数据库，MatrixOne 目前能够与以下国产操作系统兼容并提供支持：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">操作系统</th>
+<th style="text-align: left;">操作系统版本</th>
+<th style="text-align: left;">CPU</th>
+<th style="text-align: left;">内存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">OpenCloudOS</td>
+<td style="text-align: left;">v8.0 / v9.0</td>
+<td style="text-align: left;">x86 CPU；4 核</td>
+<td style="text-align: left;">16 GB</td>
+</tr>
+<tr>
+<td style="text-align: left;">openEuler</td>
+<td style="text-align: left;">20.03</td>
+<td style="text-align: left;">x86 / ARM CPU；4 核</td>
+<td style="text-align: left;">16 GB</td>
+</tr>
+<tr>
+<td style="text-align: left;">TencentOS Server</td>
+<td style="text-align: left;">v2.4 / v3.1</td>
+<td style="text-align: left;">x86 CPU；4 核</td>
+<td style="text-align: left;">16 GB</td>
+</tr>
+<tr>
+<td style="text-align: left;">统信</td>
+<td style="text-align: left;">V20</td>
+<td style="text-align: left;">ARM CPU；4 核</td>
+<td style="text-align: left;">16 GB</td>
+</tr>
+<tr>
+<td style="text-align: left;">银河麒麟</td>
+<td style="text-align: left;">V10</td>
+<td style="text-align: left;">ARM CPU；4 核</td>
+<td style="text-align: left;">16 GB</td>
+</tr>
+<tr>
+<td style="text-align: left;">麒麟信安</td>
+<td style="text-align: left;">v3.0</td>
+<td style="text-align: left;">x86 / ARM CPU；4 核</td>
+<td style="text-align: left;">16 GB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE</strong>: 支持的国产 CPU 有腾云 S2500、FT2000+/64、鲲鹏 916、鲲鹏 920 和海光 H620-G30</p>
 <h2 id="macos"><strong>在 macOS 上部署</strong></h2>
 <p>你可以在以下三种方式中选择最适合你的一种，在 macOS 上安装并连接 MatrixOne：</p>
 <ul>
@@ -11591,7 +11711,7 @@
 <li><a href="../install-on-linux/install-on-linux-method2/">使用二进制包部署</a></li>
 <li><a href="../install-on-linux/install-on-linux-method3/">使用 Docker 部署</a></li>
 </ul>
-<h2 id="_1">参考文档</h2>
+<h2 id="_4">参考文档</h2>
 <ul>
 <li>
 <p>更多有关连接 MatrixOne 的方式，参见：</p>
