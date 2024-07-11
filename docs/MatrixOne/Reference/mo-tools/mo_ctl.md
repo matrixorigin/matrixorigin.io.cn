@@ -143,17 +143,22 @@ Flags:
 使用 `mo_ctl register` 操作集群中创建的高可用镜像仓库，例如：增删改查镜像。
 
 ```
-./mo_ctl destroy --help
-destroy k8s cluster and apps on it
-
+ mo_ctl registry --help
 Usage:
-  mo_ctl destroy [flags]
+  mo_ctl registry [flags]
+  mo_ctl registry [command]
+
+Aliases:
+  registry, reg
+
+Available Commands:
+  delete      delete (image)
+  list        list (image | chart)
+  push        push (image | chart)
 
 Flags:
-      --configmap   get clusterfile from k8s configmap
-      --dry-run     dry run
-      --force       force destroy, no notice
-  -h, --help        help for destroy
+  -h, --help          help for registry
+      --type string   registry type (image | chart) (default "image")
 ```
 
 ### backup
