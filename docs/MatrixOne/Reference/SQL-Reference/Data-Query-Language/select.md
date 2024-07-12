@@ -195,3 +195,4 @@ mysql> select * from t1 order by spID asc nulls last;
 
 - `SELECT...FOR UPDATE` 当前仅支持单表查询。
 - 部分支持 `INTO OUTFILE`。
+- 当表名为 `DUAL` 时，不支持直接进入对应数据库（`USE DBNAME`) 执行 `SELECT xx from DUAL`，您可指定数据库名使用 `SELECT xx from DBNAME.DUAL` 的方式对表 `DUAL` 进行查询。
