@@ -17,7 +17,7 @@ SELECT cluster_centers(col kmeans 'k, op_type, init_type, normalize')  FROM tbl;
 | col | 必需的。要确定聚类中心的向量列。|
 | k | 必需的。要将数据集分成的簇的数量，大于 0，小于等于总行数。|
 | op_type| 必需的。在聚类计算过程中使用的距离函数。目前支持 vector_l2_ops。|
-| init_type | 必需的。要使用的初始化聚类中心算法。目前我们支持 random 和 kmeanspluspus(K-means++)。|
+| init_type | 必需的。要使用的初始化聚类中心算法。目前我们支持 random 和 kmeansplusplus(K-means++)。|
 | normalize | 必需的。布尔值，要使用的聚类算法，true 代表 Spherical Kmeans，false 代表 Regular Kmeans。|
 
 ## 示例
