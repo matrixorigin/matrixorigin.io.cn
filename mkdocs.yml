@@ -357,7 +357,7 @@ nav:
           - INSERT INTO SELECT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert-into-select.md
           - DELETE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/delete.md
           - UPDATE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/update.md
-          - LOAD DATA INFILE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data.md
+          - LOAD DATA INFILE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data-infile.md
           - LOAD DATA INLINE: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data-inline.md
           - UPSERT: 
             - UPSERT 概述: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/upsert/upsert.md
