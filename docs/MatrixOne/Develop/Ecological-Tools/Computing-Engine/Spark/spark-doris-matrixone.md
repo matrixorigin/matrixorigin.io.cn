@@ -6,7 +6,7 @@
 
 本次实践需要安装部署以下软件环境：
 
-- 已完成[安装和启动 MatrixOne](https://docs.matrixorigin.cn/1.2.1/MatrixOne/Get-Started/install-standalone-matrixone/)。
+- 已完成[安装和启动 MatrixOne](https://docs.matrixorigin.cn/1.2.2/MatrixOne/Get-Started/install-standalone-matrixone/)。
 - 下载并安装 [Doris](https://doris.apache.org/zh-CN/docs/dev/get-starting/quick-start/)。
 - 下载并安装 [IntelliJ IDEA version 2022.2.1 及以上](https://www.jetbrains.com/idea/download/)。
 - 下载并安装 [JDK 8+](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html)。
