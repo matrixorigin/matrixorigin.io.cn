@@ -173,6 +173,7 @@ nav:
         - Golang 基础示例: MatrixOne/Tutorial/develop-golang-crud-demo.md
         - Gorm 基础示例: MatrixOne/Tutorial/gorm-golang-crud-demo.md
         - C# 基础示例: MatrixOne/Tutorial/c-net-crud-demo.md
+        - HTAP 应用基础示例: MatrixOne/Tutorial/htap-demo.md
         - RAG 应用基础示例: MatrixOne/Tutorial/rag-demo.md
         - 以图（文）搜图应用基础示例: MatrixOne/Tutorial/search-picture-demo.md
       - 生态工具:
