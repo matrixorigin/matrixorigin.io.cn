@@ -12473,7 +12473,7 @@
 <div class="highlight"><pre><span></span><code>(base) admin@admindeMacBook-Pro case % cat data.txt 
 1   a\\ b
 </code></pre></div>
-<p>连接 mo 执行以下语句，将 data.txt 内容导入到 t1：</p>
+<p>连接 mo 执行以下语句，将 data.txt 内容导入到 t3：</p>
 <div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t3</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
 <span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;Users/admin/test/case/data.txt&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">escaped</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
 
@@ -12499,7 +12499,7 @@
 6   a\Zb
 </code></pre></div>
 <p>连接 mo 执行以下语句，将 data.txt 内容导入到 t4：</p>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t3</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t4</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
 <span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;Users/admin/test/case/data.txt&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t4</span><span class="p">;</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
@@ -12517,11 +12517,11 @@
 <span class="mi">6</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p>n1=1 时，n2 的结果为 <code>a b</code>，因为 <code>\0</code> 为空格符；</p>
-<p>n=2 时，n2 的结果为 <code>d</code>，因为 <code>\b</code> 为退格符，<code>a</code> 被删除；</p>
-<p>n=3 时，n2 的结果为 <code>a</code> 加换行后的 <code>b</code>，因为 <code>\n</code> 为换行符；</p>
-<p>n=4 时，n2 的结果为 <code>a</code> 加换回车后的 <code>b</code>，因为 <code>\r</code> 为回车符；</p>
-<p>n=5 时，n2 的结果为 <code>a  b</code> 的 b，因为 <code>\t</code> 为制表；</p>
-<p>n=6 时，n2 的结果为 <code>ab</code>，因为 <code>\z</code> 为结束符。</p>
+<p>n1=2 时，n2 的结果为 <code>d</code>，因为 <code>\b</code> 为退格符，<code>a</code> 被删除；</p>
+<p>n1=3 时，n2 的结果为 <code>a</code> 加换行后的 <code>b</code>，因为 <code>\n</code> 为换行符；</p>
+<p>n1=4 时，n2 的结果为 <code>a</code> 加换回车后的 <code>b</code>，因为 <code>\r</code> 为回车符；</p>
+<p>n1=5 时，n2 的结果为 <code>a  b</code> 的 b，因为 <code>\t</code> 为制表；</p>
+<p>n1=6 时，n2 的结果为 <code>ab</code>，因为 <code>\z</code> 为结束符。</p>
 <p><strong>LINES TERMINATED BY</strong></p>
 <p><code>LINES TERMINATED BY</code> 用于指定一行的结束符。<code>LINES TERMINATED BY</code> 值可以超过一个字符。</p>
 <p>例如，<em>csv</em> 文件中的行以回车符/换行符对结束，你在加载它时，可以使用 <code>LINES TERMINATED BY '\r\n'</code> 或 <code>LINES TERMINATED BY '\n'</code>：</p>
