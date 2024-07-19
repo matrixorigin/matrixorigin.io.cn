@@ -193,7 +193,7 @@ data.txt 内容如下：
 1	a\\ b
 ```
 
-连接 mo 执行以下语句，将 data.txt 内容导入到 t1：
+连接 mo 执行以下语句，将 data.txt 内容导入到 t3：
 
 ```sql
 create table t3(n1 int,n2 varchar(255));
@@ -227,7 +227,7 @@ data.txt 内容如下：
 连接 mo 执行以下语句，将 data.txt 内容导入到 t4：
 
 ```sql
-create table t3(n1 int,n2 varchar(255));
+create table t4(n1 int,n2 varchar(255));
 load data infile 'Users/admin/test/case/data.txt' into table t4;
 
 mysql> select * from t1;
@@ -247,15 +247,15 @@ b  | 4 | a
 
 n1=1 时，n2 的结果为 `a b`，因为 `\0` 为空格符；
 
-n=2 时，n2 的结果为 `d`，因为 `\b` 为退格符，`a` 被删除；
+n1=2 时，n2 的结果为 `d`，因为 `\b` 为退格符，`a` 被删除；
 
-n=3 时，n2 的结果为 `a` 加换行后的 `b`，因为 `\n` 为换行符；
+n1=3 时，n2 的结果为 `a` 加换行后的 `b`，因为 `\n` 为换行符；
 
-n=4 时，n2 的结果为 `a` 加换回车后的 `b`，因为 `\r` 为回车符；
+n1=4 时，n2 的结果为 `a` 加换回车后的 `b`，因为 `\r` 为回车符；
 
-n=5 时，n2 的结果为 `a  b` 的 b，因为 `\t` 为制表；
+n1=5 时，n2 的结果为 `a  b` 的 b，因为 `\t` 为制表；
 
-n=6 时，n2 的结果为 `ab`，因为 `\z` 为结束符。
+n1=6 时，n2 的结果为 `ab`，因为 `\z` 为结束符。
 
 **LINES TERMINATED BY**
 
