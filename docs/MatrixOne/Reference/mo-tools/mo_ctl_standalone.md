@@ -68,7 +68,7 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/insta
 wget https://github.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
 
 # 如 github 原地址下载过慢，您可尝试从以下镜像地址下载：
-wget https://githubfast.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh
+wget https://mirror.ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh
 wget https://githubfast.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
 
 # 2. 从离线包安装
