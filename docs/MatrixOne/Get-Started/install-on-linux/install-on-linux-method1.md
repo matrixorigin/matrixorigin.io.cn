@@ -121,7 +121,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
 
 ## 步骤 2: 安装 mo_ctl 工具
 
-[mo_ctl](https://github.com/matrixorigin/mo_ctl_standalone) 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。
+[mo_ctl](https://github.com/matrixorigin/mo_ctl_standalone) 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 [mo_ctl 工具指南](../../Reference/mo-tools/mo_ctl_standalone.md)。
 
 ### 1. 一键安装 mo_ctl 工具
 

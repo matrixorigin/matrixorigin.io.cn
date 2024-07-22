@@ -89,7 +89,7 @@ git version 2.40.0
 
 ## 步骤 2：安装 mo_ctl 工具
 
-[mo_ctl](https://github.com/matrixorigin/mo_ctl_standalone) 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 [mo_ctl 工具指南](../../Maintain/mo_ctl.md)。
+[mo_ctl](https://github.com/matrixorigin/mo_ctl_standalone) 是一个部署安装和管理 MatrixOne 的命令行工具，使用它可以非常方便的对 MatrixOne 进行各类操作。如需获取完整的使用细节可以参考 [mo_ctl 工具指南](../../Reference/mo-tools/mo_ctl_standalone.md)。
 
 1. 先安装 `wget` 下载工具：进入到 <a href="https://brew.sh/" target="_blank">Homebrew</a> 页面按照步骤提示，先安装 **Homebrew**，再安装 `wget`。验证 `wget` 是否安装成功可以使用如下命令行：
 
