@@ -87,6 +87,55 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 
 我们提供了两类二进制包：一类是依托 glibc 构建的，另一类是基于 musl libc 构建的。对于使用较旧操作系统版本的用户，可以选择使用基于 musl libc 构建的二进制包来进行部署。接下来，我们将详细解释两种安装包的下载流程：
 
+### 基于 musl libc 构建的二进制包
+
+=== "**下载方式一：`wget` 工具下载安装二进制包**"
+
+     x86 架构系统安装包：
+
+     ```bash
+     wget https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-x86_64.zip
+     unzip mo-v1.2.2-musl-x86_64.zip
+     ```
+
+     ARM 架构系统安装包：
+
+     ```bash
+     wget https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-arm64.zip
+     unzip mo-v1.2.2-musl-arm64.zip
+     ```
+
+    如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
+
+    ```
+    wget https://githubfast.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-xxx.zip
+    ```
+=== "**下载方式二：`curl` 工具下载二进制包**"
+
+     x86 架构系统安装包：
+
+     ```bash
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-x86_64.zip
+     unzip mo-v1.2.2-musl-x86_64.zip
+     ```
+
+     ARM 架构系统安装包：
+
+     ```bash
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-arm64.zip
+     unzip mo-v1.2.2-musl-arm64.zip
+     ```
+
+    如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
+
+    ```
+    curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-xxx.zip
+    ```
+
+=== "**下载方式三：页面下载**"
+
+     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 1.2.2](https://github.com/matrixorigin/matrixone/releases/tag/v1.2.2)，下拉找到 **Assets** 栏，点击安装包 *mo-v1.2.2-musl-x86_64.zip* 或者 *mo-v1.2.2-musl-arm64.zip* 下载再使用 ```unzip``` 命令解压即可。
+
 ### 基于 glibc 构建的二进制包
 
 === "**下载方式一：`wget` 工具下载安装二进制包**"
@@ -136,55 +185,6 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 === "**下载方式三：页面下载**"
 
      如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 1.2.2](https://github.com/matrixorigin/matrixone/releases/tag/v1.2.2)，下拉找到 **Assets** 栏，点击安装包 *mo-v1.2.2-linux-x86_64.zip* 或者 *mo-v1.2.2-linux-arm64.zip* 下载再使用 ```unzip``` 命令解压即可。
-
-### 基于 musl libc 构建的二进制包
-
-=== "**下载方式一：`wget` 工具下载安装二进制包**"
-
-     x86 架构系统安装包：
-
-     ```bash
-     wget https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-x86_64.zip
-     unzip mo-v1.2.2-musl-x86_64.zip
-     ```
-
-     ARM 架构系统安装包：
-
-     ```bash
-     wget https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-arm64.zip
-     unzip mo-v1.2.2-musl-arm64.zip
-     ```
-
-    如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
-
-    ```
-    wget https://githubfast.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-xxx.zip
-    ```
-=== "**下载方式二：`curl` 工具下载二进制包**"
-
-     x86 架构系统安装包：
-
-     ```bash
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-x86_64.zip
-     unzip mo-v1.2.2-musl-x86_64.zip
-     ```
-
-     ARM 架构系统安装包：
-
-     ```bash
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-arm64.zip
-     unzip mo-v1.2.2-musl-arm64.zip
-     ```
-
-    如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
-
-    ```
-    curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-musl-xxx.zip
-    ```
-
-=== "**下载方式三：页面下载**"
-
-     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 1.2.2](https://github.com/matrixorigin/matrixone/releases/tag/v1.2.2)，下拉找到 **Assets** 栏，点击安装包 *mo-v1.2.2-musl-x86_64.zip* 或者 *mo-v1.2.2-musl-arm64.zip* 下载再使用 ```unzip``` 命令解压即可。
 
 ## 步骤 3：安装 mo_ctl 工具
 
