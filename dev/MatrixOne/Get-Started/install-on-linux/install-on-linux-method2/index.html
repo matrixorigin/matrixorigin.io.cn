@@ -1067,15 +1067,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#glibc" class="md-nav__link">
-    基于 glibc 构建的二进制包
+  <a href="#musl-libc" class="md-nav__link">
+    基于 musl libc 构建的二进制包
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#musl-libc" class="md-nav__link">
-    基于 musl libc 构建的二进制包
+  <a href="#glibc" class="md-nav__link">
+    基于 glibc 构建的二进制包
   </a>
   
 </li>
@@ -2748,6 +2748,20 @@
     <li class="md-nav__item">
       <a href="../../../Tutorial/c-net-crud-demo/" class="md-nav__link">
         C# 基础示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/htap-demo/" class="md-nav__link">
+        HTAP 应用基础示例
       </a>
     </li>
   
@@ -12100,15 +12114,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#glibc" class="md-nav__link">
-    基于 glibc 构建的二进制包
+  <a href="#musl-libc" class="md-nav__link">
+    基于 musl libc 构建的二进制包
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#musl-libc" class="md-nav__link">
-    基于 musl libc 构建的二进制包
+  <a href="#glibc" class="md-nav__link">
+    基于 glibc 构建的二进制包
   </a>
   
 </li>
@@ -12259,42 +12273,8 @@ mysql  Ver 8.0.33 for Linux on x86_64 (MySQL Community Server - GPL)
 </div>
 <h2 id="2">步骤 2：下载二进制包并解压</h2>
 <p>我们提供了两类二进制包：一类是依托 glibc 构建的，另一类是基于 musl libc 构建的。对于使用较旧操作系统版本的用户，可以选择使用基于 musl libc 构建的二进制包来进行部署。接下来，我们将详细解释两种安装包的下载流程：</p>
-<h3 id="glibc">基于 glibc 构建的二进制包</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><strong>下载方式一：<code>wget</code> 工具下载安装二进制包</strong></label><label for="__tabbed_2_2"><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></label><label for="__tabbed_2_3"><strong>下载方式三：页面下载</strong></label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>x86 架构系统安装包：</p>
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-x86_64.zip
-unzip<span class="w"> </span>mo-v1.2.2-linux-x86_64.zip
-</code></pre></div>
-<p>ARM 架构系统安装包：</p>
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-arm64.zip
-unzip<span class="w"> </span>mo-v1.2.2-linux-arm64.zip
-</code></pre></div>
-<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
-<div class="highlight"><pre><span></span><code>wget https://githubfast.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-xxx.zip
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>x86 架构系统安装包：</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-x86_64.zip
-unzip<span class="w"> </span>mo-v1.2.--linux-x86_64.zip
-</code></pre></div>
-<p>ARM 架构系统安装包：</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-arm64.zip
-unzip<span class="w"> </span>mo-v1.2.2-linux-arm64.zip
-</code></pre></div>
-<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
-<div class="highlight"><pre><span></span><code>curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-xxx.zip
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>如果你想通过更直观的页面下载的方式下载，直接点击进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v1.2.2">版本 1.2.2</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v1.2.2-linux-x86_64.zip</em> 或者 <em>mo-v1.2.2-linux-arm64.zip</em> 下载再使用 <code>unzip</code> 命令解压即可。</p>
-</div>
-</div>
-</div>
 <h3 id="musl-libc">基于 musl libc 构建的二进制包</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><strong>下载方式一：<code>wget</code> 工具下载安装二进制包</strong></label><label for="__tabbed_3_2"><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></label><label for="__tabbed_3_3"><strong>下载方式三：页面下载</strong></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><strong>下载方式一：<code>wget</code> 工具下载安装二进制包</strong></label><label for="__tabbed_2_2"><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></label><label for="__tabbed_2_3"><strong>下载方式三：页面下载</strong></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>x86 架构系统安装包：</p>
@@ -12324,6 +12304,40 @@ unzip<span class="w"> </span>mo-v1.2.2-musl-arm64.zip
 </div>
 <div class="tabbed-block">
 <p>如果你想通过更直观的页面下载的方式下载，直接点击进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v1.2.2">版本 1.2.2</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v1.2.2-musl-x86_64.zip</em> 或者 <em>mo-v1.2.2-musl-arm64.zip</em> 下载再使用 <code>unzip</code> 命令解压即可。</p>
+</div>
+</div>
+</div>
+<h3 id="glibc">基于 glibc 构建的二进制包</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><strong>下载方式一：<code>wget</code> 工具下载安装二进制包</strong></label><label for="__tabbed_3_2"><strong>下载方式二：<code>curl</code> 工具下载二进制包</strong></label><label for="__tabbed_3_3"><strong>下载方式三：页面下载</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>x86 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-x86_64.zip
+unzip<span class="w"> </span>mo-v1.2.2-linux-x86_64.zip
+</code></pre></div>
+<p>ARM 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-arm64.zip
+unzip<span class="w"> </span>mo-v1.2.2-linux-arm64.zip
+</code></pre></div>
+<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
+<div class="highlight"><pre><span></span><code>wget https://githubfast.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-xxx.zip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>x86 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-x86_64.zip
+unzip<span class="w"> </span>mo-v1.2.--linux-x86_64.zip
+</code></pre></div>
+<p>ARM 架构系统安装包：</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-arm64.zip
+unzip<span class="w"> </span>mo-v1.2.2-linux-arm64.zip
+</code></pre></div>
+<p>如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：</p>
+<div class="highlight"><pre><span></span><code>curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v1.2.2/mo-v1.2.2-linux-xxx.zip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>如果你想通过更直观的页面下载的方式下载，直接点击进入<a href="https://github.com/matrixorigin/matrixone/releases/tag/v1.2.2">版本 1.2.2</a>，下拉找到 <strong>Assets</strong> 栏，点击安装包 <em>mo-v1.2.2-linux-x86_64.zip</em> 或者 <em>mo-v1.2.2-linux-arm64.zip</em> 下载再使用 <code>unzip</code> 命令解压即可。</p>
 </div>
 </div>
 </div>
