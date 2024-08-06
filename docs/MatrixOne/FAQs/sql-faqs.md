@@ -132,6 +132,24 @@ MatrixOne 支持与 MySQL 相同的 [`INSERT`](../Develop/import-data/insert-dat
 
   要查看 MatrixOne 对给定查询的执行情况，可以使用 [`EXPLAIN`](../Reference/SQL-Reference/Other/Explain/explain.md) 语句，它将打印出查询计划。
 
-  ```
-  EXPLAIN SELECT col1 FROM tbl1;
- ```
+```
+EXPLAIN SELECT col1 FROM tbl1;
+```
+
+**如何查看表压缩比**
+
+要查看 MatrixOne 中表的压缩比可以使用以下 sql 进行查询：
+
+```sql
+mysql> select ( sum(compress_size) + 1) / ( sum(origin_size) +1 ) from metadata_scan('db1.students', '*') m;
++---------------------------------------------------+
+| (sum(compress_size) + 1) / (sum(origin_size) + 1) |
++---------------------------------------------------+
+|                               0.44582681643679795 |
++---------------------------------------------------+
+1 row in set (0.01 sec)
+```
+
+表明 students 表的压缩率大约为：1-44.96%=55.04%。
+
+__NOTE__: 在数据压缩过程中，如果数据尚未从内存写入到磁盘，那么此时查询得到的压缩比可能不够准确。通常情况下，数据会在 5 分钟内被写入磁盘，因此建议您待数据完成刷盘后再进行查询。
