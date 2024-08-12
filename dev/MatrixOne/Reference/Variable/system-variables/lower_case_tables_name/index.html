@@ -12075,7 +12075,7 @@
 
 
 <h1 id="lower_case_table_names">lower_case_table_names 大小写敏感支持</h1>
-<p><code>lower_case_table_names</code> 是 MatrixOne 设置大小写是否敏感的一个全局变量。</p>
+<p><code>lower_case_table_names</code> 是 MatrixOne 设置库表名大小写是否敏感的一个全局变量。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>与 mysql 不同的是，MatrixOne 暂时只支持 <strong>0</strong> 和 <strong>1</strong> 两种模式，且在 linux 和 mac 系统下默认值都为 1。</p>
@@ -12110,7 +12110,16 @@
 <span class="o">+</span><span class="c1">------------------------+-------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">DB1</span><span class="p">;</span><span class="c1">--库名大小写敏感</span>
+<span class="n">ERROR</span><span class="w"> </span><span class="mi">1049</span><span class="w"> </span><span class="p">(</span><span class="n">HY000</span><span class="p">):</span><span class="w"> </span><span class="n">invalid</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">DB1</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">db1</span><span class="p">;</span>
+<span class="k">Database</span><span class="w"> </span><span class="n">changed</span>
+
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">Tt</span><span class="w"> </span><span class="p">(</span><span class="n">Aa</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="c1">--表名大小写敏感</span>
+<span class="n">ERROR</span><span class="w"> </span><span class="mi">1146</span><span class="w"> </span><span class="p">(</span><span class="n">HY000</span><span class="p">):</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">db1</span><span class="p">.</span><span class="n">tt</span>
+
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">Tt</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">Aa</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Tt</span><span class="p">;</span><span class="c1">--名称比较大小写敏感</span>
@@ -12136,8 +12145,14 @@
 <span class="o">+</span><span class="c1">------------------------+-------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">DB1</span><span class="p">;</span><span class="c1">--库名大小写不敏感</span>
+<span class="n">Reading</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">completion</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">names</span>
+<span class="n">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">turn</span><span class="w"> </span><span class="k">off</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">quicker</span><span class="w"> </span><span class="n">startup</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">-</span><span class="n">A</span>
+
+<span class="k">Database</span><span class="w"> </span><span class="n">changed</span>
+
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">Tt</span><span class="w"> </span><span class="p">(</span><span class="n">Aa</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">Bb</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">Tt</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="c1">--表名大小写不敏感</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">Aa</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Tt</span><span class="p">;</span><span class="c1">--名称比较大小写不敏感</span>
 <span class="o">+</span><span class="c1">------+</span>
