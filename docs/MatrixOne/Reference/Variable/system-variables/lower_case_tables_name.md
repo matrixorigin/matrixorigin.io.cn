@@ -1,6 +1,6 @@
 # lower_case_table_names 大小写敏感支持
 
-`lower_case_table_names` 是 MatrixOne 设置大小写是否敏感的一个全局变量。
+`lower_case_table_names` 是 MatrixOne 设置库表名大小写是否敏感的一个全局变量。
 
 !!! note
     与 mysql 不同的是，MatrixOne 暂时只支持 **0** 和 **1** 两种模式，且在 linux 和 mac 系统下默认值都为 1。
@@ -48,7 +48,16 @@ mysql> show variables like "lower_case_table_names";--重连数据库查看参�
 +------------------------+-------+
 1 row in set (0.00 sec)
 
+mysql> use DB1;--库名大小写敏感
+ERROR 1049 (HY000): invalid database DB1
+
+mysql> use db1;
+Database changed
+
 create table Tt (Aa int);
+mysql> insert into tt values (1,2), (2,3), (3,4);--表名大小写敏感
+ERROR 1146 (HY000): no such table db1.tt
+
 insert into Tt values (1), (2), (3);
 
 mysql> select Aa from Tt;--名称比较大小写敏感
@@ -79,8 +88,14 @@ mysql> show variables like "lower_case_table_names";--重连数据库查看参�
 +------------------------+-------+
 1 row in set (0.00 sec)
 
+mysql> use DB1;--库名大小写不敏感
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
 create table Tt (Aa int,Bb int);
-insert into Tt values (1,2), (2,3), (3,4);
+insert into tt values (1,2), (2,3), (3,4);--表名大小写不敏感
 
 mysql> select Aa from Tt;--名称比较大小写不敏感
 +------+
