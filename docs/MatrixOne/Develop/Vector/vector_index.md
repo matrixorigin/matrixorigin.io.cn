@@ -11,12 +11,12 @@ IVF_FLAT（Inverted File with Flat）是一种常用的向量索引技术，用�
 ### 主要原理
 
 **倒排索引**：
-   
+
    - IVF_FLAT 首先将向量数据通过一种称为“粗量量化器”（coarse quantizer）的过程，分成若干个簇（clusters）。
    - 每个簇都有一个中心（centroid），查询时，首先根据查询向量找到距离最近的几个簇中心，这些簇中存储着可能包含最接近查询向量的向量数据。
 
 **Flat 检索**：
-   
+
    - 在确定了最可能包含目标的簇后，IVF_FLAT 在这些簇内进行逐一比较（即 "Flat" 搜索），以找到与查询向量最相似的向量。
    - 这种方法减少了需要进行全量比较的向量数量，从而提高了检索效率。
 
@@ -32,7 +32,9 @@ IVF_FLAT 广泛应用于图像检索、推荐系统、文本检索、生物信�
 
 ## 示例
 
-步骤一：建立数据表
+下面我们将给出一个例子，通过 Python 脚本随机生成 200 万条 128 维向量数据，并对比创建向量索引前后，向量检索的时间差异。
+
+### 步骤一：建立数据表
 
 准备一个名为 `vec_table` 的表，用来存储向量数据。
 
@@ -43,7 +45,7 @@ create table vec_table(
     );
 ```
 
-步骤二：开启向量索引的选项
+### 步骤二：开启向量索引的选项
 
 在数据库中用以下 SQL 开启向量索引，重连数据库生效。
 
@@ -51,7 +53,7 @@ create table vec_table(
 SET GLOBAL experimental_ivf_index = 1;
 ```
 
-步骤三：构建 python 脚本
+### 步骤三：构建 python 脚本
 
 建立一个名为 `vec_test.py` 的 python 文件，定义了向量数据插入函数、向量检索函数和创建向量索引的函数，然后计算在创建索引前后进行向量检索所花费的时间。
 
@@ -92,7 +94,7 @@ def insert_data(vector_dim,num_vectors,batch_size):
         cursor.executemany("INSERT INTO vec_table(vec) VALUES (%s)", batch_data)
         conn.commit()
 
-#定义检索函数,参数为向量维度，检索返回的条数
+#定义检索函数，参数为向量维度，检索返回的条数
 def vec_search(vector_dim,topk):
     vector = np.random.rand(vector_dim)
     formatted_vector = '[' + ','.join(f"{x}" for x in vector) + ']'
@@ -120,7 +122,7 @@ if __name__ == "__main__":
     conn.close()
 ```
 
-步骤四：运行脚本
+### 步骤四：运行脚本
 
 ```bash
 python vec_test.py  
