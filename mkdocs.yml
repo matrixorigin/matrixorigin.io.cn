@@ -162,6 +162,7 @@ nav:
       - 向量:
         - 向量类型: MatrixOne/Develop/Vector/vector_type.md
         - 向量检索: MatrixOne/Develop/Vector/vector_search.md
+        - 向量索引: MatrixOne/Develop/Vector/vector_index.md
         - 聚类中心: MatrixOne/Develop/Vector/cluster_centers.md
       - 应用开发示例:
         - Java 基础示例: MatrixOne/Tutorial/develop-java-crud-demo.md
