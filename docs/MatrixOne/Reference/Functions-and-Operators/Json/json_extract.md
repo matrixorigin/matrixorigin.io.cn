@@ -1,18 +1,16 @@
-# JSON 函数
+# **JSON_EXTRACT()**
 
-MatrixOne 支持以下 JSON 函数：
-
-|名称 | 描述|
-|---|---|
-|JSON_EXTRACT()|从 JSON 文档返回数据|
-|JSON_QUOTE()	| 引用 JSON 文档|
-|JSON_UNQUOTE()	| 取消引用 JSON 值|
-
-## JSON_EXTRACT() 函数
+## **函数说明**
 
 `JSON EXTRACT` 是一个 JSON 查询函数，可用于查询 JSON 文档。
 
-**语法结构**：`select json_extract(jsonDoc, pathExpression);`
+## **语法结构**
+
+```sql
+select json_extract(jsonDoc, pathExpression);
+```
+
+## **参数释义**
 
 `pathExpression` 是 JSON 路径表达式，即在 JSON 文档中选择一个值。
 
@@ -44,7 +42,7 @@ mysql> SELECT JSON_EXTRACT('{"id": 14, "name": "Aztalan"}', '$.name');
 
 - 文档中不存在的路径（或不存在的数据）评估为 `NULL`。
 
-**示例**：
+## **示例**
 
 如下一组 JSON 数组：
 
@@ -161,100 +159,6 @@ mysql> select json_extract(t1.a,'$[1].a') from t1 where t1.b=4;
 | json_extract(t1.a, $[1].a) |
 +----------------------------+
 | 4                          |
-+----------------------------+
-1 row in set (0.00 sec)
-```
-
-## JSON_QUOTE() 函数
-
-`JSON_QUOTE` 函数用于将一个字符串值转换为 JSON 格式中的字符串。通过使用双引号包装字符串并转义内引号和其他字符，将字符串作为 JSON 值引用，然后将结果作为 `utf8mb4` 字符串返回。如果参数为 NULL，则返回 NULL。
-
-`JSON_QUOTE` 函数通常用于生成有效的 JSON 字符串，以包含在 JSON 文档中。
-
-**语法结构**：`select JSON_QUOTE(string_value);`
-
-`string_value` 是要转换为 JSON 字符串的字符串。该函数返回一个 JSON 格式的字符串，其中原始字符串已被引号包围并进行了适当的转义。
-
-示例如下：
-
-```sql
-mysql> SELECT JSON_QUOTE('null'), JSON_QUOTE('"null"');
-+------------------+--------------------+
-| json_quote(null) | json_quote("null") |
-+------------------+--------------------+
-| "null"           | "\"null\""         |
-+------------------+--------------------+
-1 row in set (0.00 sec)
-mysql> SELECT JSON_QUOTE('[1, 2, 3]');
-+-----------------------+
-| json_quote([1, 2, 3]) |
-+-----------------------+
-| "[1, 2, 3]"           |
-+-----------------------+
-1 row in set (0.00 sec)
-
-mysql> SELECT JSON_QUOTE('hello world');
-+-------------------------+
-| json_quote(hello world) |
-+-------------------------+
-| "hello world"           |
-+-------------------------+
-1 row in set (0.00 sec)
-```
-
-可以看到，原始字符串被引号包围并且字符串中的双引号也被转义了。这样，可以将其用作 JSON 格式的值，例如，将其作为 JSON 对象的属性值。
-
-## JSON_UNQUOTE() 函数
-
-`JSON_UNQUOTE()` 函数用于从一个 JSON 字符串中提取一个没有引号的 JSON 值，并将其作为字符串返回。
-
-具体来说，`JSON_UNQUOTE()` 函数需要一个 `JSON` 字符串作为输入，然后从中提取一个 `JSON` 值，并将其作为字符串返回。如果输入的 `JSON` 字符串不包含有效的 `JSON` 值或参数为 `NULL`，则函数返回 `NULL`。如果参数为 NULL，则返回 NULL。如果值以双引号开始和结束，但不是有效的 `JSON` 字符串文字，则会发生错误。
-
-**语法结构**：`select JSON_UNQUOTE(string_value);`
-
-在字符串中，某些序列具有特殊含义，这些序列都以反斜杠 (\) 开始，称为转义字符，规则如下表。对于所有其他转义序列，反斜杠将被忽略。也就是说，转义字符被解释为没有转义。例如，\x 就是 x。这些序列区分大小写。例如，\b 被解释为退格，而 \B 被解释为 B。
-
-|转义序列 | 所代表的字符|
-|---|---|
-|\"|双引号 (") |
-|\b|退格符|
-|\f|换页符|
-|\n|换行符|
-|\r|回车符|
-|\t|制表符|
-|\\|反斜杠 (\) |
-|\uXXXX|Unicode 值为 XXXX 的 UTF-8 字节|
-
-示例如下：
-
-```sql
-mysql> SET @j = '"abc"';
-Query OK, 0 rows affected (0.00 sec)
-
-mysql> SELECT @j, JSON_UNQUOTE(@j);
-+-------+------------------+
-| @j    | json_unquote(@j) |
-+-------+------------------+
-| "abc" | abc              |
-+-------+------------------+
-1 row in set (0.00 sec)
-
-mysql> SET @j = '[1, 2, 3]';
-Query OK, 0 rows affected (0.00 sec)
-
-mysql> SELECT @j, JSON_UNQUOTE(@j);
-+-----------+------------------+
-| @j        | json_unquote(@j) |
-+-----------+------------------+
-| [1, 2, 3] | [1, 2, 3]        |
-+-----------+------------------+
-1 row in set (0.00 sec)
-
-mysql> SELECT JSON_UNQUOTE('"\\t\\u0032"');
-+----------------------------+
-| json_unquote("\\t\\u0032") |
-+----------------------------+
-|       2                         |
 +----------------------------+
 1 row in set (0.00 sec)
 ```

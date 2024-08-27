@@ -173,9 +173,9 @@
 
 | 函数名称                                       | 作用                                     |
 | --------------------------------------------- | --------------------------------------- |
-| [JSON_EXTRACT()](./Json/json-functions.md)    | 从 JSON 文档返回数据|
-| [JSON_QUOTE()](./Json/json-functions.md)      | 引用 JSON 文档|
-| [JSON_UNQUOTE()](./Json/json-functions.md)    | 取消引用 JSON 文档|
+| [JSON_EXTRACT()](./Json/json_extract.md)    | 从 JSON 文档返回数据|
+| [JSON_QUOTE()](./Json/json_quote.md)      | 引用 JSON 文档|
+| [JSON_UNQUOTE()](./Json/json_unquote.md)    | 取消引用 JSON 文档|
 
 ## 系统运维函数
 
