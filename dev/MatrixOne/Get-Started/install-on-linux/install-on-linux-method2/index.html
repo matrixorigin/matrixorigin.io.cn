@@ -1124,6 +1124,26 @@
     步骤 5：连接 MatrixOne 服务
   </a>
   
+    <nav class="md-nav" aria-label="步骤 5：连接 MatrixOne 服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mo_ctl-connect-matrixone" class="md-nav__link">
+    通过 mo_ctl connect 命令一键连接 MatrixOne 服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    通过 MySQL 命令行客户端来连接
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -10752,10 +10772,72 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_5_2_9" id="__nav_1_11_5_2_9_label" tabindex="0">
+          JSON 函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_5_2_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_5_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          JSON 函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../Reference/Functions-and-Operators/Json/json-functions/" class="md-nav__link">
-        JSON 函数
+      <a href="../../../Reference/Functions-and-Operators/Json/json_extract/" class="md-nav__link">
+        JSON_EXTRACT()
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Functions-and-Operators/Json/json_quote/" class="md-nav__link">
+        JSON_QUOTE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/Functions-and-Operators/Json/json_unquote/" class="md-nav__link">
+        JSON_UNQUOTE()
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -12185,6 +12267,26 @@
     步骤 5：连接 MatrixOne 服务
   </a>
   
+    <nav class="md-nav" aria-label="步骤 5：连接 MatrixOne 服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mo_ctl-connect-matrixone" class="md-nav__link">
+    通过 mo_ctl connect 命令一键连接 MatrixOne 服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    通过 MySQL 命令行客户端来连接
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -12387,7 +12489,7 @@ mo_ctl set_conf MO_DEPLOY_MODE=binary #设置MatrixOne部署方式，此为二�
 <p>首次启动 MatrixOne 大致需要花费 20 至 30 秒的时间，在稍作等待后，你便可以连接至 MatrixOne。</p>
 </div>
 <h2 id="5-matrixone">步骤 5：连接 MatrixOne 服务</h2>
-<p>通过 <code>mo_ctl connect</code> 命令一键连接 MatrixOne 服务。</p>
+<h3 id="mo_ctl-connect-matrixone">通过 <code>mo_ctl connect</code> 命令一键连接 MatrixOne 服务</h3>
 <p>这条命令将调用 MySQL Client 工具自动连接到 MatrixOne 服务。</p>
 <div class="highlight"><pre><span></span><code>&gt; mo_ctl connect
 2024-03-07 14:34:59.902 UTC+0800    [INFO]    Checking connectivity
@@ -12410,6 +12512,12 @@ mysql&gt;
 <p class="admonition-title">Note</p>
 <p>上述的连接和登录账号为初始账号 <code>root</code> 和密码 <code>111</code>，请在登录 MatrixOne 后及时修改初始密码，参见<a href="../../../Security/password-mgmt/">密码管理</a>。修改登录用户名或密码后重新登录同样需要通过 <code>mo_ctl set_conf</code> 的方式设置新的用户名和密码，详情可以参考 <a href="../../Maintain/mo_ctl.md">mo_ctl 工具指南</a>。</p>
 </div>
+<h3 id="mysql">通过 MySQL 命令行客户端来连接</h3>
+<div class="highlight"><pre><span></span><code>mysql<span class="w"> </span>-h<span class="w"> </span>IP<span class="w"> </span>-P<span class="w"> </span>PORT<span class="w"> </span>-uUsername<span class="w"> </span>-p<span class="w"> </span>
+</code></pre></div>
+<p>例如：</p>
+<div class="highlight"><pre><span></span><code>mysql<span class="w"> </span>-h<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>-P<span class="w"> </span><span class="m">6001</span><span class="w"> </span>-uroot<span class="w"> </span>-p111
+</code></pre></div>
 
 
 
