@@ -54,6 +54,12 @@
     mo_ctl connect
     ```
 
+    如果远程连接服务器，请使用以下命令：
+
+    ```
+    mysql -h <host> -P 6001 -u<user_name>  -p<password> --local-infile
+    ```
+
     连接成功后将进入 mysql client 命令行工具。
 
 ## 导入 phython 文件以构建 UDF
