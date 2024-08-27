@@ -12357,6 +12357,9 @@ pip3 install grpcio
 <p>待 MatrixOne 服务正常启动（若 MatrixOne 是首次启动，后台初始化会需要十秒左右的时间，初始化完成后才可连接）。执行如下命令访问 MatrixOne 服务：</p>
 <div class="highlight"><pre><span></span><code>mo_ctl connect
 </code></pre></div>
+<p>如果远程连接服务器，请使用以下命令：</p>
+<div class="highlight"><pre><span></span><code>mysql -h &lt;host&gt; -P 6001 -u&lt;user_name&gt;  -p&lt;password&gt; --local-infile
+</code></pre></div>
 <p>连接成功后将进入 mysql client 命令行工具。</p>
 </li>
 </ol>
