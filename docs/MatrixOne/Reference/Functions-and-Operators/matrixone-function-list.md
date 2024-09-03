@@ -66,6 +66,7 @@
 | [ACOS()](./Mathematical/acos.md)  | 用于求给定数值的余弦（用弧度表示）  |
 | [ATAN()](./Mathematical/atan.md)  | 用于求给定数值的反正切（用弧度表示）|
 | [CEIL()](./Mathematical/ceil.md)  | 用于求不小于参数的最小整数。|
+| [CEILING()](./Mathematical/ceiling.md)  | 用于求不小于参数的最小整数。|
 | [COS()](./Mathematical/cos.md)    | 用于求输入参数（用弧度表示）的余弦值。|
 | [COT()](./Mathematical/cot.md)    | 用于求输入参数（用弧度表示）的余切值。 |
 | [EXP()](./Mathematical/exp.md)    | 用于求以自然常数 e 为底的 number 的指数。|
