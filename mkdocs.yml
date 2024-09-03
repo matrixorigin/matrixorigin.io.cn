@@ -563,6 +563,7 @@ nav:
             - ACOS(): MatrixOne/Reference/Functions-and-Operators/Mathematical/acos.md
             - ATAN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/atan.md
             - CEIL(): MatrixOne/Reference/Functions-and-Operators/Mathematical/ceil.md
+            - CEILING(): MatrixOne/Reference/Functions-and-Operators/Mathematical/ceiling.md
             - COS(): MatrixOne/Reference/Functions-and-Operators/Mathematical/cos.md
             - COT(): MatrixOne/Reference/Functions-and-Operators/Mathematical/cot.md
             - EXP(): MatrixOne/Reference/Functions-and-Operators/Mathematical/exp.md
