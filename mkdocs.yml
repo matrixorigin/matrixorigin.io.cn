@@ -219,6 +219,7 @@ nav:
         - 调度工具:
           - 使用 DolphinScheduler 连接 MatrixOne: MatrixOne/Develop/Ecological-Tools/Scheduling-Tools/dolphinScheduler.md
     - 部署指南:
+      - 基于 S3 部署单机 MatrixOne: MatrixOne/Deploy/deploy-matrixone-single-with-s3.md
       - 集群拓扑规划:
         - 集群拓扑规划概述: MatrixOne/Deploy/deployment-topology/topology-overview.md
         - 体验环境: MatrixOne/Deploy/deployment-topology/experience-deployment-topology.md
