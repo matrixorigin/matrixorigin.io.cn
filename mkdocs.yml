@@ -647,6 +647,8 @@ nav:
             - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
           - JSON 函数: 
             - JSON_EXTRACT(): MatrixOne/Reference/Functions-and-Operators/Json/json_extract.md
+            - JSON_EXTRACT_FLOAT64(): MatrixOne/Reference/Functions-and-Operators/Json/json_extract_float64.md
+            - JSON_EXTRACT_STRING(): MatrixOne/Reference/Functions-and-Operators/Json/json_extract_string.md
             - JSON_QUOTE(): MatrixOne/Reference/Functions-and-Operators/Json/json_quote.md
             - JSON_UNQUOTE(): MatrixOne/Reference/Functions-and-Operators/Json/json_unquote.md
           - 其他函数:
