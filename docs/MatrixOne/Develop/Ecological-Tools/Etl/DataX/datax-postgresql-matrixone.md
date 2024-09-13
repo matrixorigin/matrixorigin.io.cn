@@ -6,7 +6,7 @@
 
 在开始使用 DataX 将数据写入 MatrixOne 之前，需要完成安装以下软件：
 
-- 完成[单机部署 MatrixOne](https://docs.matrixorigin.cn/1.2.2/MatrixOne/Get-Started/install-standalone-matrixone/)。
+- 完成[单机部署 MatrixOne](https://docs.matrixorigin.cn/1.2.3/MatrixOne/Get-Started/install-standalone-matrixone/)。
 - 安装 [JDK 8+ version](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html)。
 - 安装 [Python 3.8(or plus)](https://www.python.org/downloads/)。
 - 下载 [DataX](https://datax-opensource.oss-cn-hangzhou.aliyuncs.com/202210/datax.tar.gz) 安装包，并解压。
