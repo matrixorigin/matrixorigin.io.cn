@@ -102,7 +102,7 @@ MatrixOne 支持与 MySQL 相同的 [`INSERT`](../Develop/import-data/insert-dat
 **MatrixOne 支持从 Minio 导入数据吗？**
 
 是支持的，load data 命令支持从本地文件、S3 对象存储服务以及 S3 兼容的对象存储服务中导入数据到 matrixone 中，
-而 Minio 也是基于 S3 协议的，所以也是支持的，详情参见[本地对象存储导入数据](https://docs.matrixorigin.cn/1.2.2/MatrixOne/Deploy/import-data-from-minio-to-mo/)
+而 Minio 也是基于 S3 协议的，所以也是支持的，详情参见[本地对象存储导入数据](https://docs.matrixorigin.cn/1.2.3/MatrixOne/Deploy/import-data-from-minio-to-mo/)
 
 **MatrixOne 导入导出数据时，如果出现编码问题，导致数据乱码，我们一般是怎么解决的**
 
