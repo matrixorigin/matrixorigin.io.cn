@@ -1,0 +1,7652 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>MatrixOne 的 JDBC 功能支持列表 - MatrixOne 中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="mo" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#matrixone-jdbc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.matrixorigin.cn" title="MatrixOne 中文文档" class="md-header__button md-logo" aria-label="MatrixOne 中文文档" data-md-component="logo">
+      
+  <img src="../../../../assets/new-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MatrixOne 中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MatrixOne 的 JDBC 功能支持列表
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="/en/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="/" hreflang="zh" class="md-select__link">
+                    中文简体
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/matrixorigin/matrixorigin.io.cn" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    matrixorigin/matrixone
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+        MatrixOne
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.matrixorigin.cn" title="MatrixOne 中文文档" class="md-nav__button md-logo" aria-label="MatrixOne 中文文档" data-md-component="logo">
+      
+  <img src="../../../../assets/new-logo.png" alt="logo">
+
+    </a>
+    MatrixOne 中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/matrixorigin/matrixorigin.io.cn" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    matrixorigin/matrixone
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          MatrixOne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MatrixOne" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          MatrixOne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          关于 MatrixOne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="关于 MatrixOne" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          关于 MatrixOne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/matrixone-introduction/" class="md-nav__link">
+        MatrixOne 简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/matrixone-feature-list/" class="md-nav__link">
+        MatrixOne 功能列表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/matrixone-architecture-design/" class="md-nav__link">
+        MatrixOne 技术架构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/mysql-compatibility/" class="md-nav__link">
+        MySQL 兼容性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/whats-new/" class="md-nav__link">
+        最新动态
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          快速开始
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="快速开始" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          快速开始
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3_1" type="checkbox" id="__nav_1_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3_1">
+          单机部署 MatrixOne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="单机部署 MatrixOne" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          单机部署 MatrixOne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Get-Started/install-standalone-matrixone/" class="md-nav__link">
+        单机部署 MatrixOne 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3_1_2" type="checkbox" id="__nav_1_3_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3_1_2">
+          在 macOS 上部署
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="在 macOS 上部署" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_3_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          在 macOS 上部署
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Get-Started/install-on-macos/install-on-macos-method1/" class="md-nav__link">
+        使用源代码部署
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Get-Started/install-on-macos/install-on-macos-method2/" class="md-nav__link">
+        使用二进制包部署
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Get-Started/install-on-macos/install-on-macos-method3/" class="md-nav__link">
+        使用 Docker 部署
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3_1_3" type="checkbox" id="__nav_1_3_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3_1_3">
+          在 Linux 上部署
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="在 Linux 上部署" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_3_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          在 Linux 上部署
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Get-Started/install-on-linux/install-on-linux-method1/" class="md-nav__link">
+        使用源代码部署
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Get-Started/install-on-linux/install-on-linux-method2/" class="md-nav__link">
+        使用二进制包部署
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Get-Started/install-on-linux/install-on-linux-method3/" class="md-nav__link">
+        使用 Docker 部署
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Get-Started/basic-sql/" class="md-nav__link">
+        SQL 的基本操作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          开发指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="开发指南" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          开发指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          数据库模式设计
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据库模式设计" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          数据库模式设计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/overview/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/create-database/" class="md-nav__link">
+        创建数据库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/create-table/" class="md-nav__link">
+        创建表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1_4" type="checkbox" id="__nav_1_4_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1_4">
+          数据完整性
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据完整性" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_4_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          数据完整性
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/data-integrity/overview-of-integrity-constraint-types/" class="md-nav__link">
+        数据完整性约束概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/data-integrity/not-null-constraints/" class="md-nav__link">
+        NOT NULL 完整性约束
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/data-integrity/unique-key-constraints/" class="md-nav__link">
+        UNIQUE KEY 完整性约束
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/data-integrity/primary-key-constraints/" class="md-nav__link">
+        PRIMARY KEY 完整性约束
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/schema-design/data-integrity/foreign-key-constraints/" class="md-nav__link">
+        FOREIGN KEY 完整性约束
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          连接 MatrixOne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="连接 MatrixOne" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          连接 MatrixOne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/connect-mo/configure-mo-ssl-connection/" class="md-nav__link">
+        配置 MatrixOne SSL 连接
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/connect-mo/database-client-tools/" class="md-nav__link">
+        客户端工具连接 MatrixOne 服务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2_3" type="checkbox" id="__nav_1_4_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2_3">
+          Java 连接 MatrixOne 服务
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java 连接 MatrixOne 服务" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Java 连接 MatrixOne 服务
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-jdbc/" class="md-nav__link">
+        使用 JDBC 连接器连接 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/connect-mo/java-connect-to-matrixone/connect-mo-with-orm/" class="md-nav__link">
+        使用 Java ORMs 连接 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/connect-mo/python-connect-to-matrixone/" class="md-nav__link">
+        Python 连接 MatrixOne 服务
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3" type="checkbox" id="__nav_1_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_3">
+          导入数据
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="导入数据" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          导入数据
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/insert-data/" class="md-nav__link">
+        单条导入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_2" type="checkbox" id="__nav_1_4_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_3_2">
+          批量导入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="批量导入" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_4_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          批量导入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/bulk-load/bulk-load-overview/" class="md-nav__link">
+        批量导入概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/bulk-load/load-csv/" class="md-nav__link">
+        导入 csv 文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/bulk-load/load-jsonline/" class="md-nav__link">
+        导入 jsonlines 文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/import-data/bulk-load/load-s3/" class="md-nav__link">
+        从 S3 读取数据并导入至 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_4" type="checkbox" id="__nav_1_4_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_4">
+          导出数据
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="导出数据" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          导出数据
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/export-data/select-into-outfile/" class="md-nav__link">
+        使用 `SELECT INTO...OUTFILE` 导出数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/export-data/modump/" class="md-nav__link">
+        使用 `modump` 导出数据
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_5" type="checkbox" id="__nav_1_4_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_5">
+          数据读取
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据读取" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          数据读取
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/read-data/query-data-single-table/" class="md-nav__link">
+        单表读取
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/read-data/multitable-join-query/" class="md-nav__link">
+        多表连接查询
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/read-data/subquery/" class="md-nav__link">
+        子查询
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/read-data/views/" class="md-nav__link">
+        视图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/read-data/cte/" class="md-nav__link">
+        公共表表达式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_6" type="checkbox" id="__nav_1_4_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_6">
+          事务
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="事务" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_6">
+          <span class="md-nav__icon md-icon"></span>
+          事务
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Transactions/common-transaction-overview/" class="md-nav__link">
+        事务通用概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_6_2" type="checkbox" id="__nav_1_4_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_6_2">
+          MatrixOne 的事务
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MatrixOne 的事务" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_4_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          MatrixOne 的事务
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/overview/" class="md-nav__link">
+        MatrixOne 的事务概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/explicit-transaction/" class="md-nav__link">
+        MatrixOne 的显式事务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/implicit-transaction/" class="md-nav__link">
+        MatrixOne 的隐式事务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/optimistic-transaction/" class="md-nav__link">
+        MatrixOne 的乐观事务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/how-to-use/" class="md-nav__link">
+        如何使用 MatrixOne 事务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/snapshot-isolation/" class="md-nav__link">
+        MatrixOne 的事务隔离级别
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/mvcc/" class="md-nav__link">
+        MVCC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Transactions/matrixone-transaction-overview/scenario/" class="md-nav__link">
+        MatrixOne 中的事务应用场景
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          部署指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="部署指南" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          部署指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deploy/check-before-deployment/" class="md-nav__link">
+        软硬件环境要求
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5_2" type="checkbox" id="__nav_1_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5_2">
+          在 Kubernetes 上部署 MatrixOne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="在 Kubernetes 上部署 MatrixOne" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          在 Kubernetes 上部署 MatrixOne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deploy/install-and-launch-in-k8s/" class="md-nav__link">
+        在 Kubernetes 上部署 MatrixOne 简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deploy/mo-in-kubernetes/whats-mo-operator/" class="md-nav__link">
+        什么是 MatrixOne Operator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deploy/mo-in-kubernetes/get-started/" class="md-nav__link">
+        使用 MatrixOne Operator 部署 MatrixOne 集群
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deploy/mo-in-kubernetes/configure-shared-memory/" class="md-nav__link">
+        为 MatrixOne 集群配置共享存储
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="教程" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/develop-java-crud-demo/" class="md-nav__link">
+        构建一个 Java CRUD 示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/springboot-hibernate-crud-demo/" class="md-nav__link">
+        使用 SpringBoot 和 Spring JPA 构建一个 CRUD 示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/springboot-mybatis-crud-demo/" class="md-nav__link">
+        使用 SpringBoot 和 MyBatis 构建一个 CRUD 示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/sqlalchemy-python-crud-demo/" class="md-nav__link">
+        使用 Python 和 SQLAlchemy 构建一个 CRUD 示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/develop-python-crud-demo/" class="md-nav__link">
+        构建一个 Python CRUD 示例
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          运维
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="运维" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          运维
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintain/backup-restore/" class="md-nav__link">
+        备份与恢复
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_2">
+          数据挂载
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据挂载" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据挂载
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintain/mount-data-by-docker/" class="md-nav__link">
+        挂载目录到 Docker 容器
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_8">
+          数据迁移
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据迁移" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_8">
+          <span class="md-nav__icon md-icon"></span>
+          数据迁移
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Migrate/migrate-from-mysql-to-matrixone/" class="md-nav__link">
+        将数据从 MySQL 迁移至 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9" type="checkbox" id="__nav_1_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_9">
+          测试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="测试" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_9">
+          <span class="md-nav__icon md-icon"></span>
+          测试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9_1" type="checkbox" id="__nav_1_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_9_1">
+          性能测试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="性能测试" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          性能测试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Test/performance-testing/SSB-test-with-matrixone/" class="md-nav__link">
+        SSB 测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Test/performance-testing/TPCH-test-with-matrixone/" class="md-nav__link">
+        TPCH 测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Test/performance-testing/TPCC-test-with-matrixone/" class="md-nav__link">
+        TPCC 测试
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9_2" type="checkbox" id="__nav_1_9_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_9_2">
+          测试工具
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="测试工具" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          测试工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Test/testing-tool/mo-tester/" class="md-nav__link">
+        MO-Tester
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Test/testing-tool/mo-tester-reference/" class="md-nav__link">
+        MO-Tester 规范要求
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_10">
+          性能调优
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="性能调优" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_10">
+          <span class="md-nav__icon md-icon"></span>
+          性能调优
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10_1" type="checkbox" id="__nav_1_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_10_1">
+          理解 MatrixOne 执行计划
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="理解 MatrixOne 执行计划" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          理解 MatrixOne 执行计划
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Performance-Tuning/explain-overview/" class="md-nav__link">
+        MatrixOne 执行计划概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Performance-Tuning/explain-walkthrough/" class="md-nav__link">
+        使用 EXPLAIN 理解执行计划
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Performance-Tuning/explain-joins/" class="md-nav__link">
+        JOIN 查询的执行计划
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Performance-Tuning/explain-subqueries/" class="md-nav__link">
+        子查询的执行计划
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Performance-Tuning/explain-aggregation/" class="md-nav__link">
+        聚合查询的执行计划
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Performance-Tuning/explain-views/" class="md-nav__link">
+        视图的执行计划
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11">
+          权限
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="权限" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_11">
+          <span class="md-nav__icon md-icon"></span>
+          权限
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Security/TLS-introduction/" class="md-nav__link">
+        TLS 安全连接
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_2" type="checkbox" id="__nav_1_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_2">
+          什么是权限管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="什么是权限管理" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          什么是权限管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Security/about-privilege-management/" class="md-nav__link">
+        关于 MatrixOne 权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Security/best-practice/" class="md-nav__link">
+        最佳实践
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_3" type="checkbox" id="__nav_1_11_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_3">
+          操作指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="操作指南" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_11_3">
+          <span class="md-nav__icon md-icon"></span>
+          操作指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11_3_1" type="checkbox" id="__nav_1_11_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11_3_1">
+          快速开始
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="快速开始" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_11_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          快速开始
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Security/how-tos/quick-start-create-account/" class="md-nav__link">
+        创建租户，验证资源隔离
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Security/how-tos/quick-start-create-user/" class="md-nav__link">
+        新租户创建用户、创建角色和授权
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Security/how-tos/user-guide/" class="md-nav__link">
+        权限管理操作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Security/app-scenarios/" class="md-nav__link">
+        应用场景
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12" type="checkbox" id="__nav_1_12" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12">
+          参考手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="参考手册" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_12">
+          <span class="md-nav__icon md-icon"></span>
+          参考手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1" type="checkbox" id="__nav_1_12_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1">
+          SQL 目录
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SQL 目录" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_12_1">
+          <span class="md-nav__icon md-icon"></span>
+          SQL 目录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_1" type="checkbox" id="__nav_1_12_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_1">
+          数据定义语言（DDL）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据定义语言（DDL）" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_12_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          数据定义语言（DDL）
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-database/" class="md-nav__link">
+        CREATE DATABASE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-table/" class="md-nav__link">
+        CREATE TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-external-table/" class="md-nav__link">
+        CREATE EXTERNAL TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Definition-Language/create-view/" class="md-nav__link">
+        CREATE VIEW
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Definition-Language/drop-database/" class="md-nav__link">
+        DROP DATABASE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Definition-Language/drop-table/" class="md-nav__link">
+        DROP TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Definition-Language/drop-view/" class="md-nav__link">
+        DROP VIEW
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2" type="checkbox" id="__nav_1_12_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_2">
+          数据修改语言（DML）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据修改语言（DML）" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_12_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据修改语言（DML）
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/insert/" class="md-nav__link">
+        INSERT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/insert-into-select/" class="md-nav__link">
+        INSERT INTO SELECT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/delete/" class="md-nav__link">
+        DELETE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/update/" class="md-nav__link">
+        UPDATE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/load-data/" class="md-nav__link">
+        LOAD DATA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/interval/" class="md-nav__link">
+        INTERVAL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2_7" type="checkbox" id="__nav_1_12_1_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_2_7">
+          OPERATORS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OPERATORS" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_1_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          OPERATORS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/operators/" class="md-nav__link">
+        运算符概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/operator-precedence/" class="md-nav__link">
+        运算符的优先级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2_7_3" type="checkbox" id="__nav_1_12_1_2_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_2_7_3">
+          算数运算符
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="算数运算符" data-md-level="6">
+        <label class="md-nav__title" for="__nav_1_12_1_2_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          算数运算符
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/arithmetic-operators-overview/" class="md-nav__link">
+        算数运算符概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/mod/" class="md-nav__link">
+        %,MOD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/multiplication/" class="md-nav__link">
+        *
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/addition/" class="md-nav__link">
+        +
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/minus/" class="md-nav__link">
+        -
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/unary-minus/" class="md-nav__link">
+        -
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/division/" class="md-nav__link">
+        /
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/arithmetic-operators/div/" class="md-nav__link">
+        DIV
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2_7_4" type="checkbox" id="__nav_1_12_1_2_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_2_7_4">
+          赋值运算符
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="赋值运算符" data-md-level="6">
+        <label class="md-nav__title" for="__nav_1_12_1_2_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          赋值运算符
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/assignment-operators/assignment-operators-overview/" class="md-nav__link">
+        赋值运算符概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/assignment-operators/equal/" class="md-nav__link">
+        =
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2_7_5" type="checkbox" id="__nav_1_12_1_2_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_2_7_5">
+          二进制运算符
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="二进制运算符" data-md-level="6">
+        <label class="md-nav__title" for="__nav_1_12_1_2_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          二进制运算符
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/bit-functions-and-operators-overview/" class="md-nav__link">
+        二进制运算符概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/bitwise-and/" class="md-nav__link">
+        &
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/right-shift/" class="md-nav__link">
+        >>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/left-shift/" class="md-nav__link">
+        <<
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/bitwise-xor/" class="md-nav__link">
+        ^
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/bitwise-or/" class="md-nav__link">
+        |
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/bit-functions-and-operators/bitwise-inversion/" class="md-nav__link">
+        ~
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2_7_6" type="checkbox" id="__nav_1_12_1_2_7_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_2_7_6">
+          强制转换函数和运算符
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="强制转换函数和运算符" data-md-level="6">
+        <label class="md-nav__title" for="__nav_1_12_1_2_7_6">
+          <span class="md-nav__icon md-icon"></span>
+          强制转换函数和运算符
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/cast-functions-and-operators/cast-functions-and-operators-overview/" class="md-nav__link">
+        强制转换函数和运算符概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/cast-functions-and-operators/cast/" class="md-nav__link">
+        CAST
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/cast-functions-and-operators/convert/" class="md-nav__link">
+        CONVERT
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2_7_7" type="checkbox" id="__nav_1_12_1_2_7_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_2_7_7">
+          比较函数和运算符
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="比较函数和运算符" data-md-level="6">
+        <label class="md-nav__title" for="__nav_1_12_1_2_7_7">
+          <span class="md-nav__icon md-icon"></span>
+          比较函数和运算符
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview/" class="md-nav__link">
+        比较函数和运算符概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/greater-than/" class="md-nav__link">
+        >
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/greater-than-or-equal/" class="md-nav__link">
+        >=
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/less-than/" class="md-nav__link">
+        <
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/not-equal/" class="md-nav__link">
+        <>,!=
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/less-than-or-equal/" class="md-nav__link">
+        <=
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/assign-equal/" class="md-nav__link">
+        =
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/between/" class="md-nav__link">
+        BETWEEN ... AND ...
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/in/" class="md-nav__link">
+        IN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/is/" class="md-nav__link">
+        IS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/is-not/" class="md-nav__link">
+        IS NOT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/is-not-null/" class="md-nav__link">
+        IS NOT NULL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/is-null/" class="md-nav__link">
+        IS NULL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/like/" class="md-nav__link">
+        LIKE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/not-between/" class="md-nav__link">
+        NOT BETWEEN ... AND ...
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/not-like/" class="md-nav__link">
+        NOT LIKE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/comparison-functions-and-operators/coalesce/" class="md-nav__link">
+        COALESCE
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2_7_8" type="checkbox" id="__nav_1_12_1_2_7_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_2_7_8">
+          控制流函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="控制流函数" data-md-level="6">
+        <label class="md-nav__title" for="__nav_1_12_1_2_7_8">
+          <span class="md-nav__icon md-icon"></span>
+          控制流函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/flow-control-functions/flow-control-functions-overview/" class="md-nav__link">
+        控制流函数概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/flow-control-functions/case-when/" class="md-nav__link">
+        CASE WHEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/flow-control-functions/function_if/" class="md-nav__link">
+        IF
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_2_7_9" type="checkbox" id="__nav_1_12_1_2_7_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_2_7_9">
+          逻辑运算符
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="逻辑运算符" data-md-level="6">
+        <label class="md-nav__title" for="__nav_1_12_1_2_7_9">
+          <span class="md-nav__icon md-icon"></span>
+          逻辑运算符
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/logical-operators/logical-operators-overview/" class="md-nav__link">
+        逻辑运算符概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/logical-operators/and/" class="md-nav__link">
+        AND,&&
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/logical-operators/not/" class="md-nav__link">
+        NOT,!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/logical-operators/or/" class="md-nav__link">
+        OR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Manipulation-Language/operators/logical-operators/xor/" class="md-nav__link">
+        XOR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3" type="checkbox" id="__nav_1_12_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_3">
+          数据查询语言（DQL）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据查询语言（DQL）" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_12_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          数据查询语言（DQL）
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/select/" class="md-nav__link">
+        SELECT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_2" type="checkbox" id="__nav_1_12_1_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_3_2">
+          SUBQUERY
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SUBQUERY" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_1_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          SUBQUERY
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/subquery/" class="md-nav__link">
+        SUBQUERY 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/derived-tables/" class="md-nav__link">
+        Derived Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/comparisons-using-subqueries/" class="md-nav__link">
+        子查询与比较操作符的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/subquery-with-any-some/" class="md-nav__link">
+        SUBQUERY with ANY or SOME
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/subquery-with-all/" class="md-nav__link">
+        SUBQUERY with ALL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/subquery-with-exists/" class="md-nav__link">
+        SUBQUERY with EXISTS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/subqueries/subquery-with-in/" class="md-nav__link">
+        SUBQUERY with IN
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_3" type="checkbox" id="__nav_1_12_1_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_3_3">
+          JOIN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JOIN" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_1_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          JOIN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/join/join/" class="md-nav__link">
+        JOIN 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/join/inner-join/" class="md-nav__link">
+        INNER JOIN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/join/left-join/" class="md-nav__link">
+        LEFT JOIN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/join/right-join/" class="md-nav__link">
+        RIGHT JOIN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/join/full-join/" class="md-nav__link">
+        FULL JOIN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/join/outer-join/" class="md-nav__link">
+        OUTER JOIN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/join/natural-join/" class="md-nav__link">
+        NATURAL JOIN
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/with-cte/" class="md-nav__link">
+        With CTE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_3_5" type="checkbox" id="__nav_1_12_1_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_3_5">
+          联合查询
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="联合查询" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_1_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          联合查询
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/union-intersect-minus-overview/" class="md-nav__link">
+        联合查询概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/union/" class="md-nav__link">
+        UNION
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/intersect/" class="md-nav__link">
+        INTERSECT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Query-Language/minus/" class="md-nav__link">
+        MINUS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_4" type="checkbox" id="__nav_1_12_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_4">
+          Data Control Language
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Control Language" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_12_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Data Control Language
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Control-Language/create-account/" class="md-nav__link">
+        CREATE ACCOUNT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Control-Language/create-role/" class="md-nav__link">
+        CREATE ROLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Control-Language/create-user/" class="md-nav__link">
+        CREATE USER
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Control-Language/drop-account/" class="md-nav__link">
+        DROP ACCOUNT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Control-Language/drop-user/" class="md-nav__link">
+        DROP USER
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Control-Language/drop-role/" class="md-nav__link">
+        DROP ROLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Control-Language/grant/" class="md-nav__link">
+        GRANT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Data-Control-Language/revoke/" class="md-nav__link">
+        REVOKE
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_5" type="checkbox" id="__nav_1_12_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_5">
+          其他
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="其他" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_12_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          其他
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_5_1" type="checkbox" id="__nav_1_12_1_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_5_1">
+          SHOW
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SHOW" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_1_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          SHOW
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-databases/" class="md-nav__link">
+        SHOW DATABASES Statement
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-tables/" class="md-nav__link">
+        SHOW TABLES Statement
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/SHOW-Statements/show-grants/" class="md-nav__link">
+        SHOW GRANT
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_5_2" type="checkbox" id="__nav_1_12_1_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_5_2">
+          SET
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SET" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_1_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          SET
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/Set/set-role/" class="md-nav__link">
+        SET ROLE
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_5_3" type="checkbox" id="__nav_1_12_1_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_5_3">
+          USE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="USE" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_1_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          USE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/use-database/" class="md-nav__link">
+        USE DATABASE
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_5_4" type="checkbox" id="__nav_1_12_1_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_5_4">
+          Prepared
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prepared" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_1_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Prepared
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/Prepared-Statements/prepared-statements-overview/" class="md-nav__link">
+        Prepared 概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/Prepared-Statements/prepare/" class="md-nav__link">
+        PREPARE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/Prepared-Statements/execute/" class="md-nav__link">
+        EXECUTE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/Prepared-Statements/deallocate/" class="md-nav__link">
+        DEALLOCATE
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_5_5" type="checkbox" id="__nav_1_12_1_5_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_5_5">
+          Explain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Explain" data-md-level="5">
+        <label class="md-nav__title" for="__nav_1_12_1_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Explain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/Explain/explain/" class="md-nav__link">
+        EXPLAIN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/Explain/explain-workflow/" class="md-nav__link">
+        EXPLAIN Output Format
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Other/Explain/explain-analyze/" class="md-nav__link">
+        Explain Analyze
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_6" type="checkbox" id="__nav_1_12_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_6">
+          聚合函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="聚合函数" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_12_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          聚合函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/avg/" class="md-nav__link">
+        AVG
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/count/" class="md-nav__link">
+        COUNT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/max/" class="md-nav__link">
+        MAX
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/min/" class="md-nav__link">
+        MIN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/sum/" class="md-nav__link">
+        SUM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/any-value/" class="md-nav__link">
+        ANY_VALUE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/bit_and/" class="md-nav__link">
+        BIT_AND
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/bit_or/" class="md-nav__link">
+        BIT_OR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/bit_xor/" class="md-nav__link">
+        BIT_XOR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/stddev_pop/" class="md-nav__link">
+        STDDEV_POP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL-Reference/Aggregate-Functions/var/" class="md-nav__link">
+        VAR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_1_7" type="checkbox" id="__nav_1_12_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_1_7">
+          系统变量
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统变量" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_12_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          系统变量
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Variable/custom-variable/" class="md-nav__link">
+        自定义变量
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_2" type="checkbox" id="__nav_1_12_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_2">
+          数据类型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据类型" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_12_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据类型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Types/data-types/" class="md-nav__link">
+        数据类型概览
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Types/data-type-conversion/" class="md-nav__link">
+        数据类型转换
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Types/timestamp-initialization/" class="md-nav__link">
+        TIMESTAMP 和 DATETIME 的自动初始化和更新
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Types/json-type/" class="md-nav__link">
+        JSON 数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Types/blob-text-type/" class="md-nav__link">
+        BLOB 和 TEXT 数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Types/fixed-point-types/" class="md-nav__link">
+        精确数值类型-DECIMAL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_3" type="checkbox" id="__nav_1_12_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_3">
+          系统函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统函数" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_12_3">
+          <span class="md-nav__icon md-icon"></span>
+          系统函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_3_1" type="checkbox" id="__nav_1_12_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_3_1">
+          数学类
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数学类" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_12_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          数学类
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/abs/" class="md-nav__link">
+        ABS()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/sin/" class="md-nav__link">
+        SIN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/cos/" class="md-nav__link">
+        COS()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/tan/" class="md-nav__link">
+        TAN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/cot/" class="md-nav__link">
+        COT()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/acos/" class="md-nav__link">
+        ACOS()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/atan/" class="md-nav__link">
+        ATAN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/sinh/" class="md-nav__link">
+        SINH()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/floor/" class="md-nav__link">
+        FLOOR()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/round/" class="md-nav__link">
+        ROUND()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/ceil/" class="md-nav__link">
+        CEIL()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/power/" class="md-nav__link">
+        POWER()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/pi/" class="md-nav__link">
+        PI()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/log/" class="md-nav__link">
+        LOG()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/ln/" class="md-nav__link">
+        LN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/uuid/" class="md-nav__link">
+        UUID()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Mathematical/exp/" class="md-nav__link">
+        EXP()
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_3_2" type="checkbox" id="__nav_1_12_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_3_2">
+          日期时间类
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="日期时间类" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_12_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          日期时间类
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/date-format/" class="md-nav__link">
+        DATE_FORMAT()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/year/" class="md-nav__link">
+        YEAR()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/month/" class="md-nav__link">
+        MONTH()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/date/" class="md-nav__link">
+        DATE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/weekday/" class="md-nav__link">
+        WEEKDAY()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/timestamp/" class="md-nav__link">
+        TIMESTAMP()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/dayofyear/" class="md-nav__link">
+        DAYOFYEAR()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/extract/" class="md-nav__link">
+        EXTRACT()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/date-add/" class="md-nav__link">
+        DATE_ADD()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/date-sub/" class="md-nav__link">
+        DATE_SUB()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/to-date/" class="md-nav__link">
+        TO_DATE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/day/" class="md-nav__link">
+        DAY()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/unix-timestamp/" class="md-nav__link">
+        UNIX_TIMESTAMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/from-unixtime/" class="md-nav__link">
+        FROM_UNIXTIME
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/utc-timestamp/" class="md-nav__link">
+        UTC_TIMESTAMP()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/current-timestamp/" class="md-nav__link">
+        CURRENT_TIMESTAMP()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/timediff/" class="md-nav__link">
+        TIMEDIFF()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/Datetime/date" class="md-nav__link">
+        DATEDIFF()
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_3_3" type="checkbox" id="__nav_1_12_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_3_3">
+          字符串类
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="字符串类" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_12_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          字符串类
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/bin/" class="md-nav__link">
+        BIN()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/bit-length/" class="md-nav__link">
+        BIT_LENGTH()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/hex/" class="md-nav__link">
+        HEX()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/concat-ws/" class="md-nav__link">
+        CONCAT_WS()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/find-in-set/" class="md-nav__link">
+        FIND_IN_SET()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/oct/" class="md-nav__link">
+        OCT()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/empty/" class="md-nav__link">
+        EMPTY()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/length/" class="md-nav__link">
+        LENGTH()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/char-length/" class="md-nav__link">
+        LENGTHUTF8()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/ltrim/" class="md-nav__link">
+        LTRIM()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/rtrim/" class="md-nav__link">
+        RTRIM()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/lpad/" class="md-nav__link">
+        LPAD()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/rpad/" class="md-nav__link">
+        RPAD()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/startswith/" class="md-nav__link">
+        STARTSWITH()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/endswith/" class="md-nav__link">
+        ENDSWITH()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/substring/" class="md-nav__link">
+        SUBSTRING()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/space/" class="md-nav__link">
+        SPACE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Builtin-Functions/String/reverse/" class="md-nav__link">
+        REVERSE()
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_4" type="checkbox" id="__nav_1_12_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_4">
+          系统配置
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统配置" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_12_4">
+          <span class="md-nav__icon md-icon"></span>
+          系统配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../System-Parameters/configuration-settings/" class="md-nav__link">
+        通用参数配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../System-Parameters/timezone/" class="md-nav__link">
+        时区配置
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../System-tables/" class="md-nav__link">
+        系统表目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../access-control-type/" class="md-nav__link">
+        权限分类列表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12_7" type="checkbox" id="__nav_1_12_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12_7">
+          使用限制
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="使用限制" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_12_7">
+          <span class="md-nav__icon md-icon"></span>
+          使用限制
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MatrixOne 的 JDBC 功能支持列表
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        MatrixOne 的 JDBC 功能支持列表
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-connection" class="md-nav__link">
+    1. Connection（类）：获取数据库连接对象
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Connection（类）：获取数据库连接对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    类中的方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-statement" class="md-nav__link">
+    2. Statement 类中的方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-resultset-interface" class="md-nav__link">
+    3. ResultSet interface 中的方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-resultsetmetadata" class="md-nav__link">
+    4. ResultSetMetaData 中的方法
+  </a>
+  
+    <nav class="md-nav" aria-label="4. ResultSetMetaData 中的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql-displaysizeprecscale" class="md-nav__link">
+    Mysql 各数据类型 DisplaySize、Prec、Scale 统计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mo-partition-support/" class="md-nav__link">
+        MatrixOne DDL 语句分区支持的说明
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Maintain/mo-directory-structure/" class="md-nav__link">
+        MatrixOne  文件目录结构
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_13" type="checkbox" id="__nav_1_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_13">
+          故障诊断
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="故障诊断" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_13">
+          <span class="md-nav__icon md-icon"></span>
+          故障诊断
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Troubleshooting/slow-queries/" class="md-nav__link">
+        慢查询
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Troubleshooting/common-statistics-query/" class="md-nav__link">
+        常用统计数据查询
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Troubleshooting/audit/" class="md-nav__link">
+        审计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Troubleshooting/error-code/" class="md-nav__link">
+        错误码
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_14" type="checkbox" id="__nav_1_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_14">
+          常见问题解答
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="常见问题解答" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_14">
+          <span class="md-nav__icon md-icon"></span>
+          常见问题解答
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FAQs/product-faqs/" class="md-nav__link">
+        产品常见问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FAQs/deployment-faqs/" class="md-nav__link">
+        部署常见问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FAQs/sql-faqs/" class="md-nav__link">
+        SQL 常见问题
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_15" type="checkbox" id="__nav_1_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_15">
+          版本发布纪要
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="版本发布纪要" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_15">
+          <span class="md-nav__icon md-icon"></span>
+          版本发布纪要
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/release-timeline/" class="md-nav__link">
+        版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v0.6.0/" class="md-nav__link">
+        v0.6.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v0.5.1/" class="md-nav__link">
+        v0.5.1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v0.5.0/" class="md-nav__link">
+        v0.5.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v0.4.0/" class="md-nav__link">
+        v0.4.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v0.3.0/" class="md-nav__link">
+        v0.3.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v0.2.0/" class="md-nav__link">
+        v0.2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v0.1.0/" class="md-nav__link">
+        v0.1.0
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        名词术语表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_17" type="checkbox" id="__nav_1_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_17">
+          社区贡献指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="社区贡献指南" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_17">
+          <span class="md-nav__icon md-icon"></span>
+          社区贡献指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/make-your-first-contribution/" class="md-nav__link">
+        快速贡献
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_17_2" type="checkbox" id="__nav_1_17_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_17_2">
+          贡献指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="贡献指南" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_17_2">
+          <span class="md-nav__icon md-icon"></span>
+          贡献指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/How-to-Contribute/types-of-contributions/" class="md-nav__link">
+        有哪些贡献类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/How-to-Contribute/preparation/" class="md-nav__link">
+        贡献准备
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/How-to-Contribute/report-an-issue/" class="md-nav__link">
+        报告 Issue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/How-to-Contribute/contribute-code/" class="md-nav__link">
+        贡献代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/How-to-Contribute/review-a-pull-request/" class="md-nav__link">
+        审核修改
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/How-to-Contribute/contribute-documentation/" class="md-nav__link">
+        文档贡献
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/How-to-Contribute/make-a-design/" class="md-nav__link">
+        提出设计草案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_17_3" type="checkbox" id="__nav_1_17_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_17_3">
+          代码规范
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="代码规范" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_17_3">
+          <span class="md-nav__icon md-icon"></span>
+          代码规范
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/Code-Style/code-of-conduct/" class="md-nav__link">
+        编码规范
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/Code-Style/code-comment-style/" class="md-nav__link">
+        注释规范
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contribution-Guide/Code-Style/commit-pr-style/" class="md-nav__link">
+        提交规范
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-connection" class="md-nav__link">
+    1. Connection（类）：获取数据库连接对象
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Connection（类）：获取数据库连接对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    类中的方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-statement" class="md-nav__link">
+    2. Statement 类中的方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-resultset-interface" class="md-nav__link">
+    3. ResultSet interface 中的方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-resultsetmetadata" class="md-nav__link">
+    4. ResultSetMetaData 中的方法
+  </a>
+  
+    <nav class="md-nav" aria-label="4. ResultSetMetaData 中的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql-displaysizeprecscale" class="md-nav__link">
+    Mysql 各数据类型 DisplaySize、Prec、Scale 统计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/matrixorigin/matrixorigin.io.cn/edit/0.6.0/docs/MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="matrixone-jdbc">MatrixOne 的 JDBC 功能支持列表</h1>
+<p>使用 JDBC 开发应用，MatrixOne 支持以下类和对象：</p>
+<h2 id="1-connection">1. Connection（类）：获取数据库连接对象</h2>
+<h3 id="_1">类中的方法</h3>
+<ol>
+<li>
+<p>获取执行 Sql 对象 Statement  </p>
+<ul>
+<li>Statement createStatement();  </li>
+<li>Statement prepareStatement(String sql);  </li>
+</ul>
+</li>
+<li>
+<p>管理事务</p>
+<ul>
+<li>开启事务：setAutoCommit(boolean autoCommit)：调用该方法设置参数为 false，即开启事务  </li>
+<li>提交事务：void commit()  </li>
+<li>回滚事务：void rollback()  </li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>connection 接口中的方法</th>
+<th>支持（Y）/不支持（N）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>createStatement()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>prepareStatement(String sql)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>prepareCall(String sql)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>nativeSQL(String sql)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setAutoCommit(boolean autoCommit)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getAutoCommit()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>commit()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>rollback()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>close()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isClosed()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getMetaData()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setReadOnly(boolean readOnly)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isReadOnly()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setCatalog()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getCatalog()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setTransactionIsolation(int level)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getTransactionIsolation()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getWarnings()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>clearWarnings()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>createStatement(int resultSetType, int resultSetConcurrency)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>prepareStatement(String sql, int resultSetType, int resultSetConcurrency)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>prepareCall(String sql, int resultSetType, int resultSetConcurrency)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getTypeMap()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>setTypeMap(java.util.Map&lt;String,Class&lt;?&gt;&gt; map)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>setHoldability(int holdability)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getHoldability()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>setSavepoint()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>setSavepoint(String name)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>rollback(Savepoint savepoint)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>releaseSavepoint(Savepoint savepoint)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>createStatement(int resultSetType, int resultSetConcurrency, int resultSetHoldability)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>prepareStatement(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>prepareCall(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>prepareStatement(String sql, int autoGeneratedKeys)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>prepareStatement(String sql, int columnIndexes[])</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>prepareStatement(String sql, String columnNames[])</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>createClob()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>createBlob()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>createNClob()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>createSQLXML()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>isValid()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setClientInfo(String name, String value)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>setClientInfo(Properties properties)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getClientInfo(String name)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getClientInfo()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>createArrayOf(String typeName, Object[] elements)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>createStruct(String typeName, Object[] attributes)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>setSchema(String schema)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getSchema()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>abort(Executor executor)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>setNetworkTimeout(Executor executor, int milliseconds)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getNetworkTimeout()</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-statement">2. Statement 类中的方法</h2>
+<table>
+<thead>
+<tr>
+<th>Statement 类中的方法</th>
+<th>支持（Y）/不支持（N）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>executeQuery(String sql)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>executeUpdate(String sql)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>close()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getMaxFieldSize()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setMaxFieldSize()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getMaxRows()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setMaxRows()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setEscapeProcessing()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getQueryTimeout()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setQueryTimeout(int seconds)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>cancel()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getWarnings()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>clearWarnings()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>setCursorName(String name)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>execute(String sql)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getResultSet()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getUpdateCount()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getMoreResults()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setFetchDirection(int direction)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getFetchDirection()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>setFetchSize(int rows)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getFetchSize()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getResultSetConcurrency()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getResultSetType()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>addBatch( String sql)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>clearBatch()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>executeBatch()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getConnection()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getMoreResults(int current)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getGeneratedKeys()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>executeUpdate(String sql, int autoGeneratedKeys)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>executeUpdate(String sql, int columnIndexes[])</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>executeUpdate(String sql, String columnNames[])</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>execute(String sql, int autoGeneratedKeys)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>execute(String sql, int columnIndexes[])</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>execute(String sql, String columnNames[])</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getResultSetHoldability()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isClosed()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setPoolable(boolean poolable)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>isPoolable()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>closeOnCompletion()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isCloseOnCompletion()</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-resultset-interface">3. ResultSet interface 中的方法</h2>
+<table>
+<thead>
+<tr>
+<th>ResultSet 类中的方法</th>
+<th>支持（Y）/不支持（N）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>next()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>close()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>wasNull()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getString(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getBoolean(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getByte(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getShort(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getInt(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getLong(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getFloat(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getDouble(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getBigDecimal(int columnIndex, int scale)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getBytes(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getDate(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getTime(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getTimestamp(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getAsciiStream(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getUnicodeStream(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getBinaryStream(int columnIndex)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getWarnings()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>clearWarnings()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getCursorName()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getMetaData()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getObject()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>findColumn()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getCharacterStream()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isBeforeFirst()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isAfterLast()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isFirst()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isLast()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>beforeFirst()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>afterLast()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>first()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>last()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getRow()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>absolute()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>relative()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>previous()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setFetchDirection()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getFetchDirection()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>setFetchSize()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getFetchSize()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getType()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getConcurrency()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>rowUpdated()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>rowInserted()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>rowDeleted()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>update()(一连串数据类型)</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>updateNull()</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-resultsetmetadata">4. ResultSetMetaData 中的方法</h2>
+<table>
+<thead>
+<tr>
+<th>ResultSetMetaData 类中的方法</th>
+<th>支持（Y）/不支持（N）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getColumnCount()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isAutoIncrement()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isCaseSensitive()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isSearchable()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isCurrency()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isNullable()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isSigned()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getColumnDisplaySize()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getColumnLabel()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getColumnName()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getSchemaName()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getPrecision()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getScale()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getTableName()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getCatalogName()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getColumnType()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>getColumnTypeName()</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>isReadOnly()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>isWritable()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>isDefinitelyWritable()</td>
+<td>N</td>
+</tr>
+<tr>
+<td>getColumnClassName()</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mysql-displaysizeprecscale">Mysql 各数据类型 DisplaySize、Prec、Scale 统计</h3>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>DisplaySize</th>
+<th>Prec</th>
+<th>Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYINT</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>11</td>
+<td>11</td>
+<td>0</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>20</td>
+<td>20</td>
+<td>0</td>
+</tr>
+<tr>
+<td>TINYINT UNSIGNED</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>SMALLINT UNSIGNED</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>INT UNSIGNED</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+</tr>
+<tr>
+<td>BIGINT UNSIGNED</td>
+<td>20</td>
+<td>20</td>
+<td>0</td>
+</tr>
+<tr>
+<td>DECIMAL64(根据实际情况)</td>
+<td>17</td>
+<td>15</td>
+<td>2</td>
+</tr>
+<tr>
+<td>DECIMAL128(根据实际情况)</td>
+<td>23</td>
+<td>21</td>
+<td>3</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>12</td>
+<td>12</td>
+<td>31</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>22</td>
+<td>22</td>
+<td>31</td>
+</tr>
+<tr>
+<td>VARCHAR(根据实际情况)</td>
+<td>100</td>
+<td>100</td>
+<td>0</td>
+</tr>
+<tr>
+<td>CHAR(根据实际情况)</td>
+<td>100</td>
+<td>100</td>
+<td>0</td>
+</tr>
+<tr>
+<td>DATE</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>19</td>
+<td>19</td>
+<td>0</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>19</td>
+<td>19</td>
+<td>0</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>2147483647</td>
+<td>2147483647</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../access-control-type/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 权限分类列表" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              权限分类列表
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../mo-partition-support/" class="md-footer__link md-footer__link--next" aria-label="Next: MatrixOne DDL 语句分区支持的说明" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              MatrixOne DDL 语句分区支持的说明
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+    
+  </body>
+</html>
