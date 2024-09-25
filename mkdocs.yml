@@ -708,7 +708,7 @@ nav:
       - v22.0.4.0: MatrixOne/Release-Notes/v22.0.4.0.md
       - v22.0.3.0: MatrixOne/Release-Notes/v22.0.3.0.md
       - v22.0.2.0: MatrixOne/Release-Notes/v22.0.2.0.md
-      - v22.0.1.0: MatrixOne/Release-Notes/v22.0.1.0.md
+      - v21.0.1.0: MatrixOne/Release-Notes/v21.0.1.0.md
     - 名词术语表: MatrixOne/glossary.md
     - 社区贡献指南:
       - 快速贡献: MatrixOne/Contribution-Guide/make-your-first-contribution.md
