@@ -11485,6 +11485,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v24.1.2.4/" class="md-nav__link">
+        v24.1.2.4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v24.1.2.3/" class="md-nav__link">
         v24.1.2.3
       </a>
@@ -12215,7 +12229,7 @@
 <p>目前仅支持导出单个数据库的备份，如果你有多个数据库需要备份，需要手动运行 mo-dump 多次。</p>
 <p><strong>MatrixOne 支持从 Minio 导入数据吗？</strong></p>
 <p>是支持的，load data 命令支持从本地文件、S3 对象存储服务以及 S3 兼容的对象存储服务中导入数据到 matrixone 中，
-而 Minio 也是基于 S3 协议的，所以也是支持的，详情参见<a href="https://docs.matrixorigin.cn/1.2.3/MatrixOne/Deploy/import-data-from-minio-to-mo/">本地对象存储导入数据</a></p>
+而 Minio 也是基于 S3 协议的，所以也是支持的，详情参见<a href="../../Deploy/import-data-from-minio-to-mo/">本地对象存储导入数据</a></p>
 <p><strong>MatrixOne 导入导出数据时，如果出现编码问题，导致数据乱码，我们一般是怎么解决的</strong></p>
 <p>由于 matrixone 默认只支持 UTF8 这一种编码且无法更改，所以在导入数据时如果出现了乱码，我们就不能通过修改数据库和表的字符集来解决，可以试着转换数据编码为 UTF8。常见的转换工具有 iconv 和 recode，比如：将 GBK 编码的数据转换为 UTF-8 编码：iconv -f GBK -t UTF8 t1.sql &gt; t1_utf8.sql。</p>
 <p><strong>MatrixOne 导入导出时，需要哪些权限？</strong></p>
