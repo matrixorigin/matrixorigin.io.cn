@@ -72,7 +72,7 @@ PyMySQL 是一个纯 Python MySQL 客户端库。
 
     ```
     > python3 pymysql_connect_matrixone.py
-    Database version : 8.0.30-MatrixOne-v1.2.3
+    Database version : 8.0.30-MatrixOne-v1.2.4
     ```
 
 ## 使用 sqlalchemy 连接 MatrixOne
