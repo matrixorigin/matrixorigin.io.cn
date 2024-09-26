@@ -6,7 +6,7 @@
 
 本次实践需要安装部署以下软件环境：
 
-- 完成[单机部署 MatrixOne](https://docs.matrixorigin.cn/1.2.3/MatrixOne/Get-Started/install-standalone-matrixone/)。
+- 完成[单机部署 MatrixOne](../../../../Get-Started/install-standalone-matrixone.md)。
 - 下载安装 [lntelliJ IDEA(2022.2.1 or later version)](https://www.jetbrains.com/idea/download/)。
 - 根据你的系统环境选择 [JDK 8+ version](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html) 版本进行下载安装。
 - 已完成 TiDB 单机部署。

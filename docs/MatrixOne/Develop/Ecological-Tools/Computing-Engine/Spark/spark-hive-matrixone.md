@@ -6,7 +6,7 @@
 
 本次实践需要安装部署以下软件环境：
 
-- 已完成[安装和启动 MatrixOne](https://docs.matrixorigin.cn/1.2.3/MatrixOne/Get-Started/install-standalone-matrixone/)。
+- 已完成[安装和启动 MatrixOne](../../../../Get-Started/install-standalone-matrixone.md)。
 - 下载并安装 [IntelliJ IDEA version 2022.2.1 及以上](https://www.jetbrains.com/idea/download/)。
 - 下载并安装 [JDK 8+](https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html)。
 - 从 Hive 导入数据，需要安装 [Hadoop](http://archive.apache.org/dist/hadoop/core/hadoop-3.1.4/) 和 [Hive](https://dlcdn.apache.org/hive/hive-3.1.3/)。
