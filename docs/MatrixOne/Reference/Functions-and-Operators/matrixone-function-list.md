@@ -175,6 +175,8 @@
 | 函数名称                                       | 作用                                     |
 | --------------------------------------------- | --------------------------------------- |
 | [JSON_EXTRACT()](./Json/json_extract.md)    | 从 JSON 文档返回数据|
+| [JSON_EXTRACT_FLOAT64()](./Json/json_extract_float64.md)    | 从 JSON 数据中提取指定路径的数值的值|
+| [JSON_EXTRACT_STRING()](./Json/json_extract_string.md)      | 从 JSON 数据中提取指定路径的字符串的值|
 | [JSON_QUOTE()](./Json/json_quote.md)      | 引用 JSON 文档|
 | [JSON_UNQUOTE()](./Json/json_unquote.md)    | 取消引用 JSON 文档|
 
