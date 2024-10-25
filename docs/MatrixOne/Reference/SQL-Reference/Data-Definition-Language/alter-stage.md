@@ -2,85 +2,79 @@
 
 ## **语法说明**
 
-`ALTER STAGE` 用于修改现有已命名的内部或外部阶段的属性。
+`ALTER STAGE` 用于修改用于修改一个已有的 stage 的属性。
 
 !!! note
-    集群管理员（即 root 用户）和租户管理员可以修改数据阶段。
+    `ALTER STAGE` 只能一次修改一个参数。因此，如果你需要同时更新多个参数，例如 `URL` 和 `COMMENT`，需要分别执行多次 `ALTER STAGE` 语句，每次修改一个参数。
 
 ## **语法结构**
 
 ```
-> ALTER STAGE [ IF EXISTS ] { stage_name }
+> ALTER STAGE [ IF EXISTS ] { stage_name } SET
    { StageParams }
-   [ directoryTableParams ]
    [ COMMENT = '<string_literal>' ]
-
+   
 StageParams (for Amazon S3) :
-URL =  "endpoint"='<string>' CREDENTIALS = {"access_key_id"='<string>', "secret_access_key"='<string>'}
-
-StageParams (for Aliyun OSS) :
-URL =  "endpoint"='<string>' CREDENTIALS = {"access_key_id"='<string>', "secret_access_key"='<string>'}
-
+URL =  "s3://<bucket>[/<path>/]" CREDENTIALS = {"AWS_KEY_ID"='<string>', "AWS_SECRET_KEY"='<string>', "AWS_ROLE"='<string>', "AWS_TOKEN"='<string>', "AWS_REGION"='<string>', "COMPRESSION"='<string>', 'PROVIDER'='<string>', 'ENDPOINT'='<string>'}
+                                                    
 StageParams (for File System) :
-URL= 'filepath'
+URL= 'file://[/path/]'
 
-directoryTableParams :
-ENABLE = { TRUE | FALSE }
+StageParams (for sub-stage):
+URL= "stage://<stagename>[/path/]"
 ```
 
-## 语法解释
+## **语法解释**
 
-- `IF EXISTS`：可选参数，用于在修改 Stage 时检查是否已存在要修改的 Stage。
+- `IF NOT EXISTS`：可选参数，用于在创建 Stage 时检查是否已存在同名的 Stage，避免重复创建。
 
-- `stage_name`：要修改的 Stage 的名称。
+- `stage_name`：要创建的 Stage 的名称。
 
-- `StageParams`：这是一个参数组，用于指定 Stage 的配置参数。
+- `StageParams (for MinIO/Amazon S3)`：用于指定对象存储为 MinIO 或 S3 的 Stage 的配置参数。
 
-    - `endpoint`：Stage 的连接 URL，指定对象存储服务的位置。对于不同的对象存储服务（如 Amazon S3、Aliyun OSS、文件系统等），这个 URL 的内容可能有所不同。例如：s3.us-west-2.amazonaws.com
+    - `URL`：指定 S3 存储中的文件路径或目录
+    - `CREDENTIALS`：这是一个 JSON 对象，包含连接到对象存储服务所需的凭证信息。
 
-    - `CREDENTIALS`：这是一个 JSON 对象，包含连接到对象存储服务所需的凭证信息，如 `access_key_id`、`secret_access_key` 等。
+         + `access_key_id`：用于身份验证的访问密钥 ID。
+         + `secret_access_key`：与访问密钥 ID 相关联的密钥。
+         + `aws_role`：非必填，如果使用了 IAM 角色，用于指定角色名称。可以在 AWS 上配置角色来分配不同的权限。
+         + `aws_token`：非必填，用于临时访问 AWS 服务的安全令牌。
+         + `aws_region`：指定 Amazon S3 存储所在的 AWS 区域。
+         + `compression`：非必填，指定文件的压缩类型。
+         + `provider`：指定云存储提供商。
+         + `endpint`：指定连接自定义或第三方兼容 S3 API 的服务。
 
-- `directoryTableParams`：这是一个参数组，用于指定 Stage 的目录表（directory table）的配置。
+- `StageParams (for File System)`：用于指定文件系统存储的 Stage 的配置参数。
 
-    - `ENABLE`：是否修改启用目录表，值为 `TRUE` 或 `FALSE`。
+    - `URL`：指定文件存储中的文件路径或目录。
+
+- `StageParams (for sub-stage)`：用于子 Stage 的配置参数。
+  
+    - `URL`：指定文件存储中的文件路径或目录。
+
+- `COMMENT`：注释。
 
 ## **示例**
 
 ```sql
-CREATE TABLE `user` (`id` int(11) ,`user_name` varchar(255) ,`sex` varchar(255));
-INSERT INTO user(id,user_name,sex) values('1', 'weder', 'man'), ('2', 'tom', 'man'), ('3', 'wederTom', 'man');
+create stage stage_fs url = 'file:///Users/admin/test' comment='this is a stage';
 
--- 创建内部数据阶段
-mysql> CREATE STAGE stage1 URL='/tmp' ENABLE = TRUE;
-
--- 将数据从表导出到数据阶段
-mysql> SELECT * FROM user INTO OUTFILE 'stage1:/user.csv';
--- 你可以在你本地目录下看到你导出的表
-
-mysql> SHOW STAGES;
-+------------+-----------------------------+---------+---------+
-| STAGE_NAME | URL                         | STATUS  | COMMENT |
-+------------+-----------------------------+---------+---------+
-| stage1     | /Users/Prinz/03testrepo/csv | ENABLED |         |
-+------------+-----------------------------+---------+---------+
-1 row in set (0.01 sec)
-
--- 修改 stage
-mysql> ALTER STAGE stage1 SET COMMENT 'user stage';
-
-mysql> SHOW STAGES;
-+------------+-----------------------------+---------+------------+
-| STAGE_NAME | URL                         | STATUS  | COMMENT    |
-+------------+-----------------------------+---------+------------+
-| stage1     | /Users/Prinz/03testrepo/csv | ENABLED | user stage |
-+------------+-----------------------------+---------+------------+
+mysql> select * from mo_catalog.mo_stages where stage_name='stage_fs';
++----------+------------+--------------------------+-------------------+--------------+---------------------+-----------------+
+| stage_id | stage_name | url                      | stage_credentials | stage_status | created_time        | comment         |
++----------+------------+--------------------------+-------------------+--------------+---------------------+-----------------+
+|        1 | stage_fs   | file:///Users/admin/test |                   | disabled     | 2024-10-09 03:46:00 | this is a stage |
++----------+------------+--------------------------+-------------------+--------------+---------------------+-----------------+
 1 row in set (0.00 sec)
 
--- 禁用名为 'stage1' 的数据阶段
-mysql> ALTER STAGE stage1 SET ENABLE = FALSE;
-Query OK, 0 rows affected (0.00 sec)
+alter stage stage_fs set url = 'file:///Users/admin/test1';
+alter stage stage_fs set comment='stage_fs has been changed';
 
--- 尝试将 user 表的数据导出到名为 'stage1:/user.csv' 的数据阶段中，但 stage1 已经被禁用，所以已不可用，产生报错
-mysql> SELECT * FROM user INTO OUTFILE 'stage1:/user.csv';
-ERROR 20101 (HY000): internal error: stage 'stage1' is invalid, please check
+mysql> select * from mo_catalog.mo_stages where stage_name='stage_fs';
++----------+------------+---------------------------+-------------------+--------------+---------------------+---------------------------+
+| stage_id | stage_name | url                       | stage_credentials | stage_status | created_time        | comment                   |
++----------+------------+---------------------------+-------------------+--------------+---------------------+---------------------------+
+|        1 | stage_fs   | file:///Users/admin/test1 |                   | disabled     | 2024-10-09 03:46:00 | stage_fs has been changed |
++----------+------------+---------------------------+-------------------+--------------+---------------------+---------------------------+
+1 row in set (0.00 sec)
 ```

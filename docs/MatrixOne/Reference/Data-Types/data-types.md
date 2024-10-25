@@ -574,3 +574,40 @@ mysql> select * from t1;
 +-----------+--------+
 1 row in set (0.00 sec)
 ```
+
+## Datalink 数据类型
+
+|类型         | 解释                  |
+|------------|---------------------  |
+|datalink     | 用于存储指向文档 (例如 satge) 或文件链接的特殊数据类     |
+
+### 示例
+
+```sql
+drop table test01;
+create table test01 (col1 int, col2 datalink);
+create stage stage01 url='file:///Users/admin/case/';
+insert into test01 values (1, 'file:///Users/admin/case/t1.csv');
+insert into test01 values (2, 'file:///Users/admin/case/t1.csv?size=2');
+insert into test01 values (3, 'file:///Users/admin/case/t1.csv?offset=4');
+insert into test01 values (4, 'file:///Users/admin/case/t1.csv?offset=4&size=2');
+insert into test01 values (5, 'stage://stage01/t1.csv');
+insert into test01 values (6, 'stage://stage01/t1.csv?size=2');
+insert into test01 values (7, 'stage://stage01/t1.csv?offset=4');
+insert into test01 values (8, 'stage://stage01/t1.csv?offset=4&size=2');
+
+mysql> select * from test01;
++------+-------------------------------------------------+
+| col1 | col2                                            |
++------+-------------------------------------------------+
+|    1 | file:///Users/admin/case/t1.csv                 |
+|    2 | file:///Users/admin/case/t1.csv?size=2          |
+|    3 | file:///Users/admin/case/t1.csv?offset=4        |
+|    4 | file:///Users/admin/case/t1.csv?offset=4&size=2 |
+|    5 | stage://stage01/t1.csv                          |
+|    6 | stage://stage01/t1.csv?size=2                   |
+|    7 | stage://stage01/t1.csv?offset=4                 |
+|    8 | stage://stage01/t1.csv?offset=4&size=2          |
++------+-------------------------------------------------+
+8 rows in set (0.01 sec)
+```

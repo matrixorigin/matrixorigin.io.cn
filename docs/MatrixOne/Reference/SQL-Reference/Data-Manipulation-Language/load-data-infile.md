@@ -12,7 +12,7 @@
 
 ```
 > LOAD DATA [LOCAL]
-    INFILE 'file_name'
+    INFILE '<file_name>|<stage://stage_name/filepath>'
     INTO TABLE tbl_name
     [CHARACTER SET charset_name]
     [{FIELDS | COLUMNS}
@@ -38,7 +38,7 @@
 
 - `LOAD DATA INFILE 'file_name'`：
 
-   **命令行使用场景**：需要加载的数据文件与 MatrixOne 主机服务器在同一台机器上。
+   **命令行使用场景**：需要加载的数据文件与 MatrixOne 主机服务器在同一台机器上或者是 stage 中的文件。
    `file_name` 可以是文件的存放位置的相对路径名称，也可以是绝对路径名称。
 
 - `LOAD DATA LOCAL INFILE 'file_name'`：
@@ -731,6 +731,63 @@ mysql> select * from t1;
 可以看到，查询结果忽略掉了第一行。
 
 有关如何导入 *JSONLines* 格式文件的详细步骤，参见[导入 JSONLines 数据](../../../Develop/import-data/bulk-load/load-jsonline.md)。
+
+### 示例 3：LOAD Stage
+
+#### 简单导入示例
+
+在 `/Users/admin/test` 目录下有文件 `t1.csv`：
+
+```bash
+(base) admin@192 test % cat t1.csv 
+1	a
+2	b
+3	c
+```
+
+```sql
+create table t1(n1 int,n2 varchar(10));
+create stage stage_fs url = 'file:///Users/admin/test';
+load data infile 'stage://stage_fs/t1.csv' into table t1;
+
+mysql> select * from t1;
++------+------+
+| n1   | n2   |
++------+------+
+|    1 | a    |
+|    2 | b    |
+|    3 | c    |
++------+------+
+3 rows in set (0.01 sec)
+```
+
+#### 增加条件导入示例
+
+你可以在 LOAD DATA 语句的末尾添加 IGNORE 1 LINES，以跳过数据文件的第一行内容。
+
+在 `/Users/admin/test` 目录下有文件 `t1.csv`：
+
+```bash
+(base) admin@192 test % cat t1.csv 
+1	a
+2	b
+3	c
+```
+
+```sql
+create table t2(n1 int,n2 varchar(10));
+create stage stage_fs1 url = 'file:///Users/admin/test';
+load data infile 'stage://stage_fs1/t1.csv' into table t2 ignore 1 lines;
+
+mysql> select * from t2;
++------+------+
+| n1   | n2   |
++------+------+
+|    2 | b    |
+|    3 | c    |
++------+------+
+2 rows in set (0.00 sec)
+```
 
 ## **限制**
 

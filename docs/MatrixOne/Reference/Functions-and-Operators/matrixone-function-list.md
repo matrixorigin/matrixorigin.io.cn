@@ -192,7 +192,10 @@
 
 | 函数名称                        | 作用                                     |
 | ------------------------------ | --------------------------------------- |
+| [LOAD_FILE()](./Other/load_file.md)    | 用于读取 datalink 类型指向文件的内容。|
+| [SAVE_FILE()](./Other/save_file.md)    | 用于保存 datalink 类型指向文件的内容。|
 | [SAMPLE()](./Other/sample.md)  | 主要用于快速缩减查询范围|
 | [SERIAL_EXTRACT()](./Other/serial_extract.md)    | 用于提取序列/元组值中的各个元素|
 | [SLEEP()](./Other/sleep.md)    | 将当前查询暂停（睡眠）指定的秒数|
+| [STAGE_LIST()](./Other/stage_list.md)    | 用于查看 stage 中的目录和文件。|
 | [UUID()](./Other/uuid.md)      | 返回根据 RFC 4122 生成国际通用唯一标识符|
