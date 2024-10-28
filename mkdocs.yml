@@ -310,12 +310,13 @@ nav:
         - 日期和时间类型:
           - TIMESTAMP 和 DATETIME 的自动初始化和更新: MatrixOne/Reference/Data-Types/date-time-data-types/timestamp-initialization.md
           - YEAR 类型: MatrixOne/Reference/Data-Types/date-time-data-types/year-type.md
-        - JSON 数据类型: MatrixOne/Reference/Data-Types/json-type.md
-        - BLOB 和 TEXT 数据类型: MatrixOne/Reference/Data-Types/blob-text-type.md
-        - ENUM 类型: MatrixOne/Reference/Data-Types/enum-type.md
-        - UUID 数据类型: MatrixOne/Reference/Data-Types/uuid-type.md
         - 精确数值类型-DECIMAL: MatrixOne/Reference/Data-Types/fixed-point-types.md
         - 向量数据类型: MatrixOne/Reference/Data-Types/vector-type.md
+        - BLOB 和 TEXT 数据类型: MatrixOne/Reference/Data-Types/blob-text-type.md
+        - DATALINK 数据类型: MatrixOne/Reference/Data-Types/datalink-type.md
+        - ENUM 类型: MatrixOne/Reference/Data-Types/enum-type.md
+        - JSON 数据类型: MatrixOne/Reference/Data-Types/json-type.md
+        - UUID 数据类型: MatrixOne/Reference/Data-Types/uuid-type.md
       - SQL 目录:
         - SQL 语句的分类: MatrixOne/Reference/SQL-Reference/SQL-Type.md
         - 数据定义语言（DDL）:
@@ -424,7 +425,7 @@ nav:
             - SHOW ROLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-roles.md
             - SHOW SEQUENCES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-sequences.md
             - SHOW SNAPSHOTS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-snapshots.md
-            - SHOW STAGE: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-stage.md
+            - SHOW STAGES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-stage.md
             - SHOW SUBSCRIPTIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-subscriptions.md
             - SHOW VARIABLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-variables.md
           - SET:
@@ -650,6 +651,8 @@ nav:
             - JSON_QUOTE(): MatrixOne/Reference/Functions-and-Operators/Json/json_quote.md
             - JSON_UNQUOTE(): MatrixOne/Reference/Functions-and-Operators/Json/json_unquote.md
           - 其他函数:
+            - LOAD_FILE: MatrixOne/Reference/Functions-and-Operators/Other/load_file.md
+            - SAVE_FILE: MatrixOne/Reference/Functions-and-Operators/Other/save_file.md
             - SAMPLE: MatrixOne/Reference/Functions-and-Operators/Other/sample.md
             - SERIAL_EXTRACT: MatrixOne/Reference/Functions-and-Operators/Other/serial_extract.md
             - SLEEP: MatrixOne/Reference/Functions-and-Operators/Other/sleep.md

@@ -7,37 +7,45 @@
 - 场景一：数据文件与 MatrixOne 服务器在同一台机器上：
 
 ```
-LOAD DATA
-INFILE 'file_name'
-INTO TABLE tbl_name
-[{FIELDS | COLUMNS}
-[TERMINATED BY 'string']
-[[OPTIONALLY] ENCLOSED BY 'char']
-]
-[LINES
-[STARTING BY 'string']
-[TERMINATED BY 'string']
-]
-[IGNORE number {LINES | ROWS}]
-[PARALLEL {'TRUE' | 'FALSE'}]
+> LOAD DATA 
+    INFILE '<file_name>|<stage://stage_name/filepath>'
+    INTO TABLE tbl_name
+    [CHARACTER SET charset_name]
+    [{FIELDS | COLUMNS}
+        [TERMINATED BY 'string']
+        [[OPTIONALLY] ENCLOSED BY 'char']
+        [ENCASPED BY 'char']
+    ]
+    [LINES
+        [STARTING BY 'string']
+        [TERMINATED BY 'string']
+    ]
+    [IGNORE number {LINES | ROWS}]
+    [SET column_name_1=nullif(column_name_1, expr1), column_name_2=nullif(column_name_2, expr2)...]
+    [PARALLEL {'TRUE' | 'FALSE'}]
+    [STRICT {'TRUE' | 'FALSE'}]
 ```
 
 - 场景二：数据文件与 MatrixOne 服务器在不同的机器上：
 
 ```
-LOAD DATA LOCAL
-INFILE 'file_name'
-INTO TABLE tbl_name
-[{FIELDS | COLUMNS}
-[TERMINATED BY 'string']
-[[OPTIONALLY] ENCLOSED BY 'char']
-]
-[LINES
-[STARTING BY 'string']
-[TERMINATED BY 'string']
-]
-[IGNORE number {LINES | ROWS}]
-[PARALLEL {'TRUE' | 'FALSE'}]
+> LOAD DATA LOCAL
+    INFILE '<file_name>|<stage://stage_name/filepath>'
+    INTO TABLE tbl_name
+    [CHARACTER SET charset_name]
+    [{FIELDS | COLUMNS}
+        [TERMINATED BY 'string']
+        [[OPTIONALLY] ENCLOSED BY 'char']
+        [ENCASPED BY 'char']
+    ]
+    [LINES
+        [STARTING BY 'string']
+        [TERMINATED BY 'string']
+    ]
+    [IGNORE number {LINES | ROWS}]
+    [SET column_name_1=nullif(column_name_1, expr1), column_name_2=nullif(column_name_2, expr2)...]
+    [PARALLEL {'TRUE' | 'FALSE'}]
+    [STRICT {'TRUE' | 'FALSE'}]
 ```
 
 ## 开始前准备

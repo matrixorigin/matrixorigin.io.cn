@@ -7,15 +7,15 @@ MatrixOne 支持以下两种方式导出数据：
 
 本篇文档主要介绍如何使用 `SELECT INTO...OUTFILE` 导出数据。
 
-使用 `SELECT...INTO OUTFILE` 语法可以将表数据导出到主机上的文本文件中。
+使用 `SELECT...INTO OUTFILE` 语法可以将表数据导出到主机上的文本文件或者 stage 中。
 
 ## 语法结构
 
-`SELECT...INTO OUTFILE` 语法是 `SELECT` 语法和 `INTO OUTFILE filename` 的结合。默认输出格式与 `LOAD DATA` 命令相同。因此，以下语句是将名称为 **test** 的表导出到目录路径为 **/root/test** 的*. csv* 文件中。
+`SELECT...INTO OUTFILE` 语法是 `SELECT` 语法和 `INTO OUTFILE filename` 的结合。默认输出格式与 `LOAD DATA` 命令相同。
 
 ```
-mysql> SELECT * FROM TEST
-    -> INTO OUTFILE '/root/test.csv';
+mysql> SELECT * FROM <table_name>
+    -> INTO OUTFILE '<filepath>|<stage://stage_name>';
 ```
 
 你可以采用多种形式和选项更改输出格式，用于表示如何引用、分隔列和记录。
@@ -70,7 +70,11 @@ sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}
     +------+-----------+------+
     ```
 
-2. 对于使用源代码或二进制文件的方式安装构建 MatrixOne，将表导出到本地目录，例如 *~/tmp/export_demo/export_datatable.txt*，命令示例如下：
+2. 数据导出
+
+   - 导出到本地
+  
+   对于使用源代码或二进制文件的方式安装构建 MatrixOne，将表导出到本地目录，例如 *~/tmp/export_demo/export_datatable.txt*，命令示例如下：
 
     ```
     select * from user into outfile '~/tmp/export_demo/export_datatable.txt'
@@ -82,9 +86,29 @@ sudo docker run --name <name> --privileged -d -p 6001:6001 -v ${local_data_path}
     select * from user into outfile 'mo-data/export_datatable.txt';
     ```
 
-3. 到你本地 *export_datatable.txt* 文件下查看导出情况：
+    - 导出到 satge
 
+    ```sql
+    create stage stage_fs url = 'file:///Users/admin/test';
+    select * from user into outfile 'stage://stage_fs/user.csv';
     ```
+  
+3. 查看导出情况：
+
+    - 导出到本地
+  
+    ```
+    (base) admin@192 test % cat export_datatable.txt 
+    id,user_name,sex
+    1,"weder","man"
+    2,"tom","man"
+    3,"wederTom","man"
+    ```
+
+    - 导出到 stage
+  
+    ```bash
+    (base) admin@192 test % cat user.csv 
     id,user_name,sex
     1,"weder","man"
     2,"tom","man"
