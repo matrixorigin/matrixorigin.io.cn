@@ -355,6 +355,7 @@ nav:
           - DROP VIEW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-view.md
           - DROP FUNCTION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-function.md
           - TRUNCATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/truncate-table.md
+          - RENAME TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/rename-table.md
           - RESTORE ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/restore-account.md
         - 数据修改语言（DML）:
           - INSERT: MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/insert.md
