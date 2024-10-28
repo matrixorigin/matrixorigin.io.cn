@@ -20,12 +20,12 @@
 
 ## MatrixOne 对快照的支持
 
-MatrixOne 支持以下两种方式进行租户级别的快照备份恢复：
+MatrixOne 支持以下两种方式进行快照备份恢复：
 
 - sql 语句
 - mo_br 工具
 
-本篇文档主要介绍如何使用 `mo_br` 进行租户级别快照备份恢复。
+本篇文档主要介绍如何使用 `mo_br` 进行集群/租户级别的快照备份恢复。
 
 !!! note
     mo_br 企业级服务的备份与恢复工具，你需要联系你的 MatrixOne 客户经理，获取工具下载路径。
@@ -58,7 +58,7 @@ mysql> select count(*) from snapshot_read.test_snapshot_read;
 
 - 创建快照
 
-```
+```bash
 ./mo_br snapshot create --host "127.0.0.1" --port 6001 --user "dump" --password "111" --level "account" --sname "sp_01" --account "sys" 
 
 ./mo_br snapshot show --host "127.0.0.1" --port 6001 --user "dump" --password "111" --account "sys"
@@ -81,7 +81,7 @@ mysql> select count(*) from snapshot_read.test_snapshot_read;
 
 - 表级别恢复到本租户
 
-```
+```bash
 ./mo_br snapshot restore --host "127.0.0.1" --port 6001 --user "dump" --password "111" --account "sys" --db "snapshot_read" --table "test_snapshot_read" --sname "sp_01"
 ```
 
@@ -127,7 +127,7 @@ mysql> select count(*) from snapshot_read.test_snapshot_read_1;
 
 - 创建快照
 
-```
+```bash
 ./mo_br snapshot create --host "127.0.0.1" --port 6001 --user "dump" --password "111" --level "account" --sname "sp_02" --account "sys"
 
 ./mo_br snapshot show --host "127.0.0.1" --port 6001 --user "dump" --password "111" --account "sys"
@@ -160,7 +160,7 @@ mysql> select count(*) from snapshot_read.test_snapshot_read_1;
 
 - 数据库级别恢复到本租户
 
-```
+```bash
 ./mo_br snapshot restore --host "127.0.0.1" --port 6001 --user "dump" --password "111" --account "sys" --db "snapshot_read" --sname "sp_02"
 ```
 
@@ -209,16 +209,6 @@ mysql> show databases;
 8 rows in set (0.00 sec)
 ```
 
-- 创建快照
-
-```
-./mo_br snapshot create --host "127.0.0.1" --port 6001 --user "dump" --password "111" --level "account" --sname "sp_03" --account "sys"
-
-./mo_br snapshot show --host "127.0.0.1" --port 6001 --user "dump" --password "111"
-SNAPSHOT NAME	        TIMESTAMP         	SNAPSHOT LEVEL	ACCOUNT NAME	DATABASE NAME	TABLE NAME 
-sp_03        	2024-05-11 03:20:16.065685	account       	sys           	             	          	          	          	
-```
-
 - 连接 Matrixone 系统租户删除数据库
 
 ```sql
@@ -241,13 +231,13 @@ mysql> show databases;
 
 - 租户级别恢复到本租户
 
-```
+```bash
 ./mo_br snapshot restore --host "127.0.0.1" --port 6001 --user "dump" --password "111" --account "sys" --sname "sp_03"
 ```
 
 - 租户级别恢复到新租户
 
-```
+```bash
 ./mo_br snapshot restore --host "127.0.0.1" --port 6001 --user "dump" --password "111" --account "sys" --sname "sp_03" --new_account "acc2" --new_admin_name "admin" --new_admin_password "111";
 ```
 
@@ -285,4 +275,76 @@ mysql> show databases;
 | system_metrics     |
 +--------------------+
 6 rows in set (0.00 sec)
+```
+
+## 示例 4 集群级别恢复
+
+```sql
+--在租户 acc1,acc2 下执行
+create database db1;
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| db1                |
+| information_schema |
+| mo_catalog         |
+| mysql              |
+| system             |
+| system_metrics     |
++--------------------+
+6 rows in set (0.01 sec)
+```
+
+- 创建快照
+
+```bash
+./mo_br snapshot create --host "127.0.0.1" --port 6001 --user "root" --password "111" --level "cluster" --sname "cluster_sp1"
+
+(base) admin@192 mo-backup % ./mo_br snapshot show --host "127.0.0.1" --port 6001 --user "dump" --password "111" --cluster "sys"
+SNAPSHOT NAME	        TIMESTAMP         	SNAPSHOT LEVEL	ACCOUNT NAME	DATABASE NAME	TABLE NAME 
+cluster_sp1  	2024-10-14 03:52:55.657359	cluster        	             	          	          	          	
+```
+
+- 连接 Matrixone 系统租户删除数据库
+
+```sql
+--在租户 acc1,acc2 下执行
+drop database db1;
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mo_catalog         |
+| mysql              |
+| system             |
+| system_metrics     |
++--------------------+
+5 rows in set (0.01 sec)
+```
+
+- 恢复
+  
+```bash
+./mo_br snapshot restore --host "127.0.0.1" --port 6001 --user "root" --password "111"  --sname "cluster_sp1"
+```
+
+- 连接租户 acc1,acc2 查询恢复情况
+
+```sql
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| db1                |
+| information_schema |
+| mo_catalog         |
+| mysql              |
+| system             |
+| system_metrics     |
++--------------------+
+6 rows in set (0.01 sec)
 ```

@@ -81,17 +81,21 @@ MatrixOne 支持使用 `LOAD DATA` 命令将大量行插入数据库表，也支
 
 #### 使用 `mo_br` 备份与恢复
 
-MatrixOne 支持使用 `mo_br` 工具进行常规物理备份和快照备份。
+MatrixOne 支持使用 `mo_br` 工具进行常规物理备份、快照备份和 PITR 备份。
 
 操作步骤及示例，参见 [`mo-br 使用指南`](../backup-restore/mobr-backup-restore/mobr.md)
 
 #### 使用 SQL 备份与恢复
 
-MatrixOne 支持使用 SQL 进行快照备份与恢复。
+MatrixOne 支持使用 SQL 进行快照、PITR 备份与恢复。
 
-有关使用 SQL 进行快照备份与恢复的方法，请参考文档：
+有关使用 SQL 进行快照、PITR 备份与恢复的方法，请参考文档：
 
 - [CREATE SNAPSHOT](../../Reference/SQL-Reference/Data-Definition-Language/create-snapshot.md)
 - [DROP SNAPSHOT](../../Reference/SQL-Reference/Data-Definition-Language/drop-snapshot.md)
 - [SHOW SNAPSHOTS](../../Reference/SQL-Reference/Data-Definition-Language/create-snapshot.md)
-- [RESTORE ACCOUNT](../../Reference/SQL-Reference/Data-Definition-Language/restore-account.md)
+- [RESTORE ... FROM SNAPSHOT](../../Reference/SQL-Reference/Data-Definition-Language/restore-snapshot.md)
+- [CREATE PITR](../../Reference/SQL-Reference/Data-Definition-Language/create-pitr.md)
+- [DROP PITR](../../Reference/SQL-Reference/Data-Definition-Language/drop-pitr.md)
+- [SHOW PITR](../../Reference/SQL-Reference/Data-Definition-Language/create-pitr.md)
+- [RESTORE ... FROM PITR](../../Reference/SQL-Reference/Data-Definition-Language/restore-pitr.md)

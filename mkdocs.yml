@@ -244,7 +244,8 @@ nav:
         - mo_br 备份与恢复:
           - mo_br 使用指南: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr.md
           - mo_br 常规物理备份恢复: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-physical-backup-restore.md
-          - mo_br 快照备份恢复: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-snapshot-backup-restore.md
+          - mo_br snapshot: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-snapshot-backup-restore.md
+          - mo_br pitr: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-pitr-backup-restore.md
       - 数据挂载:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:
@@ -328,6 +329,7 @@ nav:
           - CREATE TABLE ... LIKE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table-like.md         
           - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-external-table.md
           - CREATE CLUSTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-cluster-table.md
+          - CREATE PITR: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-pitr.md
           - CREATE PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-publication.md
           - CREATE SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-sequence.md
           - CREATE STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-stage.md
@@ -341,6 +343,7 @@ nav:
           - CREATE SNAPSHOT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-snapshot.md
           - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
           - ALTER TABLE ... ALTER REINDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-reindex.md
+          - ALTER PITR: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-pitr.md
           - ALTER PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-publication.md
           - ALTER SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-sequence.md
           - ALTER STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-stage.md
@@ -348,6 +351,7 @@ nav:
           - DROP DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-database.md
           - DROP INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-index.md
           - DROP TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-table.md
+          - DROP PITR: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-pitr.md
           - DROP PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-publication.md
           - DROP SEQUENCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-sequence.md
           - DROP STAGE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-stage.md
@@ -423,6 +427,7 @@ nav:
             - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-grants.md
             - SHOW PROCESSLIST: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-processlist.md
             - SHOW PUBLICATIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-publications.md
+            - SHOW PITRS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-pitrs.md
             - SHOW ROLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-roles.md
             - SHOW SEQUENCES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-sequences.md
             - SHOW SNAPSHOTS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-snapshots.md
