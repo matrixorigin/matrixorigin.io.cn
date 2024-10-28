@@ -178,9 +178,25 @@ MatrixOne 系统数据库和表是 MatrixOne 存储系统信息的地方，你�
 | table_list    | TEXT(0)             | 在非 all table 时，发布库内包含的表清单，表名与 database_id 对应数据库下的表一一对应|
 | account_list  | TEXT(0)             |在非 all account 时，允许订阅该发布库的 account 清单|
 | created_time  | TIMESTAMP(0)        |创建发布库的时间   |
+| updated_time  | TIMESTAMP(0)        |更新发布库的时间   |
 | owner         | INT UNSIGNED(32)    | 创建发布库对应的角色 ID |
 | creator       | INT UNSIGNED(32)    |  创建发布库对应的用户 ID  |
 | comment       | TEXT(0)             | 创建发布库的备注信息  |
+
+### `mo_subs` 表
+
+| 列属性                | 类型             | 描述               |
+| ---------------------| --------------- | ----------------- |
+| sub_account_id       | INT(32)         | 订阅租户 id|
+| sub_name             | VARCHAR(5000)   | 订阅名 |
+| sub_time             | TIMESTAMP(0)    | 订阅时间  |
+| pub_account_name     |VARCHAR(300)     | 发布租户的名称 |
+| pub_name             | VARCHAR(64)     | 发布名称|
+| pub_database         | VARCHAR(5000)   |发布的数据库|
+| pub_tables           | TEXT(0)          |发布的表   |
+| pub_time             | TIMESTAMP(0)     | 发布的时间 |
+| pub_comment          | TEXT(0)          | 来自发布库的备注信息  |
+| status               | TINYINT(8)       | 订阅状态，0 是正常订阅，1 是发布存在，但无订阅权限，2 是本来订阅了发布，但是又删除了发布 |
 
 ### `mo_stages` 表
 
