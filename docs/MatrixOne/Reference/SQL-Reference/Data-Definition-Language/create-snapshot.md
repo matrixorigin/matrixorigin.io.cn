@@ -2,45 +2,59 @@
 
 ## 语法说明
 
-`CREATE SNAPSHOT` 命令用于创建快照。系统租户可以给自己也可以给普通租户创建快照，但是普通租户只能给自己创建快照。租户创建的快照仅本租户可见。
+`CREATE SNAPSHOT` 命令用于创建数据库的快照。集群管理员可以创建集群级别或租户级别的快照，而普通租户管理员则可以为当前租户创建租户级别的快照。每个快照仅对创建该快照的租户可见，确保了数据的隔离性和安全性。
 
 ## 语法结构
 
 ```sql
-> CREATE SNAPSHOT snapshot_name FOR ACCOUNT account_name
+create snapshot <snapshot_name> for [cluster]|[account <account_name>]
 ```
 
 ## 示例
 
+**示例 1：集群管理员为集群创建集群快照**
+
 ```sql
---在系统租户 sys 下执行
-create snapshot sp1 for account sys;
-create snapshot sp2 for account acc1;
+create snapshot cluster_sp for cluster;
+mysql> show snapshots;
++---------------+----------------------------+----------------+--------------+---------------+------------+
+| SNAPSHOT_NAME | TIMESTAMP                  | SNAPSHOT_LEVEL | ACCOUNT_NAME | DATABASE_NAME | TABLE_NAME |
++---------------+----------------------------+----------------+--------------+---------------+------------+
+| cluster_sp    | 2024-10-10 10:40:14.487655 | cluster        |              |               |            |
++---------------+----------------------------+----------------+--------------+---------------+------------+
+1 row in set (0.00 sec)
+```
+
+**示例 2：集群管理员为租户创建租户快照**
+
+```sql
+mysql> create snapshot account_sp1 for account acc1;
+mysql> show snapshots;
++---------------+----------------------------+----------------+--------------+---------------+------------+
+| SNAPSHOT_NAME | TIMESTAMP                  | SNAPSHOT_LEVEL | ACCOUNT_NAME | DATABASE_NAME | TABLE_NAME |
++---------------+----------------------------+----------------+--------------+---------------+------------+
+| account_sp1   | 2024-10-10 10:58:53.946829 | account        | acc1         |               |            |
++---------------+----------------------------+----------------+--------------+---------------+------------+
+1 row in set (0.00 sec)
+```
+
+**示例 3：普通租户管理员为租户创建租户快照**
+
+```sql
+create snapshot account_sp2 for account acc1;
+
+mysql> create snapshot account_sp2 for account acc2;
+ERROR 20101 (HY000): internal error: only sys tenant can create tenant level snapshot for other tenant--租户管理员只能为本租户创建快照
 
 mysql> show snapshots;
 +---------------+----------------------------+----------------+--------------+---------------+------------+
 | SNAPSHOT_NAME | TIMESTAMP                  | SNAPSHOT_LEVEL | ACCOUNT_NAME | DATABASE_NAME | TABLE_NAME |
 +---------------+----------------------------+----------------+--------------+---------------+------------+
-| sp2           | 2024-05-10 09:49:08.925908 | account        | acc1         |               |            |
-| sp1           | 2024-05-10 09:48:50.271707 | account        | sys          |               |            |
-+---------------+----------------------------+----------------+--------------+---------------+------------+
-2 rows in set (0.00 sec)
-
---在租户 acc1 下执行
-mysql> create snapshot sp3 for account acc2;--普通租户只能为自己建立快照
-ERROR 20101 (HY000): internal error: only sys tenant can create tenant level snapshot for other tenant
-
-create snapshot sp3 for account acc1;
-
-mysql> show snapshots;
-+---------------+----------------------------+----------------+--------------+---------------+------------+
-| SNAPSHOT_NAME | TIMESTAMP                  | SNAPSHOT_LEVEL | ACCOUNT_NAME | DATABASE_NAME | TABLE_NAME |
-+---------------+----------------------------+----------------+--------------+---------------+------------+
-| sp3           | 2024-05-10 09:53:09.948762 | account        | acc1         |               |            |
+| account_sp2   | 2024-10-10 11:19:12.699093 | account        | acc1         |               |            |
 +---------------+----------------------------+----------------+--------------+---------------+------------+
 1 row in set (0.00 sec)
 ```
 
 ## 限制
 
-- 目前只支持创建租户级别的快照，不支持创建集群级别、数据库级别和表级别的快照。
+- 目前只支持创建集群和租户级别的快照，不支持创建数据库级别和表级别的快照。
