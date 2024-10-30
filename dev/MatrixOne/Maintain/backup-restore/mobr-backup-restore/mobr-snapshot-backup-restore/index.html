@@ -12,14 +12,14 @@
         <link rel="prev" href="../mobr-physical-backup-restore/">
       
       
-        <link rel="next" href="../../../mount-data-by-docker/">
+        <link rel="next" href="../mobr-pitr-backup-restore/">
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.21">
     
     
       
-        <title>mo_br 快照备份恢复 - MatrixOne 中文文档</title>
+        <title>mo_br snapshot - MatrixOne 中文文档</title>
       
     
     
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              mo_br 快照备份恢复
+              mo_br snapshot
             
           </span>
         </div>
@@ -3961,12 +3961,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          mo_br 快照备份恢复
+          mo_br snapshot
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        mo_br 快照备份恢复
+        mo_br snapshot
       </a>
       
         
@@ -4040,6 +4040,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    示例 4 集群级别恢复
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4049,8 +4056,36 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mobr-pitr-backup-restore/" class="md-nav__link">
+        mo_br pitr
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../active-standby/" class="md-nav__link">
+        MatrixOne 主备容灾
+      </a>
     </li>
   
 
@@ -4079,12 +4114,74 @@
       
       
         <label class="md-nav__link" for="__nav_1_6_2" id="__nav_1_6_2_label" tabindex="0">
-          数据挂载
+          数据变更捕获
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_6_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据变更捕获
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cdc/mocdc/" class="md-nav__link">
+        mo_cdc 使用指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cdc/mo-mysql/" class="md-nav__link">
+        MatrixOne 到 MySQL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6_3" id="__nav_1_6_3_label" tabindex="0">
+          数据挂载
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_6_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_6_3">
           <span class="md-nav__icon md-icon"></span>
           数据挂载
         </label>
@@ -5332,8 +5429,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/json-type/" class="md-nav__link">
-        JSON 数据类型
+      <a href="../../../../Reference/Data-Types/fixed-point-types/" class="md-nav__link">
+        精确数值类型-DECIMAL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Data-Types/vector-type/" class="md-nav__link">
+        向量数据类型
       </a>
     </li>
   
@@ -5360,6 +5471,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/Data-Types/datalink-type/" class="md-nav__link">
+        DATALINK 数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/Data-Types/enum-type/" class="md-nav__link">
         ENUM 类型
       </a>
@@ -5374,36 +5499,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/Data-Types/json-type/" class="md-nav__link">
+        JSON 数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/Data-Types/uuid-type/" class="md-nav__link">
         UUID 数据类型
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/fixed-point-types/" class="md-nav__link">
-        精确数值类型-DECIMAL
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../Reference/Data-Types/vector-type/" class="md-nav__link">
-        向量数据类型
       </a>
     </li>
   
@@ -5603,6 +5714,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/create-pitr/" class="md-nav__link">
+        CREATE PITR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/create-publication/" class="md-nav__link">
         CREATE PUBLICATION
       </a>
@@ -5785,6 +5910,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/alter-pitr/" class="md-nav__link">
+        ALTER PITR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/alter-publication/" class="md-nav__link">
         ALTER PUBLICATION
       </a>
@@ -5871,6 +6010,20 @@
     <li class="md-nav__item">
       <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/drop-table/" class="md-nav__link">
         DROP TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/drop-pitr/" class="md-nav__link">
+        DROP PITR
       </a>
     </li>
   
@@ -5981,8 +6134,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/restore-account/" class="md-nav__link">
-        RESTORE ACCOUNT
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/rename-table/" class="md-nav__link">
+        RENAME TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/restore-pitr/" class="md-nav__link">
+        RESTORE PITR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/restore-snapshot/" class="md-nav__link">
+        RESTORE SNAPSHOT
       </a>
     </li>
   
@@ -7112,6 +7293,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Other/SHOW-Statements/show-pitrs.md" class="md-nav__link">
+        SHOW PITRS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/SQL-Reference/Other/SHOW-Statements/show-roles/" class="md-nav__link">
         SHOW ROLES
       </a>
@@ -7155,7 +7350,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Reference/SQL-Reference/Other/SHOW-Statements/show-stage/" class="md-nav__link">
-        SHOW STAGE
+        SHOW STAGES
       </a>
     </li>
   
@@ -8075,6 +8270,34 @@
     <li class="md-nav__item">
       <a href="../../../../Reference/Operators/operators/cast-functions-and-operators/convert/" class="md-nav__link">
         CONVERT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Operators/operators/cast-functions-and-operators/decode/" class="md-nav__link">
+        DECODE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Operators/operators/cast-functions-and-operators/encode/" class="md-nav__link">
+        ENCODE
       </a>
     </li>
   
@@ -10762,8 +10985,50 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/Json/jq/" class="md-nav__link">
+        JQ()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/Functions-and-Operators/Json/json_extract/" class="md-nav__link">
         JSON_EXTRACT()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/Json/json_extract_float64/" class="md-nav__link">
+        JSON_EXTRACT_FLOAT64()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/Json/json_extract_string/" class="md-nav__link">
+        JSON_EXTRACT_STRING()
       </a>
     </li>
   
@@ -10790,8 +11055,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/Json/json_row/" class="md-nav__link">
+        JSON_ROW()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/Functions-and-Operators/Json/json_unquote/" class="md-nav__link">
         JSON_UNQUOTE()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/Json/try_jq/" class="md-nav__link">
+        TRY_JQ()
       </a>
     </li>
   
@@ -10838,6 +11131,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/Other/load_file/" class="md-nav__link">
+        LOAD_FILE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/Other/save_file/" class="md-nav__link">
+        SAVE_FILE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/Functions-and-Operators/Other/sample/" class="md-nav__link">
         SAMPLE
       </a>
@@ -10868,6 +11189,20 @@
     <li class="md-nav__item">
       <a href="../../../../Reference/Functions-and-Operators/Other/sleep/" class="md-nav__link">
         SLEEP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/Functions-and-Operators/Other/stage_list/" class="md-nav__link">
+        STAGE_LIST
       </a>
     </li>
   
@@ -11505,6 +11840,20 @@
     <li class="md-nav__item">
       <a href="../../../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v24.2.0.0/" class="md-nav__link">
+        v24.2.0.0
       </a>
     </li>
   
@@ -12213,6 +12562,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    示例 4 集群级别恢复
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -12259,12 +12615,12 @@
 </li>
 </ul>
 <h2 id="matrixone">MatrixOne 对快照的支持</h2>
-<p>MatrixOne 支持以下两种方式进行租户级别的快照备份恢复：</p>
+<p>MatrixOne 支持以下两种方式进行快照备份恢复：</p>
 <ul>
 <li>sql 语句</li>
 <li>mo_br 工具</li>
 </ul>
-<p>本篇文档主要介绍如何使用 <code>mo_br</code> 进行租户级别快照备份恢复。</p>
+<p>本篇文档主要介绍如何使用 <code>mo_br</code> 进行集群/租户级别的快照备份恢复。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>mo_br 企业级服务的备份与恢复工具，你需要联系你的 MatrixOne 客户经理，获取工具下载路径。</p>
@@ -12298,11 +12654,11 @@
 <ul>
 <li>创建快照</li>
 </ul>
-<div class="highlight"><pre><span></span><code>./mo_br snapshot create --host &quot;127.0.0.1&quot; --port 6001 --user &quot;dump&quot; --password &quot;111&quot; --level &quot;account&quot; --sname &quot;sp_01&quot; --account &quot;sys&quot; 
+<div class="highlight"><pre><span></span><code>./mo_br<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;dump&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--level<span class="w"> </span><span class="s2">&quot;account&quot;</span><span class="w"> </span>--sname<span class="w"> </span><span class="s2">&quot;sp_01&quot;</span><span class="w"> </span>--account<span class="w"> </span><span class="s2">&quot;sys&quot;</span><span class="w"> </span>
 
-./mo_br snapshot show --host &quot;127.0.0.1&quot; --port 6001 --user &quot;dump&quot; --password &quot;111&quot; --account &quot;sys&quot;
-SNAPSHOT NAME           TIMESTAMP           SNAPSHOT LEVEL  ACCOUNT NAME    DATABASE NAME   TABLE NAME 
-sp_01           2024-05-10 02:06:08.01635   account         sys                                         
+./mo_br<span class="w"> </span>snapshot<span class="w"> </span>show<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;dump&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--account<span class="w"> </span><span class="s2">&quot;sys&quot;</span>
+SNAPSHOT<span class="w"> </span>NAME<span class="w">           </span>TIMESTAMP<span class="w">           </span>SNAPSHOT<span class="w"> </span>LEVEL<span class="w">  </span>ACCOUNT<span class="w"> </span>NAME<span class="w">    </span>DATABASE<span class="w"> </span>NAME<span class="w">   </span>TABLE<span class="w"> </span>NAME<span class="w"> </span>
+sp_01<span class="w">           </span><span class="m">2024</span>-05-10<span class="w"> </span><span class="m">02</span>:06:08.01635<span class="w">   </span>account<span class="w">         </span>sys<span class="w">                                         </span>
 </code></pre></div>
 <ul>
 <li>连接 Matrixone 系统租户按删除表中部分数据。</li>
@@ -12319,7 +12675,7 @@ sp_01           2024-05-10 02:06:08.01635   account         sys
 <ul>
 <li>表级别恢复到本租户</li>
 </ul>
-<div class="highlight"><pre><span></span><code>./mo_br snapshot restore --host &quot;127.0.0.1&quot; --port 6001 --user &quot;dump&quot; --password &quot;111&quot; --account &quot;sys&quot; --db &quot;snapshot_read&quot; --table &quot;test_snapshot_read&quot; --sname &quot;sp_01&quot;
+<div class="highlight"><pre><span></span><code>./mo_br<span class="w"> </span>snapshot<span class="w"> </span>restore<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;dump&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--account<span class="w"> </span><span class="s2">&quot;sys&quot;</span><span class="w"> </span>--db<span class="w"> </span><span class="s2">&quot;snapshot_read&quot;</span><span class="w"> </span>--table<span class="w"> </span><span class="s2">&quot;test_snapshot_read&quot;</span><span class="w"> </span>--sname<span class="w"> </span><span class="s2">&quot;sp_01&quot;</span>
 </code></pre></div>
 <ul>
 <li>连接 Matrixone 系统租户查询恢复情况</li>
@@ -12361,11 +12717,11 @@ sp_01           2024-05-10 02:06:08.01635   account         sys
 <ul>
 <li>创建快照</li>
 </ul>
-<div class="highlight"><pre><span></span><code>./mo_br snapshot create --host &quot;127.0.0.1&quot; --port 6001 --user &quot;dump&quot; --password &quot;111&quot; --level &quot;account&quot; --sname &quot;sp_02&quot; --account &quot;sys&quot;
+<div class="highlight"><pre><span></span><code>./mo_br<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;dump&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--level<span class="w"> </span><span class="s2">&quot;account&quot;</span><span class="w"> </span>--sname<span class="w"> </span><span class="s2">&quot;sp_02&quot;</span><span class="w"> </span>--account<span class="w"> </span><span class="s2">&quot;sys&quot;</span>
 
-./mo_br snapshot show --host &quot;127.0.0.1&quot; --port 6001 --user &quot;dump&quot; --password &quot;111&quot; --account &quot;sys&quot;
-SNAPSHOT NAME           TIMESTAMP           SNAPSHOT LEVEL  ACCOUNT NAME    DATABASE NAME   TABLE NAME 
-sp_02           2024-05-10 02:47:15.638519  account         sys                                         
+./mo_br<span class="w"> </span>snapshot<span class="w"> </span>show<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;dump&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--account<span class="w"> </span><span class="s2">&quot;sys&quot;</span>
+SNAPSHOT<span class="w"> </span>NAME<span class="w">           </span>TIMESTAMP<span class="w">           </span>SNAPSHOT<span class="w"> </span>LEVEL<span class="w">  </span>ACCOUNT<span class="w"> </span>NAME<span class="w">    </span>DATABASE<span class="w"> </span>NAME<span class="w">   </span>TABLE<span class="w"> </span>NAME<span class="w"> </span>
+sp_02<span class="w">           </span><span class="m">2024</span>-05-10<span class="w"> </span><span class="m">02</span>:47:15.638519<span class="w">  </span>account<span class="w">         </span>sys<span class="w">                                         </span>
 </code></pre></div>
 <ul>
 <li>连接 Matrixone 系统租户删除部分数据</li>
@@ -12392,7 +12748,7 @@ sp_02           2024-05-10 02:47:15.638519  account         sys
 <ul>
 <li>数据库级别恢复到本租户</li>
 </ul>
-<div class="highlight"><pre><span></span><code>./mo_br snapshot restore --host &quot;127.0.0.1&quot; --port 6001 --user &quot;dump&quot; --password &quot;111&quot; --account &quot;sys&quot; --db &quot;snapshot_read&quot; --sname &quot;sp_02&quot;
+<div class="highlight"><pre><span></span><code>./mo_br<span class="w"> </span>snapshot<span class="w"> </span>restore<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;dump&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--account<span class="w"> </span><span class="s2">&quot;sys&quot;</span><span class="w"> </span>--db<span class="w"> </span><span class="s2">&quot;snapshot_read&quot;</span><span class="w"> </span>--sname<span class="w"> </span><span class="s2">&quot;sp_02&quot;</span>
 </code></pre></div>
 <ul>
 <li>连接 Matrixone 系统租户查询恢复情况</li>
@@ -12436,15 +12792,6 @@ sp_02           2024-05-10 02:47:15.638519  account         sys
 <span class="mi">8</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <ul>
-<li>创建快照</li>
-</ul>
-<div class="highlight"><pre><span></span><code>./mo_br snapshot create --host &quot;127.0.0.1&quot; --port 6001 --user &quot;dump&quot; --password &quot;111&quot; --level &quot;account&quot; --sname &quot;sp_03&quot; --account &quot;sys&quot;
-
-./mo_br snapshot show --host &quot;127.0.0.1&quot; --port 6001 --user &quot;dump&quot; --password &quot;111&quot;
-SNAPSHOT NAME           TIMESTAMP           SNAPSHOT LEVEL  ACCOUNT NAME    DATABASE NAME   TABLE NAME 
-sp_03           2024-05-11 03:20:16.065685  account         sys                                                                 
-</code></pre></div>
-<ul>
 <li>连接 Matrixone 系统租户删除数据库</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">snapshot_read</span><span class="p">;</span>
@@ -12466,12 +12813,12 @@ sp_03           2024-05-11 03:20:16.065685  account         sys
 <ul>
 <li>租户级别恢复到本租户</li>
 </ul>
-<div class="highlight"><pre><span></span><code>./mo_br snapshot restore --host &quot;127.0.0.1&quot; --port 6001 --user &quot;dump&quot; --password &quot;111&quot; --account &quot;sys&quot; --sname &quot;sp_03&quot;
+<div class="highlight"><pre><span></span><code>./mo_br<span class="w"> </span>snapshot<span class="w"> </span>restore<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;dump&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--account<span class="w"> </span><span class="s2">&quot;sys&quot;</span><span class="w"> </span>--sname<span class="w"> </span><span class="s2">&quot;sp_03&quot;</span>
 </code></pre></div>
 <ul>
 <li>租户级别恢复到新租户</li>
 </ul>
-<div class="highlight"><pre><span></span><code>./mo_br snapshot restore --host &quot;127.0.0.1&quot; --port 6001 --user &quot;dump&quot; --password &quot;111&quot; --account &quot;sys&quot; --sname &quot;sp_03&quot; --new_account &quot;acc2&quot; --new_admin_name &quot;admin&quot; --new_admin_password &quot;111&quot;;
+<div class="highlight"><pre><span></span><code>./mo_br<span class="w"> </span>snapshot<span class="w"> </span>restore<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;dump&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--account<span class="w"> </span><span class="s2">&quot;sys&quot;</span><span class="w"> </span>--sname<span class="w"> </span><span class="s2">&quot;sp_03&quot;</span><span class="w"> </span>--new_account<span class="w"> </span><span class="s2">&quot;acc2&quot;</span><span class="w"> </span>--new_admin_name<span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="w"> </span>--new_admin_password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="p">;</span>
 </code></pre></div>
 <ul>
 <li>连接 Matrixone 系统租户查询恢复情况</li>
@@ -12506,6 +12853,71 @@ sp_03           2024-05-11 03:20:16.065685  account         sys
 <span class="o">|</span><span class="w"> </span><span class="n">system_metrics</span><span class="w">     </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">--------------------+</span>
 <span class="mi">6</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="4">示例 4 集群级别恢复</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">--在租户 acc1,acc2 下执行</span>
+<span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">db1</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">Database</span><span class="w">           </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">db1</span><span class="w">                </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">information_schema</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">mo_catalog</span><span class="w">         </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">mysql</span><span class="w">              </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">system</span><span class="w">             </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">system_metrics</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="mi">6</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>创建快照</li>
+</ul>
+<div class="highlight"><pre><span></span><code>./mo_br<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--level<span class="w"> </span><span class="s2">&quot;cluster&quot;</span><span class="w"> </span>--sname<span class="w"> </span><span class="s2">&quot;cluster_sp1&quot;</span>
+
+<span class="o">(</span>base<span class="o">)</span><span class="w"> </span>admin@192<span class="w"> </span>mo-backup<span class="w"> </span>%<span class="w"> </span>./mo_br<span class="w"> </span>snapshot<span class="w"> </span>show<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;dump&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--cluster<span class="w"> </span><span class="s2">&quot;sys&quot;</span>
+SNAPSHOT<span class="w"> </span>NAME<span class="w">           </span>TIMESTAMP<span class="w">           </span>SNAPSHOT<span class="w"> </span>LEVEL<span class="w">  </span>ACCOUNT<span class="w"> </span>NAME<span class="w">    </span>DATABASE<span class="w"> </span>NAME<span class="w">   </span>TABLE<span class="w"> </span>NAME<span class="w"> </span>
+cluster_sp1<span class="w">     </span><span class="m">2024</span>-10-14<span class="w"> </span><span class="m">03</span>:52:55.657359<span class="w">  </span>cluster<span class="w">                                                             </span>
+</code></pre></div>
+<ul>
+<li>连接 Matrixone 系统租户删除数据库</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">--在租户 acc1,acc2 下执行</span>
+<span class="k">drop</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">db1</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">Database</span><span class="w">           </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">information_schema</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">mo_catalog</span><span class="w">         </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">mysql</span><span class="w">              </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">system</span><span class="w">             </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">system_metrics</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>恢复</li>
+</ul>
+<div class="highlight"><pre><span></span><code>./mo_br<span class="w"> </span>snapshot<span class="w"> </span>restore<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w">  </span>--sname<span class="w"> </span><span class="s2">&quot;cluster_sp1&quot;</span>
+</code></pre></div>
+<ul>
+<li>连接租户 acc1,acc2 查询恢复情况</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">Database</span><span class="w">           </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">db1</span><span class="w">                </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">information_schema</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">mo_catalog</span><span class="w">         </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">mysql</span><span class="w">              </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">system</span><span class="w">             </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">system_metrics</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="mi">6</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -12544,13 +12956,13 @@ sp_03           2024-05-11 03:20:16.065685  account         sys
         
         
           
-          <a href="../../../mount-data-by-docker/" class="md-footer__link md-footer__link--next" aria-label="Next: 挂载目录到 Docker 容器" rel="next">
+          <a href="../mobr-pitr-backup-restore/" class="md-footer__link md-footer__link--next" aria-label="Next: mo_br pitr" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                挂载目录到 Docker 容器
+                mo_br pitr
               </div>
             </div>
             <div class="md-footer__button md-icon">
