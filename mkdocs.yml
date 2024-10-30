@@ -246,6 +246,10 @@ nav:
           - mo_br 常规物理备份恢复: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-physical-backup-restore.md
           - mo_br snapshot: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-snapshot-backup-restore.md
           - mo_br pitr: MatrixOne/Maintain/backup-restore/mobr-backup-restore/mobr-pitr-backup-restore.md
+        - MatrixOne 主备容灾: MatrixOne/Maintain/backup-restore/active-standby.md
+      - 数据变更捕获:
+          - mo_cdc 使用指南: MatrixOne/Maintain/cdc/mocdc.md
+          - MatrixOne 到 MySQL: MatrixOne/Maintain/cdc/mo-mysql.md
       - 数据挂载:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:
