@@ -12,8 +12,11 @@
 - [CREATE INDEX](Data-Definition-Language/create-index.md)
 - [CREATE TABLE](Data-Definition-Language/create-table.md)
 - [CREATE EXTERNAL TABLE](Data-Definition-Language/create-external-table.md)
+- [CREATE FUNCTION](Data-Definition-Language/create-function-sql.md)
+- [CREATE PITR](Data-Definition-Language/create-pitr.md)
 - [CREATE PUBLICATION](Data-Definition-Language/create-publication.md)
 - [CREATE SEQUENCE](Data-Definition-Language/create-sequence.md)
+- [CREATE SNAPSHOT](Data-Definition-Language/create-snapshot.md)
 - [CREATE STAGE](Data-Definition-Language/create-stage.md)
 - [CREATE...FROM...PUBLICATION...](Data-Definition-Language/create-subscription.md)
 - [CREATE VIEW](Data-Definition-Language/create-view.md)
@@ -22,8 +25,11 @@
 
 - [DROP INDEX](Data-Definition-Language/drop-index.md)
 - [DROP TABLE](Data-Definition-Language/drop-table.md)
+- [DROP FUNCTION](Data-Definition-Language/drop-function.md)
+- [DROP PITR](Data-Definition-Language/drop-pitr.md)
 - [DROP PUBLICATION](Data-Definition-Language/drop-publication.md)
 - [DROP SEQUENCE](Data-Definition-Language/drop-sequence.md)
+- [DROP SNAPSHOT](Data-Definition-Language/drop-snapshot.md)
 - [DROP STAGE](Data-Definition-Language/drop-stage.md)
 - [DROP VIEW](Data-Definition-Language/drop-view.md)
 
@@ -31,12 +37,27 @@
 
 - [ALTER TABLE](Data-Definition-Language/alter-table.md)
 - [ALTER PUBLICATION](Data-Definition-Language/alter-publication.md)
+- [ALTER PITR](Data-Definition-Language/alter-pitr.md)
+- [ALTER REINDEX](Data-Definition-Language/alter-reindex.md)
+- [ALTER SEQUENCE](Data-Definition-Language/alter-sequence.md)
 - [ALTER STAGE](Data-Definition-Language/alter-stage.md)
 - [ALTER VIEW](Data-Definition-Language/alter-view.md)
 
 ### TRUNCATE 语句，清空表中的数据
 
 - [TRUNCATE TABLE](Data-Definition-Language/truncate-table.md)
+
+
+### RENAME 语句
+
+- [RENAME TABLE](Data-Definition-Language/rename-table.md)
+
+
+### RESTORE 语句
+
+- [RESTORE SNAPSHOT](Data-Definition-Language/restore-snapshot.md)
+- [RESTORE PITR](Data-Definition-Language/restore-pitr.md)
+
 
 ## **DML - 数据修改语言**
 
@@ -190,8 +211,10 @@ START TRANSACTION;
 - [SHOW GRANT](Other/SHOW-Statements/show-grants.md)
 - [SHOW PROCESSLIST](Other/SHOW-Statements/show-processlist.md)
 - [SHOW PUBLICATIONS](Other/SHOW-Statements/show-publications.md)
+- [SHOW PITRS](Other/SHOW-Statements/show-pitrs.md)
 - [SHOW ROLES](Other/SHOW-Statements/show-roles.md)
 - [SHOW SEQUENCES](Other/SHOW-Statements/show-sequences.md)
+- [SHOW SNAPSHOT](Other/SHOW-Statements/show-snapshot.md)
 - [SHOW STAGE](Other/SHOW-Statements/show-stage.md)
 - [SHOW SUBSCRIPTIONS](Other/SHOW-Statements/show-subscriptions.md)
 - [SHOW VARIABLES](Other/SHOW-Statements/show-variables.md)
