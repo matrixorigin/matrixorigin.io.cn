@@ -486,6 +486,8 @@ nav:
               - BINARY: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/binary.md
               - CAST: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/cast.md
               - CONVERT: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/convert.md
+              - DECODE: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/decode.md
+              - ENCODE: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/encode.md
               - SERIAL: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/serial.md
               - SERIAL_FULL: MatrixOne/Reference/Operators/operators/cast-functions-and-operators/serial_full.md
             - 比较函数和运算符:
@@ -658,11 +660,14 @@ nav:
             - RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/rank.md
             - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
           - JSON 函数: 
+            - JQ(): MatrixOne/Reference/Functions-and-Operators/Json/jq.md
             - JSON_EXTRACT(): MatrixOne/Reference/Functions-and-Operators/Json/json_extract.md
             - JSON_EXTRACT_FLOAT64(): MatrixOne/Reference/Functions-and-Operators/Json/json_extract_float64.md
             - JSON_EXTRACT_STRING(): MatrixOne/Reference/Functions-and-Operators/Json/json_extract_string.md
             - JSON_QUOTE(): MatrixOne/Reference/Functions-and-Operators/Json/json_quote.md
+            - JSON_ROW(): MatrixOne/Reference/Functions-and-Operators/Json/json_row.md
             - JSON_UNQUOTE(): MatrixOne/Reference/Functions-and-Operators/Json/json_unquote.md
+            - TRY_JQ(): MatrixOne/Reference/Functions-and-Operators/Json/try_jq.md
           - 其他函数:
             - LOAD_FILE: MatrixOne/Reference/Functions-and-Operators/Other/load_file.md
             - SAVE_FILE: MatrixOne/Reference/Functions-and-Operators/Other/save_file.md
