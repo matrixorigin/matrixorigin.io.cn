@@ -45,17 +45,30 @@ Use "mo_br [command] --help" for more information about a command.
 #### 语法结构
 
 ```
-mo_cdc task create
-    --task-name 同步任务名称.
-    --source-uri 源端(mo)连接串
-    --sink-type 下游类型
-    --sink-uri 下游标识资源
-    --tables 需要同步的表名
-    --level cluster|account 选定同步的表的范围，集群/租户，
-	    1.3只支持account. 指定cluster报错。
-	    1.3可以不需要此参数，因为1.3只做租户级别
-    --account 同步的租户，当level为 account 时需指定
-    --no-full 可选，默认开启全量，添加此参数表示全量关闭
+mo_br backup
+    --host
+    --port 
+    --user 
+    --password 
+    --backup_dir s3|filesystem 
+        //s3 oss minio
+            --endpoint
+            --access_key_id 
+            --secret_access_key 
+            --bucket 
+            --filepath
+            --region 
+            --compression 
+            --role_arn 
+            --is_minio
+            --parallelism 
+        //filesystem
+            --path
+            --parallelism
+    --meta_path 
+    //增量备份需要
+    --backup_type
+    --base_id
 ```
 
 **参数说明**
