@@ -200,7 +200,7 @@ MatrixOne 的完整函数列表可以参见[该函数总表](../Reference/Functi
 | 物理备份恢复 | Y，仅支持 mobackup 工具                |
 | 快照备份恢复 | Y，支持 mobackup 工具 和 SQL               |
 | PITR       | Y，支持 mobackup 工具 和 SQL               |
-| CDC 同步     | Y，仅支持 matrixone到mysql，支持mo_cdc工具                               |
+| CDC 同步     | Y，仅支持 matrixone 到 mysql，支持 mo_cdc 工具                               |
 | 主备容灾 | Y，仅支持冷备               |
 
 ## 管理工具

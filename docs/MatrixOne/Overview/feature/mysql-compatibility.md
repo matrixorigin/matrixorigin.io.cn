@@ -130,7 +130,7 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 * TIMESTAMP: MySQL 的最大取值范围是 `'1970-01-01 00:00:01.000000'` UTC 到 `'2038-01-19 03:14:07.999999'` UTC，MatrixOne 的最大范围 `'0001-01-01 00:00:00'` UTC 到 `'9999-12-31 23:59:59'` UTC。
 * MatrixOne 支持 UUID 类型。
 * MatrixOne 支持向量类型。
-*  MatrixOne 支持 DATALINK 类型。
+* MatrixOne 支持 DATALINK 类型。
 * 不支持空间 Spatial 类型。
 * 不支持 SET 类型。
 * 不支持 MEDIUMINT 类型。

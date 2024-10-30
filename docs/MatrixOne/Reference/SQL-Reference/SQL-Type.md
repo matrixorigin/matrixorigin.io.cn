@@ -47,17 +47,14 @@
 
 - [TRUNCATE TABLE](Data-Definition-Language/truncate-table.md)
 
-
 ### RENAME 语句
 
 - [RENAME TABLE](Data-Definition-Language/rename-table.md)
-
 
 ### RESTORE 语句
 
 - [RESTORE SNAPSHOT](Data-Definition-Language/restore-snapshot.md)
 - [RESTORE PITR](Data-Definition-Language/restore-pitr.md)
-
 
 ## **DML - 数据修改语言**
 
