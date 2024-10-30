@@ -11,7 +11,7 @@
 | 修改数据库 ALTER DATABASE           | N                                            |
 | 创建表 CREATE TABLE                 | Y                                            |
 | 修改表 ALTER TABLE                  | E    |
-| 修改表名 RENAME TABLE               | N，可用 ALTER TABLE tbl RENAME TO new_tbl 替代 |
+| 修改表名 RENAME TABLE               | Y                                            |
 | 删除表 DROP TABLE                   | Y                                            |
 | 创建约束 CREATE INDEX               | Y                     |
 | 删除约束 DROP INDEX                 | Y                                            |
@@ -199,7 +199,9 @@ MatrixOne 的完整函数列表可以参见[该函数总表](../Reference/Functi
 | 逻辑备份恢复 | Y，仅支持 mo-dump 工具                |
 | 物理备份恢复 | Y，仅支持 mobackup 工具                |
 | 快照备份恢复 | Y，支持 mobackup 工具 和 SQL               |
-| CDC 同步     | N（MatrixOne 作为源端不支持）                                  |
+| PITR       | Y，支持 mobackup 工具 和 SQL               |
+| CDC 同步     | Y，仅支持 matrixone到mysql，支持mo_cdc工具                               |
+| 主备容灾 | Y，仅支持冷备               |
 
 ## 管理工具
 
