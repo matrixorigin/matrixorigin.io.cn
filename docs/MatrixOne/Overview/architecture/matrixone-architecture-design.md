@@ -8,7 +8,7 @@ MatrixOne 是一款超融合异构云原生数据库。
 
 异构云原生是指面向云原生基础设施（K8s 及对象存储），MatrixOne 完全重新设计了一套分布式数据库引擎，可以满足公有云，私有云，边缘云等多种单一云环境及多种跨云环境的部署模式，同时最大程度的利用云原生环境的特点，实现存算分离及线性扩展。在以 K8s 主导的云原生环境中，数据库系统一直以来作为有状态系统都未被很好的统一纳管起来，而是仍然基于物理机或者虚拟机的形式独立部署及运维，根本原因是因为传统的单机/分布式数据库未根据云原生环境进行改造。而 MatrixOne 则是从 0 开始，存储与计算引擎均完全自研，面向云原生环境设计，可以最大程度的利用容器化的软件定义资源以及灵活调配的特点，实现与应用层统一到同一套云原生环境中。同时由于 K8s 本身的跨云能力，MatrixOne 可以无缝兼容各种异构的云及 IaaS 环境，并且灵活实现跨多云和多端的部署。
 
-![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/Release-Notes/release-notes-1.1.0.png)
+![](https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/overview/architecture.png)
 
 ## **MatrixOne 架构层级**
 
