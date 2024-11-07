@@ -140,6 +140,8 @@ nav:
       - 数据去重:
          - COUNT(DISTINCT): MatrixOne/Develop/distinct-data/count-distinct.md
          - BITMAP: MatrixOne/Develop/distinct-data/bitmap.md
+      - 数据集成:
+         - STAGE: MatrixOne/Develop/data-integration/stage-datalink.md
       - 租户设计:
         - 多租户概述: MatrixOne/Develop/Publish-Subscribe/multi-account-overview.md
         - 发布订阅: MatrixOne/Develop/Publish-Subscribe/pub-sub-overview.md
