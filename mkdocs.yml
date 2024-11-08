@@ -434,7 +434,7 @@ nav:
             - SHOW GRANT: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-grants.md
             - SHOW PROCESSLIST: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-processlist.md
             - SHOW PUBLICATIONS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-publications.md
-            - SHOW PITRS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-pitrs.md
+            - SHOW PITR: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-pitr.md
             - SHOW ROLES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-roles.md
             - SHOW SEQUENCES: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-sequences.md
             - SHOW SNAPSHOTS: MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-snapshots.md
