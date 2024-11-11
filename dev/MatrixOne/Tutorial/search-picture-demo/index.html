@@ -2782,56 +2782,21 @@
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    建表
+    建表并开启向量索引
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    加载模型
+    构建应用
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    遍历图片路径
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pic_tab" class="md-nav__link">
-    查看 pic_tab 表中数量
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    建立向量索引
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    以图（文）搜图
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    搜索结果展示
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    查看结果
+    运行结果
   </a>
   
 </li>
@@ -2842,7 +2807,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     参考文档
   </a>
   
@@ -12629,56 +12594,21 @@
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    建表
+    建表并开启向量索引
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    加载模型
+    构建应用
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    遍历图片路径
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pic_tab" class="md-nav__link">
-    查看 pic_tab 表中数量
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    建立向量索引
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    以图（文）搜图
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    搜索结果展示
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    查看结果
+    运行结果
   </a>
   
 </li>
@@ -12689,7 +12619,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     参考文档
   </a>
   
@@ -12726,11 +12656,12 @@
 </div>
 
 <p>可以看到，在构建以图（文）搜图应用中，涉及到对图片的向量化存储和检索，而 MatrixOne 具备向量能力，且提供多种检索方式，这为构建以图（文）搜图应用提供了关键的技术支持。</p>
-<p>在本章节，我们将基于 MatrixOne 的向量能力来构建一个简单的以图（文）搜图的应用。</p>
+<p>在本章节，我们将基于 MatrixOne 的向量能力结合 Streamlit 来构建一个简单的以图（文）搜图的 Web 应用。</p>
 <h2 id="_2">开始前准备</h2>
 <h3 id="_3">相关知识</h3>
 <p><strong>Transformers</strong>：Transformers 是一个开源的自然语言处理库，提供了广泛的预训练模型，通过 Transformers 库，研究人员和开发者可以轻松地使用和集成 CLIP 模型到他们的项目中。</p>
 <p><strong>CLIP</strong>: CLIP 模型是由 OpenAI 发布的一种深度学习模型，核心是通过对比学习的方法来统一处理文本和图像，从而能够通过文本 - 图像相似度来完成图像分类等任务，而无需直接优化任务。它可以结合向量数据库，来构建以图（文）搜图的工具。通过 CLIP 模型提取图像的高维向量表示，以捕获其语义和感知特征，然后将这些图像编码到嵌入空间中。在查询时，样本图像通过相同的 CLIP 编码器来获取其嵌入，执行向量相似性搜索以有效地找到前 k 个最接近的数据库图像向量。</p>
+<p><strong>Streamlit</strong>: 是一个开源的 Python 库，专门用于快速构建交互式和数据驱动的 Web 应用。它的设计目标是简单易用，开发者可以用极少的代码创建互动式的仪表盘和界面，尤其适用于机器学习模型的展示和数据可视化。</p>
 <h3 id="_4">软件安装</h3>
 <p>在你开始之前，确认你已经下载并安装了如下软件：</p>
 <ul>
@@ -12763,152 +12694,171 @@
 </ul>
 <div class="highlight"><pre><span></span><code>pip install pillow 
 </code></pre></div>
+<ul>
+<li>下载安装 <code>streamlit</code> 库。使用下面的代码下载安装 <code>Pillow</code> 库：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>pip install streamlit
+</code></pre></div>
 <h2 id="_5">构建应用</h2>
-<h3 id="_6">建表</h3>
+<h3 id="_6">建表并开启向量索引</h3>
 <p>连接 MatrixOne，建立一个名为 <code>pic_tab</code> 的表来存储图片路径信息和对应的向量信息。</p>
 <div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">pic_tab</span><span class="p">(</span><span class="n">pic_path</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span><span class="w"> </span><span class="n">embedding</span><span class="w"> </span><span class="n">vecf64</span><span class="p">(</span><span class="mi">512</span><span class="p">));</span>
+<span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">experimental_ivf_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">create</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="n">idx_pic</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">ivfflat</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">pic_tab</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span><span class="w"> </span><span class="n">lists</span><span class="o">=</span><span class="mi">3</span><span class="w"> </span><span class="n">op_type</span><span class="w"> </span><span class="ss">&quot;vector_l2_ops&quot;</span>
 </code></pre></div>
-<h3 id="_7">加载模型</h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">CLIPProcessor</span><span class="p">,</span> <span class="n">CLIPModel</span>
+<h3 id="_7">构建应用</h3>
+<p>创建 python 文件 pic_search_example.py，写入以下内容。该脚本主要是利用 CLIP 模型提取图像的高维向量表示，然后存到 MatrixOne 中。在查询时，样本图像通过相同的 CLIP 编码器来获取其嵌入，执行向量相似性搜索以有效地找到前 k 个最接近的数据库图像向量。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">import</span> <span class="nn">pymysql</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">CLIPProcessor</span><span class="p">,</span> <span class="n">CLIPModel</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="c1"># 从 HuggingFace 加载模型</span>
+<span class="c1"># Database connection</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">6001</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;111&quot;</span><span class="p">,</span>
+    <span class="n">db</span><span class="o">=</span><span class="s1">&#39;db1&#39;</span><span class="p">,</span>
+    <span class="n">autocommit</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="c1"># Load model from HuggingFace</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">CLIPModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;openai/clip-vit-base-patch32&quot;</span><span class="p">)</span>
 <span class="n">processor</span> <span class="o">=</span> <span class="n">CLIPProcessor</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;openai/clip-vit-base-patch32&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="_8">遍历图片路径</h3>
-<p>定义方法 <code>find_img_files</code> 遍历本地图片文件夹，这里我预先在本地存了苹果、香蕉、蓝莓、樱桃、杏子五种类别的水果图片，每种类别若干张，格式都为 <code>.jpg</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_img_files</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-    <span class="n">img_files</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># 用于存储找到的.jpg 文件路径</span>
+
+<span class="c1"># Traverse image path</span>
+<span class="k">def</span> <span class="nf">find_img_files</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="n">img_files</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.jpg&#39;</span><span class="p">):</span>
                 <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
-                <span class="n">img_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span> <span class="c1"># 构建完整的文件路径</span>
+                <span class="n">img_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">img_files</span>
-</code></pre></div>
-<ul>
-<li>图像向量化并存入 MatrixOne</li>
-</ul>
-<p>定义方法 <code>storage_img</code> 将图片映射成向量，进行归一化（非必需）并存储到 MatrixOne 里。MatrixOne 支持使用 <code>NORMALIZE_L2()</code> 函数对向量执行 L2 归一化，在某些情况下，数据的特征可能分布在不同的尺度上，这可能会导致某些特征对距离计算有不成比例的影响。通过归一化，可以减少这种影响，使不同特征对最终结果的贡献更加均衡。而在使用 L2 distance 度量时，L2 归一化可以避免不同长度的向量影响距离计算。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pymysql</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-        <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
-        <span class="n">port</span> <span class="o">=</span> <span class="mi">6001</span><span class="p">,</span>
-        <span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
-        <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;111&quot;</span><span class="p">,</span>
-        <span class="n">db</span> <span class="o">=</span> <span class="s1">&#39;db1&#39;</span><span class="p">,</span>
-        <span class="n">autocommit</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="p">)</span>
+<span class="c1"># Map image to vector and store in MatrixOne</span>
+<span class="k">def</span> <span class="nf">storage_img</span><span class="p">(</span><span class="n">jpg_files</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">jpg_files</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">jpg_files</span><span class="p">)):</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;RGBA&#39;</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGBA&#39;</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">processor</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">img_features</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_image_features</span><span class="p">(</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;pixel_values&quot;</span><span class="p">])</span>
+        <span class="n">img_features</span> <span class="o">=</span> <span class="n">img_features</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">embeddings</span> <span class="o">=</span> <span class="n">img_features</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">insert_sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO pic_tab(pic_path, embedding) VALUES (</span><span class="si">%s</span><span class="s2">, normalize_l2(</span><span class="si">%s</span><span class="s2">))&quot;</span>
+        <span class="n">data_to_insert</span> <span class="o">=</span> <span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">embeddings</span><span class="p">))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">insert_sql</span><span class="p">,</span> <span class="n">data_to_insert</span><span class="p">)</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-
-<span class="c1"># 把图像映射成向量，存储在 MatrixOne 中</span>
-<span class="k">def</span> <span class="nf">storage_img</span><span class="p">():</span>
- <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">jpg_files</span><span class="p">:</span>
-     <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-     <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;RGBA&#39;</span><span class="p">:</span>
-         <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGBA&#39;</span><span class="p">)</span>
-     <span class="n">inputs</span> <span class="o">=</span> <span class="n">processor</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-     <span class="n">img_features</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_image_features</span><span class="p">(</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;pixel_values&quot;</span><span class="p">])</span> <span class="c1"># 使用模型获取图像特征</span>
-     <span class="n">img_features</span> <span class="o">=</span> <span class="n">img_features</span> <span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># 分离张量，转换为列表</span>
-     <span class="n">embeddings</span> <span class="o">=</span> <span class="n">img_features</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-     <span class="n">insert_sql</span> <span class="o">=</span> <span class="s2">&quot;insert into pic_tab(pic_path,embedding) values (</span><span class="si">%s</span><span class="s2">, normalize_l2(</span><span class="si">%s</span><span class="s2">))&quot;</span>
-     <span class="n">data_to_insert</span> <span class="o">=</span> <span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">embeddings</span><span class="p">))</span>
-     <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">insert_sql</span><span class="p">,</span> <span class="n">data_to_insert</span><span class="p">)</span>
-     <span class="n">image</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
-<h3 id="pic_tab">查看 <code>pic_tab</code> 表中数量</h3>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pic_tab</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span><span class="w">     </span><span class="mi">4801</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">----------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-</code></pre></div>
-<p>可以看到，数据成功存储到数据库中。</p>
-<h3 id="_9">建立向量索引</h3>
-<p>MatrixOne 支持在 IVF-FLAT 向量索引，在没有索引的情况下，每次搜索都需要重新计算查询图像与数据库中每张图像之间的相似度。而索引可以减少必要的计算量，只对索引中标记为“相关”的图像进行相似度计算。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">create_idx</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SET GLOBAL experimental_ivf_index = 1&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">create_idx</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">create_sql</span> <span class="o">=</span> <span class="s1">&#39;create index idx_pic using ivfflat on pic_tab(embedding) lists=</span><span class="si">%s</span><span class="s1"> op_type &quot;vector_l2_ops&quot;&#39;</span>
     <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">create_sql</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="_10">以图（文）搜图</h3>
-<p>接着，我们定义方法 <code>img_search_img</code> 和 <code>text_search_img</code> 实现以图搜图和以文搜图，MatrixOne 具有向量检索能力，支持多种相似度搜索，在这里我们使用 <code>l2_distance</code> 来检索。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 以图搜图</span>
+
+<span class="c1"># Image-to-image search</span>
 <span class="k">def</span> <span class="nf">img_search_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="n">processor</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
     <span class="n">img_features</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_image_features</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
     <span class="n">img_features</span> <span class="o">=</span> <span class="n">img_features</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="n">img_features</span> <span class="o">=</span> <span class="n">img_features</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">query_sql</span> <span class="o">=</span> <span class="s2">&quot;select pic_path from pic_tab order by l2_distance(embedding,normalize_l2(</span><span class="si">%s</span><span class="s2">)) asc limit </span><span class="si">%s</span><span class="s2">&quot;</span>
+    <span class="n">query_sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT pic_path FROM pic_tab ORDER BY l2_distance(embedding, normalize_l2(</span><span class="si">%s</span><span class="s2">)) ASC LIMIT </span><span class="si">%s</span><span class="s2">&quot;</span>
     <span class="n">data_to_query</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">img_features</span><span class="p">),</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query_sql</span><span class="p">,</span> <span class="n">data_to_query</span><span class="p">)</span>
-    <span class="k">global</span> <span class="n">data</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 
-<span class="c1"># 以文搜图</span>
-<span class="k">def</span> <span class="nf">text_search_img</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+<span class="c1"># Text-to-image search</span>
+<span class="k">def</span> <span class="nf">text_search_img</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="n">processor</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">text_features</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_text_features</span><span class="p">(</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;input_ids&quot;</span><span class="p">],</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;attention_mask&quot;</span><span class="p">])</span>
     <span class="n">embeddings</span> <span class="o">=</span> <span class="n">text_features</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="n">embeddings</span> <span class="o">=</span> <span class="n">embeddings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">query_sql</span> <span class="o">=</span> <span class="s2">&quot;select pic_path from pic_tab order by l2_distance(embedding,normalize_l2(</span><span class="si">%s</span><span class="s2">)) asc limit </span><span class="si">%s</span><span class="s2">&quot;</span>
-    <span class="n">data_to_query</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">embeddings</span><span class="p">),</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">query_sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT pic_path FROM pic_tab ORDER BY l2_distance(embedding, normalize_l2(</span><span class="si">%s</span><span class="s2">)) ASC LIMIT </span><span class="si">%s</span><span class="s2">&quot;</span>
+    <span class="n">data_to_query</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">embeddings</span><span class="p">),</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query_sql</span><span class="p">,</span> <span class="n">data_to_query</span><span class="p">)</span>
-    <span class="k">global</span> <span class="n">data</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-</code></pre></div>
-<h3 id="_11">搜索结果展示</h3>
-<p>在根据图片或文字检索到相关图片时，我们需要把结果打印出来，在这里我们使用 Matplotlib 来展示搜索结果。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+    <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">show_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">img_path</span><span class="p">:</span>
-        <span class="n">result_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">img_path</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">path</span> <span class="k">for</span> <span class="n">path_tuple</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">path_tuple</span><span class="p">]</span>
+<span class="c1"># Show results</span>
+<span class="k">def</span> <span class="nf">show_img</span><span class="p">(</span><span class="n">result_paths</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">result_paths</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">result_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">result_paths</span><span class="p">):</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">result_path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Read image</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>  <span class="c1"># Display image</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>  <span class="c1"># Remove axes</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">result_path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Set subtitle</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># Adjust subplot spacing</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">pyplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>  <span class="c1"># Display figure in Streamlit</span>
+
+<span class="c1"># Streamlit interface</span>
+<span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Image and Text Search Application&quot;</span><span class="p">)</span>
+
+<span class="c1"># Prompt for local directory path input</span>
+<span class="n">directory_path</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">text_input</span><span class="p">(</span><span class="s2">&quot;Enter the local image directory&quot;</span><span class="p">)</span>
+
+<span class="c1"># Once user inputs path, search for images in the directory</span>
+<span class="k">if</span> <span class="n">directory_path</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory_path</span><span class="p">):</span>
+        <span class="n">jpg_files</span> <span class="o">=</span> <span class="n">find_img_files</span><span class="p">(</span><span class="n">directory_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">jpg_files</span><span class="p">:</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">jpg_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> images in the directory.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s2">&quot;uploaded&quot;</span><span class="p">):</span>
+                <span class="n">storage_img</span><span class="p">(</span><span class="n">jpg_files</span><span class="p">)</span>
+                <span class="n">st</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Upload successful!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No .jpg files found in the directory.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">result_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">path</span> <span class="k">for</span> <span class="n">path_tuple</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">path_tuple</span><span class="p">]</span>
-    <span class="c1"># 创建一个新的图和坐标轴</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">rows</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">cols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-    <span class="c1"># 循环遍历图片路径和坐标轴</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">result_path</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">result_path</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">())):</span>
-        <span class="n">image</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">result_path</span><span class="p">)</span> <span class="c1"># 读取图片</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="c1"># 显示图片</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> <span class="c1"># 移除坐标轴</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;image</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 设置子图标题</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="c1"># 调整子图间距</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># 显示整个图形</span>
+        <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The specified directory does not exist. Please check the path.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Image upload option</span>
+<span class="n">uploaded_file</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">file_uploader</span><span class="p">(</span><span class="s2">&quot;Upload an image for search&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;jpeg&quot;</span><span class="p">,</span> <span class="s2">&quot;png&quot;</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">uploaded_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Display uploaded image</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">uploaded_file</span><span class="p">)</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Uploaded image&#39;</span><span class="p">,</span> <span class="n">use_column_width</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Perform image-to-image search</span>
+    <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s2">&quot;Search by image&quot;</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">img_search_img</span><span class="p">(</span><span class="n">uploaded_file</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Image-to-image search</span>
+        <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Search successful. Results are displayed below:&quot;</span><span class="p">)</span>
+            <span class="n">show_img</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Display results</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No matching results found.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Text input for text-to-image search</span>
+<span class="n">text_input</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">text_input</span><span class="p">(</span><span class="s2">&quot;Enter a description for search&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s2">&quot;Search by text&quot;</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">text_search_img</span><span class="p">(</span><span class="n">text_input</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Text-to-image search</span>
+    <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+        <span class="n">st</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Search successful. Results are displayed below:&quot;</span><span class="p">)</span>
+        <span class="n">show_img</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Display results</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No matching results found.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="_12">查看结果</h3>
-<p>在主程序输入以下代码，运行程序：</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">directory_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/admin/Downloads/fruit01&#39;</span> <span class="c1"># 替换为实际的目录路径</span>
-    <span class="n">jpg_files</span> <span class="o">=</span> <span class="n">find_img_files</span><span class="p">(</span><span class="n">directory_path</span><span class="p">)</span>
-    <span class="n">storage_img</span><span class="p">()</span>
-    <span class="n">create_idx</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">img_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/admin/Downloads/fruit01/blueberry/f_01_04_0450.jpg&#39;</span>
-    <span class="n">img_search_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 以图搜图</span>
-    <span class="n">show_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Banana&quot;</span><span class="p">]</span>
-    <span class="n">text_search_img</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 以文搜图</span>
-    <span class="n">show_img</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<p><strong>代码解读：</strong></p>
+<ol>
+<li>通过 pymysql 连接到本地的 MatrixOne 数据库，用于插入图像特征和查询相似照片。</li>
+<li>使用 HuggingFace 的 transformers 库，加载 OpenAI 预训练的 CLIP 模型（clip-vit-base-patch32）。该模型支持同时处理文本和图像，将它们转化为向量，以便进行相似性计算。</li>
+<li>定义方法 find_img_files 遍历本地图片文件夹，这里我预先在本地存了苹果、香蕉、蓝莓、樱桃、杏子五种类别的水果图片，每种类别若干张，格式都为 jpg。</li>
+<li>存储图片特征到数据库，使用 CLIP 模型提取图像的嵌入向量，将图像路径及嵌入向量存储在数据库的 pic_tab 表中。</li>
+<li>定义方法 img_search_img 和 text_search_img 实现以图搜图和以文搜图，MatrixOne 具有向量检索能力，支持多种相似度搜索，在这里我们使用欧几里得距离来检索。</li>
+<li>展示图片结果，使用 matplotlib 展示从数据库查询到的图片路径，并在 Streamlit 的 Web 界面上展示。</li>
+</ol>
+<h3 id="_8">运行结果</h3>
+<div class="highlight"><pre><span></span><code>streamlit<span class="w"> </span>run<span class="w"> </span>pic_search_example.py
 </code></pre></div>
-<p>以图搜图结果，左边第一张图为比对图，可以看到，搜索出来的图片与被比对图非常相似：</p>
 <div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/img_search.png width=80% heigth=80%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/pic-search-1.png width=70% heigth=70%/>
 </div>
 
-<p>以文搜图结果，可以看到，搜出来的图片与输入文本一致：</p>
-<div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/text_search_pic.png width=50% heigth=50%/>
-</div>
-
-<h2 id="_13">参考文档</h2>
+<h2 id="_9">参考文档</h2>
 <ul>
 <li><a href="../../Develop/Vector/vector_type/">向量类型</a></li>
 <li><a href="../../Develop/Vector/vector_search/">向量检索</a></li>
