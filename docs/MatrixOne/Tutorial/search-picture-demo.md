@@ -10,7 +10,7 @@
 
 可以看到，在构建以图（文）搜图应用中，涉及到对图片的向量化存储和检索，而 MatrixOne 具备向量能力，且提供多种检索方式，这为构建以图（文）搜图应用提供了关键的技术支持。
 
-在本章节，我们将基于 MatrixOne 的向量能力来构建一个简单的以图（文）搜图的应用。
+在本章节，我们将基于 MatrixOne 的向量能力结合 Streamlit 来构建一个简单的以图（文）搜图的 Web 应用。
 
 ## 开始前准备
 
@@ -19,6 +19,8 @@
 **Transformers**：Transformers 是一个开源的自然语言处理库，提供了广泛的预训练模型，通过 Transformers 库，研究人员和开发者可以轻松地使用和集成 CLIP 模型到他们的项目中。
 
 **CLIP**: CLIP 模型是由 OpenAI 发布的一种深度学习模型，核心是通过对比学习的方法来统一处理文本和图像，从而能够通过文本 - 图像相似度来完成图像分类等任务，而无需直接优化任务。它可以结合向量数据库，来构建以图（文）搜图的工具。通过 CLIP 模型提取图像的高维向量表示，以捕获其语义和感知特征，然后将这些图像编码到嵌入空间中。在查询时，样本图像通过相同的 CLIP 编码器来获取其嵌入，执行向量相似性搜索以有效地找到前 k 个最接近的数据库图像向量。
+
+**Streamlit**: 是一个开源的 Python 库，专门用于快速构建交互式和数据驱动的 Web 应用。它的设计目标是简单易用，开发者可以用极少的代码创建互动式的仪表盘和界面，尤其适用于机器学习模型的展示和数据可视化。
 
 ### 软件安装
 
@@ -52,185 +54,181 @@ pip install transformers
 pip install pillow 
 ```
 
+- 下载安装 `streamlit` 库。使用下面的代码下载安装 `Pillow` 库：
+
+```
+pip install streamlit
+```
+
 ## 构建应用
 
-### 建表
+### 建表并开启向量索引
 
 连接 MatrixOne，建立一个名为 `pic_tab` 的表来存储图片路径信息和对应的向量信息。
 
 ```sql
 create table pic_tab(pic_path varchar(200), embedding vecf64(512));
+SET GLOBAL experimental_ivf_index = 1;
+create index idx_pic using ivfflat on pic_tab(embedding) lists=3 op_type "vector_l2_ops"
 ```
 
-### 加载模型
+### 构建应用
+
+创建 python 文件 pic_search_example.py，写入以下内容。该脚本主要是利用 CLIP 模型提取图像的高维向量表示，然后存到 MatrixOne 中。在查询时，样本图像通过相同的 CLIP 编码器来获取其嵌入，执行向量相似性搜索以有效地找到前 k 个最接近的数据库图像向量。
 
 ```python
+import streamlit as st
+import pymysql
+from PIL import Image
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 from transformers import CLIPProcessor, CLIPModel
+import os
+from tqdm import tqdm
 
-# 从 HuggingFace 加载模型
+# Database connection
+conn = pymysql.connect(
+    host='127.0.0.1',
+    port=6001,
+    user='root',
+    password="111",
+    db='db1',
+    autocommit=True
+)
+
+cursor = conn.cursor()
+
+# Load model from HuggingFace
 model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
-```
 
-### 遍历图片路径
-
-定义方法 `find_img_files` 遍历本地图片文件夹，这里我预先在本地存了苹果、香蕉、蓝莓、樱桃、杏子五种类别的水果图片，每种类别若干张，格式都为 `.jpg`。
-
-```python
+# Traverse image path
 def find_img_files(directory):
-    img_files = []  # 用于存储找到的.jpg 文件路径
+    img_files = []
     for root, dirs, files in os.walk(directory):
         for file in files:
             if file.lower().endswith('.jpg'):
                 full_path = os.path.join(root, file)
-                img_files.append(full_path) # 构建完整的文件路径
+                img_files.append(full_path)
     return img_files
-```
 
-- 图像向量化并存入 MatrixOne
+# Map image to vector and store in MatrixOne
+def storage_img(jpg_files):
+    for file_path in tqdm(jpg_files, total=len(jpg_files)):
+        image = Image.open(file_path)
+        if image.mode != 'RGBA':
+            image = image.convert('RGBA')
+        inputs = processor(images=image, return_tensors="pt", padding=True)
+        img_features = model.get_image_features(inputs["pixel_values"])
+        img_features = img_features.detach().tolist()
+        embeddings = img_features[0]
+        insert_sql = "INSERT INTO pic_tab(pic_path, embedding) VALUES (%s, normalize_l2(%s))"
+        data_to_insert = (file_path, str(embeddings))
+        cursor.execute(insert_sql, data_to_insert)
+        image.close()
 
-定义方法 `storage_img` 将图片映射成向量，进行归一化（非必需）并存储到 MatrixOne 里。MatrixOne 支持使用 `NORMALIZE_L2()` 函数对向量执行 L2 归一化，在某些情况下，数据的特征可能分布在不同的尺度上，这可能会导致某些特征对距离计算有不成比例的影响。通过归一化，可以减少这种影响，使不同特征对最终结果的贡献更加均衡。而在使用 L2 distance 度量时，L2 归一化可以避免不同长度的向量影响距离计算。
-
-```python
-import pymysql
-from PIL import Image
-
-conn = pymysql.connect(
-        host = '127.0.0.1',
-        port = 6001,
-        user = 'root',
-        password = "111",
-        db = 'db1',
-        autocommit = True
-        )
-
-cursor = conn.cursor()
-
-# 把图像映射成向量，存储在 MatrixOne 中
-def storage_img():
- for file_path in jpg_files:
-     image = Image.open(file_path)
-     if image.mode != 'RGBA':
-         image = image.convert('RGBA')
-     inputs = processor(images=image, return_tensors="pt", padding=True)
-     img_features = model.get_image_features(inputs["pixel_values"]) # 使用模型获取图像特征
-     img_features = img_features .detach().tolist() # 分离张量，转换为列表
-     embeddings = img_features [0]
-     insert_sql = "insert into pic_tab(pic_path,embedding) values (%s, normalize_l2(%s))"
-     data_to_insert = (file_path, str(embeddings))
-     cursor.execute(insert_sql, data_to_insert)
-     image.close()
-```
-
-### 查看 `pic_tab` 表中数量
-
-```sql
-mysql> select count(*) from pic_tab;
-+----------+
-| count(*) |
-+----------+
-|     4801 |
-+----------+
-1 row in set (0.00 sec)
-```
-
-可以看到，数据成功存储到数据库中。
-
-### 建立向量索引
-
-MatrixOne 支持在 IVF-FLAT 向量索引，在没有索引的情况下，每次搜索都需要重新计算查询图像与数据库中每张图像之间的相似度。而索引可以减少必要的计算量，只对索引中标记为“相关”的图像进行相似度计算。
-
-```python
 def create_idx(n):
-    cursor.execute('SET GLOBAL experimental_ivf_index = 1')
     create_sql = 'create index idx_pic using ivfflat on pic_tab(embedding) lists=%s op_type "vector_l2_ops"'
     cursor.execute(create_sql, n)
-```
 
-### 以图（文）搜图
-
-接着，我们定义方法 `img_search_img` 和 `text_search_img` 实现以图搜图和以文搜图，MatrixOne 具有向量检索能力，支持多种相似度搜索，在这里我们使用 `l2_distance` 来检索。
-
-```python
-# 以图搜图
+# Image-to-image search
 def img_search_img(img_path, k):
     image = Image.open(img_path)
     inputs = processor(images=image, return_tensors="pt")
     img_features = model.get_image_features(**inputs)
     img_features = img_features.detach().tolist()
     img_features = img_features[0]
-    query_sql = "select pic_path from pic_tab order by l2_distance(embedding,normalize_l2(%s)) asc limit %s"
+    query_sql = "SELECT pic_path FROM pic_tab ORDER BY l2_distance(embedding, normalize_l2(%s)) ASC LIMIT %s"
     data_to_query = (str(img_features), k)
     cursor.execute(query_sql, data_to_query)
-    global data
-    data = cursor.fetchall()
+    return cursor.fetchall()
 
-# 以文搜图
-def text_search_img(text,k):
+# Text-to-image search
+def text_search_img(text, k):
     inputs = processor(text=text, return_tensors="pt", padding=True)
     text_features = model.get_text_features(inputs["input_ids"], inputs["attention_mask"])
     embeddings = text_features.detach().tolist()
     embeddings = embeddings[0]
-    query_sql = "select pic_path from pic_tab order by l2_distance(embedding,normalize_l2(%s)) asc limit %s"
-    data_to_query = (str(embeddings),k)
+    query_sql = "SELECT pic_path FROM pic_tab ORDER BY l2_distance(embedding, normalize_l2(%s)) ASC LIMIT %s"
+    data_to_query = (str(embeddings), k)
     cursor.execute(query_sql, data_to_query)
-    global data
-    data = cursor.fetchall()
-```
+    return cursor.fetchall()
 
-### 搜索结果展示
+# Show results
+def show_img(result_paths):
+    fig, axes = plt.subplots(nrows=1, ncols=len(result_paths), figsize=(15, 5))
+    for ax, result_path in zip(axes, result_paths):
+        image = mpimg.imread(result_path[0])  # Read image
+        ax.imshow(image)  # Display image
+        ax.axis('off')  # Remove axes
+        ax.set_title(result_path[0])  # Set subtitle
+    plt.tight_layout()  # Adjust subplot spacing
+    st.pyplot(fig)  # Display figure in Streamlit
 
-在根据图片或文字检索到相关图片时，我们需要把结果打印出来，在这里我们使用 Matplotlib 来展示搜索结果。
+# Streamlit interface
+st.title("Image and Text Search Application")
 
-```python
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
+# Prompt for local directory path input
+directory_path = st.text_input("Enter the local image directory")
 
-def show_img(img_path,rows,cols):
-    if img_path:
-        result_path = [img_path] + [path for path_tuple in data for path in path_tuple]
+# Once user inputs path, search for images in the directory
+if directory_path:
+    if os.path.exists(directory_path):
+        jpg_files = find_img_files(directory_path)
+        if jpg_files:
+            st.success(f"Found {len(jpg_files)} images in the directory.")
+            if st.button("uploaded"):
+                storage_img(jpg_files)
+                st.success("Upload successful!")
+        else:
+            st.warning("No .jpg files found in the directory.")
     else:
-        result_path = [path for path_tuple in data for path in path_tuple]
-    # 创建一个新的图和坐标轴
-    fig, axes = plt.subplots(nrows=rows, ncols=cols, figsize=(10, 10))
-    # 循环遍历图片路径和坐标轴
-    for i, (result_path, ax) in enumerate(zip(result_path, axes.ravel())):
-        image = mpimg.imread(result_path) # 读取图片
-        ax.imshow(image) # 显示图片
-        ax.axis('off') # 移除坐标轴
-        ax.set_title(f'image{i + 1}') # 设置子图标题
-    plt.tight_layout() # 调整子图间距
-    plt.show() # 显示整个图形
+        st.error("The specified directory does not exist. Please check the path.")
+
+# Image upload option
+uploaded_file = st.file_uploader("Upload an image for search", type=["jpg", "jpeg", "png"])
+if uploaded_file is not None:
+    # Display uploaded image
+    img = Image.open(uploaded_file)
+    st.image(img, caption='Uploaded image', use_column_width=True)
+
+    # Perform image-to-image search
+    if st.button("Search by image"):
+        result = img_search_img(uploaded_file, 3)  # Image-to-image search
+        if result:
+            st.success("Search successful. Results are displayed below:")
+            show_img(result)  # Display results
+        else:
+            st.error("No matching results found.")
+
+# Text input for text-to-image search
+text_input = st.text_input("Enter a description for search")
+if st.button("Search by text"):
+    result = text_search_img(text_input, 3)  # Text-to-image search
+    if result:
+        st.success("Search successful. Results are displayed below:")
+        show_img(result)  # Display results
+    else:
+        st.error("No matching results found.")
 ```
 
-### 查看结果
+**代码解读：**
 
-在主程序输入以下代码，运行程序：
+1. 通过 pymysql 连接到本地的 MatrixOne 数据库，用于插入图像特征和查询相似照片。
+2. 使用 HuggingFace 的 transformers 库，加载 OpenAI 预训练的 CLIP 模型（clip-vit-base-patch32）。该模型支持同时处理文本和图像，将它们转化为向量，以便进行相似性计算。
+3. 定义方法 find_img_files 遍历本地图片文件夹，这里我预先在本地存了苹果、香蕉、蓝莓、樱桃、杏子五种类别的水果图片，每种类别若干张，格式都为 jpg。
+4. 存储图片特征到数据库，使用 CLIP 模型提取图像的嵌入向量，将图像路径及嵌入向量存储在数据库的 pic_tab 表中。
+5. 定义方法 img_search_img 和 text_search_img 实现以图搜图和以文搜图，MatrixOne 具有向量检索能力，支持多种相似度搜索，在这里我们使用欧几里得距离来检索。
+6. 展示图片结果，使用 matplotlib 展示从数据库查询到的图片路径，并在 Streamlit 的 Web 界面上展示。
 
-```python
-if __name__ == "__main__":
-    directory_path = '/Users/admin/Downloads/fruit01' # 替换为实际的目录路径
-    jpg_files = find_img_files(directory_path)
-    storage_img()
-    create_idx(4)
-    img_path = '/Users/admin/Downloads/fruit01/blueberry/f_01_04_0450.jpg'
-    img_search_img(img_path, 3) # 以图搜图
-    show_img(img_path,1,4)
-    text = ["Banana"]
-    text_search_img(text,3) # 以文搜图
-    show_img(None,1,3)
+### 运行结果
+
+```bash
+streamlit run pic_search_example.py
 ```
 
-以图搜图结果，左边第一张图为比对图，可以看到，搜索出来的图片与被比对图非常相似：
-
 <div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/img_search.png width=80% heigth=80%/>
-</div>
-
-以文搜图结果，可以看到，搜出来的图片与输入文本一致：
-
-<div align="center">
-<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/text_search_pic.png width=50% heigth=50%/>
+<img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/pic-search-1.png width=70% heigth=70%/>
 </div>
 
 ## 参考文档
