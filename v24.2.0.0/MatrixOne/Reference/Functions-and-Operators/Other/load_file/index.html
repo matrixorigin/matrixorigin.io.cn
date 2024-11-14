@@ -12575,6 +12575,10 @@
 <h1 id="load_file"><strong>LOAD_FILE()</strong></h1>
 <h2 id="_1"><strong>函数说明</strong></h2>
 <p><code>LOAD_FILE()</code> 函数用于读取 datalink 类型指向文件的内容。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>当使用 load_file() 加载大文件时，若文件数据量过大，可能会超出系统内存限制，导致内存溢出。建议结合 <a href="../../../Data-Types/datalink-type/">DATALINK</a> 的 <code>offset</code> 和 <code>size</code> 使用。</p>
+</div>
 <h2 id="_2"><strong>函数语法</strong></h2>
 <div class="highlight"><pre><span></span><code>&gt;LOAD_FILE(datalink_type_data) ;
 </code></pre></div>
@@ -12593,7 +12597,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_4">示例</h2>
+<h2 id="_4"><strong>示例</strong></h2>
 <p><code>/Users/admin/case</code> 下有文件 <code>t1.csv</code></p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>admin@192<span class="w"> </span><span class="k">case</span><span class="w"> </span>%<span class="w"> </span>cat<span class="w"> </span>t1.csv<span class="w"> </span>
 this<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span><span class="nb">test</span><span class="w"> </span>message
