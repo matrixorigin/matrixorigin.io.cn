@@ -4,6 +4,9 @@
 
 `LOAD_FILE()` 函数用于读取 datalink 类型指向文件的内容。
 
+!!! note
+    当使用 load_file() 加载大文件时，若文件数据量过大，可能会超出系统内存限制，导致内存溢出。建议结合 [DATALINK](../../Data-Types/datalink-type.md) 的 `offset` 和 `size` 使用。
+
 ## **函数语法**
 
 ```
@@ -16,7 +19,7 @@
 |  ----  | ----  |
 | datalink_type_data | datalink 类型数据，可以使用[cast()](../../../Reference/Operators/operators/cast-functions-and-operators/cast/)函数进行转换|
 
-## 示例
+## **示例**
 
 `/Users/admin/case` 下有文件 `t1.csv`
 
