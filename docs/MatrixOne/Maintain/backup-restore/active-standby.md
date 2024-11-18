@@ -147,13 +147,13 @@ MO 集群启动后，执行 SQL 命令，对 non-voting 副本实现动态增减
 2. 将 standby 的文件复制到备机的 mo-data/shared 目录下
 
     ``` shell
-    cp -r /your_matrixone_pathe/mo-data/standby/* <username>@<ip>:/your_matrixone_path/mo-data/shared/
+    scp -r /your_matrixone_path/mo-data/standby/* <username>@<ip>:/your_matrixone_path/mo-data/shared/
     ```
   
 3. 将主集群 non-voting 副本中的数据复制到备机的 logservice-data/ 目录下
 
     ``` shell
-    cp -r /your_matrixone_pathe/mo-data/logservice-data/<uuid>/ <username>@<ip>:/your_matrixone_pathe/mo-data/logservice-data/
+    scp -r /your_matrixone_path/mo-data/logservice-data/<uuid>/ <username>@<ip>:/your_matrixone_path/mo-data/logservice-data/
     ```
 
     其中<uuid>是 non-voting logservice 实例的配置文件中配置的 uuid。
@@ -162,7 +162,7 @@ MO 集群启动后，执行 SQL 命令，对 non-voting 副本实现动态增减
 
 #### 数据同步
 
-在备集群利用 logtail 数据同步工具 `mo_ctl` 将主集群 non-voting 副本中的数据同步到备集群的 logservice 中，命令如下：
+在备集群启动的情况下，利用 logtail 数据同步工具 `mo_ctl` 将主集群 non-voting 副本中的数据同步到备集群的 logservice 中，命令如下：
 
 ```shell
 mo_ctl data-sync start --logservice-address=127.0.0.1:32001 --log-data-dir=/your_matrixone_path/mo-data/logservice-data/<uuid>/<主集群主机名>/00000000000000000001/tandb
