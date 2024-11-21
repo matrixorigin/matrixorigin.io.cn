@@ -28,6 +28,8 @@ INSERT INTO TABLE_NAME VALUES ('<file://<path>/<filename>>|<stage://<stage_name>
 ## 读取 DATALINK 类型数据
 
 如果要读 `DATALINK` 指向文件链接的数据，可以使用 [load_file](../../Reference/Functions-and-Operators/Other/load_file.md) 函数。
+!!! note
+    由于 UTF-8 编码中，中文字符通常占用 3 个字节，而英文字符只占用 1 个字节。因此，在指定文件的偏移量（offset）和读取大小（size）时，如果不考虑字符的字节数对齐，可能会导致中文字符被截断或无法正确读取，从而出现乱码。为了避免这种情况，需要根据字符编码正确换算 offset 和 size 的值，确保读取内容的字节数与字符的边界对齐
 
 ## 示例
 
