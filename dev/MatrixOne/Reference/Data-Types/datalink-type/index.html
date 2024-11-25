@@ -12597,7 +12597,7 @@
 <p>如果要读 <code>DATALINK</code> 指向文件链接的数据，可以使用 <a href="../../Functions-and-Operators/Other/load_file/">load_file</a> 函数。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>由于 UTF-8 编码中，中文字符通常占用 3 个字节，而英文字符只占用 1 个字节。因此，在指定文件的偏移量（offset）和读取大小（size）时，如果不考虑字符的字节数对齐，可能会导致中文字符被截断或无法正确读取，从而出现乱码。为了避免这种情况，需要根据字符编码正确换算 offset 和 size 的值，确保读取内容的字节数与字符的边界对齐</p>
+<p><code>load_file()</code> 函数以二进制模式读取文件，对于非文本文件（如图像、音频、视频等二进制格式文件），读取的内容将以原始字节流的形式返回，不会进行字符编码的转换。此外，由于在 UTF-8 编码中，中文字符通常占用 3 个字节，而英文字符只占用 1 个字节。因此，在指定文件的偏移量（offset）和读取大小（size）时，如果不考虑字符的字节数对齐，可能会导致中文字符被截断或无法正确读取，从而出现乱码。为了避免这种情况，需要根据字符编码正确换算 offset 和 size 的值，确保读取内容的字节数与字符的边界对齐。</p>
 </div>
 <h2 id="_1">示例</h2>
 <p><code>/Users/admin/case</code> 下有文件 <code>t1.csv</code></p>
