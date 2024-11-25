@@ -3909,6 +3909,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    动态扩容
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -12909,6 +12916,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    动态扩容
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -13606,6 +13620,45 @@ mo-log-0                             1/1     Running   1 (25s ago)   2m2s
 mo-log-1                             1/1     Running   1 (24s ago)   2m2s
 mo-log-2                             1/1     Running   1 (22s ago)   2m2s
 mo-tp-cn-0                           1/1     Running   0             50s
+</code></pre></div>
+</li>
+</ol>
+<h3 id="_11">动态扩容</h3>
+<p>Operator 支持 TN、CN 的 cacheVolume 配置动态扩容，不支持缩容操作，扩容过程前后，CN、TN pod 无需重启。具体步骤如下：</p>
+<ol>
+<li>
+<p>确保 StorageClass 支持卷扩展功能</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#查看 storageclass 名称</span>
+&gt;kubectl<span class="w"> </span>get<span class="w"> </span>pvc<span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">MO_NS</span><span class="si">}</span>
+
+<span class="c1">#查看 StorageClass 是否支持卷扩展功能</span>
+&gt;kubectl<span class="w"> </span>get<span class="w"> </span>storageclass<span class="w"> </span><span class="si">${</span><span class="nv">SC_NAME</span><span class="si">}</span><span class="w"> </span>-oyaml<span class="w"> </span><span class="p">|</span><span class="w">  </span>grep<span class="w"> </span>allowVolumeExpansion<span class="w"> </span><span class="c1">#SC_NAME 是 mo 集群使用的 pvc 的 sc 类型</span>
+allowVolumeExpansion:<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="c1">#只有为 true 时，才可以执行后续步骤</span>
+</code></pre></div>
+</li>
+<li>
+<p>进入集群配置编辑模式</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>mo<span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">MO_NS</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">MO_NAME</span><span class="si">}</span><span class="w"> </span><span class="c1"># 其中 MO_NS 为部署 MO 集群的命名空间，MO_NAME 为 MO 集群的名称；例如 MO_NS=matrixone; MO_NAME=mo_cluster</span>
+</code></pre></div>
+</li>
+<li>
+<p>按需修改 tn 和 cn 的 cacheVolume 的 size 大小</p>
+<div class="highlight"><pre><span></span><code>-<span class="w"> </span>cacheVolume:
+<span class="w">        </span>size:<span class="w"> </span>900Gi
+</code></pre></div>
+<ul>
+<li>如果为 CN group，则修改 spec.cnGroups[0]. cacheVolume（或 spec.cnGroups[1]. cacheVolume，其中 [n] 中的 n 为 CN Group 的数组下标）；</li>
+<li>如果为 CN，则修改 spec.tp.cacheVolume；</li>
+<li>如果为 TN，则修改 spec.tn.cacheVolume（或 spec.dn.cacheVolume）。</li>
+</ul>
+<p>然后保存并退出：按 <code>esq</code> 键，和 <code>:wq</code></p>
+</li>
+<li>
+<p>查看扩容结果</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#`CAPACITY`字段值为扩容后数值</span>
+&gt;kubectl<span class="w"> </span>get<span class="w"> </span>pvc<span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">MO_NS</span><span class="si">}</span>
+
+&gt;kubectl<span class="w"> </span>get<span class="w"> </span>pv<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="si">${</span><span class="nv">NS</span><span class="si">}</span>
 </code></pre></div>
 </li>
 </ol>
