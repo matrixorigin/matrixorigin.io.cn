@@ -499,6 +499,49 @@ NS="mo"
 kubectl get pod -n "${NS}" -owide # 等待状态为 Running
 ```
 
+### 动态扩容
+
+Operator 支持 TN、CN 的 cacheVolume 配置动态扩容，不支持缩容操作，扩容过程前后，CN、TN pod 无需重启。具体步骤如下：
+
+1. 确保 StorageClass 支持卷扩展功能
+
+    ```bash
+    #查看 storageclass 名称
+    >kubectl get pvc -n ${MO_NS}
+
+    #查看 StorageClass 是否支持卷扩展功能
+    >kubectl get storageclass ${SC_NAME} -oyaml |  grep allowVolumeExpansion #SC_NAME 是 mo 集群使用的 pvc 的 sc 类型
+    allowVolumeExpansion: true #只有为 true 时，才可以执行后续步骤
+    ```
+
+2. 进入集群配置编辑模式
+
+    ```bash
+    kubectl edit mo -n ${MO_NS} ${MO_NAME} # 其中 MO_NS 为部署 MO 集群的命名空间，MO_NAME 为 MO 集群的名称；例如 MO_NS=matrixone; MO_NAME=mo_cluster
+    ```
+
+3. 按需修改 tn 和 cn 的 cacheVolume 的 size 大小
+
+    ```bash
+    - cacheVolume:
+            size: 900Gi
+    ```
+
+    - 如果为 CN group，则修改 spec.cnGroups[0]. cacheVolume（或 spec.cnGroups[1]. cacheVolume，其中 [n] 中的 n 为 CN Group 的数组下标）；
+    - 如果为 CN，则修改 spec.tp.cacheVolume；
+    - 如果为 TN，则修改 spec.tn.cacheVolume（或 spec.dn.cacheVolume）。
+
+    然后保存并退出：按 `esq` 键，和 `:wq`
+
+4. 查看扩容结果
+
+    ```bash
+    #`CAPACITY`字段值为扩容后数值
+    >kubectl get pvc -n ${MO_NS}
+
+    >kubectl get pv | grep ${NS}
+    ```
+
 ## 连接 MatrixOne 集群
 
 为了连接 MatrixOne 集群，您需要将对应服务的端口映射到 MatrixOne 节点上。以下是使用 `kubectl port-forward` 连接 MatrixOne 集群的指导：
