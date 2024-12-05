@@ -174,6 +174,10 @@ def analyze_transactions(pool):
 在此，我们创建了五个线程来模拟并行处理的交易环境。在每个交易操作成功完成后，系统将自动启动风险控制分析流程。
 
 ```python
+import threading
+
+def thread_insert():
+    # 创建连接池
     pool = create_connection_pool()
     if pool:
         # 创建多个线程
