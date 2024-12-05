@@ -12870,7 +12870,11 @@ python3 -V
 </code></pre></div>
 <h3 id="_10">交易及分析</h3>
 <p>在此，我们创建了五个线程来模拟并行处理的交易环境。在每个交易操作成功完成后，系统将自动启动风险控制分析流程。</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">pool</span> <span class="o">=</span> <span class="n">create_connection_pool</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="k">def</span> <span class="nf">thread_insert</span><span class="p">():</span>
+    <span class="c1"># 创建连接池</span>
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">create_connection_pool</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">pool</span><span class="p">:</span>
         <span class="c1"># 创建多个线程</span>
         <span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
