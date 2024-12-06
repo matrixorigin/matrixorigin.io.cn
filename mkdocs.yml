@@ -583,6 +583,7 @@ nav:
             - CEILING(): MatrixOne/Reference/Functions-and-Operators/Mathematical/ceiling.md
             - COS(): MatrixOne/Reference/Functions-and-Operators/Mathematical/cos.md
             - COT(): MatrixOne/Reference/Functions-and-Operators/Mathematical/cot.md
+            - CRC32(): MatrixOne/Reference/Functions-and-Operators/Mathematical/crc32.md
             - EXP(): MatrixOne/Reference/Functions-and-Operators/Mathematical/exp.md
             - FLOOR(): MatrixOne/Reference/Functions-and-Operators/Mathematical/floor.md
             - LN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/ln.md
@@ -656,6 +657,7 @@ nav:
             - SUBVECTOR(): MatrixOne/Reference/Functions-and-Operators/Vector/subvector.md
             - VECTOR_DIMS(): MatrixOne/Reference/Functions-and-Operators/Vector/vector_dims.md
           - 表函数:
+            - generate_series(): MatrixOne/Reference/Functions-and-Operators/Table/generate_series.md
             - UNNEST(): MatrixOne/Reference/Functions-and-Operators/Table/unnest.md
           - 窗口函数:
             - DENSE_RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/dense_rank.md
