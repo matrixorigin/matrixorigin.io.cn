@@ -106,6 +106,11 @@
 - [OUTER JOIN](Data-Query-Language/join/outer-join.md)
 - [NATURAL JOIN](Data-Query-Language/join/natural-join.md)
 
+### 应用查询（Apply Query），将某个操作应用于每一行数据的查询方式
+
+- [CROSS APPLY](Data-Query-Language/apply/cross-apply.md)
+- [OUTER APPLY](Data-Query-Language/apply/outer-apply.md)
+
 ### 公用表达式（Common Table Expressions），将某些查询作为是临时结果，可以在其他 SQL 中引用，如 SELECT, INSERT, UPDATE 和 DELETE，其仅存在于查询执行期间
 
 - [With CTE](Data-Query-Language/with-cte.md)
