@@ -59,7 +59,6 @@ SET GLOBAL experimental_ivf_index = 1;
 
 ```python
 import numpy as np
-import ollama
 import pymysql.cursors
 import time
 
@@ -114,7 +113,7 @@ if __name__ == "__main__":
     insert_data(128, 2000000, 10000)
     print("未创建向量索引 SQL 执行时间：")
     vec_search(128,3)
-    print("创建向量中......")
+    print("创建向量索引中......")
     vec_indx(1000)
     print("已创建向量索引 SQL 执行时间：")
     vec_search(128,3)
