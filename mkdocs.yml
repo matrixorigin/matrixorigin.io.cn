@@ -384,15 +384,9 @@ nav:
             - LAST_QUERY_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-query-id.md
             - LAST_INSERT_ID(): MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/information-functions/last-insert-id.md
         - 数据查询语言（DQL）:
-          - SELECT: MatrixOne/Reference/SQL-Reference/Data-Query-Language/select.md
-          - SUBQUERY:
-            - SUBQUERY 概述: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery.md
-            - Derived Tables: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/derived-tables.md
-            - 子查询与比较操作符的使用: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/comparisons-using-subqueries.md
-            - SUBQUERY with ANY or SOME: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-any-some.md
-            - SUBQUERY with ALL: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-all.md
-            - SUBQUERY with EXISTS: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-exists.md
-            - SUBQUERY with IN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-in.md
+          - APPLY:
+            - CROSS APPLY: MatrixOne/Reference/SQL-Reference/Data-Query-Language/apply/cross-apply.md
+            - OUTER APPLY: MatrixOne/Reference/SQL-Reference/Data-Query-Language/apply/outer-apply.md
           - JOIN:
             - JOIN 概述: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/join.md
             - CROSS JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/cross-join.md
@@ -402,6 +396,15 @@ nav:
             - FULL JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/full-join.md
             - OUTER JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/outer-join.md
             - NATURAL JOIN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/join/natural-join.md
+          - SELECT: MatrixOne/Reference/SQL-Reference/Data-Query-Language/select.md
+          - SUBQUERY:
+            - SUBQUERY 概述: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery.md
+            - Derived Tables: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/derived-tables.md
+            - 子查询与比较操作符的使用: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/comparisons-using-subqueries.md
+            - SUBQUERY with ANY or SOME: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-any-some.md
+            - SUBQUERY with ALL: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-all.md
+            - SUBQUERY with EXISTS: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-exists.md
+            - SUBQUERY with IN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-in.md
           - With CTE: MatrixOne/Reference/SQL-Reference/Data-Query-Language/with-cte.md
           - 联合查询:
             - 联合查询概述: MatrixOne/Reference/SQL-Reference/Data-Query-Language/union-intersect-minus-overview.md
