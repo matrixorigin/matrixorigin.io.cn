@@ -307,6 +307,9 @@ nav:
           - 大小写敏感支持: MatrixOne/Reference/Variable/system-variables/lower_case_tables_name.md
           - 外键检查支持: MatrixOne/Reference/Variable/system-variables/foreign_key_checks.md
           - 查询结果集列名与用户指定大小写一致支持: MatrixOne/Reference/Variable/system-variables/keep_user_target_list_in_result.md
+          - 非法登录限制: MatrixOne/Reference/Variable/system-variables/illegal_login_restrictions.md
+          - 密码复杂度校验: MatrixOne/Reference/Variable/system-variables/password_complex.md
+          - 连接白名单: MatrixOne/Reference/Variable/system-variables/whitelist.md
         - 自定义变量: MatrixOne/Reference/Variable/custom-variable.md
       - SQL 结构与语法:
         - 关键字: MatrixOne/Reference/Language-Structure/keywords.md
