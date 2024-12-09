@@ -7,7 +7,7 @@
 | 函数名称                                                | 作用                                    |
 | ------------------------------------------------------ | --------------------------------------- |
 | [ANY_VALUE()](./Aggregate-Functions/any-value.md)      | 在参数范围内任选一个值返回|
-| [AVG()](./Aggregate-Functions/avg.md)                  | 计算参数列的算术平均值。|
+| [AVG()](./Aggregate-Functions/avg.md)                  | 计算参数列的算术平均值|
 | [BITMAP](./Aggregate-Functions/bitmap.md)              | 一组用于处理位图的内置函数，主要用于计算不同值|
 | [BIT_AND()](./Aggregate-Functions/bit_and.md)          | 计算了列中所有位的按位与|
 | [BIT_OR()](./Aggregate-Functions/bit_or.md)            | 计算了列中所有位的按位或|
@@ -65,12 +65,13 @@
 | [ABS()](./Mathematical/abs.md)    | 用于求参数的绝对值|
 | [ACOS()](./Mathematical/acos.md)  | 用于求给定数值的余弦（用弧度表示）  |
 | [ATAN()](./Mathematical/atan.md)  | 用于求给定数值的反正切（用弧度表示）|
-| [CEIL()](./Mathematical/ceil.md)  | 用于求不小于参数的最小整数。|
-| [CEILING()](./Mathematical/ceiling.md)  | 用于求不小于参数的最小整数。|
-| [COS()](./Mathematical/cos.md)    | 用于求输入参数（用弧度表示）的余弦值。|
-| [COT()](./Mathematical/cot.md)    | 用于求输入参数（用弧度表示）的余切值。 |
-| [EXP()](./Mathematical/exp.md)    | 用于求以自然常数 e 为底的 number 的指数。|
-| [FLOOR()](./Mathematical/floor.md)| 用于求不大于某个数字的相应数位的数。 |
+| [CEIL()](./Mathematical/ceil.md)  | 用于求不小于参数的最小整数|
+| [CEILING()](./Mathematical/ceiling.md)  | 用于求不小于参数的最小整数|
+| [COS()](./Mathematical/cos.md)    | 用于求输入参数（用弧度表示）的余弦值|
+| [COT()](./Mathematical/cot.md)    | 用于求输入参数（用弧度表示）的余切值 |
+| [CRC32()](./Mathematical/crc32.md)| 用于用于计算字符串的 CRC32 校验和|
+| [EXP()](./Mathematical/exp.md)    | 用于求以自然常数 e 为底的 number 的指数|
+| [FLOOR()](./Mathematical/floor.md)| 用于求不大于某个数字的相应数位的数 |
 | [LN()](./Mathematical/ln.md)      | 用于求参数的自然对数|
 | [LOG()](./Mathematical/log.md)    | 用于求参数的自然对数|
 | [LOG2()](./Mathematical/log2.md)  | 用于求以 2 为底参数的对数|
@@ -81,57 +82,57 @@
 | [RAND()](./Mathematical/rand.md)  | 用于生成一个介于 0 和 1 之间的 Float64 类型的随机数|
 | [SIN()](./Mathematical/sin.md)    | 用于求输入参数（用弧度表示）的正弦值|
 | [SINH()](./Mathematical/sinh.md)  | 用于求输入参数（用弧度表示）的双曲正弦值|
-| [TAN()](./Mathematical/tan.md)    | 用于求输入参数（用弧度表示）的正切值。|
+| [TAN()](./Mathematical/tan.md)    | 用于求输入参数（用弧度表示）的正切值|
 
 ## 字符串类函数
 
 | 函数名称                                        | 作用                                     |
 | ---------------------------------------------- | --------------------------------------- |
-| [BIN()](./String/bin.md)                       |  将参数转换为二进制的字符串形式。|
-| [BIT_LENGTH()](./String/bit-length.md)         | 返回字符串 str 的长度，单位为 bit。|
+| [BIN()](./String/bin.md)                       |  将参数转换为二进制的字符串形式|
+| [BIT_LENGTH()](./String/bit-length.md)         | 返回字符串 str 的长度，单位为 bit|
 | [CHAR_LENGTH()](./String/char-length.md)       | 以字符为单位返回字符串 str 的长度|
 | [CONCAT()](./String/concat.md)                 | 将多个字符串（或仅含有一个字符串）连接成一个字符串|
-| [CONCAT_WS()](./String/concat-ws.md)           | 代表 Concatenate With Separator，是 CONCAT() 的一种特殊形式。|
-| [EMPTY()](./String/empty.md)                   | 判断输入的字符串是否为空。 |
-| [ENDSWITH()](./String/endswith.md)             | 检查是否以指定后缀结尾。|
+| [CONCAT_WS()](./String/concat-ws.md)           | 代表 Concatenate With Separator，是 CONCAT() 的一种特殊形式|
+| [EMPTY()](./String/empty.md)                   | 判断输入的字符串是否为空 |
+| [ENDSWITH()](./String/endswith.md)             | 检查是否以指定后缀结。|
 | [FIELD()](./String/field.md)                   | 返回第一个字符串 str 在字符串列表 (str1,str2,str3,...) 中的位置 |
-| [FIND_IN_SET()](./String/find-in-set.md)       | 在逗号分隔的字符串列表中查找指定字符串的位置。|
-| [FORMAT()](./String/format.md)                 | 用于将数字格式设置为 "#,###,###.##" 格式，并四舍五入到小数点后一位。|
-| [FROM_BASE64()](./String/from_base64.md)       | 用于将 Base64 编码的字符串转换回原始的二进制数据（或文本数据）。|
+| [FIND_IN_SET()](./String/find-in-set.md)       | 在逗号分隔的字符串列表中查找指定字符串的位置|
+| [FORMAT()](./String/format.md)                 | 用于将数字格式设置为 "#,###,###.##" 格式，并四舍五入到小数点后一位|
+| [FROM_BASE64()](./String/from_base64.md)       | 用于将 Base64 编码的字符串转换回原始的二进制数据（或文本数据）|
 | [HEX()](./String/hex.md)                       | 返回参数的十六进制字符串形式|
-| [INSTR()](./String/instr.md)                   | 返回子字符串在给定字符串中首次出现的位置。|
-| [LCASE()](./String/lcase.md)                   | 用于将给定的字符串转换为小写形式。|
-| [LEFT()](./String/left.md)                     | 返回 str 字符串中最左边的长度字符。|
-| [LENGTH()](./String/length.md)                 | 返回了字符串的长度。|
-| [LOCATE()](./String/locate.md)                 | 用于在字符串中查找子字符串所在位置的函数。|
-| [LOWER()](./String/lower.md)                   | 用于将给定的字符串转换为小写形式。|
-| [LPAD()](./String/lpad.md)                     | 用于在字符串左侧填充。|
-| [LTRIM()](./String/ltrim.md)                   | 将输入字符串的前部空格去除，返回处理后的字符。|
-| [MD5()](./String/md5.md)                       | 将输入字符串生成一个 32 字符长的十六进制 MD5 哈希值。|
+| [INSTR()](./String/instr.md)                   | 返回子字符串在给定字符串中首次出现的位置|
+| [LCASE()](./String/lcase.md)                   | 用于将给定的字符串转换为小写形式|
+| [LEFT()](./String/left.md)                     | 返回 str 字符串中最左边的长度字符|
+| [LENGTH()](./String/length.md)                 | 返回了字符串的长度|
+| [LOCATE()](./String/locate.md)                 | 用于在字符串中查找子字符串所在位置的函数|
+| [LOWER()](./String/lower.md)                   | 用于将给定的字符串转换为小写形式|
+| [LPAD()](./String/lpad.md)                     | 用于在字符串左侧填充|
+| [LTRIM()](./String/ltrim.md)                   | 将输入字符串的前部空格去除，返回处理后的字符|
+| [MD5()](./String/md5.md)                       | 将输入字符串生成一个 32 字符长的十六进制 MD5 哈希值|
 | [OCT()](./String/oct.md)                       | 返回参数的八进制值的字符串|
 | [REPEAT()](./String/repeat.md)                 | 用于将输入的字符串重复 n 次，并返回一个新的字符串|
-| [REVERSE()](./String/reverse.md)               | 将 str 字符串中的字符顺序翻转输出。|
+| [REVERSE()](./String/reverse.md)               | 将 str 字符串中的字符顺序翻转输出|
 | [RPAD()](./String/rpad.md)                     | 用于在字符串右侧填充|
 | [RTRIM()](./String/rtrim.md)                   | 将输入字符串的后方空格去除|
-| [SHA1()/SHA()](./String/sha1.md)               | 用于计算并返回给定字符串的 SHA-1 哈希值。|
-| [SHA2()](./String/sha2.md)                     | 返回输入字符串的 SHA2 哈希值。|
-| [SPACE()](./String/space.md)                   | 返回 N 个空格组成的字符串。|
+| [SHA1()/SHA()](./String/sha1.md)               | 用于计算并返回给定字符串的 SHA-1 哈希值|
+| [SHA2()](./String/sha2.md)                     | 返回输入字符串的 SHA2 哈希值|
+| [SPACE()](./String/space.md)                   | 返回 N 个空格组成的字符串|
 | [SPLIT_PART()](./String/split_part.md)         | 用于在给定的分隔符基础上将一个字符串分解成多个部分|
-| [STARTSWITH()](./String/startswith.md)         | 字符串如果以指定前缀开始返回 1，否则则返回 0。|
+| [STARTSWITH()](./String/startswith.md)         | 字符串如果以指定前缀开始返回 1，否则则返回 0|
 | [SUBSTRING()](./String/substring.md)           | 返回一个从指定位置开始的子字符串|
-| [SUBSTRING_INDEX()](./String/substring-index.md)| 以分隔符为索引，获取不同索引位的字符。|
+| [SUBSTRING_INDEX()](./String/substring-index.md)| 以分隔符为索引，获取不同索引位的字符|
 | [TO_BASE64()](./String/to_base64.md)           | 用于将字符串转换为 Base64 编码的字符串|
-| [TRIM()](./String/trim.md)                     | 返回一个字符串，删除不需要的字符。|
-| [UCASE()](./String/ucase.md)                   | 用于将给定的字符串转换为大写形式。|
-| [UNHEX()](./String/unhex.md)                   | 用于将十六进制字符串转换为相应的二进制字符串。|
-| [UPPER()](./String/upper.md)                   | 用于将给定的字符串转换为大写形式。|
+| [TRIM()](./String/trim.md)                     | 返回一个字符串，删除不需要的字符|
+| [UCASE()](./String/ucase.md)                   | 用于将给定的字符串转换为大写形式|
+| [UNHEX()](./String/unhex.md)                   | 用于将十六进制字符串转换为相应的二进制字符串|
+| [UPPER()](./String/upper.md)                   | 用于将给定的字符串转换为大写形式|
 
 ## 正则表达式
 
 | 函数名称                                                            | 作用                                     |
 | ------------------------------------------------------------------ | -------------------------------------- |
 | [NOT REGEXP()](./String/Regular-Expressions/not-regexp.md)         | 用于测试一个字符串是否不匹配指定的正则表达式|
-| [REGEXP_INSTR()](./String/Regular-Expressions/regexp-instr.md)     | 返回匹配到的正则表达式模式在字符串中的起始位置。|
+| [REGEXP_INSTR()](./String/Regular-Expressions/regexp-instr.md)     | 返回匹配到的正则表达式模式在字符串中的起始位置|
 | [REGEXP_LIKE()](./String/Regular-Expressions/regexp-like.md)       | 用于判断指定的字符串是否与提供的正则表达式模式匹配|
 | [REGEXP_REPLACE()](./String/Regular-Expressions/regexp-replace.md) | 用于将匹配给定正则表达式模式的字符串替换为指定的新字符串|
 | [REGEXP_SUBSTR()](./String/Regular-Expressions/regexp-substr.md)   | 用于返回字符串参数中匹配正则表达式参数的子字符串|
@@ -147,7 +148,7 @@
 | [SUMMATION()](./Vector/misc.md)                      | 返回向量中所有元素的总和|
 | [INNER_PRODUCT()](./Vector/inner_product.md)         | 用于计算两个向量之间的内积/点积|
 | [CLUSTER_CENTERS()](./Vector/cluster_centers.md)       | 用于确定向量列的 K 个聚类中心 |
-| [COSINE_DISTANCE()](./Vector/cosine_distance.md)     | 用于计算两个向量的余弦距离。|
+| [COSINE_DISTANCE()](./Vector/cosine_distance.md)     | 用于计算两个向量的余弦距离|
 | [COSINE_SIMILARITY()](./Vector/cosine_similarity.md) | 衡量了两个向量之间夹角的余弦值，通过它们在多维空间中的接近程度来表示它们的相似性|
 | [L2_DISTANCE()](./Vector/l2_distance.md)             |用于计算两个向量之间的欧几里得距离|
 | [L1_NORM()](./Vector/l1_norm.md)                     | 用于计算 l1/曼哈顿/TaxiCab 范数|
@@ -160,6 +161,7 @@
 
 | 函数名称                          | 作用                                     |
 | -------------------------------- | --------------------------------------- |
+| [GENERATE_SERIES()](./Table/generate_series.md)    | 用于成一个从起始值到结束值的序列|
 | [UNNEST()](./Table/unnest.md)    | 用于将 JSON 类型数据内的数组类型的列或参数展开为一个表|
 
 ## 窗口函数
@@ -187,20 +189,20 @@
 
 | 函数名称                                                     | 作用                                     |
 | ----------------------------------------------------------- | --------------------------------------- |
-| [CURRENT_ROLE_NAME()](./system-ops/current_role_name.md)    | 用于查询当前登录的用户所拥有的角色的名称。|
-| [CURRENT_ROLE()](./system-ops/current_role.md)              | 返回当前会话的角色。|
-| [CURRENT_USER_NAME()](./system-ops/current_user_name.md)    | 用于查询你当前所登录的用户名称。|
+| [CURRENT_ROLE_NAME()](./system-ops/current_role_name.md)    | 用于查询当前登录的用户所拥有的角色的名称|
+| [CURRENT_ROLE()](./system-ops/current_role.md)              | 返回当前会话的角色|
+| [CURRENT_USER_NAME()](./system-ops/current_user_name.md)    | 用于查询你当前所登录的用户名称|
 | [CURRENT_USER()](./system-ops/current_user.md)              | 返回当前用户账户|
-| [PURGE_LOG()](./system-ops/purge_log.md)                    | 用于删除记录于 MatrixOne 数据库系统表中的日志。|
+| [PURGE_LOG()](./system-ops/purge_log.md)                    | 用于删除记录于 MatrixOne 数据库系统表中的日志|
 
 ## 其他函数
 
 | 函数名称                        | 作用                                     |
 | ------------------------------ | --------------------------------------- |
-| [LOAD_FILE()](./Other/load_file.md)    | 用于读取 datalink 类型指向文件的内容。|
-| [SAVE_FILE()](./Other/save_file.md)    | 用于保存 datalink 类型指向文件的内容。|
+| [LOAD_FILE()](./Other/load_file.md)    | 用于读取 datalink 类型指向文件的内容|
+| [SAVE_FILE()](./Other/save_file.md)    | 用于保存 datalink 类型指向文件的内容|
 | [SAMPLE()](./Other/sample.md)  | 主要用于快速缩减查询范围|
 | [SERIAL_EXTRACT()](./Other/serial_extract.md)    | 用于提取序列/元组值中的各个元素|
 | [SLEEP()](./Other/sleep.md)    | 将当前查询暂停（睡眠）指定的秒数|
-| [STAGE_LIST()](./Other/stage_list.md)    | 用于查看 stage 中的目录和文件。|
+| [STAGE_LIST()](./Other/stage_list.md)    | 用于查看 stage 中的目录和文件|
 | [UUID()](./Other/uuid.md)      | 返回根据 RFC 4122 生成国际通用唯一标识符|
