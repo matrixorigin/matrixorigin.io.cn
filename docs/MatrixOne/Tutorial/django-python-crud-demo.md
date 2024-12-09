@@ -146,11 +146,11 @@ pip3 install pymysql -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```python
 from django.db import models
 class Book(models.Model): 
-id = models.AutoField(primary_key=True) # id 会自动创建，可以手动写入
-title = models.CharField(max_length=32) # 书籍名称
-price = models.DecimalField(max_digits=5, decimal_places=2) # 书籍价格 
-publish = models.CharField(max_length=32) # 出版社名称 
-pub_date = models.DateField() # 出版时间
+    id = models.AutoField(primary_key=True) # id 会自动创建，可以手动写入
+    title = models.CharField(max_length=32) # 书籍名称
+    price = models.DecimalField(max_digits=5, decimal_places=2) # 书籍价格 
+    publish = models.CharField(max_length=32) # 出版社名称 
+    pub_date = models.DateField() # 出版时间
 ```
 
 Django 模型使用自带的 ORM。以上的类名代表了数据库表名（*testmodel_book*)，且继承了 models.Model，类里面的字段代表数据表中的字段，数据类型：AutoField（相当于 int）、CharField（相当于 varchar）、DecimalField (相当于 decimal)、DateField（相当于 date），max_length 参数限定长度。
