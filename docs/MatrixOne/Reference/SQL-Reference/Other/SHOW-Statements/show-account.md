@@ -16,23 +16,24 @@
 | -------------- | ------------------- | --------------- | -------------------------------------------- |
 | ACCOUNT_NAME   | 租户名称                | varchar         | mo_account                                   |
 | ADMIN_NAME     | 创建时默认超级管理员名称        | varchar         | 每个租户下的 mo_user 表中                               |
-| CREATED        | 创建时间                | timestamp       | mo_account                                   |
+| CREATED_TIME        | 创建时间                | timestamp       | mo_account                                   |
 | STATUS         | 当前状态，OPEN 或 SUSPENDED | varchar         | mo_account                                   |
 | SUSPENDED_TIME | 停用时间                | timestamp       | mo_account                                   |
 | DB_COUNT       | 数据库数量               | bigint unsigned | mo_tables                                    |
-| TABLE_COUNT    | 表数量                 | bigint unsigned | mo_tables                                    |
-| ROW_COUNT      | 总行数                 | bigint unsigned | sum(mo_table_rows())                         |
+| TBL_COUNT      | 表数量                 | bigint unsigned | mo_tables                                    |
 | SIZE           | 使用空间总量（MB）          | decimal(29,3)   | sum(mo_table_size(mt.reldatabase,mt.relname) |
-| COMMENT        | 创建时的 COMMENT 信息       | varchar         | mo_account                                   |
+| SNAPSHOT_SIZE   | 备份的数据存储大小（MB）    | --             | -- |
+| COMMENTS        | 创建时的 COMMENT 信息      | varchar         | mo_account                                   |
 
 ## **示例**
 
 ```sql
 mysql> show accounts;
-+--------------+------------+---------------------+--------+----------------+----------+-------------+-----------+-------+----------------+
-| account_name | admin_name | created             | status | suspended_time | db_count | table_count | row_count | size  | comment        |
-+--------------+------------+---------------------+--------+----------------+----------+-------------+-----------+-------+----------------+
-| sys          | root       | 2023-02-14 06:58:15 | open   | NULL           |        8 |          57 |      2681 | 0.351 | system account |
-+--------------+------------+---------------------+--------+----------------+----------+-------------+-----------+-------+----------------+
-1 row in set (0.14 sec)
++--------------+------------+---------------------+--------+----------------+----------+-----------+----------+---------------+----------------+
+| account_name | admin_name | created_time        | status | suspended_time | db_count | tbl_count | size     | snapshot_size | comments       |
++--------------+------------+---------------------+--------+----------------+----------+-----------+----------+---------------+----------------+
+| acc0         | root       | 2024-12-09 06:07:44 | open   | NULL           |        5 |        65 |        0 |             0 |                |
+| sys          | root       | 2024-12-09 02:19:22 | open   | NULL           |        7 |       108 | 8.298243 |             0 | system account |
++--------------+------------+---------------------+--------+----------------+----------+-----------+----------+---------------+----------------+
+2 rows in set (0.01 sec)
 ```

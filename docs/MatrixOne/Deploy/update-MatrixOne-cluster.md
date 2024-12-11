@@ -72,7 +72,7 @@
     root@master0 ~]# mysql -h $(kubectl get svc/mo-tp-cn -n mo-hn -o jsonpath='{.spec.clusterIP}') -P 6001 -uroot -p111
     Welcome to the MariaDB monitor.  Commands end with ; or \g.
     Your MySQL connection id is 1005
-    Server version: 8.0.30-MatrixOne-v2.0.0 MatrixOne
+    Server version: 8.0.30-MatrixOne-v2.0.1 MatrixOne
 
     Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
