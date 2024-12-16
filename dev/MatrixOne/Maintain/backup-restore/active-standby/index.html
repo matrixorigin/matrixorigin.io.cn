@@ -12851,7 +12851,7 @@ standby-enabled<span class="w"> </span><span class="o">=</span><span class="w"> 
 <ul>
 <li>新增 log2.toml，non-voting 副本所在的 log 节点</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1">#需要再启动至少一个 logservice 实例，作为 non-voting 副本运行的节点，并且给该实例配置locality: (配置中的 127.0.0.1 都需要换成实际的 IP 地址)</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#需要再启动至少一个 logservice 实例，作为 non-voting 副本运行的节点，并且给该实例配置 locality: (配置中的 127.0.0.1 都需要换成实际的 IP 地址)</span>
 service-type<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LOG&quot;</span>
 data-dir<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./mo-data&quot;</span>
 
@@ -12869,7 +12869,7 @@ data-dir<span class="w"> </span><span class="o">=</span><span class="w"> </span>
 
 <span class="o">[</span>logservice<span class="o">]</span>
 deployment-id<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
-<span class="nv">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4c4dccb4-4d3c-41f8-b482-5251dc7a41bd&quot;</span><span class="w"> </span><span class="c1">#新节点的UUID</span>
+<span class="nv">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4c4dccb4-4d3c-41f8-b482-5251dc7a41bd&quot;</span><span class="w"> </span><span class="c1">#新节点的 UUID</span>
 raft-address<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:32010&quot;</span><span class="w"> </span><span class="c1"># raft 服务的地址</span>
 logservice-address<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:32011&quot;</span><span class="w"> </span><span class="c1"># logservice 服务的地址</span>
 logservice-listen-address<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0.0.0:32011&quot;</span>

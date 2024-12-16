@@ -12923,11 +12923,11 @@
 <span class="na">log.retention.check.interval.ms</span><span class="o">=</span><span class="s">300000</span>
 </code></pre></div>
 <p>文件配置完成后，执行如下命令，启动 Kafka 服务：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#生成集群ID</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#生成集群 ID</span>
 $<span class="w"> </span><span class="nv">KAFKA_CLUSTER_ID</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>bin/kafka-storage.sh<span class="w"> </span>random-uuid<span class="k">)</span><span class="s2">&quot;</span>
 <span class="c1">#设置日志目录格式</span>
 $<span class="w"> </span>bin/kafka-storage.sh<span class="w"> </span>format<span class="w"> </span>-t<span class="w"> </span><span class="nv">$KAFKA_CLUSTER_ID</span><span class="w"> </span>-c<span class="w"> </span>config/kraft/server.properties
-<span class="c1">#启动Kafka服务</span>
+<span class="c1">#启动 Kafka 服务</span>
 $<span class="w"> </span>bin/kafka-server-start.sh<span class="w"> </span>config/kraft/server.properties
 </code></pre></div>
 <h3 id="kafka_1">步骤二：创建 Kafka 主题</h3>
