@@ -225,7 +225,7 @@ MatrixOne 的完整函数列表可以参见[该函数总表](../Reference/Functi
 | 阿里云分布式自建部署 | Y，ACK+OSS                          |
 | 腾讯云分布式自建部署 | Y，TKE+COS                          |
 | AWS 分布式自建部署    | Y，EKS+S3                           |
-| 公有云 Serverless     | Y，MatrixOne Cloud，支持 AWS，阿里云 |
+| 公有云 Serverless     | Y，MatrixOne Intelligence，支持 AWS，阿里云 |
 
 ## 应用连接器及常见 ORM
 
