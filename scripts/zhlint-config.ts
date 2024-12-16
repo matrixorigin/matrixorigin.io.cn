@@ -2,24 +2,25 @@ import { writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import { type Config } from 'zhlint'
+
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 /**
  * `zhlint` 配置
- * @type {import('zhlint').Options}
  * @see https://github.com/zhlint-project/zhlint#supported-rules
  */
-const config = {
+const config: Config = {
   preset: 'default',
   rules: {
     // 半角标点
-    halfWidthPunctuation: '',
+    halfwidthPunctuation: '',
     // 全角标点
-    fullWidthPunctuation: '',
+    fullwidthPunctuation: '',
     // 忽略首尾的空格
     trimSpace: false,
     // 忽略引号相关的空格问题
-    adjustedFullWidthPunctuation: ''
+    adjustedFullwidthPunctuation: ''
   }
 }
 

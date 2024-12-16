@@ -160,11 +160,11 @@ log.retention.check.interval.ms=300000
 文件配置完成后，执行如下命令，启动 Kafka 服务：
 
 ```shell
-#生成集群ID
+#生成集群 ID
 $ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
 #设置日志目录格式
 $ bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properties
-#启动Kafka服务
+#启动 Kafka 服务
 $ bin/kafka-server-start.sh config/kraft/server.properties
 ```
 

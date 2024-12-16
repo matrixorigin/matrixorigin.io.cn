@@ -35,14 +35,14 @@ nation char(20)
 
 INSERT INTO student values(1,'tom',18,'上海'),(2,'jan',19,'上海'),(3,'jen',20,'北京'),(4,'bob',20,'北京'),(5,'tim',20,'广州');
 
-mysql> select * from student group by nation;--在`ONLY_FULL_GROUP_BY`模式下不支持进行此操作
+mysql> select * from student group by nation;--在 `ONLY_FULL_GROUP_BY` 模式下不支持进行此操作
 ERROR 1149 (HY000): SQL syntax error: column "student.id" must appear in the GROUP BY clause or be used in an aggregate function
 
 mysql> SET session sql_mode='ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,STRICT_TRANS_TAB
 LES';--关闭当前会话的 ONLY_FULL_GROUP_BY 模式
 Query OK, 0 rows affected (0.02 sec)
 
-mysql> select * from student group by nation;--在当前会话关闭`ONLY_FULL_GROUP_BY`模式立即生效
+mysql> select * from student group by nation;--在当前会话关闭 `ONLY_FULL_GROUP_BY` 模式立即生效
 +------+------+------+--------+
 | id   | name | age  | nation |
 +------+------+------+--------+

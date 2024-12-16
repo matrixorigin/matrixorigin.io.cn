@@ -59,7 +59,7 @@ mysql> select * from mo_account;
 mysql> insert into t1 values(1,6),(2,6),(3,6);
 Query OK, 3 rows affected (0.01 sec)
 
---在 sys 租户中查看 t1 的数据，可看到包含`account_id`字段在内的所有数据
+--在 sys 租户中查看 t1 的数据，可看到包含 `account_id` 字段在内的所有数据
 mysql> select * from t1;
 +------+------------+
 | a    | account_id |
@@ -70,7 +70,7 @@ mysql> select * from t1;
 +------+------------+
 3 rows in set (0.00 sec)
 
---在 test1 租户中查看 t1 的数据，可以看到非`account_id`字段的数据
+--在 test1 租户中查看 t1 的数据，可以看到非 `account_id` 字段的数据
 mysql> select * from t1;
 +------+
 | a    |

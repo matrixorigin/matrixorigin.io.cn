@@ -1,34 +1,36 @@
 {
   "name": "matrixorigin.io.cn",
   "type": "module",
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
   "scripts": {
-    "config:zhlint": "node ./scripts/genZhlintConfig",
+    "config:zhlint": "tsx ./scripts/zhlint-config.ts",
     "lint": "npm run lint:autocorrect && npm run lint:zhlint && npm run lint:markdownlint",
     "lint:fix": "npm run lint:autocorrect:fix && npm run lint:zhlint:fix && npm run lint:markdownlint:fix",
-    "lint:autocorrect": "node ./scripts/autocorrect",
-    "lint:autocorrect:fix": "node ./scripts/autocorrect --fix",
+    "lint:autocorrect": "tsx ./scripts/autocorrect.ts",
+    "lint:autocorrect:fix": "tsx ./scripts/autocorrect.ts --fix",
     "lint:zhlint": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md'",
     "lint:zhlint:fix": "npm run config:zhlint && npx zhlint './docs/MatrixOne/**/*.md' --fix",
     "lint:markdownlint": "markdownlint-cli2 './docs/MatrixOne/**/*.md'",
-    "lint:markdownlint:fix": "markdownlint-cli2-fix './docs/MatrixOne/**/*.md'"
+    "lint:markdownlint:fix": "markdownlint-cli2 --fix './docs/MatrixOne/**/*.md'"
   },
   "devDependencies": {
-    "autocorrect-node": "^2.8.4",
+    "@types/diff": "^6.0.0",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^22.10.2",
+    "autocorrect-node": "^2.13.0",
     "chalk": "^5.3.0",
-    "diff": "^5.1.0",
-    "fast-glob": "^3.3.1",
-    "markdownlint-cli2": "^0.10.0",
+    "diff": "^7.0.0",
+    "markdownlint-cli2": "^0.16.0",
     "minimist": "^1.2.8",
-    "yaml": "^2.3.4",
-    "zhlint": "^0.7.1"
+    "tinyglobby": "^0.2.10",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "yaml": "^2.6.1",
+    "zhlint": "^0.8.2"
   },
   "pnpm": {
     "overrides": {
       "trim@<0.0.3": ">=0.0.3"
     }
-  },
-  "dependencies": {
-    "run": "^1.5.0"
   }
 }

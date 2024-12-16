@@ -16,7 +16,7 @@ SELECT
 [ALL | DISTINCT ]
 select_expr [, select_expr] [[AS] alias] ...
 [INTO variable [, ...]]
-[FROM table_references
+[FROM table_references]
 [WHERE where_condition]
 [GROUP BY {col_name | expr | position}
 [ASC | DESC]]
@@ -36,7 +36,7 @@ select_expr [, select_expr] [[AS] alias] ...
 
 - AS alias：为选择的列或表达式指定一个别名。
 
-- [INTO variable[, ...]：用于将查询结果存储在一个变量中，而不是返回给客户端。
+- [INTO variable [, ...]]：用于将查询结果存储在一个变量中，而不是返回给客户端。
 
 - [FROM table_references]：指定从哪个表或哪些表中检索数据。table_references 可以是一个表名，也可以是一个包含多个表的复杂表达式（如连接）。
 

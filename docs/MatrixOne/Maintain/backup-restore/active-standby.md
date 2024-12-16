@@ -36,7 +36,7 @@ standby-enabled = true
 - 新增 log2.toml，non-voting 副本所在的 log 节点
 
 ```shell
-#需要再启动至少一个 logservice 实例，作为 non-voting 副本运行的节点，并且给该实例配置locality: (配置中的 127.0.0.1 都需要换成实际的 IP 地址)
+#需要再启动至少一个 logservice 实例，作为 non-voting 副本运行的节点，并且给该实例配置 locality: (配置中的 127.0.0.1 都需要换成实际的 IP 地址)
 service-type = "LOG"
 data-dir = "./mo-data"
   
@@ -54,7 +54,7 @@ data-dir = "mo-data/standby"
   
 [logservice]
 deployment-id = 1
-uuid = "4c4dccb4-4d3c-41f8-b482-5251dc7a41bd" #新节点的UUID
+uuid = "4c4dccb4-4d3c-41f8-b482-5251dc7a41bd" #新节点的 UUID
 raft-address = "127.0.0.1:32010" # raft 服务的地址
 logservice-address = "127.0.0.1:32011" # logservice 服务的地址
 logservice-listen-address = "0.0.0.0:32011"
