@@ -12773,7 +12773,7 @@
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
 <span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="c1">--在 sys 租户中查看 t1 的数据，可看到包含`account_id`字段在内的所有数据</span>
+<span class="c1">--在 sys 租户中查看 t1 的数据，可看到包含 `account_id` 字段在内的所有数据</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">|</span>
@@ -12784,7 +12784,7 @@
 <span class="o">+</span><span class="c1">------+------------+</span>
 <span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="c1">--在 test1 租户中查看 t1 的数据，可以看到非`account_id`字段的数据</span>
+<span class="c1">--在 test1 租户中查看 t1 的数据，可以看到非 `account_id` 字段的数据</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span>
