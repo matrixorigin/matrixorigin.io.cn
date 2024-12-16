@@ -260,7 +260,7 @@ Usage         : mo_ctl setconf [conf_list] # set configurations
 !!! note
     当 set_conf 的设置的路径中包含变量如 `${MO_PATH}` 时，需要在 `$` 前加上 `\`，例如：
     ```bash
-    mo_ctl set_conf  MO_CONF_FILE="\${MO_PATH}/matrixone/etc/launch/launch.toml"
+    mo_ctl set_conf MO_CONF_FILE="\${MO_PATH}/matrixone/etc/launch/launch.toml"
 
     ```
 

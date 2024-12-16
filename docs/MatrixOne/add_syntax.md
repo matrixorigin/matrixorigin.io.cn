@@ -31,7 +31,7 @@ INSTANCE FROM 'user'@'host':port
     [REQUIRE [NO] SSL]
 ```
 
-本文会举例添加第一个 clone_action 的规则，在第一个 clone_action 规则中，LOCAL，DATA，DIRECTORY 是 MySQL 中的关键字（<https://dev.mysql.com/doc/refman/8.0/en/keywords.html>）。 [=] 是可选项，可以有等号或者没有，'clone_dir' 是字符串。对于这些 token，词法分析阶段都会做区分。
+本文会举例添加第一个 clone_action 的规则，在第一个 clone_action 规则中，LOCAL，DATA，DIRECTORY 是 MySQL 中的关键字（<https://dev.mysql.com/doc/refman/8.0/en/keywords.html>）。[=] 是可选项，可以有等号或者没有，'clone_dir' 是字符串。对于这些 token，词法分析阶段都会做区分。
 
 我们可以先定义语法树，因为 CLONE 是新语句，我们可以在 tree 目录创建 clone.go 然后定义：
 

@@ -1,4 +1,4 @@
-**欢迎大家来到 MatrixOne，这里就是你进入矩阵世界的电话亭了～叮铃~~~**
+**欢迎大家来到 MatrixOne，这里就是你进入矩阵世界的电话亭了~叮铃~~~**
 
 > 英文版本活动说明[传送门](https://github.com/matrixorigin/matrixone/issues/1997)
 
@@ -27,23 +27,23 @@ MatrixOne 社区一共准备了 4 个类别的 56 个任务，有不同的难度
 
 ### 1. 基础任务 - 数学类系统函数
 
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1966> Mathematical Built-in function sin() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1967> Mathematical Built-in function cos() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1968> Mathematical Built-in function tan() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1969> Mathematical Built-in function cot() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1970> Mathematical Built-in function asin() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1971> Mathematical Built-in function acos() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1973> Mathematical Built-in function atan() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2094> Mathematical Built-in function sinh() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2095> Mathematical Built-in function cosh() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2096> Mathematical Built-in function crc32() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2097> Mathematical Built-in function sqrt() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2098> Mathematical Built-in function cbrt() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2099> Mathematical Built-in function rand() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2100> Mathematical Built-in function degrees() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2101> Mathematical Built-in function radians() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2102> Mathematical Built-in function sign() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2103> Mathematical Built-in function hypot() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1966> Mathematical Built-in function sin() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1967> Mathematical Built-in function cos() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1968> Mathematical Built-in function tan() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1969> Mathematical Built-in function cot() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1970> Mathematical Built-in function asin() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1971> Mathematical Built-in function acos() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1973> Mathematical Built-in function atan() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2094> Mathematical Built-in function sinh() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2095> Mathematical Built-in function cosh() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2096> Mathematical Built-in function crc32() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2097> Mathematical Built-in function sqrt() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2098> Mathematical Built-in function cbrt() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2099> Mathematical Built-in function rand() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2100> Mathematical Built-in function degrees() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2101> Mathematical Built-in function radians() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2102> Mathematical Built-in function sign() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2103> Mathematical Built-in function hypot() **[中等]**
 
 ### 2. 基础任务 - 日期时间类系统函数
 
@@ -63,35 +63,35 @@ MatrixOne 社区一共准备了 4 个类别的 56 个任务，有不同的难度
 
 ### 3. 基础任务 - 字符串类系统函数
 
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1984> String function lpad() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1985> String function ltrim() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1986> String function rpad() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1987> String function rtrim() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1988> String function repeat() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1989> String function reverse() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1990> String function space() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1991> String function replace() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2106> String function ascii() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2107> String function bit_length() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2108> String function empty() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2109> String function notEmpty() **[容易]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2110> String function bin() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2111> String function concat() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2112> String function hex() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2113> String function insert() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2114> String function locate() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2115> String function oct() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2116> String function lengthUTF8() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2117> String function startsWith() **[中等]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/2118> String function endsWith() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1984> String function lpad() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1985> String function ltrim() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1986> String function rpad() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1987> String function rtrim() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1988> String function repeat() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1989> String function reverse() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1990> String function space() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1991> String function replace() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2106> String function ascii() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2107> String function bit_length() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2108> String function empty() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2109> String function notEmpty() **[容易]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2110> String function bin() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2111> String function concat() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2112> String function hex() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2113> String function insert() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2114> String function locate() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2115> String function oct() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2116> String function lengthUTF8() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2117> String function startsWith() **[中等]**
+- [] <https://github.com/matrixorigin/matrixone/issues/2118> String function endsWith() **[中等]**
 
 ### 4. 挑战任务 - 聚合函数
 
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1992> Aggregate function any() **[有挑战]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1993> Aggregate function bit_and() **[有挑战]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1994> Aggregate function bit_or() **[有挑战]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1995> Aggregate function bit_xor() **[有挑战]**
-- [ ] <https://github.com/matrixorigin/matrixone/issues/1996> Aggregate function stddev_pop() **[有挑战]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1992> Aggregate function any() **[有挑战]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1993> Aggregate function bit_and() **[有挑战]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1994> Aggregate function bit_or() **[有挑战]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1995> Aggregate function bit_xor() **[有挑战]**
+- [] <https://github.com/matrixorigin/matrixone/issues/1996> Aggregate function stddev_pop() **[有挑战]**
 
 ## 在开始之前
 

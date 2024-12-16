@@ -2,10 +2,9 @@ import { isAbsolute, join } from 'node:path'
 
 /**
  * Resolve the absolute path of the argument.
- * @param {string} path
- * @returns {string} The absolute file path.
+ * @returns The absolute file path.
  */
-export function resolveAbsPath(path) {
+export function resolveAbsPath(path: string): string {
   if (isAbsolute(path)) return path
 
   return join(process.cwd(), path)
