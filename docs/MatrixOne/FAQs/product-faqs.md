@@ -34,7 +34,7 @@ MatrixOne 现已发布 v24.2.0.1 版本，在稳定性上我们做了大量的�
 
 **有没有 MatrixOne 云版本？想快速测试看看**
 
-有的。现 mo cloud 已经开始公测。详情查看 [MatrixOne Cloud 文档](https://docs.matrixorigin.cn/zh/matrixonecloud/MatrixOne-Cloud/Get-Started/quickstart/)
+有的。现 mo intelligence 已经开始公测。详情查看 [MatrixOne Intelligence 文档](https://docs.matrixorigin.cn/zh/matrixonecloud/MatrixOne-Cloud/Get-Started/quickstart/)
 
 ## 架构相关
 
