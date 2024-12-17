@@ -268,7 +268,7 @@ public class BookStoreController {
 }
 ```
 
-### 2. BooStoreDAO.java
+### 2. BookStoreDAO.java
 
 ```
 package com.example.jpademo.dao;
