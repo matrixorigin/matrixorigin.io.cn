@@ -12862,7 +12862,6 @@
 <h3 id="python">步骤三：构建 python 脚本</h3>
 <p>建立一个名为 <code>vec_test.py</code> 的 python 文件，定义了向量数据插入函数、向量检索函数和创建向量索引的函数，然后计算在创建索引前后进行向量检索所花费的时间。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">ollama</span>
 <span class="kn">import</span> <span class="nn">pymysql.cursors</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -12912,12 +12911,13 @@
 <span class="k">def</span> <span class="nf">vec_indx</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">index_sql</span> <span class="o">=</span> <span class="s1">&#39;create index idx_vec using ivfflat on vec_table(vec) lists=</span><span class="si">%s</span><span class="s1"> op_type &quot;vector_l2_ops&quot;&#39;</span>
     <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">index_sql</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">insert_data</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">2000000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;未创建向量索引 SQL 执行时间：&quot;</span><span class="p">)</span>
     <span class="n">vec_search</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;创建向量中......&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;创建向量索引中......&quot;</span><span class="p">)</span>
     <span class="n">vec_indx</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;已创建向量索引 SQL 执行时间：&quot;</span><span class="p">)</span>
     <span class="n">vec_search</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
