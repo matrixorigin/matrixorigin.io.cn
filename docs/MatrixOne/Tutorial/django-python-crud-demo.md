@@ -91,6 +91,9 @@ pip3 install pymysql -i https://pypi.tuna.tsinghua.edu.cn/simple
         'PORT': 6001, # 端口 
         'USER': 'root',  # 数据库用户名
         'PASSWORD': '111', # 数据库密码
+        'OPTIONS': {
+        'autocommit': True
+    }
      }  
     }
     ```
