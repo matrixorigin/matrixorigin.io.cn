@@ -59,7 +59,6 @@ SET GLOBAL experimental_ivf_index = 1;
 
 ```python
 import numpy as np
-import ollama
 import pymysql.cursors
 import time
 
@@ -109,12 +108,13 @@ def vec_search(vector_dim,topk):
 def vec_indx(n):
     index_sql = 'create index idx_vec using ivfflat on vec_table(vec) lists=%s op_type "vector_l2_ops"'
     cursor.execute(index_sql, n)
+    conn.commit()
 
 if __name__ == "__main__":
     insert_data(128, 2000000, 10000)
     print("未创建向量索引 SQL 执行时间：")
     vec_search(128,3)
-    print("创建向量中......")
+    print("创建向量索引中......")
     vec_indx(1000)
     print("已创建向量索引 SQL 执行时间：")
     vec_search(128,3)
