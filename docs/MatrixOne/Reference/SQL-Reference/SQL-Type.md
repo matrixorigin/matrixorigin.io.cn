@@ -64,7 +64,8 @@
 
 - [INSERT](Data-Manipulation-Language/insert.md)
 - [INSERT INTO SELECT](Data-Manipulation-Language/insert-into-select.md)
-- [INSERT ON DUPLICATE KEY UPDATE](Data-Manipulation-Language/insert-on-duplicate.md)
+- [INSERT IGNORE](Data-Manipulation-Language/upsert/insert-ignore.md)
+- [INSERT ON DUPLICATE](Data-Manipulation-Language/upsert/insert-on-duplicate.md)
 
 ### DELETE 语句，用于在表中删除已存在的行
 
@@ -80,7 +81,7 @@
 
 ### REPLACE 语句，替换行
 
-- [REPLACE](Data-Manipulation-Language/replace.md)
+- [REPLACE](Data-Manipulation-Language/upsert/replace.md)
 
 ## **DQL - Data Query Language**
 
