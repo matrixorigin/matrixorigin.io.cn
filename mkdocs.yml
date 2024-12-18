@@ -750,4 +750,4 @@ nav:
         - 编码规范: MatrixOne/Contribution-Guide/Code-Style/code-of-conduct.md
         - 注释规范: MatrixOne/Contribution-Guide/Code-Style/code-comment-style.md
         - 提交规范: MatrixOne/Contribution-Guide/Code-Style/commit-pr-style.md
-  - MatrixOne Intelligence: https://docs.matrixorigin.cn/zh/matrixonecloud
+  - MatrixOne Intelligence: https://docs.matrixorigin.cn/zh/m1intelligence/
