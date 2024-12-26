@@ -222,7 +222,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="https://docs.matrixorigin.cn/zh/matrixonecloud" class="md-tabs__link">
+    <a href="https://docs.matrixorigin.cn/zh/m1intelligence/" class="md-tabs__link">
       MatrixOne Intelligence
     </a>
   </li>
@@ -11143,6 +11143,33 @@
     示例
   </a>
   
+    <nav class="md-nav" aria-label="示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-json" class="md-nav__link">
+    示例 1：从简单的 JSON 对象中提取数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-json" class="md-nav__link">
+    示例 2：从嵌套的 JSON 对象中提取数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-json" class="md-nav__link">
+    示例 3：提取 JSON 数组中的元素
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -12634,7 +12661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://docs.matrixorigin.cn/zh/matrixonecloud" class="md-nav__link">
+      <a href="https://docs.matrixorigin.cn/zh/m1intelligence/" class="md-nav__link">
         MatrixOne Intelligence
       </a>
     </li>
@@ -12693,6 +12720,33 @@
     示例
   </a>
   
+    <nav class="md-nav" aria-label="示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-json" class="md-nav__link">
+    示例 1：从简单的 JSON 对象中提取数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-json" class="md-nav__link">
+    示例 2：从嵌套的 JSON 对象中提取数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-json" class="md-nav__link">
+    示例 3：提取 JSON 数组中的元素
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -12735,7 +12789,7 @@
 </li>
 </ul>
 <h2 id="_2"><strong>语法结构</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">jsonDoc</span><span class="p">,</span><span class="w"> </span><span class="n">pathExpression</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">json_doc</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">[,</span><span class="w"> </span><span class="n">path</span><span class="p">]</span><span class="w"> </span><span class="p">...);</span>
 </code></pre></div>
 <h2 id="_3"><strong>参数释义</strong></h2>
 <table>
@@ -12748,11 +12802,11 @@
 <tbody>
 <tr>
 <td>jsonDoc</td>
-<td>这是包含 JSON 数据的表达式。</td>
+<td>要查询的 JSON 文档或列。</td>
 </tr>
 <tr>
-<td>pathExpression</td>
-<td>表示在 JSON 文档中访问某个值的路径。路径以 <code>$</code> 开始，表示 JSON 文档的根，后面可以跟随点号 <code>.</code> 和键名或用方括号 [ ] 访问数组的元素。</td>
+<td>path</td>
+<td>要提取的 JSON 键路径或数组索引。路径以 '$'（表示根）开始，可以使用点表示法（例如：$.key）或数组索引（例如：$[0]）。可以指定多个路径，如果提供多个路径，函数将返回一个包含所有路径对应值的 JSON 数组。</td>
 </tr>
 </tbody>
 </table>
@@ -12825,85 +12879,174 @@
 </li>
 </ul>
 <h2 id="_4"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="s1">&#39;{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: [3, 4, 5]}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.*&#39;</span><span class="p">);</span>
-<span class="o">+</span><span class="c1">---------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="s1">&#39;{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: [3, 4, 5]}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.*&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">---------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]]</span><span class="w">                                       </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">---------------------------------------------------------+</span>
+<h3 id="1-json">示例 1：从简单的 JSON 对象中提取数据</h3>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="n">JSON</span>
+<span class="p">);</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="s1">&#39;{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: [3, 4, 5]}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.c[*]&#39;</span><span class="p">);</span>
-<span class="o">+</span><span class="c1">------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="s1">&#39;{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: [3, 4, 5]}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.c[*]&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w">                                                  </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------------------------------------------------------------+</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="k">data</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30, &quot;city&quot;: &quot;New York&quot;}&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 25, &quot;city&quot;: &quot;San Francisco&quot;}&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Charlie&quot;, &quot;age&quot;: 35, &quot;city&quot;: &quot;Los Angeles&quot;}&#39;</span><span class="p">);</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="s1">&#39;{&quot;a&quot;:{&quot;q&quot;:[1,2,3]}}&#39;</span><span class="p">,</span><span class="s1">&#39;$.a.q[1]&#39;</span><span class="p">);</span>
-<span class="o">+</span><span class="c1">---------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="err">{</span><span class="ss">&quot;a&quot;</span><span class="p">:</span><span class="err">{</span><span class="ss">&quot;q&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">---------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">2</span><span class="w">                                           </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">---------------------------------------------+</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+-------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">data</span><span class="w">                                                  </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-------------------------------------------------------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;New York&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Alice&quot;</span><span class="err">}</span><span class="w">      </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;San Francisco&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Bob&quot;</span><span class="err">}</span><span class="w">   </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Los Angeles&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Charlie&quot;</span><span class="err">}</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-------------------------------------------------------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="c1">--从简单的 JSON 对象中提取字段 name 和 city：</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w">   </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.name&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w">   </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.city&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">city</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-----------+-----------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">name</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="n">city</span><span class="w">            </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------+-----------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;Alice&quot;</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;New York&quot;</span><span class="w">      </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;Bob&quot;</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;San Francisco&quot;</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;Charlie&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;Los Angeles&quot;</span><span class="w">   </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------+-----------------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="c1">-- 使用多个路径来提取多个 JSON 值，返回一个包含这些值的 JSON 数组：</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w">   </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.address.city&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name_and_city</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">---------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">name_and_city</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;Alice&quot;</span><span class="p">]</span><span class="w">     </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;Bob&quot;</span><span class="p">]</span><span class="w">       </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;Charlie&quot;</span><span class="p">]</span><span class="w">   </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;Alice&quot;</span><span class="p">]</span><span class="w">     </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;Bob&quot;</span><span class="p">]</span><span class="w">       </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;Charlie&quot;</span><span class="p">]</span><span class="w">   </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------+</span>
+<span class="mi">6</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="2-json">示例 2：从嵌套的 JSON 对象中提取数据</h3>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="n">JSON</span>
+<span class="p">);</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="k">data</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Alice&quot;, &quot;address&quot;: {&quot;city&quot;: &quot;New York&quot;, &quot;zip&quot;: &quot;10001&quot;}}&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Bob&quot;, &quot;address&quot;: {&quot;city&quot;: &quot;San Francisco&quot;, &quot;zip&quot;: &quot;94101&quot;}}&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Charlie&quot;, &quot;address&quot;: {&quot;city&quot;: &quot;Los Angeles&quot;, &quot;zip&quot;: &quot;90001&quot;}}&#39;</span><span class="p">);</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+-------------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">data</span><span class="w">                                                                    </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-------------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;New York&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;10001&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Alice&quot;</span><span class="err">}</span><span class="w">      </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;San Francisco&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;94101&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Bob&quot;</span><span class="err">}</span><span class="w">   </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Los Angeles&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;90001&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Charlie&quot;</span><span class="err">}</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+-------------------------------------------------------------------------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="c1">--从嵌套的 address 对象中提取 city 和 zip 信息：</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w">   </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.address.city&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">city</span><span class="p">,</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w">   </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.address.zip&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">zip</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-----------------+---------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">city</span><span class="w">            </span><span class="o">|</span><span class="w"> </span><span class="n">zip</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------------+---------+</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;New York&quot;</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;10001&quot;</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;San Francisco&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;94101&quot;</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;Los Angeles&quot;</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;90001&quot;</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------------+---------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="c1">--查找 address 中包含 zip 值为 1001 的对象</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.address.zip&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&quot;10001&quot;&#39;</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+--------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">data</span><span class="w">                                                               </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+--------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;New York&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;10001&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Alice&quot;</span><span class="err">}</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+--------------------------------------------------------------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="3-json">示例 3：提取 JSON 数组中的元素</h3>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="n">JSON</span>
+<span class="p">);</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="s1">&#39;{&quot;a&quot;: {&quot;b&quot;: 1}, &quot;c&quot;: {&quot;b&quot;: 2}}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$**.b&#39;</span><span class="p">);</span>
-<span class="o">+</span><span class="c1">---------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="s1">&#39;{&quot;a&quot;: {&quot;b&quot;: 1}, &quot;c&quot;: {&quot;b&quot;: 2}}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$**.b&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">---------------------------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">                                                  </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">---------------------------------------------------------+</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="k">data</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Alice&quot;, &quot;hobbies&quot;: [&quot;reading&quot;, &quot;traveling&quot;, &quot;swimming&quot;]}&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Bob&quot;, &quot;hobbies&quot;: [&quot;gaming&quot;, &quot;music&quot;, &quot;reading&quot;]}&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Charlie&quot;, &quot;hobbies&quot;: [&quot;sports&quot;, &quot;movies&quot;, &quot;photography&quot;]}&#39;</span><span class="p">);</span>
 
-<span class="o">#</span><span class="err">在下述示例中，将展示从列中查询</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="err">值：</span>
-<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="n">json</span><span class="p">,</span><span class="n">b</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;{&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3}&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+---------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">data</span><span class="w">                                                                </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+---------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;hobbies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;reading&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;traveling&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;swimming&quot;</span><span class="p">],</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Alice&quot;</span><span class="err">}</span><span class="w">  </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;hobbies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;gaming&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;music&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;reading&quot;</span><span class="p">],</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Bob&quot;</span><span class="err">}</span><span class="w">          </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;hobbies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;sports&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;movies&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;photography&quot;</span><span class="p">],</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Charlie&quot;</span><span class="err">}</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+---------------------------------------------------------------------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;$.a&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="p">.</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">1</span><span class="w">                       </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="c1">--提取 hobbies 数组中的第一个元素：</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w">   </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.hobbies[0]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">first_hobby</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">first_hobby</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;reading&quot;</span><span class="w">   </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;gaming&quot;</span><span class="w">    </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;sports&quot;</span><span class="w">    </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+</span>
 
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;{&quot;a&quot;:4,&quot;b&quot;:5,&quot;c&quot;:6}&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="c1">--提取 hobbies 数组中的多个元素：</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w">   </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.hobbies[0]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">hobby_1</span><span class="p">,</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w">   </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.hobbies[1]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">hobby_2</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-----------+-------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">hobby_1</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">hobby_2</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------+-------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;reading&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;traveling&quot;</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;gaming&quot;</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;music&quot;</span><span class="w">     </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="ss">&quot;sports&quot;</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;movies&quot;</span><span class="w">    </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------+-------------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;$.b&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="p">.</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">5</span><span class="w">                       </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="c1">--提取 hobbies 数组中的所有元素：</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;$.a&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="p">.</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">1</span><span class="w">                       </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">4</span><span class="w">                       </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------------------+</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.hobbies[*]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">hobby_1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">hobby_1</span><span class="w">                              </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;reading&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;traveling&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;swimming&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;gaming&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;music&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;reading&quot;</span><span class="p">]</span><span class="w">       </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;sports&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;movies&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;photography&quot;</span><span class="p">]</span><span class="w">  </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------------------------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="c1">--查找 hobbies 数组中包含 &quot;reading&quot; 的对象</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">JSON_EXTRACT</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.hobbies&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%&quot;reading&quot;%&#39;</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+--------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">data</span><span class="w">                                                               </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+--------------------------------------------------------------------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;hobbies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;reading&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;traveling&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;swimming&quot;</span><span class="p">],</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Alice&quot;</span><span class="err">}</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;hobbies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;gaming&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;music&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;reading&quot;</span><span class="p">],</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Bob&quot;</span><span class="err">}</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+--------------------------------------------------------------------+</span>
 <span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;{&quot;a&quot;:{&quot;q&quot;:[1,2,3]}}&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
-
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;$.a.q[1]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">2</span><span class="w">                            </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------------------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
-
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;[{&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3},{&quot;a&quot;:4,&quot;b&quot;:5,&quot;c&quot;:6}]&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
-
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;$[1].a&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">b</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
-<span class="o">+</span><span class="c1">----------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">json_extract</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">----------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="mi">4</span><span class="w">                          </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">----------------------------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 
 
