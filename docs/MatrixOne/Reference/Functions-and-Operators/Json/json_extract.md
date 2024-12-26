@@ -14,15 +14,15 @@
 ## **语法结构**
 
 ```sql
-select json_extract(jsonDoc, pathExpression);
+select json_extract(json_doc, path[, path] ...);
 ```
 
 ## **参数释义**
 
 |  参数   | 说明 |
 |  ----  | ----  |
-| jsonDoc  | 这是包含 JSON 数据的表达式。|
-| pathExpression  | 表示在 JSON 文档中访问某个值的路径。路径以 `$` 开始，表示 JSON 文档的根，后面可以跟随点号 `.` 和键名或用方括号 [ ] 访问数组的元素。|
+| jsonDoc  | 要查询的 JSON 文档或列。|
+| path  | 要提取的 JSON 键路径或数组索引。路径以 '$'（表示根）开始，可以使用点表示法（例如：$.key）或数组索引（例如：$[0]）。可以指定多个路径，如果提供多个路径，函数将返回一个包含所有路径对应值的 JSON 数组。|
 
 路径表达式必须以 `$` 字符开头：
 
@@ -75,87 +75,184 @@ select json_extract(jsonDoc, pathExpression);
 - `$."a fish"` 表示 `shark`。
 
 - `$."a bird"` 表示 `sparrow`。
-
+  
 ## **示例**
 
+### 示例 1：从简单的 JSON 对象中提取数据
+
 ```sql
-mysql> select JSON_EXTRACT('{"a": 1, "b": 2, "c": [3, 4, 5]}', '$.*');
-+---------------------------------------------------------+
-| JSON_EXTRACT('{"a": 1, "b": 2, "c": [3, 4, 5]}', '$.*') |
-+---------------------------------------------------------+
-| [1, 2, [3, 4, 5]]                                       |
-+---------------------------------------------------------+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data JSON
+);
 
-mysql> SELECT JSON_EXTRACT('{"a": 1, "b": 2, "c": [3, 4, 5]}', '$.c[*]');
-+------------------------------------------------------------+
-| JSON_EXTRACT('{"a": 1, "b": 2, "c": [3, 4, 5]}', '$.c[*]') |
-+------------------------------------------------------------+
-| [3, 4, 5]                                                  |
-+------------------------------------------------------------+
+INSERT INTO users (data) VALUES
+('{"name": "Alice", "age": 30, "city": "New York"}'),
+('{"name": "Bob", "age": 25, "city": "San Francisco"}'),
+('{"name": "Charlie", "age": 35, "city": "Los Angeles"}');
 
-mysql> select json_extract('{"a":{"q":[1,2,3]}}','$.a.q[1]');
-+---------------------------------------------+
-| json_extract({"a":{"q":[1,2,3]}}, $.a.q[1]) |
-+---------------------------------------------+
-| 2                                           |
-+---------------------------------------------+
+mysql> select * from users;
++------+-------------------------------------------------------+
+| id   | data                                                  |
++------+-------------------------------------------------------+
+|    1 | {"age": 30, "city": "New York", "name": "Alice"}      |
+|    2 | {"age": 25, "city": "San Francisco", "name": "Bob"}   |
+|    3 | {"age": 35, "city": "Los Angeles", "name": "Charlie"} |
++------+-------------------------------------------------------+
+3 rows in set (0.00 sec)
+
+--从简单的 JSON 对象中提取字段 name 和 city：
+
+mysql> SELECT
+    ->   JSON_EXTRACT(data, '$.name') AS name,
+    ->   JSON_EXTRACT(data, '$.city') AS city
+    -> FROM users;
++-----------+-----------------+
+| name      | city            |
++-----------+-----------------+
+| "Alice"   | "New York"      |
+| "Bob"     | "San Francisco" |
+| "Charlie" | "Los Angeles"   |
++-----------+-----------------+
+3 rows in set (0.00 sec)
+
+-- 使用多个路径来提取多个 JSON 值，返回一个包含这些值的 JSON 数组：
+mysql> SELECT
+    ->   JSON_EXTRACT(data, '$.name', '$.address.city') AS name_and_city
+    -> FROM users;
++---------------+
+| name_and_city |
++---------------+
+| ["Alice"]     |
+| ["Bob"]       |
+| ["Charlie"]   |
+| ["Alice"]     |
+| ["Bob"]       |
+| ["Charlie"]   |
++---------------+
+6 rows in set (0.00 sec)
+
+```
+
+### 示例 2：从嵌套的 JSON 对象中提取数据
+
+```sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data JSON
+);
+
+INSERT INTO users (data) VALUES
+('{"name": "Alice", "address": {"city": "New York", "zip": "10001"}}'),
+('{"name": "Bob", "address": {"city": "San Francisco", "zip": "94101"}}'),
+('{"name": "Charlie", "address": {"city": "Los Angeles", "zip": "90001"}}');
+
+mysql> select * from users;
++------+-------------------------------------------------------------------------+
+| id   | data                                                                    |
++------+-------------------------------------------------------------------------+
+|    1 | {"address": {"city": "New York", "zip": "10001"}, "name": "Alice"}      |
+|    2 | {"address": {"city": "San Francisco", "zip": "94101"}, "name": "Bob"}   |
+|    3 | {"address": {"city": "Los Angeles", "zip": "90001"}, "name": "Charlie"} |
++------+-------------------------------------------------------------------------+
+3 rows in set (0.00 sec)
+
+--从嵌套的 address 对象中提取 city 和 zip 信息：
+mysql> SELECT
+    ->   JSON_EXTRACT(data, '$.address.city') AS city,
+    ->   JSON_EXTRACT(data, '$.address.zip') AS zip
+    -> FROM users;
++-----------------+---------+
+| city            | zip     |
++-----------------+---------+
+| "New York"      | "10001" |
+| "San Francisco" | "94101" |
+| "Los Angeles"   | "90001" |
++-----------------+---------+
+3 rows in set (0.00 sec)
+
+--查找 address 中包含 zip 值为 1001 的对象
+mysql> SELECT *
+    -> FROM users
+    -> WHERE JSON_EXTRACT(data, '$.address.zip') = '"10001"';
++------+--------------------------------------------------------------------+
+| id   | data                                                               |
++------+--------------------------------------------------------------------+
+|    1 | {"address": {"city": "New York", "zip": "10001"}, "name": "Alice"} |
++------+--------------------------------------------------------------------+
 1 row in set (0.00 sec)
+```
 
-mysql> select JSON_EXTRACT('{"a": {"b": 1}, "c": {"b": 2}}', '$**.b');
-+---------------------------------------------------------+
-| JSON_EXTRACT('{"a": {"b": 1}, "c": {"b": 2}}', '$**.b') |
-+---------------------------------------------------------+
-| [null, 1, 2]                                                  |
-+---------------------------------------------------------+
+### 示例 3：提取 JSON 数组中的元素
 
-#在下述示例中，将展示从列中查询 JSON 值：
-create table t1 (a json,b int);
-insert into t1(a,b) values ('{"a":1,"b":2,"c":3}',1);
+```sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data JSON
+);
 
-mysql> select json_extract(t1.a,'$.a') from t1 where t1.b=1;
-+-------------------------+
-| json_extract(t1.a, $.a) |
-+-------------------------+
-| 1                       |
-+-------------------------+
-1 row in set (0.00 sec)
+INSERT INTO users (data) VALUES
+('{"name": "Alice", "hobbies": ["reading", "traveling", "swimming"]}'),
+('{"name": "Bob", "hobbies": ["gaming", "music", "reading"]}'),
+('{"name": "Charlie", "hobbies": ["sports", "movies", "photography"]}');
 
-insert into t1(a,b) values ('{"a":4,"b":5,"c":6}',2);
+mysql> select * from users;
++------+---------------------------------------------------------------------+
+| id   | data                                                                |
++------+---------------------------------------------------------------------+
+|    1 | {"hobbies": ["reading", "traveling", "swimming"], "name": "Alice"}  |
+|    2 | {"hobbies": ["gaming", "music", "reading"], "name": "Bob"}          |
+|    3 | {"hobbies": ["sports", "movies", "photography"], "name": "Charlie"} |
++------+---------------------------------------------------------------------+
+3 rows in set (0.00 sec)
 
-mysql> select json_extract(t1.a,'$.b') from t1 where t1.b=2;
-+-------------------------+
-| json_extract(t1.a, $.b) |
-+-------------------------+
-| 5                       |
-+-------------------------+
-1 row in set (0.00 sec)
+--提取 hobbies 数组中的第一个元素：
+mysql> SELECT
+    ->   JSON_EXTRACT(data, '$.hobbies[0]') AS first_hobby
+    -> FROM users;
++-------------+
+| first_hobby |
++-------------+
+| "reading"   |
+| "gaming"    |
+| "sports"    |
++-------------+
 
-mysql> select json_extract(t1.a,'$.a') from t1;
-+-------------------------+
-| json_extract(t1.a, $.a) |
-+-------------------------+
-| 1                       |
-| 4                       |
-+-------------------------+
+--提取 hobbies 数组中的多个元素：
+mysql> SELECT
+    ->   JSON_EXTRACT(data, '$.hobbies[0]') AS hobby_1,
+    ->   JSON_EXTRACT(data, '$.hobbies[1]') AS hobby_2
+    -> FROM users;
++-----------+-------------+
+| hobby_1   | hobby_2     |
++-----------+-------------+
+| "reading" | "traveling" |
+| "gaming"  | "music"     |
+| "sports"  | "movies"    |
++-----------+-------------+
+3 rows in set (0.01 sec)
+
+--提取 hobbies 数组中的所有元素：
+
+mysql> SELECT JSON_EXTRACT(data, '$.hobbies[*]') AS hobby_1 FROM users;
++--------------------------------------+
+| hobby_1                              |
++--------------------------------------+
+| ["reading", "traveling", "swimming"] |
+| ["gaming", "music", "reading"]       |
+| ["sports", "movies", "photography"]  |
++--------------------------------------+
+3 rows in set (0.01 sec)
+
+--查找 hobbies 数组中包含 "reading" 的对象
+mysql> SELECT *
+    -> FROM users
+    -> WHERE JSON_EXTRACT(data, '$.hobbies') LIKE '%"reading"%';
++------+--------------------------------------------------------------------+
+| id   | data                                                               |
++------+--------------------------------------------------------------------+
+|    1 | {"hobbies": ["reading", "traveling", "swimming"], "name": "Alice"} |
+|    2 | {"hobbies": ["gaming", "music", "reading"], "name": "Bob"}         |
++------+--------------------------------------------------------------------+
 2 rows in set (0.00 sec)
-
-insert into t1(a,b) values ('{"a":{"q":[1,2,3]}}',3);
-
-mysql> select json_extract(t1.a,'$.a.q[1]') from t1 where t1.b=3;
-+------------------------------+
-| json_extract(t1.a, $.a.q[1]) |
-+------------------------------+
-| 2                            |
-+------------------------------+
-1 row in set (0.01 sec)
-
-insert into t1(a,b) values ('[{"a":1,"b":2,"c":3},{"a":4,"b":5,"c":6}]',4);
-
-mysql> select json_extract(t1.a,'$[1].a') from t1 where t1.b=4;
-+----------------------------+
-| json_extract(t1.a, $[1].a) |
-+----------------------------+
-| 4                          |
-+----------------------------+
-1 row in set (0.00 sec)
 ```
