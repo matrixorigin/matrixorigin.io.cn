@@ -36,7 +36,11 @@ jobs:
     - name: Install node deps
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
       run: |
+        echo "Before: corepack version => $(corepack --version || echo 'not installed')"
+        npm install -g corepack@latest
+        echo "After : corepack version => $(corepack --version)"
         corepack enable
+        pnpm --version
         pnpm i --frozen-lockfile
 
     - name: Lint with markdownlint
