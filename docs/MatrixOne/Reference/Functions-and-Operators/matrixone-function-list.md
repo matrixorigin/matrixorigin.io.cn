@@ -182,6 +182,7 @@
 | [JSON_EXTRACT_STRING()](./Json/json_extract_string.md)      | 从 JSON 数据中提取指定路径的字符串的值|
 | [JSON_QUOTE()](./Json/json_quote.md)      | 引用 JSON 文档|
 | [JSON_ROW()](./Json/json_row.md)      | 用于将每一行转化为 json 数组|
+| [JSON_SET()](./Json/json_set.md)      | 用于在一个 JSON 文档中设置或更新某个键的值|
 | [JSON_UNQUOTE()](./Json/json_unquote.md)    | 取消引用 JSON 文档|
 | [TRY_JQ()](./Json/try_jq.md)    | 用于根据 jq 表达式解析和转换 JSON 数据，并提供容错机制|
 
