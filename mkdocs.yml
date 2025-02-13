@@ -676,6 +676,7 @@ nav:
             - JSON_EXTRACT_STRING(): MatrixOne/Reference/Functions-and-Operators/Json/json_extract_string.md
             - JSON_QUOTE(): MatrixOne/Reference/Functions-and-Operators/Json/json_quote.md
             - JSON_ROW(): MatrixOne/Reference/Functions-and-Operators/Json/json_row.md
+            - JSON_SET(): MatrixOne/Reference/Functions-and-Operators/Json/json_set.md
             - JSON_UNQUOTE(): MatrixOne/Reference/Functions-and-Operators/Json/json_unquote.md
             - TRY_JQ(): MatrixOne/Reference/Functions-and-Operators/Json/try_jq.md
           - 其他函数:
@@ -719,6 +720,7 @@ nav:
       - SQL 常见问题: MatrixOne/FAQs/sql-faqs.md
     - 版本发布纪要:
       - 版本发布历史记录: MatrixOne/Release-Notes/release-timeline.md
+      - v25.2.0.2: MatrixOne/Release-Notes/v25.2.0.2.md
       - v24.2.0.1: MatrixOne/Release-Notes/v24.2.0.1.md
       - v24.2.0.0: MatrixOne/Release-Notes/v24.2.0.0.md
       - v24.1.2.4: MatrixOne/Release-Notes/v24.1.2.4.md
