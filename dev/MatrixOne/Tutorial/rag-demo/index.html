@@ -11280,6 +11280,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/Functions-and-Operators/Json/json_set/" class="md-nav__link">
+        JSON_SET()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/Functions-and-Operators/Json/json_unquote/" class="md-nav__link">
         JSON_UNQUOTE()
       </a>
@@ -12051,6 +12065,20 @@
     <li class="md-nav__item">
       <a href="../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Release-Notes/v25.2.0.2/" class="md-nav__link">
+        v25.2.0.2
       </a>
     </li>
   
@@ -12941,8 +12969,8 @@ ollama pull mxbai-embed-large
 </code></pre></div>
 <h3 id="matrixone">文本向量化存储到 MatrixOne</h3>
 <p>创建 python 文件 rag_example.py，利用 mxbai-embed-large 嵌入模型将文本信息切分和向量化，然后存到 MatrixOne 的 <code>rag_tab</code> 表中。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ollama</span>
-<span class="kn">import</span> <span class="nn">pymysql.cursors</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ollama</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pymysql.cursors</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
         <span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
@@ -12960,7 +12988,7 @@ ollama pull mxbai-embed-large
 <span class="s2">&quot;MatrixOne touts significant features, including real-time HTAP, multi-tenancy, stream computation, extreme scalability, cost-effectiveness, enterprise-grade availability, and extensive MySQL compatibility. MatrixOne unifies tasks traditionally performed by multiple databases into one system by offering a comprehensive ultra-hybrid data solution. This consolidation simplifies development and operations, minimizes data fragmentation, and boosts development agility.&quot;</span><span class="p">,</span>
 <span class="s2">&quot;MatrixOne is optimally suited for scenarios requiring real-time data input, large data scales, frequent load fluctuations, and a mix of procedural and analytical business operations. It caters to use cases such as mobile internet apps, IoT data applications, real-time data warehouses, SaaS platforms, and more.&quot;</span><span class="p">,</span>
 <span class="s2">&quot;Matrix is a collection of complex or real numbers arranged in a rectangular array.&quot;</span><span class="p">,</span>
-<span class="s2">&quot;The lastest version of MatrixOne is 2.0.1, releases on 2024/12/10.&quot;</span><span class="p">,</span>
+<span class="s2">&quot;The lastest version of MatrixOne is 2.0.2, releases on 2025/01/25.&quot;</span><span class="p">,</span>
 <span class="s2">&quot;We are excited to announce MatrixOne 0.8.0 release on 2023/6/30.&quot;</span>
 <span class="p">]</span>
 
@@ -13013,7 +13041,7 @@ ollama pull mxbai-embed-large
 <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">])</span>
 </code></pre></div>
 <p>控制台输出相关回答：</p>
-<div class="highlight"><pre><span></span><code>Based on the provided data, the latest version of MatrixOne is 2.0.1, which was released on 2024/12/10.
+<div class="highlight"><pre><span></span><code>Based on the provided data, the latest version of MatrixOne is 2.0.2, which was released on 2025/01/25.
 </code></pre></div>
 <p>在增强后，模型生成了正确答案。</p>
 <h2 id="_8">参考文档</h2>

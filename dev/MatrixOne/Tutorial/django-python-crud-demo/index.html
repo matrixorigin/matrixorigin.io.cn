@@ -11246,6 +11246,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/Functions-and-Operators/Json/json_set/" class="md-nav__link">
+        JSON_SET()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/Functions-and-Operators/Json/json_unquote/" class="md-nav__link">
         JSON_UNQUOTE()
       </a>
@@ -12017,6 +12031,20 @@
     <li class="md-nav__item">
       <a href="../../Release-Notes/release-timeline/" class="md-nav__link">
         版本发布历史记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Release-Notes/v25.2.0.2/" class="md-nav__link">
+        v25.2.0.2
       </a>
     </li>
   
@@ -12871,7 +12899,7 @@ manage.py
 </li>
 <li>
 <p>接下来，告诉 Django 使用 pymysql 模块连接 mysql 数据库，在与 settings.py 同级目录下的 <strong>init</strong>. py 中引入模块和进行配置：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pymysql</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pymysql</span>
 <span class="n">pymysql</span><span class="o">.</span><span class="n">install_as_MySQLdb</span><span class="p">()</span>
 </code></pre></div>
 </li>
@@ -12912,8 +12940,8 @@ TestModel
 <ul>
 <li>修改 TestModel/models.py 文件，定义一个<em>书本表</em>的信息代码如下：</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-<span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> 
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">django.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span> 
     <span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">AutoField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># id 会自动创建，可以手动写入</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span> <span class="c1"># 书籍名称</span>
     <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 书籍价格 </span>
@@ -12989,7 +13017,7 @@ urlpatterns = [
 <ul>
 <li>修改 django_crud_matrixone 目录下的 views.py 文件，并添加代码：</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">src_book</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">src_book</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">books</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="c1">#使用 all() 方法来查询所有内容</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">books</span><span class="p">:</span>
        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="n">i</span><span class="o">.</span><span class="n">title</span><span class="p">,</span><span class="n">i</span><span class="o">.</span><span class="n">price</span><span class="p">,</span><span class="n">i</span><span class="o">.</span><span class="n">publish</span><span class="p">,</span><span class="n">i</span><span class="o">.</span><span class="n">pub_date</span><span class="p">)</span>
@@ -13024,7 +13052,7 @@ path(&#39;&#39;, views.src_book),
 <ul>
 <li>更新数据使用 QuerySet 类型数据 <code>.update()</code>，以下例子为 id 值为 1 的记录的 price 值更新为 50。修改 django_crud_matrixone 目录下的 views.py 文件，并添加代码：</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">upd_book</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">upd_book</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">books</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">price</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;更新成功！&lt;/p&gt;&quot;</span><span class="p">)</span>
 </code></pre></div>
@@ -13061,7 +13089,7 @@ path(&#39;&#39;, views.upd_book),
 <ul>
 <li>删除数据使用 QuerySet 类型数 <code>.delete()</code>，以下例子为删除 price 为 50 的记录。修改 django_crud_matrixone 目录下的 views.py 文件，并添加代码：</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">del_book</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">del_book</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">books</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;删除成功！&lt;/p&gt;&quot;</span><span class="p">)</span>
 </code></pre></div>
