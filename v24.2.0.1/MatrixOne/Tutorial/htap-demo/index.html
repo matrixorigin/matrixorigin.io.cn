@@ -12935,9 +12935,9 @@ python3 -V
 <span class="p">);</span>
 </code></pre></div>
 <h3 id="_6">创建数据库连接池</h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">mysql.connector</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">mysql.connector</span>
 
-<span class="k">def</span> <span class="nf">create_connection_pool</span><span class="p">(</span><span class="n">max_connections</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_connection_pool</span><span class="p">(</span><span class="n">max_connections</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">pooling</span><span class="o">.</span><span class="n">MySQLConnectionPool</span><span class="p">(</span>
         <span class="n">pool_name</span><span class="o">=</span><span class="s2">&quot;my_connection_pool&quot;</span><span class="p">,</span>
         <span class="n">pool_size</span><span class="o">=</span><span class="n">max_connections</span><span class="p">,</span>
@@ -12951,9 +12951,9 @@ python3 -V
 </code></pre></div>
 <h3 id="_7">准备用户信息数据</h3>
 <p>在这里，我们将通过程序生成 100 条随机用户账户数据。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
-<span class="k">def</span> <span class="nf">insert_users</span><span class="p">(</span><span class="n">pool</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">insert_users</span><span class="p">(</span><span class="n">pool</span><span class="p">):</span>
     <span class="n">conn</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">get_connection</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
             <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
@@ -12967,9 +12967,9 @@ python3 -V
 </code></pre></div>
 <h3 id="_8">准备交易信息数据</h3>
 <p>通过程序随机生成交易信息。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">secrets</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
 
-<span class="k">def</span> <span class="nf">insert_transactions</span><span class="p">(</span><span class="n">pool</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">insert_transactions</span><span class="p">(</span><span class="n">pool</span><span class="p">):</span>
     <span class="n">conn</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">get_connection</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
             <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
@@ -12986,7 +12986,7 @@ python3 -V
 </code></pre></div>
 <h3 id="_9">定义风控分析规则</h3>
 <p>我们定义风控规则为：对每个用户在一天内的所有交易进行汇总，计算其交易总额。如果发现某个用户在同一天的交易累计金额超过了其账户中的当前余额，系统将自动标记该用户为可疑用户，从而触发风险预警。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">analyze_transactions</span><span class="p">(</span><span class="n">pool</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">analyze_transactions</span><span class="p">(</span><span class="n">pool</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
             <span class="n">conn</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">get_connection</span><span class="p">()</span>
             <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
@@ -13016,9 +13016,9 @@ python3 -V
 </code></pre></div>
 <h3 id="_10">交易及分析</h3>
 <p>在此，我们创建了五个线程来模拟并行处理的交易环境。在每个交易操作成功完成后，系统将自动启动风险控制分析流程。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
 
-<span class="k">def</span> <span class="nf">thread_insert</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">thread_insert</span><span class="p">():</span>
     <span class="c1"># 创建连接池</span>
     <span class="n">pool</span> <span class="o">=</span> <span class="n">create_connection_pool</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">pool</span><span class="p">:</span>
@@ -13034,10 +13034,10 @@ python3 -V
 </code></pre></div>
 <h3 id="_11">创建定时任务</h3>
 <p>通过安排定时任务，模拟生成连续的实时交易数据流。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">apscheduler.schedulers.background</span> <span class="kn">import</span> <span class="n">BackgroundScheduler</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">apscheduler.schedulers.background</span><span class="w"> </span><span class="kn">import</span> <span class="n">BackgroundScheduler</span>
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">pool</span> <span class="o">=</span> <span class="n">create_connection_pool</span><span class="p">()</span>
     <span class="n">insert_users</span><span class="p">(</span><span class="n">pool</span><span class="p">)</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>

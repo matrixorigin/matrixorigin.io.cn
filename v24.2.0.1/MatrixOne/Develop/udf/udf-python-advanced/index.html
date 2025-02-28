@@ -12961,7 +12961,7 @@ pip3 install grpcio
 <li>
 <p>准备好 python 文件</p>
 <p>可将原 SQL 函数体中的 python 代码编写在 <code>/opt/add_func.py</code> 文件内：</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </code></pre></div>
 </li>
@@ -13013,13 +13013,13 @@ pip3 install grpcio
 <p>其中，<code>add_udf.py</code> 是可正常可执行的 Python 代码文件，用来实现函数方法体逻辑，也可将其视为一个模块（module）。<code>add_udf.py</code> 中的代码例如：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># function</span>
 
-<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </code></pre></div>
 <p><code>setup.py</code> 文件用来定义库的元数据和配置信息等，代码例如：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># setup.py</span>
 
-<span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span>
 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;udf&quot;</span><span class="p">,</span>
@@ -13167,17 +13167,17 @@ pip<span class="w"> </span>install<span class="w"> </span>joblib
 <p>编写 <code>detection.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># coding = utf-8</span>
 <span class="c1"># -*- coding:utf-8 -*-</span>
-<span class="kn">import</span> <span class="nn">decimal</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">decimal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
-<span class="kn">import</span> <span class="nn">joblib</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">joblib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s1">&#39;model_with_scaler&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">detect</span><span class="p">(</span><span class="n">featuresList</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">amountList</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">detect</span><span class="p">(</span><span class="n">featuresList</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">amountList</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">]:</span>
     <span class="n">model_with_scaler</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
 
     <span class="n">columns_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">featuresList</span><span class="p">)</span>
@@ -13195,7 +13195,7 @@ pip<span class="w"> </span>install<span class="w"> </span>joblib
 <p>编写 <code>__init__.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># coding = utf-8</span>
 <span class="c1"># -*- coding:utf-8 -*-</span>
-<span class="kn">from</span> <span class="nn">.detection</span> <span class="kn">import</span> <span class="n">detect</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.detection</span><span class="w"> </span><span class="kn">import</span> <span class="n">detect</span>
 </code></pre></div>
 </li>
 <li>
@@ -13205,7 +13205,7 @@ pip<span class="w"> </span>install<span class="w"> </span>joblib
 <p>编写 <code>setup.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># coding = utf-8</span>
 <span class="c1"># -*- coding:utf-8 -*-</span>
-<span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
 
 <span class="n">setup</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;detect&quot;</span><span class="p">,</span>

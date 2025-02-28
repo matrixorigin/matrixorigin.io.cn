@@ -12735,10 +12735,10 @@
 </li>
 <li>
 <p><strong>使用二进制格式</strong>：为了提高整体插入性能，考虑使用二进制格式而不是文本格式。在转换为十六进制编码之前，确保数组采用小端序格式。以下是示例 Python 代码：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">binascii</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">binascii</span>
 
 <span class="c1"># &#39;value&#39; 是一个 NumPy 对象</span>
-<span class="k">def</span> <span class="nf">to_binary</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_binary</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">value</span>
 
