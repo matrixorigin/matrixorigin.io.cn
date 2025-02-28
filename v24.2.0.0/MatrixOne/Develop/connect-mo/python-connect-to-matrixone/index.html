@@ -12594,7 +12594,7 @@ pip3 install cryptography -i https://pypi.tuna.tsinghua.edu.cn/simple
 <p>创建一个纯文本文件 <em>pymysql_connect_matrixone.py</em> 并将代码写入文件：</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/python3</span>
 
-<span class="kn">import</span> <span class="nn">pymysql</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pymysql</span>
 
 <span class="c1"># Open database connection</span>
 <span class="n">db</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
@@ -12646,10 +12646,10 @@ pip3 install sqlalchemy -i https://pypi.tuna.tsinghua.edu.cn/simple
 </li>
 <li>
 <p>创建一个纯文本文件 <em>sqlalchemy_connect_matrixone.py</em> 并将代码写入文件：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">declarative_base</span> <span class="k">as</span> <span class="n">_declarative_base</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">declarative_base</span> <span class="k">as</span> <span class="n">_declarative_base</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">sessionmaker</span>
 
 <span class="c1">#使用 SQLAlchemy 创建到 MatrixOne 的连接字符串，并创建一个引擎（Engine）</span>
 <span class="n">connection_string</span> <span class="o">=</span> <span class="s1">&#39;mysql+pymysql://root:111@127.0.0.1:6001/test&#39;</span>
@@ -12658,7 +12658,7 @@ pip3 install sqlalchemy -i https://pypi.tuna.tsinghua.edu.cn/simple
 <span class="n">Base</span> <span class="o">=</span> <span class="n">_declarative_base</span><span class="p">()</span>
 
 <span class="c1">#定义一个 Python 类来映射 student 表。</span>
-<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Student</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
     <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
     <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
