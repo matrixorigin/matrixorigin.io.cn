@@ -13,40 +13,17 @@
 ## **示例**
 
 ```sql
-drop table if exists t1;
-create table t1 (a int);
-insert into t1 values(1),(2),(3),(4);
-create view v5 as select * from t1;
+mysql> create pitr cluster_pitr1 for cluster range 1 "d";
+Query OK, 0 rows affected (0.04 sec)
 
-mysql> select * from v5;
-+------+
-| a    |
-+------+
-|    1 |
-|    2 |
-|    3 |
-|    4 |
-+------+
-4 rows in set (0.01 sec)
+mysql> alter pitr cluster_pitr1 range 2 "d";
+Query OK, 0 rows affected (0.02 sec)
 
-alter view v5 as select * from t1 where a=1;
-
-mysql> select * from v5;
-+------+
-| a    |
-+------+
-|    1 |
-+------+
+mysql> show pitr;
++---------------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+| PITR_NAME     | CREATED_TIME        | MODIFIED_TIME       | PITR_LEVEL | ACCOUNT_NAME | DATABASE_NAME | TABLE_NAME | PITR_LENGTH | PITR_UNIT |
++---------------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+| cluster_pitr1 | 2025-02-28 15:57:49 | 2025-02-28 15:58:27 | cluster    | *            | *             | *          |           2 | d         |
++---------------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
 1 row in set (0.01 sec)
-
-alter view v5 as select * from t1 where a > 2;
-
-mysql> select * from v5;
-+------+
-| a    |
-+------+
-|    3 |
-|    4 |
-+------+
-2 rows in set (0.00 sec)
 ```
