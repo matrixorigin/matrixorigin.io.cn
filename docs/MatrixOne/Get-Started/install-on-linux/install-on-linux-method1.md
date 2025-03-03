@@ -54,31 +54,39 @@ MatrixOne 支持 x86 及 ARM 的 Linux 系统。本文以 Debian11.1 x86 架构�
 
 1. 检查 Git 是否已支持。如代码所示，未显示 git 的版本，则表示 **git** 需要安装。
 
-    ```
+    ```bash
     git version
     -bash: git: command not found
     ```
 
 2. 通过以下命令安装 Git。
 
-    ```
+    ```bash
     sudo apt install git
     ```
 
 3. 验证 **Git** 是否安装，请执行代码 `git version`，安装成功代码行示例如下：
 
-    ```
+    ```bash
     git version
     git version 2.40.0
     ```
 
-### 4. 安装 MySQL Client
+### 4. 安装 cmake
+
+```bash
+sudo apt update
+sudo apt install cmake -y
+cmake --version
+```
+
+### 5. 安装 MySQL Client
 
 Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安装。
 
 1. 安装 MySQL Client 需要用到 `wget` 下载工具，`wget` 是用来从指定的 URL 下载文件。依次执行下面的命令安装 `wget`：
 
-    ```
+    ```bash
     ## 更新软件源列表缓存
     sudo apt update
     ## 安装 wget
