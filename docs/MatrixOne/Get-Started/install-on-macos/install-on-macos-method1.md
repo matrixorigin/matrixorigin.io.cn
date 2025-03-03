@@ -61,7 +61,14 @@ MatrixOne 支持 x86 及 ARM 的 macOS 系统，本文以 Macbook M1 ARM 版本�
 git version 2.40.0
 ```
 
-### 4. 安装 MySQL Client
+### 4. 安装 cmake
+
+```bash
+brew install cmake
+cmake --version
+```
+
+### 5. 安装 MySQL Client
 
 1. 点击 <a href="https://dev.mysql.com/downloads/mysql" target="_blank">MySQL Community Downloads</a>，进入到 MySQL 客户端下载安装页面，根据你的操作系统和硬件环境，下拉选择 **Select Operating System > macOS**，再下拉选择 **Select OS Version**，按需选择下载安装包进行安装。
 

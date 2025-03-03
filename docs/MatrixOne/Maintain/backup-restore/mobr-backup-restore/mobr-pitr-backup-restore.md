@@ -25,8 +25,6 @@ MatrixOne 支持以下两种方式进行 PITR：
 - sql 语句
 - mo_br 工具
 
-本篇文档主要介绍如何使用 `mo_br` 进行 PITR。
-
 !!! note
     mo_br 企业级服务的备份与恢复工具，你需要联系你的 MatrixOne 客户经理，获取工具下载路径。
 
@@ -127,6 +125,8 @@ INSERT INTO orders (product_name, quantity) VALUES
 
 ### 创建 pitr
 
+#### mo_br
+
 ```bash
 #创建集群级别的pitr
 ./mo_br pitr create --host "127.0.0.1" --port 6001 --user "root" --password "111" --pname "pitr1" --level "cluster" --rangevalue 1 --rangeunit "d"
@@ -151,6 +151,46 @@ PITR NAME	   CREATED TIME    	   MODIFIED TIME   	PITR LEVEL	ACCOUNT NAME	DATABA
 pitr3    	2024-10-28 17:25:32	2024-10-28 17:25:32	account   	acc2        	*            	*         	         10	h     
 ```
 
+#### SQL
+
+```sql
+#在sys租户下创建集群级别的pitr
+mysql> create pitr pitr1 for cluster range 1 "d";
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show pitr;
++-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+| PITR_NAME | CREATED_TIME        | MODIFIED_TIME       | PITR_LEVEL | ACCOUNT_NAME | DATABASE_NAME | TABLE_NAME | PITR_LENGTH | PITR_UNIT |
++-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+| pitr1     | 2025-03-03 15:01:31 | 2025-03-03 15:01:31 | cluster    | *            | *             | *          |           1 | d         |
++-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+1 row in set (0.00 sec)  
+
+#在acc1租户下创建acc1租户级别的pitr
+mysql> create pitr pitr2 for account range 10 "h";
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show pitr;
++-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+| PITR_NAME | CREATED_TIME        | MODIFIED_TIME       | PITR_LEVEL | ACCOUNT_NAME | DATABASE_NAME | TABLE_NAME | PITR_LENGTH | PITR_UNIT |
++-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+| pitr2     | 2025-03-03 15:02:00 | 2025-03-03 15:02:00 | account    | acc1         | *             | *          |          10 | h         |
++-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+1 row in set (0.01 sec)
+
+#在acc2租户下创建acc2租户级别的pitr
+mysql> create pitr pitr3 for account range 10 "h";
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show pitr;
++-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+| PITR_NAME | CREATED_TIME        | MODIFIED_TIME       | PITR_LEVEL | ACCOUNT_NAME | DATABASE_NAME | TABLE_NAME | PITR_LENGTH | PITR_UNIT |
++-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+| pitr3     | 2025-03-03 15:02:25 | 2025-03-03 15:02:25 | account    | acc2         | *             | *          |          10 | h         |
++-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
+1 row in set (0.00 sec)
+```
+
 ### 模拟升级错误
 
 由于升级脚本错误导致 acc1 下的 db1 和 db2 都被删除，acc2 下的 db1 被删除，db2 下的 orders 表数据被清空。
@@ -167,6 +207,8 @@ truncate table orders;
 ```
 
 ### 恢复 pitr
+
+#### mo_br
 
 - 为 acc1 进行整个租户的恢复
 
@@ -228,4 +270,61 @@ truncate table orders;
     |    3 | Tablet       |        7 | 2024-10-28 17:11:27 |
     +------+--------------+----------+---------------------+
     3 rows in set (0.00 sec)
+    ```
+
+#### SQL
+
+- 为 acc1 进行整个租户的恢复
+
+    ```sql
+    mysql> restore from pitr pitr2 "2025-03-03 15:03:00";
+    Query OK, 0 rows affected (0.13 sec)
+
+    mysql> show databases;
+    +--------------------+
+    | Database           |
+    +--------------------+
+    | db1                |
+    | db2                |
+    | information_schema |
+    | mo_catalog         |
+    | mysql              |
+    | system             |
+    | system_metrics     |
+    +--------------------+
+    7 rows in set (0.00 sec)
+    ```
+
+- 为 acc2 进行库表级别的恢复
+
+    ```sql
+    --在租户 acc2 下进行
+    #恢复 db1
+    restore database db1 from pitr pitr3 "2025-03-03 14:33:30";
+
+    #恢复 orders 表
+    restore database db2 table orders from pitr pitr3 "2025-03-03 15:03:00";
+    mysql> show databases;
+    +--------------------+
+    | Database           |
+    +--------------------+
+    | db1                |
+    | db2                |
+    | information_schema |
+    | mo_catalog         |
+    | mysql              |
+    | system             |
+    | system_metrics     |
+    +--------------------+
+    7 rows in set (0.01 sec)
+
+    mysql> select * from db2.orders;
+    +------+--------------+----------+---------------------+
+    | id   | product_name | quantity | order_date          |
+    +------+--------------+----------+---------------------+
+    |    1 | Smartphone   |       10 | 2025-03-03 15:01:08 |
+    |    2 | Headphones   |       15 | 2025-03-03 15:01:08 |
+    |    3 | Tablet       |        7 | 2025-03-03 15:01:08 |
+    +------+--------------+----------+---------------------+
+    3 rows in set (0.01 sec)
     ```
