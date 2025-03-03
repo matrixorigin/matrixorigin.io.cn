@@ -4094,6 +4094,26 @@
     创建 pitr
   </a>
   
+    <nav class="md-nav" aria-label="创建 pitr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mo_br" class="md-nav__link">
+    mo_br
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -4107,6 +4127,26 @@
   <a href="#pitr_2" class="md-nav__link">
     恢复 pitr
   </a>
+  
+    <nav class="md-nav" aria-label="恢复 pitr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mo_br_1" class="md-nav__link">
+    mo_br
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    SQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -12782,6 +12822,26 @@
     创建 pitr
   </a>
   
+    <nav class="md-nav" aria-label="创建 pitr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mo_br" class="md-nav__link">
+    mo_br
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -12795,6 +12855,26 @@
   <a href="#pitr_2" class="md-nav__link">
     恢复 pitr
   </a>
+  
+    <nav class="md-nav" aria-label="恢复 pitr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mo_br_1" class="md-nav__link">
+    mo_br
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    SQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -12854,7 +12934,6 @@
 <li>sql 语句</li>
 <li>mo_br 工具</li>
 </ul>
-<p>本篇文档主要介绍如何使用 <code>mo_br</code> 进行 PITR。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>mo_br 企业级服务的备份与恢复工具，你需要联系你的 MatrixOne 客户经理，获取工具下载路径。</p>
@@ -12952,6 +13031,7 @@
 <span class="p">(</span><span class="s1">&#39;Tablet&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span><span class="w">         </span>
 </code></pre></div>
 <h3 id="pitr_1">创建 pitr</h3>
+<h4 id="mo_br">mo_br</h4>
 <div class="highlight"><pre><span></span><code><span class="c1">#创建集群级别的pitr</span>
 ./mo_br<span class="w"> </span>pitr<span class="w"> </span>create<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6001</span><span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="w"> </span>--password<span class="w"> </span><span class="s2">&quot;111&quot;</span><span class="w"> </span>--pname<span class="w"> </span><span class="s2">&quot;pitr1&quot;</span><span class="w"> </span>--level<span class="w"> </span><span class="s2">&quot;cluster&quot;</span><span class="w"> </span>--rangevalue<span class="w"> </span><span class="m">1</span><span class="w"> </span>--rangeunit<span class="w"> </span><span class="s2">&quot;d&quot;</span>
 
@@ -12974,6 +13054,43 @@ pitr2<span class="w">       </span><span class="m">2024</span>-10-28<span class=
 PITR<span class="w"> </span>NAME<span class="w">      </span>CREATED<span class="w"> </span>TIME<span class="w">        </span>MODIFIED<span class="w"> </span>TIME<span class="w">    </span>PITR<span class="w"> </span>LEVEL<span class="w">  </span>ACCOUNT<span class="w"> </span>NAME<span class="w">    </span>DATABASE<span class="w"> </span>NAME<span class="w">   </span>TABLE<span class="w"> </span>NAME<span class="w">  </span>PITR<span class="w"> </span>LENGTH<span class="w"> </span>PITR<span class="w"> </span>UNIT<span class="w"> </span>
 pitr3<span class="w">       </span><span class="m">2024</span>-10-28<span class="w"> </span><span class="m">17</span>:25:32<span class="w"> </span><span class="m">2024</span>-10-28<span class="w"> </span><span class="m">17</span>:25:32<span class="w"> </span>account<span class="w">     </span>acc2<span class="w">            </span>*<span class="w">               </span>*<span class="w">                    </span><span class="m">10</span><span class="w"> </span>h<span class="w">     </span>
 </code></pre></div>
+<h4 id="sql">SQL</h4>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="err">在</span><span class="n">sys租户下创建集群级别的pitr</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="n">pitr1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">cluster</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ss">&quot;d&quot;</span><span class="p">;</span>
+<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">pitr</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">PITR_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">CREATED_TIME</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">MODIFIED_TIME</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">PITR_LEVEL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ACCOUNT_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">DATABASE_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PITR_LENGTH</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PITR_UNIT</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">pitr1</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="mi">15</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">31</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="mi">15</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">31</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">cluster</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="w">            </span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="w">             </span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="w">          </span><span class="o">|</span><span class="w">           </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">d</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">  </span>
+
+<span class="o">#</span><span class="err">在</span><span class="n">acc1租户下创建acc1租户级别的pitr</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="n">pitr2</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="ss">&quot;h&quot;</span><span class="p">;</span>
+<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">pitr</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">PITR_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">CREATED_TIME</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">MODIFIED_TIME</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">PITR_LEVEL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ACCOUNT_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">DATABASE_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PITR_LENGTH</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PITR_UNIT</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">pitr2</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="mi">15</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="mi">15</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">account</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">acc1</span><span class="w">         </span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="w">             </span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="w">          </span><span class="o">|</span><span class="w">          </span><span class="mi">10</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">h</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="o">#</span><span class="err">在</span><span class="n">acc2租户下创建acc2租户级别的pitr</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="n">pitr3</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="ss">&quot;h&quot;</span><span class="p">;</span>
+<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">pitr</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">PITR_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">CREATED_TIME</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">MODIFIED_TIME</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">PITR_LEVEL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ACCOUNT_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">DATABASE_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PITR_LENGTH</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PITR_UNIT</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">pitr3</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="mi">15</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">25</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="mi">15</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">25</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">account</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">acc2</span><span class="w">         </span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="w">             </span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="w">          </span><span class="o">|</span><span class="w">          </span><span class="mi">10</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">h</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-----------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="_5">模拟升级错误</h3>
 <p>由于升级脚本错误导致 acc1 下的 db1 和 db2 都被删除，acc2 下的 db1 被删除，db2 下的 orders 表数据被清空。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">--在 acc1 下执行</span>
@@ -12986,6 +13103,7 @@ pitr3<span class="w">       </span><span class="m">2024</span>-10-28<span class=
 <span class="k">truncate</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span>
 </code></pre></div>
 <h3 id="pitr_2">恢复 pitr</h3>
+<h4 id="mo_br_1">mo_br</h4>
 <ul>
 <li>
 <p>为 acc1 进行整个租户的恢复</p>
@@ -13039,6 +13157,62 @@ pitr3<span class="w">       </span><span class="m">2024</span>-10-28<span class=
 <span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Tablet</span><span class="w">       </span><span class="o">|</span><span class="w">        </span><span class="mi">7</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2024</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span><span class="w"> </span><span class="mi">17</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">27</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+--------------+----------+---------------------+</span>
 <span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+</li>
+</ul>
+<h4 id="sql_1">SQL</h4>
+<ul>
+<li>
+<p>为 acc1 进行整个租户的恢复</p>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="n">pitr2</span><span class="w"> </span><span class="ss">&quot;2025-03-03 15:03:00&quot;</span><span class="p">;</span>
+<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">13</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">Database</span><span class="w">           </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">db1</span><span class="w">                </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">db2</span><span class="w">                </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">information_schema</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">mo_catalog</span><span class="w">         </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">mysql</span><span class="w">              </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">system</span><span class="w">             </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">system_metrics</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="mi">7</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+</li>
+<li>
+<p>为 acc2 进行库表级别的恢复</p>
+<div class="highlight"><pre><span></span><code><span class="c1">--在租户 acc2 下进行</span>
+<span class="o">#</span><span class="err">恢复</span><span class="w"> </span><span class="n">db1</span>
+<span class="n">restore</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">db1</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="n">pitr3</span><span class="w"> </span><span class="ss">&quot;2025-03-03 14:33:30&quot;</span><span class="p">;</span>
+
+<span class="o">#</span><span class="err">恢复</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="err">表</span>
+<span class="n">restore</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">db2</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="n">pitr3</span><span class="w"> </span><span class="ss">&quot;2025-03-03 15:03:00&quot;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">Database</span><span class="w">           </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">db1</span><span class="w">                </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">db2</span><span class="w">                </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">information_schema</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">mo_catalog</span><span class="w">         </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">mysql</span><span class="w">              </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">system</span><span class="w">             </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">system_metrics</span><span class="w">     </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="mi">7</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">db2</span><span class="p">.</span><span class="n">orders</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+--------------+----------+---------------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">product_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">order_date</span><span class="w">          </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+--------------+----------+---------------------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Smartphone</span><span class="w">   </span><span class="o">|</span><span class="w">       </span><span class="mi">10</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="mi">15</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">08</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Headphones</span><span class="w">   </span><span class="o">|</span><span class="w">       </span><span class="mi">15</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="mi">15</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">08</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Tablet</span><span class="w">       </span><span class="o">|</span><span class="w">        </span><span class="mi">7</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2025</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="mi">15</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">08</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+--------------+----------+---------------------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ul>
