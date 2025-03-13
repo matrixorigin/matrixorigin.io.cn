@@ -736,7 +736,7 @@ cnservices = [
 
 ```
 先配置好cn.toml、tn.toml、log.toml
-mo_ctl set_conf MO_CONTAINER_IMAGE=matrixorigin/matrixone/2.0.2 #设置镜像
+mo_ctl set_conf MO_CONTAINER_IMAGE=matrixorigin/matrixone/2.0.3 #设置镜像
 mo_ctl set_conf MO_CONTAINER_NAME=mo # 设置容器名
 mo_ctl set_conf MO_CONTAINER_CONF_HOST_PATH=/data/mo_confs/ # 设置宿主机上的mo配置文件存放的目录
 mo_ctl set_conf MO_CONTAINER_CONF_CON_FILE="/etc/launch.toml" # 设置容器启动时容器内的配置文件路径
