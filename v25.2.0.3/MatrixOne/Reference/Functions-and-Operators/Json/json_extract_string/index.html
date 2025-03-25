@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#json_extract_float64" class="md-skip">
+        <a href="#json_extract_string" class="md-skip">
           Skip to content
         </a>
       
@@ -12760,17 +12760,17 @@
   
 
 
-<h1 id="json_extract_float64"><strong>JSON_EXTRACT_FLOAT64()</strong></h1>
+<h1 id="json_extract_string"><strong>JSON_EXTRACT_STRING()</strong></h1>
 <h2 id="_1"><strong>函数说明</strong></h2>
-<p><code>JSON_EXTRACT_FLOAT64()</code> 用于从 JSON 数据中提取指定路径的数值的值。</p>
+<p><code>JSON_EXTRACT_STRING()</code> 用于从 JSON 数据中提取指定路径的字符串值。</p>
 <p>如果在 where 条件中进行比较：</p>
 <ul>
 <li>如果类型为 json 对象比较，使用 <a href="../json_extract/">JSON EXTRACT()</a>；</li>
-<li>如果类型是字符串类型，使用 <a href="./">JSON_EXTRACT_STRING()</a>；</li>
-<li>如果类型为 float 或者 int，使用 <code>JSON_EXTRACT_FLOAT64()</code>。</li>
+<li>如果类型是字符串类型，使用 JSON_EXTRACT_STRING()；</li>
+<li>如果类型为 float 或者 int，使用 <a href="../json_extract_float64/"><code>JSON_EXTRACT_FLOAT64()</code></a>。</li>
 </ul>
 <h2 id="_2"><strong>语法结构</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">col_name</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tab_name</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">json_extract_float64</span><span class="p">(</span><span class="n">jsonDoc</span><span class="p">,</span><span class="w"> </span><span class="n">pathExpression</span><span class="p">)</span><span class="o">=</span><span class="w"> </span><span class="nb">number</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">col_name</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tab_name</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">json_extract_string</span><span class="p">(</span><span class="n">jsonDoc</span><span class="p">,</span><span class="w"> </span><span class="n">pathExpression</span><span class="p">)</span><span class="o">=</span><span class="w"> </span><span class="nb">number</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="_3"><strong>参数释义</strong></h2>
 <table>
@@ -12820,31 +12820,35 @@
 </li>
 </ul>
 <h2 id="_4"><strong>示例</strong></h2>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">student</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="n">json</span><span class="p">);</span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">values</span>
-<span class="w">    </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;{&quot;name&quot;: &quot;tom&quot;, &quot;age&quot;: 18, &quot;score&quot;: 90,&quot;gender&quot;: &quot;male&quot;}&#39;</span><span class="p">),</span>
-<span class="w">    </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;{&quot;name&quot;: &quot;bob&quot;, &quot;age&quot;: 20, &quot;score&quot;: 80,&quot;gender&quot;: &quot;male&quot;}&#39;</span><span class="p">),</span>
-<span class="w">    </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;{&quot;name&quot;: &quot;jane&quot;, &quot;age&quot;: 17, &quot;score&quot;: 95,&quot;gender&quot;: &quot;female&quot;}&#39;</span><span class="p">),</span>
-<span class="w">    </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;{&quot;name&quot;: &quot;lily&quot;, &quot;age&quot;: 19, &quot;score&quot;: 79,&quot;gender&quot;: &quot;female&quot;}&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 创建测试表</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student</span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">info</span><span class="w"> </span><span class="n">JSON</span>
+<span class="p">);</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">where</span><span class="w">  </span><span class="n">json_extract_float64</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span><span class="s1">&#39;$.age&#39;</span><span class="p">)</span><span class="o">=</span><span class="mi">19</span><span class="p">;</span><span class="w">  </span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">n1</span><span class="w">   </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="o">|</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">|</span>
-<span class="o">+</span><span class="c1">------+</span>
-<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="c1">-- 插入测试数据</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;tom&quot;, &quot;age&quot;: 18, &quot;scores&quot;: [85, 90, 78]}&#39;</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;bob&quot;, &quot;age&quot;: 20, &quot;scores&quot;: [75, 82, 91]}&#39;</span><span class="p">);</span>
 
-<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">json_extract_float64</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span><span class="s1">&#39;$.age&#39;</span><span class="p">)</span><span class="o">=</span><span class="mi">19</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">  </span>
+<span class="c1">-- 提取字符串值</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">json_extract_string</span><span class="p">(</span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.name&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;tom&#39;</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="c1">-- 不存在的路径返回 NULL</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">json_extract_string</span><span class="p">(</span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.address&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">--------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">json_extract_float64</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="p">.</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">json_extract_string</span><span class="p">(</span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="p">.</span><span class="n">address</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">--------------------------------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="k">false</span><span class="w">                                </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">false</span><span class="w">                                </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">false</span><span class="w">                                </span><span class="o">|</span>
-<span class="o">|</span><span class="w"> </span><span class="k">true</span><span class="w">                                 </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">                                 </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">                                 </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">--------------------------------------+</span>
-<span class="mi">4</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 
 
