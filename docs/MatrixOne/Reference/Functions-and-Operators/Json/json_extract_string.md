@@ -1,19 +1,19 @@
-# **JSON_EXTRACT_FLOAT64()**
+# **JSON_EXTRACT_STRING()**
 
 ## **函数说明**
 
-`JSON_EXTRACT_FLOAT64()` 用于从 JSON 数据中提取指定路径的数值的值。
+`JSON_EXTRACT_STRING()` 用于从 JSON 数据中提取指定路径的字符串值。
   
 如果在 where 条件中进行比较：
 
 - 如果类型为 json 对象比较，使用 [JSON EXTRACT()](./json_extract.md)；
-- 如果类型是字符串类型，使用 [JSON_EXTRACT_STRING()](./json_extract_string.md)；
-- 如果类型为 float 或者 int，使用 `JSON_EXTRACT_FLOAT64()`。
+- 如果类型是字符串类型，使用 JSON_EXTRACT_STRING()；
+- 如果类型为 float 或者 int，使用 [`JSON_EXTRACT_FLOAT64()`](./json_extract_float64.md)。
 
 ## **语法结构**
 
 ```sql
-select col_name from tab_name where json_extract_float64(jsonDoc, pathExpression)= number;
+select col_name from tab_name where json_extract_string(jsonDoc, pathExpression)= number;
 ```
 
 ## **参数释义**
@@ -43,29 +43,33 @@ select col_name from tab_name where json_extract_float64(jsonDoc, pathExpression
 ## **示例**
 
 ```sql
-create table student(n1 int,n2 json);
-insert into student values
-    (1,'{"name": "tom", "age": 18, "score": 90,"gender": "male"}'),
-    (2,'{"name": "bob", "age": 20, "score": 80,"gender": "male"}'),
-    (3,'{"name": "jane", "age": 17, "score": 95,"gender": "female"}'),
-    (4,'{"name": "lily", "age": 19, "score": 79,"gender": "female"}');
+-- 创建测试表
+CREATE TABLE student(
+    id INT,
+    info JSON
+);
 
-mysql> select n1 from student where  json_extract_float64(n2,'$.age')=19;  
-+------+
-| n1   |
-+------+
-|    4 |
-+------+
-1 row in set (0.00 sec)
+-- 插入测试数据
+INSERT INTO student VALUES
+    (1, '{"name": "tom", "age": 18, "scores": [85, 90, 78]}'),
+    (2, '{"name": "bob", "age": 20, "scores": [75, 82, 91]}');
 
-mysql> select json_extract_float64(n2,'$.age')=19 from student;  
+-- 提取字符串值
+mysql> SELECT id FROM student WHERE json_extract_string(info, '$.name') = 'tom';
++------+
+| id   |
++------+
+|    1 |
++------+
+1 row in set (0.01 sec)
+
+-- 不存在的路径返回 NULL
+mysql> SELECT json_extract_string(info, '$.address') FROM student;
 +--------------------------------------+
-| json_extract_float64(n2, $.age) = 19 |
+| json_extract_string(info, $.address) |
 +--------------------------------------+
-| false                                |
-| false                                |
-| false                                |
-| true                                 |
+| NULL                                 |
+| NULL                                 |
 +--------------------------------------+
-4 rows in set (0.00 sec)
+2 rows in set (0.00 sec)
 ```
