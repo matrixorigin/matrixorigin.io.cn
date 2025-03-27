@@ -179,6 +179,7 @@ nav:
         - HTAP 应用基础示例: MatrixOne/Tutorial/htap-demo.md
         - RAG 应用基础示例: MatrixOne/Tutorial/rag-demo.md
         - 以图（文）搜图应用基础示例: MatrixOne/Tutorial/search-picture-demo.md
+        - MatrixOne Python SDK 适配示例: MatrixOne/Tutorial/python-sdk-demo.md
       - 生态工具:
         - 消息队列工具:
           - 使用 Kafka 连接 MatrixOne 实现数据持久化: MatrixOne/Develop/Ecological-Tools/Message-Queue/Kafka.md
