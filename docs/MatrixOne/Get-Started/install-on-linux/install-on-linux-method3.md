@@ -70,18 +70,18 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
 
 使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像，当 Tag 为 `latest` 时获取最新稳定版本。
 
-=== "稳定版本的镜像（2.0.3）"
+=== "稳定版本的镜像（2.1.0）"
 
       ```bash
-      docker pull matrixorigin/matrixone:2.0.3
-      docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:2.0.3
+      docker pull matrixorigin/matrixone:2.1.0
+      docker run -d -p 6001:6001 --name matrixone matrixorigin/matrixone:2.1.0
       ```
 
       如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 稳定版本镜像：
 
       ```bash
-      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:2.0.3
-      docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:2.0.3
+      docker pull registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:2.1.0
+      docker run -d -p 6001:6001 --name matrixone registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:2.1.0
       ```
 
 === "开发版本的镜像"
@@ -105,7 +105,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
 若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 ```docker run``` 命令中加上参数 ```--privileged=true```，如：
 
 ```bash
-docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:2.0.3
+docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:2.1.0
 ```
 
 如需挂载数据目录或配置自定义文件，参见[挂载目录到 Docker 容器](../../Maintain/mount-data-by-docker.md)。
@@ -128,7 +128,7 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/insta
 
 ```
 mo_ctl set_conf MO_CONTAINER_DATA_HOST_PATH="/yourpath/mo/" # 宿主机mo的数据目录
-mo_ctl set_conf MO_CONTAINER_IMAGE="matrixorigin/matrixone:2.0.3" # 设置镜像，国内的可以用registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:2.0.3 
+mo_ctl set_conf MO_CONTAINER_IMAGE="matrixorigin/matrixone:2.1.0" # 设置镜像，国内的可以用registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:2.1.0 
 mo_ctl set_conf MO_DEPLOY_MODE=docker #设置MatrixOne部署方式，此为docker部署方式
 ```
 
@@ -162,7 +162,7 @@ MO_CONTAINER_EXTRA_MOUNT_OPTION="" #额外的挂载参数，比如 -v xx:xx:xx
 === "通过 MatrixOne (稳定版本) 代码安装"
 
      ```
-     mo_ctl deploy v2.0.3
+     mo_ctl deploy v2.1.0
      ```
 
 - 启动 Matrixone
@@ -194,7 +194,7 @@ mysql -h 127.0.0.1 -P 6001 -uroot -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 5982
-Server version: 8.0.30-MatrixOne-v2.0.3 MatrixOne
+Server version: 8.0.30-MatrixOne-v2.1.0 MatrixOne
 
 Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
 
@@ -221,7 +221,7 @@ mo_ctl connect
 2024-03-08 11:13:34.420 UTC+0800    [INFO]    Ok, connecting for user ... 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 5849
-Server version: 8.0.30-MatrixOne-v2.0.3 MatrixOne
+Server version: 8.0.30-MatrixOne-v2.1.0 MatrixOne
 
 Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
 

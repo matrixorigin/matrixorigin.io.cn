@@ -10,13 +10,16 @@
 
 ## 操作流程
 
-### 创建表结构
+### 创建 pitr
 
-确保源数据库 MatrixOne 和目标数据库 MySQL 中的表结构相同，便于无缝同步数据。
+```sql
+create pitr pitr1 for account range 2 "h";
+```
 
-- MatrixOne 中的 `orders` 表：
+### 源端建表并插数据
 
-   ```sql
+```sql
+   create database source_db;
    CREATE TABLE source_db.orders (
        order_id INT PRIMARY KEY,
        customer_id INT,
@@ -30,19 +33,13 @@
     (3, 103, '2024-03-05 16:45:00', 75.00, 'Processing'),
     (4, 104, '2024-04-20 09:15:00', 200.00, 'Shipped'),
     (5, 105, '2024-05-12 14:00:00', 49.99, 'Delivered');
-   ```
+```
 
-- MySQL 中的 `orders_backup` 表：
+### 在下游创建数据库
 
-   ```sql
-   CREATE TABLE analytics_db.orders_backup (
-       order_id INT PRIMARY KEY,
-       customer_id INT,
-       order_date DATETIME,
-       amount DECIMAL(10, 2),
-       status VARCHAR(20)
-   );
-   ```
+```sql
+create database analytics_db;
+```
 
 ### 创建 `mo_cdc` 同步任务
 
@@ -54,9 +51,8 @@
        --source-uri "mysql://root:111@127.0.0.1:6001" \
        --sink-type "mysql" \
        --sink-uri "mysql://root:111@127.0.0.1:3306" \
-       --tables "source_db.orders:analytics_db.orders_backup" \
-       --level "account" \
-       --account "sys"
+       --level table \
+       --tables "source_db.orders:analytics_db.orders_backup" 
 ```
 
 查看任务状态
@@ -67,15 +63,16 @@
        --source-uri "mysql://root:111@127.0.0.1:6001"
 [
   {
-    "task-id": "0192d76f-d89a-70b3-a60d-615c5f2fd33d",
+    "task-id": "0195db5c-6406-73d8-bbf6-25fb8b9dd45d",
     "task-name": "task1",
     "source-uri": "mysql://root:******@127.0.0.1:6001",
     "sink-uri": "mysql://root:******@127.0.0.1:3306",
     "state": "running",
-    "checkpoint": "{\n  \"source_db.orders\": 2024-10-29 16:43:00.318404 +0800 CST,\n}",
-    "timestamp": "2024-10-29 16:43:01.299298 +0800 CST"
+    "err-msg": "",
+    "checkpoint": "{\n  \"source_db.orders\": 2025-03-28 14:07:31.036987 +0800 CST,\n}",
+    "timestamp": "2025-03-28 14:07:31.376217 +0800 CST"
   }
-] 
+]
 ```
 
 连接下游 mysql 查看全量数据同步情况
@@ -91,7 +88,7 @@ mysql> select * from analytics_db.orders_backup;
 |        4 |         104 | 2024-04-20 09:15:00 | 200.00 | Shipped    |
 |        5 |         105 | 2024-05-12 14:00:00 |  49.99 | Delivered  |
 +----------+-------------+---------------------+--------+------------+
-5 rows in set (0.01 sec)
+5 rows in set (0.00 sec)
 ```
 
 ### 增量同步任务
@@ -108,11 +105,11 @@ mysql> select * from source_db.orders;
 +----------+-------------+---------------------+--------+------------+
 | order_id | customer_id | order_date          | amount | status     |
 +----------+-------------+---------------------+--------+------------+
-|        4 |         104 | 2024-04-20 09:15:00 | 200.00 | Delivered  |
 |        1 |         101 | 2024-01-15 14:30:00 |  99.99 | Shipped    |
 |        2 |         102 | 2024-02-10 10:00:00 | 149.50 | Delivered  |
 |        3 |         103 | 2024-03-05 16:45:00 |  75.00 | Processing |
 |        5 |         105 | 2024-05-12 14:00:00 |  49.99 | Delivered  |
+|        4 |         104 | 2024-04-20 09:15:00 | 200.00 | Delivered  |
 +----------+-------------+---------------------+--------+------------+
 5 rows in set (0.00 sec)
 ```
@@ -157,16 +154,16 @@ mysql> select * from source_db.orders;
 +----------+-------------+---------------------+--------+------------+
 | order_id | customer_id | order_date          | amount | status     |
 +----------+-------------+---------------------+--------+------------+
-|        1 |         101 | 2024-01-15 14:30:00 |  99.99 | Shipped    |
-|        2 |         102 | 2024-02-10 10:00:00 | 149.50 | Delivered  |
-|        3 |         103 | 2024-03-05 16:45:00 |  75.00 | Processing |
-|        4 |         104 | 2024-04-20 09:15:00 | 200.00 | Delivered  |
-|        5 |         105 | 2024-05-12 14:00:00 |  49.99 | Delivered  |
 |       11 |         111 | 2024-06-15 08:30:00 | 250.75 | Processing |
 |       12 |         112 | 2024-07-22 15:45:00 | 399.99 | Shipped    |
 |       13 |         113 | 2024-08-30 10:20:00 | 599.99 | Delivered  |
+|        1 |         101 | 2024-01-15 14:30:00 |  99.99 | Shipped    |
+|        2 |         102 | 2024-02-10 10:00:00 | 149.50 | Delivered  |
+|        3 |         103 | 2024-03-05 16:45:00 |  75.00 | Processing |
+|        5 |         105 | 2024-05-12 14:00:00 |  49.99 | Delivered  |
+|        4 |         104 | 2024-04-20 09:15:00 | 200.00 | Delivered  |
 +----------+-------------+---------------------+--------+------------+
-8 rows in set (0.01 sec)
+8 rows in set (0.00 sec)
 ```
 
 手动恢复任务。

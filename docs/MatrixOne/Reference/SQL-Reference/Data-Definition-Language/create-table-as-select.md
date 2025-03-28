@@ -16,7 +16,7 @@ SELECT
 [ALL | DISTINCT ]
 select_expr [, select_expr] [[AS] alias] ...
 [INTO variable [, ...]]
-[FROM table_references]
+[FROM table_references[{as of timestamp 'YYYY-MM-DD HH:MM:SS'}]]
 [WHERE where_condition]
 [GROUP BY {col_name | expr | position}
 [ASC | DESC]]
@@ -38,7 +38,7 @@ select_expr [, select_expr] [[AS] alias] ...
 
 - [INTO variable [, ...]]：用于将查询结果存储在一个变量中，而不是返回给客户端。
 
-- [FROM table_references]：指定从哪个表或哪些表中检索数据。table_references 可以是一个表名，也可以是一个包含多个表的复杂表达式（如连接）。
+- [FROM table_references]：指定从哪个表或哪些表中检索数据。table_references 可以是一个表名，也可以是一个包含多个表的复杂表达式（如连接），可以选择复制表 pitr 某个时间点的数据到新表。
 
 - [WHERE where_condition]：用于过滤结果集，只返回满足 where_condition 条件的行。
 
@@ -317,5 +317,4 @@ CONSTRAINT `018f282d-4563-7e9d-9be5-79c0d0e8136d` FOREIGN KEY (`c`) REFERENCES `
 ) |
 +-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 1 row in set (0.00 sec)
-
 ```
