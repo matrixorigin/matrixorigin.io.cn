@@ -50,7 +50,7 @@ mysql> show pitr where pitr_name='account_pitr1';
 **示例 3：租户管理员为租户创建 pitr**
 
 ```sql
-create pitr account_pitr1 range 2 "h";
+create pitr account_pitr1 for account range 2 "h";
 
 mysql> show pitr where pitr_name='account_pitr1';
 +---------------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+
@@ -79,7 +79,7 @@ mysql> show pitr where pitr_name='db_pitr1';
 **示例 5：租户管理员为表创建 pitr**
 
 ```sql
-mysql> create pitr tab_pitr1 for database  db1 table t1 range 1 'y';
+mysql> create pitr tab_pitr1 for table db1 table t1 range 1 'y';
 Query OK, 0 rows affected (0.02 sec)
 
 mysql> show pitr where pitr_name='tab_pitr1';

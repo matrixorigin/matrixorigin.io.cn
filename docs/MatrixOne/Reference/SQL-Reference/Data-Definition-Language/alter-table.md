@@ -78,7 +78,7 @@ table_option: {
 
 ## **示例**
 
-- 示例 1：
+- 示例 1：删除外键约束
 
 ```sql
 -- 创建 f1 表，包含两个整数列：fa（主键）和 fb（具有唯一约束的键）
@@ -116,7 +116,7 @@ mysql> select ca, cb from c1 order by ca;
 2 rows in set (0.01 sec)
 ```
 
-- 示例 2：
+- 示例 2：添加主键
 
 ```sql
 -- 创建一个名为 't1' 的新表，包含列 a、b、c 和 d。列 'a' 的数据类型为 INTEGER，'b' 的数据类型为 CHAR(10)，'c' 的数据类型为 DATE，'d' 的数据类型为 DECIMAL(7,2)。在列 'a' 和 'b' 上添加了一个唯一键。
@@ -178,7 +178,7 @@ mysql> select * from t1;
 3 rows in set (0.00 sec)
 ```
 
-- 示例 3：
+- 示例 3：修改列名
 
 ```sql
 CREATE TABLE t1 (a INTEGER PRIMARY KEY, b CHAR(10));
@@ -227,6 +227,31 @@ mysql> select * from t1;
 | 3    | ad   |
 +------+------+
 3 rows in set (0.00 sec)
+```
+
+- 示例 4：表重命名
+
+```sql
+CREATE TABLE t1 (a INTEGER PRIMARY KEY, b CHAR(10));
+
+mysql> show tables;
++---------------+
+| Tables_in_db1 |
++---------------+
+| t1            |
++---------------+
+1 row in set (0.01 sec)
+
+mysql> alter table t1 rename to t2;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++---------------+
+| Tables_in_db1 |
++---------------+
+| t2            |
++---------------+
+1 row in set (0.01 sec)
 ```
 
 ## 限制
