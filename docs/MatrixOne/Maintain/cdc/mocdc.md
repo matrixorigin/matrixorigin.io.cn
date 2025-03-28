@@ -81,7 +81,7 @@ mo_cdc task create
 
 >./mo_cdc task create --task-name "ms_task2" --source-uri "mysql://acc1:admin:111@127.0.0.1:6001" --sink-uri "mysql://root:111@127.0.0.1:3306" --sink-type "mysql" --level "account" 
 
->./mo_cdc task create --task-name "mo_task1" --source-uri "mysql://root:111@127.0.0.1:6001" --sink-uri "mysql://root:111@10.222.2.33:6001" --sink-type "matrixone" --level database --databases "db1:db2" 
+>./mo_cdc task create --task-name "mo_task1" --source-uri "mysql://root:111@127.0.0.1:6001" --sink-uri "mysql://root:111@10.222.xx.xx:6001" --sink-type "matrixone" --level database --databases "db1:db2" 
 ```
 
 ## 查看任务
@@ -127,7 +127,7 @@ mo_cdc task show
     "task-id": "0195db8d-1a36-73d0-9fa3-e37839638b4b",
     "task-name": "mo_task1",
     "source-uri": "mysql://root:******@127.0.0.1:6001",
-    "sink-uri": "mysql://root:******@10.222.2.33:6001",
+    "sink-uri": "mysql://root:******@10.222.xx.xx:6001",
     "state": "running",
     "err-msg": "",
     "checkpoint": "{\n  \"db1.t1\": 2025-03-28 15:00:35.790209 +0800 CST,\n}",

@@ -46,7 +46,7 @@ CREATE DATABASE analytics_db;
     --task-name "activity_sync" \
     --source-uri "mysql://root:111@127.0.0.1:6001" \
     --sink-type "matrixone" \
-    --sink-uri "mysql://root:111@10.222.2.33:6001" \
+    --sink-uri "mysql://root:111@10.222.xx.xx:6001" \
     --level table \
     --tables "production_db.user_activities:analytics_db.analytics_activities"
 ```
@@ -62,7 +62,7 @@ CREATE DATABASE analytics_db;
     "task-id": "0195dbb6-e31e-7572-bfdb-812fd02714a1",
     "task-name": "activity_sync",
     "source-uri": "mysql://root:******@127.0.0.1:6001",
-    "sink-uri": "mysql://root:******@10.222.2.33:6001",
+    "sink-uri": "mysql://root:******@10.222.xx.xx:6001",
     "state": "running",
     "err-msg": "",
     "checkpoint": "{\n}",
