@@ -54,7 +54,7 @@ SELECT t1.*, t2.* FROM t1
 
 - 可以使用 `tbl_name AS alias_name` 或 `tbl_name alias_name` 为表起别名。
 
--如果想查看 pitr 时间内该表的数据可以在表名后加参数 `{as of timestamp 'YYYY-MM-DD HH:MM:SS'}`
+- 如果想查看某个时间戳该表的数据可以在表名后加参数 `{as of timestamp 'YYYY-MM-DD HH:MM:SS'}`
 
 #### `WHERE`
 
@@ -191,6 +191,14 @@ mysql> select * from t1 order by spID asc nulls last;
 |    5 |     11 |    99 |
 | NULL |      0 |    99 |
 +------+--------+-------+
+
+mysql> select count(*) from t1{as of timestamp '2025-04-02 10:25:00'};
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.01 sec)
 ```
 
 ## **限制**
