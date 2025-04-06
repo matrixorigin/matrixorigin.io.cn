@@ -4355,6 +4355,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mo-mo/" class="md-nav__link">
+        MatrixOne 到 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5876,6 +5890,20 @@
     <li class="md-nav__item">
       <a href="../../../Reference/SQL-Reference/Data-Definition-Language/create-index-ivfflat/" class="md-nav__link">
         CREATE INDEX...USING IVFFLAT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reference/SQL-Reference/Data-Definition-Language/create-fulltext-index/" class="md-nav__link">
+        CREATE FULLTEXT INDEX
       </a>
     </li>
   
@@ -12200,6 +12228,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v25.2.1.0/" class="md-nav__link">
+        v25.2.1.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v25.2.0.3/" class="md-nav__link">
         v25.2.0.3
       </a>
@@ -13126,14 +13168,15 @@
 
 <h1 id="mo_cdc">mo_cdc 数据同步</h1>
 <p><strong>CDC（Change Data Capture）</strong>是一种实时捕获数据库中数据变更的技术，能够记录插入、更新和删除操作。它通过监控数据库的变更，实现数据的实时同步和增量处理，确保不同系统间数据的一致性。CDC 适用于实时数据同步、数据迁移、灾难恢复和审计跟踪等场景，通过读取事务日志等方式，减少全量数据复制的压力，并提升系统的性能和效率。其优势在于低延迟、高实时性，灵活支持多种数据库和系统，适应不断变化的大规模数据环境。</p>
-<p>MatrixOne 支持通过 <code>mo_cdc</code> 实用工具进行表级别的数据同步。本章节将介绍 <code>mo_cdc</code> 的使用方法。</p>
+<p>在进行 CDC 同步之前，必须提前创建包含同步范围的 PITR（时间点恢复）能力，且建议覆盖至少 2 小时的变更范围。这样可以确保在同步任务发生中断或异常时，系统能回溯并重新读取变更数据，避免数据丢失或不一致。</p>
+<p>MatrixOne 支持通过 <code>mo_cdc</code> 实用工具进行租户/数据库/表级别的数据同步。本章节将介绍 <code>mo_cdc</code> 的使用方法。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>mo_cdc 企业级服务的数据同步工具，你需要联系你的 MatrixOne 客户经理，获取工具下载路径。</p>
 </div>
 <h2 id="_1">参考命令指南</h2>
 <p>help - 打印参考指南</p>
-<div class="highlight"><pre><span></span><code>admin@admindeMacBook-Pro<span class="w"> </span>mo-backup<span class="w"> </span>%<span class="w"> </span>./mo_cdc<span class="w"> </span><span class="nb">help</span>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>admin@admindeMBP<span class="w"> </span>mo-backup<span class="w"> </span>%<span class="w"> </span>./mo_cdc<span class="w"> </span><span class="nb">help</span>
 This<span class="w"> </span><span class="nb">command</span><span class="w"> </span>allows<span class="w"> </span>you<span class="w"> </span>to<span class="w"> </span>manage<span class="w"> </span>CDC<span class="w"> </span>Task,<span class="w"> </span>including<span class="w"> </span>task<span class="w"> </span>create,<span class="w"> </span>task<span class="w"> </span>show,<span class="w"> </span>task<span class="w"> </span>pause,<span class="w"> </span>task<span class="w"> </span>resume,<span class="w"> </span>task<span class="w"> </span>restart,<span class="w"> </span>and<span class="w"> </span>task<span class="w"> </span>drop.
 
 Usage:
@@ -13157,10 +13200,19 @@ Use<span class="w"> </span><span class="s2">&quot;mo_cdc [command] --help&quot;<
     --source-uri 
     --sink-type 
     --sink-uri 
-    --tables 
     --level 
-    --account 
+      account|database|table
+    --databases
+    --tables 
     --no-full 
+    --start-ts
+    --end-ts
+    --start-ts 
+    --end-ts
+    --send-sql-timeout 
+    --max-sql-length 
+    --exclude
+    --error-handle-option
 </code></pre></div>
 <p><strong>参数说明</strong></p>
 <table>
@@ -13177,34 +13229,56 @@ Use<span class="w"> </span><span class="s2">&quot;mo_cdc [command] --help&quot;<
 </tr>
 <tr>
 <td>source-uri</td>
-<td>源端 (mo) 连接串</td>
+<td>源端 (matrixone) 连接串</td>
 </tr>
 <tr>
 <td>sink-type</td>
-<td>下游类型，目前支持 mysql</td>
-</tr>
-<tr>
-<td>tables</td>
-<td>需要同步的表名，多个表名间用逗号隔开</td>
+<td>下游类型，目前支持 mysql 和 matrixone</td>
 </tr>
 <tr>
 <td>level</td>
-<td>选定同步的表的范围，目前只支持租户</td>
+<td>同步的范围，account</td>
 </tr>
 <tr>
-<td>account</td>
-<td>同步的租户，当 level 为 account 时需指定</td>
+<td>databases</td>
+<td>可选，同步范围为数据库级别时需指定</td>
+</tr>
+<tr>
+<td>tables</td>
+<td>可选，同步范围为表级别时需指定</td>
 </tr>
 <tr>
 <td>no-full</td>
-<td>备可选，默认开启全量，添加此参数表示全量关闭</td>
+<td>可选，默认开启全量，添加此参数表示全量关闭</td>
+</tr>
+<tr>
+<td>start-ts</td>
+<td>可选，从数据库中的特定时间戳开始拉取数据，需小于当前时间。</td>
+</tr>
+<tr>
+<td>end-ts</td>
+<td>可选，数据拉取将停止于数据库中的指定时间戳，在指定 start-ts 时，需大于 start-ts。</td>
+</tr>
+<tr>
+<td>max-sql-length</td>
+<td>可选，发送单条 sql 长度限制，默认为 4MB 和下游 max_packet_size 变量的较小值</td>
+</tr>
+<tr>
+<td>exclude</td>
+<td>可选，指定过滤对象，即这部分对象不同步，支持正则表达式</td>
+</tr>
+<tr>
+<td>error-handle-option</td>
+<td>可选，stop</td>
 </tr>
 </tbody>
 </table>
 <h4 id="_4">示例</h4>
-<div class="highlight"><pre><span></span><code>&gt;./mo_cdc<span class="w"> </span>task<span class="w"> </span>create<span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;task1&quot;</span><span class="w"> </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--sink-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@127.0.0.1:3306&quot;</span><span class="w"> </span>--sink-type<span class="w"> </span><span class="s2">&quot;mysql&quot;</span><span class="w"> </span>--tables<span class="w"> </span><span class="s2">&quot;db1.t1:db1.t1,db1.t2:db1.t2&quot;</span><span class="w"> </span>--level<span class="w"> </span><span class="s2">&quot;account&quot;</span><span class="w"> </span>--account<span class="w"> </span><span class="s2">&quot;sys&quot;</span>
+<div class="highlight"><pre><span></span><code>&gt;./mo_cdc<span class="w"> </span>task<span class="w"> </span>create<span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;ms_task1&quot;</span><span class="w"> </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--sink-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@127.0.0.1:3306&quot;</span><span class="w"> </span>--sink-type<span class="w"> </span><span class="s2">&quot;mysql&quot;</span><span class="w"> </span>--level<span class="w"> </span>table<span class="w"> </span>--tables<span class="w"> </span><span class="s2">&quot;db1.t1:db1.t1&quot;</span><span class="w">  </span>
 
-&gt;./mo_cdc<span class="w"> </span>task<span class="w"> </span>create<span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;task2&quot;</span><span class="w"> </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--sink-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@127.0.0.1:3306&quot;</span><span class="w"> </span>--sink-type<span class="w"> </span><span class="s2">&quot;mysql&quot;</span><span class="w"> </span>--tables<span class="w"> </span><span class="s2">&quot;db1.table1:db2.tab1&quot;</span><span class="w"> </span>--level<span class="w"> </span><span class="s2">&quot;account&quot;</span><span class="w"> </span>--account<span class="w"> </span><span class="s2">&quot;acc1&quot;</span>
+&gt;./mo_cdc<span class="w"> </span>task<span class="w"> </span>create<span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;ms_task2&quot;</span><span class="w"> </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--sink-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@127.0.0.1:3306&quot;</span><span class="w"> </span>--sink-type<span class="w"> </span><span class="s2">&quot;mysql&quot;</span><span class="w"> </span>--level<span class="w"> </span><span class="s2">&quot;account&quot;</span><span class="w"> </span>
+
+&gt;./mo_cdc<span class="w"> </span>task<span class="w"> </span>create<span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;mo_task1&quot;</span><span class="w"> </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--sink-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@10.222.xx.xx:6001&quot;</span><span class="w"> </span>--sink-type<span class="w"> </span><span class="s2">&quot;matrixone&quot;</span><span class="w"> </span>--level<span class="w"> </span>database<span class="w"> </span>--databases<span class="w"> </span><span class="s2">&quot;db1:db2&quot;</span><span class="w"> </span>
 </code></pre></div>
 <h2 id="_5">查看任务</h2>
 <p>查看 cdc 任务只能查看当前连接用户创建的任务。</p>
@@ -13278,30 +13352,53 @@ Use<span class="w"> </span><span class="s2">&quot;mo_cdc [command] --help&quot;<
 </table>
 <h4 id="_7">示例</h4>
 <div class="highlight"><pre><span></span><code><span class="c1">#查看所有同步任务</span>
-&gt;./mo_cdc<span class="w"> </span>task<span class="w"> </span>show<span class="w"> </span><span class="s2">&quot;task1&quot;</span><span class="w"> </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@127.0.0.1:6001&quot;</span><span class="w">  </span>--all
+&gt;<span class="w"> </span>./mo_cdc<span class="w"> </span>task<span class="w"> </span>show<span class="w"> </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@127.0.0.1:6001&quot;</span><span class="w">  </span>--all
 <span class="o">[</span>
 <span class="w">  </span><span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;task-id&quot;</span>:<span class="w"> </span><span class="s2">&quot;0192bd8a-781b-776e-812a-3f4440fceff9&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;task-id&quot;</span>:<span class="w"> </span><span class="s2">&quot;0195db8d-1a36-73d0-9fa3-e37839638b4b&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;task-name&quot;</span>:<span class="w"> </span><span class="s2">&quot;mo_task1&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;source-uri&quot;</span>:<span class="w"> </span><span class="s2">&quot;mysql://root:******@127.0.0.1:6001&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;sink-uri&quot;</span>:<span class="w"> </span><span class="s2">&quot;mysql://root:******@10.222.xx.xx:6001&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;state&quot;</span>:<span class="w"> </span><span class="s2">&quot;running&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;err-msg&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;checkpoint&quot;</span>:<span class="w"> </span><span class="s2">&quot;{\n  \&quot;db1.t1\&quot;: 2025-03-28 15:00:35.790209 +0800 CST,\n}&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;timestamp&quot;</span>:<span class="w"> </span><span class="s2">&quot;2025-03-28 15:00:36.207296 +0800 CST&quot;</span>
+<span class="w">  </span><span class="o">}</span>,
+<span class="w">  </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;task-id&quot;</span>:<span class="w"> </span><span class="s2">&quot;0195db5c-6406-73d8-bbf6-25fb8b9dd45d&quot;</span>,
 <span class="w">    </span><span class="s2">&quot;task-name&quot;</span>:<span class="w"> </span><span class="s2">&quot;task1&quot;</span>,
 <span class="w">    </span><span class="s2">&quot;source-uri&quot;</span>:<span class="w"> </span><span class="s2">&quot;mysql://root:******@127.0.0.1:6001&quot;</span>,
 <span class="w">    </span><span class="s2">&quot;sink-uri&quot;</span>:<span class="w"> </span><span class="s2">&quot;mysql://root:******@127.0.0.1:3306&quot;</span>,
 <span class="w">    </span><span class="s2">&quot;state&quot;</span>:<span class="w"> </span><span class="s2">&quot;running&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;checkpoint&quot;</span>:<span class="w"> </span><span class="s2">&quot;{\n  \&quot;db1.t1\&quot;: 2024-10-24 16:12:56.254918 +0800 CST,\n  \&quot;db1.t2\&quot;: 2024-10-24 16:12:56.376204 +0800 CST,\n}&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;timestamp&quot;</span>:<span class="w"> </span><span class="s2">&quot;2024-10-24 16:12:56.897015 +0800 CST&quot;</span>
+<span class="w">    </span><span class="s2">&quot;err-msg&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;checkpoint&quot;</span>:<span class="w"> </span><span class="s2">&quot;{\n  \&quot;source_db.orders\&quot;: 2025-03-28 15:00:35.620173 +0800 CST,\n}&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;timestamp&quot;</span>:<span class="w"> </span><span class="s2">&quot;2025-03-28 15:00:36.207296 +0800 CST&quot;</span>
+<span class="w">  </span><span class="o">}</span>,
+<span class="w">  </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;task-id&quot;</span>:<span class="w"> </span><span class="s2">&quot;0195db82-7d6f-7f2a-a6d0-24cbe6ae8896&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;task-name&quot;</span>:<span class="w"> </span><span class="s2">&quot;ms_task1&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;source-uri&quot;</span>:<span class="w"> </span><span class="s2">&quot;mysql://root:******@127.0.0.1:6001&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;sink-uri&quot;</span>:<span class="w"> </span><span class="s2">&quot;mysql://root:******@127.0.0.1:3306&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;state&quot;</span>:<span class="w"> </span><span class="s2">&quot;running&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;err-msg&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;checkpoint&quot;</span>:<span class="w"> </span><span class="s2">&quot;{\n  \&quot;db1.t1\&quot;: 2025-03-28 15:00:35.632194 +0800 CST,\n}&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;timestamp&quot;</span>:<span class="w"> </span><span class="s2">&quot;2025-03-28 15:00:36.207296 +0800 CST&quot;</span>
 <span class="w">  </span><span class="o">}</span>
 <span class="o">]</span>
 
+
 <span class="c1">#查看特定同步任务</span>
-&gt;./mo_cdc<span class="w"> </span>task<span class="w"> </span>show<span class="w"> </span><span class="s2">&quot;task1&quot;</span><span class="w"> </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w">   </span>--task-name<span class="w"> </span><span class="s2">&quot;task2&quot;</span>
+&gt;./mo_cdc<span class="w"> </span>task<span class="w"> </span>show<span class="w"> </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w">   </span>--task-name<span class="w"> </span><span class="s2">&quot;ms_task2&quot;</span>
 <span class="o">[</span>
 <span class="w">  </span><span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;task-id&quot;</span>:<span class="w"> </span><span class="s2">&quot;0192bd94-e716-73c4-860e-a392a0d68d6f&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;task-name&quot;</span>:<span class="w"> </span><span class="s2">&quot;task2&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;task-id&quot;</span>:<span class="w"> </span><span class="s2">&quot;0195db8c-c15a-742e-8d0d-598529ab3f1e&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;task-name&quot;</span>:<span class="w"> </span><span class="s2">&quot;ms_task2&quot;</span>,
 <span class="w">    </span><span class="s2">&quot;source-uri&quot;</span>:<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:******@127.0.0.1:6001&quot;</span>,
 <span class="w">    </span><span class="s2">&quot;sink-uri&quot;</span>:<span class="w"> </span><span class="s2">&quot;mysql://root:******@127.0.0.1:3306&quot;</span>,
 <span class="w">    </span><span class="s2">&quot;state&quot;</span>:<span class="w"> </span><span class="s2">&quot;running&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;checkpoint&quot;</span>:<span class="w"> </span><span class="s2">&quot;{\n  \&quot;db1.table1\&quot;: 2024-10-24 16:14:43.552274 +0800 CST,\n}&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;timestamp&quot;</span>:<span class="w"> </span><span class="s2">&quot;2024-10-24 16:14:43.664386 +0800 CST&quot;</span>
+<span class="w">    </span><span class="s2">&quot;err-msg&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;checkpoint&quot;</span>:<span class="w"> </span><span class="s2">&quot;{\n  \&quot;db1.t1\&quot;: 2025-03-28 15:01:44.030821 +0800 CST,\n  \&quot;db1.table1\&quot;: 2025-03-28 15:01:43.998759 +0800 CST,\n}&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;timestamp&quot;</span>:<span class="w"> </span><span class="s2">&quot;2025-03-28 15:01:44.908341 +0800 CST&quot;</span>
 <span class="w">  </span><span class="o">}</span>
 <span class="o">]</span>
 </code></pre></div>
@@ -13337,10 +13434,10 @@ Use<span class="w"> </span><span class="s2">&quot;mo_cdc [command] --help&quot;<
 </table>
 <h4 id="_10">示例</h4>
 <div class="highlight"><pre><span></span><code><span class="c1">#暂停特定任务</span>
-./mo_cdc<span class="w"> </span>task<span class="w"> </span>pause<span class="w">  </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;task2&quot;</span>
+./mo_cdc<span class="w"> </span>task<span class="w"> </span>pause<span class="w">  </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;ms_task2&quot;</span>
 
 <span class="c1">#暂停所有任务</span>
-./mo_cdc<span class="w"> </span>task<span class="w"> </span>pause<span class="w">  </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--all
+./mo_cdc<span class="w"> </span>task<span class="w"> </span>pause<span class="w"> </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://root:111@127.0.0.1:6001&quot;</span><span class="w">  </span>--all
 </code></pre></div>
 <h2 id="_11">恢复任务</h2>
 <p>任务只能在其状态为停止时进行恢复，恢复过程会进行断点续传。如果任务暂停的时间超过了 GC 的保留期限，则在此期间的操作将无法被同步，系统仅会同步任务最终的数据状态。</p>
@@ -13369,7 +13466,7 @@ Use<span class="w"> </span><span class="s2">&quot;mo_cdc [command] --help&quot;<
 </tbody>
 </table>
 <h4 id="_13">示例</h4>
-<div class="highlight"><pre><span></span><code>./mo_cdc<span class="w"> </span>task<span class="w"> </span>resume<span class="w">  </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;task2&quot;</span>
+<div class="highlight"><pre><span></span><code>./mo_cdc<span class="w"> </span>task<span class="w"> </span>resume<span class="w">  </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;ms_task2&quot;</span>
 </code></pre></div>
 <h2 id="_14">重启任务</h2>
 <p>重启 cdc 任务会忽略任务之前的同步进度记录，从头重新开始同步。</p>
@@ -13398,7 +13495,7 @@ Use<span class="w"> </span><span class="s2">&quot;mo_cdc [command] --help&quot;<
 </tbody>
 </table>
 <h4 id="_16">示例</h4>
-<div class="highlight"><pre><span></span><code>./mo_cdc<span class="w"> </span>task<span class="w"> </span>restart<span class="w">  </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;task2&quot;</span>
+<div class="highlight"><pre><span></span><code>./mo_cdc<span class="w"> </span>task<span class="w"> </span>restart<span class="w">  </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;ms_task2&quot;</span>
 </code></pre></div>
 <h2 id="_17">删除任务</h2>
 <h3 id="_18">语法结构</h3>
@@ -13432,10 +13529,10 @@ Use<span class="w"> </span><span class="s2">&quot;mo_cdc [command] --help&quot;<
 </table>
 <h4 id="_19">示例</h4>
 <div class="highlight"><pre><span></span><code><span class="c1">#删除特定任务</span>
-./mo_cdc<span class="w"> </span>task<span class="w"> </span>drop<span class="w">  </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;task2&quot;</span>
+./mo_cdc<span class="w"> </span>task<span class="w"> </span>drop<span class="w">  </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--task-name<span class="w"> </span><span class="s2">&quot;ms_task2&quot;</span>
 
 <span class="c1">#删除所有任务</span>
-./mo_cdc<span class="w"> </span>task<span class="w"> </span>drop<span class="w">  </span>--source-uri<span class="w"> </span><span class="s2">&quot;mysql://acc1:admin:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--all
+./mo_cdc<span class="w"> </span>task<span class="w"> </span>drop<span class="w">  </span>--source-uri<span class="w">  </span><span class="s2">&quot;mysql://root:111@127.0.0.1:6001&quot;</span><span class="w"> </span>--all
 </code></pre></div>
 
 

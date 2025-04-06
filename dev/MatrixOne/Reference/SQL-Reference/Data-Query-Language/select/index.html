@@ -4112,6 +4112,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Maintain/cdc/mo-mo/" class="md-nav__link">
+        MatrixOne 到 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5637,6 +5651,20 @@
     <li class="md-nav__item">
       <a href="../../Data-Definition-Language/create-index-ivfflat/" class="md-nav__link">
         CREATE INDEX...USING IVFFLAT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Definition-Language/create-fulltext-index/" class="md-nav__link">
+        CREATE FULLTEXT INDEX
       </a>
     </li>
   
@@ -12107,6 +12135,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v25.2.1.0/" class="md-nav__link">
+        v25.2.1.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v25.2.0.3/" class="md-nav__link">
         v25.2.0.3
       </a>
@@ -12944,7 +12986,7 @@
 <span class="w">    </span><span class="p">[</span><span class="k">ALL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">]</span>
 <span class="w">    </span><span class="n">select_expr</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">select_expr</span><span class="p">]</span><span class="w"> </span><span class="p">[[</span><span class="k">AS</span><span class="p">]</span><span class="w"> </span><span class="k">alias</span><span class="p">]</span><span class="w"> </span><span class="p">...</span>
 <span class="w">    </span><span class="p">[</span><span class="k">INTO</span><span class="w"> </span><span class="k">variable</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="p">...]]</span>
-<span class="w">    </span><span class="p">[</span><span class="k">FROM</span><span class="w"> </span><span class="n">table_references</span>
+<span class="w">    </span><span class="p">[</span><span class="k">FROM</span><span class="w"> </span><span class="n">table_references</span><span class="p">[</span><span class="err">{</span><span class="k">as</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">timestamp</span><span class="w"> </span><span class="s1">&#39;YYYY-MM-DD HH:MM:SS&#39;</span><span class="err">}</span><span class="p">]]</span>
 <span class="w">    </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">where_condition</span><span class="p">]</span>
 <span class="w">    </span><span class="p">[</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{</span><span class="n">col_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">position</span><span class="err">}</span>
 <span class="w">      </span><span class="p">[</span><span class="k">ASC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DESC</span><span class="p">]]</span>
@@ -12978,6 +13020,9 @@
 </li>
 <li>
 <p>可以使用 <code>tbl_name AS alias_name</code> 或 <code>tbl_name alias_name</code> 为表起别名。</p>
+</li>
+<li>
+<p>如果想查看某个时间戳该表的数据可以在表名后加参数 <code>{as of timestamp 'YYYY-MM-DD HH:MM:SS'}</code></p>
 </li>
 </ul>
 <h4 id="where"><code>WHERE</code></h4>
@@ -13096,6 +13141,14 @@
 <span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="mi">11</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">99</span><span class="w"> </span><span class="o">|</span>
 <span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w">      </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">99</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">------+--------+-------+</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="err">{</span><span class="k">as</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">timestamp</span><span class="w"> </span><span class="s1">&#39;2025-04-02 10:25:00&#39;</span><span class="err">}</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+</span>
+<span class="o">|</span><span class="w">        </span><span class="mi">8</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="_5"><strong>限制</strong></h2>
 <ul>

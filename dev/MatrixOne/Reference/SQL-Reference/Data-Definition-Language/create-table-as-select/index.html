@@ -4112,6 +4112,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Maintain/cdc/mo-mo/" class="md-nav__link">
+        MatrixOne 到 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5639,6 +5653,20 @@
     <li class="md-nav__item">
       <a href="../create-index-ivfflat/" class="md-nav__link">
         CREATE INDEX...USING IVFFLAT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-fulltext-index/" class="md-nav__link">
+        CREATE FULLTEXT INDEX
       </a>
     </li>
   
@@ -12032,6 +12060,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v25.2.1.0/" class="md-nav__link">
+        v25.2.1.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v25.2.0.3/" class="md-nav__link">
         v25.2.0.3
       </a>
@@ -12790,23 +12832,23 @@
 <h2 id="_1">语法说明</h2>
 <p><code>CREATE TABLE AS SELECT</code> 命令通过复制 <code>SELECT</code> 查询中指定的现有表中的列定义和列数据来创建新表。然而，它不会复制原表的约束、索引、视图或其他非数据属性。</p>
 <h2 id="_2">语法结构</h2>
-<div class="highlight"><pre><span></span><code>&gt; CREATE [TEMPORARY] TABLE [ IF NOT EXISTS ] table_name
-[ (column_name [, ...] ) ] AS {query}
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="p">[</span><span class="k">TEMPORARY</span><span class="p">]</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="k">table_name</span>
+<span class="p">[</span><span class="w"> </span><span class="p">(</span><span class="k">column_name</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="p">...]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">{</span><span class="n">query</span><span class="err">}</span>
 
-Query can be any select statement in MO syntax.
+<span class="n">Query</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="k">any</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">MO</span><span class="w"> </span><span class="n">syntax</span><span class="p">.</span>
 
-SELECT
-[ALL | DISTINCT ]
-select_expr [, select_expr] [[AS] alias] ...
-[INTO variable [, ...]]
-[FROM table_references]
-[WHERE where_condition]
-[GROUP BY {col_name | expr | position}
-[ASC | DESC]]
-[HAVING where_condition]
-[ORDER BY {col_name | expr | position}
-[ASC | DESC]] [ NULLS { FIRST | LAST } ]
-[LIMIT {[offset,] row_count | row_count OFFSET offset}]
+<span class="k">SELECT</span>
+<span class="p">[</span><span class="k">ALL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">]</span>
+<span class="n">select_expr</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">select_expr</span><span class="p">]</span><span class="w"> </span><span class="p">[[</span><span class="k">AS</span><span class="p">]</span><span class="w"> </span><span class="k">alias</span><span class="p">]</span><span class="w"> </span><span class="p">...</span>
+<span class="p">[</span><span class="k">INTO</span><span class="w"> </span><span class="k">variable</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="p">...]]</span>
+<span class="p">[</span><span class="k">FROM</span><span class="w"> </span><span class="n">table_references</span><span class="p">[</span><span class="err">{</span><span class="k">as</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">timestamp</span><span class="w"> </span><span class="s1">&#39;YYYY-MM-DD HH:MM:SS&#39;</span><span class="err">}</span><span class="p">]]</span>
+<span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">where_condition</span><span class="p">]</span>
+<span class="p">[</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{</span><span class="n">col_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">position</span><span class="err">}</span>
+<span class="p">[</span><span class="k">ASC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DESC</span><span class="p">]]</span>
+<span class="p">[</span><span class="k">HAVING</span><span class="w"> </span><span class="n">where_condition</span><span class="p">]</span>
+<span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{</span><span class="n">col_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">position</span><span class="err">}</span>
+<span class="p">[</span><span class="k">ASC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DESC</span><span class="p">]]</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">NULLS</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="k">FIRST</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">LAST</span><span class="w"> </span><span class="err">}</span><span class="w"> </span><span class="p">]</span>
+<span class="p">[</span><span class="k">LIMIT</span><span class="w"> </span><span class="err">{</span><span class="p">[</span><span class="k">offset</span><span class="p">,]</span><span class="w"> </span><span class="k">row_count</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">row_count</span><span class="w"> </span><span class="k">OFFSET</span><span class="w"> </span><span class="k">offset</span><span class="err">}</span><span class="p">]</span>
 </code></pre></div>
 <h2 id="_3">语法释义</h2>
 <ul>
@@ -12826,7 +12868,7 @@ select_expr [, select_expr] [[AS] alias] ...
 <p>[INTO variable [, ...]]：用于将查询结果存储在一个变量中，而不是返回给客户端。</p>
 </li>
 <li>
-<p>[FROM table_references]：指定从哪个表或哪些表中检索数据。table_references 可以是一个表名，也可以是一个包含多个表的复杂表达式（如连接）。</p>
+<p>[FROM table_references]：指定从哪个表或哪些表中检索数据。table_references 可以是一个表名，也可以是一个包含多个表的复杂表达式（如连接），可以选择复制表 pitr 某个时间点的数据到新表。</p>
 </li>
 <li>
 <p>[WHERE where_condition]：用于过滤结果集，只返回满足 where_condition 条件的行。</p>
@@ -13105,6 +13147,25 @@ select_expr [, select_expr] [[AS] alias] ...
 <span class="p">)</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>示例 10</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t10</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n3</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t10</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t10_1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t10</span><span class="err">{</span><span class="k">as</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">timestamp</span><span class="w"> </span><span class="s1">&#39;2025-04-02 10:41:00&#39;</span><span class="err">}</span><span class="p">;</span><span class="c1">--复制某个表在某个时间点的数据到新表</span>
+<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t10_1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">n1</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">n2</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">n3</span><span class="w">   </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 
 

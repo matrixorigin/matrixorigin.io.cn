@@ -4112,6 +4112,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Maintain/cdc/mo-mo/" class="md-nav__link">
+        MatrixOne 到 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5639,6 +5653,20 @@
     <li class="md-nav__item">
       <a href="../create-index-ivfflat/" class="md-nav__link">
         CREATE INDEX...USING IVFFLAT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-fulltext-index/" class="md-nav__link">
+        CREATE FULLTEXT INDEX
       </a>
     </li>
   
@@ -12038,6 +12066,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v25.2.1.0/" class="md-nav__link">
+        v25.2.1.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v25.2.0.3/" class="md-nav__link">
         v25.2.0.3
       </a>
@@ -12833,7 +12875,7 @@
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>示例 3：租户管理员为租户创建 pitr</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="n">account_pitr1</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="ss">&quot;h&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="n">account_pitr1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="ss">&quot;h&quot;</span><span class="p">;</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">pitr_name</span><span class="o">=</span><span class="s1">&#39;account_pitr1&#39;</span><span class="p">;</span>
 <span class="o">+</span><span class="c1">---------------+---------------------+---------------------+------------+--------------+---------------+------------+-------------+-----------+</span>
@@ -12856,7 +12898,7 @@
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>示例 5：租户管理员为表创建 pitr</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="n">tab_pitr1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">database</span><span class="w">  </span><span class="n">db1</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="n">tab_pitr1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">db1</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="p">;</span>
 <span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">pitr</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">pitr_name</span><span class="o">=</span><span class="s1">&#39;tab_pitr1&#39;</span><span class="p">;</span>

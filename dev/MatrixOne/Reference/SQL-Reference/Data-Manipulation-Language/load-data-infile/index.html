@@ -4112,6 +4112,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Maintain/cdc/mo-mo/" class="md-nav__link">
+        MatrixOne 到 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5649,6 +5663,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Data-Definition-Language/create-fulltext-index/" class="md-nav__link">
+        CREATE FULLTEXT INDEX
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Data-Definition-Language/create-table/" class="md-nav__link">
         CREATE TABLE
       </a>
@@ -6484,13 +6512,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#4load-hdfs" class="md-nav__link">
+    示例 4：LOAD HDFS
+  </a>
+  
+    <nav class="md-nav" aria-label="示例 4：LOAD HDFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    简单导入示例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    增加条件导入示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     限制
   </a>
   
@@ -12187,6 +12242,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v25.2.1.0/" class="md-nav__link">
+        v25.2.1.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v25.2.0.3/" class="md-nav__link">
         v25.2.0.3
       </a>
@@ -13061,13 +13130,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#4load-hdfs" class="md-nav__link">
+    示例 4：LOAD HDFS
+  </a>
+  
+    <nav class="md-nav" aria-label="示例 4：LOAD HDFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    简单导入示例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    增加条件导入示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     限制
   </a>
   
@@ -13098,7 +13194,7 @@
 
 <h1 id="load-data-infile"><strong>LOAD DATA INFILE</strong></h1>
 <h2 id="_1"><strong>概述</strong></h2>
-<p><code>LOAD DATA INFILE</code> 语句可以极快地将文本文件中的行读入表中。你可以从服务器主机或 <a href="../../../../Develop/import-data/bulk-load/load-s3/">S3 兼容对象存储</a>读取该文件。<code>LOAD DATA INFILE</code> 是 <a href="../../../../Develop/export-data/select-into-outfile/"><code>SELECT ... INTO OUTFILE</code></a> 相反的操作。</p>
+<p><code>LOAD DATA INFILE</code> 语句可以极快地将文本文件中的行读入表中。你可以从服务器主机、HDFS 或 <a href="../../../../Develop/import-data/bulk-load/load-s3/">S3 兼容对象存储</a>读取该文件。<code>LOAD DATA INFILE</code> 是 <a href="../../../../Develop/export-data/select-into-outfile/"><code>SELECT ... INTO OUTFILE</code></a> 相反的操作。</p>
 <ul>
 <li>将文件读回表中，使用 <code>LOAD DATA INFILE</code>。</li>
 <li>将表中的数据写入文件，使用 <code>SELECT ... INTO OUTFILE</code>。</li>
@@ -13106,7 +13202,7 @@
 </ul>
 <h2 id="_2"><strong>语法结构</strong></h2>
 <div class="highlight"><pre><span></span><code>&gt; LOAD DATA [LOCAL]
-    INFILE &#39;&lt;file_name&gt;|&lt;stage://stage_name/filepath&gt;&#39;
+    INFILE &#39;&lt;file_name&gt;|&lt;stage://stage_name/filepath&gt;|hdfs&#39;
     INTO TABLE tbl_name
     [CHARACTER SET charset_name]
     [{FIELDS | COLUMNS}
@@ -13704,7 +13800,54 @@ load data infile {&#39;filepath&#39;=&#39;&lt;your-local-file-path&gt;/jsonline_
 <span class="o">+</span><span class="c1">------+------+</span>
 <span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="_11"><strong>限制</strong></h2>
+<h3 id="4load-hdfs">示例 4：LOAD HDFS</h3>
+<h4 id="_11">简单导入示例</h4>
+<p>在 HDFS 的 <code>/User/</code> 下有文件 <code>t1.csv</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>admin@admindeMBP<span class="w"> </span><span class="nb">test</span><span class="w"> </span>%<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-cat<span class="w"> </span>/user/t1.csv
+<span class="m">1</span><span class="w">   </span>a
+<span class="m">2</span><span class="w">   </span>b
+<span class="m">3</span><span class="w">   </span>c
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="nb">text</span><span class="p">);</span>
+<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="n">s3option</span><span class="w"> </span><span class="err">{</span><span class="s1">&#39;endpoint&#39;</span><span class="o">=</span><span class="s1">&#39;hdfs://127.0.0.1:9000&#39;</span><span class="p">,</span><span class="s1">&#39;filepath&#39;</span><span class="o">=</span><span class="s1">&#39;/user/t1.csv&#39;</span><span class="err">}</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">15</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">n1</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">n2</span><span class="w">   </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w">    </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">    </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">c</span><span class="w">    </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="_12">增加条件导入示例</h4>
+<p>你可以在 LOAD DATA 语句的末尾添加 IGNORE 1 LINES，以跳过数据文件的第一行内容。</p>
+<p>在 HDFS 的 <code>/User/</code> 下有文件 <code>t1.csv</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>admin@admindeMBP<span class="w"> </span><span class="nb">test</span><span class="w"> </span>%<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-cat<span class="w"> </span>/user/t1.csv
+<span class="m">1</span><span class="w">   </span>a
+<span class="m">2</span><span class="w">   </span>b
+<span class="m">3</span><span class="w">   </span>c
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">n2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="n">s3option</span><span class="w"> </span><span class="err">{</span><span class="s1">&#39;endpoint&#39;</span><span class="o">=</span><span class="s1">&#39;hdfs://127.0.0.1:9000&#39;</span><span class="p">,</span><span class="s1">&#39;filepath&#39;</span><span class="o">=</span><span class="s1">&#39;/user/t1.csv&#39;</span><span class="err">}</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">ignore</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">lines</span><span class="p">;</span>
+<span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="n">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">08</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">n1</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">n2</span><span class="w">   </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w">    </span><span class="o">|</span>
+<span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">c</span><span class="w">    </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">------+------+</span>
+<span class="mi">2</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="_13"><strong>限制</strong></h2>
 <ol>
 <li><code>REPLACE</code> 和 <code>IGNORE</code> 修饰符用来解决唯一索引的冲突：<code>REPLACE</code> 表示若表中已经存在，则用新的数据替换掉旧的数据；<code>IGNORE</code> 则表示保留旧的数据，忽略掉新数据。这两个修饰符在 MatrixOne 中尚不支持。</li>
 <li>MatrixOne 当前部分支持 <code>SET</code>，仅支持 <code>SET columns_name=nullif(col_name,expr2)</code>。</li>

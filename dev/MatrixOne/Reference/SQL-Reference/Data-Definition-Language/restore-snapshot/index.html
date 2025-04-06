@@ -4112,6 +4112,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Maintain/cdc/mo-mo/" class="md-nav__link">
+        MatrixOne 到 MatrixOne
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5639,6 +5653,20 @@
     <li class="md-nav__item">
       <a href="../create-index-ivfflat/" class="md-nav__link">
         CREATE INDEX...USING IVFFLAT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-fulltext-index/" class="md-nav__link">
+        CREATE FULLTEXT INDEX
       </a>
     </li>
   
@@ -12073,6 +12101,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v25.2.1.0/" class="md-nav__link">
+        v25.2.1.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v25.2.0.3/" class="md-nav__link">
         v25.2.0.3
       </a>
@@ -12870,7 +12912,7 @@
 
 <h1 id="restore-from-snapshot">RESTORE ... FROM SNAPSHOT</h1>
 <h2 id="_1">语法说明</h2>
-<p><code>RESTORE ... FROM SNAPSHOT</code> 用于从之前创建的集群/租户级别的快照中进行集群/租户/数据库/表级别的恢复数据。</p>
+<p><code>RESTORE ... FROM SNAPSHOT</code> 用于从之前创建的集群/租户/数据库/表级别的快照中进行集群/租户/数据库/表级别的恢复数据。</p>
 <h2 id="_2">语法结构</h2>
 <div class="highlight"><pre><span></span><code>&gt; RESTORE [CLUSTER]|[[ACCOUNT &lt;account_name&gt;] [DATABASE database_name [TABLE table_name]]]FROM SNAPSHOT &lt;snapshot_name&gt; [TO ACCOUNT &lt;account_name&gt;];
 </code></pre></div>
@@ -13174,9 +13216,6 @@
 </code></pre></div>
 <h2 id="_4">限制</h2>
 <ul>
-<li>
-<p>只有租户级别的快照才能进行数据库/表级别的恢复。</p>
-</li>
 <li>
 <p>系统租户恢复普通租户到新租户只允许租户级别的恢复。</p>
 </li>
