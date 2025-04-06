@@ -17,7 +17,7 @@
 2. 把本地**空目录** *${local_data_path}/mo-data* 挂载到 Docker 容器目录 */mo-data* 下，命令示例如下：
 
     ```bash
-    sudo docker run --name <name> -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:2.0.3
+    sudo docker run --name <name> -d -p 6001:6001 -v ${local_data_path}/mo-data:/mo-data:rw matrixorigin/matrixone:2.1.0
     ```
 
      | 参数                                | 描述                                                   |
@@ -31,7 +31,7 @@
 1. 首先启动一个 MatrixOne 的容器实例，这个容器实例将提供一套标准的启动配置文件：
 
     ```bash
-    docker run -d -p 6001:6001 --name matrixone  matrixorigin/matrixone:2.0.3
+    docker run -d -p 6001:6001 --name matrixone  matrixorigin/matrixone:2.1.0
     ```
 
 2. 查看 Docker 已经启动的 MatrixOne 的 containerID，并将配置文件目录拷贝到本地目录的 *${local_config_path}* 目录下：
@@ -53,7 +53,7 @@
 6. 挂载配置文件到 Docker 容器目录，同时创建并启动 MatrixOne，挂载命令示例如下：
 
      ```bash
-     sudo docker run --name <name> -d -p 6001:6001 -v ${local_config_path}/launch:/etc/launch:rw  --entrypoint "/mo-service" matrixorigin/matrixone:2.0.3 -launch /etc/launch/launch.toml
+     sudo docker run --name <name> -d -p 6001:6001 -v ${local_config_path}/launch:/etc/launch:rw  --entrypoint "/mo-service" matrixorigin/matrixone:2.1.0 -launch /etc/launch/launch.toml
      ```
 
      | 参数                                    | 描述                                                                                               |
@@ -66,7 +66,7 @@
         若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 ```docker run``` 命令中加上参数 ```--privileged=true```，如：
 
         ```bash
-        docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:2.0.3
+        docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:2.1.0
         ```
 
 更多关于 *Docker run* 的指令释义，运行命令 `docker run --help` 进行查看。

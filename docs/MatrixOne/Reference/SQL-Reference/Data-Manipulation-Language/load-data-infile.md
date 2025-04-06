@@ -2,7 +2,7 @@
 
 ## **概述**
 
-`LOAD DATA INFILE` 语句可以极快地将文本文件中的行读入表中。你可以从服务器主机或 [S3 兼容对象存储](../../../Develop/import-data/bulk-load/load-s3.md)读取该文件。`LOAD DATA INFILE` 是 [`SELECT ... INTO OUTFILE`](../../../Develop/export-data/select-into-outfile.md) 相反的操作。
+`LOAD DATA INFILE` 语句可以极快地将文本文件中的行读入表中。你可以从服务器主机、HDFS 或 [S3 兼容对象存储](../../../Develop/import-data/bulk-load/load-s3.md)读取该文件。`LOAD DATA INFILE` 是 [`SELECT ... INTO OUTFILE`](../../../Develop/export-data/select-into-outfile.md) 相反的操作。
 
 - 将文件读回表中，使用 `LOAD DATA INFILE`。
 - 将表中的数据写入文件，使用 `SELECT ... INTO OUTFILE`。
@@ -12,7 +12,7 @@
 
 ```
 > LOAD DATA [LOCAL]
-    INFILE '<file_name>|<stage://stage_name/filepath>'
+    INFILE '<file_name>|<stage://stage_name/filepath>|hdfs'
     INTO TABLE tbl_name
     [CHARACTER SET charset_name]
     [{FIELDS | COLUMNS}
@@ -787,6 +787,67 @@ mysql> select * from t2;
 |    3 | c    |
 +------+------+
 2 rows in set (0.00 sec)
+```
+
+### 示例 4：LOAD HDFS
+
+#### 简单导入示例
+
+在 HDFS 的 `/User/` 下有文件 `t1.csv`：
+
+```bash
+(base) admin@admindeMBP test % hdfs dfs -cat /user/t1.csv
+1	a
+2	b
+3	c
+```
+
+```sql
+mysql> create table t1(n1 int,n2 text);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> load data url s3option {'endpoint'='hdfs://127.0.0.1:9000','filepath'='/user/t1.csv'} into table t1;
+Query OK, 3 rows affected (0.15 sec)
+
+mysql> select * from t1;
++------+------+
+| n1   | n2   |
++------+------+
+|    1 | a    |
+|    2 | b    |
+|    3 | c    |
++------+------+
+3 rows in set (0.01 sec)
+```
+
+#### 增加条件导入示例
+
+你可以在 LOAD DATA 语句的末尾添加 IGNORE 1 LINES，以跳过数据文件的第一行内容。
+
+在 HDFS 的 `/User/` 下有文件 `t1.csv`：
+
+```bash
+(base) admin@admindeMBP test % hdfs dfs -cat /user/t1.csv
+1	a
+2	b
+3	c
+```
+
+```sql
+mysql> create table t2(n1 int,n2 varchar(10));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> load data url s3option {'endpoint'='hdfs://127.0.0.1:9000','filepath'='/user/t1.csv'} into table t2 ignore 1 lines;
+Query OK, 2 rows affected (0.08 sec)
+
+mysql> select * from t2;
++------+------+
+| n1   | n2   |
++------+------+
+|    2 | b    |
+|    3 | c    |
++------+------+
+2 rows in set (0.01 sec)
 ```
 
 ## **限制**

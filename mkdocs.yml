@@ -253,6 +253,7 @@ nav:
       - 数据变更捕获:
           - mo_cdc 使用指南: MatrixOne/Maintain/cdc/mocdc.md
           - MatrixOne 到 MySQL: MatrixOne/Maintain/cdc/mo-mysql.md
+          - MatrixOne 到 MatrixOne: MatrixOne/Maintain/cdc/mo-mo.md
       - 数据挂载:
         - 挂载目录到 Docker 容器: MatrixOne/Maintain/mount-data-by-docker.md
     - 数据迁移:
@@ -334,6 +335,7 @@ nav:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md
           - CREATE INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index.md
           - CREATE INDEX...USING IVFFLAT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index-ivfflat.md
+          - CREATE FULLTEXT INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-fulltext-index.md
           - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table.md
           - CREATE TABLE AS SELECT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table-as-select.md
           - CREATE TABLE ... LIKE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table-like.md         
@@ -721,6 +723,7 @@ nav:
       - SQL 常见问题: MatrixOne/FAQs/sql-faqs.md
     - 版本发布纪要:
       - 版本发布历史记录: MatrixOne/Release-Notes/release-timeline.md
+      - v25.2.1.0: MatrixOne/Release-Notes/v25.2.1.0.md
       - v25.2.0.3: MatrixOne/Release-Notes/v25.2.0.3.md
       - v25.2.0.2: MatrixOne/Release-Notes/v25.2.0.2.md
       - v24.2.0.1: MatrixOne/Release-Notes/v24.2.0.1.md
