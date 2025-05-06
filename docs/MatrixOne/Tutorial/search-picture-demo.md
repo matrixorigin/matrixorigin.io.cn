@@ -22,7 +22,7 @@
 
 **Streamlit**: 是一个开源的 Python 库，专门用于快速构建交互式和数据驱动的 Web 应用。它的设计目标是简单易用，开发者可以用极少的代码创建互动式的仪表盘和界面，尤其适用于机器学习模型的展示和数据可视化。
 
-### 软件安装
+### 环境准备
 
 在你开始之前，确认你已经下载并安装了如下软件：
 
@@ -30,34 +30,35 @@
 
 - 确认你已完成安装 [Python 3.8(or plus) version](https://www.python.org/downloads/)。使用下面的代码检查 Python 版本确认安装成功：
 
-```
+```bash
 python3 -V
 ```
 
-- 确认你已完成安装 MySQL 客户端。
-
-- 下载安装 `pymysql` 工具。使用下面的代码下载安装 `pymysql` 工具：
-
-```
-pip install pymysql
-```
-
-- 下载安装 `transformers` 库。使用下面的代码下载安装 `transformers` 库：
-
-```
-pip install transformers
+- 新建 Python 虚拟环境
+  
+```bash
+-- 创建 venv
+python3 -m venv .venv
+-- 激活环境
+source .venv/bin/activate
 ```
 
-- 下载安装 `Pillow` 库。使用下面的代码下载安装 `Pillow` 库：
+- 安装依赖
+
+新建 requirements.txt 文件，输入以下内容：
 
 ```
-pip install pillow 
+streamlit==1.45.0
+pymysql==1.1.1
+matplotlib==3.10.1
+transformers==4.51.3
+torch==2.7.0
 ```
 
-- 下载安装 `streamlit` 库。使用下面的代码下载安装 `Pillow` 库：
+执行以下命令：
 
-```
-pip install streamlit
+```bash
+pip install -r requirements.txt
 ```
 
 ## 构建应用
@@ -127,9 +128,6 @@ def storage_img(jpg_files):
         cursor.execute(insert_sql, data_to_insert)
         image.close()
 
-def create_idx(n):
-    create_sql = 'create index idx_pic using ivfflat on pic_tab(embedding) lists=%s op_type "vector_l2_ops"'
-    cursor.execute(create_sql, n)
 
 # Image-to-image search
 def img_search_img(img_path, k):
@@ -158,12 +156,12 @@ def text_search_img(text, k):
 def show_img(result_paths):
     fig, axes = plt.subplots(nrows=1, ncols=len(result_paths), figsize=(15, 5))
     for ax, result_path in zip(axes, result_paths):
-        image = mpimg.imread(result_path[0])  # Read image
-        ax.imshow(image)  # Display image
-        ax.axis('off')  # Remove axes
-        ax.set_title(result_path[0])  # Set subtitle
-    plt.tight_layout()  # Adjust subplot spacing
-    st.pyplot(fig)  # Display figure in Streamlit
+        image = mpimg.imread(result_path[0]) # Read image
+        ax.imshow(image) # Display image
+        ax.axis('off') # Remove axes
+        ax.set_title(result_path[0]) # Set subtitle
+    plt.tight_layout() # Adjust subplot spacing
+    st.pyplot(fig) # Display figure in Streamlit
 
 # Streamlit interface
 st.title("Image and Text Search Application")
@@ -184,8 +182,7 @@ if directory_path:
             st.warning("No .jpg files found in the directory.")
     else:
         st.error("The specified directory does not exist. Please check the path.")
-
-# Image upload option
+#Image upload option
 uploaded_file = st.file_uploader("Upload an image for search", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     # Display uploaded image
@@ -194,20 +191,20 @@ if uploaded_file is not None:
 
     # Perform image-to-image search
     if st.button("Search by image"):
-        result = img_search_img(uploaded_file, 3)  # Image-to-image search
+        result = img_search_img(uploaded_file, 3) # Image-to-image search
         if result:
             st.success("Search successful. Results are displayed below:")
-            show_img(result)  # Display results
+            show_img(result) # Display results
         else:
             st.error("No matching results found.")
 
 # Text input for text-to-image search
 text_input = st.text_input("Enter a description for search")
 if st.button("Search by text"):
-    result = text_search_img(text_input, 3)  # Text-to-image search
+    result = text_search_img(text_input, 3) # Text-to-image search
     if result:
         st.success("Search successful. Results are displayed below:")
-        show_img(result)  # Display results
+        show_img(result) # Display results
     else:
         st.error("No matching results found.")
 ```
@@ -224,7 +221,7 @@ if st.button("Search by text"):
 ### 运行结果
 
 ```bash
-streamlit run pic_search_example.py
+streamlit run pic_search_example.py --server.fileWatcherType none
 ```
 
 <div align="center">
