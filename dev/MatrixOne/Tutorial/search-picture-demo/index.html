@@ -2762,7 +2762,7 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    软件安装
+    环境准备
   </a>
   
 </li>
@@ -12818,7 +12818,7 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    软件安装
+    环境准备
   </a>
   
 </li>
@@ -12906,7 +12906,7 @@
 <p><strong>Transformers</strong>：Transformers 是一个开源的自然语言处理库，提供了广泛的预训练模型，通过 Transformers 库，研究人员和开发者可以轻松地使用和集成 CLIP 模型到他们的项目中。</p>
 <p><strong>CLIP</strong>: CLIP 模型是由 OpenAI 发布的一种深度学习模型，核心是通过对比学习的方法来统一处理文本和图像，从而能够通过文本 - 图像相似度来完成图像分类等任务，而无需直接优化任务。它可以结合向量数据库，来构建以图（文）搜图的工具。通过 CLIP 模型提取图像的高维向量表示，以捕获其语义和感知特征，然后将这些图像编码到嵌入空间中。在查询时，样本图像通过相同的 CLIP 编码器来获取其嵌入，执行向量相似性搜索以有效地找到前 k 个最接近的数据库图像向量。</p>
 <p><strong>Streamlit</strong>: 是一个开源的 Python 库，专门用于快速构建交互式和数据驱动的 Web 应用。它的设计目标是简单易用，开发者可以用极少的代码创建互动式的仪表盘和界面，尤其适用于机器学习模型的展示和数据可视化。</p>
-<h3 id="_4">软件安装</h3>
+<h3 id="_4">环境准备</h3>
 <p>在你开始之前，确认你已经下载并安装了如下软件：</p>
 <ul>
 <li>
@@ -12916,32 +12916,28 @@
 <p>确认你已完成安装 <a href="https://www.python.org/downloads/">Python 3.8(or plus) version</a>。使用下面的代码检查 Python 版本确认安装成功：</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>python3 -V
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-V
 </code></pre></div>
 <ul>
-<li>
-<p>确认你已完成安装 MySQL 客户端。</p>
-</li>
-<li>
-<p>下载安装 <code>pymysql</code> 工具。使用下面的代码下载安装 <code>pymysql</code> 工具：</p>
-</li>
+<li>新建 Python 虚拟环境</li>
 </ul>
-<div class="highlight"><pre><span></span><code>pip install pymysql
+<div class="highlight"><pre><span></span><code>--<span class="w"> </span>创建<span class="w"> </span>venv
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+--<span class="w"> </span>激活环境
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </code></pre></div>
 <ul>
-<li>下载安装 <code>transformers</code> 库。使用下面的代码下载安装 <code>transformers</code> 库：</li>
+<li>安装依赖</li>
 </ul>
-<div class="highlight"><pre><span></span><code>pip install transformers
+<p>新建 requirements.txt 文件，输入以下内容：</p>
+<div class="highlight"><pre><span></span><code>streamlit==1.45.0
+pymysql==1.1.1
+matplotlib==3.10.1
+transformers==4.51.3
+torch==2.7.0
 </code></pre></div>
-<ul>
-<li>下载安装 <code>Pillow</code> 库。使用下面的代码下载安装 <code>Pillow</code> 库：</li>
-</ul>
-<div class="highlight"><pre><span></span><code>pip install pillow 
-</code></pre></div>
-<ul>
-<li>下载安装 <code>streamlit</code> 库。使用下面的代码下载安装 <code>Pillow</code> 库：</li>
-</ul>
-<div class="highlight"><pre><span></span><code>pip install streamlit
+<p>执行以下命令：</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
 <h2 id="_5">构建应用</h2>
 <h3 id="_6">建表并开启向量索引</h3>
@@ -13002,9 +12998,6 @@
         <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">insert_sql</span><span class="p">,</span> <span class="n">data_to_insert</span><span class="p">)</span>
         <span class="n">image</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">create_idx</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">create_sql</span> <span class="o">=</span> <span class="s1">&#39;create index idx_pic using ivfflat on pic_tab(embedding) lists=</span><span class="si">%s</span><span class="s1"> op_type &quot;vector_l2_ops&quot;&#39;</span>
-    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">create_sql</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
 <span class="c1"># Image-to-image search</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">img_search_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
@@ -13033,12 +13026,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">show_img</span><span class="p">(</span><span class="n">result_paths</span><span class="p">):</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">result_paths</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">result_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">result_paths</span><span class="p">):</span>
-        <span class="n">image</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">result_path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Read image</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>  <span class="c1"># Display image</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>  <span class="c1"># Remove axes</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">result_path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Set subtitle</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># Adjust subplot spacing</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">pyplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>  <span class="c1"># Display figure in Streamlit</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">result_path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Read image</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="c1"># Display image</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> <span class="c1"># Remove axes</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">result_path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Set subtitle</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="c1"># Adjust subplot spacing</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">pyplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span> <span class="c1"># Display figure in Streamlit</span>
 
 <span class="c1"># Streamlit interface</span>
 <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Image and Text Search Application&quot;</span><span class="p">)</span>
@@ -13059,8 +13052,7 @@
             <span class="n">st</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No .jpg files found in the directory.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The specified directory does not exist. Please check the path.&quot;</span><span class="p">)</span>
-
-<span class="c1"># Image upload option</span>
+<span class="c1">#Image upload option</span>
 <span class="n">uploaded_file</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">file_uploader</span><span class="p">(</span><span class="s2">&quot;Upload an image for search&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;jpeg&quot;</span><span class="p">,</span> <span class="s2">&quot;png&quot;</span><span class="p">])</span>
 <span class="k">if</span> <span class="n">uploaded_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1"># Display uploaded image</span>
@@ -13069,20 +13061,20 @@
 
     <span class="c1"># Perform image-to-image search</span>
     <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s2">&quot;Search by image&quot;</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">img_search_img</span><span class="p">(</span><span class="n">uploaded_file</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Image-to-image search</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">img_search_img</span><span class="p">(</span><span class="n">uploaded_file</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># Image-to-image search</span>
         <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
             <span class="n">st</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Search successful. Results are displayed below:&quot;</span><span class="p">)</span>
-            <span class="n">show_img</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Display results</span>
+            <span class="n">show_img</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># Display results</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No matching results found.&quot;</span><span class="p">)</span>
 
 <span class="c1"># Text input for text-to-image search</span>
 <span class="n">text_input</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">text_input</span><span class="p">(</span><span class="s2">&quot;Enter a description for search&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s2">&quot;Search by text&quot;</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">text_search_img</span><span class="p">(</span><span class="n">text_input</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Text-to-image search</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">text_search_img</span><span class="p">(</span><span class="n">text_input</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># Text-to-image search</span>
     <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
         <span class="n">st</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Search successful. Results are displayed below:&quot;</span><span class="p">)</span>
-        <span class="n">show_img</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Display results</span>
+        <span class="n">show_img</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># Display results</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No matching results found.&quot;</span><span class="p">)</span>
 </code></pre></div>
@@ -13096,7 +13088,7 @@
 <li>展示图片结果，使用 matplotlib 展示从数据库查询到的图片路径，并在 Streamlit 的 Web 界面上展示。</li>
 </ol>
 <h3 id="_8">运行结果</h3>
-<div class="highlight"><pre><span></span><code>streamlit<span class="w"> </span>run<span class="w"> </span>pic_search_example.py
+<div class="highlight"><pre><span></span><code>streamlit<span class="w"> </span>run<span class="w"> </span>pic_search_example.py<span class="w"> </span>--server.fileWatcherType<span class="w"> </span>none
 </code></pre></div>
 <div align="center">
 <img src=https://community-shared-data-1308875761.cos.ap-beijing.myqcloud.com/artwork/docs/tutorial/Vector/pic-search-1.png width=70% heigth=70%/>
