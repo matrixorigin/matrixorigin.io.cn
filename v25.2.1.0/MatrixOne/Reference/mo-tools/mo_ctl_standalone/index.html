@@ -13278,7 +13278,7 @@
 <h2 id="mo_ctl_1">安装 mo_ctl</h2>
 <p>根据您是否有互联网访问权限，可以选择在线或离线安装 <code>mo_ctl</code> 工具，你需要注意始终以 root 或具有 sudo 权限执行命令（并在每个命令前添加 sudo）。同时，<code>install.sh</code> 将使用 <code>unzip</code> 命令来解压 <code>mo_ctl</code> 软件包，请确保已安装 <code>unzip</code> 命令。</p>
 <h3 id="_2">在线安装</h3>
-<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh &amp;&amp; sudo bash +x ./install.sh
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/deploy/local/install.sh &amp;&amp; sudo bash +x ./install.sh
 
 # 备用地址
 wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh &amp;&amp; sudo bash +x install.sh
@@ -13288,7 +13288,7 @@ wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/blob/
 </code></pre></div>
 <h3 id="_3">离线安装</h3>
 <div class="highlight"><pre><span></span><code># 1. 先将安装脚本下载到本地计算机，再上传到安装机器上
-wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh
+wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/deploy/local/install.sh
 wget https://github.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
 
 # 如 github 原地址下载过慢，您可尝试从以下镜像地址下载：
