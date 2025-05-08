@@ -195,7 +195,7 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
 通过以下命令可以一键安装 mo_ctl 工具。
 
 ```
-wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh && bash +x ./install.sh
+wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/deploy/local/install.sh && bash +x ./install.sh
 ```
 
 ### 2. 设置 mo_ctl 的配置参数

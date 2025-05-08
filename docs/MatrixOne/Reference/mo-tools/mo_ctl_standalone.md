@@ -48,7 +48,7 @@
 ### 在线安装
 
 ```
-wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh && sudo bash +x ./install.sh
+wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/deploy/local/install.sh && sudo bash +x ./install.sh
 
 # 备用地址
 wget https://ghproxy.com/https://github.com/matrixorigin/mo_ctl_standalone/blob/main/install.sh && sudo bash +x install.sh
@@ -64,7 +64,7 @@ sudo -u $(whoami) bash +x ./install.sh
 
 ```
 # 1. 先将安装脚本下载到本地计算机，再上传到安装机器上
-wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh
+wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/deploy/local/install.sh
 wget https://github.com/matrixorigin/mo_ctl_standalone/archive/refs/heads/main.zip -O mo_ctl.zip
 
 # 如 github 原地址下载过慢，您可尝试从以下镜像地址下载：
