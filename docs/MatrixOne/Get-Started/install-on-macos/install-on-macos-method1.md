@@ -116,48 +116,48 @@ cmake --version
 2. 通过以下命令一键安装 mo_ctl 工具：
 
     ```
-    wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh && sudo -u $(whoami) bash +x ./install.sh
+    wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/deploy/local/install.sh && sudo -u $(whoami) bash +x ./install.sh
     ```
 
 3. 安装完成以后，通过 `mo_ctl` 命令验证是否安装成功，成功代码示例如下：
 
-```
-> mo_ctl
-  Usage             : mo_ctl [option_1] [option_2]
+    ```
+    > mo_ctl
+    Usage             : mo_ctl [option_1] [option_2]
 
-  [option_1]      : available: auto_backup | auto_clean_logs | backup | clean_backup | clean_logs | connect | csv_convert | ddl_convert | deploy | get_branch | get_cid | get_conf | help | monitor | pprof | precheck | restart | set_conf | sql | start | status | stop | uninstall | upgrade | version | watchdog
-  auto_backup     : setup a crontab task to backup your databases automatically
-  auto_clean_logs : set up a crontab task to clean system log table data automatically
-  backup          : create a backup of your databases manually
-  build_image     : build an MO image from source code
-  clean_backup    : clean old backups older than conf 31 days manually
-  clean_logs      : clean system log table data manually
-  connect         : connect to mo via mysql client using connection info configured
-  csv_convert     : convert a csv file to a sql file in format "insert into values" or "load data inline format='csv'"
-  ddl_convert     : convert a ddl file to mo format from other types of database
-  deploy          : deploy mo onto the path configured
-  get_branch      : upgrade or downgrade mo from current version to a target commit id or stable version
-  get_cid         : print mo git commit id from the path configured
-  get_conf        : get configurations
-  help            : print help information
-  monitor         : monitor system related operations
-  pprof           : collect pprof information
-  precheck        : check pre-requisites for mo_ctl
-  restart         : a combination operation of stop and start
-  set_conf        : set configurations
-  sql             : execute sql from string, or a file or a path containg multiple files
-  start           : start mo-service from the path configured
-  status          : check if there's any mo process running on this machine
-  stop            : stop all mo-service processes found on this machine
-  uninstall       : uninstall mo from path MO_PATH=/Users/admin/mo//matrixone
-  upgrade         : upgrade or downgrade mo from current version to a target commit id or stable version
-  version         : show mo_ctl and matrixone version
-  watchdog        : setup a watchdog crontab task for mo-service to keep it alive
-  e.g.            : mo_ctl status
+    [option_1]      : available: auto_backup | auto_clean_logs | backup | clean_backup | clean_logs | connect | csv_convert | ddl_convert | deploy | get_branch | get_cid | get_conf | help | monitor | pprof | precheck | restart | set_conf | sql | start | status | stop | uninstall | upgrade | version | watchdog
+    auto_backup     : setup a crontab task to backup your databases automatically
+    auto_clean_logs : set up a crontab task to clean system log table data automatically
+    backup          : create a backup of your databases manually
+    build_image     : build an MO image from source code
+    clean_backup    : clean old backups older than conf 31 days manually
+    clean_logs      : clean system log table data manually
+    connect         : connect to mo via mysql client using connection info configured
+    csv_convert     : convert a csv file to a sql file in format "insert into values" or "load data inline format='csv'"
+    ddl_convert     : convert a ddl file to mo format from other types of database
+    deploy          : deploy mo onto the path configured
+    get_branch      : upgrade or downgrade mo from current version to a target commit id or stable version
+    get_cid         : print mo git commit id from the path configured
+    get_conf        : get configurations
+    help            : print help information
+    monitor         : monitor system related operations
+    pprof           : collect pprof information
+    precheck        : check pre-requisites for mo_ctl
+    restart         : a combination operation of stop and start
+    set_conf        : set configurations
+    sql             : execute sql from string, or a file or a path containg multiple files
+    start           : start mo-service from the path configured
+    status          : check if there's any mo process running on this machine
+    stop            : stop all mo-service processes found on this machine
+    uninstall       : uninstall mo from path MO_PATH=/Users/admin/mo//matrixone
+    upgrade         : upgrade or downgrade mo from current version to a target commit id or stable version
+    version         : show mo_ctl and matrixone version
+    watchdog        : setup a watchdog crontab task for mo-service to keep it alive
+    e.g.            : mo_ctl status
 
-  [option_2]      : Use " mo_ctl [option_1] help " to get more info
-  e.g.            : mo_ctl deploy help
-```
+    [option_2]      : Use " mo_ctl [option_1] help " to get more info
+    e.g.            : mo_ctl deploy help
+    ```
 
 ### 设置 mo_ctl 的配置参数
 

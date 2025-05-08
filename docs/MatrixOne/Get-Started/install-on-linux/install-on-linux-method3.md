@@ -119,7 +119,7 @@ docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matri
 通过以下命令可以一键安装 mo_ctl 工具。
 
 ```
-wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh && sudo -u $(whoami) bash +x ./install.sh
+wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/deploy/local/install.sh && sudo -u $(whoami) bash +x ./install.sh
 ```
 
 - 设置 mo_ctl 的配置参数

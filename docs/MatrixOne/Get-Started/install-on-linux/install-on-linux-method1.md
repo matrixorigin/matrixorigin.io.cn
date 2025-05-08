@@ -136,7 +136,7 @@ Debian11.1 版本默认没有安装 MySQL Client，因此需要手动下载安�
 通过以下命令可以一键安装 mo_ctl 工具：
 
 ```
-wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/install.sh && bash +x ./install.sh
+wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/deploy/local/install.sh && bash +x ./install.sh
 ```
 
 安装完成以后，通过 `mo_ctl` 命令验证是否安装成功：
