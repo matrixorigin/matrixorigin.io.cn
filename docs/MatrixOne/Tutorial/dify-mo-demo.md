@@ -37,10 +37,10 @@ git version 2.40.0
 
 ### 获取 Dify 代码
 
-需要在本地使用包含新版代码编译容器环境
+克隆 Dify 最新源代码至本地环境。
 
 ```bash
-git clone -b feat/mo-support https://github.com/volgariver6/dify.git
+git clone https://github.com/langgenius/dify.git
 ```
 
 ### 构建 Docker 镜像
@@ -102,7 +102,7 @@ docker compose up -d
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 287
-Server version: 8.0.30-MatrixOne-v2.1.1 MatrixOne
+Server version: 8.0.30-MatrixOne-v2.2.0 MatrixOne
 
 Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
 
