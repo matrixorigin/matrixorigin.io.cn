@@ -12157,6 +12157,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v25.2.2.0/" class="md-nav__link">
+        v25.2.2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v25.2.1.1/" class="md-nav__link">
         v25.2.1.1
       </a>
@@ -13028,8 +13042,8 @@ git version 2.40.0
 </ol>
 <h2 id="_2">操作步骤</h2>
 <h3 id="dify">获取 Dify 代码</h3>
-<p>需要在本地使用包含新版代码编译容器环境</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>feat/mo-support<span class="w"> </span>https://github.com/volgariver6/dify.git
+<p>克隆 Dify 最新源代码至本地环境。</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/langgenius/dify.git
 </code></pre></div>
 <h3 id="docker_1">构建 Docker 镜像</h3>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>dify/api
@@ -13039,7 +13053,7 @@ docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>../docker
 cp<span class="w"> </span>.env.example<span class="w"> </span>.env
 </code></pre></div>
-<p>编辑。env 文件，配置 MatrixOne 连接参数：</p>
+<p>编辑 <code>.env</code> 文件，配置 MatrixOne 连接参数：</p>
 <div class="highlight"><pre><span></span><code><span class="nv">VECTOR_STORE</span><span class="o">=</span>matrixone<span class="w"> </span><span class="c1"># vector store 类型改为 matrixone，必须</span>
 <span class="nv">MATRIXONE_HOST</span><span class="o">=</span>matrixone<span class="w"> </span><span class="c1"># MO 实例的 IP/hostname，可选</span>
 <span class="nv">MATRIXONE_PORT</span><span class="o">=</span><span class="m">6001</span><span class="w"> </span><span class="c1"># 端口号，可选</span>
@@ -13079,7 +13093,7 @@ cp<span class="w"> </span>.env.example<span class="w"> </span>.env
 mysql:<span class="w"> </span><span class="o">[</span>Warning<span class="o">]</span><span class="w"> </span>Using<span class="w"> </span>a<span class="w"> </span>password<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line<span class="w"> </span>interface<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>insecure.
 Welcome<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>MySQL<span class="w"> </span>monitor.<span class="w">  </span>Commands<span class="w"> </span>end<span class="w"> </span>with<span class="w"> </span><span class="p">;</span><span class="w"> </span>or<span class="w"> </span><span class="se">\g</span>.
 Your<span class="w"> </span>MySQL<span class="w"> </span>connection<span class="w"> </span>id<span class="w"> </span>is<span class="w"> </span><span class="m">287</span>
-Server<span class="w"> </span>version:<span class="w"> </span><span class="m">8</span>.0.30-MatrixOne-v2.1.1<span class="w"> </span>MatrixOne
+Server<span class="w"> </span>version:<span class="w"> </span><span class="m">8</span>.0.30-MatrixOne-v2.2.0<span class="w"> </span>MatrixOne
 
 Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">2000</span>,<span class="w"> </span><span class="m">2018</span>,<span class="w"> </span>Oracle<span class="w"> </span>and/or<span class="w"> </span>its<span class="w"> </span>affiliates.<span class="w"> </span>All<span class="w"> </span>rights<span class="w"> </span>reserved.
 
