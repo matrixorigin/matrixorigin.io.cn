@@ -57,7 +57,7 @@ cd ../docker
 cp .env.example .env
 ```
 
-编辑。env 文件，配置 MatrixOne 连接参数：
+编辑 `.env` 文件，配置 MatrixOne 连接参数：
 
 ```bash
 VECTOR_STORE=matrixone # vector store 类型改为 matrixone，必须
