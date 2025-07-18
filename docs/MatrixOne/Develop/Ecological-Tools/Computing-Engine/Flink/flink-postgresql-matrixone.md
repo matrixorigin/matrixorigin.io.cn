@@ -18,7 +18,7 @@
 ### 下载 Flink CDC connector
 
 ```bash
-wget https://repo1.maven.org/maven2/com/ververica/flink-sql-connector-postgres-cdc/2.2.0/flink-sql-connector-postgres-cdc-2.2.0.jar
+wget https://repo1.maven.org/maven2/com/ververica/flink-sql-connector-postgres-cdc/2.2.1/flink-sql-connector-postgres-cdc-2.2.1.jar
 ```
 
 ### 复制 jar 包
