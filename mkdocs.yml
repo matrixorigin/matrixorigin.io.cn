@@ -338,11 +338,13 @@ nav:
           - CREATE DATABASE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-database.md
           - CREATE INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index.md
           - CREATE INDEX...USING IVFFLAT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index-ivfflat.md
+          - CREATE INDEX...USING HNSW: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-index-hnsw.md
           - CREATE FULLTEXT INDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-fulltext-index.md
           - CREATE TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table.md
           - CREATE TABLE AS SELECT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table-as-select.md
           - CREATE TABLE ... LIKE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-table-like.md         
           - CREATE EXTERNAL TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-external-table.md
+          - CREATE CLONE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-clone.md
           - CREATE CLUSTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-cluster-table.md
           - CREATE PITR: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-pitr.md
           - CREATE PUBLICATION: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-publication.md
@@ -641,6 +643,7 @@ nav:
             - SPACE(): MatrixOne/Reference/Functions-and-Operators/String/space.md
             - SPLIT_PART(): MatrixOne/Reference/Functions-and-Operators/String/split_part.md
             - STARTSWITH(): MatrixOne/Reference/Functions-and-Operators/String/startswith.md
+            - STRCMP(): MatrixOne/Reference/Functions-and-Operators/String/strcmp.md
             - SUBSTRING(): MatrixOne/Reference/Functions-and-Operators/String/substring.md
             - SUBSTRING_INDEX(): MatrixOne/Reference/Functions-and-Operators/String/substring-index.md
             - TO_BASE64(): MatrixOne/Reference/Functions-and-Operators/String/to_base64.md
@@ -726,6 +729,7 @@ nav:
       - SQL 常见问题: MatrixOne/FAQs/sql-faqs.md
     - 版本发布纪要:
       - 版本发布历史记录: MatrixOne/Release-Notes/release-timeline.md
+      - v25.3.0.0: MatrixOne/Release-Notes/v25.3.0.0.md
       - v25.2.2.2: MatrixOne/Release-Notes/v25.2.2.2.md
       - v25.2.2.1: MatrixOne/Release-Notes/v25.2.2.1.md
       - v25.2.2.0: MatrixOne/Release-Notes/v25.2.2.0.md

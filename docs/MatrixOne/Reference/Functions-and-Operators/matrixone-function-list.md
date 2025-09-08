@@ -119,6 +119,7 @@
 | [SPACE()](./String/space.md)                   | 返回 N 个空格组成的字符串|
 | [SPLIT_PART()](./String/split_part.md)         | 用于在给定的分隔符基础上将一个字符串分解成多个部分|
 | [STARTSWITH()](./String/startswith.md)         | 字符串如果以指定前缀开始返回 1，否则则返回 0|
+| [STRCMP()](./String/strcmp.md)                 | 用于比较两个字符串的大小或是否相等|
 | [SUBSTRING()](./String/substring.md)           | 返回一个从指定位置开始的子字符串|
 | [SUBSTRING_INDEX()](./String/substring-index.md)| 以分隔符为索引，获取不同索引位的字符|
 | [TO_BASE64()](./String/to_base64.md)           | 用于将字符串转换为 Base64 编码的字符串|
