@@ -5753,6 +5753,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-index-hnsw/" class="md-nav__link">
+        CREATE INDEX...USING HNSW
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-fulltext-index/" class="md-nav__link">
         CREATE FULLTEXT INDEX
       </a>
@@ -5811,6 +5825,20 @@
     <li class="md-nav__item">
       <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-external-table/" class="md-nav__link">
         CREATE EXTERNAL TABLE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/SQL-Reference/Data-Definition-Language/create-clone/" class="md-nav__link">
+        CREATE CLONE
       </a>
     </li>
   
@@ -10608,6 +10636,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Reference/Functions-and-Operators/String/strcmp/" class="md-nav__link">
+        STRCMP()
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Reference/Functions-and-Operators/String/substring/" class="md-nav__link">
         SUBSTRING()
       </a>
@@ -10711,17 +10753,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_5_39" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_5_2_5_40" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_5_2_5_39" id="__nav_1_11_5_2_5_39_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_5_2_5_40" id="__nav_1_11_5_2_5_40_label" tabindex="0">
           正则表达式
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_11_5_2_5_39_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_5_2_5_39">
+      <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_11_5_2_5_40_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_5_2_5_40">
           <span class="md-nav__icon md-icon"></span>
           正则表达式
         </label>
@@ -12079,6 +12121,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Release-Notes/v25.3.0.0/" class="md-nav__link">
+        v25.3.0.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Release-Notes/v25.2.2.2/" class="md-nav__link">
         v25.2.2.2
       </a>
@@ -12895,7 +12951,7 @@
 </li>
 <li>
 <p>把本地<strong>空目录</strong> <em>${local_data_path}/mo-data</em> 挂载到 Docker 容器目录 <em>/mo-data</em> 下，命令示例如下：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">local_data_path</span><span class="si">}</span>/mo-data:/mo-data:rw<span class="w"> </span>matrixorigin/matrixone:2.2.2
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">local_data_path</span><span class="si">}</span>/mo-data:/mo-data:rw<span class="w"> </span>matrixorigin/matrixone:3.0.0
 </code></pre></div>
 <table>
 <thead>
@@ -12918,7 +12974,7 @@
 <ol>
 <li>
 <p>首先启动一个 MatrixOne 的容器实例，这个容器实例将提供一套标准的启动配置文件：</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w">  </span>matrixorigin/matrixone:2.2.2
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w">  </span>matrixorigin/matrixone:3.0.0
 </code></pre></div>
 </li>
 <li>
@@ -12938,7 +12994,7 @@ docker<span class="w"> </span>rm<span class="w"> </span>&lt;containerID&gt;
 </li>
 <li>
 <p>挂载配置文件到 Docker 容器目录，同时创建并启动 MatrixOne，挂载命令示例如下：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">local_config_path</span><span class="si">}</span>/launch:/etc/launch:rw<span class="w">  </span>--entrypoint<span class="w"> </span><span class="s2">&quot;/mo-service&quot;</span><span class="w"> </span>matrixorigin/matrixone:2.2.2<span class="w"> </span>-launch<span class="w"> </span>/etc/launch/launch.toml
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">local_config_path</span><span class="si">}</span>/launch:/etc/launch:rw<span class="w">  </span>--entrypoint<span class="w"> </span><span class="s2">&quot;/mo-service&quot;</span><span class="w"> </span>matrixorigin/matrixone:3.0.0<span class="w"> </span>-launch<span class="w"> </span>/etc/launch/launch.toml
 </code></pre></div>
 <table>
 <thead>
@@ -12969,7 +13025,7 @@ docker<span class="w"> </span>rm<span class="w"> </span>&lt;containerID&gt;
 <pre><code>若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 ```docker run``` 命令中加上参数 ```--privileged=true```，如：
 
 ```bash
-docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:2.2.2
+docker run -d -p 6001:6001 --name matrixone --privileged=true matrixorigin/matrixone:3.0.0
 ```
 </code></pre>
 </div>
