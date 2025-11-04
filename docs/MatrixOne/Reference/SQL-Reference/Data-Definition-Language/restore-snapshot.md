@@ -2,12 +2,12 @@
 
 ## 语法说明
 
-`RESTORE ... FROM SNAPSHOT` 用于从之前创建的集群/租户/数据库/表级别的快照中进行集群/租户/数据库/表级别的恢复数据。
+`RESTORE ... SNAPSHOT` 用于从之前创建的集群/租户/数据库/表级别的快照中进行集群/租户/数据库/表级别的恢复数据。
 
 ## 语法结构
 
 ```sql
-RESTORE CLUSTER FROM SNAPSHOT <snapshot_name>;
+RESTORE CLUSTER {SNAPSHOT = <snapshot_name>};
 
 RESTORE ACCOUNT <account_name> {SNAPSHOT = <snapshot_name>} [TO ACCOUNT <target_account_name>];
 
@@ -59,7 +59,7 @@ mysql> show databases;
 6 rows in set (0.01 sec)
 
 --在系统租户 sys 下执行
-restore cluster FROM snapshot cluster_sp1;--在系统租户下对集群进行快照恢复
+restore cluster{snapshot="cluster_sp1"};--在系统租户下对集群进行快照恢复
 
 --在租户 acc1,acc2 下执行
 mysql> show databases;--恢复成功
