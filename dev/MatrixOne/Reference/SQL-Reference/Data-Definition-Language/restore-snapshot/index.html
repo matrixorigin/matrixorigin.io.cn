@@ -13094,10 +13094,20 @@
 
 <h1 id="restore-from-snapshot">RESTORE ... FROM SNAPSHOT</h1>
 <h2 id="_1">语法说明</h2>
-<p><code>RESTORE ... FROM SNAPSHOT</code> 用于从之前创建的集群/租户/数据库/表级别的快照中进行集群/租户/数据库/表级别的恢复数据。</p>
+<p><code>RESTORE ... SNAPSHOT</code> 用于从之前创建的集群/租户/数据库/表级别的快照中进行集群/租户/数据库/表级别的恢复数据。</p>
 <h2 id="_2">语法结构</h2>
-<div class="highlight"><pre><span></span><code>&gt; RESTORE [CLUSTER]|[[ACCOUNT &lt;account_name&gt;] [DATABASE database_name [TABLE table_name]]]FROM SNAPSHOT &lt;snapshot_name&gt; [TO ACCOUNT &lt;account_name&gt;];
+<div class="highlight"><pre><span></span><code><span class="n">RESTORE</span><span class="w"> </span><span class="k">CLUSTER</span><span class="w"> </span><span class="err">{</span><span class="n">SNAPSHOT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">snapshot_name</span><span class="o">&gt;</span><span class="err">}</span><span class="p">;</span>
+
+<span class="n">RESTORE</span><span class="w"> </span><span class="n">ACCOUNT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">account_name</span><span class="o">&gt;</span><span class="w"> </span><span class="err">{</span><span class="n">SNAPSHOT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">snapshot_name</span><span class="o">&gt;</span><span class="err">}</span><span class="w"> </span><span class="p">[</span><span class="k">TO</span><span class="w"> </span><span class="n">ACCOUNT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">target_account_name</span><span class="o">&gt;</span><span class="p">];</span>
+
+<span class="n">RESTORE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="o">&lt;</span><span class="n">account_name</span><span class="o">&gt;</span><span class="p">.]</span><span class="o">&lt;</span><span class="n">database_name</span><span class="o">&gt;</span><span class="w"> </span><span class="err">{</span><span class="n">SNAPSHOT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">snapshot_name</span><span class="o">&gt;</span><span class="err">}</span><span class="w"> </span><span class="p">[</span><span class="k">TO</span><span class="w"> </span><span class="n">ACCOUNT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">target_account_name</span><span class="o">&gt;</span><span class="p">];</span>
+
+<span class="n">RESTORE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="o">&lt;</span><span class="n">account_name</span><span class="o">&gt;</span><span class="p">.]</span><span class="o">&lt;</span><span class="n">database_name</span><span class="o">&gt;</span><span class="p">.</span><span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span><span class="w"> </span><span class="err">{</span><span class="n">SNAPSHOT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">snapshot_name</span><span class="o">&gt;</span><span class="err">}</span><span class="w"> </span><span class="p">[</span><span class="k">TO</span><span class="w"> </span><span class="n">ACCOUNT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">target_account_name</span><span class="o">&gt;</span><span class="p">];</span>
 </code></pre></div>
+<ul>
+<li><code>RESTORE DATABASE</code> 与 <code>RESTORE TABLE</code> 在省略 <code>&lt;account_name&gt;.</code> 时默认作用于当前租户，如需恢复其他租户对象请使用带租户前缀的点分格式。</li>
+<li>快照子句同样支持兼容写法 <code>FROM SNAPSHOT &lt;snapshot_name&gt;</code> 或 <code>{SNAPSHOT = "&lt;snapshot_name&gt;"}</code>。</li>
+</ul>
 <h2 id="_3">示例</h2>
 <h3 id="1">示例 1：恢复集群</h3>
 <div class="highlight"><pre><span></span><code><span class="c1">--在租户 acc1,acc2 下执行</span>
@@ -13135,7 +13145,7 @@
 <span class="mi">6</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="c1">--在系统租户 sys 下执行</span>
-<span class="n">restore</span><span class="w"> </span><span class="k">cluster</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="n">cluster_sp1</span><span class="p">;</span><span class="c1">--在系统租户下对集群进行快照恢复</span>
+<span class="n">restore</span><span class="w"> </span><span class="k">cluster</span><span class="err">{</span><span class="n">snapshot</span><span class="o">=</span><span class="ss">&quot;cluster_sp1&quot;</span><span class="err">}</span><span class="p">;</span><span class="c1">--在系统租户下对集群进行快照恢复</span>
 
 <span class="c1">--在租户 acc1,acc2 下执行</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span><span class="c1">--恢复成功</span>
@@ -13186,7 +13196,7 @@
 <span class="o">+</span><span class="c1">--------------------+</span>
 <span class="mi">5</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="n">restore</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="n">acc1_snap1</span><span class="p">;</span><span class="c1">--恢复租户级别快照</span>
+<span class="n">restore</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="err">{</span><span class="n">snapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acc1_snap1</span><span class="err">}</span><span class="p">;</span><span class="c1">--恢复租户级别快照</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span><span class="c1">--恢复成功</span>
 <span class="o">+</span><span class="c1">--------------------+</span>
@@ -13234,7 +13244,8 @@
 <span class="o">+</span><span class="c1">--------------------+</span>
 <span class="mi">6</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="n">restore</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">db1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="n">acc1_db_snap1</span><span class="p">;</span><span class="c1">--恢复数据库级别快照</span>
+<span class="c1">--在系统租户 sys 下执行</span>
+<span class="n">restore</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">acc1</span><span class="p">.</span><span class="n">db1</span><span class="w"> </span><span class="err">{</span><span class="n">snapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acc1_db_snap1</span><span class="err">}</span><span class="p">;</span><span class="c1">--恢复数据库级别快照</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span><span class="c1">--恢复成功</span>
 <span class="o">+</span><span class="c1">--------------------+</span>
@@ -13268,7 +13279,8 @@
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
 <span class="n">Empty</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
-<span class="n">restore</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">db1</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="n">acc1_tab_snap1</span><span class="p">;</span><span class="c1">--恢复快照</span>
+<span class="c1">--在系统租户 sys 下执行</span>
+<span class="n">restore</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">acc1</span><span class="p">.</span><span class="n">db1</span><span class="p">.</span><span class="n">t1</span><span class="w"> </span><span class="err">{</span><span class="n">snapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acc1_tab_snap1</span><span class="err">}</span><span class="p">;</span><span class="c1">--恢复快照</span>
 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="c1">--恢复成功</span>
 <span class="o">+</span><span class="c1">------+</span>
@@ -13314,7 +13326,7 @@
 <span class="mi">6</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 
 <span class="c1">--在系统租户 sys 下执行</span>
-<span class="n">restore</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="n">acc1_snap1</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="p">;</span><span class="c1">--在系统租户下对 acc1 进行快照恢复</span>
+<span class="n">restore</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="err">{</span><span class="n">snapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acc1_snap1</span><span class="err">}</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="p">;</span><span class="c1">--在系统租户下对 acc1 进行快照恢复</span>
 
 <span class="c1">--在租户 acc1 下执行</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span><span class="c1">--恢复成功</span>
@@ -13367,7 +13379,7 @@
 
 <span class="c1">--在系统租户 sys 下执行</span>
 <span class="k">create</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc2</span><span class="w"> </span><span class="n">ADMIN_NAME</span><span class="w"> </span><span class="k">admin</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;111&#39;</span><span class="p">;</span><span class="c1">--需要提前创建要目标新租户</span>
-<span class="n">restore</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="n">acc1_snap1</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc2</span><span class="p">;</span><span class="c1">--在系统租户下对 acc1 进行快照恢复，恢复至 acc2</span>
+<span class="n">restore</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc1</span><span class="w"> </span><span class="err">{</span><span class="n">snapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acc1_snap1</span><span class="err">}</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">acc2</span><span class="p">;</span><span class="c1">--在系统租户下对 acc1 进行快照恢复，恢复至 acc2</span>
 
 <span class="c1">--在租户 acc1 下执行</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span>
