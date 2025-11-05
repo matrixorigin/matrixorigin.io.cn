@@ -2,13 +2,22 @@
 
 ## 语法说明
 
-`RESTORE ... FROM SNAPSHOT` 用于从之前创建的集群/租户/数据库/表级别的快照中进行集群/租户/数据库/表级别的恢复数据。
+`RESTORE ... SNAPSHOT` 用于从之前创建的集群/租户/数据库/表级别的快照中进行集群/租户/数据库/表级别的恢复数据。
 
 ## 语法结构
 
+```sql
+RESTORE CLUSTER {SNAPSHOT = <snapshot_name>};
+
+RESTORE ACCOUNT <account_name> {SNAPSHOT = <snapshot_name>} [TO ACCOUNT <target_account_name>];
+
+RESTORE DATABASE [<account_name>.]<database_name> {SNAPSHOT = <snapshot_name>} [TO ACCOUNT <target_account_name>];
+
+RESTORE TABLE [<account_name>.]<database_name>.<table_name> {SNAPSHOT = <snapshot_name>} [TO ACCOUNT <target_account_name>];
 ```
-> RESTORE [CLUSTER]|[[ACCOUNT <account_name>] [DATABASE database_name [TABLE table_name]]]FROM SNAPSHOT <snapshot_name> [TO ACCOUNT <account_name>];
-```
+
+- `RESTORE DATABASE` 与 `RESTORE TABLE` 在省略 `<account_name>.` 时默认作用于当前租户，如需恢复其他租户对象请使用带租户前缀的点分格式。
+- 快照子句同样支持兼容写法 `FROM SNAPSHOT <snapshot_name>` 或 `{SNAPSHOT = "<snapshot_name>"}`。
 
 ## 示例
 
@@ -50,7 +59,7 @@ mysql> show databases;
 6 rows in set (0.01 sec)
 
 --在系统租户 sys 下执行
-restore cluster FROM snapshot cluster_sp1;--在系统租户下对集群进行快照恢复
+restore cluster{snapshot="cluster_sp1"};--在系统租户下对集群进行快照恢复
 
 --在租户 acc1,acc2 下执行
 mysql> show databases;--恢复成功
@@ -104,7 +113,7 @@ mysql> show databases;
 +--------------------+
 5 rows in set (0.01 sec)
 
-restore account acc1 FROM snapshot acc1_snap1;--恢复租户级别快照
+restore account acc1 {snapshot = acc1_snap1};--恢复租户级别快照
 
 mysql> show databases;--恢复成功
 +--------------------+
@@ -155,7 +164,8 @@ mysql> show databases;
 +--------------------+
 6 rows in set (0.01 sec)
 
-restore account acc1 database db1 FROM snapshot acc1_db_snap1;--恢复数据库级别快照
+--在系统租户 sys 下执行
+restore database acc1.db1 {snapshot = acc1_db_snap1};--恢复数据库级别快照
 
 mysql> show databases;--恢复成功
 +--------------------+
@@ -192,7 +202,8 @@ truncate TABLE t1;--清空 t1
 mysql> SELECT * FROM t1;
 Empty set (0.01 sec)
 
-restore account acc1 database db1 TABLE t1 FROM snapshot acc1_tab_snap1;--恢复快照
+--在系统租户 sys 下执行
+restore TABLE acc1.db1.t1 {snapshot = acc1_tab_snap1};--恢复快照
 
 mysql> SELECT * FROM t1;--恢复成功
 +------+
@@ -241,7 +252,7 @@ mysql> show databases;
 6 rows in set (0.01 sec)
 
 --在系统租户 sys 下执行
-restore account acc1 FROM snapshot acc1_snap1 TO account acc1;--在系统租户下对 acc1 进行快照恢复
+restore account acc1 {snapshot = acc1_snap1} TO account acc1;--在系统租户下对 acc1 进行快照恢复
 
 --在租户 acc1 下执行
 mysql> show databases;--恢复成功
@@ -297,7 +308,7 @@ mysql> show databases;
 
 --在系统租户 sys 下执行
 create account acc2 ADMIN_NAME admin IDENTIFIED BY '111';--需要提前创建要目标新租户
-restore account acc1 FROM snapshot acc1_snap1 TO account acc2;--在系统租户下对 acc1 进行快照恢复，恢复至 acc2
+restore account acc1 {snapshot = acc1_snap1} TO account acc2;--在系统租户下对 acc1 进行快照恢复，恢复至 acc2
 
 --在租户 acc1 下执行
 mysql> show databases;
