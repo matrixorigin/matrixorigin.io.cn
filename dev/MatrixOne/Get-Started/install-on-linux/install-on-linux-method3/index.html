@@ -12190,6 +12190,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Release-Notes/v25.3.0.4/" class="md-nav__link">
+        v25.3.0.4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Release-Notes/v25.3.0.3/" class="md-nav__link">
+        v25.3.0.3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Release-Notes/v25.3.0.2/" class="md-nav__link">
         v25.3.0.2
       </a>
@@ -13160,15 +13188,15 @@ mysql  Ver 8.0.33 for Linux on x86_64 (MySQL Community Server - GPL)
 <p>此节介绍使用 docker 直接拉取 MatrixOne 镜像和使用 mo_ctl 工具两种部署方式</p>
 <h3 id="docker_2">docker 部署</h3>
 <p>使用以下命令将从 Docker Hub 中拉取 MatrixOne 镜像，你可以选择稳定版本镜像，或开发版本镜像，当 Tag 为 <code>latest</code> 时获取最新稳定版本。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">稳定版本的镜像（3.0.2）</label><label for="__tabbed_1_2">开发版本的镜像</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">稳定版本的镜像（3.0.4）</label><label for="__tabbed_1_2">开发版本的镜像</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>matrixorigin/matrixone:3.0.2
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>matrixorigin/matrixone:3.0.2
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>matrixorigin/matrixone:3.0.4
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>matrixorigin/matrixone:3.0.4
 </code></pre></div>
 <p>如果你使用的是中国大陆的网络，你可以拉取阿里云上的 MatrixOne 稳定版本镜像：</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:3.0.2
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:3.0.2
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:3.0.4
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:3.0.4
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -13185,7 +13213,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
 </div>
 </div>
 <p>若 Docker 版本低于 20.10.18 或者 Docker client 和 Docker server 的版本不一致，推荐同时升级到 Docker 最新稳定版本后再尝试。若坚持使用，需要在 <code>docker run</code> 命令中加上参数 <code>--privileged=true</code>，如：</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:3.0.2
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">6001</span>:6001<span class="w"> </span>--name<span class="w"> </span>matrixone<span class="w"> </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span>matrixorigin/matrixone:3.0.4
 </code></pre></div>
 <p>如需挂载数据目录或配置自定义文件，参见<a href="../../../Maintain/mount-data-by-docker/">挂载目录到 Docker 容器</a>。</p>
 <h3 id="mo_ctl">mo_ctl 部署</h3>
@@ -13201,7 +13229,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
 </ul>
 <p>通过以下命令调整参数：</p>
 <div class="highlight"><pre><span></span><code>mo_ctl set_conf MO_CONTAINER_DATA_HOST_PATH=&quot;/yourpath/mo/&quot; # 宿主机mo的数据目录
-mo_ctl set_conf MO_CONTAINER_IMAGE=&quot;matrixorigin/matrixone:3.0.2&quot; # 设置镜像，国内的可以用registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:3.0.2 
+mo_ctl set_conf MO_CONTAINER_IMAGE=&quot;matrixorigin/matrixone:3.0.4&quot; # 设置镜像，国内的可以用registry.cn-shanghai.aliyuncs.com/matrixorigin/matrixone:3.0.4 
 mo_ctl set_conf MO_DEPLOY_MODE=docker #设置MatrixOne部署方式，此为docker部署方式
 </code></pre></div>
 <p>以下为可选参数：</p>
@@ -13228,7 +13256,7 @@ MO_CONTAINER_EXTRA_MOUNT_OPTION=&quot;&quot; #额外的挂载参数，比如 -v 
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mo_ctl deploy v3.0.2
+<div class="highlight"><pre><span></span><code>mo_ctl deploy v3.0.4
 </code></pre></div>
 </div>
 </div>
@@ -13256,7 +13284,7 @@ Enter password:  # 初始密码默认为 111
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 5982
-Server version: 8.0.30-MatrixOne-v3.0.2 MatrixOne
+Server version: 8.0.30-MatrixOne-v3.0.4 MatrixOne
 
 Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
 
@@ -13277,7 +13305,7 @@ mysql&gt;
 2024-03-08 11:13:34.420 UTC+0800    [INFO]    Ok, connecting for user ... 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 5849
-Server version: 8.0.30-MatrixOne-v3.0.2 MatrixOne
+Server version: 8.0.30-MatrixOne-v3.0.4 MatrixOne
 
 Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
 
