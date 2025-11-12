@@ -94,47 +94,47 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      x86 架构系统安装包：
 
      ```bash
-     wget https://github.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-musl-x86_64.zip
-     unzip mo-v3.0.3-musl-x86_64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-musl-x86_64.zip
+     unzip mo-v3.0.4-musl-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
-     wget https://github.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-musl-arm64.zip
-     unzip mo-v3.0.3-musl-arm64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-musl-arm64.zip
+     unzip mo-v3.0.4-musl-arm64.zip
      ```
 
     如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
 
     ```
-    wget https://githubfast.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-musl-xxx.zip
+    wget https://githubfast.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-musl-xxx.zip
     ```
 === "**下载方式二：`curl` 工具下载二进制包**"
 
      x86 架构系统安装包：
 
      ```bash
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-musl-x86_64.zip
-     unzip mo-v3.0.3-musl-x86_64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-musl-x86_64.zip
+     unzip mo-v3.0.4-musl-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-musl-arm64.zip
-     unzip mo-v3.0.3-musl-arm64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-musl-arm64.zip
+     unzip mo-v3.0.4-musl-arm64.zip
      ```
 
     如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
 
     ```
-    curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-musl-xxx.zip
+    curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-musl-xxx.zip
     ```
 
 === "**下载方式三：页面下载**"
 
-     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 3.0.3](https://github.com/matrixorigin/matrixone/releases/tag/v3.0.3)，下拉找到 **Assets** 栏，点击安装包 *mo-v3.0.3-musl-x86_64.zip* 或者 *mo-v3.0.3-musl-arm64.zip* 下载再使用 ```unzip``` 命令解压即可。
+     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 3.0.4](https://github.com/matrixorigin/matrixone/releases/tag/v3.0.4)，下拉找到 **Assets** 栏，点击安装包 *mo-v3.0.4-musl-x86_64.zip* 或者 *mo-v3.0.4-musl-arm64.zip* 下载再使用 ```unzip``` 命令解压即可。
 
 ### 基于 glibc 构建的二进制包
 
@@ -143,21 +143,21 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      x86 架构系统安装包：
 
      ```bash
-     wget https://github.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-linux-x86_64.zip
-     unzip mo-v3.0.3-linux-x86_64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-linux-x86_64.zip
+     unzip mo-v3.0.4-linux-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
-     wget https://github.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-linux-arm64.zip
-     unzip mo-v3.0.3-linux-arm64.zip
+     wget https://github.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-linux-arm64.zip
+     unzip mo-v3.0.4-linux-arm64.zip
      ```
 
     如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
 
     ```
-    wget https://githubfast.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-linux-xxx.zip
+    wget https://githubfast.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-linux-xxx.zip
     ```
 
 === "**下载方式二：`curl` 工具下载二进制包**"
@@ -165,26 +165,26 @@ __Tips__: 建议你下载安装这两个下载工具其中之一，方便后续�
      x86 架构系统安装包：
 
      ```bash
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-linux-x86_64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-linux-x86_64.zip
      unzip mo-v1.2.--linux-x86_64.zip
      ```
 
      ARM 架构系统安装包：
 
      ```bash
-     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-linux-arm64.zip
-     unzip mo-v3.0.3-linux-arm64.zip
+     curl -OL https://github.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-linux-arm64.zip
+     unzip mo-v3.0.4-linux-arm64.zip
      ```
 
     如 github 原地址下载过慢，您可尝试从以下地址下载镜像包：
 
     ```
-    curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v3.0.3/mo-v3.0.3-linux-xxx.zip
+    curl -OL https://githubfast.com/matrixorigin/matrixone/releases/download/v3.0.4/mo-v3.0.4-linux-xxx.zip
     ```
 
 === "**下载方式三：页面下载**"
 
-     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 3.0.3](https://github.com/matrixorigin/matrixone/releases/tag/v3.0.3)，下拉找到 **Assets** 栏，点击安装包 *mo-v3.0.3-linux-x86_64.zip* 或者 *mo-v3.0.3-linux-arm64.zip* 下载再使用 ```unzip``` 命令解压即可。
+     如果你想通过更直观的页面下载的方式下载，直接点击进入[版本 3.0.4](https://github.com/matrixorigin/matrixone/releases/tag/v3.0.4)，下拉找到 **Assets** 栏，点击安装包 *mo-v3.0.4-linux-x86_64.zip* 或者 *mo-v3.0.4-linux-arm64.zip* 下载再使用 ```unzip``` 命令解压即可。
 
 ## 步骤 3：安装 mo_ctl 工具
 
@@ -203,8 +203,8 @@ wget https://raw.githubusercontent.com/matrixorigin/mo_ctl_standalone/main/deplo
 通过以下命令调整参数：
 
 ```
-mo_ctl set_conf MO_PATH="/yourpath/mo-v3.0.3-xx-xx" #设置MatrixOne路径为二进制解压文件目录
-mo_ctl set_conf MO_CONF_FILE="/yourpath/mo-v3.0.3-xx-xx/etc/launch/launch.toml" #设置MatrixOne配置文件路径
+mo_ctl set_conf MO_PATH="/yourpath/mo-v3.0.4-xx-xx" #设置MatrixOne路径为二进制解压文件目录
+mo_ctl set_conf MO_CONF_FILE="/yourpath/mo-v3.0.4-xx-xx/etc/launch/launch.toml" #设置MatrixOne配置文件路径
 mo_ctl set_conf MO_DEPLOY_MODE=binary #设置MatrixOne部署方式，此为二进制部署方式
 ```
 
@@ -212,17 +212,17 @@ mo_ctl set_conf MO_DEPLOY_MODE=binary #设置MatrixOne部署方式，此为二�
 
 通过 `mo_ctl start` 命令一键启动 MatrixOne 服务。
 
-如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 `/yourpath/mo-v3.0.3-xx-xx/matrixone/logs/` 中。
+如果运行正常将出现以下日志。MatrixOne 的相关运行日志会在 `/yourpath/mo-v3.0.4-xx-xx/matrixone/logs/` 中。
 
 ```
 > mo_ctl start
 2024-03-07 14:34:04.942 UTC+0800    [INFO]    No mo-service is running
 2024-03-07 14:34:04.998 UTC+0800    [INFO]    Get conf succeeded: MO_DEPLOY_MODE="binary"
 2024-03-07 14:34:05.024 UTC+0800    [INFO]    GO memory limit(Mi): 14745
-2024-03-07 14:34:05.072 UTC+0800    [INFO]    Starting mo-service: cd /Users/admin/mo-v3.0.3-linux-arm64/ && GOMEMLIMIT=14745MiB /Users/admin/mo-v3.0.3-linux-arm64/mo-service -daemon -debug-http :9876 -launch /Users/admin/mo-v3.0.3-linux-arm64/etc/launch/launch.toml >/Users/admin/mo-v3.0.3-linux-arm64/matrixone/logs/stdout-20240307_143405.log 2>/Users/admin/mo-v3.0.3-linux-arm64/matrixone/logs/stderr-20240307_143405.log
+2024-03-07 14:34:05.072 UTC+0800    [INFO]    Starting mo-service: cd /Users/admin/mo-v3.0.4-linux-arm64/ && GOMEMLIMIT=14745MiB /Users/admin/mo-v3.0.4-linux-arm64/mo-service -daemon -debug-http :9876 -launch /Users/admin/mo-v3.0.4-linux-arm64/etc/launch/launch.toml >/Users/admin/mo-v3.0.4-linux-arm64/matrixone/logs/stdout-20240307_143405.log 2>/Users/admin/mo-v3.0.4-linux-arm64/matrixone/logs/stderr-20240307_143405.log
 2024-03-07 14:34:05.137 UTC+0800    [INFO]    Wait for 2 seconds
 2024-03-07 14:34:07.261 UTC+0800    [INFO]    At least one mo-service is running. Process info: 
-  501 27145     1   0  2:34下午 ??         0:00.18 /Users/admin/mo-v3.0.3-linux-arm64/mo-service -daemon -debug-http :9876 -launch /Users/admin/mo-v3.0.3-linux-arm64/etc/launch/launch.toml
+  501 27145     1   0  2:34下午 ??         0:00.18 /Users/admin/mo-v3.0.4-linux-arm64/mo-service -daemon -debug-http :9876 -launch /Users/admin/mo-v3.0.4-linux-arm64/etc/launch/launch.toml
 2024-03-07 14:34:07.284 UTC+0800    [INFO]    List of pid(s): 
 27145
 2024-03-07 14:34:07.308 UTC+0800    [INFO]    Start succeeded
@@ -243,7 +243,7 @@ mo_ctl set_conf MO_DEPLOY_MODE=binary #设置MatrixOne部署方式，此为二�
 2024-03-07 14:34:59.942 UTC+0800    [INFO]    Ok, connecting for user ... 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 426
-Server version: 8.0.30-MatrixOne-v3.0.3 MatrixOne
+Server version: 8.0.30-MatrixOne-v3.0.4 MatrixOne
 
 Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
 
