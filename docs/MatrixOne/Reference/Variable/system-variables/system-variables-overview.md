@@ -83,6 +83,7 @@ table th:first-of-type {
 | collation_connection | Y | N | string | Y | Both | Y | "default" |  |
 | collation_server | Y | N | string | Y | Both | Y | "utf8mb4_bin" |  |
 | completion_type | Y | N | enum | Y | Both | Y | "NO_CHAIN" | "NO_CHAIN","CHAIN", "RELEASE" |
+| [enable_remap_hint](enable-remap-hint.md) | Y | N | bool | Y | Both | Y | FALSE | TRUE |
 | host | Y | N | string | Y | Both | N | "0.0.0.0" |  |
 | init_connect | Y | N | string | Y | Both | Y | "" |  |
 | interactive_timeout | Y | N | int | Y | Both | Y | 28800 | 1-31536000 |
