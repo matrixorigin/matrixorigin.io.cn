@@ -101,3 +101,7 @@ ORDER BY order_date DESC;
 ## 限制
 
 当前 `/*+ HINT_NAME(t1, t2) */` 仅语法实现，暂无法控制执行计划。
+
+## 另请参阅
+
+- [enable_remap_hint](../../Reference/Variable/system-variables/enable-remap-hint.md)：一个系统变量，用于启用查询重写提示功能，允许你通过 JSON 格式的注释将表名映射到自定义的 SELECT 查询。
