@@ -1532,6 +1532,53 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    手动插入与重复条目问题
+  </a>
+  
+    <nav class="md-nav" aria-label="手动插入与重复条目问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    解决方案
+  </a>
+  
+    <nav class="md-nav" aria-label="解决方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 创建表时设置起始值（推荐）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 避免冲突的插入策略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最佳实践
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     限制
   </a>
   
@@ -12982,6 +13029,53 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    手动插入与重复条目问题
+  </a>
+  
+    <nav class="md-nav" aria-label="手动插入与重复条目问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    解决方案
+  </a>
+  
+    <nav class="md-nav" aria-label="解决方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 创建表时设置起始值（推荐）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 避免冲突的插入策略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最佳实践
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     限制
   </a>
   
@@ -13017,7 +13111,7 @@
 <ul>
 <li>自增列通常用作主键，因此应保证其唯一性。</li>
 <li>自增列的数据类型应根据需求选择适当的整数类型。</li>
-<li>自增列的值在插入新行时自动生成，无法手动指定。</li>
+<li>自增列的值在插入新行时自动生成。手动插入是可能的，但可能会导致重复条目问题（参见<a href="#手动插入与重复条目问题">手动插入与重复条目问题</a>）。</li>
 <li>自增值在表中是唯一的，并且在后续的插入操作中会自动递增。</li>
 <li>可以通过修改表定义来自定义自增值的起始值和递增步长。</li>
 </ul>
@@ -13064,7 +13158,60 @@
 <span class="o">+</span><span class="c1">------+--------------+------------+</span>
 <span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="_3">限制</h2>
+<h2 id="_3">手动插入与重复条目问题</h2>
+<p>当您在 AUTO_INCREMENT 列中手动插入值时，可能会遇到 <strong>Duplicate entry</strong> 错误。</p>
+<p><strong>原因</strong>：MatrixOne 使用分布式自增服务，手动插入的值不会立即更新自增计数器，导致后续自动生成的值可能与手动插入的值冲突。</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">);</span><span class="w">        </span><span class="c1">-- 自动生成 id=1</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">);</span><span class="w">   </span><span class="c1">-- 手动插入 id=5</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Charlie&#39;</span><span class="p">);</span><span class="w">      </span><span class="c1">-- 可能报错：Duplicate entry &#39;5&#39;</span>
+</code></pre></div>
+<h3 id="_4">解决方案</h3>
+<h4 id="1">1. 创建表时设置起始值（推荐）</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 预留 ID 范围，避免冲突</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+
+<span class="c1">-- 手动插入小于起始值的数据</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;System&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Admin&#39;</span><span class="p">);</span>
+<span class="c1">-- 自动插入将从 1000 开始</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;User1&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- id=1000</span>
+</code></pre></div>
+<h4 id="2">2. 避免冲突的插入策略</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 检查值是否已存在</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+
+<span class="c1">-- 或使用足够大的手动值，远离自增范围</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">999999</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Manual&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="_5">最佳实践</h3>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>建议</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据迁移</td>
+<td>创建表时设置合适的起始值</td>
+<td><code>AUTO_INCREMENT = 10000</code></td>
+</tr>
+<tr>
+<td>预留系统ID</td>
+<td>预留小范围，自增从大值开始</td>
+<td>预留1-100，从101开始自增</td>
+</tr>
+<tr>
+<td>偶尔手动插入</td>
+<td>使用远离自增范围的大值</td>
+<td>手动插入时使用999999等大值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">限制</h2>
 <ol>
 <li>MatrixOne 暂时还不支持使用 <code>ALTER TABLE</code> 修改自增值的起始值和递增步长。</li>
 <li>在 MatrixOne 中，仅语法上支持使用 <code>set @@auto_increment_increment=n</code> 来设置递增步长，也仅语法支持使用 <code>set @@auto_increment_offset=n</code> 来设置默认自增列初始值，但实际上并不生效；当前支持设置自增列的初始值 <code>AUTO_INCREMENT=n</code>，但步长仍然默认为 1。</li>
