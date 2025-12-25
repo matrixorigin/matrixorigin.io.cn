@@ -8,7 +8,7 @@
 
 - 自增列通常用作主键，因此应保证其唯一性。
 - 自增列的数据类型应根据需求选择适当的整数类型。
-- 自增列的值在插入新行时自动生成，无法手动指定。
+- 自增列的值在插入新行时自动生成。手动插入是可能的，但可能会导致重复条目问题（参见[手动插入与重复条目问题](#手动插入与重复条目问题)）。
 - 自增值在表中是唯一的，并且在后续的插入操作中会自动递增。
 - 可以通过修改表定义来自定义自增值的起始值和递增步长。
 
@@ -62,6 +62,52 @@ mysql> SELECT * FROM employees;
 +------+--------------+------------+
 3 rows in set (0.01 sec)
 ```
+
+## 手动插入与重复条目问题
+
+当您在 AUTO_INCREMENT 列中手动插入值时，可能会遇到 **Duplicate entry** 错误。
+
+**原因**：MatrixOne 使用分布式自增服务，手动插入的值不会立即更新自增计数器，导致后续自动生成的值可能与手动插入的值冲突。
+
+```sql
+CREATE TABLE t (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50));
+
+INSERT INTO t (name) VALUES ('Alice');        -- 自动生成 id=1
+INSERT INTO t (id, name) VALUES (5, 'Bob');   -- 手动插入 id=5
+INSERT INTO t (name) VALUES ('Charlie');      -- 可能报错：Duplicate entry '5'
+```
+
+### 解决方案
+
+#### 1. 创建表时设置起始值（推荐）
+
+```sql
+-- 预留 ID 范围，避免冲突
+CREATE TABLE t (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50)) AUTO_INCREMENT = 1000;
+
+-- 手动插入小于起始值的数据
+INSERT INTO t (id, name) VALUES (1, 'System'), (100, 'Admin');
+-- 自动插入将从 1000 开始
+INSERT INTO t (name) VALUES ('User1');  -- id=1000
+```
+
+#### 2. 避免冲突的插入策略
+
+```sql
+-- 检查值是否已存在
+SELECT COUNT(*) FROM t WHERE id = 5;
+
+-- 或使用足够大的手动值，远离自增范围
+INSERT INTO t (id, name) VALUES (999999, 'Manual');
+```
+
+### 最佳实践
+
+| 场景 | 建议 | 示例 |
+|------|------|------|
+| 数据迁移 | 创建表时设置合适的起始值 | `AUTO_INCREMENT = 10000` |
+| 预留系统ID | 预留小范围，自增从大值开始 | 预留1-100，从101开始自增 |
+| 偶尔手动插入 | 使用远离自增范围的大值 | 手动插入时使用999999等大值 |
 
 ## 限制
 
