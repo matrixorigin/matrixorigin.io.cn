@@ -137,7 +137,6 @@ SHOW DATABASES LIKE 'branch_db';
 | branch_db          |
 +--------------------+
 
--- Expected-Rows: 0
 -- Expected-Rows: 2
 SHOW TABLES FROM branch_db;
 +-------------------+
