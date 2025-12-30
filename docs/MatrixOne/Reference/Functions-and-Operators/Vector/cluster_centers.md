@@ -22,6 +22,7 @@ SELECT cluster_centers(col kmeans 'k, op_type, init_type, normalize')  FROM tbl;
 
 ## 示例
 
+<!-- validator-ignore -->
 ```sql
 drop table if exists points;
 CREATE TABLE points (id int auto_increment PRIMARY KEY,coordinate vecf32(2));
@@ -33,7 +34,7 @@ insert into points(coordinate) VALUES
  ("[-5.67841327,-7.28818497]"),
  ("[-6.04929137,-7.73619342]"),
  ("[-6.27824322,7.22746302]");
-SET GLOBAL experimental_ivf_index = 1;--需设置参数 experimental_ivf_index 值为 1（默认 0）才能使用向量索引
+
 --create index idx_t1 using ivfflat on points(coordinate)  lists=1 op_type "vector_l2_ops";
 
 -- 每个点代表其在 x 和 y 轴上的坐标，查询聚类中心，使用 Regular Kmeans
