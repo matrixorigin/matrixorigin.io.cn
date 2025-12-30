@@ -166,6 +166,7 @@ nav:
         - 向量类型: MatrixOne/Develop/Vector/vector_type.md
         - 向量检索: MatrixOne/Develop/Vector/vector_search.md
         - 向量索引: MatrixOne/Develop/Vector/vector_index.md
+        - IVF 向量查询排名选项: MatrixOne/Develop/Vector/ivf_rank_options.md
         - 聚类中心: MatrixOne/Develop/Vector/cluster_centers.md
       - 应用开发示例:
         - Java 基础示例: MatrixOne/Tutorial/develop-java-crud-demo.md
@@ -417,6 +418,7 @@ nav:
             - SUBQUERY with EXISTS: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-exists.md
             - SUBQUERY with IN: MatrixOne/Reference/SQL-Reference/Data-Query-Language/subqueries/subquery-with-in.md
           - With CTE: MatrixOne/Reference/SQL-Reference/Data-Query-Language/with-cte.md
+          - BY RANK WITH OPTION: MatrixOne/Reference/SQL-Reference/Data-Query-Language/by-rank-with-option.md
           - 联合查询:
             - 联合查询概述: MatrixOne/Reference/SQL-Reference/Data-Query-Language/union-intersect-minus-overview.md
             - UNION: MatrixOne/Reference/SQL-Reference/Data-Query-Language/union.md
