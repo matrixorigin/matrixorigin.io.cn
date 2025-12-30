@@ -359,6 +359,10 @@ nav:
           - CREATE SOURCE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-source.md
           - CREATE DYNAMIC TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-dynamic-table.md
           - CREATE SNAPSHOT: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-snapshot.md
+          - CREATE BRANCH: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-create-cn.md
+          - DELETE BRANCH: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-delete-cn.md
+          - DIFF BRANCH: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-diff-cn.md
+          - MERGE BRANCH: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-merge-cn.md
           - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
           - ALTER TABLE ... ALTER REINDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-reindex.md
           - ALTER PITR: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-pitr.md
