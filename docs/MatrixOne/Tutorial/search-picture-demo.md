@@ -69,7 +69,6 @@ pip install -r requirements.txt
 
 ```sql
 create table pic_tab(pic_path varchar(200), embedding vecf64(512));
-SET GLOBAL experimental_ivf_index = 1;
 create index idx_pic using ivfflat on pic_tab(embedding) lists=3 op_type "vector_l2_ops"
 ```
 

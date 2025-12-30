@@ -8,12 +8,7 @@ MatrixOne 支持全文索引，允许用户对表中的文本数据进行高效�
 
 ### 启用全文索引
 
-默认情况下，全文索引是关闭的。你需要通过以下 SQL 命令来启用它：
-
-```sql
---开启全文索引
-set experimental_fulltext_index=1;--默认为 0，表示关闭
-```
+全文索引默认启用。你可以直接创建和使用全文索引，无需额外配置。
 
 ### 选择 boolean 模式的相关性算法
 
@@ -54,8 +49,6 @@ MATCH (col1, col2, ...) AGAINST (expr [search_modifier]);
 ## 示例
 
 ```sql
---启用全文索引
-SET experimental_fulltext_index = 1;
 
 CREATE TABLE example_table (
     id INT PRIMARY KEY,
