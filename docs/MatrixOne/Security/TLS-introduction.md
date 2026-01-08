@@ -109,7 +109,7 @@ MatrixOne 默认采用非加密传输，也支持启用基于 TLS 协议的加�
     Current pager:          stdout
     Using outfile:          ''
     Using delimiter:        ;
-    Server version:         8.0.30-MatrixOne-v3.0.4 MatrixOne
+    Server version:         8.0.30-MatrixOne-v3.0.5 MatrixOne
     Protocol version:       10
     Connection:             127.0.0.1 via TCP/IP
     Server characterset:    utf8mb4
@@ -134,7 +134,7 @@ MatrixOne 默认采用非加密传输，也支持启用基于 TLS 协议的加�
     Current pager:		stdout
     Using outfile:		''
     Using delimiter:	;
-    Server version:		8.0.30-MatrixOne-v3.0.4 MatrixOne 
+    Server version:		8.0.30-MatrixOne-v3.0.5 MatrixOne 
     Protocol version:	10
     Connection:		127.0.0.1 via TCP/IP
     Server characterset:	utf8mb4

@@ -150,12 +150,12 @@ mo_ctl deploy help
 Usage         : mo_ctl deploy [mo_version] [force] # deploy mo onto the path configured
   [mo_version]: optional, specify an mo version to deploy
   [force]     : optional, if specified will delete all content under MO_PATH and deploy from beginning
-  e.g.        : mo_ctl deploy             # default, same as mo_ctl deploy 3.0.4
+  e.g.        : mo_ctl deploy             # default, same as mo_ctl deploy 3.0.5
               : mo_ctl deploy main        # deploy development latest version
               : mo_ctl deploy d29764a     # deploy development version d29764a
-              : mo_ctl deploy 3.0.4       # deploy stable verson 3.0.4
-              : mo_ctl deploy force       # delete all under MO_PATH and deploy verson 3.0.4
-              : mo_ctl deploy 3.0.4 force # delete all under MO_PATH and deploy stable verson 3.0.4 from beginning
+              : mo_ctl deploy 3.0.5       # deploy stable verson 3.0.5
+              : mo_ctl deploy force       # delete all under MO_PATH and deploy verson 3.0.5
+              : mo_ctl deploy 3.0.5 force # delete all under MO_PATH and deploy stable verson 3.0.5 from beginning
 ```
 
 ### start - 启动 MatrixOne 服务
@@ -295,7 +295,7 @@ Usage         : mo_ctl getconf [conf_list] # get configurations
 | GCC_VERSION            | precheck 检查的 gcc 版本                               | 默认为 8.5.0                                          |
 | GO_VERSION             | precheck 检查的 go 版本                                | 默认为 1.22.3                                           |
 | MO_GIT_URL             | MatrixOne 的源码拉取地址                               | 默认为<https://github.com/matrixorigin/matrixone.git> |
-| MO_DEFAULT_VERSION     | 默认拉取的 MatrixOne 的版本                            | 默认为 3.0.4                                      |
+| MO_DEFAULT_VERSION     | 默认拉取的 MatrixOne 的版本                            | 默认为 3.0.5                                      |
 | GOPROXY                | GOPROXY 的地址，一般为国内加速拉取 golang 依赖包而使用 | 默认为<https://goproxy.cn>,direct                     |
 | STOP_INTERVAL          | 停止间隔，停止服务后检测服务状态等待时间               | 默认为 5 秒                                           |
 | START_INTERVAL         | 启动间隔，启动服务后检测服务状态等待时间               | 默认为 2 秒                                           |
@@ -348,11 +348,11 @@ MatrixOne 0.8 及更高版本可使用 `mo_ctl upgrade version` 或者 `mo_ctl u
 ```
 mo_ctl upgrade help
 Usage           : mo_ctl upgrade [version_commitid]   # upgrade or downgrade mo from current version to a target commit id or stable version
- [commitid]     : a commit id such as '38888f7', or a stable version such as '3.0.4'
+ [commitid]     : a commit id such as '38888f7', or a stable version such as '3.0.5'
                 : use 'latest' to upgrade to latest commit on main branch if you don't know the id
   e.g.          : mo_ctl upgrade 38888f7              # upgrade/downgrade to commit id 38888f7 on main branch
                 : mo_ctl upgrade latest               # upgrade/downgrade to latest commit on main branch
-                : mo_ctl upgrade 3.0.4               # upgrade/downgrade to stable version 3.0.4
+                : mo_ctl upgrade 3.0.5               # upgrade/downgrade to stable version 3.0.5
 ```
 
 ### watchdog - 保活 MatrixOne
