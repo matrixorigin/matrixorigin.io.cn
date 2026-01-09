@@ -2520,6 +2520,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Develop/Vector/ivf_rank_options/" class="md-nav__link">
+        IVF 向量查询排名选项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Develop/Vector/cluster_centers/" class="md-nav__link">
         聚类中心
       </a>
@@ -5983,6 +5997,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../SQL-Reference/Data-Definition-Language/data-branch-create-cn/" class="md-nav__link">
+        CREATE BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SQL-Reference/Data-Definition-Language/data-branch-delete-cn/" class="md-nav__link">
+        DELETE BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SQL-Reference/Data-Definition-Language/data-branch-diff-cn/" class="md-nav__link">
+        DIFF BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SQL-Reference/Data-Definition-Language/data-branch-merge-cn/" class="md-nav__link">
+        MERGE BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../SQL-Reference/Data-Definition-Language/alter-table/" class="md-nav__link">
         ALTER TABLE
       </a>
@@ -6948,23 +7018,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../SQL-Reference/Data-Query-Language/by-rank-with-option/" class="md-nav__link">
+        BY RANK WITH OPTION
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_4_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_4_7" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_4_4_6" id="__nav_1_11_4_4_6_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_4_4_7" id="__nav_1_11_4_4_7_label" tabindex="0">
           联合查询
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_4_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_4_4_6">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_4_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_4_7">
           <span class="md-nav__icon md-icon"></span>
           联合查询
         </label>
@@ -12139,6 +12223,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v26.3.0.5/" class="md-nav__link">
+        v25.3.0.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v25.3.0.4/" class="md-nav__link">
         v25.3.0.4
       </a>
@@ -13064,6 +13162,7 @@
 </tbody>
 </table>
 <h2 id="_4">示例</h2>
+<!-- validator-ignore -->
 <div class="highlight"><pre><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">points</span><span class="p">;</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">auto_increment</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="n">coordinate</span><span class="w"> </span><span class="n">vecf32</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">points</span><span class="p">(</span><span class="n">coordinate</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
@@ -13074,7 +13173,7 @@
 <span class="w"> </span><span class="p">(</span><span class="ss">&quot;[-5.67841327,-7.28818497]&quot;</span><span class="p">),</span>
 <span class="w"> </span><span class="p">(</span><span class="ss">&quot;[-6.04929137,-7.73619342]&quot;</span><span class="p">),</span>
 <span class="w"> </span><span class="p">(</span><span class="ss">&quot;[-6.27824322,7.22746302]&quot;</span><span class="p">);</span>
-<span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">experimental_ivf_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="c1">--需设置参数 experimental_ivf_index 值为 1（默认 0）才能使用向量索引</span>
+
 <span class="c1">--create index idx_t1 using ivfflat on points(coordinate)  lists=1 op_type &quot;vector_l2_ops&quot;;</span>
 
 <span class="c1">-- 每个点代表其在 x 和 y 轴上的坐标，查询聚类中心，使用 Regular Kmeans</span>

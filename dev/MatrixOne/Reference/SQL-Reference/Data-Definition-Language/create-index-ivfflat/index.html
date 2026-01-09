@@ -2520,6 +2520,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Develop/Vector/ivf_rank_options/" class="md-nav__link">
+        IVF 向量查询排名选项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Develop/Vector/cluster_centers/" class="md-nav__link">
         聚类中心
       </a>
@@ -6062,6 +6076,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../data-branch-create-cn/" class="md-nav__link">
+        CREATE BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-branch-delete-cn/" class="md-nav__link">
+        DELETE BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-branch-diff-cn/" class="md-nav__link">
+        DIFF BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-branch-merge-cn/" class="md-nav__link">
+        MERGE BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../alter-table/" class="md-nav__link">
         ALTER TABLE
       </a>
@@ -7027,23 +7097,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../Data-Query-Language/by-rank-with-option/" class="md-nav__link">
+        BY RANK WITH OPTION
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_4_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_4_7" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_4_4_6" id="__nav_1_11_4_4_6_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_4_4_7" id="__nav_1_11_4_4_7_label" tabindex="0">
           联合查询
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_4_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_4_4_6">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_4_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_4_7">
           <span class="md-nav__icon md-icon"></span>
           联合查询
         </label>
@@ -12150,6 +12234,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v26.3.0.5/" class="md-nav__link">
+        v25.3.0.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v25.3.0.4/" class="md-nav__link">
         v25.3.0.4
       </a>
@@ -13082,9 +13180,7 @@ OP_TYPE &quot;vector_l2_ops&quot;
 <li>建议在数据填充完毕后再创建索引，如果在空表上创建向量索引，则所有向量量都将映射到一个分区，随着时间的推移，数据量不断增长，导致索引变得越来越大，查询性能会下降。</li>
 </ul>
 <h2 id="_4">示例</h2>
-<div class="highlight"><pre><span></span><code><span class="c1">--需设置参数 experimental_ivf_index 值为 1（默认 0）才能使用向量索引</span>
-<span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">experimental_ivf_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">coordinate</span><span class="w"> </span><span class="n">vecf32</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="k">class</span><span class="w"> </span><span class="nb">char</span><span class="p">);</span>
 <span class="c1">-- 有七个点，每个点代表其在 x 和 y 轴上的坐标，并且每个点的 class 被标记为 A 或 B。</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="ss">&quot;[2,4]&quot;</span><span class="p">,</span><span class="ss">&quot;A&quot;</span><span class="p">),(</span><span class="ss">&quot;[3,5]&quot;</span><span class="p">,</span><span class="ss">&quot;A&quot;</span><span class="p">),(</span><span class="ss">&quot;[5,7]&quot;</span><span class="p">,</span><span class="ss">&quot;B&quot;</span><span class="p">),(</span><span class="ss">&quot;[7,9]&quot;</span><span class="p">,</span><span class="ss">&quot;B&quot;</span><span class="p">),(</span><span class="ss">&quot;[4,6]&quot;</span><span class="p">,</span><span class="ss">&quot;A&quot;</span><span class="p">),(</span><span class="ss">&quot;[6,8]&quot;</span><span class="p">,</span><span class="ss">&quot;B&quot;</span><span class="p">),(</span><span class="ss">&quot;[8,10]&quot;</span><span class="p">,</span><span class="ss">&quot;B&quot;</span><span class="p">);</span>
@@ -13096,9 +13192,9 @@ OP_TYPE &quot;vector_l2_ops&quot;
 <span class="o">|</span><span class="w"> </span><span class="k">Table</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Create</span><span class="w"> </span><span class="k">Table</span><span class="w">                                                                                                                                                           </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="n">t1</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">t1</span><span class="o">`</span><span class="w"> </span><span class="p">(</span>
-<span class="o">`</span><span class="n">coordinate</span><span class="o">`</span><span class="w"> </span><span class="n">VECF32</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="o">`</span><span class="k">class</span><span class="o">`</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_t1</span><span class="o">`</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">ivfflat</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">coordinate</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="n">op_type</span><span class="w"> </span><span class="s1">&#39;vector_l2_ops&#39;</span><span class="w"> </span>
+<span class="w">  </span><span class="o">`</span><span class="n">coordinate</span><span class="o">`</span><span class="w"> </span><span class="n">vecf32</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="o">`</span><span class="k">class</span><span class="o">`</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_t1</span><span class="o">`</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">ivfflat</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">coordinate</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="n">op_type</span><span class="w"> </span><span class="s1">&#39;vector_l2_ops&#39;</span>
 <span class="p">)</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
@@ -13107,7 +13203,7 @@ OP_TYPE &quot;vector_l2_ops&quot;
 <span class="o">+</span><span class="c1">-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+-----------------------------------------+---------+------------+</span>
 <span class="o">|</span><span class="w"> </span><span class="k">Table</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Non_unique</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Key_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Seq_in_index</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Column_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Collation</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Cardinality</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Sub_part</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Packed</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Null</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Index_type</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Comment</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Index_comment</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Index_params</span><span class="w">                            </span><span class="o">|</span><span class="w"> </span><span class="n">Visible</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+-----------------------------------------+---------+------------+</span>
-<span class="o">|</span><span class="w"> </span><span class="n">t1</span><span class="w">    </span><span class="o">|</span><span class="w">          </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">idx_t1</span><span class="w">   </span><span class="o">|</span><span class="w">            </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">coordinate</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">A</span><span class="w">         </span><span class="o">|</span><span class="w">           </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">YES</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">ivfflat</span><span class="w">    </span><span class="o">|</span><span class="w">         </span><span class="o">|</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;lists&quot;</span><span class="p">:</span><span class="ss">&quot;1&quot;</span><span class="p">,</span><span class="ss">&quot;op_type&quot;</span><span class="p">:</span><span class="ss">&quot;vector_l2_ops&quot;</span><span class="err">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">YES</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">       </span><span class="o">|</span>
+<span class="o">|</span><span class="w"> </span><span class="n">t1</span><span class="w">    </span><span class="o">|</span><span class="w">          </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">idx_t1</span><span class="w">   </span><span class="o">|</span><span class="w">            </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">coordinate</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">A</span><span class="w">         </span><span class="o">|</span><span class="w">           </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">YES</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">ivfflat</span><span class="w">    </span><span class="o">|</span><span class="w">         </span><span class="o">|</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;lists&quot;</span><span class="p">:</span><span class="ss">&quot;1&quot;</span><span class="p">,</span><span class="ss">&quot;op_type&quot;</span><span class="p">:</span><span class="ss">&quot;vector_l2_ops&quot;</span><span class="err">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">YES</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">coordinate</span><span class="w"> </span><span class="o">|</span>
 <span class="o">+</span><span class="c1">-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+-----------------------------------------+---------+------------+</span>
 <span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
 

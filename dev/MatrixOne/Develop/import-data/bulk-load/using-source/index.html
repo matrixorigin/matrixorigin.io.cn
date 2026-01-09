@@ -2630,6 +2630,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Vector/ivf_rank_options/" class="md-nav__link">
+        IVF 向量查询排名选项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../Vector/cluster_centers/" class="md-nav__link">
         聚类中心
       </a>
@@ -6091,6 +6105,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/data-branch-create-cn/" class="md-nav__link">
+        CREATE BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/data-branch-delete-cn/" class="md-nav__link">
+        DELETE BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/data-branch-diff-cn/" class="md-nav__link">
+        DIFF BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/data-branch-merge-cn/" class="md-nav__link">
+        MERGE BRANCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Reference/SQL-Reference/Data-Definition-Language/alter-table/" class="md-nav__link">
         ALTER TABLE
       </a>
@@ -7056,23 +7126,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../Reference/SQL-Reference/Data-Query-Language/by-rank-with-option/" class="md-nav__link">
+        BY RANK WITH OPTION
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_4_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_4_4_7" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_11_4_4_6" id="__nav_1_11_4_4_6_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_11_4_4_7" id="__nav_1_11_4_4_7_label" tabindex="0">
           联合查询
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_4_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_11_4_4_6">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_11_4_4_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_11_4_4_7">
           <span class="md-nav__icon md-icon"></span>
           联合查询
         </label>
@@ -12179,6 +12263,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../Release-Notes/v26.3.0.5/" class="md-nav__link">
+        v25.3.0.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../Release-Notes/v25.3.0.4/" class="md-nav__link">
         v25.3.0.4
       </a>
@@ -13150,7 +13248,7 @@ mysql&gt; source /YOUR_PATH/a.sql
 <div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tool</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="_5">限制说明</h2>
-<p>MatrixOne v25.3.0.4 版本已经支持 MySQL 的建表语句，因此可以顺畅地将 MySQL 表迁移到 MatrixOne 上。不过需要注意，在迁移过程中，不兼容 MySQL 部分关键字，如 <code>engine=</code> 等，在 MatrixOne 中会被自动忽略，也不会影响表结构的迁移。</p>
+<p>MatrixOne v25.3.0.5 版本已经支持 MySQL 的建表语句，因此可以顺畅地将 MySQL 表迁移到 MatrixOne 上。不过需要注意，在迁移过程中，不兼容 MySQL 部分关键字，如 <code>engine=</code> 等，在 MatrixOne 中会被自动忽略，也不会影响表结构的迁移。</p>
 <p>但需要特别注意的是，尽管 MatrixOne 支持 MySQL 建表语句，如果迁移的表中包含不兼容的数据类型、触发器、函数或存储过程，仍需要手动修改。更多详细的兼容性信息，参见 <a href="../../../../Overview/feature/mysql-compatibility/">MySQL 兼容性</a>。</p>
 
 
