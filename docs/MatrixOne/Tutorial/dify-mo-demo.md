@@ -102,7 +102,7 @@ docker compose up -d
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 287
-Server version: 8.0.30-MatrixOne-v3.0.5 MatrixOne
+Server version: 8.0.30-MatrixOne-v3.0.6 MatrixOne
 
 Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
 
