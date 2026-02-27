@@ -209,7 +209,7 @@ DATA BRANCH DIFF orders_promo AGAINST orders;
 **也可以直接比较两个分支之间的差异：**
 
 ```sql
-DATA BRANCH DIFF orders_risk AGAINST orders_promo;
+-- DATA BRANCH DIFF orders_risk AGAINST orders_promo;
 ```
 
 这会显示两个分支之间所有不同的行，帮助你在合并前预判可能的冲突。
@@ -217,7 +217,7 @@ DATA BRANCH DIFF orders_risk AGAINST orders_promo;
 !!! tip
     对于大表，可以先用 `OUTPUT COUNT` 了解差异规模：
     ```sql
-    DATA BRANCH DIFF orders_risk AGAINST orders OUTPUT COUNT;
+    -- DATA BRANCH DIFF orders_risk AGAINST orders OUTPUT COUNT;
     ```
     也可以用 `OUTPUT LIMIT 10` 只看前 10 行差异。
 
@@ -227,7 +227,7 @@ DATA BRANCH DIFF orders_risk AGAINST orders_promo;
 
 ```sql
 -- 导出到本地目录（在 merge 前执行，确保补丁反映的是分支原始变更）
-DATA BRANCH DIFF orders_risk AGAINST orders OUTPUT FILE '/tmp/diff_output/';
+-- DATA BRANCH DIFF orders_risk AGAINST orders OUTPUT FILE '/tmp/diff_output/';
 ```
 
 系统会生成一个 `.sql` 文件（增量场景）或 `.csv` 文件（全量场景），并告诉你文件路径和使用方式。
@@ -243,10 +243,10 @@ mysql -h <目标主机> -P 6001 -u root -p111 demo_branch < /tmp/diff_output/dif
 
 ```sql
 -- 创建 Stage 指向 S3
-CREATE STAGE my_stage URL = 's3://my-bucket/diffs/?region=us-east-1&access_key_id=<ak>&secret_access_key=<sk>';
+-- CREATE STAGE my_stage URL = 's3://my-bucket/diffs/?region=us-east-1&access_key_id=<ak>&secret_access_key=<sk>';
 
 -- 导出到 Stage
-DATA BRANCH DIFF orders_risk AGAINST orders OUTPUT FILE 'stage://my_stage/';
+-- DATA BRANCH DIFF orders_risk AGAINST orders OUTPUT FILE 'stage://my_stage/';
 ```
 
 ### 第六步：合并分支到主表
@@ -286,7 +286,7 @@ SELECT * FROM orders ORDER BY order_id;
 **默认行为 — 遇到冲突报错：**
 
 ```sql
-DATA BRANCH MERGE orders_promo INTO orders;
+-- DATA BRANCH MERGE orders_promo INTO orders;
 -- ERROR: conflict on pk(1002)
 ```
 
@@ -372,7 +372,7 @@ DROP DATABASE demo_branch;
 除了表级分支，你还可以对整个数据库创建分支，一次性复制所有表：
 
 ```sql
-DATA BRANCH CREATE DATABASE dev_db FROM prod_db;
+-- DATA BRANCH CREATE DATABASE dev_db FROM prod_db;
 
 -- 在 dev_db 中自由修改，不影响 prod_db
 -- 修改完成后合并回去
@@ -383,9 +383,9 @@ DATA BRANCH CREATE DATABASE dev_db FROM prod_db;
 指定一个历史时间点创建分支，适合 "回到昨天的数据做分析"：
 
 ```sql
-CREATE SNAPSHOT sp_yesterday FOR TABLE mydb mytable;
+-- CREATE SNAPSHOT sp_yesterday FOR TABLE mydb mytable;
 -- ... 时间过去，数据发生了变化 ...
-DATA BRANCH CREATE TABLE mytable_analysis FROM mytable{SNAPSHOT='sp_yesterday'};
+-- DATA BRANCH CREATE TABLE mytable_analysis FROM mytable{SNAPSHOT='sp_yesterday'};
 ```
 
 ### 多级分支
@@ -393,9 +393,9 @@ DATA BRANCH CREATE TABLE mytable_analysis FROM mytable{SNAPSHOT='sp_yesterday'};
 分支可以继续创建分支，形成多级结构：
 
 ```sql
-DATA BRANCH CREATE TABLE branch_v1 FROM main_table;
+-- DATA BRANCH CREATE TABLE branch_v1 FROM main_table;
 -- 在 branch_v1 上修改...
-DATA BRANCH CREATE TABLE branch_v2 FROM branch_v1;
+-- DATA BRANCH CREATE TABLE branch_v2 FROM branch_v1;
 -- 在 branch_v2 上继续修改...
 ```
 
