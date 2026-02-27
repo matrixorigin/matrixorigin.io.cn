@@ -39,7 +39,7 @@ MatrixOne 的 **Data Branch（数据分支）**功能，把数据变更管理变
 
 在你开始之前，确认：
 
-- 已有可连接的 MatrixOne v3.0 实例
+- 已有可连接的 MatrixOne v3.0 及以上实例
 - 已安装 MySQL 客户端，并能连接到 MatrixOne
 
 连接到 MatrixOne：
