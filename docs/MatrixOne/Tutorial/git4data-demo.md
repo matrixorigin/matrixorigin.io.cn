@@ -12,7 +12,7 @@ MatrixOne 的 **Data Branch（数据分支）**功能，把数据变更管理变
 
 本教程将带你从零开始，通过一个完整的实战场景，学会 Data Branch 的全部核心操作。
 
-> **版本要求**：Data Branch 功能适用于 MatrixOne v3.0 版本。
+> **版本要求**：Data Branch 功能适用于 MatrixOne v3.0 及以上版本。
 
 ## 核心概念
 
@@ -347,11 +347,14 @@ DATA BRANCH DELETE TABLE orders_promo;
 如果合并后发现问题，可以用快照回到初始状态：
 
 ```sql
--- v3.0-dev 语法
-RESTORE ACCOUNT sys DATABASE demo_branch TABLE orders FROM SNAPSHOT sp_orders_v1;
+RESTORE TABLE sys.demo_branch.orders{SNAPSHOT='sp_orders_v1'};
 ```
 
-> **说明**：本教程以 v3.0-dev 为准，使用 `FROM SNAPSHOT` 并显式指定 ACCOUNT（通常为 `sys`）。
+> **说明**：以上为 v3.0 之后版本的语法。v3.0 版本请使用以下语法：
+> ```sql
+> -- v3.0 语法
+> -- RESTORE ACCOUNT sys DATABASE demo_branch TABLE orders FROM SNAPSHOT sp_orders_v1;
+> ```
 
 这就是快照的价值——让 "回退" 从高风险操作变成常规动作。
 
