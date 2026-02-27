@@ -351,6 +351,7 @@ RESTORE TABLE sys.demo_branch.orders{SNAPSHOT='sp_orders_v1'};
 ```
 
 > **说明**：以上为 v3.0 之后版本的语法。v3.0 版本请使用以下语法：
+>
 > ```sql
 > -- v3.0 语法
 > -- RESTORE ACCOUNT sys DATABASE demo_branch TABLE orders FROM SNAPSHOT sp_orders_v1;
