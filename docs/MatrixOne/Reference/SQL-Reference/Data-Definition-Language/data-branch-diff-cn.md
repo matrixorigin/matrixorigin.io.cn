@@ -15,8 +15,19 @@
 ```
 DATA BRANCH DIFF target_table [{ SNAPSHOT = 'snapshot_name' }] 
     AGAINST base_table [{ SNAPSHOT = 'snapshot_name' }] 
+    [COLUMNS ( column_list )]
     [OUTPUT output_option]
 ```
+
+### 列投影
+
+```
+COLUMNS ( col_name [, col_name ...] )   -- 仅对列出的列进行比较
+```
+
+`COLUMNS` 会把差异比较范围缩小到指定的列。主键列始终会被包含在结果中，无论是否出现在 `column_list` 中。只有当投影列出现差异时，该行才会被标记为 `UPDATE`；投影范围外的列差异不会被计入。
+
+`COLUMNS` 不能与 `OUTPUT FILE` 同时使用。
 
 ### 输出选项
 
@@ -423,6 +434,42 @@ DROP TABLE test.orders_branch;
 -- Expected-Rows: 0
 DROP DATABASE test;
 ```
+
+### 示例 9：仅比较部分列
+
+使用 `COLUMNS` 可将比较限定到指定列，投影范围外的列差异会被忽略。
+
+```sql
+-- Expected-Rows: 0
+CREATE TABLE test.t0 (a INT PRIMARY KEY, b INT, c INT);
+-- Expected-Rows: 0
+INSERT INTO test.t0 VALUES (1, 1, 1), (2, 2, 2), (3, 3, 3);
+
+-- Expected-Rows: 0
+DATA BRANCH CREATE TABLE test.t1 FROM test.t0;
+-- Expected-Rows: 1
+UPDATE test.t1 SET b = 99 WHERE a = 1;
+-- Expected-Rows: 1
+UPDATE test.t1 SET c = 99 WHERE a = 2;
+
+-- 只投影 b 列，a=2 只动了 c 列，因此不会出现在结果里
+-- Expected-Rows: 2
+DATA BRANCH DIFF test.t1 AGAINST test.t0 COLUMNS (b);
++--------------------+--------+------+------+
+| diff t1 against t0 | flag   | a    | b    |
++--------------------+--------+------+------+
+| t1                 | UPDATE |    1 |   99 |
+| t0                 | UPDATE |    1 |    1 |
++--------------------+--------+------+------+
+
+-- Expected-Rows: 0
+DROP TABLE test.t0;
+-- Expected-Rows: 0
+DROP TABLE test.t1;
+```
+
+!!! note
+    `COLUMNS` 不能与 `OUTPUT FILE` 组合使用；如需对投影列限制返回量，请改用 `OUTPUT LIMIT` 或 `OUTPUT COUNT`。
 
 ## 注意事项
 
