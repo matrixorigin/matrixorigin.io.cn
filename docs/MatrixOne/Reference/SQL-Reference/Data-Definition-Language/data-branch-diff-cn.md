@@ -15,6 +15,7 @@
 ```
 DATA BRANCH DIFF target_table [{ SNAPSHOT = 'snapshot_name' }] 
     AGAINST base_table [{ SNAPSHOT = 'snapshot_name' }] 
+    [COLUMNS (col_name [, col_name ...])]
     [OUTPUT output_option]
 ```
 
@@ -24,9 +25,20 @@ DATA BRANCH DIFF target_table [{ SNAPSHOT = 'snapshot_name' }]
 output_option:
     COUNT                           -- 仅返回差异行数
   | LIMIT number                    -- 限制返回的差异行数
+  | SUMMARY                         -- 返回差异摘要（按 INSERT/DELETE/UPDATE 聚合）
   | FILE 'directory_path'           -- 将差异导出为 SQL 文件
   | AS table_name                   -- 将差异保存到表中（暂不支持）
 ```
+
+### COLUMNS 列投影
+
+`COLUMNS (...)` 用于把差异输出限制在指定列上。列名匹配大小写不敏感，
+列表中的重复项会自动去重。不写 `COLUMNS` 时，diff 会返回所有可见列，
+与之前的行为一致。
+
+`COLUMNS` 可以与 `OUTPUT LIMIT`、`OUTPUT COUNT`、`OUTPUT SUMMARY` 同时
+使用；计数和摘要的结果不受列投影影响（它们描述的是差异行数，而不是
+呈现哪些列）。
 
 ## 语法释义
 
@@ -37,8 +49,10 @@ output_option:
 | `target_table` | 目标表（要比较的表） |
 | `base_table` | 基准表（作为比较基准的表） |
 | `SNAPSHOT = 'snapshot_name'` | 可选参数，指定使用某个快照时刻的数据进行比较 |
+| `COLUMNS (col_name, ...)` | 可选。仅投影指定的列。列名大小写不敏感，重复项自动去重。不影响 `OUTPUT COUNT` / `OUTPUT SUMMARY` 的结果。 |
 | `OUTPUT COUNT` | 仅返回差异的行数统计 |
 | `OUTPUT LIMIT number` | 限制返回的差异行数 |
+| `OUTPUT SUMMARY` | 返回差异摘要，代替返回具体差异行 |
 | `OUTPUT FILE 'path'` | 将差异导出为 SQL 文件到指定目录，支持本地路径或 Stage 路径（如 `stage://stage_name/`） |
 
 ### 输出列说明
@@ -422,6 +436,69 @@ DROP TABLE test.orders;
 DROP TABLE test.orders_branch;
 -- Expected-Rows: 0
 DROP DATABASE test;
+```
+
+### 示例 9：列投影（COLUMNS）
+
+使用 `COLUMNS` 将差异输出限制到指定列。该投影不会改变差异行的集合，
+只影响每一行显示哪些列。
+
+```sql
+-- Expected-Rows: 0
+CREATE DATABASE test_diff_columns;
+-- Expected-Rows: 0
+USE test_diff_columns;
+
+-- Expected-Rows: 0
+CREATE TABLE c1(
+    id INT PRIMARY KEY,
+    name VARCHAR(30),
+    balance DECIMAL(12,2),
+    created_at TIMESTAMP,
+    birthday DATE
+);
+-- Expected-Rows: 0
+INSERT INTO c1 VALUES
+    (1, 'alice', 1000.50, '2024-01-01 10:00:00', '1990-03-15'),
+    (2, 'bob',   2000.75, '2024-01-02 11:00:00', '1985-07-20'),
+    (3, 'carol', 3000.00, '2024-01-03 12:00:00', '1992-11-08');
+
+-- Expected-Rows: 0
+CREATE SNAPSHOT c1_sp0 FOR TABLE test_diff_columns c1;
+
+-- Expected-Rows: 0
+DATA BRANCH CREATE TABLE c1_br FROM c1{SNAPSHOT="c1_sp0"};
+-- Expected-Rows: 1
+UPDATE c1_br SET balance = 1500.50, name = 'alice_v2' WHERE id = 1;
+-- Expected-Rows: 1
+DELETE FROM c1_br WHERE id = 2;
+-- Expected-Rows: 0
+INSERT INTO c1_br VALUES (4, 'dave', 4000.00, '2024-02-01 09:00:00', '1988-12-25');
+
+-- 仅投影 name 与 balance 两列
+DATA BRANCH DIFF c1_br AGAINST c1{SNAPSHOT="c1_sp0"} COLUMNS (name, balance);
+
+-- COLUMNS + OUTPUT COUNT：计数不受投影影响
+DATA BRANCH DIFF c1_br AGAINST c1{SNAPSHOT="c1_sp0"} COLUMNS (name) OUTPUT COUNT;
+
+-- Expected-Rows: 0
+DROP SNAPSHOT c1_sp0;
+-- Expected-Rows: 0
+DROP TABLE c1;
+-- Expected-Rows: 0
+DROP TABLE c1_br;
+-- Expected-Rows: 0
+DROP DATABASE test_diff_columns;
+```
+
+### 示例 10：差异摘要（OUTPUT SUMMARY）
+
+`OUTPUT SUMMARY` 返回差异的聚合信息，而不是逐行返回差异数据。
+在需要快速了解两个分支差异规模、但不想物化完整结果集时使用。
+
+```sql
+-- Expected-Success: true
+DATA BRANCH DIFF c1_br AGAINST c1{SNAPSHOT="c1_sp0"} OUTPUT SUMMARY;
 ```
 
 ## 注意事项
