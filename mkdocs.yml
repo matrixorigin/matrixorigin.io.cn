@@ -363,6 +363,8 @@ nav:
           - DELETE BRANCH: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-delete-cn.md
           - DIFF BRANCH: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-diff-cn.md
           - MERGE BRANCH: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-merge-cn.md
+          - PICK BRANCH: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-pick.md
+          - SQL TASK: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/sql-task.md
           - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
           - ALTER TABLE ... ALTER REINDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-reindex.md
           - ALTER PITR: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-pitr.md
@@ -437,6 +439,7 @@ nav:
           - DROP ACCOUNT: MatrixOne/Reference/SQL-Reference/Data-Control-Language/drop-account.md
           - DROP USER: MatrixOne/Reference/SQL-Reference/Data-Control-Language/drop-user.md
           - DROP ROLE: MatrixOne/Reference/SQL-Reference/Data-Control-Language/drop-role.md
+          - ROLE RULES: MatrixOne/Reference/SQL-Reference/Data-Control-Language/role-rule.md
           - GRANT: MatrixOne/Reference/SQL-Reference/Data-Control-Language/grant.md
           - REVOKE: MatrixOne/Reference/SQL-Reference/Data-Control-Language/revoke.md
         - 其他:
