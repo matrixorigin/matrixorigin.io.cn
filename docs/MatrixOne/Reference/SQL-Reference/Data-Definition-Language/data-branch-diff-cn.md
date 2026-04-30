@@ -15,6 +15,7 @@
 ```
 DATA BRANCH DIFF target_table [{ SNAPSHOT = 'snapshot_name' }] 
     AGAINST base_table [{ SNAPSHOT = 'snapshot_name' }] 
+    [COLUMNS ( column_name [, column_name ] ... )]
     [OUTPUT output_option]
 ```
 
@@ -37,6 +38,7 @@ output_option:
 | `target_table` | 目标表（要比较的表） |
 | `base_table` | 基准表（作为比较基准的表） |
 | `SNAPSHOT = 'snapshot_name'` | 可选参数，指定使用某个快照时刻的数据进行比较 |
+| `COLUMNS ( column_name, ... )` | 可选的投影子句，将 diff 输出限定为指定的列。省略时返回所有可见列。 |
 | `OUTPUT COUNT` | 仅返回差异的行数统计 |
 | `OUTPUT LIMIT number` | 限制返回的差异行数 |
 | `OUTPUT FILE 'path'` | 将差异导出为 SQL 文件到指定目录，支持本地路径或 Stage 路径（如 `stage://stage_name/`） |
@@ -422,6 +424,62 @@ DROP TABLE test.orders;
 DROP TABLE test.orders_branch;
 -- Expected-Rows: 0
 DROP DATABASE test;
+```
+
+### 示例 9：使用 `COLUMNS (...)` 对列做投影
+
+从 v3.0.10 起，`DATA BRANCH DIFF` 支持可选的 `COLUMNS (...)` 投影子句，把 diff 输出限定为指定的列。主键列可以写入投影列表；未写入时只返回选中的值列和 `flag`。
+
+```sql
+-- Expected-Rows: 0
+CREATE DATABASE test_diff_columns;
+-- Expected-Rows: 0
+USE test_diff_columns;
+
+-- Expected-Rows: 0
+CREATE TABLE c1 (
+    id INT PRIMARY KEY,
+    name VARCHAR(30),
+    balance DECIMAL(12,2),
+    created_at TIMESTAMP,
+    birthday DATE
+);
+
+-- Expected-Rows: 0
+INSERT INTO c1 VALUES
+    (1, 'alice', 1000.50, '2024-01-01 10:00:00', '1990-03-15'),
+    (2, 'bob',   2000.75, '2024-01-02 11:00:00', '1985-07-20'),
+    (3, 'carol', 3000.00, '2024-01-03 12:00:00', '1992-11-08');
+
+-- Expected-Rows: 0
+CREATE SNAPSHOT c1_sp0 FOR TABLE test_diff_columns c1;
+
+-- Expected-Rows: 0
+DATA BRANCH CREATE TABLE c1_br FROM c1{SNAPSHOT = 'c1_sp0'};
+-- Expected-Rows: 1
+UPDATE c1_br SET balance = 1500.50, name = 'alice_v2' WHERE id = 1;
+-- Expected-Rows: 1
+DELETE FROM c1_br WHERE id = 2;
+-- Expected-Rows: 0
+INSERT INTO c1_br VALUES (4, 'dave', 4000.00, '2024-02-01 09:00:00', '1988-12-25');
+
+-- 只投影 name 列
+DATA BRANCH DIFF c1_br AGAINST c1{SNAPSHOT = 'c1_sp0'} COLUMNS (name);
+
+-- 投影两个非主键列
+DATA BRANCH DIFF c1_br AGAINST c1{SNAPSHOT = 'c1_sp0'} COLUMNS (name, balance);
+
+-- 投影主键 + 一个值列
+DATA BRANCH DIFF c1_br AGAINST c1{SNAPSHOT = 'c1_sp0'} COLUMNS (id, balance);
+
+-- Expected-Rows: 0
+DROP SNAPSHOT c1_sp0;
+-- Expected-Rows: 0
+DROP TABLE c1;
+-- Expected-Rows: 0
+DROP TABLE c1_br;
+-- Expected-Rows: 0
+DROP DATABASE test_diff_columns;
 ```
 
 ## 注意事项
