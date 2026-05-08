@@ -1,0 +1,23 @@
+tag: v3.0.11
+docs_added:
+  - path: docs/MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/null-safe-equal.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "NULL 安全等值运算符，两侧完全相等（含两侧均为 NULL）时返回 1，否则返回 0，且自身永远不会返回 NULL。"
+docs_updated:
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-view.md
+    change_summary: "补充可选的 SQL SECURITY { DEFINER | INVOKER } 子句与会话变量 view_security_type 说明。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-view.md
+    change_summary: "补充 ALTER VIEW 上的可选 SQL SECURITY { DEFINER | INVOKER } 子句。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-create-view.md
+    change_summary: "说明 SHOW CREATE VIEW 输出始终渲染 SQL SECURITY DEFINER 或 INVOKER。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Control-Language/grant.md
+    change_summary: "新增 ON VIEW 对象类型，并解释 DEFINER 与 INVOKER 视图的权限校验差异。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Control-Language/revoke.md
+    change_summary: "在 TABLE / FUNCTION / PROCEDURE 之外新增 ON VIEW 对象类型。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-table.md
+    change_summary: "补充多表 DROP TABLE 语法以及逐表的权限校验行为。"
+  - path: docs/MatrixOne/Reference/Operators/operators/arithmetic-operators/div.md
+    change_summary: "补充 DECIMAL(64) / DECIMAL(128) 入参支持及 scale 对齐与截断整除的行为。"
+  - path: docs/MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview.md
+    change_summary: "在概览表中补充新的 <=> NULL 安全等值运算符。"

@@ -8,6 +8,7 @@
 | [<>,!=](not-equal.md) | 不等于 |
 | [<=](less-than-or-equal.md) | 小于等于 |
 | [=](assign-equal.md) | 等于 |
+| [<=>](null-safe-equal.md) | NULL 安全等于 |
 | [BETWEEN ... AND ...](between.md) | 在两值之间 |
 | [COALESCE](coalesce.md)|返回第一个非空值|
 | [IN()](in.md) | 在集合中 |

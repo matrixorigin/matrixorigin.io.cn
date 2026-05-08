@@ -6,10 +6,15 @@
 
 如果语法参数列表中命名的视图不存在，则语句报错：该视图无效。
 
+从 v3.0.11 开始，`ALTER VIEW` 支持可选的 `SQL SECURITY` 子句，用于更新
+视图元数据中保存的安全类型。`DEFINER` 与 `INVOKER` 的含义参见
+[CREATE VIEW](create-view.md)。若未显式带该子句，MatrixOne 会以当前会话
+变量 `view_security_type` 的值重新写入视图的安全类型。
+
 ## **语法结构**
 
 ```
-> ALTER VIEW view_name [(column_list)]
+> ALTER [SQL SECURITY { DEFINER | INVOKER }] VIEW view_name [(column_list)]
   AS select_statement
   [WITH [CASCADED | LOCAL] CHECK OPTION]
 ```
