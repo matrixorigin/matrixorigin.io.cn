@@ -13,10 +13,15 @@
 ## 语法结构
 
 ```
-DATA BRANCH DIFF target_table [{ SNAPSHOT = 'snapshot_name' }] 
-    AGAINST base_table [{ SNAPSHOT = 'snapshot_name' }] 
+DATA BRANCH DIFF target_table [{ SNAPSHOT = 'snapshot_name' }]
+    AGAINST base_table [{ SNAPSHOT = 'snapshot_name' }]
+    [COLUMNS ( col1 [, col2 ...] )]
     [OUTPUT output_option]
 ```
+
+### COLUMNS 投影（v3.0.10 起支持）
+
+`COLUMNS (col1, col2, ...)` 将差异行输出里的值列限定到列表中的子集。主键列始终会出现在输出中（用来定位行）；不在列表中的非主键列会被忽略。在宽表上只关心少量列的差异时，用它可以显著减少返回数据量。
 
 ### 输出选项
 
@@ -26,6 +31,7 @@ output_option:
   | LIMIT number                    -- 限制返回的差异行数
   | FILE 'directory_path'           -- 将差异导出为 SQL 文件
   | AS table_name                   -- 将差异保存到表中（暂不支持）
+  | SUMMARY                         -- 返回聚合的 INSERT / DELETE / UPDATE 计数
 ```
 
 ## 语法释义
@@ -40,6 +46,8 @@ output_option:
 | `OUTPUT COUNT` | 仅返回差异的行数统计 |
 | `OUTPUT LIMIT number` | 限制返回的差异行数 |
 | `OUTPUT FILE 'path'` | 将差异导出为 SQL 文件到指定目录，支持本地路径或 Stage 路径（如 `stage://stage_name/`） |
+| `OUTPUT SUMMARY` | 返回聚合的 INSERT / DELETE / UPDATE 计数，替代逐行差异 |
+| `COLUMNS (col1, col2, ...)` | v3.0.10 起支持。把差异输出中的非主键列限定到列表子集，主键列始终返回 |
 
 ### 输出列说明
 
@@ -422,6 +430,52 @@ DROP TABLE test.orders;
 DROP TABLE test.orders_branch;
 -- Expected-Rows: 0
 DROP DATABASE test;
+```
+
+### 示例 9：COLUMNS 投影（v3.0.10）
+
+`COLUMNS (col1, ..., colN)` 把差异输出中的非主键列限定到列表子集，主键列始终返回。
+
+```sql
+DROP DATABASE IF EXISTS data_branch_diff_columns_demo;
+CREATE DATABASE data_branch_diff_columns_demo;
+USE data_branch_diff_columns_demo;
+
+CREATE TABLE c1 (
+    id INT PRIMARY KEY,
+    name VARCHAR(30),
+    balance DECIMAL(12,2),
+    created_at TIMESTAMP,
+    birthday DATE
+);
+INSERT INTO c1 VALUES
+    (1, 'alice', 1000.50, '2024-01-01 10:00:00', '1990-03-15'),
+    (2, 'bob',   2000.75, '2024-01-02 11:00:00', '1985-07-20'),
+    (3, 'carol', 3000.00, '2024-01-03 12:00:00', '1992-11-08');
+
+DATA BRANCH CREATE TABLE c1_br FROM c1;
+UPDATE c1_br SET balance = 1500.50, name = 'alice_v2' WHERE id = 1;
+DELETE FROM c1_br WHERE id = 2;
+INSERT INTO c1_br VALUES (4, 'dave', 4000.00, '2024-02-01 09:00:00', '1988-12-25');
+
+-- 全量 diff：所有列。
+DATA BRANCH DIFF c1_br AGAINST c1;
+
+-- 仅投影 name 列：输出里只有主键 + name。
+DATA BRANCH DIFF c1_br AGAINST c1 COLUMNS (name);
+
+-- 投影两个非主键列。
+DATA BRANCH DIFF c1_br AGAINST c1 COLUMNS (name, balance);
+
+-- 把主键与一个非主键列一起列出；主键列始终会返回。
+DATA BRANCH DIFF c1_br AGAINST c1 COLUMNS (id, balance);
+
+-- COLUMNS 可以和 OUTPUT LIMIT 组合。
+DATA BRANCH DIFF c1_br AGAINST c1 COLUMNS (balance) OUTPUT LIMIT 5;
+
+DROP TABLE c1_br;
+DROP TABLE c1;
+DROP DATABASE data_branch_diff_columns_demo;
 ```
 
 ## 注意事项
