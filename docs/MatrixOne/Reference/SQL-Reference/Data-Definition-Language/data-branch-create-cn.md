@@ -291,3 +291,5 @@ SELECT COUNT(*) FROM test.branch_level2;
 4. **快照依赖**：如果使用快照创建分支，请确保快照在创建分支前存在且有效。
 
 5. **跨租户限制**：跨租户创建分支仅限 sys 租户操作，且需要预先创建快照。
+
+6. **分支保护快照（v3.0.12 起）**：`DATA BRANCH CREATE TABLE` 和 `DATA BRANCH CREATE DATABASE` 会自动在 `mo_catalog.mo_snapshots` 中创建一个内部的分支保护快照（`__mo_branch_<child_table_id>`，kind=`branch`）。该快照用于保护父表数据免受垃圾回收，只要有后代分支存在就不会被清理。分支保护快照在 `SHOW SNAPSHOTS` 中不可见，且不能通过 `DROP SNAPSHOT` 删除。当整个 DAG 子树被删除时，这些快照会自动回收。

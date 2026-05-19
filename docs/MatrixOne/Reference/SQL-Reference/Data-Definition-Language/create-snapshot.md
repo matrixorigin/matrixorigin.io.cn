@@ -106,3 +106,13 @@ mysql> show snapshots;
 ## 限制
 
 - 集群管理员在为其它租户创建快照时只能创建租户级别的快照。
+
+## 分支保护快照（v3.0.12 起）
+
+`DATA BRANCH CREATE TABLE` 和 `DATA BRANCH CREATE DATABASE` 会自动在 `mo_catalog.mo_snapshots` 中创建一个内部的**分支保护快照**（`__mo_branch_<child_table_id>`，kind=`branch`）。这些快照：
+
+- 保护父表的数据免受垃圾回收，只要有后代分支存在。
+- 在 `SHOW SNAPSHOTS` 结果中隐藏（通过 `kind != 'branch'` 过滤）。
+- 不计入快照配额。
+- 不能通过 `DROP SNAPSHOT` 删除——会返回错误。
+- 当整个 DAG 子树被删除时自动回收。
