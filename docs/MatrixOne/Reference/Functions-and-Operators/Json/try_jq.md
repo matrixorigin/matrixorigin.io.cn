@@ -1,4 +1,20 @@
+---
+title: TRY_JQ()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- MatrixOne integration of the jq JSON query language; no MySQL equivalent.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: TRY_JQ() 函数用于根据 jq 表达式解析和转换 JSON 数据。与 JQ() 不同的是，TRY_JQ() 支持出错时返回空值，而 JQ() 遇到错误则直接抛出异常。
+---
+
 # **TRY_JQ()**
+
+
+> TRY_JQ() 函数用于根据 jq 表达式解析和转换 JSON 数据。与 JQ() 不同的是，TRY_JQ() 支持出错时返回空值，而
+> JQ() 遇到错误则直接抛出异常。
 
 ## **函数说明**
 

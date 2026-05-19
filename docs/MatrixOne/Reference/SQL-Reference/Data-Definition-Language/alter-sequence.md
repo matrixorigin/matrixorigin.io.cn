@@ -1,4 +1,19 @@
+---
+title: ALTER SEQUENCE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- ALTER SEQUENCE
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ALTER SEQUENCE 用于修改现有序列。
+---
+
 # **ALTER SEQUENCE**
+
+
+> ALTER SEQUENCE 用于修改现有序列。
 
 ## **语法说明**
 

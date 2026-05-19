@@ -1,4 +1,18 @@
+---
+title: TIME()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 提取时间或日期时间表达式 expr 的时间部分并将其作为字符串返回。如果 expr 为 NULL，则返回 NULL。
+---
+
 # **TIME()**
+
+
+> 提取时间或日期时间表达式 expr 的时间部分并将其作为字符串返回。如果 expr 为 NULL，则返回 NULL。
 
 ## **函数说明**
 

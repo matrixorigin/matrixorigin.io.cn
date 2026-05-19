@@ -1,4 +1,18 @@
+---
+title: NOT REGEXP
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: NOT REGEXP 用于测试一个字符串是否不匹配指定的正则表达式。
+---
+
 # **NOT REGEXP**
+
+
+> NOT REGEXP 用于测试一个字符串是否不匹配指定的正则表达式。
 
 ## **函数说明**
 

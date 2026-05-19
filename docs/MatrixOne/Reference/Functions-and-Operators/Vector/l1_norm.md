@@ -1,4 +1,19 @@
+---
+title: l1_norm()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: l1_norm 函数用于计算 l1/曼哈顿/TaxiCab 范数。l1 范数通过对向量元素的绝对值求和得到。
+---
+
 # **l1_norm()**
+
+
+> l1_norm 函数用于计算 l1/曼哈顿/TaxiCab 范数。l1 范数通过对向量元素的绝对值求和得到。
 
 ## **函数说明**
 

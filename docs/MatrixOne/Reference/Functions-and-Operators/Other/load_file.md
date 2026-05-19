@@ -1,4 +1,19 @@
+---
+title: LOAD_FILE()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- LOAD_FILE() takes a DATALINK value (file:// or stage:// URL) rather than MySQL's plain filesystem path argument; semantics differ.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: LOAD_FILE() 函数用于读取 datalink 类型指向文件的内容。
+---
+
 # **LOAD_FILE()**
+
+
+> LOAD_FILE() 函数用于读取 datalink 类型指向文件的内容。
 
 ## **函数说明**
 

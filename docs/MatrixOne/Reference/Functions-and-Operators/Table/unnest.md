@@ -1,4 +1,20 @@
+---
+title: UNNEST()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- Table-valued function; no direct MySQL equivalent.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: UNNEST 函数用于将 JSON 类型数据内的数组类型的列或参数展开为一个表。它将 JSON 类型数据中的数组中的元素拆分成单独的行，使得可以对数组元素进行单独的处理或与其他表进行连接操作。
+---
+
 # **UNNEST()**
+
+
+> UNNEST 函数用于将 JSON 类型数据内的数组类型的列或参数展开为一个表。它将 JSON
+> 类型数据中的数组中的元素拆分成单独的行，使得可以对数组元素进行单独的处理或与其他表进行连接操作。
 
 ## **函数说明**
 

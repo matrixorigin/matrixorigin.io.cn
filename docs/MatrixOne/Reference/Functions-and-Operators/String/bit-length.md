@@ -1,4 +1,18 @@
+---
+title: BIT_LENGTH()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回字符串 str 的长度，单位为 bit。如果 str 为 NULL 则返回 NULL。
+---
+
 # **BIT_LENGTH()**
+
+
+> 返回字符串 str 的长度，单位为 bit。如果 str 为 NULL 则返回 NULL。
 
 ## **函数说明**
 

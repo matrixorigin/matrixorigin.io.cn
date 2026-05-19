@@ -1,4 +1,20 @@
+---
+title: CREATE SNAPSHOT
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE SNAPSHOT FOR {ACCOUNT|DATABASE|TABLE|CLUSTER}
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE SNAPSHOT 命令用于创建数据库的快照。集群管理员可以创建集群级别或租户级别的快照，而普通租户管理员则可以为当前租户创建租户级别、数据库级别和表级别的快照。每个快照仅对创建该快照的租户可见，确保了数据的隔离性和安全性。
+---
+
 # CREATE SNAPSHOT
+
+> CREATE SNAPSHOT
+> 命令用于创建数据库的快照。集群管理员可以创建集群级别或租户级别的快照，而普通租户管理员则可以为当前租户创建租户级别、数据库级别和表级别的快照。每个快照仅对创建该快照的租户可见，确保了数据的隔离性和安全性。
+
 
 ## 语法说明
 

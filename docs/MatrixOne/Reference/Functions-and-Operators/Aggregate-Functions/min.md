@@ -1,4 +1,18 @@
+---
+title: MIN
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: MIN() 是聚合函数的一种，计算了一组值的最小值。
+---
+
 # **MIN**
+
+
+> MIN() 是聚合函数的一种，计算了一组值的最小值。
 
 ## **函数说明**
 

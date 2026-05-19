@@ -1,4 +1,21 @@
+---
+title: EXPLAIN
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Output format mirrors PostgreSQL, not MySQL
+- JSON output not supported
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 此命令主要作用是显示出 MatrixOne 计划程序为提供的语句生成的执行计划。执行计划显示了如何通过普通顺序扫描、索引扫描等方式扫描语句引用的表，如果引用了多个表，将使用什么连接算法将每个输入表中所需的行聚集在一起。
+---
+
 # EXPLAIN
+
+> 此命令主要作用是显示出 MatrixOne
+> 计划程序为提供的语句生成的执行计划。执行计划显示了如何通过普通顺序扫描、索引扫描等方式扫描语句引用的表，如果引用了多个表，将使用什么连接算法将每个输入表中所需的行聚集在一起。
+
 
 EXPLAIN — 展示一个语句的执行计划。
 

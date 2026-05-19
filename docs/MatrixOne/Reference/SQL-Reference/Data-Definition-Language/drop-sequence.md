@@ -1,4 +1,19 @@
+---
+title: DROP SEQUENCE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- DROP SEQUENCE
+since: unknown
+last_updated: 2026-05-08
+llms_summary: DROP SEQUENCE 用于删除序列。它允许你删除先前使用 CREATE SEQUENCE 命令创建的序列。
+---
+
 # **DROP SEQUENCE**
+
+
+> DROP SEQUENCE 用于删除序列。它允许你删除先前使用 CREATE SEQUENCE 命令创建的序列。
 
 ## **语法说明**
 

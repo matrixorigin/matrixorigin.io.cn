@@ -1,4 +1,19 @@
+---
+title: STARTSWITH()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- STARTSWITH() is a MatrixOne helper; MySQL has no direct equivalent.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 字符串如果以指定前缀开始返回 1，否则则返回 0。该函数是对大小写敏感的。
+---
+
 # **STARTSWITH()**
+
+
+> 字符串如果以指定前缀开始返回 1，否则则返回 0。该函数是对大小写敏感的。
 
 ## **函数说明**
 

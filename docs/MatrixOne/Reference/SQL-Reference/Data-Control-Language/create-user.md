@@ -1,4 +1,22 @@
+---
+title: CREATE USER
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- IDENTIFIED BY is the only supported password form; IDENTIFIED WITH plugins not supported
+- Connection-IP whitelists and connection-limit clauses not supported
+- COMMENT and ATTRIBUTE clauses are accepted syntactically but not honoured
+- User identifier is a bare username scoped to the current account; MySQL uses 'user'@'host' tuples
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 在系统中创建一个新的用户。
+---
+
 # **CREATE USER**
+
+
+> 在系统中创建一个新的用户。
 
 ## **语法说明**
 

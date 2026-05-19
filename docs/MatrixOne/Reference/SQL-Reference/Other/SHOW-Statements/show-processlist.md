@@ -1,4 +1,20 @@
+---
+title: SHOW PROCESSLIST
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Output differs significantly from MySQL due to different implementation
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SHOW PROCESSLIST 用于查看当前正在执行的线程列表（也称为进程列表），提供了关于 MatrixOne 服务器上所有活动连接和执行中查询的信息。
+---
+
 # **SHOW PROCESSLIST**
+
+
+> SHOW PROCESSLIST 用于查看当前正在执行的线程列表（也称为进程列表），提供了关于 MatrixOne
+> 服务器上所有活动连接和执行中查询的信息。
 
 ## **语法说明**
 

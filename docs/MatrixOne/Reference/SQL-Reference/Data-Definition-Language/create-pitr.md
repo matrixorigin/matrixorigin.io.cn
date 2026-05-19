@@ -1,4 +1,21 @@
+---
+title: CREATE PITR
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE PITR … RANGE N {h|d|mo|y}
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE PITR 命令用于创建时间点恢复（Point-in-Time Recovery, PITR）的恢复点。集群管理员可以创建集群级别或租户级别的 pitr，而租户管理员则可以为当前租户创建租户/数据库/表级别的 pitr。每个 pitr 的信息仅对创建该 pitr 的租户可见，确保了数据的隔离性和安全性。
+---
+
 # CREATE PITR
+
+> CREATE PITR 命令用于创建时间点恢复（Point-in-Time Recovery,
+> PITR）的恢复点。集群管理员可以创建集群级别或租户级别的 pitr，而租户管理员则可以为当前租户创建租户/数据库/表级别的 pitr。每个
+> pitr 的信息仅对创建该 pitr 的租户可见，确保了数据的隔离性和安全性。
+
 
 ## 语法说明
 

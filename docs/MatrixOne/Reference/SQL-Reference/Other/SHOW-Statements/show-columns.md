@@ -1,4 +1,18 @@
+---
+title: SHOW COLUMNS
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SHOW COLUMNS 用于显示指定表中有关列的信息。
+---
+
 # **SHOW COLUMNS**
+
+
+> SHOW COLUMNS 用于显示指定表中有关列的信息。
 
 ## **语法说明**
 

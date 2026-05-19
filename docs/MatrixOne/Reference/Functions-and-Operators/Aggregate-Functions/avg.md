@@ -1,4 +1,18 @@
+---
+title: AVG
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: AVG() 是聚合函数的一种，用于计算参数列的算术平均值。
+---
+
 # **AVG**
+
+
+> AVG() 是聚合函数的一种，用于计算参数列的算术平均值。
 
 ## **函数说明**
 

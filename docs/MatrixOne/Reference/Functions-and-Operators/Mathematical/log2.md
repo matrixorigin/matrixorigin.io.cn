@@ -1,4 +1,18 @@
+---
+title: LOG2()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: LOG2(X) 函数返回以 2 为底 X 的对数。
+---
+
 # **LOG2()**
+
+
+> LOG2(X) 函数返回以 2 为底 X 的对数。
 
 ## **函数说明**
 

@@ -1,4 +1,19 @@
+---
+title: ENDSWITH()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- ENDSWITH() is a MatrixOne helper; MySQL has no direct equivalent.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 检查是否以指定后缀结尾。字符串如果以指定后缀结尾返回 1，否则则返回 0。该函数是对大小写敏感的。
+---
+
 # **ENDSWITH()**
+
+
+> 检查是否以指定后缀结尾。字符串如果以指定后缀结尾返回 1，否则则返回 0。该函数是对大小写敏感的。
 
 ## **函数说明**
 

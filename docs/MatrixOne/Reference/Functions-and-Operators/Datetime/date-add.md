@@ -1,4 +1,20 @@
+---
+title: DATE_ADD()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Date literals accept only 'yyyy-mm-dd' and 'yyyymmdd' formats; MySQL accepts wider variants.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`DATE_ADD() 用于执行日期运算：DATE_ADD() 函数向日期添加指定的时间间隔。如果 date 为 NULL，函数返回 NULL`。'
+---
+
 # **DATE_ADD()**
+
+
+> `DATE_ADD() 用于执行日期运算：DATE_ADD() 函数向日期添加指定的时间间隔。如果 date 为 NULL，函数返回
+> NULL`。
 
 ## **函数说明**
 

@@ -1,4 +1,19 @@
+---
+title: DELETE
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- LOW_PRIORITY, QUICK, IGNORE modifiers not supported
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: DELETE 用于删除单表或多表中的记录。
+---
+
 # **DELETE**
+
+
+> DELETE 用于删除单表或多表中的记录。
 
 ## **语法说明**
 

@@ -1,4 +1,19 @@
+---
+title: PURGE_LOG()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'MatrixOne multi-account/role system management function (compat doc: System Management Functions).'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: PURGE_LOG() 用于删除记录于 MatrixOne 数据库系统表中的日志。返回 0 表示删除成功；删除失败则返回报错信息。
+---
+
 # **PURGE_LOG()**
+
+
+> PURGE_LOG() 用于删除记录于 MatrixOne 数据库系统表中的日志。返回 0 表示删除成功；删除失败则返回报错信息。
 
 ## **函数说明**
 

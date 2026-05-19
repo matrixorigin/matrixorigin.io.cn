@@ -1,4 +1,19 @@
+---
+title: SHOW ROLES
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SHOW ROLES
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 列出为你的账户下创建的角色的元信息，包括角色名称、创建者、创建时间以及注释内容。
+---
+
 # **SHOW ROLES**
+
+
+> 列出为你的账户下创建的角色的元信息，包括角色名称、创建者、创建时间以及注释内容。
 
 ## **函数说明**
 

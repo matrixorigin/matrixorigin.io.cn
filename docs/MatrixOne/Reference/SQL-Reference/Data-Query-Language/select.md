@@ -1,4 +1,23 @@
+---
+title: SELECT
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- SELECT … FOR UPDATE only supports single-table queries
+- SELECT INTO OUTFILE is only partially supported
+- Unqualified SELECT ... FROM DUAL requires explicit database name (SELECT ... FROM dbname.DUAL)
+mo_only:
+- '{ AS OF TIMESTAMP ''YYYY-MM-DD HH:MM:SS'' } — time-travel query against snapshot/PITR'
+- ORDER BY ... NULLS { FIRST | LAST } — PostgreSQL-style NULL ordering not available in MySQL
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SELECT 语句用于从表中检索数据。
+---
+
 # **SELECT**
+
+
+> SELECT 语句用于从表中检索数据。
 
 ## **语法描述**
 

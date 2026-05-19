@@ -1,4 +1,20 @@
+---
+title: SHA1()/SHA()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SHA1()/SHA() 函数是一种加密哈希函数，用于计算并返回给定字符串的 SHA-1 哈希值，它将任意长度的输入消息转换为一个固定长度（160 位，即 20 字节）的哈希值，通常表示为 40 个十六进制字符。如果参数为 NULL，则返回 NULL。
+---
+
 # SHA1()/SHA()
+
+> SHA1()/SHA() 函数是一种加密哈希函数，用于计算并返回给定字符串的 SHA-1
+> 哈希值，它将任意长度的输入消息转换为一个固定长度（160 位，即 20 字节）的哈希值，通常表示为 40 个十六进制字符。如果参数为
+> NULL，则返回 NULL。
+
 
 ## 函数说明
 

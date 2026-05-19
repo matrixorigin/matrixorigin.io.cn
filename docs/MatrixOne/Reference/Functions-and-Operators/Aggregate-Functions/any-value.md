@@ -1,4 +1,18 @@
+---
+title: ANY_VALUE
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ANY_VALUE 在范围内任选一个值返回。
+---
+
 # **ANY_VALUE**
+
+
+> ANY_VALUE 在范围内任选一个值返回。
 
 ## **函数说明**
 

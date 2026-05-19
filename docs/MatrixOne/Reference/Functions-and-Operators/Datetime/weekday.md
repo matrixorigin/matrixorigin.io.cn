@@ -1,4 +1,18 @@
+---
+title: WEEKDAY()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回日期的工作日索引（0 = 星期一，1 = 星期二，... 6 = 星期日）。如果日期为 NULL，则返回 NULL。
+---
+
 # **WEEKDAY()**
+
+
+> 返回日期的工作日索引（0 = 星期一，1 = 星期二，... 6 = 星期日）。如果日期为 NULL，则返回 NULL。
 
 ## **函数说明**
 

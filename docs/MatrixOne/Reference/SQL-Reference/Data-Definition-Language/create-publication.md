@@ -1,4 +1,19 @@
+---
+title: CREATE PUBLICATION
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE PUBLICATION
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE PUBLICATION 将一个新的发布添加到当前数据库中。
+---
+
 # **CREATE PUBLICATION**
+
+
+> CREATE PUBLICATION 将一个新的发布添加到当前数据库中。
 
 ## **语法说明**
 

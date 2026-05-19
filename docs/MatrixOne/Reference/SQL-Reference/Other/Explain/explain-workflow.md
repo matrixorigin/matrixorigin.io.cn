@@ -1,3 +1,15 @@
+---
+title: EXPLAIN Output Format
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Output format mirrors PostgreSQL; JSON output not supported
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: The syntax structure execution result is a textual description of the plan selected for the statement, optionally annotated with execution statistics.
+---
+
 # EXPLAIN 输出格式
 
 ## 输出结构

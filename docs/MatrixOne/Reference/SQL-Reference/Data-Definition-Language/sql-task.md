@@ -1,12 +1,12 @@
 ---
-title: "CREATE TASK（SQL 任务）"
+title: CREATE TASK (SQL Task)
 doc_type: reference
 mysql_compat: mo_only
 differs_from_mysql: []
-mo_only: true
+mo_only: []
 since: v3.0.10
 last_updated: 2026-05-08
-llms_summary: "在 MatrixOne 内定义、修改、删除、手动执行并查询 SQL 任务：按 cron 调度或手动触发执行一段 SQL 体，可选 WHEN 门限、RETRY 重试次数与 TIMEOUT 超时设置。"
+llms_summary: SQL 任务是 MatrixOne 管理的调度作业，运行用户定义的一段 SQL 体。任务归属于创建它的 account；每个任务可选带 cron 调度、WHEN 门限表达式、重试次数、超时时间，以及 BEGIN ... END 之间的 SQL 体。
 ---
 
 # CREATE TASK / ALTER TASK / DROP TASK / EXECUTE TASK / SHOW TASKS

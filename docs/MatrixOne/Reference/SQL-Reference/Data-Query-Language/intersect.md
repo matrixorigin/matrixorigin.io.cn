@@ -1,4 +1,19 @@
+---
+title: INTERSECT
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- INTERSECT set operator is not available in MySQL 8.0.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: INTERSECT 运算符是一个集合运算符仅返回两个查询或多个查询的不同行。
+---
+
 # **INTERSECT**
+
+
+> INTERSECT 运算符是一个集合运算符仅返回两个查询或多个查询的不同行。
 
 ## **语法说明**
 

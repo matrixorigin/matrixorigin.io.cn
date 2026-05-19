@@ -1,4 +1,19 @@
+---
+title: EXTRACT()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Date literals accept only 'yyyy-mm-dd' and 'yyyymmdd' formats; MySQL accepts wider variants.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`EXTRACT() 函数是从日期中提取部分内容。如果日期是 NULL` 则返回 NULL。'
+---
+
 # **EXTRACT()**
+
+
+> `EXTRACT() 函数是从日期中提取部分内容。如果日期是 NULL` 则返回 NULL。
 
 ## **函数说明**
 

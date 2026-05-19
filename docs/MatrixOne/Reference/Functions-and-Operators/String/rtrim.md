@@ -1,4 +1,18 @@
+---
+title: RTRIM()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: RTRIM() 将输入字符串的后方空格去除，返回处理后的字符。
+---
+
 # **RTRIM()**
+
+
+> RTRIM() 将输入字符串的后方空格去除，返回处理后的字符。
 
 ## **函数说明**
 

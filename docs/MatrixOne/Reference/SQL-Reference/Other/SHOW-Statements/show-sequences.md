@@ -1,4 +1,19 @@
+---
+title: SHOW SEQUENCES
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SHOW SEQUENCES
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SHOW SEQUENCES 用于查看当前序列列表的名称与列表类型。
+---
+
 # **SHOW SEQUENCES**
+
+
+> SHOW SEQUENCES 用于查看当前序列列表的名称与列表类型。
 
 ## **语法说明**
 

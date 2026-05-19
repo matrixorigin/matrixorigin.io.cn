@@ -1,4 +1,18 @@
+---
+title: ATAN()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ATAN() 函数返回给定数值的反正切（用弧度表示）。
+---
+
 # **ATAN()**
+
+
+> ATAN() 函数返回给定数值的反正切（用弧度表示）。
 
 ## **函数说明**
 

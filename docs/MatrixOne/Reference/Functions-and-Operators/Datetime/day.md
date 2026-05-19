@@ -1,4 +1,19 @@
+---
+title: DAY()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回某日期为当月的第几号，范围为 1 到 31；对于诸如 0000-00-00 或 2008-00-00 等包含 0 部分的日期，则返回 0。如果日期为 NULL 则返回 NULL。
+---
+
 # **DAY()**
+
+
+> 返回某日期为当月的第几号，范围为 1 到 31；对于诸如 0000-00-00 或 2008-00-00 等包含 0 部分的日期，则返回
+> 0。如果日期为 NULL 则返回 NULL。
 
 ## **函数说明**
 

@@ -1,4 +1,18 @@
+---
+title: CRC32()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CRC32() 函数用于计算字符串的 CRC32 校验和。如果传递给 CRC32() 的参数是 NULL，则函数返回 NULL。
+---
+
 # **CRC32()**
+
+
+> CRC32() 函数用于计算字符串的 CRC32 校验和。如果传递给 CRC32() 的参数是 NULL，则函数返回 NULL。
 
 ## **函数说明**
 

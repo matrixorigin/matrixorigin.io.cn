@@ -1,4 +1,18 @@
+---
+title: REGEXP_REPLACE()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: REGEXP_REPLACE() 用于将匹配给定正则表达式模式的字符串替换为指定的新字符串。
+---
+
 # **REGEXP_REPLACE()**
+
+
+> REGEXP_REPLACE() 用于将匹配给定正则表达式模式的字符串替换为指定的新字符串。
 
 ## **函数说明**
 

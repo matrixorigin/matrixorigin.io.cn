@@ -1,4 +1,19 @@
+---
+title: RESTORE ... FROM PITR
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- RESTORE … FROM PITR
+since: unknown
+last_updated: 2026-05-08
+llms_summary: RESTORE ... FROM PITR 用于从之前创建的 PITR 中进行数据恢复。
+---
+
 # RESTORE ... FROM PITR
+
+> RESTORE ... FROM PITR 用于从之前创建的 PITR 中进行数据恢复。
+
 
 ## 语法说明
 

@@ -1,4 +1,19 @@
+---
+title: CREATE TABLE AS SELECT
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE TABLE AS SELECT 命令通过复制 SELECT 查询中指定的现有表中的列定义和列数据来创建新表。然而，它不会复制原表的约束、索引、视图或其他非数据属性。
+---
+
 # CREATE TABLE AS SELECT
+
+> CREATE TABLE AS SELECT 命令通过复制 SELECT
+> 查询中指定的现有表中的列定义和列数据来创建新表。然而，它不会复制原表的约束、索引、视图或其他非数据属性。
+
 
 ## 语法说明
 

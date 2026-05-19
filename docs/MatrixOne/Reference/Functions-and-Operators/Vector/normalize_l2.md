@@ -1,4 +1,19 @@
+---
+title: NORMALIZE_L2()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: NORMALIZE_L2() 函数对向量执行欧几里得归一化 (L2 normalization)。
+---
+
 # NORMALIZE_L2()
+
+> NORMALIZE_L2() 函数对向量执行欧几里得归一化 (L2 normalization)。
+
 
 ## 函数说明
 

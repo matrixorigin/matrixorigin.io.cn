@@ -1,4 +1,18 @@
+---
+title: JSON_EXTRACT()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: JSON EXTRACT() 是一个 JSON 查询函数，可用于查询 JSON 文档。
+---
+
 # **JSON_EXTRACT()**
+
+
+> JSON EXTRACT() 是一个 JSON 查询函数，可用于查询 JSON 文档。
 
 ## **函数说明**
 

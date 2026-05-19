@@ -1,4 +1,18 @@
+---
+title: COT()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: COT() 函数返回输入参数（用弧度表示）的余切值。
+---
+
 # **COT()**
+
+
+> COT() 函数返回输入参数（用弧度表示）的余切值。
 
 ## **函数说明**
 

@@ -1,4 +1,19 @@
+---
+title: DROP SNAPSHOT
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- DROP SNAPSHOT
+since: unknown
+last_updated: 2026-05-08
+llms_summary: DROP SNAPSHOT 用于删除当前租户下创建的快照。
+---
+
 # DROP SNAPSHOT
+
+> DROP SNAPSHOT 用于删除当前租户下创建的快照。
+
 
 ## 语法说明
 

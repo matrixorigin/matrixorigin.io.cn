@@ -1,4 +1,18 @@
+---
+title: LCASE()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: LCASE() 用于将给定的字符串转换为小写形式，为 LOWER() 的近义词。
+---
+
 # **LCASE()**
+
+
+> LCASE() 用于将给定的字符串转换为小写形式，为 LOWER() 的近义词。
 
 ## **函数说明**
 

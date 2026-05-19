@@ -1,4 +1,18 @@
+---
+title: REVERSE()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 将 str 字符串中的字符顺序翻转输出。
+---
+
 # **REVERSE()**
+
+
+> 将 str 字符串中的字符顺序翻转输出。
 
 ## **函数说明**
 

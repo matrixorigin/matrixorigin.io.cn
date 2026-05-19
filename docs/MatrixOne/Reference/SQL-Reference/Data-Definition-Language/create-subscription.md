@@ -1,4 +1,19 @@
+---
+title: CREATE...FROM...PUBLICATION...
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE DATABASE … FROM … PUBLICATION …
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE...FROM...PUBLICATION... 是订阅方订阅一个由发布方创建的发布，用来获取发布方的共享数据。
+---
+
 # **CREATE...FROM...PUBLICATION...**
+
+
+> CREATE...FROM...PUBLICATION... 是订阅方订阅一个由发布方创建的发布，用来获取发布方的共享数据。
 
 ## **语法说明**
 

@@ -1,4 +1,18 @@
+---
+title: INNER JOIN
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`INNER JOIN 选取两个表中具有匹配值的数据记录。（等同于 JOIN`）'
+---
+
 # **INNER JOIN**
+
+
+> `INNER JOIN 选取两个表中具有匹配值的数据记录。（等同于 JOIN`）
 
 ## **语法说明**
 

@@ -1,4 +1,19 @@
+---
+title: CREATE SOURCE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE SOURCE (stream/Kafka connector)
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE SOURCE 创建一个对流式数据的连接，并将一个新的 SOURCE 表添加到当前数据库中。
+---
+
 # **CREATE SOURCE**
+
+
+> CREATE SOURCE 创建一个对流式数据的连接，并将一个新的 SOURCE 表添加到当前数据库中。
 
 ## **语法说明**
 

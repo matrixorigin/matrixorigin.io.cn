@@ -1,4 +1,19 @@
+---
+title: SUBVECTOR()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SUBVECTOR() 函数用于从向量中提取子向量。
+---
+
 # SUBVECTOR()
+
+> SUBVECTOR() 函数用于从向量中提取子向量。
+
 
 ## 函数说明
 

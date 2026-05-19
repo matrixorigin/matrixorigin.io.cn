@@ -1,4 +1,19 @@
+---
+title: ALTER STAGE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- ALTER STAGE
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ALTER STAGE 用于修改用于修改一个已有的 stage 的属性。
+---
+
 # **ALTER STAGE**
+
+
+> ALTER STAGE 用于修改用于修改一个已有的 stage 的属性。
 
 ## **语法说明**
 

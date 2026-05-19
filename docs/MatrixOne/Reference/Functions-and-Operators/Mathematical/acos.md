@@ -1,4 +1,18 @@
+---
+title: ACOS()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ACOS() 函数返回给定数值的余弦（用弧度表示）。
+---
+
 # **ACOS()**
+
+
+> ACOS() 函数返回给定数值的余弦（用弧度表示）。
 
 ## **函数说明**
 

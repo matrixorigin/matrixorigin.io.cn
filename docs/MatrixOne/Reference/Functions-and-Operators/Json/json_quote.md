@@ -1,5 +1,20 @@
+---
+title: JSON_QUOTE()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: JSON_QUOTE 函数用于将一个字符串值转换为 JSON 格式中的字符串。通过使用双引号包装字符串并转义内引号和其他字符，将字符串作为 JSON 值引用，然后将结果作为 utf8mb4 字符串返回。如果参数为 NULL，则返回 NULL。
+---
+
 
 # **JSON_QUOTE()**
+
+
+> JSON_QUOTE 函数用于将一个字符串值转换为 JSON 格式中的字符串。通过使用双引号包装字符串并转义内引号和其他字符，将字符串作为
+> JSON 值引用，然后将结果作为 utf8mb4 字符串返回。如果参数为 NULL，则返回 NULL。
 
 ## **函数说明**
 

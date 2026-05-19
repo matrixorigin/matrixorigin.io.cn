@@ -1,4 +1,18 @@
+---
+title: Comparisons Using Subqueries
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 子查询与比较操作符最常见的用法如下：
+---
+
 # **子查询与比较操作符的使用**
+
+
+> 子查询与比较操作符最常见的用法如下：
 
 ## **语法描述**
 

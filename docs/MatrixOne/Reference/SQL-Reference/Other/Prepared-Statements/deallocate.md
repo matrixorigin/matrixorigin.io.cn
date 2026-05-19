@@ -1,4 +1,20 @@
+---
+title: DEALLOCATE PREPARE
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: DEALLOCATE PREPARE 语句的作用是释放使用 PREPARE 生成的预编译语句。在释放预编译语句后，再次执行预编译的语句会导致错误。若创建了过多预编译的语句并且没有使用 DEALLOCATE PREPARE 语句进行释放，那么系统变量会强制执行预编译语句上限 max_prepared_stmt_count 提示。
+---
+
 # **DEALLOCATE PREPARE**
+
+
+> DEALLOCATE PREPARE 语句的作用是释放使用 PREPARE
+> 生成的预编译语句。在释放预编译语句后，再次执行预编译的语句会导致错误。若创建了过多预编译的语句并且没有使用 DEALLOCATE
+> PREPARE 语句进行释放，那么系统变量会强制执行预编译语句上限 max_prepared_stmt_count 提示。
 
 ## **语法说明**
 

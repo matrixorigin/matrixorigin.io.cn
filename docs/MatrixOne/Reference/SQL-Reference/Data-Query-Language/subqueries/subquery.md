@@ -1,3 +1,15 @@
+---
+title: SUBQUERY
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Multi-level correlated subqueries inside IN() are not supported
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: A subquery is a `SELECT` statement within another statement.
+---
+
 # **子查询**
 
 子查询，也称为嵌套查询或子选择，是 `SELECT` 子查询语句嵌入在另一个 `SQL` 查询的查询方式。

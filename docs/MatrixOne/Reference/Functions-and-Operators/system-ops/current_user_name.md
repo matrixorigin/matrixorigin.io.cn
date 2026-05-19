@@ -1,4 +1,19 @@
+---
+title: CURRENT_USER_NAME()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'MatrixOne multi-account/role system management function (compat doc: System Management Functions).'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CURRENT_USER_NAME() 用于查询你当前所登录的用户名称。
+---
+
 # **CURRENT_USER_NAME()**
+
+
+> CURRENT_USER_NAME() 用于查询你当前所登录的用户名称。
 
 ## **函数说明**
 

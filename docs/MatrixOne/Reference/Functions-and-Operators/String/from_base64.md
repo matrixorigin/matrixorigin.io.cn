@@ -1,4 +1,19 @@
+---
+title: FROM_BASE64()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: FROM_BASE64() 用于将 Base64 编码的字符串转换回原始的二进制数据（或文本数据）。可以解码使用 TO_BASE64() 函数进行 Base64 编码的数据。如果参数为 NULL，则结果为 NULL。
+---
+
 # FROM_BASE64()
+
+> FROM_BASE64() 用于将 Base64 编码的字符串转换回原始的二进制数据（或文本数据）。可以解码使用 TO_BASE64()
+> 函数进行 Base64 编码的数据。如果参数为 NULL，则结果为 NULL。
+
 
 ## 函数说明
 

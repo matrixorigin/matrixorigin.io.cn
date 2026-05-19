@@ -1,4 +1,21 @@
+---
+title: CREATE STAGE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE STAGE (external file-system binding)
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE STAGE 用于提供一种高效、安全的方式来与外部存储（如 Amazon S3、文件系统）进行数据交互。通过创建一个外部 Stage，MatrixOne 可以从外部存储中读取文件，并将其快速加载到 MatrixOne 数据库表中。例如，将 Amazon S3 上的 CSV 文件加载到表中。
+---
+
 # **CREATE STAGE**
+
+
+> CREATE STAGE 用于提供一种高效、安全的方式来与外部存储（如 Amazon S3、文件系统）进行数据交互。通过创建一个外部
+> Stage，MatrixOne 可以从外部存储中读取文件，并将其快速加载到 MatrixOne 数据库表中。例如，将 Amazon S3
+> 上的 CSV 文件加载到表中。
 
 ## **语法说明**
 

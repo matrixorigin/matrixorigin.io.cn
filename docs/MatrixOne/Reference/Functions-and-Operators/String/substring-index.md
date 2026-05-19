@@ -1,4 +1,18 @@
+---
+title: SUBSTRING_INDEX()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 此函数 `SUBSTRING_INDEX()` 以分隔符为索引，获取不同索引位的字符。
+---
+
 # **SUBSTRING_INDEX()**
+
+
+> 此函数 `SUBSTRING_INDEX()` 以分隔符为索引，获取不同索引位的字符。
 
 ## **函数说明**
 

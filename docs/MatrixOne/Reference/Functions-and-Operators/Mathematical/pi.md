@@ -1,4 +1,18 @@
+---
+title: PI()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: PI() 返回数学常量 π (pi)。
+---
+
 # **PI()**
+
+
+> PI() 返回数学常量 π (pi)。
 
 ## **函数说明**
 

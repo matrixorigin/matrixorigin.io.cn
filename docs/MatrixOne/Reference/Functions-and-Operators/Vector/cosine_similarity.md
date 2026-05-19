@@ -1,4 +1,21 @@
+---
+title: cosine_similarity()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: cosine_similarity() 是余弦相似度，它衡量了两个向量之间夹角的余弦值，通过它们在多维空间中的接近程度来表示它们的相似性，其中 1 表示完全相似，-1 表示完全不相似。余弦相似度的计算是通过将两个向量的内积除以它们的 l2 范数的乘积来实现的。
+---
+
 # **cosine_similarity()**
+
+
+> cosine_similarity()
+> 是余弦相似度，它衡量了两个向量之间夹角的余弦值，通过它们在多维空间中的接近程度来表示它们的相似性，其中 1 表示完全相似，-1
+> 表示完全不相似。余弦相似度的计算是通过将两个向量的内积除以它们的 l2 范数的乘积来实现的。
 
 ## **函数说明**
 

@@ -1,4 +1,21 @@
+---
+title: OUTER APPLY
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- OUTER APPLY (SQL Server-style, not in MySQL)
+since: unknown
+last_updated: 2026-05-08
+llms_summary: OUTER APPLY 是用来将主表的每一行与一个函数或子查询的结果动态关联的。（右侧内容可以基于主表的行动态生成）。与 CROSS APPLY 不同的是，即使右侧没有数据，也不会丢弃主表的记录，只是右侧列用 NULL 填充。（类似 LEFT JOIN 的效果，但右侧是动态生成的数据）。
+---
+
 # **OUTER APPLY**
+
+
+> OUTER APPLY 是用来将主表的每一行与一个函数或子查询的结果动态关联的。（右侧内容可以基于主表的行动态生成）。与 CROSS
+> APPLY 不同的是，即使右侧没有数据，也不会丢弃主表的记录，只是右侧列用 NULL 填充。（类似 LEFT JOIN
+> 的效果，但右侧是动态生成的数据）。
 
 ## **语法说明**
 

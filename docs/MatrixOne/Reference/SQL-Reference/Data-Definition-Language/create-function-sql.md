@@ -1,4 +1,19 @@
+---
+title: CREATE FUNCTION...LANGUAGE SQL AS
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Only LANGUAGE SQL and LANGUAGE PYTHON are supported; usage differs significantly from MySQL stored functions
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE FUNCTION...LANGUAGE SQL AS 用于创建 SQL UDF。
+---
+
 # **CREATE FUNCTION...LANGUAGE SQL AS**
+
+
+> CREATE FUNCTION...LANGUAGE SQL AS 用于创建 SQL UDF。
 
 ## **语法说明**
 

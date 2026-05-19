@@ -1,4 +1,22 @@
+---
+title: FIND_IN_SET()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 如果字符串 *str* 在由 N 个子字符串组成的字符串列表 *strlist* 中，则返回值的范围在 *1* 到 *N* 之间。一个字符串列表就是由 , 符号分开的子字符串组成。如果第一个参数是常量字符串，第二个参数是 `SET 类型的列，那么 FIND_IN_SET() 函数将优化为使用位运算。如果 *str* 不在 *strlist* 中或者 *strlist* 是空字符串，则返回
+  *0*。如果任一参数为 *NULL* 则返回 NULL。如果第一个参数包含逗号 (,)` 字符，此函数将无法...
+---
+
 # **FIND_IN_SET()**
+
+
+> 如果字符串 *str* 在由 N 个子字符串组成的字符串列表 *strlist* 中，则返回值的范围在 *1* 到 *N*
+> 之间。一个字符串列表就是由 , 符号分开的子字符串组成。如果第一个参数是常量字符串，第二个参数是 `SET 类型的列，那么
+> FIND_IN_SET() 函数将优化为使用位运算。如果 *str* 不在 *strlist* 中或者 *strlist*
+> 是空字符串，则返回 *0*。如果任一参数为 *NULL* 则返回 NULL。如果第一个参数包含逗号 (,)` 字符，此函数将无法...
 
 ## **函数说明**
 

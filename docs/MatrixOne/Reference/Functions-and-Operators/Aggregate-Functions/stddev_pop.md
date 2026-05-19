@@ -1,4 +1,18 @@
+---
+title: STDDEV_POP
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: STDDEV_POP(expr) 是一个聚合函数，计算总体标准差。
+---
+
 # **STDDEV_POP**
+
+
+> STDDEV_POP(expr) 是一个聚合函数，计算总体标准差。
 
 ## **函数说明**
 

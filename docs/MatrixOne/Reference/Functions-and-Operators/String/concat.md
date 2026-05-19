@@ -1,4 +1,19 @@
+---
+title: CONCAT()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CONCAT() 将多个字符串（或仅含有一个字符串）连接成一个字符串。如果所有参数都是非二进制字符串，则结果是非二进制字符串。如果参数包含任何二进制字符串，则结果为二进制字符串。
+---
+
 # **CONCAT()**
+
+
+> CONCAT()
+> 将多个字符串（或仅含有一个字符串）连接成一个字符串。如果所有参数都是非二进制字符串，则结果是非二进制字符串。如果参数包含任何二进制字符串，则结果为二进制字符串。
 
 ## **函数说明**
 

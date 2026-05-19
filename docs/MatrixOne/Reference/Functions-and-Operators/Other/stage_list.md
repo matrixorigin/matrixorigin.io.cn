@@ -1,4 +1,19 @@
+---
+title: STAGE_LIST()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- STAGE_LIST() lists MatrixOne stage contents.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: STAGE_LIST() 函数用于查看 stage 中的目录和文件。
+---
+
 # **STAGE_LIST()**
+
+
+> STAGE_LIST() 函数用于查看 stage 中的目录和文件。
 
 ## **函数说明**
 

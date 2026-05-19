@@ -1,4 +1,19 @@
+---
+title: UTC_TIMESTAMP()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 将当前 UTC 时间以 YYYY-MM-DD hh:mm:ss 或 YYYYMMDDhhmmss 的格式返回，返回格式取决于函数是在字符串还是数字。
+---
+
 # **UTC_TIMESTAMP()**
+
+
+> 将当前 UTC 时间以 YYYY-MM-DD hh:mm:ss 或 YYYYMMDDhhmmss
+> 的格式返回，返回格式取决于函数是在字符串还是数字。
 
 ## **函数说明**
 

@@ -1,3 +1,15 @@
+---
+title: Get information with EXPLAIN ANALYZE
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Output format mirrors PostgreSQL; JSON output not supported
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: EXPLAIN ANALYZE is an analysis tool for queries that shows you how long SQL spends on queries and why.
+---
+
 # 通过 `EXPLAIN ANALYZE` 获取信息
 
 `EXPLAIN ANALYZE` 是一个用于查询的分析工具，它将向你显示 SQL 在查询上花费的时间以及原因。它将计划查询、检测它并执行它，同时计算行数并测量在执行计划的各个点花费的时间。执行完成后，`EXPLAIN ANALYZE` 将打印计划和测量结果，而不是查询结果。

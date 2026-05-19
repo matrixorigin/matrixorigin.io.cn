@@ -1,4 +1,19 @@
+---
+title: FULL JOIN
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- FULL JOIN / FULL OUTER JOIN is not supported in MySQL 8.0 (users must emulate it with LEFT JOIN UNION RIGHT JOIN).
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`FULL JOIN` 关键字只要左表（table1）和右表（table2）其中一个表中存在匹配，则返回行。'
+---
+
 # **FULL JOIN**
+
+
+> `FULL JOIN` 关键字只要左表（table1）和右表（table2）其中一个表中存在匹配，则返回行。
 
 ## **语法说明**
 

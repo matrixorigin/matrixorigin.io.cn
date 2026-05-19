@@ -1,4 +1,19 @@
+---
+title: L2_DISTANCE()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: L2_DISTANCE() 函数用于计算两个向量之间的欧几里得距离。返回一个 FLOAT64 类型的值。
+---
+
 # L2_DISTANCE()
+
+> L2_DISTANCE() 函数用于计算两个向量之间的欧几里得距离。返回一个 FLOAT64 类型的值。
+
 
 ## 函数说明
 

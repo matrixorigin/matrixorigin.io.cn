@@ -1,4 +1,19 @@
+---
+title: FORMAT()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: FORMAT 函数用于将数字格式设置为 "#,###,###.##" 格式，并四舍五入到小数点后一位。格式化数字后，它将以字符串的形式返回值。
+---
+
 # **FORMAT()**
+
+
+> FORMAT 函数用于将数字格式设置为 "#,###,###.##"
+> 格式，并四舍五入到小数点后一位。格式化数字后，它将以字符串的形式返回值。
 
 ## **函数说明**
 

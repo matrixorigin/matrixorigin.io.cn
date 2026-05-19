@@ -1,4 +1,19 @@
+---
+title: DROP USER
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- User identifier is a bare username scoped to the current account; MySQL uses 'user'@'host' tuples.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 将指定的用户从系统中移除。
+---
+
 # **DROP USER**
+
+
+> 将指定的用户从系统中移除。
 
 ## **语法说明**
 

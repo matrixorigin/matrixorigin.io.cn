@@ -1,4 +1,20 @@
+---
+title: SHOW SUBSCRIPTIONS
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SHOW SUBSCRIPTIONS
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回所有发布名、发布租户名、发布的数据库名、发布的表名、备注、发布给该租户的时间、订阅名、创建该订阅的时间和订阅状态（0：可正常订阅；1：发布存在，但无订阅权限；2：本来订阅了发布，但是又删除了发布）。
+---
+
 # **SHOW SUBSCRIPTIONS**
+
+
+> 
+> 返回所有发布名、发布租户名、发布的数据库名、发布的表名、备注、发布给该租户的时间、订阅名、创建该订阅的时间和订阅状态（0：可正常订阅；1：发布存在，但无订阅权限；2：本来订阅了发布，但是又删除了发布）。
 
 ## **语法说明**
 

@@ -1,4 +1,23 @@
+---
+title: CREATE INDEX
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Secondary indexes are syntactically accepted but do not yet provide query speed-up
+- Foreign keys do not support ON CASCADE DELETE
+mo_only:
+- USING IVFFLAT — vector index for approximate nearest neighbour
+- USING HNSW — vector index for approximate nearest neighbour
+- USING MASTER — composite master index
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 在表中创建索引，以便更加快速高效地查询数据。
+---
+
 # **CREATE INDEX**
+
+
+> 在表中创建索引，以便更加快速高效地查询数据。
 
 ## **语法说明**
 

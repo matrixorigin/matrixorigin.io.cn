@@ -1,4 +1,19 @@
+---
+title: UPDATE
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- LOW_PRIORITY and IGNORE modifiers not supported
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: UPDATE 用于修改表中的现有记录。
+---
+
 # **UPDATE**
+
+
+> UPDATE 用于修改表中的现有记录。
 
 ## **语法描述**
 

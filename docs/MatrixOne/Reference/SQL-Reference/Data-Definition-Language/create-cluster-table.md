@@ -1,4 +1,20 @@
+---
+title: CREATE CLUSTER TABLE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE CLUSTER TABLE
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 集群表是指在系统租户下的系统库 mo_catalog 创建的表，该表会在其它租户下同时生效。系统租户下可对该表进行 DDL 与 DML 操作，其它租户只能进行查询或基于该表创建视图。
+---
+
 # **CREATE CLUSTER TABLE**
+
+
+> 集群表是指在系统租户下的系统库 mo_catalog 创建的表，该表会在其它租户下同时生效。系统租户下可对该表进行 DDL 与 DML
+> 操作，其它租户只能进行查询或基于该表创建视图。
 
 ## **语法说明**
 

@@ -1,4 +1,19 @@
+---
+title: MONTH()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回日期的月份，对于 1 月到 12 月，返回范围为 1 到 12；对于“0000-00-00”或“2008-00-00”等日期，返回 0 月份。如果 date 为 NULL 则返回 NULL。
+---
+
 # **MONTH()**
+
+
+> 返回日期的月份，对于 1 月到 12 月，返回范围为 1 到 12；对于“0000-00-00”或“2008-00-00”等日期，返回 0
+> 月份。如果 date 为 NULL 则返回 NULL。
 
 ## **函数说明**
 

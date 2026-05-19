@@ -1,4 +1,20 @@
+---
+title: LOAD DATA INLINE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- LOAD DATA INLINE (stage-sourced import)
+since: unknown
+last_updated: 2026-05-08
+llms_summary: LOAD DATA INLINE 语法可以将 *csv* 格式组织的字符串导入数据表中，导入速度较 INSERT INTO 操作更快。LOAD DATA INLINE 的功能适合无主键的流式快速数据写入，如 IoT 类的场景。
+---
+
 # **LOAD DATA INLINE**
+
+
+> LOAD DATA INLINE 语法可以将 *csv* 格式组织的字符串导入数据表中，导入速度较 INSERT INTO
+> 操作更快。LOAD DATA INLINE 的功能适合无主键的流式快速数据写入，如 IoT 类的场景。
 
 ## **概述**
 

@@ -1,4 +1,19 @@
+---
+title: EMPTY()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- EMPTY() is a MatrixOne helper returning whether a string is empty.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 判断输入的字符串是否为空。如果包含至少一个字节则不为空，即使是一个空格或者 NULL。
+---
+
 # **EMPTY()**
+
+
+> 判断输入的字符串是否为空。如果包含至少一个字节则不为空，即使是一个空格或者 NULL。
 
 ## **函数说明**
 

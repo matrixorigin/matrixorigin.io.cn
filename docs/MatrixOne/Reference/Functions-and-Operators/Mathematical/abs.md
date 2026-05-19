@@ -1,4 +1,18 @@
+---
+title: ABS()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ABS(X) 返回 X 的绝对值，或者 NULL 如果 X 是 NULL。
+---
+
 # **ABS()**
+
+
+> ABS(X) 返回 X 的绝对值，或者 NULL 如果 X 是 NULL。
 
 ## **函数说明**
 

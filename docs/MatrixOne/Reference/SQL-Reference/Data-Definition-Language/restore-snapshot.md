@@ -1,4 +1,19 @@
+---
+title: RESTORE ... SNAPSHOT
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- RESTORE … FROM SNAPSHOT
+since: unknown
+last_updated: 2026-05-08
+llms_summary: RESTORE ... SNAPSHOT 用于从之前创建的集群/租户/数据库/表级别的快照中进行集群/租户/数据库/表级别的恢复数据。
+---
+
 # RESTORE ... FROM SNAPSHOT
+
+> RESTORE ... SNAPSHOT 用于从之前创建的集群/租户/数据库/表级别的快照中进行集群/租户/数据库/表级别的恢复数据。
+
 
 ## 语法说明
 

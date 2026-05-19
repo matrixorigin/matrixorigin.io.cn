@@ -1,4 +1,21 @@
+---
+title: REPLACE
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- REPLACE does not support VALUES row_constructor_list
+- node-sql-parser rejects REPLACE … WHERE (parser bug, not MatrixOne)
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: REPLACE 不仅是一个字符串函数，还是一个替换操作的数据操作语句。REPLACE 语句的作用是向表中插入数据，如果表中已经存在符合条件的记录，则会先删除该记录，然后再插入新的数据。如果表中不存在符合条件的记录，则直接插入新的数据。
+---
+
 # **REPLACE**
+
+
+> REPLACE 不仅是一个字符串函数，还是一个替换操作的数据操作语句。REPLACE
+> 语句的作用是向表中插入数据，如果表中已经存在符合条件的记录，则会先删除该记录，然后再插入新的数据。如果表中不存在符合条件的记录，则直接插入新的数据。
 
 ## **语法描述**
 

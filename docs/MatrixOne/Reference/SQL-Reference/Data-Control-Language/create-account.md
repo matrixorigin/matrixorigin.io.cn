@@ -1,4 +1,19 @@
+---
+title: CREATE ACCOUNT
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE ACCOUNT … ADMIN_NAME …
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 为其中一个集群成员创建一个新的租户。
+---
+
 # **CREATE ACCOUNT**
+
+
+> 为其中一个集群成员创建一个新的租户。
 
 ## **语法说明**
 

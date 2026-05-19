@@ -1,4 +1,19 @@
+---
+title: ALTER ACCOUNT
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- ALTER ACCOUNT
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 修改租户信息。
+---
+
 # **ALTER ACCOUNT**
+
+
+> 修改租户信息。
 
 ## **语法说明**
 

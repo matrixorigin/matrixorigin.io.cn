@@ -1,4 +1,19 @@
+---
+title: HEX()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 对于字符串参数 str，HEX() 返回 str 的十六进制字符串形式。其中，str 中的每个字符的每个字节都转换为两个十六进制数字 (多字节字符转换成两个以上的数字)。
+---
+
 # **HEX()**
+
+
+> 对于字符串参数 str，HEX() 返回 str 的十六进制字符串形式。其中，str 中的每个字符的每个字节都转换为两个十六进制数字
+> (多字节字符转换成两个以上的数字)。
 
 ## **函数说明**
 

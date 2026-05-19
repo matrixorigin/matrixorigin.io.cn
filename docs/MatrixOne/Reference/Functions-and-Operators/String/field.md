@@ -1,4 +1,18 @@
+---
+title: FIELD()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: FIELD() 函数返回第一个字符串 str 在字符串列表 (str1,str2,str3,...) 中的位置。
+---
+
 # **FIELD()**
+
+
+> FIELD() 函数返回第一个字符串 str 在字符串列表 (str1,str2,str3,...) 中的位置。
 
 ## **函数说明**
 

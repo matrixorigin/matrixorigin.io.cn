@@ -1,3 +1,14 @@
+---
+title: Regular Expressions Overview
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: Regular expressions provide a powerful method for matching text patterns.
+---
+
 # 正则表达式概述
 
 正则表达式提供了一种强大的匹配文本模式的方法。你可以在 LIKE 语句中使用简单的通配符（如 %，_），但是正则表达式为你提供了更多的灵活性和匹配选项。

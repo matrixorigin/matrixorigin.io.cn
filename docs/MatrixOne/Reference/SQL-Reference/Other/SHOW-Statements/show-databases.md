@@ -1,4 +1,18 @@
+---
+title: SHOW DATABASES
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SHOW DATABASES 列出 MatrixOne 上的数据库。SHOW SCHEMAS 是 SHOW DATABASES 的同义词。
+---
+
 # **SHOW DATABASES**
+
+
+> SHOW DATABASES 列出 MatrixOne 上的数据库。SHOW SCHEMAS 是 SHOW DATABASES 的同义词。
 
 ## **函数说明**
 

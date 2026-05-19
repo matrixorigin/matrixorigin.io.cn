@@ -1,4 +1,18 @@
+---
+title: MAX
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: MAX() 是聚合函数的一种，计算了一组值的最大值。
+---
+
 # **MAX**
+
+
+> MAX() 是聚合函数的一种，计算了一组值的最大值。
 
 ## **函数说明**
 

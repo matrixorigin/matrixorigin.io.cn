@@ -1,4 +1,20 @@
+---
+title: BY RANK WITH OPTION
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- BY RANK WITH OPTION (IVF vector ranking)
+since: unknown
+last_updated: 2026-05-08
+llms_summary: BY RANK WITH OPTION 子句用于向量相似性搜索查询，以控制使用 IVF（倒排文件）索引时排名的执行方式。此子句允许你优化查询速度和结果准确性之间的权衡。
+---
+
 # BY RANK WITH OPTION
+
+> BY RANK WITH OPTION 子句用于向量相似性搜索查询，以控制使用
+> IVF（倒排文件）索引时排名的执行方式。此子句允许你优化查询速度和结果准确性之间的权衡。
+
 
 ## 语法说明
 

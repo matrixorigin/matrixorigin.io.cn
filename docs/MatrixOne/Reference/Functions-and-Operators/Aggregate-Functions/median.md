@@ -1,4 +1,20 @@
+---
+title: MEDIAN()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- MEDIAN aggregate is a MatrixOne-specific aggregate (no native MySQL equivalent).
+since: unknown
+last_updated: 2026-05-08
+llms_summary: MEDIAN() 用于返回一组数值的中值，即将一组数值排序后返回居于中间的数值。如果参数集合中包含偶数个数值，该函数将返回位于中间的两个数的平均值。可以将其用作聚合或分析函数。
+---
+
 # **MEDIAN()**
+
+
+> MEDIAN()
+> 用于返回一组数值的中值，即将一组数值排序后返回居于中间的数值。如果参数集合中包含偶数个数值，该函数将返回位于中间的两个数的平均值。可以将其用作聚合或分析函数。
 
 ## **函数说明**
 

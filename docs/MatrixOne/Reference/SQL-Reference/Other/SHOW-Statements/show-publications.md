@@ -1,4 +1,19 @@
+---
+title: SHOW PUBLICATIONS
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SHOW PUBLICATIONS
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回所有发布名、发布的数据库/表名、发布创建时间、发布最新修改时间、发布指定的租户名列表（如果是所有则展示 "*"）等信息。
+---
+
 # **SHOW PUBLICATIONS**
+
+
+> 返回所有发布名、发布的数据库/表名、发布创建时间、发布最新修改时间、发布指定的租户名列表（如果是所有则展示 "*"）等信息。
 
 ## **语法说明**
 

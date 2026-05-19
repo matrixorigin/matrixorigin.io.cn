@@ -1,4 +1,20 @@
+---
+title: CREATE CLONE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE TABLE … CLONE db.table [TO ACCOUNT …]
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CLONE 操作允许在 MatrixOne 数据库中复制表或数据库的结构和数据。克隆可以在同一租户内进行，也可以跨租户进行（仅限 sys 租户操作）。跨租户克隆必须使用预先创建的 snapshot。
+---
+
 # **CREATE CLONE**
+
+
+> CLONE 操作允许在 MatrixOne 数据库中复制表或数据库的结构和数据。克隆可以在同一租户内进行，也可以跨租户进行（仅限 sys
+> 租户操作）。跨租户克隆必须使用预先创建的 snapshot。
 
 ## **语法说明**
 

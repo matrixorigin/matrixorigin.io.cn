@@ -1,4 +1,18 @@
+---
+title: SECOND()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回 time 中秒的值，取值范围为 0 到 59，如果 time 为 NULL 则返回 NULL。
+---
+
 # **SECOND()**
+
+
+> 返回 time 中秒的值，取值范围为 0 到 59，如果 time 为 NULL 则返回 NULL。
 
 ## **函数说明**
 

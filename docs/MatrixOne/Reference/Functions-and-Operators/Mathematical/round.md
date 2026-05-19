@@ -1,4 +1,19 @@
+---
+title: ROUND()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ROUND() 函数返回了某个数字在特定位数四舍五入后的数值。 该函数返回指定位数上最接近的数字。如果给定的数字与周围的数字距离相等（比如为 5），那么将采用“banker's rounding”（银行进位法）的方式进行舍入。
+---
+
 # **ROUND()**
+
+
+> ROUND() 函数返回了某个数字在特定位数四舍五入后的数值。 该函数返回指定位数上最接近的数字。如果给定的数字与周围的数字距离相等（比如为
+> 5），那么将采用“banker's rounding”（银行进位法）的方式进行舍入。
 
 ## **函数说明**
 

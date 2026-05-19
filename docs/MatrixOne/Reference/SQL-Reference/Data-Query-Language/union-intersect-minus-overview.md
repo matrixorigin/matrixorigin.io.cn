@@ -1,3 +1,15 @@
+---
+title: Combining Queries (UNION, INTERSECT, MINUS)
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- MINUS, INTERSECT set operators
+since: unknown
+last_updated: 2026-05-08
+llms_summary: The results of the two queries can be combined using the set operations UNION, INTERSECT, and MINUS.
+---
+
 # 组合查询 (UNION, INTERSECT, MINUS)
 
 两个查询的结果可以使用 `UNION`，`INTERSECT` 和 `MINUS` 语法进行组合查询。

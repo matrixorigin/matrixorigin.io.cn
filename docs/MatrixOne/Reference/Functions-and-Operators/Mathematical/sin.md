@@ -1,4 +1,18 @@
+---
+title: SIN()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SIN() 函数返回输入参数（用弧度表示）的正弦值。
+---
+
 # **SIN()**
+
+
+> SIN() 函数返回输入参数（用弧度表示）的正弦值。
 
 ## **函数说明**
 

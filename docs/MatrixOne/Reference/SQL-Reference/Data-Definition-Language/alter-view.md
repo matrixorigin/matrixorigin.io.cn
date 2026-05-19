@@ -1,4 +1,19 @@
+---
+title: ALTER VIEW
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- 'Inherits CREATE VIEW limitations: no WITH CHECK OPTION, no DEFINER = user clause'
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ALTER VIEW 用于更改视图。
+---
+
 # **ALTER VIEW**
+
+
+> ALTER VIEW 用于更改视图。
 
 ## **语法说明**
 

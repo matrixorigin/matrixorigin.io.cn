@@ -1,4 +1,18 @@
+---
+title: BIT_XOR
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: BIT_XOR() 是一个聚合函数，计算了列中所有位的按位异或。
+---
+
 # **BIT_XOR**
+
+
+> BIT_XOR() 是一个聚合函数，计算了列中所有位的按位异或。
 
 ## **函数说明**
 

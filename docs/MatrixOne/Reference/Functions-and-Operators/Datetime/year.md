@@ -1,4 +1,20 @@
+---
+title: YEAR()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Date literals accept only 'yyyy-mm-dd' and 'yyyymmdd' formats; MySQL accepts wider variants.
+mo_only:
+- TOYEAR() is a MatrixOne alias for YEAR() with no MySQL counterpart.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: YEAR() 和 TOYEAR() 函数返回了给定日期的年份（从 1000 到 9999）。
+---
+
 # **YEAR()**
+
+
+> YEAR() 和 TOYEAR() 函数返回了给定日期的年份（从 1000 到 9999）。
 
 ## **函数说明**
 

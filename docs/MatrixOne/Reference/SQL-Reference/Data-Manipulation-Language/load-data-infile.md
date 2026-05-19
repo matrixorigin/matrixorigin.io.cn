@@ -1,4 +1,23 @@
+---
+title: LOAD DATA
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- LOAD DATA LOCAL requires --local-infile on the client
+- SET clause only accepts columns_name = nullif(expr1, expr2)
+- JSONLines import uses MatrixOne-specific syntax
+- Object-storage import (S3/URL) uses MatrixOne-specific syntax
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: LOAD DATA INFILE 语句可以极快地将文本文件中的行读入表中。你可以从服务器主机、HDFS 或 S3 兼容对象存储读取该文件。LOAD DATA INFILE 是 SELECT ... INTO OUTFILE 相反的操作。
+---
+
 # **LOAD DATA INFILE**
+
+
+> LOAD DATA INFILE 语句可以极快地将文本文件中的行读入表中。你可以从服务器主机、HDFS 或 S3
+> 兼容对象存储读取该文件。LOAD DATA INFILE 是 SELECT ... INTO OUTFILE 相反的操作。
 
 ## **概述**
 

@@ -1,4 +1,18 @@
+---
+title: LEFT()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: LEFT() 函数返回 *str* 字符串中最左边的长度字符。如果 *str* 或 *len* 参数为 NULL，则返回 NULL 值。
+---
+
 # **LEFT()**
+
+
+> LEFT() 函数返回 *str* 字符串中最左边的长度字符。如果 *str* 或 *len* 参数为 NULL，则返回 NULL 值。
 
 ## **函数说明**
 

@@ -1,4 +1,19 @@
+---
+title: GENERATE_SERIES()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- Table-valued function; no direct MySQL equivalent.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: GENERATE_SERIES() 可以生成一个从起始值到结束值的序列，通常应用于以下场景：
+---
+
 # **GENERATE_SERIES()**
+
+
+> GENERATE_SERIES() 可以生成一个从起始值到结束值的序列，通常应用于以下场景：
 
 ## **函数说明**
 

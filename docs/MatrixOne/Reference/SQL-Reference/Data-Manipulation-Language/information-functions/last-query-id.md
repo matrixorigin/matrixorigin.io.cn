@@ -1,4 +1,19 @@
+---
+title: LAST_QUERY_ID
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- LAST_QUERY_ID()
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回当前会话中指定查询的 ID。如果未指定查询，则返回最近执行的查询。
+---
+
 # **LAST_QUERY_ID()**
+
+
+> 返回当前会话中指定查询的 ID。如果未指定查询，则返回最近执行的查询。
 
 ## **语法说明**
 

@@ -1,4 +1,22 @@
+---
+title: GRANT
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Authorization logic differs from MySQL — MatrixOne evaluates via its role/account model
+- User identifier is a bare username scoped to the current account; MySQL uses 'user'@'host' tuples
+mo_only:
+- '`GRANT ... ON ACCOUNT *` — account-level privileges have no MySQL counterpart'
+- '`GRANT ... ON DATABASE *` — MatrixOne-specific database-level grant target'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: GRANT 语句将权限和角色分配给 MatrixOne 用户和角色。
+---
+
 # **GRANT**
+
+
+> GRANT 语句将权限和角色分配给 MatrixOne 用户和角色。
 
 ## **语法说明**
 

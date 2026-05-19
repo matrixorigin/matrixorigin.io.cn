@@ -1,3 +1,15 @@
+---
+title: Mathematical class functions
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: sqrt 函数用于计算向量中每个元素的平方根。
+---
+
 # 数学类函数
 
 向量支持以下数学类函数：
@@ -5,6 +17,9 @@
 ## SQRT
 
 ### **函数说明**
+
+
+> sqrt 函数用于计算向量中每个元素的平方根。
 
 `sqrt` 函数用于计算向量中每个元素的平方根。
 

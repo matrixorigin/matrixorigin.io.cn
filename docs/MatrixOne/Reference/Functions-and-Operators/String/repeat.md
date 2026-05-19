@@ -1,4 +1,19 @@
+---
+title: REPEAT()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: REPEAT() 用于将输入的字符串 str 重复 count 次，并返回一个新的字符串。如果 count 小于 1，则返回一个空字符串。如果 str 或 count 为 NULL，则返回 NULL。
+---
+
 # **REPEAT()**
+
+
+> REPEAT() 用于将输入的字符串 str 重复 count 次，并返回一个新的字符串。如果 count 小于
+> 1，则返回一个空字符串。如果 str 或 count 为 NULL，则返回 NULL。
 
 ## **函数说明**
 

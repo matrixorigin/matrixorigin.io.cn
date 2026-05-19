@@ -1,4 +1,18 @@
+---
+title: SPACE()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SPACE(N) 返回 N 个空格组成的字符串。
+---
+
 # **SPACE()**
+
+
+> SPACE(N) 返回 N 个空格组成的字符串。
 
 ## **函数说明**
 

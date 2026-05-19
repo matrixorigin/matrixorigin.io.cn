@@ -1,4 +1,19 @@
+---
+title: MINUS
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- MINUS (set-difference query, not in MySQL)
+since: unknown
+last_updated: 2026-05-08
+llms_summary: MINUS 比较两个查询的结果，并返回第一个查询中不是由第二个查询输出的不同行。
+---
+
 # **MINUS**
+
+
+> MINUS 比较两个查询的结果，并返回第一个查询中不是由第二个查询输出的不同行。
 
 ## **语法说明**
 

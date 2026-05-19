@@ -1,4 +1,19 @@
+---
+title: WITH (Common Table Expressions)
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 公共表达式（CTE，common table expression），它是在单个语句的执行范围内定义的临时结果集，只在查询期间有效。它可以自引用，也可在同一查询中多次引用。作用是简化复杂的查询，提高代码的可读性和可维护性。公共表达式可以被视为一个临时视图，只在查询的执行周期内存在，对于外部查询是不可见的。
+---
+
 # **WITH (Common Table Expressions)**
+
+
+> 公共表达式（CTE，common table
+> expression），它是在单个语句的执行范围内定义的临时结果集，只在查询期间有效。它可以自引用，也可在同一查询中多次引用。作用是简化复杂的查询，提高代码的可读性和可维护性。公共表达式可以被视为一个临时视图，只在查询的执行周期内存在，对于外部查询是不可见的。
 
 ## **语法说明**
 

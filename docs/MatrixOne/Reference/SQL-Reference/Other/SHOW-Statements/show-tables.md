@@ -1,4 +1,19 @@
+---
+title: SHOW TABLES
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Result column is named 'name' rather than MySQL's 'Tables_in_<dbname>'.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 以列表的形式展现当前数据库创建的所有表。
+---
+
 # **SHOW TABLES**
+
+
+> 以列表的形式展现当前数据库创建的所有表。
 
 ## **语法说明**
 

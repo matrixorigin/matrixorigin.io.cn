@@ -1,4 +1,18 @@
+---
+title: FLOOR()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: FLOOR() 函数返回不大于某个数字的相应数位的数。
+---
+
 # **FLOOR()**
+
+
+> FLOOR() 函数返回不大于某个数字的相应数位的数。
 
 ## **函数说明**
 

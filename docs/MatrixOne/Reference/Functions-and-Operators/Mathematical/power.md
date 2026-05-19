@@ -1,4 +1,18 @@
+---
+title: POWER()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: POWER(X, Y) 返回 X 的 Y 次方指数值。
+---
+
 # **POWER()**
+
+
+> POWER(X, Y) 返回 X 的 Y 次方指数值。
 
 ## **函数说明**
 

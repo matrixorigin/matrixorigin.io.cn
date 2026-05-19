@@ -1,4 +1,20 @@
+---
+title: CREATE FUNCTION...LANGUAGE PYTHON AS
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE FUNCTION … LANGUAGE PYTHON AS …
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE FUNCTION...LANGUAGE PYTHON AS 用于创建用户自定义 Python 函数。用户通过自己定义的函数，满足定制化需求，简化查询的编写。也可以通过导入外部 Python 文件或外部 whl 包来创建 UDF。
+---
+
 # **CREATE FUNCTION...LANGUAGE PYTHON AS**
+
+
+> CREATE FUNCTION...LANGUAGE PYTHON AS 用于创建用户自定义 Python
+> 函数。用户通过自己定义的函数，满足定制化需求，简化查询的编写。也可以通过导入外部 Python 文件或外部 whl 包来创建 UDF。
 
 ## **语法说明**
 

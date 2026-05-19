@@ -1,4 +1,20 @@
+---
+title: RPAD()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 函数 RPAD(str,len,padstr) 在字符串 *str* 右侧使用 *padstr* 进行填充，直至总长度为 *len* 的字符串，最后返回填充后的字符串。如果 *str* 的长度大于 *len*，那么最后的长度将缩减至 *len*。 若 *len* 为负数，则返回 NULL。
+---
+
 # **RPAD()**
+
+
+> 函数 RPAD(str,len,padstr) 在字符串 *str* 右侧使用 *padstr* 进行填充，直至总长度为 *len*
+> 的字符串，最后返回填充后的字符串。如果 *str* 的长度大于 *len*，那么最后的长度将缩减至 *len*。 若 *len*
+> 为负数，则返回 NULL。
 
 ## **函数说明**
 
