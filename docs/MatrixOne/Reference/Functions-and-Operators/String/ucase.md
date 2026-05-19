@@ -1,4 +1,18 @@
+---
+title: UCASE()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: UCASE() 用于将给定的字符串转换为大写形式，为 UPPER() 的近义词。
+---
+
 # **UCASE()**
+
+
+> UCASE() 用于将给定的字符串转换为大写形式，为 UPPER() 的近义词。
 
 ## **函数说明**
 

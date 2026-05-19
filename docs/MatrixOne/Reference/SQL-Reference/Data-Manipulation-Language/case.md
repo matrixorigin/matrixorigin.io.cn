@@ -1,4 +1,18 @@
+---
+title: CASE
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CASE 语句用于存储过程的复合语句中。
+---
+
 # **CASE**
+
+
+> CASE 语句用于存储过程的复合语句中。
 
 ## **语法说明**
 

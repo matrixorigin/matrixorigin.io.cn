@@ -1,4 +1,18 @@
+---
+title: CONVERT_TZ()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CONVERT_TZ() 函数用于将给定的日期时间从一个时区转换为另一个时区。如果参数无效，则函数将返回 NULL。
+---
+
 # **CONVERT_TZ()**
+
+
+> CONVERT_TZ() 函数用于将给定的日期时间从一个时区转换为另一个时区。如果参数无效，则函数将返回 NULL。
 
 ## **函数说明**
 

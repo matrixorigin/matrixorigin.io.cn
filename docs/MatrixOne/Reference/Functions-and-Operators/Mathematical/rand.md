@@ -1,4 +1,19 @@
+---
+title: RAND()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: RAND() 函数用于生成一个介于 0 和 1 之间的 Float64 类型的随机数。它不接受任何参数，每次调用都会产生一个不可预测且不重复的随机数。
+---
+
 # **RAND()**
+
+
+> RAND() 函数用于生成一个介于 0 和 1 之间的 Float64
+> 类型的随机数。它不接受任何参数，每次调用都会产生一个不可预测且不重复的随机数。
 
 ## **函数说明**
 

@@ -1,4 +1,18 @@
+---
+title: JOIN
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`JOIN` 用于把来自两个或多个表的行结合起来。'
+---
+
 # **JOIN**
+
+
+> `JOIN` 用于把来自两个或多个表的行结合起来。
 
 ## **语法说明**
 

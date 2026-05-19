@@ -1,4 +1,18 @@
+---
+title: GROUP_CONCAT
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: GROUP_CONCAT 函数返回一个字符串，它将通过列或者表达式指定的内容连接起来。
+---
+
 # **GROUP_CONCAT**
+
+
+> GROUP_CONCAT 函数返回一个字符串，它将通过列或者表达式指定的内容连接起来。
 
 ## **函数说明**
 

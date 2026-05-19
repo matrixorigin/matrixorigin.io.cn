@@ -1,4 +1,19 @@
+---
+title: SHOW GRANTS
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Results reflect MatrixOne role/account graph and differ from MySQL significantly
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 使用 SHOW GRANTS 语句显示用户的所有授权信息。SHOW GRANTS 语句显示使用 GRANT 命令分配给用户的权限。
+---
+
 # **SHOW GRANTS**
+
+
+> 使用 SHOW GRANTS 语句显示用户的所有授权信息。SHOW GRANTS 语句显示使用 GRANT 命令分配给用户的权限。
 
 ## **语法说明**
 

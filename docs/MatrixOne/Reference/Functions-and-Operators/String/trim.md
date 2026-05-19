@@ -1,4 +1,18 @@
+---
+title: TRIM()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: TRIM() 函数返回一个字符串，删除不需要的字符。
+---
+
 # **TRIM()**
+
+
+> TRIM() 函数返回一个字符串，删除不需要的字符。
 
 ## **函数说明**
 

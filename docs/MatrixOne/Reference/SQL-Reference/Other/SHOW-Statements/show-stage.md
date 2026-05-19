@@ -1,4 +1,19 @@
+---
+title: SHOW STAGES
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SHOW STAGES
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SHOW STAGES 返回 stage 的具体信息。
+---
+
 # **SHOW STAGES**
+
+
+> SHOW STAGES 返回 stage 的具体信息。
 
 ## **语法说明**
 

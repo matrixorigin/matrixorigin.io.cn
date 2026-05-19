@@ -1,4 +1,21 @@
+---
+title: SET ROLE
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Accepts a single role name only; MySQL 8.0 also supports NONE, DEFAULT, ALL, ALL EXCEPT role_list, and role lists.
+mo_only:
+- SET SECONDARY ROLE {NONE | ALL} — MatrixOne-only primary/secondary role model.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 设置会话的活动/当前主要角色。为当前活动的主角色设置上下文，以确定当前用户是否拥有执行 CREATE <object> 语句或执行任何其他 SQL 操作所需的权限。
+---
+
 # **SET ROLE**
+
+
+> 设置会话的活动/当前主要角色。为当前活动的主角色设置上下文，以确定当前用户是否拥有执行 CREATE <object> 语句或执行任何其他
+> SQL 操作所需的权限。
 
 ## **语法说明**
 

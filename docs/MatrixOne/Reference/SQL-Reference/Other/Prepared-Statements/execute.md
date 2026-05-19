@@ -1,4 +1,20 @@
+---
+title: EXECUTE
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: EXECUTE 语句的作用是：使用 PREPARE 准备好一条语句后，可以使用 EXECUTE 语句引用预编译的语句名称并执行。如果预编译的语句包含任何参数标记，则必须提供一个 USING 子句，该子句列出包含要绑定到参数的值的用户变量。参数值只能由用户变量提供，并且 USING 子句必须命名与语句中参数标记的数量一样多的变量。
+---
+
 # **EXECUTE**
+
+
+> EXECUTE 语句的作用是：使用 PREPARE 准备好一条语句后，可以使用 EXECUTE
+> 语句引用预编译的语句名称并执行。如果预编译的语句包含任何参数标记，则必须提供一个 USING
+> 子句，该子句列出包含要绑定到参数的值的用户变量。参数值只能由用户变量提供，并且 USING 子句必须命名与语句中参数标记的数量一样多的变量。
 
 ## **语法说明**
 

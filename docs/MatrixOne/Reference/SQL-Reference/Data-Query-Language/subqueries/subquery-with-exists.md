@@ -1,4 +1,19 @@
+---
+title: Subqueries with EXISTS or NOT EXISTS
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: EXISTS 用于检查子查询是否至少会返回一行数据。即将主查询的数据，放到子查询中做条件验证，根据验证结果（TRUE 或 FALSE）来决定主查询的数据结果是否得以保留。
+---
+
 # **Subqueries with EXISTS or NOT EXISTS**
+
+
+> EXISTS 用于检查子查询是否至少会返回一行数据。即将主查询的数据，放到子查询中做条件验证，根据验证结果（TRUE 或
+> FALSE）来决定主查询的数据结果是否得以保留。
 
 ## **语法描述**
 

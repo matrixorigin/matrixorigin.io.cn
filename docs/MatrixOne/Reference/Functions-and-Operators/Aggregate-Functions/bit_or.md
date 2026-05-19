@@ -1,4 +1,18 @@
+---
+title: BIT_OR
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: BIT_OR() 是一个聚合函数，计算了列中所有位的按位或。
+---
+
 # **BIT_OR**
+
+
+> BIT_OR() 是一个聚合函数，计算了列中所有位的按位或。
 
 ## **函数说明**
 

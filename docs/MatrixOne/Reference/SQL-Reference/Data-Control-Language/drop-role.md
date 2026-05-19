@@ -1,4 +1,19 @@
+---
+title: DROP ROLE
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Role exists inside MatrixOne's multi-account model; roles are account-scoped, not server-global as in MySQL.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 将指定的角色从系统中移除。
+---
+
 # **DROP ROLE**
+
+
+> 将指定的角色从系统中移除。
 
 ## **语法说明**
 

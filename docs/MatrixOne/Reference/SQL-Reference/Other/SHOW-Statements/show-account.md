@@ -1,4 +1,19 @@
+---
+title: SHOW ACCOUNTS
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SHOW ACCOUNTS
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 列出为你的账户下创建的租户用户的元信息和统计信息。
+---
+
 # **SHOW ACCOUNTS**
+
+
+> 列出为你的账户下创建的租户用户的元信息和统计信息。
 
 ## **函数说明**
 

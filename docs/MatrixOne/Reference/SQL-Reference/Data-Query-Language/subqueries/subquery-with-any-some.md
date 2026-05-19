@@ -1,4 +1,19 @@
+---
+title: Subqueries with ANY or SOME
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 由于列子查询返回的结果集是多行一列，因此不能直接使用（=，>，<，>=，<=，<>）这些比较操作符。在列子查询中可以使用 ANY、SOME 操作符与比较操作符联合使用：
+---
+
 # **Subqueries with ANY or SOME**
+
+
+> 由于列子查询返回的结果集是多行一列，因此不能直接使用（=，>，<，>=，<=，<>）这些比较操作符。在列子查询中可以使用 ANY、SOME
+> 操作符与比较操作符联合使用：
 
 ## **语法描述**
 

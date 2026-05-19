@@ -1,4 +1,18 @@
+---
+title: Rename Table
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 在 MatrixOne 中，RENAME TABLE 语句用于更改表的名称。可以一次更改多个表的名称。
+---
+
 # **Rename Table**
+
+
+> 在 MatrixOne 中，RENAME TABLE 语句用于更改表的名称。可以一次更改多个表的名称。
 
 ## **语法说明**
 

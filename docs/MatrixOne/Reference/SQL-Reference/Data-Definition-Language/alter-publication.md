@@ -1,4 +1,19 @@
+---
+title: ALTER PUBLICATION
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- ALTER PUBLICATION
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ALTER PUBLICATION 修改发布内容。
+---
+
 # **ALTER PUBLICATION**
+
+
+> ALTER PUBLICATION 修改发布内容。
 
 ## **语法说明**
 

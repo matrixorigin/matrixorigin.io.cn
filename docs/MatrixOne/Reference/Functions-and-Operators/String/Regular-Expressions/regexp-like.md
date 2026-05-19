@@ -1,4 +1,19 @@
+---
+title: REGEXP_LIKE()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: REGEXP_LIKE() 用于判断指定的字符串是否与提供的正则表达式模式匹配。如果字符串符合模式，函数返回 TRUE，否则返回 FALSE。它的工作方式类似于 REGEXP 操作符，但是它可以接受第三个可选参数 match_type，用于定义匹配的行为。
+---
+
 # **REGEXP_LIKE()**
+
+
+> REGEXP_LIKE() 用于判断指定的字符串是否与提供的正则表达式模式匹配。如果字符串符合模式，函数返回 TRUE，否则返回
+> FALSE。它的工作方式类似于 REGEXP 操作符，但是它可以接受第三个可选参数 match_type，用于定义匹配的行为。
 
 ## **函数说明**
 

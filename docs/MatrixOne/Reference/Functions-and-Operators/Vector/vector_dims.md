@@ -1,4 +1,19 @@
+---
+title: vector_dims()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: vector_dims 函数用于确定向量的维度。
+---
+
 # **vector_dims()**
+
+
+> vector_dims 函数用于确定向量的维度。
 
 ## **函数说明**
 

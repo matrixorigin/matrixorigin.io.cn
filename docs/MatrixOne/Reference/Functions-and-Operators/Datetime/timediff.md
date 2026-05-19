@@ -1,4 +1,19 @@
+---
+title: TIMEDIFF()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: TIMEDIFF() 返回两个 TIME 或 DATETIME 值之间的差值。TIMEDIFF() 函数的两个表达式必须为相同类型的参数，即 TIME 或 DATETIME。TIMEDIFF 函数返回表示为时间值的 expr1 - expr2 的结果。
+---
+
 # **TIMEDIFF()**
+
+
+> TIMEDIFF() 返回两个 TIME 或 DATETIME 值之间的差值。TIMEDIFF() 函数的两个表达式必须为相同类型的参数，即
+> TIME 或 DATETIME。TIMEDIFF 函数返回表示为时间值的 expr1 - expr2 的结果。
 
 ## **函数说明**
 

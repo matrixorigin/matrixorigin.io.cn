@@ -1,4 +1,18 @@
+---
+title: DROP INDEX
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 该语句用于从当前所选的表中删除索引，如果索引不存在则会报错，除非使用 IF EXISTS 修饰符。
+---
+
 # **DROP INDEX**
+
+
+> 该语句用于从当前所选的表中删除索引，如果索引不存在则会报错，除非使用 IF EXISTS 修饰符。
 
 ## **语法说明**
 

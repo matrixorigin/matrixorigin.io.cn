@@ -1,4 +1,21 @@
+---
+title: CROSS APPLY
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CROSS APPLY (SQL Server-style, not in MySQL)
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CROSS APPLY 是 MatrixOne 中的一个特殊连接操作符，主要用于将一个表的每一行与另一个返回结果集的表函数（如表值函数）进行连接。与 JOIN 不同，CROSS APPLY 允许右侧的子查询或表值函数依赖于左侧表的每一行，从而为每一行返回不同的结果。
+---
+
 # **CROSS APPLY**
+
+
+> CROSS APPLY 是 MatrixOne
+> 中的一个特殊连接操作符，主要用于将一个表的每一行与另一个返回结果集的表函数（如表值函数）进行连接。与 JOIN 不同，CROSS APPLY
+> 允许右侧的子查询或表值函数依赖于左侧表的每一行，从而为每一行返回不同的结果。
 
 ## **语法说明**
 

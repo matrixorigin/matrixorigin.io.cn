@@ -1,4 +1,20 @@
+---
+title: FROM_UNIXTIME()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Date literals accept only 'yyyy-mm-dd' and 'yyyymmdd' formats; MySQL accepts wider variants.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`FROM_UNIXTIME() 函数把内部 UNIX 时间戳值转换为普通格式的日期时间值，以 *YYYY-MM-DD HH:MM:SS* 或 *YYYYMMDDHHMMSS* 格式来显示。与 UNIX_TIMESTAMP ()` 函数互为反函数。'
+---
+
 # **FROM_UNIXTIME()**
+
+
+> `FROM_UNIXTIME() 函数把内部 UNIX 时间戳值转换为普通格式的日期时间值，以 *YYYY-MM-DD HH:MM:SS*
+> 或 *YYYYMMDDHHMMSS* 格式来显示。与 UNIX_TIMESTAMP ()` 函数互为反函数。
 
 ## **函数说明**
 

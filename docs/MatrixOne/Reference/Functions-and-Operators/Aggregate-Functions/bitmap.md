@@ -1,4 +1,21 @@
+---
+title: BITMAP function
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- BITMAP aggregates are MatrixOne extensions.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: BITMAP 函数是一组用于处理位图（bitmap）的内置函数，bitmap 是存储为二进制数据类型的连续内存片段。这些函数特别适用于处理层次化聚合（如多个分组集合）时的不同值（distinct values）的计数，返回结果与 count(distinct) 一致，但更高效。
+---
+
 # BITMAP 函数
+
+> BITMAP 函数是一组用于处理位图（bitmap）的内置函数，bitmap
+> 是存储为二进制数据类型的连续内存片段。这些函数特别适用于处理层次化聚合（如多个分组集合）时的不同值（distinct
+> values）的计数，返回结果与 count(distinct) 一致，但更高效。
+
 
 ## 函数说明
 

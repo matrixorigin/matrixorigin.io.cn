@@ -1,4 +1,18 @@
+---
+title: Subqueries with ALL
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 关键词 ALL 必须跟在比较操作符后面，指如果子查询返回的列中值的 ALL 的比较是 TRUE，则返回 TRUE。
+---
+
 # **Subqueries with ALL**
+
+
+> 关键词 ALL 必须跟在比较操作符后面，指如果子查询返回的列中值的 ALL 的比较是 TRUE，则返回 TRUE。
 
 ## **语法描述**
 

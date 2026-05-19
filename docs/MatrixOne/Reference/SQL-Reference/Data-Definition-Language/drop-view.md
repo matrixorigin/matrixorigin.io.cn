@@ -1,4 +1,18 @@
+---
+title: DROP VIEW
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: DROP VIEW 语句表示删除视图。
+---
+
 # **DROP VIEW**
+
+
+> DROP VIEW 语句表示删除视图。
 
 ## **语法说明**
 

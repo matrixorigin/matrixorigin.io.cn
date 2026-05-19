@@ -1,4 +1,20 @@
+---
+title: CREATE SEQUENCE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE SEQUENCE (PostgreSQL-style)
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE SEQUENCE 用户创建一个序列对象。序列（Sequence）是一种特殊的数据库对象，它可以被用来自动生成唯一的数字序列。通常情况下，序列被用来为一个表的主键字段自动生成唯一的值。
+---
+
 # **CREATE SEQUENCE**
+
+
+> CREATE SEQUENCE
+> 用户创建一个序列对象。序列（Sequence）是一种特殊的数据库对象，它可以被用来自动生成唯一的数字序列。通常情况下，序列被用来为一个表的主键字段自动生成唯一的值。
 
 ## **语法说明**
 

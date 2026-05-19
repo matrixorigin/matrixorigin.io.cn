@@ -1,4 +1,18 @@
+---
+title: CREATE TABLE ... LIKE
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE TABLE ... LIKE 根据另一个表的定义创建一个空表，它会复制原始表的结构，但不会复制原始表中存储的数据。
+---
+
 # CREATE TABLE ... LIKE
+
+> CREATE TABLE ... LIKE 根据另一个表的定义创建一个空表，它会复制原始表的结构，但不会复制原始表中存储的数据。
+
 
 ## 语法说明
 

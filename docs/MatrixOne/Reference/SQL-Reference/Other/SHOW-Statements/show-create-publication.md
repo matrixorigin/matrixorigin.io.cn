@@ -1,4 +1,19 @@
+---
+title: SHOW CREATE PUBLICATION
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SHOW CREATE PUBLICATION
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回 PUBLICATION 创建时的 SQL 语句。
+---
+
 # **SHOW CREATE PUBLICATION**
+
+
+> 返回 PUBLICATION 创建时的 SQL 语句。
 
 ## **语法说明**
 

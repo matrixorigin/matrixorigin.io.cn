@@ -1,4 +1,19 @@
+---
+title: ROW_NUMBER()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ROW_NUMBER() 为数据集中的每一行提供一个唯一的序号，从 1 开始，直到结果集的最后一行。它首先会根据 ORDER BY 子句中指定的列对数据集进行排序，然后为每一行赋予一个唯一的行号。
+---
+
 # **ROW_NUMBER()**
+
+
+> ROW_NUMBER() 为数据集中的每一行提供一个唯一的序号，从 1 开始，直到结果集的最后一行。它首先会根据 ORDER BY
+> 子句中指定的列对数据集进行排序，然后为每一行赋予一个唯一的行号。
 
 ## **函数说明**
 

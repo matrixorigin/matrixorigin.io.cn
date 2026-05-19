@@ -1,4 +1,19 @@
+---
+title: COSINE_DISTANCE()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: COSINE_DISTANCE() 函数用于计算两个向量的余弦距离。
+---
+
 # COSINE_DISTANCE()
+
+> COSINE_DISTANCE() 函数用于计算两个向量的余弦距离。
+
 
 ## 函数说明
 

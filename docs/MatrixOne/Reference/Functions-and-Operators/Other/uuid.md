@@ -1,4 +1,18 @@
+---
+title: UUID()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: UUID() 返回根据 RFC 4122 生成国际通用唯一标识符 UUID(Universally Unique IDentifier)。
+---
+
 # **UUID()**
+
+
+> UUID() 返回根据 RFC 4122 生成国际通用唯一标识符 UUID(Universally Unique IDentifier)。
 
 ## **函数说明**
 

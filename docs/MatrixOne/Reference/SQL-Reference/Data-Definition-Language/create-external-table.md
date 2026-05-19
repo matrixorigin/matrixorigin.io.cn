@@ -1,4 +1,20 @@
+---
+title: CREATE EXTERNAL TABLE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE EXTERNAL TABLE
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 外部表是指不在数据库里的表，是操作系统上的一个按照一定格式分割的文本文件，或是其他类型的表，对 MatrixOne 来说类似于视图，可以在数据库中像视图一样进行查询等操作，但是外部表在数据库中只有表结构，而数据存放在操作系统中。
+---
+
 # **CREATE EXTERNAL TABLE**
+
+
+> 外部表是指不在数据库里的表，是操作系统上的一个按照一定格式分割的文本文件，或是其他类型的表，对 MatrixOne
+> 来说类似于视图，可以在数据库中像视图一样进行查询等操作，但是外部表在数据库中只有表结构，而数据存放在操作系统中。
 
 ## **语法说明**
 

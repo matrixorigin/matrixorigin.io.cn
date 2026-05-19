@@ -1,4 +1,18 @@
+---
+title: SUM
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SUM() 聚合函数用于计算一组值的和（NULL 值被忽略）。
+---
+
 # **SUM**
+
+
+> SUM() 聚合函数用于计算一组值的和（NULL 值被忽略）。
 
 ## **函数说明**
 

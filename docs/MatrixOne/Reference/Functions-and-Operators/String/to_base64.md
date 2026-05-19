@@ -1,4 +1,19 @@
+---
+title: TO_BASE64()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: TO_BASE64() 函数用于将字符串转换为 Base64 编码的字符串。如果参数不是字符串，则会在转换之前将其转换为字符串。如果参数为 NULL，则结果为 NULL。
+---
+
 # TO_BASE64()
+
+> TO_BASE64() 函数用于将字符串转换为 Base64 编码的字符串。如果参数不是字符串，则会在转换之前将其转换为字符串。如果参数为
+> NULL，则结果为 NULL。
+
 
 ## 函数说明
 

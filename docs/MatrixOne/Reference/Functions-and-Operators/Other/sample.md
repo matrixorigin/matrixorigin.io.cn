@@ -1,3 +1,15 @@
+---
+title: SAMPLE Sampling Function
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SAMPLE() is a MatrixOne sampling operator; no MySQL equivalent.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: The SAMPLE sampling function feature is a key tool for handling large amounts of data analysis, primarily to quickly narrow down queries.
+---
+
 # SAMPLE 采样函数
 
 SAMPLE 采样函数功能是处理大量数据分析的关键工具，主要用于快速缩减查询范围。

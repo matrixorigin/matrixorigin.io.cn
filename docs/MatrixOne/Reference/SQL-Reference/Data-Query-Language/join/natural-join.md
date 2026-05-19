@@ -1,4 +1,18 @@
+---
+title: NATURAL JOIN
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`NATURAL JOIN 相当于 INNER JOIN`，作用是将两个表中具有相同名称的列进行匹配。'
+---
+
 # **NATURAL JOIN**
+
+
+> `NATURAL JOIN 相当于 INNER JOIN`，作用是将两个表中具有相同名称的列进行匹配。
 
 ## **语法说明**
 

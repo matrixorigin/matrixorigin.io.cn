@@ -1,4 +1,19 @@
+---
+title: CURDATE()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- curdate()+int returns days since 1970-01-01 rather than coercing both sides to integer and adding like MySQL.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CURDATE() 函数返回当前日期的 YYYY-MM-DD 格式的值。
+---
+
 # **CURDATE()**
+
+
+> CURDATE() 函数返回当前日期的 YYYY-MM-DD 格式的值。
 
 ## **函数说明**
 

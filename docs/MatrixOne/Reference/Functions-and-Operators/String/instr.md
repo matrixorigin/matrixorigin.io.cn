@@ -1,4 +1,20 @@
+---
+title: INSTR()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: INSTR() 函数也是用来返回子字符串在给定字符串中首次出现的位置。这个函数是多字节安全的，这意味着它适用于各种字符编码，并且能正确处理多字节字符（例如 UTF-8 编码的字符）。
+---
+
 # **INSTR()**
+
+
+> INSTR()
+> 函数也是用来返回子字符串在给定字符串中首次出现的位置。这个函数是多字节安全的，这意味着它适用于各种字符编码，并且能正确处理多字节字符（例如
+> UTF-8 编码的字符）。
 
 ## **函数说明**
 

@@ -1,4 +1,19 @@
+---
+title: DROP PUBLICATION
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- DROP PUBLICATION
+since: unknown
+last_updated: 2026-05-08
+llms_summary: DROP PUBLICATION 将一个已存在的发布删除。
+---
+
 # **DROP PUBLICATION**
+
+
+> DROP PUBLICATION 将一个已存在的发布删除。
 
 ## **语法说明**
 

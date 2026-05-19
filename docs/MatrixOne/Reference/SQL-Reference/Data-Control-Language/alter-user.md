@@ -1,4 +1,19 @@
+---
+title: ALTER USER
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Only ALTER USER can change passwords; account-limit clauses not honoured
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 修改数据库用户的属性和密码。
+---
+
 # **ALTER USER**
+
+
+> 修改数据库用户的属性和密码。
 
 ## **语法说明**
 

@@ -1,4 +1,19 @@
+---
+title: PREPARE
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- MatrixOne cannot PREPARE SET statements
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: PREPARE 语句准备一条 SQL 语句并给它分配一个名称。
+---
+
 # **PREPARE**
+
+
+> PREPARE 语句准备一条 SQL 语句并给它分配一个名称。
 
 ## **语法说明**
 

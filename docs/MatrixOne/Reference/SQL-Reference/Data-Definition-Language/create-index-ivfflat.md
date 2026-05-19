@@ -1,4 +1,20 @@
+---
+title: CREATE INDEX USING IVFFLAT
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE INDEX … USING IVFFLAT
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 向量索引可用于加速对包含向量列的表的 KNN(K-Nearest Neighbors）查询。Matrixone 目前支持具有 l2_distance 度量的 IVFFLAT 向量索引。
+---
+
 # CREATE INDEX USING IVFFLAT
+
+> 向量索引可用于加速对包含向量列的表的 KNN(K-Nearest Neighbors）查询。Matrixone 目前支持具有
+> l2_distance 度量的 IVFFLAT 向量索引。
+
 
 ## 语法说明
 

@@ -1,4 +1,18 @@
+---
+title: UNION
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: UNION 运算符允许您将两个或多个查询结果集合并到一个结果集中。
+---
+
 # **UNION**
+
+
+> UNION 运算符允许您将两个或多个查询结果集合并到一个结果集中。
 
 ## **语法说明**
 

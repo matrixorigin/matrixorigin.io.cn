@@ -1,4 +1,20 @@
+---
+title: CREATE INDEX USING HNSW
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE INDEX … USING HNSW
+since: unknown
+last_updated: 2026-05-08
+llms_summary: MatrixOne 在向量检索功能中支持使用 HNSW（Hierarchical Navigable Small World）算法来加速高维向量的相似度搜索。
+---
+
 # CREATE INDEX USING HNSW
+
+> MatrixOne 在向量检索功能中支持使用 HNSW（Hierarchical Navigable Small
+> World）算法来加速高维向量的相似度搜索。
+
 
 ## 语法说明
 

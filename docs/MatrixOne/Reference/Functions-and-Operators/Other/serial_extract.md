@@ -1,4 +1,20 @@
+---
+title: SERIAL_EXTRACT function
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SERIAL_EXTRACT() is a MatrixOne internal serial-column extractor.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SERIAL_EXTRACT() 函数用于提取序列/元组值中的各个元素，需结合函数 MAX()，MIN()，SERIAL()，SERIAL_NULL() 使用。
+---
+
 # SERIAL_EXTRACT 函数
+
+> SERIAL_EXTRACT() 函数用于提取序列/元组值中的各个元素，需结合函数
+> MAX()，MIN()，SERIAL()，SERIAL_NULL() 使用。
+
 
 ## 函数说明
 

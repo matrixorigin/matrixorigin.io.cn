@@ -1,4 +1,21 @@
+---
+title: CREATE VIEW
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- WITH CHECK OPTION clause not supported
+- DEFINER = user clause not supported; SQL SECURITY {DEFINER | INVOKER} is supported
+- ALGORITHM = {UNDEFINED | MERGE | TEMPTABLE} clause not supported
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 视图是基于 SQL 语句的结果集的可视化的表。
+---
+
 # **CREATE VIEW**
+
+
+> 视图是基于 SQL 语句的结果集的可视化的表。
 
 ## **语法说明**
 

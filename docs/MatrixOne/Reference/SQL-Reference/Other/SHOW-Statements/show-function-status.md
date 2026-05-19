@@ -1,4 +1,19 @@
+---
+title: SHOW FUNCTION STATUS
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Lists MatrixOne SQL/Python functions, not MySQL stored routines
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SHOW FUNCTION STATUS 是用来显示数据库中的所有函数的信息，包括函数名、数据库名、创建时间等等。
+---
+
 # **SHOW FUNCTION STATUS**
+
+
+> SHOW FUNCTION STATUS 是用来显示数据库中的所有函数的信息，包括函数名、数据库名、创建时间等等。
 
 ## **语法说明**
 

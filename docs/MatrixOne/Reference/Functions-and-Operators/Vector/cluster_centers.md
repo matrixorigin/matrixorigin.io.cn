@@ -1,4 +1,19 @@
+---
+title: CLUSTER_CENTERS
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CLUSTER_CENTERS() 函数可用于确定向量列的 K 个聚类中心。返回一行 JSON 数组字符串，包含所有聚类中心。
+---
+
 # CLUSTER_CENTERS
+
+> CLUSTER_CENTERS() 函数可用于确定向量列的 K 个聚类中心。返回一行 JSON 数组字符串，包含所有聚类中心。
+
 
 ## 函数说明
 

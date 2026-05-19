@@ -1,4 +1,19 @@
+---
+title: SUBSTRING()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SUBSTR() 和 MID() 都是 SUBSTRING() 的同义词。 不带 len 参数的写法会返回一个从 pos 位置开始的子字符串。带 len 参数的写法会返回一个从 pos 位置开始的长度为 len 的子字符串。
+---
+
 # **SUBSTRING()**
+
+
+> SUBSTR() 和 MID() 都是 SUBSTRING() 的同义词。 不带 len 参数的写法会返回一个从 pos
+> 位置开始的子字符串。带 len 参数的写法会返回一个从 pos 位置开始的长度为 len 的子字符串。
 
 ## **函数说明**
 

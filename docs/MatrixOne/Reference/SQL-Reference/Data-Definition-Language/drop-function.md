@@ -1,4 +1,19 @@
+---
+title: DROP FUNCTION
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Drops MatrixOne-style SQL / Python functions, not MySQL stored procedures/functions
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: DROP FUNCTION 语句表示删除用户自定义函数。
+---
+
 # **DROP FUNCTION**
+
+
+> DROP FUNCTION 语句表示删除用户自定义函数。
 
 ## **语法说明**
 

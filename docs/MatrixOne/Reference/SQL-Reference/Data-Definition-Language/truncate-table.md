@@ -1,4 +1,19 @@
+---
+title: TRUNCATE TABLE
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: TRUNCATE TABLE 语句用于用于删除表中的所有行，而不记录单个行删除操作。TRUNCATE TABLE 与没有 WHERE 子句的 DELETE 语句类似；但是，TRUNCATE TABLE 速度更快，使用的系统资源和事务日志资源更少。
+---
+
 # **TRUNCATE TABLE**
+
+
+> TRUNCATE TABLE 语句用于用于删除表中的所有行，而不记录单个行删除操作。TRUNCATE TABLE 与没有 WHERE 子句的
+> DELETE 语句类似；但是，TRUNCATE TABLE 速度更快，使用的系统资源和事务日志资源更少。
 
 ## **语法说明**
 

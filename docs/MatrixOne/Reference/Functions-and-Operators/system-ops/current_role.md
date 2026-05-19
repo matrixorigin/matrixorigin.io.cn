@@ -1,4 +1,19 @@
+---
+title: CURRENT_ROLE()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Returns a single active role name; MySQL 8.0 can return multiple comma-separated active roles or 'NONE'.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回当前会话的角色。
+---
+
 # **CURRENT_ROLE()**
+
+
+> 返回当前会话的角色。
 
 ## **语法说明**
 

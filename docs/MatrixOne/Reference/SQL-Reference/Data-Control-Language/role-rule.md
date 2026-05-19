@@ -1,12 +1,12 @@
 ---
-title: "角色重写规则（ALTER ROLE ... RULE / SHOW RULES）"
+title: Role Rewrite Rules (ALTER ROLE ... RULE / SHOW RULES)
 doc_type: reference
 mysql_compat: mo_only
 differs_from_mysql: []
-mo_only: true
+mo_only: []
 since: v3.0.10
 last_updated: 2026-05-08
-llms_summary: "通过 ALTER ROLE ADD RULE / DROP RULE 为 MatrixOne 角色挂载按表的重写规则，并用 SHOW RULES ON ROLE 列出；会话通过 enable_remap_hint 变量启用注入。"
+llms_summary: '角色重写规则把一段替换 SQL 片段绑定到 (role, table) 键对上，存储于 mo_catalog.mo_role_rule。当会话的默认角色拥有匹配规则、且会话变量 enable_remap_hint 被打开时，前端会把 /*+ {"rewrites": {...}} */ hint 前缀到发出的 SQL 上，让下游重写器把对基表的查询透明地转向规则体（例如转向视图或带过滤的子查询）。'
 ---
 
 # 角色重写规则

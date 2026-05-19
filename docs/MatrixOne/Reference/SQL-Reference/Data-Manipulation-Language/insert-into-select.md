@@ -1,4 +1,18 @@
+---
+title: INSERT INTO SELECT
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`INSERT INTO SELECT` 语句从一个表复制数据，然后把数据插入到一个已存在的表中。且目标表中任何已存在的行都不会受影响。'
+---
+
 # **INSERT INTO SELECT**
+
+
+> `INSERT INTO SELECT` 语句从一个表复制数据，然后把数据插入到一个已存在的表中。且目标表中任何已存在的行都不会受影响。
 
 ## **语法说明**
 

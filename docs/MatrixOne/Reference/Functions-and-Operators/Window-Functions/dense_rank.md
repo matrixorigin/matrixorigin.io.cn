@@ -1,4 +1,19 @@
+---
+title: DENSE_RANK()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: DENSE_RANK() 为数据集中的每一行提供一个唯一的排名，与 RANK() 函数非常相似。DENSE_RANK() 函数首先根据 ORDER BY 子句中指定的列对数据集进行排序，然后为每一行赋予一个唯一的排名。
+---
+
 # **DENSE_RANK()**
+
+
+> DENSE_RANK() 为数据集中的每一行提供一个唯一的排名，与 RANK() 函数非常相似。DENSE_RANK() 函数首先根据
+> ORDER BY 子句中指定的列对数据集进行排序，然后为每一行赋予一个唯一的排名。
 
 ## **函数说明**
 

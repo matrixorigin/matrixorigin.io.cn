@@ -1,4 +1,19 @@
+---
+title: CREATE ROLE
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Role exists inside MatrixOne's multi-account model; roles are account-scoped, not server-global as in MySQL.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 在系统中创建一个新角色。
+---
+
 # **CREATE ROLE**
+
+
+> 在系统中创建一个新角色。
 
 ## **语法说明**
 

@@ -1,4 +1,18 @@
+---
+title: CROSS JOIN
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CROSS JOIN 用于实现两个表的笛卡尔积，也就是生成两个表中所有行的组合。
+---
+
 # **CROSS JOIN**
+
+
+> CROSS JOIN 用于实现两个表的笛卡尔积，也就是生成两个表中所有行的组合。
 
 ## **语法说明**
 

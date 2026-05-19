@@ -1,4 +1,18 @@
+---
+title: SLEEP()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SLEEP() 函数将当前查询暂停（睡眠）指定的秒数。结果将返回 0。
+---
+
 # **SLEEP()**
+
+
+> SLEEP() 函数将当前查询暂停（睡眠）指定的秒数。结果将返回 0。
 
 ## **函数说明**
 

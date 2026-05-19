@@ -1,4 +1,19 @@
+---
+title: JSON_EXTRACT_FLOAT64()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- MatrixOne convenience wrapper returning a string result directly.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: JSON_EXTRACT_STRING() 用于从 JSON 数据中提取指定路径的字符串值。
+---
+
 # **JSON_EXTRACT_STRING()**
+
+
+> JSON_EXTRACT_STRING() 用于从 JSON 数据中提取指定路径的字符串值。
 
 ## **函数说明**
 

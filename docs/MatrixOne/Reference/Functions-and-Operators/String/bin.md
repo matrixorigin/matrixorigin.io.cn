@@ -1,4 +1,19 @@
+---
+title: BIN()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`BIN() 将 *N* 转换为二进制的字符串形式。其中 *N* 是一个 longlong (BIGINT) 数字。如果 *N* 为 *NULL*，则返回 NULL`。'
+---
+
 # **BIN()**
+
+
+> `BIN() 将 *N* 转换为二进制的字符串形式。其中 *N* 是一个 longlong (BIGINT) 数字。如果 *N* 为
+> *NULL*，则返回 NULL`。
 
 ## **函数说明**
 

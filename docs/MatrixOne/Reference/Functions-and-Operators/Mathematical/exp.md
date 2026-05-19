@@ -1,4 +1,18 @@
+---
+title: EXP()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: EXP(number) 函数返回以自然常数 e 为底的 number 的指数。
+---
+
 # **EXP()**
+
+
+> EXP(number) 函数返回以自然常数 e 为底的 number 的指数。
 
 ## **函数说明**
 

@@ -1,4 +1,18 @@
+---
+title: STR_TO_DATE()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: STR_TO_DATE() 函数按照指定日期或时间显示格式，将字符串转换为日期或日期时间类型，与 TO_DATE() 同义。
+---
+
 # **STR_TO_DATE()**
+
+
+> STR_TO_DATE() 函数按照指定日期或时间显示格式，将字符串转换为日期或日期时间类型，与 TO_DATE() 同义。
 
 ## **函数说明**
 

@@ -1,4 +1,18 @@
+---
+title: VAR_POP
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: VAR_POP() 是一个聚合函数，计算总体方差。与 VARIANCE() 为同义词。
+---
+
 # **VAR_POP**
+
+
+> VAR_POP() 是一个聚合函数，计算总体方差。与 VARIANCE() 为同义词。
 
 ## **函数说明**
 

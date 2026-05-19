@@ -1,4 +1,19 @@
+---
+title: SAVE_FILE()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SAVE_FILE() writes to a MatrixOne stage; no MySQL equivalent.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SAVE_FILE() 函数用于向 datalink 指向文件中写入内容，指行返回写入内容字节长度。
+---
+
 # **SAVE_FILE()**
+
+
+> SAVE_FILE() 函数用于向 datalink 指向文件中写入内容，指行返回写入内容字节长度。
 
 ## **函数说明**
 

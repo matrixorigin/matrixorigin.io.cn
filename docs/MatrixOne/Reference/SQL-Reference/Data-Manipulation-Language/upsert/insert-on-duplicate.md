@@ -1,4 +1,19 @@
+---
+title: INSERT ... ON DUPLICATE KEY UPDATE
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: INSERT ... ON DUPLICATE KEY UPDATE 用于在向数据库表中插入数据时，如果数据已经存在，则更新该数据，否则插入新的数据。
+---
+
 # **INSERT ... ON DUPLICATE KEY UPDATE**
+
+
+> INSERT ... ON DUPLICATE KEY UPDATE
+> 用于在向数据库表中插入数据时，如果数据已经存在，则更新该数据，否则插入新的数据。
 
 ## **语法描述**
 

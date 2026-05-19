@@ -1,4 +1,20 @@
+---
+title: Subqueries with IN
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Multi-level correlated subqueries inside IN() are not supported
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 子查询可以与 IN 操作符一起使用，作为“表达式 IN (子查询)”，查询某个范围内的数据。子查询应该返回带有一行或多行的单个列，以形成 IN 操作使用的值列表。
+---
+
 # **Subqueries with IN**
+
+
+> 子查询可以与 IN 操作符一起使用，作为“表达式 IN (子查询)”，查询某个范围内的数据。子查询应该返回带有一行或多行的单个列，以形成
+> IN 操作使用的值列表。
 
 ## **语法描述**
 

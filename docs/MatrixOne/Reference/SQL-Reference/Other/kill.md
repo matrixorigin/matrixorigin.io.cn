@@ -1,4 +1,18 @@
+---
+title: KILL
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: KILL 语句用于终止正在运行的查询或进程。
+---
+
 # **KILL**
+
+
+> KILL 语句用于终止正在运行的查询或进程。
 
 ## **语法说明**
 

@@ -1,4 +1,18 @@
+---
+title: CURRENT_TIMESTAMP()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CURRENT_TIMESTAMP 和 CURRENT_TIMESTAMP() 是 NOW() 的同义词。
+---
+
 # **CURRENT_TIMESTAMP()**
+
+
+> CURRENT_TIMESTAMP 和 CURRENT_TIMESTAMP() 是 NOW() 的同义词。
 
 ## **函数说明**
 

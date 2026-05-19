@@ -1,4 +1,19 @@
+---
+title: CREATE DYNAMIC TABLE
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- CREATE DYNAMIC TABLE
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE DYNAMIC TABLE 将一个新的动态表添加到当前数据库中。
+---
+
 # **CREATE DYNAMIC TABLE**
+
+
+> CREATE DYNAMIC TABLE 将一个新的动态表添加到当前数据库中。
 
 ## **语法说明**
 

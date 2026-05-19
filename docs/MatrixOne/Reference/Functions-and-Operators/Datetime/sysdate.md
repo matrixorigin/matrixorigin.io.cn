@@ -1,4 +1,18 @@
+---
+title: SYSDATE()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SYSDATE() 函数返回当前日期和时间的 'YYYY-MM-DD HH:MM:SS' 格式的值。
+---
+
 # SYSDATE()
+
+> SYSDATE() 函数返回当前日期和时间的 'YYYY-MM-DD HH:MM:SS' 格式的值。
+
 
 ## 函数说明
 

@@ -1,12 +1,12 @@
 ---
-title: "DATA BRANCH PICK"
+title: DATA BRANCH PICK
 doc_type: reference
 mysql_compat: mo_only
 differs_from_mysql: []
-mo_only: true
+mo_only: []
 since: v3.0.10
 last_updated: 2026-05-08
-llms_summary: "按主键或快照时间窗口从源表拣取指定行写入目标表的 MatrixOne 数据分支语句，可选择失败、跳过或接受冲突处理策略。"
+llms_summary: DATA BRANCH PICK 在参与数据分支谱系的两张表之间（无论是否存在公共祖先）拷贝一个行子集。它复用 DATA BRANCH DIFF / DATA BRANCH MERGE 的差异计算能力，但把作用范围限定到你指定的键集或快照窗口，再把 INSERT / DELETE 变更写入目标表。
 ---
 
 # DATA BRANCH PICK

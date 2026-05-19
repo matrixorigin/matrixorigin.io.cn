@@ -1,3 +1,15 @@
+---
+title: UPSERT
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- UPSERT (convenience alias over INSERT … ON DUPLICATE KEY UPDATE)
+since: unknown
+last_updated: 2026-05-08
+llms_summary: UPSERT is one of the basic functions of a database management system to manage a database.
+---
+
 # UPSERT
 
 ## SQL 中的 Upsert 是什么？

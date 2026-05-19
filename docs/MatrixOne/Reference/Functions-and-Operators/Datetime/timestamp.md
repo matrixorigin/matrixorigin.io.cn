@@ -1,4 +1,21 @@
+---
+title: TIMESTAMP()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- 'MatrixOne TIMESTAMP range is ''0001-01-01''–''9999-12-31'' vs MySQL ''1970-01-01''–''2038-01-19'' (compat doc: Data Types).'
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 单个参数时，TIMESTAMP() 将日期或日期时间表达式 expr 作为日期时间值返回。两个参数时，TIMESTAMP() 将时间表达式 expr2 添加到日期或 datetime 表达式 expr1 中，并将结果作为 datetime 值返回。如果 expr、expr1 或 expr2 为 NULL，则返回 NULL。
+---
+
 # **TIMESTAMP()**
+
+
+> 单个参数时，TIMESTAMP() 将日期或日期时间表达式 expr 作为日期时间值返回。两个参数时，TIMESTAMP() 将时间表达式
+> expr2 添加到日期或 datetime 表达式 expr1 中，并将结果作为 datetime 值返回。如果 expr、expr1 或
+> expr2 为 NULL，则返回 NULL。
 
 ## **函数说明**
 

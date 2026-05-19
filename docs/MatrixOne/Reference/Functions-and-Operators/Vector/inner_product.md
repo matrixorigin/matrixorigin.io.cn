@@ -1,4 +1,19 @@
+---
+title: inner_product()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: INNER PRODUCT 函数用于计算两个向量之间的内积/点积，它是两个向量的对应元素相乘然后相加的结果。
+---
+
 # **inner_product()**
+
+
+> INNER PRODUCT 函数用于计算两个向量之间的内积/点积，它是两个向量的对应元素相乘然后相加的结果。
 
 ## **函数说明**
 

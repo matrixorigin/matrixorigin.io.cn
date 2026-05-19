@@ -1,4 +1,19 @@
+---
+title: DATE_FORMAT()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Date literals accept only 'yyyy-mm-dd' and 'yyyymmdd' formats; MySQL accepts wider variants.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 根据格式字符串格式化日期值。如果任一参数为 NULL，则函数返回 NULL。
+---
+
 # **DATE_FORMAT()**
+
+
+> 根据格式字符串格式化日期值。如果任一参数为 NULL，则函数返回 NULL。
 
 ## **函数说明**
 

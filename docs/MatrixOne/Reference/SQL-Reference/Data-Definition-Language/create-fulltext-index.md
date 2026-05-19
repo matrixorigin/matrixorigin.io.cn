@@ -1,4 +1,21 @@
+---
+title: Create Fulltext Index
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- MatrixOne full-text index is implemented on TAE storage with CJK/English optimizations; MySQL implements it on InnoDB/MyISAM with different stopword and parser semantics.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: MatrixOne 支持全文索引，允许用户对表中的文本数据进行高效的全文检索。全文索引适用于包含 char、varchar、text、json 和 datalink 数据类型的列，特别适合对英语以及 CJK（中文、日文、韩文）语言的文本数据进行优化搜索。
+---
+
 # Create Fulltext Index
+
+> MatrixOne 支持全文索引，允许用户对表中的文本数据进行高效的全文检索。全文索引适用于包含
+> char、varchar、text、json 和 datalink 数据类型的列，特别适合对英语以及
+> CJK（中文、日文、韩文）语言的文本数据进行优化搜索。
+
 
 ## 语法说明
 

@@ -1,4 +1,18 @@
+---
+title: Derived Tables
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 当 SELECT 语句的 FROM 从句中使用独立子查询时，我们也经常将其称为派生表，因为实际上外部查询将子查询的结果当作了一个数据源。
+---
+
 # **Derived Tables**
+
+
+> 当 SELECT 语句的 FROM 从句中使用独立子查询时，我们也经常将其称为派生表，因为实际上外部查询将子查询的结果当作了一个数据源。
 
 ## **语法描述**
 

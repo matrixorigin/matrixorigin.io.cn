@@ -1,4 +1,18 @@
+---
+title: JSON_UNQUOTE()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: JSON_UNQUOTE() 函数用于从一个 JSON 字符串中提取一个没有引号的 JSON 值，并将其作为字符串返回。
+---
+
 # **JSON_UNQUOTE()**
+
+
+> JSON_UNQUOTE() 函数用于从一个 JSON 字符串中提取一个没有引号的 JSON 值，并将其作为字符串返回。
 
 ## **函数说明**
 

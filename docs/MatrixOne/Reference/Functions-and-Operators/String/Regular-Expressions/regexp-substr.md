@@ -1,4 +1,18 @@
+---
+title: REGEXP_SUBSTR()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: REGEXP_SUBSTR() 用于返回字符串 expr 中匹配正则表达式模式 pat 的子字符串。
+---
+
 # **REGEXP_SUBSTR()**
+
+
+> REGEXP_SUBSTR() 用于返回字符串 expr 中匹配正则表达式模式 pat 的子字符串。
 
 ## **函数说明**
 

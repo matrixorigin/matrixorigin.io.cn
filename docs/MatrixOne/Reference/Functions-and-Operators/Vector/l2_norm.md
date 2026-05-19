@@ -1,4 +1,19 @@
+---
+title: l2_norm()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'Vector type and related distance/norm/clustering functions are MatrixOne extensions (compat doc: Data Types — "MatrixOne supports vector types").'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: l2_norm 函数用于计算 l2/欧几里得范数。l2 范数通过对向量元素的平方和进行平方根运算得到。
+---
+
 # **l2_norm()**
+
+
+> l2_norm 函数用于计算 l2/欧几里得范数。l2 范数通过对向量元素的平方和进行平方根运算得到。
 
 ## **函数说明**
 

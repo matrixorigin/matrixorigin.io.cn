@@ -1,3 +1,15 @@
+---
+title: Type of SQL Statements
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- Index page describing MatrixOne's own SQL statement taxonomy; not a MySQL-equivalent concept.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 'In MatrixOne, SQL statements are classified into various categories, and each category''s definition and contents are presented in the following sections:'
+---
+
 # **SQL 语句的分类**
 
 在 MatrixOne 中，SQL 语句包含多种分类，每一种分类的定义与包含内容按照如下描述的每个部分所展示：

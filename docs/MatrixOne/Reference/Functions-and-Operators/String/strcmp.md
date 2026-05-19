@@ -1,4 +1,20 @@
+---
+title: STRCMP()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: STRCMP() 函数用于比较两个字符串 *str1* 和 *str2*。如果两个字符串相同，则返回 0；如果根据当前字符集排序，*str1* 小于 *str2*，则返回 -1；如果 *str1* 大于 *str2*，则返回 1。如果任一参数为 NULL，则返回 NULL。
+---
+
 # **STRCMP()**
+
+
+> STRCMP() 函数用于比较两个字符串 *str1* 和 *str2*。如果两个字符串相同，则返回
+> 0；如果根据当前字符集排序，*str1* 小于 *str2*，则返回 -1；如果 *str1* 大于 *str2*，则返回
+> 1。如果任一参数为 NULL，则返回 NULL。
 
 ## **函数说明**
 

@@ -1,4 +1,19 @@
+---
+title: TO_DATE()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- 'TO_DATE is a MatrixOne alias for MySQL STR_TO_DATE (compat doc: Date and Time Functions). MySQL''s own TO_DATE does not exist.'
+since: unknown
+last_updated: 2026-05-08
+llms_summary: TO_DATE() 函数按照指定日期或时间显示格式，将字符串转换为日期或日期时间类型，与 STR_TO_DATE() 同义。
+---
+
 # **TO_DATE()**
+
+
+> TO_DATE() 函数按照指定日期或时间显示格式，将字符串转换为日期或日期时间类型，与 STR_TO_DATE() 同义。
 
 ## **函数说明**
 

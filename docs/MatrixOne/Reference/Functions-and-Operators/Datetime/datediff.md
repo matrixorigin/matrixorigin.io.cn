@@ -1,4 +1,18 @@
+---
+title: DATEDIFF()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: DATEDIFF() 函数返回两个日期之间的天数。
+---
+
 # **DATEDIFF()**
+
+
+> DATEDIFF() 函数返回两个日期之间的天数。
 
 ## **函数说明**
 

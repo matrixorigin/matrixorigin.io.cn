@@ -1,4 +1,19 @@
+---
+title: LEFT JOIN
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`LEFT JOIN 关键字从左表（table1）返回所有的行，即使右表（table2）中没有匹配。如果右表中没有匹配，则结果为 NULL`。'
+---
+
 # **LEFT JOIN**
+
+
+> `LEFT JOIN 关键字从左表（table1）返回所有的行，即使右表（table2）中没有匹配。如果右表中没有匹配，则结果为
+> NULL`。
 
 ## **语法说明**
 

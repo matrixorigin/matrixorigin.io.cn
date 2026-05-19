@@ -1,4 +1,19 @@
+---
+title: SPLIT_PART()
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- SPLIT_PART() is inherited from PostgreSQL; no MySQL equivalent.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SPLIT_PART() 用于在给定的分隔符基础上将一个字符串分解成多个部分，并返回指定的部分。
+---
+
 # **SPLIT_PART()**
+
+
+> SPLIT_PART() 用于在给定的分隔符基础上将一个字符串分解成多个部分，并返回指定的部分。
 
 ## **函数说明**
 

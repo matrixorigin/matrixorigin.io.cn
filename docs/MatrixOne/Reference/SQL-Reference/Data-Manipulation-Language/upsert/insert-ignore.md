@@ -1,4 +1,22 @@
+---
+title: INSERT IGNORE
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- LOW_PRIORITY / DELAYED / HIGH_PRIORITY modifiers not supported
+- Duplicates are silently ignored; MySQL emits a warning for each skipped row.
+- Does not ignore NULL-into-NOT-NULL, type-conversion, or partition-mismatch errors as MySQL does.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: INSERT IGNORE 用于在向具有相同唯一索引或主键的数据库表中插入数据时，如果数据已经存在，则忽略该数据，而不是返回报错，否则插入新的数据。
+---
+
 # INSERT IGNORE
+
+> INSERT IGNORE
+> 用于在向具有相同唯一索引或主键的数据库表中插入数据时，如果数据已经存在，则忽略该数据，而不是返回报错，否则插入新的数据。
+
 
 ## 语法描述
 

@@ -1,4 +1,19 @@
+---
+title: DROP ACCOUNT
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- DROP ACCOUNT
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 将指定的租户从某个集群成员中移除。
+---
+
 # **DROP ACCOUNT**
+
+
+> 将指定的租户从某个集群成员中移除。
 
 ## **语法说明**
 

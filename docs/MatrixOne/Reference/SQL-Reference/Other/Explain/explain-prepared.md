@@ -1,4 +1,20 @@
+---
+title: EXPLAIN PREPARED
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- EXPLAIN FORCE EXECUTE stmt_name [USING @var] is a MatrixOne extension; MySQL explains prepared statements through EXPLAIN FOR CONNECTION.
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 在 MatrixOne 中，EXPLAIN 是一个用于获取 SQL 查询的执行计划的命令，而 PREPARE 是一个用来创建一个准备好的语句（prepared statement）的命令。将这两个命令一起使用，可以带来以下优势：
+---
+
 # EXPLAIN PREPARED
+
+> 在 MatrixOne 中，EXPLAIN 是一个用于获取 SQL 查询的执行计划的命令，而 PREPARE
+> 是一个用来创建一个准备好的语句（prepared statement）的命令。将这两个命令一起使用，可以带来以下优势：
+
 
 ## 语法说明
 

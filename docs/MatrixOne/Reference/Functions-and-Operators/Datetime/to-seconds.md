@@ -1,4 +1,21 @@
+---
+title: TO_SECONDS()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- 'Two-digit year handling differs: MatrixOne completes ''08-10-07'' to year 0008; MySQL interprets it as 2008.'
+- Dates '0000-00-00' and '0000-01-01' raise an error in MatrixOne rather than being accepted as MySQL does.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: TO_SECONDS(expr) 函数用于计算给定日期或日期时间 expr 与公元 0 年 1 月 1 日 0 时 0 分 0 秒之间的秒数差。如果 expr 是 NULL，则返回 NULL。
+---
+
 # **TO_SECONDS()**
+
+
+> TO_SECONDS(expr) 函数用于计算给定日期或日期时间 expr 与公元 0 年 1 月 1 日 0 时 0 分 0
+> 秒之间的秒数差。如果 expr 是 NULL，则返回 NULL。
 
 ## **函数说明**
 

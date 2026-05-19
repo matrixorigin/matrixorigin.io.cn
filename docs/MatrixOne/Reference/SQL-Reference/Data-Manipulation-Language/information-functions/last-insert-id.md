@@ -1,4 +1,20 @@
+---
+title: LAST_INSERT_ID()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Multi-row INSERT returns the last inserted auto-increment value; MySQL returns the first inserted value.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 若表中含自增字段 AUTO_INCREMENT，则向表中插入一条记录后，可以调用 LAST_INSERT_ID() 来获得最近插入的那行记录的自增字段值。
+---
+
 # **LAST_INSERT_ID()**
+
+
+> 若表中含自增字段 AUTO_INCREMENT，则向表中插入一条记录后，可以调用 LAST_INSERT_ID()
+> 来获得最近插入的那行记录的自增字段值。
 
 ## **语法说明**
 

@@ -1,4 +1,19 @@
+---
+title: DROP PITR
+doc_type: reference
+mysql_compat: mo_only
+differs_from_mysql: []
+mo_only:
+- DROP PITR
+since: unknown
+last_updated: 2026-05-08
+llms_summary: DROP PITR 用于删除当前租户下创建的 pitr。
+---
+
 # DROP PITR
+
+> DROP PITR 用于删除当前租户下创建的 pitr。
+
 
 ## 语法说明
 

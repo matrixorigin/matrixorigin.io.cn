@@ -1,4 +1,18 @@
+---
+title: CEILING()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: ceiling(X) 函数返回不小于 X 的最小整数。ceil() 同义。
+---
+
 # **ceiling()**
+
+
+> ceiling(X) 函数返回不小于 X 的最小整数。ceil() 同义。
 
 ## **函数说明**
 

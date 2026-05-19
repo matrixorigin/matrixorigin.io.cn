@@ -1,4 +1,19 @@
+---
+title: SHOW VARIABLES
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- System variables are mostly syntactic stubs; actual behaviour differs from MySQL
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 以列表的形式展现当前数据库系统变量的值。
+---
+
 # **SHOW VARIABLES**
+
+
+> 以列表的形式展现当前数据库系统变量的值。
 
 ## **语法说明**
 

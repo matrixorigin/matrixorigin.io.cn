@@ -1,4 +1,19 @@
+---
+title: VARIANCE
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: VARIANCE(expr) 是一个聚合函数，计算总体方差。方差是统计学中的一个重要概念，用于衡量一组数据值的离散程度，即数据值与其平均值之间的差异。如果方差值较大，说明数据值之间的差异较大；反之，如果方差值较小，说明数据值之间的差异较小。
+---
+
 # **VARIANCE**
+
+
+> VARIANCE(expr)
+> 是一个聚合函数，计算总体方差。方差是统计学中的一个重要概念，用于衡量一组数据值的离散程度，即数据值与其平均值之间的差异。如果方差值较大，说明数据值之间的差异较大；反之，如果方差值较小，说明数据值之间的差异较小。
 
 ## **函数说明**
 

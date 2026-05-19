@@ -1,4 +1,19 @@
+---
+title: HOUR()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 返回时间的小时。对于时间值，返回值的范围是 0 到 23。但是，time 值的范围实际上要大得多，因此 HOUR 可以返回大于 23 的值。如果 time 为 NULL 则返回 NULL。
+---
+
 # **HOUR()**
+
+
+> 返回时间的小时。对于时间值，返回值的范围是 0 到 23。但是，time 值的范围实际上要大得多，因此 HOUR 可以返回大于 23
+> 的值。如果 time 为 NULL 则返回 NULL。
 
 ## **函数说明**
 

@@ -1,4 +1,20 @@
+---
+title: SHA2()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: SHA2() 加密函数用于计算输入字符串的 SHA2 哈希值。第一个参数是要散列的明文字符串。第二个参数指示结果的所需位长，其值必须为 224、256、384、512 或 0（相当于 256），分别对应了 SHA-224, SHA-256, SHA-384 和 SHA-512 算法。如果参数是 NULL 或者不是一个合法值将返回 NULL。
+---
+
 # **SHA2()**
+
+
+> SHA2() 加密函数用于计算输入字符串的 SHA2 哈希值。第一个参数是要散列的明文字符串。第二个参数指示结果的所需位长，其值必须为
+> 224、256、384、512 或 0（相当于 256），分别对应了 SHA-224, SHA-256, SHA-384 和 SHA-512
+> 算法。如果参数是 NULL 或者不是一个合法值将返回 NULL。
 
 ## **函数说明**
 

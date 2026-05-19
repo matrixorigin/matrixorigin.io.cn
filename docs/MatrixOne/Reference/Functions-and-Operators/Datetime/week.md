@@ -1,4 +1,18 @@
+---
+title: WEEK()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 用于计算给定日期的周数。该函数返回一个整数，表示指定日期所在的周数。如果 date 为 NULL，则返回 NULL。
+---
+
 # **WEEK()**
+
+
+> 用于计算给定日期的周数。该函数返回一个整数，表示指定日期所在的周数。如果 date 为 NULL，则返回 NULL。
 
 ## **函数说明**
 

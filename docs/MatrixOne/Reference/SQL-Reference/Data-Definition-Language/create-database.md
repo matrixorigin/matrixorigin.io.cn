@@ -1,4 +1,21 @@
+---
+title: CREATE DATABASE
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Chinese database names not supported
+- Only utf8mb4 / utf8mb4_bin are supported and cannot be changed
+- ENCRYPTION clause accepted but inert
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: CREATE DATABASE 语句用于创建一个数据库。
+---
+
 # **CREATE DATABASE**
+
+
+> CREATE DATABASE 语句用于创建一个数据库。
 
 ## **语法说明**
 

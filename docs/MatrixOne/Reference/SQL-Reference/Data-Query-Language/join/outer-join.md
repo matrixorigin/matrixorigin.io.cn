@@ -1,4 +1,19 @@
+---
+title: OUTER JOIN
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Overview page that includes FULL OUTER JOIN, which MySQL 8.0 does not support.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: 在 `OUTER JOIN 中，可以返回一个或两个表中的不匹配行。OUT JOIN` 请参考：
+---
+
 # **OUTER JOIN**
+
+
+> 在 `OUTER JOIN 中，可以返回一个或两个表中的不匹配行。OUT JOIN` 请参考：
 
 ## **语法说明**
 

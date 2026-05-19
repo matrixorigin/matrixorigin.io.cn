@@ -1,4 +1,19 @@
+---
+title: UNIX_TIMESTAMP()
+doc_type: reference
+mysql_compat: partial
+differs_from_mysql:
+- Date literals accept only 'yyyy-mm-dd' and 'yyyymmdd' formats; MySQL accepts wider variants.
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: '`UNIX_TIMESTAMP()` 返回自 *1970-01-01 00:00:00* UTC 至当前时间的秒数。'
+---
+
 # **UNIX_TIMESTAMP()**
+
+
+> `UNIX_TIMESTAMP()` 返回自 *1970-01-01 00:00:00* UTC 至当前时间的秒数。
 
 ## **函数说明**
 

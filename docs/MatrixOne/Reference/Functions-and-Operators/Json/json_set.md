@@ -1,4 +1,18 @@
+---
+title: JSON_SET()
+doc_type: reference
+mysql_compat: full
+differs_from_mysql: []
+mo_only: []
+since: unknown
+last_updated: 2026-05-08
+llms_summary: JSON_SET() 用于在一个 JSON 文档中设置或更新某个键的值。如果该键不存在，JSON_SET 会将其添加到 JSON 文档中。
+---
+
 # **JSON_SET()**
+
+
+> JSON_SET() 用于在一个 JSON 文档中设置或更新某个键的值。如果该键不存在，JSON_SET 会将其添加到 JSON 文档中。
 
 ## **函数说明**
 
