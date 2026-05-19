@@ -97,6 +97,7 @@ table th:first-of-type {
 | query_result_maxsize | Y | N | uint | Y | Both | Y | 100 | 0-18446744073709551615 |
 | query_result_timeout | Y | N | uint | Y | Both | Y | 24 | 0-18446744073709551615 |
 | [save_query_result](save_query_result.md) | Y | N | bool | Y | Both | Y | FALSE | TRUE |
+| server_id | Y | N | string | Y | Global | N | "" | 会话启动时填充为当前 CN 服务的 UUID；只读。 |
 | [sql_mode](sql-mode.md) | Y | N | set | Y | Both | Y | "ONLY_FULL_GROUP_BY,<br>STRICT_TRANS_TABLES,<br>NO_ZERO_IN_DATE,<br>NO_ZERO_DATE,<br>ERROR_FOR_DIVISION_BY_ZERO,<br>NO_ENGINE_SUBSTITUTION" | "ANSI", "TRADITIONAL", "ALLOW_INVALID_DATES", "ANSI_QUOTES", "ERROR_FOR_DIVISION_BY_ZERO", "HIGH_NOT_PRECEDENCE", "IGNORE_SPACE", "NO_AUTO_VALUE_ON_ZERO", "NO_BACKSLASH_ESCAPES", "NO_DIR_IN_CREATE", "NO_ENGINE_SUBSTITUTION", "NO_UNSIGNED_SUBTRACTION", "NO_ZERO_DATE", "NO_ZERO_IN_DATE", "ONLY_FULL_GROUP_BY", "PAD_CHAR_TO_FULL_LENGTH", "PIPES_AS_CONCAT", "REAL_AS_FLOAT", "STRICT_ALL_TABLES", "STRICT_TRANS_TABLES", "TIME_TRUNCATE_FRACTIONAL" |
 | sql_safe_updates | Y | N | int | Y | Both | Y | 0 | 0-1 |
 | sql_select_limit | Y | N | uint | Y | Both | Y | 18446744073709551615 |  0-18446744073709551615 |
@@ -105,6 +106,7 @@ table th:first-of-type {
 | transaction_isolation | Y | N | enum | Y | Both | Y | "REPEATABLE-READ" | "READ-UNCOMMITTED", "READ-COMMITTED", "REPEATABLE-READ","REPEATABLE-READ", "SERIALIZABLE" |
 | transaction_read_only | Y | N | int | Y | Both | Y | 0 | 0-1 |
 | version_comment | Y | N | string | Y | Both | N | "MatrixOne" |  |
+| view_security_type | Y | N | enum | Y | Session | Y | "DEFINER" | "DEFINER", "INVOKER" |
 | wait_timeout | Y | N | int | Y | Both | Y | 28800 |  1-2147483 |
 
 ## 限制
