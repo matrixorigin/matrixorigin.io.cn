@@ -1,0 +1,73 @@
+tag: v3.0.12
+docs_added:
+  - path: docs/MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/null-safe-equal.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "NULL 安全等值运算符，两侧完全相等（含两侧均为 NULL）时返回 1，否则返回 0，且自身永远不会返回 NULL。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/addtime.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "ADDTIME 将 TIME 表达式加到 TIME、DATETIME、TIMESTAMP 或字符串值上，结果类型遵循输入类型，且标度取两个输入中标度较大者。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/curtime.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "CURTIME 及其同义词 CURRENT_TIME 返回当前服务器时间作为 TIME 值，可选择最高微秒精度的小数秒位数。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/get-format.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "GET_FORMAT 返回 MySQL 风格的语言环境特定格式字符串，适用于 DATE、TIME 或 DATETIME 值，覆盖 USA、EUR、JIS、ISO 和 INTERNAL 区域。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/subtime.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "SUBTIME 从 TIME、DATETIME、TIMESTAMP 或字符串值中减去一个 TIME 表达式，结果类型遵循输入类型，且标度取两个输入中标度较大者。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/timestampadd.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "TIMESTAMPADD 将指定单位的整数间隔加到日期、DATETIME、TIMESTAMP 或字符串表达式上，返回类型与输入类型对齐。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Json/json-arrow.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "JSON 箭头运算符 -> 和 ->> 是 json_extract 和 json_unquote(json_extract(...)) 的解析器简写形式，按路径提取 JSON 值或去引号的字符串。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/String/aes_decrypt.md
+    doc_type: reference
+    mysql_compat: partial
+    llms_summary: "AES_DECRYPT 使用密钥解密密文，模式由 block_encryption_mode 设置，支持 aes-128-ecb（默认）和 aes-256-cbc（需要 16 字节 IV）。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/String/aes_encrypt.md
+    doc_type: reference
+    mysql_compat: partial
+    llms_summary: "AES_ENCRYPT 使用密钥加密明文并返回 BLOB 密文，模式由 block_encryption_mode 设置，支持 aes-128-ecb（默认）和 aes-256-cbc（需要 16 字节 IV）。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/String/elt.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "ELT 返回从 1 开始计数的第 N 个字符串参数，当 N 越界或引用的任意参数为 NULL 时返回 NULL。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Window-Functions/cume_dist.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "CUME_DIST 返回当前行在其窗口分区内的累积分布，结果为 (0, 1] 范围内的 DOUBLE，计算方式为值小于等于当前行的行数除以分区大小。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Window-Functions/percent_rank.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "PERCENT_RANK 返回当前行在其窗口分区内的相对排名，结果为 [0, 1] 范围内的 DOUBLE，计算方式为 (rank - 1) 除以 (分区大小 - 1)。"
+  - path: docs/MatrixOne/Reference/mo-tools/mo_service.md
+    doc_type: reference
+    mysql_compat: mo_only
+    llms_summary: "mo-service 暴露 --block-profile-rate 和 --mutex-profile-fraction 命令行参数，驱动 Go runtime 的 block 和 mutex profiler，用于对 /debug/pprof 端点进行持续性能分析。"
+docs_updated:
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-view.md
+    change_summary: "补充可选的 SQL SECURITY { DEFINER | INVOKER } 子句与会话变量 view_security_type 说明。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-view.md
+    change_summary: "补充 ALTER VIEW 上的可选 SQL SECURITY { DEFINER | INVOKER } 子句。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Other/SHOW-Statements/show-create-view.md
+    change_summary: "说明 SHOW CREATE VIEW 输出始终渲染 SQL SECURITY DEFINER 或 INVOKER。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Control-Language/grant.md
+    change_summary: "新增 ON VIEW 对象类型，并解释 DEFINER 与 INVOKER 视图的权限校验差异。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Control-Language/revoke.md
+    change_summary: "在 TABLE / FUNCTION / PROCEDURE 之外新增 ON VIEW 对象类型。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-table.md
+    change_summary: "补充多表 DROP TABLE 语法以及逐表的权限校验行为。"
+  - path: docs/MatrixOne/Reference/Operators/operators/arithmetic-operators/div.md
+    change_summary: "补充 DECIMAL(64) / DECIMAL(128) 入参支持及 scale 对齐与截断整除的行为。"
+  - path: docs/MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/comparison-functions-and-operators-overview.md
+    change_summary: "在概览表中补充新的 <=> NULL 安全等值运算符。"
+  - path: docs/MatrixOne/Reference/Variable/system-variables/system-variables-overview.md
+    change_summary: "新增 server_id（只读，填充为 CN 服务 UUID）和 view_security_type（DEFINER / INVOKER）会话变量。"

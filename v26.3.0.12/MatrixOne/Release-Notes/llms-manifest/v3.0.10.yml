@@ -1,0 +1,17 @@
+tag: v3.0.10
+docs_added:
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-pick.md
+    doc_type: reference
+    mysql_compat: mo_only
+    llms_summary: "按主键或快照时间窗口从源表拣取指定行写入目标表的 MatrixOne 数据分支语句，可选择失败、跳过或接受冲突处理策略。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/sql-task.md
+    doc_type: reference
+    mysql_compat: mo_only
+    llms_summary: "在 MatrixOne 内定义、修改、删除、手动执行并查询 SQL 任务：按 cron 调度或手动触发执行一段 SQL 体，可选 WHEN 门限、RETRY 重试次数与 TIMEOUT 超时设置。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Control-Language/role-rule.md
+    doc_type: reference
+    mysql_compat: mo_only
+    llms_summary: "通过 ALTER ROLE ADD RULE / DROP RULE 为 MatrixOne 角色挂载按表的重写规则，并用 SHOW RULES ON ROLE 列出；会话通过 enable_remap_hint 变量启用注入。"
+docs_updated:
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-diff-cn.md
+    change_summary: "补充 DATA BRANCH DIFF 新增的 COLUMNS 投影子句与 OUTPUT SUMMARY 输出选项。"
