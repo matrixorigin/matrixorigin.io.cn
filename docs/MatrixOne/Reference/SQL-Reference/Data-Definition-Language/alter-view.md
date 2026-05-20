@@ -12,7 +12,6 @@ llms_summary: ALTER VIEW 用于更改视图。
 
 # **ALTER VIEW**
 
-
 > ALTER VIEW 用于更改视图。
 
 ## **语法说明**
