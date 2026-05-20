@@ -8,7 +8,7 @@ YEAR 接受各种格式的输入值：
 
 - 作为范围在 '0001' 到 '9999' 之间的 4 位字符串。
 - 作为范围在 0001 到 9999 之间的 4 位数字。
-- 作为范围在 '0' 到 '99' 之间的 1 位或 2 位字符串。MatrixOne 将范围在 '0' 到 '00' 和之间的值转换为 YEAR 值，自动补全前两位 '00'，即 '0000' ~ '0099'。
+- 作为范围在 '0' 到 '99' 之间的 1 位或 2 位字符串。范围在 '1' 到 '69' 的值被转换为 2001–2069，范围在 '70' 到 '99' 的值被转换为 1970–1999，'0' 或 '00' 产生 0000。
 - 作为返回在 YEAR 上下文中可接受的值的函数的结果，例如 `NOW()`。
 
 ## 日期中的两位数年份
@@ -67,3 +67,52 @@ YEAR 接受各种格式的输入值：
 - 65 被解释为 0065 年。
 - 78 被解释为 0078 年。
 - 03 被解释为 0003 年。
+
+## 示例
+
+```
+DROP DATABASE IF EXISTS year_demo_db;
+CREATE DATABASE year_demo_db;
+USE year_demo_db;
+
+-- 创建含 YEAR 列的表
+CREATE TABLE t_year (id INT, y YEAR);
+
+-- 插入 4 位数字年份
+INSERT INTO t_year VALUES (1, 2024), (2, 1901), (3, 2155), (4, 1970), (5, 2000);
+
+-- 插入 4 位字符串年份
+INSERT INTO t_year VALUES (6, '2024'), (7, '1901'), (8, '2155');
+
+-- 插入 2 位字符串年份（'1'-'69' -> 2001-2069, '70'-'99' -> 1970-1999）
+INSERT INTO t_year VALUES (9, '0'), (10, '24'), (11, '69');
+INSERT INTO t_year VALUES (12, '70'), (13, '99');
+
+-- 特殊值 0 -> 0000
+INSERT INTO t_year VALUES (14, 0);
+
+-- NULL 值
+INSERT INTO t_year VALUES (15, NULL);
+
+SELECT * FROM t_year ORDER BY id;
+
+-- CAST 类型转换
+SELECT CAST(y AS SIGNED) FROM t_year WHERE id = 1;
+SELECT CAST(2024 AS YEAR);
+SELECT CAST(0 AS YEAR);
+SELECT CAST('24' AS YEAR);
+SELECT CAST('70' AS YEAR);
+SELECT CAST(y AS CHAR(4)) FROM t_year WHERE id = 1;
+
+-- 比较与范围查询
+SELECT * FROM t_year WHERE y = 2024 ORDER BY id;
+SELECT * FROM t_year WHERE y > 2000 ORDER BY id;
+SELECT * FROM t_year WHERE y IS NULL;
+
+-- YEAR(4) 语法（兼容性支持）
+CREATE TABLE t_year4 (a YEAR(4) NOT NULL);
+DROP TABLE t_year4;
+
+DROP TABLE t_year;
+DROP DATABASE year_demo_db;
+```

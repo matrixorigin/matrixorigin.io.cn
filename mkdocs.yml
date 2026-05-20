@@ -331,6 +331,7 @@ nav:
         - BLOB 和 TEXT 数据类型: MatrixOne/Reference/Data-Types/blob-text-type.md
         - DATALINK 数据类型: MatrixOne/Reference/Data-Types/datalink-type.md
         - ENUM 类型: MatrixOne/Reference/Data-Types/enum-type.md
+        - SET 类型: MatrixOne/Reference/Data-Types/set-type.md
         - JSON 数据类型: MatrixOne/Reference/Data-Types/json-type.md
         - UUID 数据类型: MatrixOne/Reference/Data-Types/uuid-type.md
       - SQL 目录:
@@ -364,6 +365,7 @@ nav:
           - DIFF BRANCH: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-diff-cn.md
           - MERGE BRANCH: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-merge-cn.md
           - DATA BRANCH PICK: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-pick.md
+          - 分支保护快照: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/branch-protect-snapshots.md
           - CREATE TASK（SQL 任务）: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/sql-task.md
           - ALTER TABLE: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-table.md
           - ALTER TABLE ... ALTER REINDEX: MatrixOne/Reference/SQL-Reference/Data-Definition-Language/alter-reindex.md
@@ -603,6 +605,7 @@ nav:
             - UTC_TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/utc-timestamp.md
             - WEEK(): MatrixOne/Reference/Functions-and-Operators/Datetime/week.md
             - WEEKDAY(): MatrixOne/Reference/Functions-and-Operators/Datetime/weekday.md
+            - YEARWEEK(): MatrixOne/Reference/Functions-and-Operators/Datetime/yearweek.md
             - YEAR(): MatrixOne/Reference/Functions-and-Operators/Datetime/year.md
           - 数学类:
             - ABS(): MatrixOne/Reference/Functions-and-Operators/Mathematical/abs.md
