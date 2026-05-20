@@ -27,7 +27,7 @@ llms_summary: 视图是基于 SQL 语句的结果集的可视化的表。
 
 `CREATE VIEW` 语句用于创建一个视图。
 
-从 v3.0.11 开始，MatrixOne 支持在 `CREATE VIEW` 上显式指定 `SQL SECURITY`
+从 v3.0.12 开始，MatrixOne 支持在 `CREATE VIEW` 上显式指定 `SQL SECURITY`
 子句，用于控制查询视图时的权限校验路径：
 
 - `SQL SECURITY DEFINER`（默认）：以视图创建者（definer）所属角色的权限

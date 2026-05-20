@@ -1,4 +1,4 @@
-tag: v3.0.11
+tag: v3.0.12
 docs_added:
   - path: docs/MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/null-safe-equal.md
     doc_type: reference

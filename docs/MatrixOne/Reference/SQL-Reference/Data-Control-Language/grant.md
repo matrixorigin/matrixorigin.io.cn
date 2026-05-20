@@ -96,7 +96,7 @@ grant all on table *.* to role1;
 
 #### 视图权限
 
-从 v3.0.11 开始，视图权限通过独立的 `VIEW` 对象类型授予和回收；`ON TABLE` 授出的权限不会覆盖视图，反之亦然。通过 `ON VIEW db_name.view_name` 指定具体视图：
+从 v3.0.12 开始，视图权限通过独立的 `VIEW` 对象类型授予和回收；`ON TABLE` 授出的权限不会覆盖视图，反之亦然。通过 `ON VIEW db_name.view_name` 指定具体视图：
 
 ```
 grant select on view db1.v1 to role1;
