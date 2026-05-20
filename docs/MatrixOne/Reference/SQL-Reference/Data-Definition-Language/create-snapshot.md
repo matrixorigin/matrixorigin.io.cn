@@ -106,7 +106,7 @@ mysql> show snapshots;
 
 - 集群管理员在为其它租户创建快照时只能创建租户级别的快照。
 
-## 分支保护快照（v3.0.12 起）
+## 分支保护快照
 
 `DATA BRANCH CREATE TABLE` 和 `DATA BRANCH CREATE DATABASE` 会自动在 `mo_catalog.mo_snapshots` 中创建一个内部的**分支保护快照**（`__mo_branch_<child_table_id>`，kind=`branch`）。这些快照：
 

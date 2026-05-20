@@ -16,7 +16,7 @@ llms_summary: DROP SNAPSHOT 用于删除当前租户下创建的快照。
 
 ## 语法说明
 
-`DROP SNAPSHOT` 用于删除当前租户下创建的快照。自 v3.0.12 起，分支保护快照（kind=`branch`，由 `DATA BRANCH CREATE` 自动创建）不能通过此命令删除——会返回错误。
+`DROP SNAPSHOT` 用于删除当前租户下创建的快照。分支保护快照（kind=`branch`，由 `DATA BRANCH CREATE` 自动创建）不能通过此命令删除——会返回错误。
 
 ## 语法结构
 

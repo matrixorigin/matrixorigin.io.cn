@@ -75,7 +75,7 @@ create external table ex_table_cpk(clo1 tinyint,clo2 smallint,clo3 int,clo4 bigi
 
 更多关于使用外表指定 S3 文件，参见[从 S3 对象存储服务读取数据并导入 MatrixOne](../../../Develop/import-data/bulk-load/load-s3.md)。
 
-### INFILE Parquet 语法（v3.0.12 起）
+### INFILE Parquet 语法
 
 MatrixOne 也支持通过 `INFILE` 子句在 Parquet 文件上创建外表：
 
@@ -92,7 +92,7 @@ CREATE EXTERNAL TABLE [IF NOT EXISTS] [db.]table_name (
 | filepath | 包含 Parquet 文件的本地文件或目录路径。 |
 | format | 设置为 `'parquet'` 表示 Parquet 格式外表。 |
 
-### Hive 风格分区 Parquet 外表（v3.0.12 起）
+### Hive 风格分区 Parquet 外表
 
 对于采用 Hive 风格目录分区组织的 Parquet 文件（如 `year=2024/month=01/data.parquet`），使用以下 `INFILE` 选项：
 
