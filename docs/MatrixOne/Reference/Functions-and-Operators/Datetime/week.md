@@ -3,16 +3,15 @@ title: WEEK()
 doc_type: reference
 mysql_compat: full
 differs_from_mysql: []
-mo_only: []
+mo_only: false
 since: unknown
-last_updated: 2026-05-08
-llms_summary: 用于计算给定日期的周数。该函数返回一个整数，表示指定日期所在的周数。如果 date 为 NULL，则返回 NULL。
+last_updated: 2026-05-19
+llms_summary: "WEEK(date, [mode]) 返回给定日期的周数，可选 mode 参数（0-7）控制周起始日和返回值范围。"
 ---
 
 # **WEEK()**
 
-
-> 用于计算给定日期的周数。该函数返回一个整数，表示指定日期所在的周数。如果 date 为 NULL，则返回 NULL。
+> 返回给定日期或 datetime 表达式所在周次。可选参数 `mode`（0–7）控制周的起始日和返回值范围。如果 `date` 为 `NULL`，则返回 `NULL`。
 
 ## **函数说明**
 
@@ -57,6 +56,9 @@ SELECT WEEK('2026-05-19');
 
 -- mode=1（周一为起始，0-53 范围）
 SELECT WEEK('2026-05-19', 1);
+
+-- mode=2（周日为起始，1-53 范围）
+SELECT WEEK('2026-05-19', 2);
 
 DROP DATABASE week_demo;
 ```
