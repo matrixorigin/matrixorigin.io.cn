@@ -523,6 +523,7 @@ nav:
               - <>,!=: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/not-equal.md
               - <=: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/less-than-or-equal.md
               - =: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/assign-equal.md
+              - <=>: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/null-safe-equal.md
               - BETWEEN ... AND ...: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/between.md
               - IN: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/in.md
               - IS: MatrixOne/Reference/Operators/operators/comparison-functions-and-operators/is.md
@@ -567,9 +568,11 @@ nav:
             - VARIANCE: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/variance.md
             - VAR_POP: MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/var_pop.md
           - 日期时间类:
+            - ADDTIME(): MatrixOne/Reference/Functions-and-Operators/Datetime/addtime.md
             - CONVERT_TZ(): MatrixOne/Reference/Functions-and-Operators/Datetime/convert-tz.md
             - CURDATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/curdate.md
             - CURRENT_TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/current-timestamp.md
+            - CURTIME() / CURRENT_TIME(): MatrixOne/Reference/Functions-and-Operators/Datetime/curtime.md
             - DATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/date.md
             - DATE_ADD(): MatrixOne/Reference/Functions-and-Operators/Datetime/date-add.md
             - DATE_FORMAT(): MatrixOne/Reference/Functions-and-Operators/Datetime/date-format.md
@@ -578,6 +581,7 @@ nav:
             - DAY(): MatrixOne/Reference/Functions-and-Operators/Datetime/day.md
             - DAYOFYEAR(): MatrixOne/Reference/Functions-and-Operators/Datetime/dayofyear.md
             - EXTRACT(): MatrixOne/Reference/Functions-and-Operators/Datetime/extract.md
+            - GET_FORMAT(): MatrixOne/Reference/Functions-and-Operators/Datetime/get-format.md
             - HOUR(): MatrixOne/Reference/Functions-and-Operators/Datetime/hour.md
             - FROM_UNIXTIME: MatrixOne/Reference/Functions-and-Operators/Datetime/from-unixtime.md
             - MINUTE(): MatrixOne/Reference/Functions-and-Operators/Datetime/minute.md
@@ -585,10 +589,12 @@ nav:
             - NOW(): MatrixOne/Reference/Functions-and-Operators/Datetime/now.md
             - SECOND(): MatrixOne/Reference/Functions-and-Operators/Datetime/second.md
             - STR_TO_DATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/str-to-date.md
+            - SUBTIME(): MatrixOne/Reference/Functions-and-Operators/Datetime/subtime.md
             - SYSDATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/sysdate.md
             - TIME(): MatrixOne/Reference/Functions-and-Operators/Datetime/time.md
             - TIMEDIFF(): MatrixOne/Reference/Functions-and-Operators/Datetime/timediff.md
             - TIMESTAMP(): MatrixOne/Reference/Functions-and-Operators/Datetime/timestamp.md
+            - TIMESTAMPADD(): MatrixOne/Reference/Functions-and-Operators/Datetime/timestampadd.md
             - TIMESTAMPDIFF(): MatrixOne/Reference/Functions-and-Operators/Datetime/timestampdiff.md
             - TO_DATE(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-date.md
             - TO_DAYS(): MatrixOne/Reference/Functions-and-Operators/Datetime/to-days.md
@@ -621,11 +627,14 @@ nav:
             - SINH(): MatrixOne/Reference/Functions-and-Operators/Mathematical/sinh.md
             - TAN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/tan.md
           - 字符串类:
+            - AES_DECRYPT(): MatrixOne/Reference/Functions-and-Operators/String/aes_decrypt.md
+            - AES_ENCRYPT(): MatrixOne/Reference/Functions-and-Operators/String/aes_encrypt.md
             - BIN(): MatrixOne/Reference/Functions-and-Operators/String/bin.md
             - BIT_LENGTH(): MatrixOne/Reference/Functions-and-Operators/String/bit-length.md
             - CHAR_LENGTH(): MatrixOne/Reference/Functions-and-Operators/String/char-length.md
             - CONCAT(): MatrixOne/Reference/Functions-and-Operators/String/concat.md
             - CONCAT_WS(): MatrixOne/Reference/Functions-and-Operators/String/concat-ws.md
+            - ELT(): MatrixOne/Reference/Functions-and-Operators/String/elt.md
             - EMPTY(): MatrixOne/Reference/Functions-and-Operators/String/empty.md
             - ENDSWITH(): MatrixOne/Reference/Functions-and-Operators/String/endswith.md
             - FIELD(): MatrixOne/Reference/Functions-and-Operators/String/field.md
@@ -684,10 +693,13 @@ nav:
             - generate_series(): MatrixOne/Reference/Functions-and-Operators/Table/generate_series.md
             - UNNEST(): MatrixOne/Reference/Functions-and-Operators/Table/unnest.md
           - 窗口函数:
+            - CUME_DIST(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/cume_dist.md
             - DENSE_RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/dense_rank.md
+            - PERCENT_RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/percent_rank.md
             - RANK(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/rank.md
             - ROW_NUMBER(): MatrixOne/Reference/Functions-and-Operators/Window-Functions/row_number.md
-          - JSON 函数: 
+          - JSON 函数:
+            - "-> 和 ->> 运算符": MatrixOne/Reference/Functions-and-Operators/Json/json-arrow.md
             - JQ(): MatrixOne/Reference/Functions-and-Operators/Json/jq.md
             - JSON_EXTRACT(): MatrixOne/Reference/Functions-and-Operators/Json/json_extract.md
             - JSON_EXTRACT_FLOAT64(): MatrixOne/Reference/Functions-and-Operators/Json/json_extract_float64.md
@@ -721,6 +733,7 @@ nav:
         - MatrixOne 的 JDBC 功能支持列表: MatrixOne/Reference/Limitations/mo-jdbc-feature-list.md
       - MatrixOne 文件目录结构: MatrixOne/Maintain/mo-directory-structure.md
       - MatrixOne 工具:
+        - mo-service profiling 参数: MatrixOne/Reference/mo-tools/mo_service.md
         - mo_ctl 单机工具: MatrixOne/Reference/mo-tools/mo_ctl_standalone.md
         - mo_ctl 分布式工具: MatrixOne/Reference/mo-tools/mo_ctl.md
         - mo_datax_writer 工具: MatrixOne/Reference/mo-tools/mo_datax_writer.md

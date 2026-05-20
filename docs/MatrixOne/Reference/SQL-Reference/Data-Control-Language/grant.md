@@ -49,6 +49,7 @@ GRANT role [, role] ...
 
 object_type: {
     TABLE
+  | VIEW
   | FUNCTION
   | PROCEDURE
 }
@@ -92,6 +93,23 @@ grant all on database * to role1;
 ```
 grant all on table *.* to role1;
 ```
+
+#### 视图权限
+
+从 v3.0.11 开始，视图权限通过独立的 `VIEW` 对象类型授予和回收；`ON TABLE` 授出的权限不会覆盖视图，反之亦然。通过 `ON VIEW db_name.view_name` 指定具体视图：
+
+```
+grant select on view db1.v1 to role1;
+```
+
+调用者查询视图时是否需要底层表权限，由视图元数据中保存的安全类型决定（参见 [CREATE VIEW](../Data-Definition-Language/create-view.md)）：
+
+- `SQL SECURITY DEFINER`（默认）：调用者只需拥有视图的 `SELECT` 权限。底层表权限使用视图创建者所属角色（含其继承的角色）进行校验。
+- `SQL SECURITY INVOKER`：调用者需同时拥有视图的 `SELECT` 权限，以及视图引用到的每一张底层表所需的权限。
+
+即使对底层表授予了 `ALL` 或 `OWNERSHIP`，调用者仍然不能隐式访问基于该表构建的视图，必须对视图对象显式授权。
+
+在视图上授予的 `WITH GRANT OPTION` 仅允许对同一视图进行二次授权，不会扩散到基于相同底层表构建的其他视图。
 
 #### 授权角色
 

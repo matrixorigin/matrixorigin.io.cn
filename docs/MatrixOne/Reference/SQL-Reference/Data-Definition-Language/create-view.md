@@ -27,10 +27,22 @@ llms_summary: 视图是基于 SQL 语句的结果集的可视化的表。
 
 `CREATE VIEW` 语句用于创建一个视图。
 
+从 v3.0.11 开始，MatrixOne 支持在 `CREATE VIEW` 上显式指定 `SQL SECURITY`
+子句，用于控制查询视图时的权限校验路径：
+
+- `SQL SECURITY DEFINER`（默认）：以视图创建者（definer）所属角色的权限
+  校验。调用者只需对视图本身拥有 `SELECT` 权限，无需持有视图底层表的权限。
+- `SQL SECURITY INVOKER`：以调用者当前角色的权限校验。调用者必须同时拥有
+  视图的 `SELECT` 权限，以及视图引用到的所有底层表对应的权限。
+
+当 DDL 未显式带 `SQL SECURITY` 子句时，由会话变量 `view_security_type`
+（取值 `DEFINER` / `INVOKER`，默认 `DEFINER`）决定最终写入视图元数据的
+安全类型。
+
 ## **语法结构**
 
 ```
-> CREATE [ OR REPLACE ] VIEW view_name AS
+> CREATE [ OR REPLACE ] [SQL SECURITY { DEFINER | INVOKER }] VIEW view_name AS
   SELECT column1, column2, ...
   FROM table_name
   WHERE condition;
@@ -38,6 +50,9 @@ llms_summary: 视图是基于 SQL 语句的结果集的可视化的表。
 
 !!! note
     视图总是显示最新的数据。每当你查询视图时，数据库引擎通过使用视图的 SQL 语句重建数据。
+
+!!! note
+    视图元数据中保存的 `SQL SECURITY` 类型可以通过 [SHOW CREATE VIEW](../Other/SHOW-Statements/show-create-view.md) 查看。输出的 `Create View` 列会在 `CREATE` 与 `VIEW` 之间渲染出 `SQL SECURITY DEFINER` 或 `SQL SECURITY INVOKER`。
 
 ## **示例**
 
