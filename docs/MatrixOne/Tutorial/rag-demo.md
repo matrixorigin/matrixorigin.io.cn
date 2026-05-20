@@ -195,7 +195,7 @@ print(output['response'])
 控制台输出相关回答：
 
 ```
-Based on the provided data, the latest version of MatrixOne is 3.0.11, which was released on 2026/05/08.
+Based on the provided data, the latest version of MatrixOne is 3.0.12, which was released on 2026/05/19.
 ```
 
 在增强后，模型生成了正确答案。

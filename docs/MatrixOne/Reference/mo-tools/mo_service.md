@@ -11,12 +11,12 @@ llms_summary: "mo-service 暴露 --block-profile-rate 和 --mutex-profile-fracti
 
 # **mo-service profiling 参数**
 
-> 从 v3.0.11 开始，`mo-service` 接受 `--block-profile-rate` 和
+> 从 v3.0.12 开始，`mo-service` 接受 `--block-profile-rate` 和
 > `--mutex-profile-fraction` 命令行参数，驱动 Go runtime 的 block 和 mutex
 > profiler，可通过 `--debug-http` 暴露的 `/debug/pprof/block` 和
 > `/debug/pprof/mutex` 端点获取数据。
 
-`mo-service` 是运行 MatrixOne 节点的可执行文件。从 v3.0.11 开始，
+`mo-service` 是运行 MatrixOne 节点的可执行文件。从 v3.0.12 开始，
 `mo-service` 接受两个命令行参数来启用 Go runtime 的 block 和 mutex
 profiler。它们适用于持续性能分析方案（例如通过 `--debug-http` 暴露的
 `/debug/pprof/block` 和 `/debug/pprof/mutex` 端点进行 Pyroscope 或
