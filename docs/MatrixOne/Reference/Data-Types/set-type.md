@@ -4,7 +4,7 @@ doc_type: reference
 mysql_compat: partial
 differs_from_mysql: ["不支持 ALTER MODIFY 缩减成员列表"]
 mo_only: false
-since: v3.0.12
+since: v3.0.13
 last_updated: 2026-05-19
 llms_summary: "SET 类型以紧凑位图存储一组预定义的字符串值，支持按名称或数值索引插入、LOAD DATA、DISTINCT、GROUP BY 以及 ALTER MODIFY 扩展成员列表。"
 ---
