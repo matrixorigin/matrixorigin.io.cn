@@ -5,7 +5,7 @@ mysql_compat: mo_only
 differs_from_mysql: []
 mo_only: []
 since: v3.0.10
-last_updated: 2026-05-08
+last_updated: 2026-05-26
 llms_summary: '角色重写规则把一段替换 SQL 片段绑定到 (role, table) 键对上，存储于 mo_catalog.mo_role_rule。当会话的默认角色拥有匹配规则、且会话变量 enable_remap_hint 被打开时，前端会把 /*+ {"rewrites": {...}} */ hint 前缀到发出的 SQL 上，让下游重写器把对基表的查询透明地转向规则体（例如转向视图或带过滤的子查询）。'
 ---
 
@@ -15,11 +15,11 @@ llms_summary: '角色重写规则把一段替换 SQL 片段绑定到 (role, tabl
 
 ## 语法说明
 
-角色重写规则把一段替换 SQL 片段绑定到 `(role, table)` 键对上，存储于 `mo_catalog.mo_role_rule`。当会话的默认角色拥有匹配规则、且会话变量 `enable_remap_hint` 被打开时，前端会把 `/*+ {"rewrites": {...}} */` hint 前缀到发出的 SQL 上，让下游重写器把对基表的查询透明地转向规则体（例如转向视图或带过滤的子查询）。
+角色重写规则把一段替换 SQL 片段绑定到 `(role, table)` 键对上，存储于 `mo_catalog.mo_role_rule`。当会话变量 `enable_remap_hint` 被打开时，前端会从**所有活跃角色**——默认角色、直接授予的次要角色以及继承角色——收集规则，然后把 `/*+ {"rewrites": {...}} */` hint 前缀到发出的 SQL 上，让下游重写器把对基表的查询透明地转向规则体（例如转向视图或带过滤的子查询）。
 
 这一特性由三条语句控制：
 
-- `ALTER ROLE <role> ADD RULE "<sql>" ON TABLE <db>.<tbl>`——新增或覆盖规则。
+- `ALTER ROLE <role> ADD RULE "<sql>" ON TABLE <db>.<tbl>`——新增或覆盖规则。`<sql>` 必须是语法合法的 `SELECT` 语句；非 SELECT 或语法错误的 SQL 会在写入前被拒绝。
 - `ALTER ROLE <role> DROP RULE ON TABLE <db>.<tbl>`——卸载规则。
 - `SHOW RULES ON ROLE <role>`——列出角色上所有规则。
 
@@ -43,12 +43,17 @@ SHOW RULES ON ROLE <role_name>
 
 ## 使用说明
 
+- **所有活跃角色均参与规则加载。** 当 `enable_remap_hint` 开启时，规则会从默认角色、直接授予的次要角色（若 `SET SECONDARY ROLE ALL` 生效）、以及所有继承角色（按授予时间广度优先遍历发现）一起加载。此前只加载默认角色的规则。
+- **规则冲突解决。** 多个角色对同一 `(db, tbl)` 同时定义规则时，优先级按活跃角色发现顺序：默认角色最高，直接授予次要角色（按授予时间）其次，继承角色（按授予时间广度优先）再次。同一 `rule_name` 下后优先级的规则覆盖先优先级的规则。
+- **兼容规则合并。** 不同角色中输出列相同（列名与表达式一致）的规则会合并为 `(...role_a_rule...) UNION DISTINCT (...role_b_rule...)` 的单一规则体。不可合并的规则（输出列不同、含聚合函数、窗口函数、ORDER BY、LIMIT 或易变函数）则按优先级解决——高优先级规则胜出，不会生成破损的 UNION。
+- **ADD RULE 时校验规则 SQL。** `ALTER ROLE ... ADD RULE` 现在会在写入 `mo_catalog.mo_role_rule` 之前解析并校验 `rule_sql`。只接受语法合法的 `SELECT`（及加括号的 SELECT）语句。空 SQL、语法错误及非 SELECT 语句（如 `DELETE`、`UPDATE`）会被立即拒绝并报错。
+- **错误传播。** 加载规则缓存失败时（例如某条此前已被接受的规则无法解析），错误会作为查询错误返回给客户端，而不再被静默吞掉。在旧版本中本会静默回退到未修改 SQL 的查询，升级后可能会显式报错。
 - **角色必须存在。** 三条语句都会先按角色名查 `role_id`，角色不存在时报错 `there is no role <role_name>`。
 - **目标表可以暂不存在。** `ALTER ROLE ... ADD RULE` 不校验目标表存在；`db_name.table_name` 只作为规则的键以及后续查询的重写目标。
 - **Upsert 语义。** 在同一 `(role, db.table)` 已有规则时再次 ADD RULE 会覆盖旧规则体。
 - **DROP RULE 需要规则已存在。** `ALTER ROLE ... DROP RULE ON TABLE db.tbl` 对未挂载规则的表报错 `rule '<db.table>' does not exist for role '<role>'`。
 - **`enable_remap_hint`。** 只有会话变量 `enable_remap_hint` 为 `1`（或 `ON`）时，才会向 SQL 注入重写 hint。否则规则虽已存储但运行时无效。
-- **缓存按会话失效。** ADD / DROP 规则后只会让当前会话的规则缓存失效；其他已加载缓存的会话需要重连或重新执行 `SET ROLE` 才能看到最新规则。
+- **缓存按会话失效。** ADD / DROP 规则后会让当前会话的规则缓存失效。角色切换（`SET ROLE` 或次要角色切换）也会同步刷新权限缓存与规则缓存，确保新角色的规则立即生效。
 - **存储位置。** 规则落在 `mo_catalog.mo_role_rule`，按 `(role_id, rule_name)` 一行。`SHOW RULES ON ROLE` 输出 `rule_name` 与 `rule` 两列。
 
 ## 示例
@@ -92,5 +97,5 @@ DROP DATABASE role_rule_demo;
 ## 注意事项
 
 1. 注入到 SQL 的 hint 形式为 `/*+ {"rewrites": {"<db.table>": "<rule_sql>", ...}} */`。下游重写器决定如何使用它；没有匹配的重写器时 hint 等同于空操作。
-2. 规则体是不透明字符串——服务端不校验 `rewrite_sql` 是否真的引用目标表。建议规则尽量精简，并定期审阅 `mo_catalog.mo_role_rule`。
-3. 规则以会话的*默认角色*解析。通过 `SET ROLE` 或重新登录改变默认角色会重新加载规则缓存。
+2. 规则体在 `ADD RULE` 时的 `SELECT` 语法校验之外为不透明字符串——服务端不校验 `rewrite_sql` 是否真的引用目标表或产出的结果语义是否正确。建议规则尽量精简，并定期审阅 `mo_catalog.mo_role_rule`。
+3. 规则从所有活跃角色解析：会话的默认角色、次要角色（当 `SET SECONDARY ROLE ALL` 生效时）以及继承角色。更改活跃角色集合（通过 `SET ROLE`、`SET SECONDARY ROLE ALL/NONE` 或重新登录）会使规则缓存失效并重新加载新角色配置下的规则。
