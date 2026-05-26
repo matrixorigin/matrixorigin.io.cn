@@ -651,6 +651,7 @@ ERROR 1064 (HY000): SQL parser error: You have an error in your SQL syntax; chec
 - TABLES
 - TABLESPACE
 - TASK **(M)**
+- TASKS **(M)**
 - TEMPTABLE
 - TEXT
 - THAN
