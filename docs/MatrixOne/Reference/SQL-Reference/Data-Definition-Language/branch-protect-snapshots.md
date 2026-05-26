@@ -4,7 +4,7 @@ doc_type: reference
 mysql_compat: mo_only
 differs_from_mysql: []
 mo_only: true
-since: v3.0.12
+since: v3.0.13
 last_updated: 2026-05-19
 llms_summary: "DATA BRANCH CREATE 自动创建的内部快照，用于保护父表数据不被垃圾回收，对 SHOW SNAPSHOTS 不可见，在 DAG 子树全部删除后自动回收。"
 ---

@@ -18,7 +18,7 @@ llms_summary: 这个语句显示了创建命名视图的 CREATE VIEW 语句。
 
 这个语句显示了创建命名视图的 `CREATE VIEW` 语句。
 
-从 v3.0.12 开始，`Create View` 列中始终会在 `CREATE` 与 `VIEW` 关键字之间
+从 v3.0.13 开始，`Create View` 列中始终会在 `CREATE` 与 `VIEW` 关键字之间
 渲染出 `SQL SECURITY DEFINER` 或 `SQL SECURITY INVOKER`，即使最初的 DDL
 并未显式指定安全类型。该安全类型来源于视图的元数据；视图体中恰巧出现的
 `SQL SECURITY` 文本不会被当作安全子句解析。

@@ -4,7 +4,7 @@ doc_type: reference
 mysql_compat: full
 differs_from_mysql: []
 mo_only: false
-since: v3.0.12
+since: v3.0.13
 last_updated: 2026-05-19
 llms_summary: "YEARWEEK(date, [mode]) 返回给定日期的年份和周数，以 YYYYWW 整数格式表示，可选 mode 参数（0-7）控制周的编号规则。"
 ---
