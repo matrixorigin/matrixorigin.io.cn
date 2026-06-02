@@ -611,11 +611,13 @@ nav:
             - ABS(): MatrixOne/Reference/Functions-and-Operators/Mathematical/abs.md
             - ACOS(): MatrixOne/Reference/Functions-and-Operators/Mathematical/acos.md
             - ATAN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/atan.md
+            - ATAN2(): MatrixOne/Reference/Functions-and-Operators/Mathematical/atan2.md
             - CEIL(): MatrixOne/Reference/Functions-and-Operators/Mathematical/ceil.md
             - CEILING(): MatrixOne/Reference/Functions-and-Operators/Mathematical/ceiling.md
             - COS(): MatrixOne/Reference/Functions-and-Operators/Mathematical/cos.md
             - COT(): MatrixOne/Reference/Functions-and-Operators/Mathematical/cot.md
             - CRC32(): MatrixOne/Reference/Functions-and-Operators/Mathematical/crc32.md
+            - DEGREES(): MatrixOne/Reference/Functions-and-Operators/Mathematical/degrees.md
             - EXP(): MatrixOne/Reference/Functions-and-Operators/Mathematical/exp.md
             - FLOOR(): MatrixOne/Reference/Functions-and-Operators/Mathematical/floor.md
             - LN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/ln.md
@@ -624,11 +626,14 @@ nav:
             - LOG10(): MatrixOne/Reference/Functions-and-Operators/Mathematical/log10.md
             - PI(): MatrixOne/Reference/Functions-and-Operators/Mathematical/pi.md
             - POWER(): MatrixOne/Reference/Functions-and-Operators/Mathematical/power.md
+            - RADIANS(): MatrixOne/Reference/Functions-and-Operators/Mathematical/radians.md
             - ROUND(): MatrixOne/Reference/Functions-and-Operators/Mathematical/round.md
             - RAND(): MatrixOne/Reference/Functions-and-Operators/Mathematical/rand.md
+            - SIGN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/sign.md
             - SIN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/sin.md
             - SINH(): MatrixOne/Reference/Functions-and-Operators/Mathematical/sinh.md
             - TAN(): MatrixOne/Reference/Functions-and-Operators/Mathematical/tan.md
+            - TRUNCATE(): MatrixOne/Reference/Functions-and-Operators/Mathematical/truncate.md
           - 字符串类:
             - AES_DECRYPT(): MatrixOne/Reference/Functions-and-Operators/String/aes_decrypt.md
             - AES_ENCRYPT(): MatrixOne/Reference/Functions-and-Operators/String/aes_encrypt.md
