@@ -1,0 +1,35 @@
+tag: v3.0.12
+docs_added:
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/yearweek.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "YEARWEEK(date, [mode]) 返回给定日期的年份和周数，以 YYYYWW 整数格式表示，可选 mode 参数（0-7）控制周的编号规则。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/branch-protect-snapshots.md
+    doc_type: reference
+    mysql_compat: mo_only
+    llms_summary: "DATA BRANCH CREATE 自动创建的内部快照，用于保护父表数据不被垃圾回收，对 SHOW SNAPSHOTS 不可见，在 DAG 子树全部删除后自动回收。"
+  - path: docs/MatrixOne/Reference/Data-Types/set-type.md
+    doc_type: reference
+    mysql_compat: partial
+    llms_summary: "SET 类型以紧凑位图存储一组预定义的字符串值，支持按名称或数值索引插入、LOAD DATA、DISTINCT、GROUP BY 以及 ALTER MODIFY 扩展成员列表。"
+docs_updated:
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/week.md
+    change_summary: "文档新增 WEEK() mode 可选参数（0-7）及其取值表，移除 mode 不支持的旧限制说明，替换为可执行示例。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-snapshot.md
+    change_summary: "新增分支保护快照章节，说明 DATA BRANCH CREATE 自动创建内部快照、SHOW SNAPSHOTS 隐藏及 DROP SNAPSHOT 拒绝的机制。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/drop-snapshot.md
+    change_summary: "语法说明中注明 v3.0.12 起分支保护快照（kind=branch，由 DATA BRANCH CREATE 自动创建）不可通过 DROP SNAPSHOT 删除。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-create-cn.md
+    change_summary: "新增注意事项第 6 条，说明分支保护快照的自动创建及生命周期。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-diff-cn.md
+    change_summary: "更新 LCA 说明，注明 v3.0.12 起支持任意 DAG 深度的差异比较。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/data-branch-merge-cn.md
+    change_summary: "更新语法说明，注明 v3.0.12 起 LCA 解析和变更范围计算支持任意 DAG 深度。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Definition-Language/create-external-table.md
+    change_summary: "新增 Hive 风格分区 Parquet 外表章节，包含 INFILE 选项说明、参数表、两个可执行示例及限制说明。"
+  - path: docs/MatrixOne/Reference/Data-Types/fixed-point-types.md
+    change_summary: "新增 DECIMAL256 表示形式（39-76 位，32 字节）说明，精度上限从 38 位更新为 76 位，字节数表新增第三档。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/load-data-infile.md
+    change_summary: "文件格式说明中新增 Parquet 格式支持及 v3.0.12 起的二进制 decimal 编码（INT32, INT64, FixedLenByteArray）转换能力。"
+  - path: docs/MatrixOne/Reference/Data-Types/date-time-data-types/year-type.md
+    change_summary: "新增可执行 SQL 示例，覆盖 4 位数字、2 位字符串、2 位数字值插入、CAST 类型转换及比较查询场景。"
