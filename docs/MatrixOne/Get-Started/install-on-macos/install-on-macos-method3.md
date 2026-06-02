@@ -148,7 +148,7 @@ MO_CONTAINER_EXTRA_MOUNT_OPTION="" #额外的挂载参数，比如 -v xx:xx:xx
 === "通过 MatrixOne (稳定版本) 代码安装"
 
      ```
-     mo_ctl deploy v3.0.13
+     mo_ctl deploy v3.0.14
      ```
 
 - 启动 Matrixone
@@ -180,7 +180,7 @@ Enter password:  # 初始密码默认为 111
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 5982
-Server version: 8.0.30-MatrixOne-v3.0.13 MatrixOne
+Server version: 8.0.30-MatrixOne-v3.0.14 MatrixOne
 
 Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
 
@@ -207,7 +207,7 @@ mo_ctl connect
 2024-03-08 11:13:34.420 UTC+0800    [INFO]    Ok, connecting for user ... 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 5849
-Server version: 8.0.30-MatrixOne-v3.0.13 MatrixOne
+Server version: 8.0.30-MatrixOne-v3.0.14 MatrixOne
 
 Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
 
