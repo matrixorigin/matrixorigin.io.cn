@@ -4,16 +4,16 @@ doc_type: reference
 mysql_compat: partial
 differs_from_mysql:
 - LOW_PRIORITY and IGNORE modifiers not supported
-mo_only: []
+mo_only: false
 since: unknown
-last_updated: 2026-05-08
-llms_summary: UPDATE 用于修改表中的现有记录。
+last_updated: 2026-06-02
+llms_summary: UPDATE 用于修改表中的现有记录，支持 PostgreSQL 风格的 UPDATE ... SET ... FROM ... WHERE 语法。
 ---
 
 # **UPDATE**
 
 
-> UPDATE 用于修改表中的现有记录。
+> UPDATE 用于修改表中的现有记录。支持单表、多表以及 PostgreSQL 风格的 `UPDATE ... SET ... FROM ... WHERE` 语法。
 
 ## **语法描述**
 
@@ -31,6 +31,15 @@ UPDATE table_reference
     [LIMIT row_count]
 ```
 
+### **PostgreSQL 风格 UPDATE FROM 语法**
+
+```
+UPDATE table_reference [ [AS] alias ]
+    SET assignment_list
+    FROM table_references
+    [WHERE where_condition]
+```
+
 #### 参数释义
 
 - `UPDATE` 将新值更新到指定表中现有行的列中。
@@ -38,6 +47,7 @@ UPDATE table_reference
 - `WHERE` 从句，用于指定用于标识要更新哪些行的条件。若无 `WHERE` 从句，则更新所有行。
 - `ORDER BY` 从句，指按照指定的顺序更新行。
 - `LIMIT` 从句用于限制可更新的行数。
+- PostgreSQL 风格的 `FROM` 从句引入额外的只读连接源。目标表被更新，`FROM` 从句中的表作为连接源使用且不会被修改。`ORDER BY` 和 `LIMIT` 不支持与 `FROM` 语法共用。
 
 ## **示例**
 
@@ -128,4 +138,42 @@ mysql> select * from t2;
 |    7 |  666 |  333 |
 +------+------+------+
 3 rows in set (0.00 sec)
+```
+
+- **PostgreSQL 风格 UPDATE FROM 示例**
+
+```sql
+DROP DATABASE IF EXISTS update_from_tests;
+CREATE DATABASE update_from_tests;
+USE update_from_tests;
+
+CREATE TABLE company (id INT PRIMARY KEY, province VARCHAR(50));
+INSERT INTO company VALUES (101, 'BJ'), (102, 'SH'), (103, 'GZ');
+
+CREATE TABLE vec_join_case (id INT PRIMARY KEY, company_id INT, remark VARCHAR(100));
+INSERT INTO vec_join_case VALUES (10, 101, 'init'), (20, 102, 'init'), (30, 103, 'init');
+
+-- 基本 PostgreSQL 风格 UPDATE FROM
+UPDATE vec_join_case t
+SET remark = CONCAT('hot-', c.province)
+FROM company c
+WHERE c.id = t.company_id;
+SELECT id, company_id, remark FROM vec_join_case ORDER BY id;
+
+-- UPDATE FROM 结合 CTE
+WITH cc AS (SELECT id, province FROM company)
+UPDATE vec_join_case t
+SET remark = c.province
+FROM cc c
+WHERE c.id = t.company_id;
+SELECT id, company_id, remark FROM vec_join_case ORDER BY id;
+
+-- UPDATE FROM 结合 LEFT JOIN
+UPDATE vec_join_case t
+SET remark = COALESCE(c.province, 'unknown')
+FROM company c
+WHERE c.id = t.company_id;
+SELECT id, company_id, remark FROM vec_join_case ORDER BY id;
+
+DROP DATABASE update_from_tests;
 ```
