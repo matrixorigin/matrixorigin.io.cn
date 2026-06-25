@@ -1,0 +1,27 @@
+tag: v3.0.14
+docs_added:
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Mathematical/sign.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: SIGN() 函数返回给定数值的符号：负数返回 -1，零返回 0，正数返回 1。
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Mathematical/truncate.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: TRUNCATE() 函数将数值截断到指定小数位数，直接丢弃多余小数位，与 ROUND() 不同不会四舍五入。
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Mathematical/radians.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: RADIANS() 函数将角度值从度转换为弧度，转换公式为 X * PI() / 180。
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Mathematical/degrees.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: DEGREES() 函数将弧度值转换为角度值，转换公式为 X * 180 / PI()。
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Mathematical/atan2.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: ATAN2() 函数返回 Y/X 的反正切，利用两个参数的符号确定结果所在的象限。
+docs_updated:
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Manipulation-Language/update.md
+    change_summary: 新增 PostgreSQL 风格 UPDATE ... SET ... FROM ... WHERE 语法说明与示例。
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/sum.md
+    change_summary: 更新 SUM() 参数说明，标注自 v3.0.14 起支持布尔表达式（TRUE 视为 1、FALSE 视为 0）。

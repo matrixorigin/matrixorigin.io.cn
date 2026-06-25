@@ -1,0 +1,9 @@
+tag: v3.0.13
+docs_added: []
+docs_updated:
+  - path: docs/MatrixOne/Reference/Language-Structure/keywords.md
+    change_summary: "将 TASKS 加入非保留关键字列表。"
+  - path: docs/MatrixOne/Reference/SQL-Reference/Data-Control-Language/role-rule.md
+    change_summary: "补充次要角色与继承角色重写规则覆盖、冲突优先级、UNION DISTINCT 规则合并、ADD RULE 时 SQL 校验以及错误传播的说明。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Aggregate-Functions/group-concat.md
+    change_summary: "新增多参数 GROUP_CONCAT 搭配 ORDER BY 以及多个 GROUP_CONCAT 各自独立排序的示例。"
