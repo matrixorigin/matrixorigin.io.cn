@@ -13682,6 +13682,11 @@
 <ul>
 <li>只支持保存带有返回结果的语句，如 <code>SELECT</code>, <code>SHOW</code>, <code>DESC</code>, <code>EXECUTE</code> 语句</li>
 <li>对于 <code>SELECT</code> 语句，只保存以 <code>/* cloud_user */</code> 和 <code>/* save_result */</code> 固定开头的 <code>SELECT</code> 语句的结果。</li>
+<li>
+<p>如果使用 MySQL 命令行客户端执行 <code>/* save_result */SELECT ...</code>，启动客户端时需要带上 <code>--comments</code>（或 <code>-c</code>）。否则客户端可能会在发送 SQL 前移除注释，导致 MatrixOne 收不到 <code>/* save_result */</code> 标记。</p>
+<div class="highlight"><pre><span></span><code>mysql<span class="w"> </span>--comments<span class="w"> </span>-h127.0.0.1<span class="w"> </span>-P6001<span class="w"> </span>-u&lt;user&gt;<span class="w"> </span>-p
+</code></pre></div>
+</li>
 </ul>
 <h2 id="_2">开启保存查询结果设置</h2>
 <ul>
