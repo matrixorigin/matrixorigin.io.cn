@@ -14,6 +14,11 @@
 
 - 只支持保存带有返回结果的语句，如 `SELECT`, `SHOW`, `DESC`, `EXECUTE` 语句
 - 对于 `SELECT` 语句，只保存以 `/* cloud_user */` 和 `/* save_result */` 固定开头的 `SELECT` 语句的结果。
+- 如果使用 MySQL 命令行客户端执行 `/* save_result */SELECT ...`，启动客户端时需要带上 `--comments`（或 `-c`）。否则客户端可能会在发送 SQL 前移除注释，导致 MatrixOne 收不到 `/* save_result */` 标记。
+
+    ```bash
+    mysql --comments -h127.0.0.1 -P6001 -u<user> -p
+    ```
 
 ## 开启保存查询结果设置
 
