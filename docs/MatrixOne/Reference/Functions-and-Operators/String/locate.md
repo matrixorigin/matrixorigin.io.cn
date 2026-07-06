@@ -5,7 +5,7 @@ mysql_compat: full
 differs_from_mysql: []
 mo_only: []
 since: unknown
-last_updated: 2026-05-08
+last_updated: 2026-07-06
 llms_summary: LOCATE() 函数是用于在字符串中查找子字符串所在位置的函数。它返回子字符串在字符串中的位置，如果未找到，则返回 0。
 ---
 

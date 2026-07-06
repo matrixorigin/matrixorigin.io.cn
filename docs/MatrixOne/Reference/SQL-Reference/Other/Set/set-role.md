@@ -7,7 +7,7 @@ differs_from_mysql:
 mo_only:
 - SET SECONDARY ROLE {NONE | ALL} — MatrixOne-only primary/secondary role model.
 since: unknown
-last_updated: 2026-05-08
+last_updated: 2026-07-06
 llms_summary: 设置会话的活动/当前主要角色。为当前活动的主角色设置上下文，以确定当前用户是否拥有执行 CREATE <object> 语句或执行任何其他 SQL 操作所需的权限。
 ---
 
@@ -63,7 +63,7 @@ SET ROLE role
 
 #### SET SECONDARY ROLE ALL
 
-将该用户所有的 ROLE 取并集。
+激活用户被授予的所有次要角色，并保留当前主要角色不变。主要角色**不会**被切换——只有次要角色被激活。如需切换主要角色，请使用 `SET ROLE role`。
 
 #### SET SECONDARY ROLE NONE
 
