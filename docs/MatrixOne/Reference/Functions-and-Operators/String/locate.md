@@ -5,16 +5,16 @@ mysql_compat: full
 differs_from_mysql: []
 mo_only: []
 since: unknown
-last_updated: 2026-05-08
+last_updated: 2026-07-06
 llms_summary: LOCATE() 函数是用于在字符串中查找子字符串所在位置的函数。它返回子字符串在字符串中的位置，如果未找到，则返回 0。
 ---
 
-# **LOCATE()**
+# LOCATE()
 
 
 > LOCATE() 函数是用于在字符串中查找子字符串所在位置的函数。它返回子字符串在字符串中的位置，如果未找到，则返回 0。
 
-## **函数说明**
+## 函数说明
 
 `LOCATE()` 函数是用于在字符串中查找子字符串所在位置的函数。它返回子字符串在字符串中的位置，如果未找到，则返回 0。
 
@@ -22,13 +22,19 @@ llms_summary: LOCATE() 函数是用于在字符串中查找子字符串所在位
 
 关于大小写，`LOCATE()` 函数不区分大小写。
 
-## **函数语法**
+## 语法
 
 ```
 > LOCATE(subtr,str,pos)
 ```
 
-## **参数释义**
+`POSITION(substr IN str)` 是 `LOCATE(substr, str)` 的同义语法。`POSITION` 形式不支持起始位置参数。
+
+```
+> POSITION(substr IN str)
+```
+
+## 参数释义
 
 |  参数   | 说明  |
 |  ----  | ----  |
@@ -36,7 +42,7 @@ llms_summary: LOCATE() 函数是用于在字符串中查找子字符串所在位
 | str | 必要参数。`string` 是要在其中搜索的字符串。|
 | pos | 非必要参数。`position` 是表示开始查询的位置。|
 
-## **示例**
+## 示例
 
 - 示例 1
 
@@ -83,5 +89,17 @@ mysql>select locate('a','ABC');
 +----------------+
 |              1 |
 +----------------+
+1 row in set (0.00 sec)
+```
+
+- 示例 5：POSITION() 语法
+
+```sql
+mysql>SELECT POSITION('y' IN 'xyz');
++------------------------+
+| position(y in xyz)     |
++------------------------+
+|                      2 |
++------------------------+
 1 row in set (0.00 sec)
 ```

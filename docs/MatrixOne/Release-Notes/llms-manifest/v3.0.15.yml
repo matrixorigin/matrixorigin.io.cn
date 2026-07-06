@@ -1,0 +1,33 @@
+tag: v3.0.15
+docs_added:
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/String/right.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "返回字符串 str 最右边的 len 个字符。如果 len 为负数则返回空字符串，如果 str 为 NULL 则返回 NULL。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/String/quote.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "对字符串进行引号包裹和转义，生成可在 SQL 语句中安全使用的数据值。NULL 输入返回 NULL。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/dayname.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "返回给定日期的星期名称，如 'Monday' 或 'Saturday'，支持 DATE、DATETIME 和 TIMESTAMP 类型。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/maketime.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "根据给定的时、分、秒参数构造 TIME 值，最大支持 838:59:59，超出范围或 NULL 输入返回 NULL。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/monthname.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "返回给定日期的月份全名，如 'January' 或 'December'，支持 DATE、DATETIME 和 TIMESTAMP 类型。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/quarter.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "返回给定日期的季度值，范围为 1 到 4 的整数，NULL 输入返回 NULL。"
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/Datetime/time-format.md
+    doc_type: reference
+    mysql_compat: full
+    llms_summary: "按照指定格式字符串格式化 TIME 值，使用与 DATE_FORMAT() 相同的格式说明符，但仅限于时间相关部分。"
+docs_updated:
+  - path: docs/MatrixOne/Reference/Functions-and-Operators/String/locate.md
+    change_summary: "新增 POSITION(substr IN str) 语法作为 LOCATE(substr, str) 的同义形式。"
