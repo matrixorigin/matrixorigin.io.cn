@@ -225,6 +225,8 @@ nav:
             - 从 Kafka 写入数据到MatrixOne: MatrixOne/Develop/Ecological-Tools/Computing-Engine/Flink/flink-kafka-matrixone.md
         - 调度工具:
           - 使用 DolphinScheduler 连接 MatrixOne: MatrixOne/Develop/Ecological-Tools/Scheduling-Tools/dolphinScheduler.md
+        - 验证生态接入链路: MatrixOne/Develop/Ecological-Tools/integration-compatibility.md
+        - 摄取链路的故障恢复: MatrixOne/Develop/Ecological-Tools/failure-recovery.md
     - 部署指南:
       - 基于 S3 部署单机 MatrixOne: MatrixOne/Deploy/deploy-matrixone-single-with-s3.md
       - 集群拓扑规划:
