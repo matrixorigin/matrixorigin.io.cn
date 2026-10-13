@@ -124,7 +124,7 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 ## 数据类型
 
 * BOOL: 与 MySQL 的布尔值类型实际上是 int 不同，MatrixOne 的布尔值是一个新的类型，它的值只能是 true 或 false。
-* DECIMAL：DECIMAL(P,D)，MatrixOne 的有效数字 P 和小数点后的位数 D 最大精度均为 38 位，MySQL 则分别为 65 和 30。
+* DECIMAL: 支持 DECIMAL256 的版本中，`DECIMAL(P,D)` 的精度 P 最大为 65, 小数位 D 为 0 到 P。MySQL 的精度最大为 65, 小数位最大为 30。较早 MatrixOne 版本可能具有更低精度限制，请参阅 [DECIMAL 类型](../../Reference/Data-Types/fixed-point-types.md)并核对目标版本。
 * 浮点数：MySQL8.0.17 后废弃 Float(M,D) 及 Double(M,D) 用法，但 MatrixOne 仍保留该用法。
 * DATETIME: MySQL 的最大取值范围为 `'1000-01-01 00:00:00'` 到 `'9999-12-31 23:59:59'`，MatrixOne 的最大范围为 `'0001-01-01 00:00:00'` 到 `'9999-12-31 23:59:59'`。
 * TIMESTAMP: MySQL 的最大取值范围是 `'1970-01-01 00:00:01.000000'` UTC 到 `'2038-01-19 03:14:07.999999'` UTC，MatrixOne 的最大范围 `'0001-01-01 00:00:00'` UTC 到 `'9999-12-31 23:59:59'` UTC。
@@ -132,7 +132,7 @@ MatrixOne 与 MySQL 8.0 的协议，以及 MySQL 8.0 常用的功能和语法都
 * MatrixOne 支持向量类型。
 * MatrixOne 支持 DATALINK 类型。
 * 不支持空间 Spatial 类型。
-* 不支持 SET 类型。
+* 包含 SET 类型的版本支持 `SET`, 请核对目标版本及 [SET 类型参考](../../Reference/Data-Types/set-type.md)中的成员、转换和 ALTER 行为。
 * 不支持 MEDIUMINT 类型。
 
 ## 索引和约束

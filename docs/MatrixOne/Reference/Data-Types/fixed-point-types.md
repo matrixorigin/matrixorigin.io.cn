@@ -3,7 +3,7 @@
 Decimal 数据类型用来存储精确的数值。精确数值类型在需要用到非常准确的数值精度的场景下使用，比如银行账户数字，或者严谨的科学计算等。
 在 Decimal 的列名声明中，整数和小数部分一般都会进行声明。比如以下例子：
 
-```sql
+```text
 salary DECIMAL(5,2)
 ```
 
@@ -17,23 +17,25 @@ MatrixOne 支持三种内部 DECIMAL 表示：
 |---|---|---|
 | DECIMAL64 | 1–18 位 | 8 字节 |
 | DECIMAL128 | 19–38 位 | 16 字节 |
-| DECIMAL256 | 39–76 位 | 32 字节 |
+| DECIMAL256 | 39–65 位 | 32 字节 |
 
-DECIMAL 类型的最大位数为 76 位。另外 DECIMAL 中指定的整数或小数位数在实际列被赋值的时候超出指定范围，实际数值将会被自动转换成相应精度。
+SQL 声明上限与内部表示容量不同。DECIMAL256 内部可以表示更宽的系数，但[对应 SQL 解析器](https://github.com/matrixorigin/matrixone/blob/652c643666428f1c434e03369834f2a9bead7c27/pkg/sql/parsers/dialect/mysql/mysql_sql.y#L15154)将 `DECIMAL(M,D)` 的 M 限制为 65。部署时还需核对目标版本，不能将内部容量直接当作 SQL 声明上限。
+
+DECIMAL 类型的最大位数为 65 位。另外 DECIMAL 中指定的整数或小数位数在实际列被赋值的时候超出指定范围，实际数值将会被自动转换成相应精度。
 
 ## Decimal 数据类型特点
 
  该部分内容主要介绍 Decimal 数据类型的一些特点，尤其是在位数精度和存储形式上的。
 
-DECIMAL 列的声明语法是 DECIMAL(M, D)，M 是有效数字的位数，取值范围是 1 到 76，D 是小数位数，取值范围是 1 到 76，但是不能大于 M。
+DECIMAL 列的声明语法是 DECIMAL(M, D)，M 是有效数字的位数，取值范围是 1 到 65，D 是小数位数，取值范围是 0 到 65，但是不能大于 M。
 如果不指定 D，默认为 0。如果不指定 M，默认为 10。
 
-DECIMAL 列的数值以二进制的形式进行存储，在 MatrixOne 内部，有 decimal64、decimal128 和 decimal256 这三种表示形式。在 0-18 位精度内，一个 Decimal 数值占用 8 个字节的存储空间，在 19-38 位精度内，一个 Decimal 数值占用 16 个字节的存储空间，在 39-76 位精度内，一个 Decimal 数值占用 32 个字节的存储空间。
+DECIMAL 列的数值以二进制的形式进行存储，在 MatrixOne 内部，有 decimal64、decimal128 和 decimal256 这三种表示形式。在 0-18 位精度内，一个 Decimal 数值占用 8 个字节的存储空间，在 19-38 位精度内，一个 Decimal 数值占用 16 个字节的存储空间，在 39-65 位精度内，一个 Decimal 数值占用 32 个字节的存储空间。
 
 |  位数   | 字节数  |
 |  ----  | ----  |
 |  0-18  | 8 个字节  |
 |  19-38  | 16 个字节  |
-|  39-76  | 32 个字节  |
+|  39-65  | 32 个字节  |
 
 对于详细的 Decimal 类型实现方法，可以参考 Decimal 的[设计文档](https://github.com/matrixorigin/matrixone/issues/1867)。
